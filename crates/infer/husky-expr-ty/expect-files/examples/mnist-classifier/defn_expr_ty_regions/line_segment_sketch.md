@@ -1,70 +1,56 @@
 [
     ExprTypeRegion {
-        path: Defn(
-            Entity(
+        path: RegionPath::Defn(
+            DefnExprPath::Entity(
                 FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
             ),
         ),
         expr_ty_infos: [],
     },
     ExprTypeRegion {
-        path: Defn(
-            Entity(
+        path: RegionPath::Defn(
+            DefnExprPath::Entity(
                 FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
             ),
         ),
         expr_ty_infos: [],
     },
     ExprTypeRegion {
-        path: Defn(
-            Entity(
+        path: RegionPath::Defn(
+            DefnExprPath::Entity(
                 FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
             ),
         ),
         expr_ty_infos: [],
     },
     ExprTypeRegion {
-        path: Defn(
-            Entity(
+        path: RegionPath::Defn(
+            DefnExprPath::Entity(
                 FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
             ),
         ),
         expr_ty_infos: [],
     },
     ExprTypeRegion {
-        path: Defn(
-            Entity(
+        path: RegionPath::Defn(
+            DefnExprPath::Entity(
                 FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
             ),
         ),
         expr_ty_infos: [],
     },
     ExprTypeRegion {
-        path: Defn(
-            AssociatedItem(
+        path: RegionPath::Defn(
+            DefnExprPath::AssociatedItem(
                 AssociatedItem {
                     id: AssociatedItemId {
                         impl_block_id: ImplBlockId {
-                            module_path: ModulePath(
-                                Id {
-                                    value: 36,
-                                },
-                            ),
-                            impl_block_kind: Type {
-                                ty: TypePath(
-                                    Id {
-                                        value: 37,
-                                    },
-                                ),
+                            module_path: `mnist_classifier::line_segment_sketch`,
+                            impl_block_kind: ImplBlockKind::Type {
+                                ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                             },
                         },
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 198,
-                                },
-                            ),
-                        ),
+                        ident: `new`,
                     },
                     path: Some(
                         TypeItemPath {
@@ -76,7 +62,7 @@
                     impl_block: ImplBlock {
                         id: ImplBlockId {
                             module_path: `mnist_classifier::line_segment_sketch`,
-                            impl_block_kind: Type {
+                            impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                             },
                         },
@@ -84,12 +70,8 @@
                         body: ArenaIdxRange(
                             3..7,
                         ),
-                        variant: Type {
-                            ty: TypePath(
-                                Id {
-                                    value: 37,
-                                },
-                            ),
+                        variant: ImplBlockVariant::Type {
+                            ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         },
                     },
                     ast_idx: 3,
@@ -105,31 +87,17 @@
         expr_ty_infos: [],
     },
     ExprTypeRegion {
-        path: Defn(
-            AssociatedItem(
+        path: RegionPath::Defn(
+            DefnExprPath::AssociatedItem(
                 AssociatedItem {
                     id: AssociatedItemId {
                         impl_block_id: ImplBlockId {
-                            module_path: ModulePath(
-                                Id {
-                                    value: 36,
-                                },
-                            ),
-                            impl_block_kind: Type {
-                                ty: TypePath(
-                                    Id {
-                                        value: 37,
-                                    },
-                                ),
+                            module_path: `mnist_classifier::line_segment_sketch`,
+                            impl_block_kind: ImplBlockKind::Type {
+                                ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                             },
                         },
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 212,
-                                },
-                            ),
-                        ),
+                        ident: `displacement`,
                     },
                     path: Some(
                         TypeItemPath {
@@ -141,7 +109,7 @@
                     impl_block: ImplBlock {
                         id: ImplBlockId {
                             module_path: `mnist_classifier::line_segment_sketch`,
-                            impl_block_kind: Type {
+                            impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                             },
                         },
@@ -149,12 +117,8 @@
                         body: ArenaIdxRange(
                             3..7,
                         ),
-                        variant: Type {
-                            ty: TypePath(
-                                Id {
-                                    value: 37,
-                                },
-                            ),
+                        variant: ImplBlockVariant::Type {
+                            ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         },
                     },
                     ast_idx: 4,
@@ -172,31 +136,17 @@
         expr_ty_infos: [],
     },
     ExprTypeRegion {
-        path: Defn(
-            AssociatedItem(
+        path: RegionPath::Defn(
+            DefnExprPath::AssociatedItem(
                 AssociatedItem {
                     id: AssociatedItemId {
                         impl_block_id: ImplBlockId {
-                            module_path: ModulePath(
-                                Id {
-                                    value: 36,
-                                },
-                            ),
-                            impl_block_kind: Type {
-                                ty: TypePath(
-                                    Id {
-                                        value: 38,
-                                    },
-                                ),
+                            module_path: `mnist_classifier::line_segment_sketch`,
+                            impl_block_kind: ImplBlockKind::Type {
+                                ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                             },
                         },
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 302,
-                                },
-                            ),
-                        ),
+                        ident: `concave_components`,
                     },
                     path: Some(
                         TypeItemPath {
@@ -208,7 +158,7 @@
                     impl_block: ImplBlock {
                         id: ImplBlockId {
                             module_path: `mnist_classifier::line_segment_sketch`,
-                            impl_block_kind: Type {
+                            impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                             },
                         },
@@ -216,12 +166,8 @@
                         body: ArenaIdxRange(
                             21..26,
                         ),
-                        variant: Type {
-                            ty: TypePath(
-                                Id {
-                                    value: 38,
-                                },
-                            ),
+                        variant: ImplBlockVariant::Type {
+                            ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                         },
                     },
                     ast_idx: 21,
@@ -239,31 +185,17 @@
         expr_ty_infos: [],
     },
     ExprTypeRegion {
-        path: Defn(
-            AssociatedItem(
+        path: RegionPath::Defn(
+            DefnExprPath::AssociatedItem(
                 AssociatedItem {
                     id: AssociatedItemId {
                         impl_block_id: ImplBlockId {
-                            module_path: ModulePath(
-                                Id {
-                                    value: 36,
-                                },
-                            ),
-                            impl_block_kind: Type {
-                                ty: TypePath(
-                                    Id {
-                                        value: 38,
-                                    },
-                                ),
+                            module_path: `mnist_classifier::line_segment_sketch`,
+                            impl_block_kind: ImplBlockKind::Type {
+                                ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                             },
                         },
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 199,
-                                },
-                            ),
-                        ),
+                        ident: `bounding_box`,
                     },
                     path: Some(
                         TypeItemPath {
@@ -275,7 +207,7 @@
                     impl_block: ImplBlock {
                         id: ImplBlockId {
                             module_path: `mnist_classifier::line_segment_sketch`,
-                            impl_block_kind: Type {
+                            impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                             },
                         },
@@ -283,12 +215,8 @@
                         body: ArenaIdxRange(
                             21..26,
                         ),
-                        variant: Type {
-                            ty: TypePath(
-                                Id {
-                                    value: 38,
-                                },
-                            ),
+                        variant: ImplBlockVariant::Type {
+                            ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                         },
                     },
                     ast_idx: 22,
@@ -306,31 +234,17 @@
         expr_ty_infos: [],
     },
     ExprTypeRegion {
-        path: Defn(
-            AssociatedItem(
+        path: RegionPath::Defn(
+            DefnExprPath::AssociatedItem(
                 AssociatedItem {
                     id: AssociatedItemId {
                         impl_block_id: ImplBlockId {
-                            module_path: ModulePath(
-                                Id {
-                                    value: 36,
-                                },
-                            ),
-                            impl_block_kind: Type {
-                                ty: TypePath(
-                                    Id {
-                                        value: 38,
-                                    },
-                                ),
+                            module_path: `mnist_classifier::line_segment_sketch`,
+                            impl_block_kind: ImplBlockKind::Type {
+                                ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                             },
                         },
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 198,
-                                },
-                            ),
-                        ),
+                        ident: `new`,
                     },
                     path: Some(
                         TypeItemPath {
@@ -342,7 +256,7 @@
                     impl_block: ImplBlock {
                         id: ImplBlockId {
                             module_path: `mnist_classifier::line_segment_sketch`,
-                            impl_block_kind: Type {
+                            impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                             },
                         },
@@ -350,12 +264,8 @@
                         body: ArenaIdxRange(
                             21..26,
                         ),
-                        variant: Type {
-                            ty: TypePath(
-                                Id {
-                                    value: 38,
-                                },
-                            ),
+                        variant: ImplBlockVariant::Type {
+                            ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                         },
                     },
                     ast_idx: 23,

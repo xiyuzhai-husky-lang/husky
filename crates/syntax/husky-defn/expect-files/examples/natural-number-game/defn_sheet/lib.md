@@ -11,8 +11,8 @@ Ok(
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             TypePath(`natural_number_game::Nat`, `Inductive`),
                                         ),
                                     ),
@@ -64,8 +64,8 @@ Ok(
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             TypePath(`natural_number_game::OddNat`, `Structure`),
                                         ),
                                     ),
@@ -117,8 +117,8 @@ Ok(
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             TypePath(`natural_number_game::EvenNat`, `Structure`),
                                         ),
                                     ),
@@ -161,13 +161,13 @@ Ok(
                 ),
             ),
             ImplBlock(
-                TypeImplBlock(
+                ImplBlockDecl::TypeImplBlock(
                     TypeImplBlockDecl {
                         ast_idx: 6,
                         impl_block: ImplBlock {
                             id: ImplBlockId {
                                 module_path: `natural_number_game`,
-                                impl_block_kind: Type {
+                                impl_block_kind: ImplBlockKind::Type {
                                     ty: TypePath(`natural_number_game::Nat`, `Inductive`),
                                 },
                             },
@@ -175,12 +175,8 @@ Ok(
                             body: ArenaIdxRange(
                                 0..3,
                             ),
-                            variant: Type {
-                                ty: TypePath(
-                                    Id {
-                                        value: 35,
-                                    },
-                                ),
+                            variant: ImplBlockVariant::Type {
+                                ty: TypePath(`natural_number_game::Nat`, `Inductive`),
                             },
                         },
                         impl_token: ImplToken {
@@ -202,32 +198,19 @@ Ok(
                         expr_region: ExprRegion {
                             data: ExprRegionData {
                                 parent: None,
-                                path: Decl(
-                                    ImplBlock(
-                                        ImplBlock {
-                                            id: ImplBlockId {
-                                                module_path: `natural_number_game`,
-                                                impl_block_kind: Type {
-                                                    ty: TypePath(`natural_number_game::Nat`, `Inductive`),
-                                                },
-                                            },
-                                            ast_idx: 6,
-                                            body: ArenaIdxRange(
-                                                0..3,
-                                            ),
-                                            variant: Type {
-                                                ty: TypePath(
-                                                    Id {
-                                                        value: 35,
-                                                    },
-                                                ),
+                                path: RegionPath::Decl(
+                                    DeclExprPath::ImplBlock(
+                                        ImplBlockId {
+                                            module_path: `natural_number_game`,
+                                            impl_block_kind: ImplBlockKind::Type {
+                                                ty: TypePath(`natural_number_game::Nat`, `Inductive`),
                                             },
                                         },
                                     ),
                                 ),
                                 expr_arena: Arena {
                                     data: [
-                                        EntityPath {
+                                        Expr::EntityPath {
                                             entity_path_expr: 0,
                                             entity_path: Some(
                                                 TypePath(`natural_number_game::Nat`, `Inductive`),
@@ -237,7 +220,7 @@ Ok(
                                 },
                                 entity_path_expr_arena: Arena {
                                     data: [
-                                        Root {
+                                        EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 10,
                                             ),
@@ -303,26 +286,12 @@ Ok(
                                 associated_item: AssociatedItem {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId {
-                                            module_path: ModulePath(
-                                                Id {
-                                                    value: 43,
-                                                },
-                                            ),
-                                            impl_block_kind: Type {
-                                                ty: TypePath(
-                                                    Id {
-                                                        value: 35,
-                                                    },
-                                                ),
+                                            module_path: `natural_number_game`,
+                                            impl_block_kind: ImplBlockKind::Type {
+                                                ty: TypePath(`natural_number_game::Nat`, `Inductive`),
                                             },
                                         },
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 35,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `add`,
                                     },
                                     path: Some(
                                         TypeItemPath {
@@ -334,7 +303,7 @@ Ok(
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
                                             module_path: `natural_number_game`,
-                                            impl_block_kind: Type {
+                                            impl_block_kind: ImplBlockKind::Type {
                                                 ty: TypePath(`natural_number_game::Nat`, `Inductive`),
                                             },
                                         },
@@ -342,12 +311,8 @@ Ok(
                                         body: ArenaIdxRange(
                                             0..3,
                                         ),
-                                        variant: Type {
-                                            ty: TypePath(
-                                                Id {
-                                                    value: 35,
-                                                },
-                                            ),
+                                        variant: ImplBlockVariant::Type {
+                                            ty: TypePath(`natural_number_game::Nat`, `Inductive`),
                                         },
                                     },
                                     ast_idx: 0,
@@ -367,32 +332,19 @@ Ok(
                                             ExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
-                                                    path: Decl(
-                                                        ImplBlock(
-                                                            ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `natural_number_game`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`natural_number_game::Nat`, `Inductive`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 6,
-                                                                body: ArenaIdxRange(
-                                                                    0..3,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 35,
-                                                                        },
-                                                                    ),
+                                                    path: RegionPath::Decl(
+                                                        DeclExprPath::ImplBlock(
+                                                            ImplBlockId {
+                                                                module_path: `natural_number_game`,
+                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                    ty: TypePath(`natural_number_game::Nat`, `Inductive`),
                                                                 },
                                                             },
                                                         ),
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            EntityPath {
+                                                            Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
                                                                     TypePath(`natural_number_game::Nat`, `Inductive`),
@@ -402,7 +354,7 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
-                                                            Root {
+                                                            EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     10,
                                                                 ),
@@ -444,86 +396,35 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: Decl(
-                                            AssociatedItem(
-                                                AssociatedItem {
-                                                    id: AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
-                                                            module_path: ModulePath(
-                                                                Id {
-                                                                    value: 43,
-                                                                },
-                                                            ),
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(
-                                                                    Id {
-                                                                        value: 35,
-                                                                    },
-                                                                ),
-                                                            },
-                                                        },
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 35,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    path: Some(
-                                                        TypeItemPath {
+                                        path: RegionPath::Decl(
+                                            DeclExprPath::AssociatedItem(
+                                                AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: `natural_number_game`,
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`natural_number_game::Nat`, `Inductive`),
-                                                            ident: `add`,
-                                                            ty_item_kind: Memo,
-                                                        },
-                                                    ),
-                                                    impl_block: ImplBlock {
-                                                        id: ImplBlockId {
-                                                            module_path: `natural_number_game`,
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(`natural_number_game::Nat`, `Inductive`),
-                                                            },
-                                                        },
-                                                        ast_idx: 6,
-                                                        body: ArenaIdxRange(
-                                                            0..3,
-                                                        ),
-                                                        variant: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 35,
-                                                                },
-                                                            ),
                                                         },
                                                     },
-                                                    ast_idx: 0,
                                                     ident: `add`,
-                                                    associated_item_kind: TypeItem(
-                                                        Memo,
-                                                    ),
-                                                    accessibility: PubicUnder(
-                                                        `natural_number_game`,
-                                                    ),
-                                                    is_generic: false,
                                                 },
                                             ),
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                Err(
+                                                Expr::Err(
                                                     NoLeftOperandForBinaryOperator {
                                                         binary_token_idx: TokenIdx(
                                                             14,
                                                         ),
                                                     },
                                                 ),
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
                                                         TypePath(`natural_number_game::Nat`, `Inductive`),
                                                     ),
                                                 },
-                                                BinaryOpn {
+                                                Expr::BinaryOpn {
                                                     lopd: 0,
                                                     opr: Is,
                                                     opr_token_idx: TokenIdx(
@@ -531,13 +432,13 @@ Ok(
                                                     ),
                                                     ropd: 1,
                                                 },
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 1,
                                                     entity_path: Some(
                                                         TypePath(`natural_number_game::Nat`, `Inductive`),
                                                     ),
                                                 },
-                                                BinaryOpn {
+                                                Expr::BinaryOpn {
                                                     lopd: 2,
                                                     opr: Curry,
                                                     opr_token_idx: TokenIdx(
@@ -549,14 +450,14 @@ Ok(
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         15,
                                                     ),
                                                     ident: `Nat`,
                                                     entity_path: TypePath(`natural_number_game::Nat`, `Inductive`),
                                                 },
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         17,
                                                     ),
@@ -626,32 +527,19 @@ Ok(
                                                     ExprRegion {
                                                         data: ExprRegionData {
                                                             parent: None,
-                                                            path: Decl(
-                                                                ImplBlock(
-                                                                    ImplBlock {
-                                                                        id: ImplBlockId {
-                                                                            module_path: `natural_number_game`,
-                                                                            impl_block_kind: Type {
-                                                                                ty: TypePath(`natural_number_game::Nat`, `Inductive`),
-                                                                            },
-                                                                        },
-                                                                        ast_idx: 6,
-                                                                        body: ArenaIdxRange(
-                                                                            0..3,
-                                                                        ),
-                                                                        variant: Type {
-                                                                            ty: TypePath(
-                                                                                Id {
-                                                                                    value: 35,
-                                                                                },
-                                                                            ),
+                                                            path: RegionPath::Decl(
+                                                                DeclExprPath::ImplBlock(
+                                                                    ImplBlockId {
+                                                                        module_path: `natural_number_game`,
+                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                            ty: TypePath(`natural_number_game::Nat`, `Inductive`),
                                                                         },
                                                                     },
                                                                 ),
                                                             ),
                                                             expr_arena: Arena {
                                                                 data: [
-                                                                    EntityPath {
+                                                                    Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
                                                                             TypePath(`natural_number_game::Nat`, `Inductive`),
@@ -661,7 +549,7 @@ Ok(
                                                             },
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
-                                                                    Root {
+                                                                    EntityPathExpr::Root {
                                                                         token_idx: TokenIdx(
                                                                             10,
                                                                         ),
@@ -703,86 +591,35 @@ Ok(
                                                         },
                                                     },
                                                 ),
-                                                path: Decl(
-                                                    AssociatedItem(
-                                                        AssociatedItem {
-                                                            id: AssociatedItemId {
-                                                                impl_block_id: ImplBlockId {
-                                                                    module_path: ModulePath(
-                                                                        Id {
-                                                                            value: 43,
-                                                                        },
-                                                                    ),
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(
-                                                                            Id {
-                                                                                value: 35,
-                                                                            },
-                                                                        ),
-                                                                    },
-                                                                },
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 35,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            },
-                                                            path: Some(
-                                                                TypeItemPath {
+                                                path: RegionPath::Decl(
+                                                    DeclExprPath::AssociatedItem(
+                                                        AssociatedItemId {
+                                                            impl_block_id: ImplBlockId {
+                                                                module_path: `natural_number_game`,
+                                                                impl_block_kind: ImplBlockKind::Type {
                                                                     ty: TypePath(`natural_number_game::Nat`, `Inductive`),
-                                                                    ident: `add`,
-                                                                    ty_item_kind: Memo,
-                                                                },
-                                                            ),
-                                                            impl_block: ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `natural_number_game`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`natural_number_game::Nat`, `Inductive`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 6,
-                                                                body: ArenaIdxRange(
-                                                                    0..3,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 35,
-                                                                        },
-                                                                    ),
                                                                 },
                                                             },
-                                                            ast_idx: 0,
                                                             ident: `add`,
-                                                            associated_item_kind: TypeItem(
-                                                                Memo,
-                                                            ),
-                                                            accessibility: PubicUnder(
-                                                                `natural_number_game`,
-                                                            ),
-                                                            is_generic: false,
                                                         },
                                                     ),
                                                 ),
                                                 expr_arena: Arena {
                                                     data: [
-                                                        Err(
+                                                        Expr::Err(
                                                             NoLeftOperandForBinaryOperator {
                                                                 binary_token_idx: TokenIdx(
                                                                     14,
                                                                 ),
                                                             },
                                                         ),
-                                                        EntityPath {
+                                                        Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
                                                                 TypePath(`natural_number_game::Nat`, `Inductive`),
                                                             ),
                                                         },
-                                                        BinaryOpn {
+                                                        Expr::BinaryOpn {
                                                             lopd: 0,
                                                             opr: Is,
                                                             opr_token_idx: TokenIdx(
@@ -790,13 +627,13 @@ Ok(
                                                             ),
                                                             ropd: 1,
                                                         },
-                                                        EntityPath {
+                                                        Expr::EntityPath {
                                                             entity_path_expr: 1,
                                                             entity_path: Some(
                                                                 TypePath(`natural_number_game::Nat`, `Inductive`),
                                                             ),
                                                         },
-                                                        BinaryOpn {
+                                                        Expr::BinaryOpn {
                                                             lopd: 2,
                                                             opr: Curry,
                                                             opr_token_idx: TokenIdx(
@@ -808,14 +645,14 @@ Ok(
                                                 },
                                                 entity_path_expr_arena: Arena {
                                                     data: [
-                                                        Root {
+                                                        EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 15,
                                                             ),
                                                             ident: `Nat`,
                                                             entity_path: TypePath(`natural_number_game::Nat`, `Inductive`),
                                                         },
-                                                        Root {
+                                                        EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 17,
                                                             ),
@@ -857,31 +694,17 @@ Ok(
                                             },
                                         },
                                     ),
-                                    path: Defn(
-                                        AssociatedItem(
+                                    path: RegionPath::Defn(
+                                        DefnExprPath::AssociatedItem(
                                             AssociatedItem {
                                                 id: AssociatedItemId {
                                                     impl_block_id: ImplBlockId {
-                                                        module_path: ModulePath(
-                                                            Id {
-                                                                value: 43,
-                                                            },
-                                                        ),
-                                                        impl_block_kind: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 35,
-                                                                },
-                                                            ),
+                                                        module_path: `natural_number_game`,
+                                                        impl_block_kind: ImplBlockKind::Type {
+                                                            ty: TypePath(`natural_number_game::Nat`, `Inductive`),
                                                         },
                                                     },
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 35,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `add`,
                                                 },
                                                 path: Some(
                                                     TypeItemPath {
@@ -893,7 +716,7 @@ Ok(
                                                 impl_block: ImplBlock {
                                                     id: ImplBlockId {
                                                         module_path: `natural_number_game`,
-                                                        impl_block_kind: Type {
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`natural_number_game::Nat`, `Inductive`),
                                                         },
                                                     },
@@ -901,12 +724,8 @@ Ok(
                                                     body: ArenaIdxRange(
                                                         0..3,
                                                     ),
-                                                    variant: Type {
-                                                        ty: TypePath(
-                                                            Id {
-                                                                value: 35,
-                                                            },
-                                                        ),
+                                                    variant: ImplBlockVariant::Type {
+                                                        ty: TypePath(`natural_number_game::Nat`, `Inductive`),
                                                     },
                                                 },
                                                 ast_idx: 0,

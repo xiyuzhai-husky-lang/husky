@@ -3,34 +3,34 @@ Ok(
         decls: [
             Ok(
                 Type(
-                    RegularStruct(
+                    TypeDecl::RegularStruct(
                         RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                             ast_idx: 22,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                 ),
                                             },
-                                            PrefixOpn {
+                                            Expr::PrefixOpn {
                                                 opr: Ref,
                                                 opr_token_idx: TokenIdx(
                                                     12,
                                                 ),
                                                 opd: 0,
                                             },
-                                            NewBoxList {
+                                            Expr::NewBoxList {
                                                 caller: None,
                                                 lbox_token_idx: TokenIdx(
                                                     9,
@@ -42,24 +42,24 @@ Ok(
                                                     10,
                                                 ),
                                             },
-                                            PrefixOpn {
+                                            Expr::PrefixOpn {
                                                 opr: Option,
                                                 opr_token_idx: TokenIdx(
                                                     11,
                                                 ),
                                                 opd: 1,
                                             },
-                                            Application {
+                                            Expr::Application {
                                                 function: 2,
                                                 argument: 3,
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
                                                     TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                 ),
                                             },
-                                            NewBoxList {
+                                            Expr::NewBoxList {
                                                 caller: None,
                                                 lbox_token_idx: TokenIdx(
                                                     17,
@@ -71,14 +71,14 @@ Ok(
                                                     18,
                                                 ),
                                             },
-                                            PrefixOpn {
+                                            Expr::PrefixOpn {
                                                 opr: Ref,
                                                 opr_token_idx: TokenIdx(
                                                     19,
                                                 ),
                                                 opd: 5,
                                             },
-                                            Application {
+                                            Expr::Application {
                                                 function: 6,
                                                 argument: 7,
                                             },
@@ -86,14 +86,14 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     13,
                                                 ),
                                                 ident: `ConcaveComponent`,
                                                 entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             },
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     20,
                                                 ),
@@ -209,21 +209,21 @@ Ok(
             ),
             Ok(
                 Form(
-                    Function(
+                    FormDecl::Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                             ast_idx: 24,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            NewBoxList {
+                                            Expr::NewBoxList {
                                                 caller: None,
                                                 lbox_token_idx: TokenIdx(
                                                     151,
@@ -235,24 +235,24 @@ Ok(
                                                     152,
                                                 ),
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                 ),
                                             },
-                                            Application {
+                                            Expr::Application {
                                                 function: 0,
                                                 argument: 1,
                                             },
-                                            PrefixOpn {
+                                            Expr::PrefixOpn {
                                                 opr: Ref,
                                                 opr_token_idx: TokenIdx(
                                                     150,
                                                 ),
                                                 opd: 2,
                                             },
-                                            NewBoxList {
+                                            Expr::NewBoxList {
                                                 caller: None,
                                                 lbox_token_idx: TokenIdx(
                                                     157,
@@ -264,26 +264,26 @@ Ok(
                                                     158,
                                                 ),
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
                                                     TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                 ),
                                             },
-                                            PrefixOpn {
+                                            Expr::PrefixOpn {
                                                 opr: Ref,
                                                 opr_token_idx: TokenIdx(
                                                     161,
                                                 ),
                                                 opd: 5,
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 2,
                                                 entity_path: Some(
                                                     TypePath(`core::num::f32`, `Alien`),
                                                 ),
                                             },
-                                            Bracketed {
+                                            Expr::Bracketed {
                                                 lpar_token_idx: TokenIdx(
                                                     160,
                                                 ),
@@ -292,14 +292,14 @@ Ok(
                                                     163,
                                                 ),
                                             },
-                                            PrefixOpn {
+                                            Expr::PrefixOpn {
                                                 opr: Option,
                                                 opr_token_idx: TokenIdx(
                                                     165,
                                                 ),
                                                 opd: 7,
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 8,
                                                 opr: Curry,
                                                 opr_token_idx: TokenIdx(
@@ -307,7 +307,7 @@ Ok(
                                                 ),
                                                 ropd: 9,
                                             },
-                                            ApplicationOrFunctionCall {
+                                            Expr::ApplicationOrFunctionCall {
                                                 function: 4,
                                                 lpar_token_idx: TokenIdx(
                                                     159,
@@ -317,7 +317,7 @@ Ok(
                                                     167,
                                                 ),
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 3,
                                                 entity_path: Some(
                                                     TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -327,28 +327,28 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     153,
                                                 ),
                                                 ident: `ConcaveComponent`,
                                                 entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             },
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     162,
                                                 ),
                                                 ident: `ConcaveComponent`,
                                                 entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             },
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     166,
                                                 ),
                                                 ident: `f32`,
                                                 entity_path: TypePath(`core::num::f32`, `Alien`),
                                             },
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     170,
                                                 ),
@@ -363,7 +363,7 @@ Ok(
                                     pattern_expr_region: PatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `concave_components`,
                                                         token_idx: TokenIdx(
@@ -372,7 +372,7 @@ Ok(
                                                     },
                                                     liason: None,
                                                 },
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `templates`,
                                                         token_idx: TokenIdx(
@@ -415,10 +415,10 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     0,
                                                 ),
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     1,
                                                 ),
                                             ],
@@ -436,7 +436,7 @@ Ok(
                                                         149,
                                                     ),
                                                     access_end: None,
-                                                    variant: Parameter {
+                                                    variant: CurrentSymbolVariant::Parameter {
                                                         pattern_symbol: 0,
                                                     },
                                                 },
@@ -446,7 +446,7 @@ Ok(
                                                         156,
                                                     ),
                                                     access_end: None,
-                                                    variant: Parameter {
+                                                    variant: CurrentSymbolVariant::Parameter {
                                                         pattern_symbol: 1,
                                                     },
                                                 },
@@ -544,13 +544,13 @@ Ok(
             ),
             Ok(
                 ImplBlock(
-                    TypeImplBlock(
+                    ImplBlockDecl::TypeImplBlock(
                         TypeImplBlockDecl {
                             ast_idx: 23,
                             impl_block: ImplBlock {
                                 id: ImplBlockId {
                                     module_path: `mnist_classifier::fermi`,
-                                    impl_block_kind: Type {
+                                    impl_block_kind: ImplBlockKind::Type {
                                         ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                     },
                                 },
@@ -558,12 +558,8 @@ Ok(
                                 body: ArenaIdxRange(
                                     12..15,
                                 ),
-                                variant: Type {
-                                    ty: TypePath(
-                                        Id {
-                                            value: 34,
-                                        },
-                                    ),
+                                variant: ImplBlockVariant::Type {
+                                    ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                 },
                             },
                             impl_token: ImplToken {
@@ -585,32 +581,19 @@ Ok(
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        ImplBlock(
-                                            ImplBlock {
-                                                id: ImplBlockId {
-                                                    module_path: `mnist_classifier::fermi`,
-                                                    impl_block_kind: Type {
-                                                        ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                    },
-                                                },
-                                                ast_idx: 23,
-                                                body: ArenaIdxRange(
-                                                    12..15,
-                                                ),
-                                                variant: Type {
-                                                    ty: TypePath(
-                                                        Id {
-                                                            value: 34,
-                                                        },
-                                                    ),
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::ImplBlock(
+                                            ImplBlockId {
+                                                module_path: `mnist_classifier::fermi`,
+                                                impl_block_kind: ImplBlockKind::Type {
+                                                    ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                 },
                                             },
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -620,7 +603,7 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     24,
                                                 ),
@@ -667,8 +650,8 @@ Ok(
             ),
             Ok(
                 AssociatedItem(
-                    TypeItem(
-                        Memo(
+                    AssociatedItemDecl::TypeItem(
+                        TypeItemDecl::Memo(
                             TypeMemoDecl {
                                 path: Some(
                                     TypeItemPath {
@@ -680,26 +663,12 @@ Ok(
                                 associated_item: AssociatedItem {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId {
-                                            module_path: ModulePath(
-                                                Id {
-                                                    value: 34,
-                                                },
-                                            ),
-                                            impl_block_kind: Type {
-                                                ty: TypePath(
-                                                    Id {
-                                                        value: 34,
-                                                    },
-                                                ),
+                                            module_path: `mnist_classifier::fermi`,
+                                            impl_block_kind: ImplBlockKind::Type {
+                                                ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                             },
                                         },
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 256,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `norm`,
                                     },
                                     path: Some(
                                         TypeItemPath {
@@ -711,7 +680,7 @@ Ok(
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
                                             module_path: `mnist_classifier::fermi`,
-                                            impl_block_kind: Type {
+                                            impl_block_kind: ImplBlockKind::Type {
                                                 ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                             },
                                         },
@@ -719,12 +688,8 @@ Ok(
                                         body: ArenaIdxRange(
                                             12..15,
                                         ),
-                                        variant: Type {
-                                            ty: TypePath(
-                                                Id {
-                                                    value: 34,
-                                                },
-                                            ),
+                                        variant: ImplBlockVariant::Type {
+                                            ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                         },
                                     },
                                     ast_idx: 12,
@@ -744,32 +709,19 @@ Ok(
                                             ExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
-                                                    path: Decl(
-                                                        ImplBlock(
-                                                            ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::fermi`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 23,
-                                                                body: ArenaIdxRange(
-                                                                    12..15,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 34,
-                                                                        },
-                                                                    ),
+                                                    path: RegionPath::Decl(
+                                                        DeclExprPath::ImplBlock(
+                                                            ImplBlockId {
+                                                                module_path: `mnist_classifier::fermi`,
+                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                    ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                                 },
                                                             },
                                                         ),
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            EntityPath {
+                                                            Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
                                                                     TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -779,7 +731,7 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
-                                                            Root {
+                                                            EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     24,
                                                                 ),
@@ -821,73 +773,22 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: Decl(
-                                            AssociatedItem(
-                                                AssociatedItem {
-                                                    id: AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
-                                                            module_path: ModulePath(
-                                                                Id {
-                                                                    value: 34,
-                                                                },
-                                                            ),
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(
-                                                                    Id {
-                                                                        value: 34,
-                                                                    },
-                                                                ),
-                                                            },
-                                                        },
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 256,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    path: Some(
-                                                        TypeItemPath {
+                                        path: RegionPath::Decl(
+                                            DeclExprPath::AssociatedItem(
+                                                AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: `mnist_classifier::fermi`,
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                            ident: `norm`,
-                                                            ty_item_kind: Memo,
-                                                        },
-                                                    ),
-                                                    impl_block: ImplBlock {
-                                                        id: ImplBlockId {
-                                                            module_path: `mnist_classifier::fermi`,
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                            },
-                                                        },
-                                                        ast_idx: 23,
-                                                        body: ArenaIdxRange(
-                                                            12..15,
-                                                        ),
-                                                        variant: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 34,
-                                                                },
-                                                            ),
                                                         },
                                                     },
-                                                    ast_idx: 12,
                                                     ident: `norm`,
-                                                    associated_item_kind: TypeItem(
-                                                        Memo,
-                                                    ),
-                                                    accessibility: PubicUnder(
-                                                        `mnist_classifier::fermi`,
-                                                    ),
-                                                    is_generic: false,
                                                 },
                                             ),
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
                                                         TypePath(`core::num::f32`, `Alien`),
@@ -897,7 +798,7 @@ Ok(
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         29,
                                                     ),
@@ -964,8 +865,8 @@ Ok(
             ),
             Ok(
                 AssociatedItem(
-                    TypeItem(
-                        Memo(
+                    AssociatedItemDecl::TypeItem(
+                        TypeItemDecl::Memo(
                             TypeMemoDecl {
                                 path: Some(
                                     TypeItemPath {
@@ -977,26 +878,12 @@ Ok(
                                 associated_item: AssociatedItem {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId {
-                                            module_path: ModulePath(
-                                                Id {
-                                                    value: 34,
-                                                },
-                                            ),
-                                            impl_block_kind: Type {
-                                                ty: TypePath(
-                                                    Id {
-                                                        value: 34,
-                                                    },
-                                                ),
+                                            module_path: `mnist_classifier::fermi`,
+                                            impl_block_kind: ImplBlockKind::Type {
+                                                ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                             },
                                         },
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 324,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `rel_norm`,
                                     },
                                     path: Some(
                                         TypeItemPath {
@@ -1008,7 +895,7 @@ Ok(
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
                                             module_path: `mnist_classifier::fermi`,
-                                            impl_block_kind: Type {
+                                            impl_block_kind: ImplBlockKind::Type {
                                                 ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                             },
                                         },
@@ -1016,12 +903,8 @@ Ok(
                                         body: ArenaIdxRange(
                                             12..15,
                                         ),
-                                        variant: Type {
-                                            ty: TypePath(
-                                                Id {
-                                                    value: 34,
-                                                },
-                                            ),
+                                        variant: ImplBlockVariant::Type {
+                                            ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                         },
                                     },
                                     ast_idx: 13,
@@ -1041,32 +924,19 @@ Ok(
                                             ExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
-                                                    path: Decl(
-                                                        ImplBlock(
-                                                            ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::fermi`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 23,
-                                                                body: ArenaIdxRange(
-                                                                    12..15,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 34,
-                                                                        },
-                                                                    ),
+                                                    path: RegionPath::Decl(
+                                                        DeclExprPath::ImplBlock(
+                                                            ImplBlockId {
+                                                                module_path: `mnist_classifier::fermi`,
+                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                    ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                                 },
                                                             },
                                                         ),
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            EntityPath {
+                                                            Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
                                                                     TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -1076,7 +946,7 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
-                                                            Root {
+                                                            EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     24,
                                                                 ),
@@ -1118,73 +988,22 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: Decl(
-                                            AssociatedItem(
-                                                AssociatedItem {
-                                                    id: AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
-                                                            module_path: ModulePath(
-                                                                Id {
-                                                                    value: 34,
-                                                                },
-                                                            ),
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(
-                                                                    Id {
-                                                                        value: 34,
-                                                                    },
-                                                                ),
-                                                            },
-                                                        },
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 324,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    path: Some(
-                                                        TypeItemPath {
+                                        path: RegionPath::Decl(
+                                            DeclExprPath::AssociatedItem(
+                                                AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: `mnist_classifier::fermi`,
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                            ident: `rel_norm`,
-                                                            ty_item_kind: Memo,
-                                                        },
-                                                    ),
-                                                    impl_block: ImplBlock {
-                                                        id: ImplBlockId {
-                                                            module_path: `mnist_classifier::fermi`,
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                            },
-                                                        },
-                                                        ast_idx: 23,
-                                                        body: ArenaIdxRange(
-                                                            12..15,
-                                                        ),
-                                                        variant: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 34,
-                                                                },
-                                                            ),
                                                         },
                                                     },
-                                                    ast_idx: 13,
                                                     ident: `rel_norm`,
-                                                    associated_item_kind: TypeItem(
-                                                        Memo,
-                                                    ),
-                                                    accessibility: PubicUnder(
-                                                        `mnist_classifier::fermi`,
-                                                    ),
-                                                    is_generic: false,
                                                 },
                                             ),
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
                                                         TypePath(`core::num::f32`, `Alien`),
@@ -1194,7 +1013,7 @@ Ok(
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         67,
                                                     ),
@@ -1261,8 +1080,8 @@ Ok(
             ),
             Ok(
                 AssociatedItem(
-                    TypeItem(
-                        Memo(
+                    AssociatedItemDecl::TypeItem(
+                        TypeItemDecl::Memo(
                             TypeMemoDecl {
                                 path: Some(
                                     TypeItemPath {
@@ -1274,26 +1093,12 @@ Ok(
                                 associated_item: AssociatedItem {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId {
-                                            module_path: ModulePath(
-                                                Id {
-                                                    value: 34,
-                                                },
-                                            ),
-                                            impl_block_kind: Type {
-                                                ty: TypePath(
-                                                    Id {
-                                                        value: 34,
-                                                    },
-                                                ),
+                                            module_path: `mnist_classifier::fermi`,
+                                            impl_block_kind: ImplBlockKind::Type {
+                                                ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                             },
                                         },
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 348,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `angle_change_norm`,
                                     },
                                     path: Some(
                                         TypeItemPath {
@@ -1305,7 +1110,7 @@ Ok(
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
                                             module_path: `mnist_classifier::fermi`,
-                                            impl_block_kind: Type {
+                                            impl_block_kind: ImplBlockKind::Type {
                                                 ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                             },
                                         },
@@ -1313,12 +1118,8 @@ Ok(
                                         body: ArenaIdxRange(
                                             12..15,
                                         ),
-                                        variant: Type {
-                                            ty: TypePath(
-                                                Id {
-                                                    value: 34,
-                                                },
-                                            ),
+                                        variant: ImplBlockVariant::Type {
+                                            ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                         },
                                     },
                                     ast_idx: 14,
@@ -1338,32 +1139,19 @@ Ok(
                                             ExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
-                                                    path: Decl(
-                                                        ImplBlock(
-                                                            ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::fermi`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 23,
-                                                                body: ArenaIdxRange(
-                                                                    12..15,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 34,
-                                                                        },
-                                                                    ),
+                                                    path: RegionPath::Decl(
+                                                        DeclExprPath::ImplBlock(
+                                                            ImplBlockId {
+                                                                module_path: `mnist_classifier::fermi`,
+                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                    ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                                 },
                                                             },
                                                         ),
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            EntityPath {
+                                                            Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
                                                                     TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -1373,7 +1161,7 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
-                                                            Root {
+                                                            EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     24,
                                                                 ),
@@ -1415,73 +1203,22 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: Decl(
-                                            AssociatedItem(
-                                                AssociatedItem {
-                                                    id: AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
-                                                            module_path: ModulePath(
-                                                                Id {
-                                                                    value: 34,
-                                                                },
-                                                            ),
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(
-                                                                    Id {
-                                                                        value: 34,
-                                                                    },
-                                                                ),
-                                                            },
-                                                        },
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 348,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    path: Some(
-                                                        TypeItemPath {
+                                        path: RegionPath::Decl(
+                                            DeclExprPath::AssociatedItem(
+                                                AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: `mnist_classifier::fermi`,
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                            ident: `angle_change_norm`,
-                                                            ty_item_kind: Memo,
-                                                        },
-                                                    ),
-                                                    impl_block: ImplBlock {
-                                                        id: ImplBlockId {
-                                                            module_path: `mnist_classifier::fermi`,
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                            },
-                                                        },
-                                                        ast_idx: 23,
-                                                        body: ArenaIdxRange(
-                                                            12..15,
-                                                        ),
-                                                        variant: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 34,
-                                                                },
-                                                            ),
                                                         },
                                                     },
-                                                    ast_idx: 14,
                                                     ident: `angle_change_norm`,
-                                                    associated_item_kind: TypeItem(
-                                                        Memo,
-                                                    ),
-                                                    accessibility: PubicUnder(
-                                                        `mnist_classifier::fermi`,
-                                                    ),
-                                                    is_generic: false,
                                                 },
                                             ),
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
                                                         TypePath(`core::num::f32`, `Alien`),
@@ -1491,7 +1228,7 @@ Ok(
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         105,
                                                     ),

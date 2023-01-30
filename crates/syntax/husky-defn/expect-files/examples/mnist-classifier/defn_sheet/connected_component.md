@@ -11,32 +11,32 @@ Ok(
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`core::num::i32`, `Alien`),
                                                 ),
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
                                                     TypePath(`core::num::i32`, `Alien`),
                                                 ),
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 2,
                                                 entity_path: Some(
                                                     TypePath(`core::num::i32`, `Alien`),
                                                 ),
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 3,
                                                 entity_path: Some(
                                                     TypePath(`core::num::i32`, `Alien`),
@@ -46,28 +46,28 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     24,
                                                 ),
                                                 ident: `i32`,
                                                 entity_path: TypePath(`core::num::i32`, `Alien`),
                                             },
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     28,
                                                 ),
                                                 ident: `i32`,
                                                 entity_path: TypePath(`core::num::i32`, `Alien`),
                                             },
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     32,
                                                 ),
                                                 ident: `i32`,
                                                 entity_path: TypePath(`core::num::i32`, `Alien`),
                                             },
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     36,
                                                 ),
@@ -249,27 +249,27 @@ Ok(
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                 ),
                                             },
-                                            PrefixOpn {
+                                            Expr::PrefixOpn {
                                                 opr: Ref,
                                                 opr_token_idx: TokenIdx(
                                                     48,
                                                 ),
                                                 opd: 0,
                                             },
-                                            NewBoxList {
+                                            Expr::NewBoxList {
                                                 caller: None,
                                                 lbox_token_idx: TokenIdx(
                                                     45,
@@ -281,14 +281,14 @@ Ok(
                                                     46,
                                                 ),
                                             },
-                                            PrefixOpn {
+                                            Expr::PrefixOpn {
                                                 opr: Option,
                                                 opr_token_idx: TokenIdx(
                                                     47,
                                                 ),
                                                 opd: 1,
                                             },
-                                            Application {
+                                            Expr::Application {
                                                 function: 2,
                                                 argument: 3,
                                             },
@@ -296,7 +296,7 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     49,
                                                 ),
@@ -391,33 +391,33 @@ Ok(
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                 ),
                                             },
-                                            PrefixOpn {
+                                            Expr::PrefixOpn {
                                                 opr: Ref,
                                                 opr_token_idx: TokenIdx(
                                                     57,
                                                 ),
                                                 opd: 0,
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
                                                     TypePath(`core::num::f32`, `Alien`),
                                                 ),
                                             },
-                                            PrefixOpn {
+                                            Expr::PrefixOpn {
                                                 opr: Option,
                                                 opr_token_idx: TokenIdx(
                                                     61,
@@ -428,14 +428,14 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     58,
                                                 ),
                                                 ident: `RawContour`,
                                                 entity_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             },
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     62,
                                                 ),
@@ -450,7 +450,7 @@ Ok(
                                     pattern_expr_region: PatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `ct`,
                                                         token_idx: TokenIdx(
@@ -480,7 +480,7 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -498,7 +498,7 @@ Ok(
                                                         56,
                                                     ),
                                                     access_end: None,
-                                                    variant: Parameter {
+                                                    variant: CurrentSymbolVariant::Parameter {
                                                         pattern_symbol: 0,
                                                     },
                                                 },
@@ -575,33 +575,33 @@ Ok(
                                     ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
-                                            path: Decl(
-                                                Entity(
+                                            path: RegionPath::Decl(
+                                                DeclExprPath::Entity(
                                                     FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
                                                 ),
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    EntityPath {
+                                                    Expr::EntityPath {
                                                         entity_path_expr: 0,
                                                         entity_path: Some(
                                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         ),
                                                     },
-                                                    PrefixOpn {
+                                                    Expr::PrefixOpn {
                                                         opr: Ref,
                                                         opr_token_idx: TokenIdx(
                                                             57,
                                                         ),
                                                         opd: 0,
                                                     },
-                                                    EntityPath {
+                                                    Expr::EntityPath {
                                                         entity_path_expr: 1,
                                                         entity_path: Some(
                                                             TypePath(`core::num::f32`, `Alien`),
                                                         ),
                                                     },
-                                                    PrefixOpn {
+                                                    Expr::PrefixOpn {
                                                         opr: Option,
                                                         opr_token_idx: TokenIdx(
                                                             61,
@@ -612,14 +612,14 @@ Ok(
                                             },
                                             entity_path_expr_arena: Arena {
                                                 data: [
-                                                    Root {
+                                                    EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
                                                             58,
                                                         ),
                                                         ident: `RawContour`,
                                                         entity_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     },
-                                                    Root {
+                                                    EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
                                                             62,
                                                         ),
@@ -634,7 +634,7 @@ Ok(
                                             pattern_expr_region: PatternExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        Identifier {
+                                                        PatternExpr::Identifier {
                                                             ident_token: IdentifierToken {
                                                                 ident: `ct`,
                                                                 token_idx: TokenIdx(
@@ -664,7 +664,7 @@ Ok(
                                                 ],
                                                 pattern_symbol_arena: Arena {
                                                     data: [
-                                                        Atom(
+                                                        PatternSymbol::Atom(
                                                             0,
                                                         ),
                                                     ],
@@ -682,7 +682,7 @@ Ok(
                                                                 56,
                                                             ),
                                                             access_end: None,
-                                                            variant: Parameter {
+                                                            variant: CurrentSymbolVariant::Parameter {
                                                                 pattern_symbol: 0,
                                                             },
                                                         },
@@ -706,22 +706,22 @@ Ok(
                                         },
                                     },
                                 ),
-                                path: Defn(
-                                    Entity(
+                                path: RegionPath::Defn(
+                                    DefnExprPath::Entity(
                                         FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
                                     ),
                                 ),
                                 expr_arena: Arena {
                                     data: [
-                                        InheritedSymbol {
+                                        Expr::InheritedSymbol {
                                             ident: `ct`,
                                             token_idx: TokenIdx(
                                                 67,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
                                         },
-                                        Field {
+                                        Expr::Field {
                                             this_expr: 0,
                                             dot_token_idx: TokenIdx(
                                                 68,
@@ -733,22 +733,22 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `len`,
                                             token_idx: TokenIdx(
                                                 71,
                                             ),
                                             current_symbol_idx: 0,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 0,
                                             },
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 73,
                                             ),
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 2,
                                             opr: Comparison(
                                                 Greater,
@@ -758,22 +758,22 @@ Ok(
                                             ),
                                             ropd: 3,
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `len`,
                                             token_idx: TokenIdx(
                                                 74,
                                             ),
                                             current_symbol_idx: 0,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 0,
                                             },
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 76,
                                             ),
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 5,
                                             opr: PureClosed(
                                                 Add,
@@ -783,7 +783,7 @@ Ok(
                                             ),
                                             ropd: 6,
                                         },
-                                        Block {
+                                        Expr::Block {
                                             stmts: ArenaIdxRange(
                                                 0..3,
                                             ),
@@ -795,7 +795,7 @@ Ok(
                                 },
                                 stmt_arena: Arena {
                                     data: [
-                                        Let {
+                                        Stmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     64,
@@ -824,7 +824,7 @@ Ok(
                                                 1,
                                             ),
                                         },
-                                        Require {
+                                        Stmt::Require {
                                             require_token: RequireToken {
                                                 token_idx: TokenIdx(
                                                     70,
@@ -834,7 +834,7 @@ Ok(
                                                 4,
                                             ),
                                         },
-                                        Eval {
+                                        Stmt::Eval {
                                             expr: 7,
                                         },
                                     ],
@@ -842,7 +842,7 @@ Ok(
                                 pattern_expr_region: PatternExprRegion {
                                     pattern_expr_arena: Arena {
                                         data: [
-                                            Identifier {
+                                            PatternExpr::Identifier {
                                                 ident_token: IdentifierToken {
                                                     ident: `len`,
                                                     token_idx: TokenIdx(
@@ -872,7 +872,7 @@ Ok(
                                     ],
                                     pattern_symbol_arena: Arena {
                                         data: [
-                                            Atom(
+                                            PatternSymbol::Atom(
                                                 0,
                                             ),
                                         ],
@@ -883,7 +883,7 @@ Ok(
                                         data: [
                                             InheritedSymbol {
                                                 ident: `ct`,
-                                                kind: Parameter,
+                                                kind: InheritedSymbolKind::Parameter,
                                             },
                                         ],
                                     },
@@ -901,7 +901,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: LetVariable {
+                                                variant: CurrentSymbolVariant::LetVariable {
                                                     pattern_symbol: 0,
                                                 },
                                             },
@@ -930,14 +930,14 @@ Ok(
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Err(
+                                            Expr::Err(
                                                 UnrecognizedIdentifier {
                                                     token_idx: TokenIdx(
                                                         83,
@@ -1036,26 +1036,26 @@ Ok(
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`core::raw_bits::r32`, `Alien`),
                                                 ),
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
                                                     TypePath(`core::raw_bits::r32`, `Alien`),
                                                 ),
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 2,
                                                 entity_path: Some(
                                                     TypePath(`core::raw_bits::r32`, `Alien`),
@@ -1065,21 +1065,21 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     563,
                                                 ),
                                                 ident: `r32`,
                                                 entity_path: TypePath(`core::raw_bits::r32`, `Alien`),
                                             },
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     567,
                                                 ),
                                                 ident: `r32`,
                                                 entity_path: TypePath(`core::raw_bits::r32`, `Alien`),
                                             },
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     570,
                                                 ),
@@ -1094,7 +1094,7 @@ Ok(
                                     pattern_expr_region: PatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `a`,
                                                         token_idx: TokenIdx(
@@ -1103,7 +1103,7 @@ Ok(
                                                     },
                                                     liason: None,
                                                 },
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `x`,
                                                         token_idx: TokenIdx(
@@ -1146,10 +1146,10 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     0,
                                                 ),
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     1,
                                                 ),
                                             ],
@@ -1167,7 +1167,7 @@ Ok(
                                                         562,
                                                     ),
                                                     access_end: None,
-                                                    variant: Parameter {
+                                                    variant: CurrentSymbolVariant::Parameter {
                                                         pattern_symbol: 0,
                                                     },
                                                 },
@@ -1177,7 +1177,7 @@ Ok(
                                                         566,
                                                     ),
                                                     access_end: None,
-                                                    variant: Parameter {
+                                                    variant: CurrentSymbolVariant::Parameter {
                                                         pattern_symbol: 1,
                                                     },
                                                 },
@@ -1276,26 +1276,26 @@ Ok(
                                     ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
-                                            path: Decl(
-                                                Entity(
+                                            path: RegionPath::Decl(
+                                                DeclExprPath::Entity(
                                                     FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
                                                 ),
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    EntityPath {
+                                                    Expr::EntityPath {
                                                         entity_path_expr: 0,
                                                         entity_path: Some(
                                                             TypePath(`core::raw_bits::r32`, `Alien`),
                                                         ),
                                                     },
-                                                    EntityPath {
+                                                    Expr::EntityPath {
                                                         entity_path_expr: 1,
                                                         entity_path: Some(
                                                             TypePath(`core::raw_bits::r32`, `Alien`),
                                                         ),
                                                     },
-                                                    EntityPath {
+                                                    Expr::EntityPath {
                                                         entity_path_expr: 2,
                                                         entity_path: Some(
                                                             TypePath(`core::raw_bits::r32`, `Alien`),
@@ -1305,21 +1305,21 @@ Ok(
                                             },
                                             entity_path_expr_arena: Arena {
                                                 data: [
-                                                    Root {
+                                                    EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
                                                             563,
                                                         ),
                                                         ident: `r32`,
                                                         entity_path: TypePath(`core::raw_bits::r32`, `Alien`),
                                                     },
-                                                    Root {
+                                                    EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
                                                             567,
                                                         ),
                                                         ident: `r32`,
                                                         entity_path: TypePath(`core::raw_bits::r32`, `Alien`),
                                                     },
-                                                    Root {
+                                                    EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
                                                             570,
                                                         ),
@@ -1334,7 +1334,7 @@ Ok(
                                             pattern_expr_region: PatternExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        Identifier {
+                                                        PatternExpr::Identifier {
                                                             ident_token: IdentifierToken {
                                                                 ident: `a`,
                                                                 token_idx: TokenIdx(
@@ -1343,7 +1343,7 @@ Ok(
                                                             },
                                                             liason: None,
                                                         },
-                                                        Identifier {
+                                                        PatternExpr::Identifier {
                                                             ident_token: IdentifierToken {
                                                                 ident: `x`,
                                                                 token_idx: TokenIdx(
@@ -1386,10 +1386,10 @@ Ok(
                                                 ],
                                                 pattern_symbol_arena: Arena {
                                                     data: [
-                                                        Atom(
+                                                        PatternSymbol::Atom(
                                                             0,
                                                         ),
-                                                        Atom(
+                                                        PatternSymbol::Atom(
                                                             1,
                                                         ),
                                                     ],
@@ -1407,7 +1407,7 @@ Ok(
                                                                 562,
                                                             ),
                                                             access_end: None,
-                                                            variant: Parameter {
+                                                            variant: CurrentSymbolVariant::Parameter {
                                                                 pattern_symbol: 0,
                                                             },
                                                         },
@@ -1417,7 +1417,7 @@ Ok(
                                                                 566,
                                                             ),
                                                             access_end: None,
-                                                            variant: Parameter {
+                                                            variant: CurrentSymbolVariant::Parameter {
                                                                 pattern_symbol: 1,
                                                             },
                                                         },
@@ -1445,27 +1445,27 @@ Ok(
                                         },
                                     },
                                 ),
-                                path: Defn(
-                                    Entity(
+                                path: RegionPath::Defn(
+                                    DefnExprPath::Entity(
                                         FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
                                     ),
                                 ),
                                 expr_arena: Arena {
                                     data: [
-                                        InheritedSymbol {
+                                        Expr::InheritedSymbol {
                                             ident: `x`,
                                             token_idx: TokenIdx(
                                                 582,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 584,
                                             ),
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 0,
                                             opr: PureClosed(
                                                 Shl,
@@ -1475,15 +1475,15 @@ Ok(
                                             ),
                                             ropd: 1,
                                         },
-                                        InheritedSymbol {
+                                        Expr::InheritedSymbol {
                                             ident: `x`,
                                             token_idx: TokenIdx(
                                                 579,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
                                         },
-                                        Bracketed {
+                                        Expr::Bracketed {
                                             lpar_token_idx: TokenIdx(
                                                 581,
                                             ),
@@ -1492,20 +1492,20 @@ Ok(
                                                 585,
                                             ),
                                         },
-                                        InheritedSymbol {
+                                        Expr::InheritedSymbol {
                                             ident: `x`,
                                             token_idx: TokenIdx(
                                                 588,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 590,
                                             ),
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 5,
                                             opr: PureClosed(
                                                 Shr,
@@ -1515,7 +1515,7 @@ Ok(
                                             ),
                                             ropd: 6,
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 3,
                                             opr: PureClosed(
                                                 BitOr,
@@ -1525,7 +1525,7 @@ Ok(
                                             ),
                                             ropd: 4,
                                         },
-                                        Bracketed {
+                                        Expr::Bracketed {
                                             lpar_token_idx: TokenIdx(
                                                 587,
                                             ),
@@ -1534,7 +1534,7 @@ Ok(
                                                 591,
                                             ),
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 8,
                                             opr: PureClosed(
                                                 BitOr,
@@ -1544,15 +1544,15 @@ Ok(
                                             ),
                                             ropd: 9,
                                         },
-                                        InheritedSymbol {
+                                        Expr::InheritedSymbol {
                                             ident: `a`,
                                             token_idx: TokenIdx(
                                                 576,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
                                         },
-                                        Bracketed {
+                                        Expr::Bracketed {
                                             lpar_token_idx: TokenIdx(
                                                 578,
                                             ),
@@ -1561,7 +1561,7 @@ Ok(
                                                 592,
                                             ),
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 11,
                                             opr: PureClosed(
                                                 BitOr,
@@ -1571,22 +1571,22 @@ Ok(
                                             ),
                                             ropd: 12,
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `y`,
                                             token_idx: TokenIdx(
                                                 603,
                                             ),
                                             current_symbol_idx: 1,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 1,
                                             },
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 605,
                                             ),
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 14,
                                             opr: PureClosed(
                                                 Shl,
@@ -1596,17 +1596,17 @@ Ok(
                                             ),
                                             ropd: 15,
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `y`,
                                             token_idx: TokenIdx(
                                                 600,
                                             ),
                                             current_symbol_idx: 1,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 1,
                                             },
                                         },
-                                        Bracketed {
+                                        Expr::Bracketed {
                                             lpar_token_idx: TokenIdx(
                                                 602,
                                             ),
@@ -1615,22 +1615,22 @@ Ok(
                                                 606,
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `y`,
                                             token_idx: TokenIdx(
                                                 609,
                                             ),
                                             current_symbol_idx: 1,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 1,
                                             },
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 611,
                                             ),
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 19,
                                             opr: PureClosed(
                                                 Shr,
@@ -1640,7 +1640,7 @@ Ok(
                                             ),
                                             ropd: 20,
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 17,
                                             opr: PureClosed(
                                                 BitOr,
@@ -1650,7 +1650,7 @@ Ok(
                                             ),
                                             ropd: 18,
                                         },
-                                        Bracketed {
+                                        Expr::Bracketed {
                                             lpar_token_idx: TokenIdx(
                                                 608,
                                             ),
@@ -1659,7 +1659,7 @@ Ok(
                                                 612,
                                             ),
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 22,
                                             opr: PureClosed(
                                                 BitOr,
@@ -1669,15 +1669,15 @@ Ok(
                                             ),
                                             ropd: 23,
                                         },
-                                        InheritedSymbol {
+                                        Expr::InheritedSymbol {
                                             ident: `a`,
                                             token_idx: TokenIdx(
                                                 597,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
                                         },
-                                        Bracketed {
+                                        Expr::Bracketed {
                                             lpar_token_idx: TokenIdx(
                                                 599,
                                             ),
@@ -1686,7 +1686,7 @@ Ok(
                                                 613,
                                             ),
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 25,
                                             opr: PureClosed(
                                                 BitOr,
@@ -1696,27 +1696,27 @@ Ok(
                                             ),
                                             ropd: 26,
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `z`,
                                             token_idx: TokenIdx(
                                                 615,
                                             ),
                                             current_symbol_idx: 0,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 0,
                                             },
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `y`,
                                             token_idx: TokenIdx(
                                                 617,
                                             ),
                                             current_symbol_idx: 1,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 1,
                                             },
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 28,
                                             opr: Comparison(
                                                 Neq,
@@ -1726,27 +1726,27 @@ Ok(
                                             ),
                                             ropd: 29,
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `y`,
                                             token_idx: TokenIdx(
                                                 619,
                                             ),
                                             current_symbol_idx: 1,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 1,
                                             },
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `z`,
                                             token_idx: TokenIdx(
                                                 621,
                                             ),
                                             current_symbol_idx: 0,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 0,
                                             },
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 31,
                                             opr: Assign(
                                                 None,
@@ -1756,22 +1756,22 @@ Ok(
                                             ),
                                             ropd: 32,
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `y`,
                                             token_idx: TokenIdx(
                                                 630,
                                             ),
                                             current_symbol_idx: 1,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 1,
                                             },
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 632,
                                             ),
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 34,
                                             opr: PureClosed(
                                                 Shl,
@@ -1781,17 +1781,17 @@ Ok(
                                             ),
                                             ropd: 35,
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `y`,
                                             token_idx: TokenIdx(
                                                 627,
                                             ),
                                             current_symbol_idx: 1,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 1,
                                             },
                                         },
-                                        Bracketed {
+                                        Expr::Bracketed {
                                             lpar_token_idx: TokenIdx(
                                                 629,
                                             ),
@@ -1800,22 +1800,22 @@ Ok(
                                                 633,
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `y`,
                                             token_idx: TokenIdx(
                                                 636,
                                             ),
                                             current_symbol_idx: 1,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 1,
                                             },
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 638,
                                             ),
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 39,
                                             opr: PureClosed(
                                                 Shr,
@@ -1825,7 +1825,7 @@ Ok(
                                             ),
                                             ropd: 40,
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 37,
                                             opr: PureClosed(
                                                 BitOr,
@@ -1835,7 +1835,7 @@ Ok(
                                             ),
                                             ropd: 38,
                                         },
-                                        Bracketed {
+                                        Expr::Bracketed {
                                             lpar_token_idx: TokenIdx(
                                                 635,
                                             ),
@@ -1844,7 +1844,7 @@ Ok(
                                                 639,
                                             ),
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 42,
                                             opr: PureClosed(
                                                 BitOr,
@@ -1854,15 +1854,15 @@ Ok(
                                             ),
                                             ropd: 43,
                                         },
-                                        InheritedSymbol {
+                                        Expr::InheritedSymbol {
                                             ident: `a`,
                                             token_idx: TokenIdx(
                                                 624,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
                                         },
-                                        Bracketed {
+                                        Expr::Bracketed {
                                             lpar_token_idx: TokenIdx(
                                                 626,
                                             ),
@@ -1871,17 +1871,17 @@ Ok(
                                                 640,
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `z`,
                                             token_idx: TokenIdx(
                                                 622,
                                             ),
                                             current_symbol_idx: 0,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 0,
                                             },
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 45,
                                             opr: PureClosed(
                                                 BitOr,
@@ -1891,7 +1891,7 @@ Ok(
                                             ),
                                             ropd: 46,
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 47,
                                             opr: Assign(
                                                 None,
@@ -1901,17 +1901,17 @@ Ok(
                                             ),
                                             ropd: 48,
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `y`,
                                             token_idx: TokenIdx(
                                                 642,
                                             ),
                                             current_symbol_idx: 1,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 1,
                                             },
                                         },
-                                        Block {
+                                        Expr::Block {
                                             stmts: ArenaIdxRange(
                                                 2..6,
                                             ),
@@ -1923,13 +1923,13 @@ Ok(
                                 },
                                 stmt_arena: Arena {
                                     data: [
-                                        Eval {
+                                        Stmt::Eval {
                                             expr: 33,
                                         },
-                                        Eval {
+                                        Stmt::Eval {
                                             expr: 49,
                                         },
-                                        Let {
+                                        Stmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     572,
@@ -1958,7 +1958,7 @@ Ok(
                                                 13,
                                             ),
                                         },
-                                        Let {
+                                        Stmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     593,
@@ -1987,7 +1987,7 @@ Ok(
                                                 27,
                                             ),
                                         },
-                                        While {
+                                        Stmt::While {
                                             while_token: WhileToken {
                                                 token_idx: TokenIdx(
                                                     614,
@@ -2009,7 +2009,7 @@ Ok(
                                                 ),
                                             ),
                                         },
-                                        Return {
+                                        Stmt::Return {
                                             return_token: ReturnToken {
                                                 token_idx: TokenIdx(
                                                     641,
@@ -2024,7 +2024,7 @@ Ok(
                                 pattern_expr_region: PatternExprRegion {
                                     pattern_expr_arena: Arena {
                                         data: [
-                                            Identifier {
+                                            PatternExpr::Identifier {
                                                 ident_token: IdentifierToken {
                                                     ident: `y`,
                                                     token_idx: TokenIdx(
@@ -2033,7 +2033,7 @@ Ok(
                                                 },
                                                 liason: None,
                                             },
-                                            Identifier {
+                                            PatternExpr::Identifier {
                                                 ident_token: IdentifierToken {
                                                     ident: `z`,
                                                     token_idx: TokenIdx(
@@ -2076,10 +2076,10 @@ Ok(
                                     ],
                                     pattern_symbol_arena: Arena {
                                         data: [
-                                            Atom(
+                                            PatternSymbol::Atom(
                                                 0,
                                             ),
-                                            Atom(
+                                            PatternSymbol::Atom(
                                                 1,
                                             ),
                                         ],
@@ -2090,11 +2090,11 @@ Ok(
                                         data: [
                                             InheritedSymbol {
                                                 ident: `a`,
-                                                kind: Parameter,
+                                                kind: InheritedSymbolKind::Parameter,
                                             },
                                             InheritedSymbol {
                                                 ident: `x`,
-                                                kind: Parameter,
+                                                kind: InheritedSymbolKind::Parameter,
                                             },
                                         ],
                                     },
@@ -2112,7 +2112,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: LetVariable {
+                                                variant: CurrentSymbolVariant::LetVariable {
                                                     pattern_symbol: 0,
                                                 },
                                             },
@@ -2128,7 +2128,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: LetVariable {
+                                                variant: CurrentSymbolVariant::LetVariable {
                                                     pattern_symbol: 1,
                                                 },
                                             },
@@ -2157,14 +2157,14 @@ Ok(
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Err(
+                                            Expr::Err(
                                                 UnrecognizedIdentifier {
                                                     token_idx: TokenIdx(
                                                         649,
@@ -2178,7 +2178,7 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            NewBoxList {
+                                            Expr::NewBoxList {
                                                 caller: None,
                                                 lbox_token_idx: TokenIdx(
                                                     652,
@@ -2190,13 +2190,13 @@ Ok(
                                                     653,
                                                 ),
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                 ),
                                             },
-                                            Application {
+                                            Expr::Application {
                                                 function: 1,
                                                 argument: 2,
                                             },
@@ -2204,7 +2204,7 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     654,
                                                 ),
@@ -2219,7 +2219,7 @@ Ok(
                                     pattern_expr_region: PatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `img`,
                                                         token_idx: TokenIdx(
@@ -2249,7 +2249,7 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -2267,7 +2267,7 @@ Ok(
                                                         648,
                                                     ),
                                                     access_end: None,
-                                                    variant: Parameter {
+                                                    variant: CurrentSymbolVariant::Parameter {
                                                         pattern_symbol: 0,
                                                     },
                                                 },
@@ -2344,14 +2344,14 @@ Ok(
                                     ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
-                                            path: Decl(
-                                                Entity(
+                                            path: RegionPath::Decl(
+                                                DeclExprPath::Entity(
                                                     FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
                                                 ),
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Err(
+                                                    Expr::Err(
                                                         UnrecognizedIdentifier {
                                                             token_idx: TokenIdx(
                                                                 649,
@@ -2365,7 +2365,7 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    NewBoxList {
+                                                    Expr::NewBoxList {
                                                         caller: None,
                                                         lbox_token_idx: TokenIdx(
                                                             652,
@@ -2377,13 +2377,13 @@ Ok(
                                                             653,
                                                         ),
                                                     },
-                                                    EntityPath {
+                                                    Expr::EntityPath {
                                                         entity_path_expr: 0,
                                                         entity_path: Some(
                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         ),
                                                     },
-                                                    Application {
+                                                    Expr::Application {
                                                         function: 1,
                                                         argument: 2,
                                                     },
@@ -2391,7 +2391,7 @@ Ok(
                                             },
                                             entity_path_expr_arena: Arena {
                                                 data: [
-                                                    Root {
+                                                    EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
                                                             654,
                                                         ),
@@ -2406,7 +2406,7 @@ Ok(
                                             pattern_expr_region: PatternExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        Identifier {
+                                                        PatternExpr::Identifier {
                                                             ident_token: IdentifierToken {
                                                                 ident: `img`,
                                                                 token_idx: TokenIdx(
@@ -2436,7 +2436,7 @@ Ok(
                                                 ],
                                                 pattern_symbol_arena: Arena {
                                                     data: [
-                                                        Atom(
+                                                        PatternSymbol::Atom(
                                                             0,
                                                         ),
                                                     ],
@@ -2454,7 +2454,7 @@ Ok(
                                                                 648,
                                                             ),
                                                             access_end: None,
-                                                            variant: Parameter {
+                                                            variant: CurrentSymbolVariant::Parameter {
                                                                 pattern_symbol: 0,
                                                             },
                                                         },
@@ -2478,20 +2478,20 @@ Ok(
                                         },
                                     },
                                 ),
-                                path: Defn(
-                                    Entity(
+                                path: RegionPath::Defn(
+                                    DefnExprPath::Entity(
                                         FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
                                     ),
                                 ),
                                 expr_arena: Arena {
                                     data: [
-                                        EntityPath {
+                                        Expr::EntityPath {
                                             entity_path_expr: 0,
                                             entity_path: Some(
                                                 TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ),
                                         },
-                                        NewBoxList {
+                                        Expr::NewBoxList {
                                             caller: None,
                                             lbox_token_idx: TokenIdx(
                                                 660,
@@ -2503,7 +2503,7 @@ Ok(
                                                 661,
                                             ),
                                         },
-                                        FunctionCall {
+                                        Expr::FunctionCall {
                                             function: 0,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -2516,19 +2516,19 @@ Ok(
                                                 664,
                                             ),
                                         },
-                                        Application {
+                                        Expr::Application {
                                             function: 1,
                                             argument: 2,
                                         },
-                                        InheritedSymbol {
+                                        Expr::InheritedSymbol {
                                             ident: `img`,
                                             token_idx: TokenIdx(
                                                 669,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
                                         },
-                                        MethodCall {
+                                        Expr::MethodCall {
                                             this_expr: 4,
                                             dot_token_idx: TokenIdx(
                                                 670,
@@ -2550,22 +2550,22 @@ Ok(
                                                 673,
                                             ),
                                         },
-                                        FrameVarDecl {
+                                        Expr::FrameVarDecl {
                                             token_idx: TokenIdx(
                                                 675,
                                             ),
                                             ident: `j`,
                                             current_symbol_idx: 2,
-                                            current_symbol_kind: FrameVariable(
+                                            current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                 6,
                                             ),
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 677,
                                             ),
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 6,
                                             opr: Comparison(
                                                 Less,
@@ -2575,27 +2575,27 @@ Ok(
                                             ),
                                             ropd: 7,
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `unsearched`,
                                             token_idx: TokenIdx(
                                                 680,
                                             ),
                                             current_symbol_idx: 1,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 1,
                                             },
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `j`,
                                             token_idx: TokenIdx(
                                                 682,
                                             ),
                                             current_symbol_idx: 0,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 0,
                                             },
                                         },
-                                        NewBoxList {
+                                        Expr::NewBoxList {
                                             caller: Some(
                                                 9,
                                             ),
@@ -2609,27 +2609,27 @@ Ok(
                                                 683,
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `unsearched`,
                                             token_idx: TokenIdx(
                                                 688,
                                             ),
                                             current_symbol_idx: 2,
-                                            current_symbol_kind: FrameVariable(
+                                            current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                 6,
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `j`,
                                             token_idx: TokenIdx(
                                                 690,
                                             ),
                                             current_symbol_idx: 1,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 1,
                                             },
                                         },
-                                        NewBoxList {
+                                        Expr::NewBoxList {
                                             caller: Some(
                                                 12,
                                             ),
@@ -2643,17 +2643,17 @@ Ok(
                                                 691,
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `a`,
                                             token_idx: TokenIdx(
                                                 695,
                                             ),
                                             current_symbol_idx: 1,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 1,
                                             },
                                         },
-                                        MethodCall {
+                                        Expr::MethodCall {
                                             this_expr: 15,
                                             dot_token_idx: TokenIdx(
                                                 696,
@@ -2675,7 +2675,7 @@ Ok(
                                                 699,
                                             ),
                                         },
-                                        Err(
+                                        Expr::Err(
                                             UnrecognizedIdentifier {
                                                 token_idx: TokenIdx(
                                                     704,
@@ -2689,7 +2689,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        FunctionCall {
+                                        Expr::FunctionCall {
                                             function: 17,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -2702,58 +2702,58 @@ Ok(
                                                 706,
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `mask`,
                                             token_idx: TokenIdx(
                                                 707,
                                             ),
                                             current_symbol_idx: 0,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 0,
                                             },
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `j`,
                                             token_idx: TokenIdx(
                                                 709,
                                             ),
                                             current_symbol_idx: 3,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 2,
                                             },
                                         },
-                                        EntityPath {
+                                        Expr::EntityPath {
                                             entity_path_expr: 1,
                                             entity_path: Some(
                                                 FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
                                             ),
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 716,
                                             ),
                                         ),
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `shift`,
                                             token_idx: TokenIdx(
                                                 718,
                                             ),
                                             current_symbol_idx: 1,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 1,
                                             },
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `a`,
                                             token_idx: TokenIdx(
                                                 714,
                                             ),
                                             current_symbol_idx: 2,
-                                            current_symbol_kind: FrameVariable(
+                                            current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                 6,
                                             ),
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 22,
                                             opr: PureClosed(
                                                 Shl,
@@ -2763,7 +2763,7 @@ Ok(
                                             ),
                                             ropd: 23,
                                         },
-                                        NewBoxList {
+                                        Expr::NewBoxList {
                                             caller: Some(
                                                 19,
                                             ),
@@ -2777,7 +2777,7 @@ Ok(
                                                 710,
                                             ),
                                         },
-                                        FunctionCall {
+                                        Expr::FunctionCall {
                                             function: 21,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -2790,7 +2790,7 @@ Ok(
                                                 719,
                                             ),
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 26,
                                             opr: Assign(
                                                 None,
@@ -2800,44 +2800,44 @@ Ok(
                                             ),
                                             ropd: 27,
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 724,
                                             ),
                                         ),
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `flag`,
                                             token_idx: TokenIdx(
                                                 727,
                                             ),
                                             current_symbol_idx: 0,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 0,
                                             },
                                         },
-                                        PrefixOpn {
+                                        Expr::PrefixOpn {
                                             opr: Not,
                                             opr_token_idx: TokenIdx(
                                                 726,
                                             ),
                                             opd: 30,
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `flag`,
                                             token_idx: TokenIdx(
                                                 729,
                                             ),
                                             current_symbol_idx: 0,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 0,
                                             },
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 731,
                                             ),
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 32,
                                             opr: Assign(
                                                 None,
@@ -2847,42 +2847,42 @@ Ok(
                                             ),
                                             ropd: 33,
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `j`,
                                             token_idx: TokenIdx(
                                                 736,
                                             ),
                                             current_symbol_idx: 5,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 4,
                                             },
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `mask`,
                                             token_idx: TokenIdx(
                                                 747,
                                             ),
                                             current_symbol_idx: 3,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 2,
                                             },
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `i`,
                                             token_idx: TokenIdx(
                                                 749,
                                             ),
                                             current_symbol_idx: 1,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 1,
                                             },
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 751,
                                             ),
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 37,
                                             opr: PureClosed(
                                                 Add,
@@ -2892,7 +2892,7 @@ Ok(
                                             ),
                                             ropd: 38,
                                         },
-                                        NewBoxList {
+                                        Expr::NewBoxList {
                                             caller: Some(
                                                 36,
                                             ),
@@ -2906,36 +2906,36 @@ Ok(
                                                 752,
                                             ),
                                         },
-                                        EntityPath {
+                                        Expr::EntityPath {
                                             entity_path_expr: 2,
                                             entity_path: Some(
                                                 FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
                                             ),
                                         },
-                                        InheritedSymbol {
+                                        Expr::InheritedSymbol {
                                             ident: `img`,
                                             token_idx: TokenIdx(
                                                 760,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `i`,
                                             token_idx: TokenIdx(
                                                 762,
                                             ),
                                             current_symbol_idx: 2,
-                                            current_symbol_kind: FrameVariable(
+                                            current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                 6,
                                             ),
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 764,
                                             ),
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 43,
                                             opr: PureClosed(
                                                 Add,
@@ -2945,27 +2945,27 @@ Ok(
                                             ),
                                             ropd: 44,
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `mask`,
                                             token_idx: TokenIdx(
                                                 767,
                                             ),
                                             current_symbol_idx: 4,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 3,
                                             },
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `i`,
                                             token_idx: TokenIdx(
                                                 769,
                                             ),
                                             current_symbol_idx: 2,
-                                            current_symbol_kind: FrameVariable(
+                                            current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                 6,
                                             ),
                                         },
-                                        NewBoxList {
+                                        Expr::NewBoxList {
                                             caller: Some(
                                                 42,
                                             ),
@@ -2979,7 +2979,7 @@ Ok(
                                                 765,
                                             ),
                                         },
-                                        NewBoxList {
+                                        Expr::NewBoxList {
                                             caller: Some(
                                                 46,
                                             ),
@@ -2993,17 +2993,17 @@ Ok(
                                                 770,
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `old_row`,
                                             token_idx: TokenIdx(
                                                 756,
                                             ),
                                             current_symbol_idx: 1,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 1,
                                             },
                                         },
-                                        FunctionCall {
+                                        Expr::FunctionCall {
                                             function: 41,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -3016,7 +3016,7 @@ Ok(
                                                 771,
                                             ),
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 50,
                                             opr: PureClosed(
                                                 BitOr,
@@ -3026,44 +3026,44 @@ Ok(
                                             ),
                                             ropd: 51,
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `new_row`,
                                             token_idx: TokenIdx(
                                                 774,
                                             ),
                                             current_symbol_idx: 0,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 0,
                                             },
                                         },
-                                        PrefixOpn {
+                                        Expr::PrefixOpn {
                                             opr: Not,
                                             opr_token_idx: TokenIdx(
                                                 773,
                                             ),
                                             opd: 53,
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `old_row`,
                                             token_idx: TokenIdx(
                                                 778,
                                             ),
                                             current_symbol_idx: 1,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 1,
                                             },
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `new_row`,
                                             token_idx: TokenIdx(
                                                 780,
                                             ),
                                             current_symbol_idx: 0,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 0,
                                             },
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 55,
                                             opr: Comparison(
                                                 Neq,
@@ -3073,22 +3073,22 @@ Ok(
                                             ),
                                             ropd: 56,
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `flag`,
                                             token_idx: TokenIdx(
                                                 782,
                                             ),
                                             current_symbol_idx: 3,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 2,
                                             },
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 784,
                                             ),
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 58,
                                             opr: Assign(
                                                 None,
@@ -3098,32 +3098,32 @@ Ok(
                                             ),
                                             ropd: 59,
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `mask`,
                                             token_idx: TokenIdx(
                                                 785,
                                             ),
                                             current_symbol_idx: 4,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 3,
                                             },
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `i`,
                                             token_idx: TokenIdx(
                                                 787,
                                             ),
                                             current_symbol_idx: 2,
-                                            current_symbol_kind: FrameVariable(
+                                            current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                 6,
                                             ),
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 789,
                                             ),
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 62,
                                             opr: PureClosed(
                                                 Add,
@@ -3133,7 +3133,7 @@ Ok(
                                             ),
                                             ropd: 63,
                                         },
-                                        NewBoxList {
+                                        Expr::NewBoxList {
                                             caller: Some(
                                                 61,
                                             ),
@@ -3147,17 +3147,17 @@ Ok(
                                                 790,
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `new_row`,
                                             token_idx: TokenIdx(
                                                 792,
                                             ),
                                             current_symbol_idx: 0,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 0,
                                             },
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 65,
                                             opr: Assign(
                                                 None,
@@ -3167,27 +3167,27 @@ Ok(
                                             ),
                                             ropd: 66,
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `mask`,
                                             token_idx: TokenIdx(
                                                 801,
                                             ),
                                             current_symbol_idx: 5,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 4,
                                             },
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `i`,
                                             token_idx: TokenIdx(
                                                 803,
                                             ),
                                             current_symbol_idx: 3,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 2,
                                             },
                                         },
-                                        NewBoxList {
+                                        Expr::NewBoxList {
                                             caller: Some(
                                                 68,
                                             ),
@@ -3201,56 +3201,56 @@ Ok(
                                                 804,
                                             ),
                                         },
-                                        EntityPath {
+                                        Expr::EntityPath {
                                             entity_path_expr: 3,
                                             entity_path: Some(
                                                 FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
                                             ),
                                         },
-                                        InheritedSymbol {
+                                        Expr::InheritedSymbol {
                                             ident: `img`,
                                             token_idx: TokenIdx(
                                                 812,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `i`,
                                             token_idx: TokenIdx(
                                                 814,
                                             ),
                                             current_symbol_idx: 4,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 3,
                                             },
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `mask`,
                                             token_idx: TokenIdx(
                                                 817,
                                             ),
                                             current_symbol_idx: 6,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 5,
                                             },
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `i`,
                                             token_idx: TokenIdx(
                                                 819,
                                             ),
                                             current_symbol_idx: 4,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 3,
                                             },
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 821,
                                             ),
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 75,
                                             opr: PureClosed(
                                                 Add,
@@ -3260,7 +3260,7 @@ Ok(
                                             ),
                                             ropd: 76,
                                         },
-                                        NewBoxList {
+                                        Expr::NewBoxList {
                                             caller: Some(
                                                 72,
                                             ),
@@ -3274,7 +3274,7 @@ Ok(
                                                 815,
                                             ),
                                         },
-                                        NewBoxList {
+                                        Expr::NewBoxList {
                                             caller: Some(
                                                 74,
                                             ),
@@ -3288,17 +3288,17 @@ Ok(
                                                 822,
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `old_row`,
                                             token_idx: TokenIdx(
                                                 808,
                                             ),
                                             current_symbol_idx: 1,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 1,
                                             },
                                         },
-                                        FunctionCall {
+                                        Expr::FunctionCall {
                                             function: 71,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -3311,7 +3311,7 @@ Ok(
                                                 823,
                                             ),
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 80,
                                             opr: PureClosed(
                                                 BitOr,
@@ -3321,27 +3321,27 @@ Ok(
                                             ),
                                             ropd: 81,
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `old_row`,
                                             token_idx: TokenIdx(
                                                 825,
                                             ),
                                             current_symbol_idx: 1,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 1,
                                             },
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `new_row`,
                                             token_idx: TokenIdx(
                                                 827,
                                             ),
                                             current_symbol_idx: 0,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 0,
                                             },
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 83,
                                             opr: Comparison(
                                                 Neq,
@@ -3351,22 +3351,22 @@ Ok(
                                             ),
                                             ropd: 84,
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `flag`,
                                             token_idx: TokenIdx(
                                                 829,
                                             ),
                                             current_symbol_idx: 5,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 4,
                                             },
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 831,
                                             ),
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 86,
                                             opr: Assign(
                                                 None,
@@ -3376,27 +3376,27 @@ Ok(
                                             ),
                                             ropd: 87,
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `mask`,
                                             token_idx: TokenIdx(
                                                 832,
                                             ),
                                             current_symbol_idx: 6,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 5,
                                             },
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `i`,
                                             token_idx: TokenIdx(
                                                 834,
                                             ),
                                             current_symbol_idx: 4,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 3,
                                             },
                                         },
-                                        NewBoxList {
+                                        Expr::NewBoxList {
                                             caller: Some(
                                                 89,
                                             ),
@@ -3410,17 +3410,17 @@ Ok(
                                                 835,
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `new_row`,
                                             token_idx: TokenIdx(
                                                 837,
                                             ),
                                             current_symbol_idx: 0,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 0,
                                             },
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 91,
                                             opr: Assign(
                                                 None,
@@ -3430,27 +3430,27 @@ Ok(
                                             ),
                                             ropd: 92,
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `j`,
                                             token_idx: TokenIdx(
                                                 839,
                                             ),
                                             current_symbol_idx: 9,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 8,
                                             },
                                         },
-                                        FrameVarDecl {
+                                        Expr::FrameVarDecl {
                                             token_idx: TokenIdx(
                                                 841,
                                             ),
                                             ident: `k`,
                                             current_symbol_idx: 12,
-                                            current_symbol_kind: FrameVariable(
+                                            current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                 95,
                                             ),
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 94,
                                             opr: Comparison(
                                                 Leq,
@@ -3460,12 +3460,12 @@ Ok(
                                             ),
                                             ropd: 95,
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 843,
                                             ),
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 96,
                                             opr: Comparison(
                                                 Less,
@@ -3475,47 +3475,47 @@ Ok(
                                             ),
                                             ropd: 97,
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `unsearched`,
                                             token_idx: TokenIdx(
                                                 845,
                                             ),
                                             current_symbol_idx: 11,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 10,
                                             },
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `k`,
                                             token_idx: TokenIdx(
                                                 847,
                                             ),
                                             current_symbol_idx: 0,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 0,
                                             },
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `mask`,
                                             token_idx: TokenIdx(
                                                 852,
                                             ),
                                             current_symbol_idx: 7,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 6,
                                             },
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `k`,
                                             token_idx: TokenIdx(
                                                 854,
                                             ),
                                             current_symbol_idx: 0,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 0,
                                             },
                                         },
-                                        NewBoxList {
+                                        Expr::NewBoxList {
                                             caller: Some(
                                                 101,
                                             ),
@@ -3529,14 +3529,14 @@ Ok(
                                                 855,
                                             ),
                                         },
-                                        PrefixOpn {
+                                        Expr::PrefixOpn {
                                             opr: BitNot,
                                             opr_token_idx: TokenIdx(
                                                 851,
                                             ),
                                             opd: 103,
                                         },
-                                        NewBoxList {
+                                        Expr::NewBoxList {
                                             caller: Some(
                                                 99,
                                             ),
@@ -3550,7 +3550,7 @@ Ok(
                                                 848,
                                             ),
                                         },
-                                        Bracketed {
+                                        Expr::Bracketed {
                                             lpar_token_idx: TokenIdx(
                                                 850,
                                             ),
@@ -3559,7 +3559,7 @@ Ok(
                                                 856,
                                             ),
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 105,
                                             opr: Assign(
                                                 Some(
@@ -3571,33 +3571,33 @@ Ok(
                                             ),
                                             ropd: 106,
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `result`,
                                             token_idx: TokenIdx(
                                                 857,
                                             ),
                                             current_symbol_idx: 12,
-                                            current_symbol_kind: FrameVariable(
+                                            current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                 95,
                                             ),
                                         },
-                                        EntityPath {
+                                        Expr::EntityPath {
                                             entity_path_expr: 4,
                                             entity_path: Some(
                                                 TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `mask`,
                                             token_idx: TokenIdx(
                                                 863,
                                             ),
                                             current_symbol_idx: 7,
-                                            current_symbol_kind: LetVariable {
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol: 6,
                                             },
                                         },
-                                        ApplicationOrFunctionCall {
+                                        Expr::ApplicationOrFunctionCall {
                                             function: 109,
                                             lpar_token_idx: TokenIdx(
                                                 862,
@@ -3607,7 +3607,7 @@ Ok(
                                                 864,
                                             ),
                                         },
-                                        MethodCall {
+                                        Expr::MethodCall {
                                             this_expr: 108,
                                             dot_token_idx: TokenIdx(
                                                 858,
@@ -3629,17 +3629,17 @@ Ok(
                                                 865,
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        Expr::CurrentSymbol {
                                             ident: `result`,
                                             token_idx: TokenIdx(
                                                 867,
                                             ),
                                             current_symbol_idx: 12,
-                                            current_symbol_kind: FrameVariable(
+                                            current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                 95,
                                             ),
                                         },
-                                        Block {
+                                        Expr::Block {
                                             stmts: ArenaIdxRange(
                                                 26..30,
                                             ),
@@ -3648,35 +3648,35 @@ Ok(
                                 },
                                 entity_path_expr_arena: Arena {
                                     data: [
-                                        Root {
+                                        EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 662,
                                             ),
                                             ident: `ConnectedComponent`,
                                             entity_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         },
-                                        Root {
+                                        EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 712,
                                             ),
                                             ident: `horizontal_extend`,
                                             entity_path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
                                         },
-                                        Root {
+                                        EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 758,
                                             ),
                                             ident: `horizontal_extend`,
                                             entity_path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
                                         },
-                                        Root {
+                                        EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 810,
                                             ),
                                             ident: `horizontal_extend`,
                                             entity_path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
                                         },
-                                        Root {
+                                        EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 861,
                                             ),
@@ -3687,20 +3687,20 @@ Ok(
                                 },
                                 stmt_arena: Arena {
                                     data: [
-                                        Break {
+                                        Stmt::Break {
                                             break_token: BreakToken {
                                                 token_idx: TokenIdx(
                                                     776,
                                                 ),
                                             },
                                         },
-                                        Eval {
+                                        Stmt::Eval {
                                             expr: 60,
                                         },
-                                        Eval {
+                                        Stmt::Eval {
                                             expr: 67,
                                         },
-                                        Let {
+                                        Stmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     744,
@@ -3729,7 +3729,7 @@ Ok(
                                                 40,
                                             ),
                                         },
-                                        Let {
+                                        Stmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     753,
@@ -3758,7 +3758,7 @@ Ok(
                                                 52,
                                             ),
                                         },
-                                        IfElse {
+                                        Stmt::IfElse {
                                             if_branch: IfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
@@ -3784,7 +3784,7 @@ Ok(
                                             elif_branches: [],
                                             else_branch: None,
                                         },
-                                        IfElse {
+                                        Stmt::IfElse {
                                             if_branch: IfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
@@ -3810,13 +3810,13 @@ Ok(
                                             elif_branches: [],
                                             else_branch: None,
                                         },
-                                        Eval {
+                                        Stmt::Eval {
                                             expr: 88,
                                         },
-                                        Eval {
+                                        Stmt::Eval {
                                             expr: 93,
                                         },
-                                        Let {
+                                        Stmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     798,
@@ -3845,7 +3845,7 @@ Ok(
                                                 70,
                                             ),
                                         },
-                                        Let {
+                                        Stmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     805,
@@ -3874,7 +3874,7 @@ Ok(
                                                 82,
                                             ),
                                         },
-                                        IfElse {
+                                        Stmt::IfElse {
                                             if_branch: IfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
@@ -3900,10 +3900,10 @@ Ok(
                                             elif_branches: [],
                                             else_branch: None,
                                         },
-                                        Eval {
+                                        Stmt::Eval {
                                             expr: 34,
                                         },
-                                        Let {
+                                        Stmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     732,
@@ -3932,7 +3932,7 @@ Ok(
                                                 35,
                                             ),
                                         },
-                                        ForExt {
+                                        Stmt::ForExt {
                                             forext_token: ForextToken {
                                                 token_idx: TokenIdx(
                                                     737,
@@ -3951,7 +3951,7 @@ Ok(
                                                 ),
                                             ),
                                         },
-                                        ForExt {
+                                        Stmt::ForExt {
                                             forext_token: ForextToken {
                                                 token_idx: TokenIdx(
                                                     793,
@@ -3970,10 +3970,10 @@ Ok(
                                                 ),
                                             ),
                                         },
-                                        Eval {
+                                        Stmt::Eval {
                                             expr: 107,
                                         },
-                                        Let {
+                                        Stmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     685,
@@ -4002,7 +4002,7 @@ Ok(
                                                 14,
                                             ),
                                         },
-                                        Let {
+                                        Stmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     692,
@@ -4031,7 +4031,7 @@ Ok(
                                                 16,
                                             ),
                                         },
-                                        Let {
+                                        Stmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     700,
@@ -4060,10 +4060,10 @@ Ok(
                                                 18,
                                             ),
                                         },
-                                        Eval {
+                                        Stmt::Eval {
                                             expr: 28,
                                         },
-                                        Let {
+                                        Stmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     720,
@@ -4092,7 +4092,7 @@ Ok(
                                                 29,
                                             ),
                                         },
-                                        While {
+                                        Stmt::While {
                                             while_token: WhileToken {
                                                 token_idx: TokenIdx(
                                                     725,
@@ -4114,7 +4114,7 @@ Ok(
                                                 ),
                                             ),
                                         },
-                                        ForBetween {
+                                        Stmt::ForBetween {
                                             for_token: ForToken {
                                                 token_idx: TokenIdx(
                                                     838,
@@ -4163,10 +4163,10 @@ Ok(
                                                 ),
                                             ),
                                         },
-                                        Eval {
+                                        Stmt::Eval {
                                             expr: 112,
                                         },
-                                        While {
+                                        Stmt::While {
                                             while_token: WhileToken {
                                                 token_idx: TokenIdx(
                                                     679,
@@ -4188,7 +4188,7 @@ Ok(
                                                 ),
                                             ),
                                         },
-                                        Let {
+                                        Stmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     656,
@@ -4217,7 +4217,7 @@ Ok(
                                                 3,
                                             ),
                                         },
-                                        Let {
+                                        Stmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     665,
@@ -4246,7 +4246,7 @@ Ok(
                                                 5,
                                             ),
                                         },
-                                        ForBetween {
+                                        Stmt::ForBetween {
                                             for_token: ForToken {
                                                 token_idx: TokenIdx(
                                                     674,
@@ -4293,7 +4293,7 @@ Ok(
                                                 ),
                                             ),
                                         },
-                                        Return {
+                                        Stmt::Return {
                                             return_token: ReturnToken {
                                                 token_idx: TokenIdx(
                                                     866,
@@ -4308,7 +4308,7 @@ Ok(
                                 pattern_expr_region: PatternExprRegion {
                                     pattern_expr_arena: Arena {
                                         data: [
-                                            Identifier {
+                                            PatternExpr::Identifier {
                                                 ident_token: IdentifierToken {
                                                     ident: `result`,
                                                     token_idx: TokenIdx(
@@ -4317,7 +4317,7 @@ Ok(
                                                 },
                                                 liason: None,
                                             },
-                                            Identifier {
+                                            PatternExpr::Identifier {
                                                 ident_token: IdentifierToken {
                                                     ident: `unsearched`,
                                                     token_idx: TokenIdx(
@@ -4326,7 +4326,7 @@ Ok(
                                                 },
                                                 liason: None,
                                             },
-                                            Identifier {
+                                            PatternExpr::Identifier {
                                                 ident_token: IdentifierToken {
                                                     ident: `a`,
                                                     token_idx: TokenIdx(
@@ -4335,7 +4335,7 @@ Ok(
                                                 },
                                                 liason: None,
                                             },
-                                            Identifier {
+                                            PatternExpr::Identifier {
                                                 ident_token: IdentifierToken {
                                                     ident: `shift`,
                                                     token_idx: TokenIdx(
@@ -4344,7 +4344,7 @@ Ok(
                                                 },
                                                 liason: None,
                                             },
-                                            Identifier {
+                                            PatternExpr::Identifier {
                                                 ident_token: IdentifierToken {
                                                     ident: `mask`,
                                                     token_idx: TokenIdx(
@@ -4353,7 +4353,7 @@ Ok(
                                                 },
                                                 liason: None,
                                             },
-                                            Identifier {
+                                            PatternExpr::Identifier {
                                                 ident_token: IdentifierToken {
                                                     ident: `flag`,
                                                     token_idx: TokenIdx(
@@ -4362,7 +4362,7 @@ Ok(
                                                 },
                                                 liason: None,
                                             },
-                                            Identifier {
+                                            PatternExpr::Identifier {
                                                 ident_token: IdentifierToken {
                                                     ident: `i`,
                                                     token_idx: TokenIdx(
@@ -4371,7 +4371,7 @@ Ok(
                                                 },
                                                 liason: None,
                                             },
-                                            Identifier {
+                                            PatternExpr::Identifier {
                                                 ident_token: IdentifierToken {
                                                     ident: `old_row`,
                                                     token_idx: TokenIdx(
@@ -4380,7 +4380,7 @@ Ok(
                                                 },
                                                 liason: None,
                                             },
-                                            Identifier {
+                                            PatternExpr::Identifier {
                                                 ident_token: IdentifierToken {
                                                     ident: `new_row`,
                                                     token_idx: TokenIdx(
@@ -4389,7 +4389,7 @@ Ok(
                                                 },
                                                 liason: None,
                                             },
-                                            Identifier {
+                                            PatternExpr::Identifier {
                                                 ident_token: IdentifierToken {
                                                     ident: `old_row`,
                                                     token_idx: TokenIdx(
@@ -4398,7 +4398,7 @@ Ok(
                                                 },
                                                 liason: None,
                                             },
-                                            Identifier {
+                                            PatternExpr::Identifier {
                                                 ident_token: IdentifierToken {
                                                     ident: `new_row`,
                                                     token_idx: TokenIdx(
@@ -4558,37 +4558,37 @@ Ok(
                                     ],
                                     pattern_symbol_arena: Arena {
                                         data: [
-                                            Atom(
+                                            PatternSymbol::Atom(
                                                 0,
                                             ),
-                                            Atom(
+                                            PatternSymbol::Atom(
                                                 1,
                                             ),
-                                            Atom(
+                                            PatternSymbol::Atom(
                                                 2,
                                             ),
-                                            Atom(
+                                            PatternSymbol::Atom(
                                                 3,
                                             ),
-                                            Atom(
+                                            PatternSymbol::Atom(
                                                 4,
                                             ),
-                                            Atom(
+                                            PatternSymbol::Atom(
                                                 5,
                                             ),
-                                            Atom(
+                                            PatternSymbol::Atom(
                                                 6,
                                             ),
-                                            Atom(
+                                            PatternSymbol::Atom(
                                                 7,
                                             ),
-                                            Atom(
+                                            PatternSymbol::Atom(
                                                 8,
                                             ),
-                                            Atom(
+                                            PatternSymbol::Atom(
                                                 9,
                                             ),
-                                            Atom(
+                                            PatternSymbol::Atom(
                                                 10,
                                             ),
                                         ],
@@ -4599,7 +4599,7 @@ Ok(
                                         data: [
                                             InheritedSymbol {
                                                 ident: `img`,
-                                                kind: Parameter,
+                                                kind: InheritedSymbolKind::Parameter,
                                             },
                                         ],
                                     },
@@ -4617,7 +4617,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: LetVariable {
+                                                variant: CurrentSymbolVariant::LetVariable {
                                                     pattern_symbol: 0,
                                                 },
                                             },
@@ -4633,7 +4633,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: LetVariable {
+                                                variant: CurrentSymbolVariant::LetVariable {
                                                     pattern_symbol: 1,
                                                 },
                                             },
@@ -4649,7 +4649,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: FrameVariable(
+                                                variant: CurrentSymbolVariant::FrameVariable(
                                                     6,
                                                 ),
                                             },
@@ -4665,7 +4665,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: LetVariable {
+                                                variant: CurrentSymbolVariant::LetVariable {
                                                     pattern_symbol: 2,
                                                 },
                                             },
@@ -4681,7 +4681,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: LetVariable {
+                                                variant: CurrentSymbolVariant::LetVariable {
                                                     pattern_symbol: 3,
                                                 },
                                             },
@@ -4697,7 +4697,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: LetVariable {
+                                                variant: CurrentSymbolVariant::LetVariable {
                                                     pattern_symbol: 4,
                                                 },
                                             },
@@ -4713,7 +4713,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: LetVariable {
+                                                variant: CurrentSymbolVariant::LetVariable {
                                                     pattern_symbol: 5,
                                                 },
                                             },
@@ -4729,7 +4729,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: LetVariable {
+                                                variant: CurrentSymbolVariant::LetVariable {
                                                     pattern_symbol: 6,
                                                 },
                                             },
@@ -4745,7 +4745,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: LetVariable {
+                                                variant: CurrentSymbolVariant::LetVariable {
                                                     pattern_symbol: 7,
                                                 },
                                             },
@@ -4761,7 +4761,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: LetVariable {
+                                                variant: CurrentSymbolVariant::LetVariable {
                                                     pattern_symbol: 8,
                                                 },
                                             },
@@ -4777,7 +4777,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: LetVariable {
+                                                variant: CurrentSymbolVariant::LetVariable {
                                                     pattern_symbol: 9,
                                                 },
                                             },
@@ -4793,7 +4793,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: LetVariable {
+                                                variant: CurrentSymbolVariant::LetVariable {
                                                     pattern_symbol: 10,
                                                 },
                                             },
@@ -4809,7 +4809,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: FrameVariable(
+                                                variant: CurrentSymbolVariant::FrameVariable(
                                                     95,
                                                 ),
                                             },
@@ -4832,13 +4832,13 @@ Ok(
                 ),
             ),
             ImplBlock(
-                TypeImplBlock(
+                ImplBlockDecl::TypeImplBlock(
                     TypeImplBlockDecl {
                         ast_idx: 125,
                         impl_block: ImplBlock {
                             id: ImplBlockId {
                                 module_path: `mnist_classifier::connected_component`,
-                                impl_block_kind: Type {
+                                impl_block_kind: ImplBlockKind::Type {
                                     ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 },
                             },
@@ -4846,12 +4846,8 @@ Ok(
                             body: ArenaIdxRange(
                                 67..79,
                             ),
-                            variant: Type {
-                                ty: TypePath(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
+                            variant: ImplBlockVariant::Type {
+                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                             },
                         },
                         impl_token: ImplToken {
@@ -4873,32 +4869,19 @@ Ok(
                         expr_region: ExprRegion {
                             data: ExprRegionData {
                                 parent: None,
-                                path: Decl(
-                                    ImplBlock(
-                                        ImplBlock {
-                                            id: ImplBlockId {
-                                                module_path: `mnist_classifier::connected_component`,
-                                                impl_block_kind: Type {
-                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                },
-                                            },
-                                            ast_idx: 125,
-                                            body: ArenaIdxRange(
-                                                67..79,
-                                            ),
-                                            variant: Type {
-                                                ty: TypePath(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
+                                path: RegionPath::Decl(
+                                    DeclExprPath::ImplBlock(
+                                        ImplBlockId {
+                                            module_path: `mnist_classifier::connected_component`,
+                                            impl_block_kind: ImplBlockKind::Type {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
                                     ),
                                 ),
                                 expr_arena: Arena {
                                     data: [
-                                        EntityPath {
+                                        Expr::EntityPath {
                                             entity_path_expr: 0,
                                             entity_path: Some(
                                                 TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -4908,7 +4891,7 @@ Ok(
                                 },
                                 entity_path_expr_arena: Arena {
                                     data: [
-                                        Root {
+                                        EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 86,
                                             ),
@@ -4974,26 +4957,12 @@ Ok(
                                 associated_item: AssociatedItem {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId {
-                                            module_path: ModulePath(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                            impl_block_kind: Type {
-                                                ty: TypePath(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
+                                            module_path: `mnist_classifier::connected_component`,
+                                            impl_block_kind: ImplBlockKind::Type {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 138,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `raw_contours`,
                                     },
                                     path: Some(
                                         TypeItemPath {
@@ -5005,7 +4974,7 @@ Ok(
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
                                             module_path: `mnist_classifier::connected_component`,
-                                            impl_block_kind: Type {
+                                            impl_block_kind: ImplBlockKind::Type {
                                                 ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
@@ -5013,12 +4982,8 @@ Ok(
                                         body: ArenaIdxRange(
                                             67..79,
                                         ),
-                                        variant: Type {
-                                            ty: TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
-                                            ),
+                                        variant: ImplBlockVariant::Type {
+                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         },
                                     },
                                     ast_idx: 67,
@@ -5038,32 +5003,19 @@ Ok(
                                             ExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
-                                                    path: Decl(
-                                                        ImplBlock(
-                                                            ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
+                                                    path: RegionPath::Decl(
+                                                        DeclExprPath::ImplBlock(
+                                                            ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                 },
                                                             },
                                                         ),
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            EntityPath {
+                                                            Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
                                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -5073,7 +5025,7 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
-                                                            Root {
+                                                            EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     86,
                                                                 ),
@@ -5115,73 +5067,22 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: Decl(
-                                            AssociatedItem(
-                                                AssociatedItem {
-                                                    id: AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
-                                                            module_path: ModulePath(
-                                                                Id {
-                                                                    value: 22,
-                                                                },
-                                                            ),
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(
-                                                                    Id {
-                                                                        value: 19,
-                                                                    },
-                                                                ),
-                                                            },
-                                                        },
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 138,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    path: Some(
-                                                        TypeItemPath {
+                                        path: RegionPath::Decl(
+                                            DeclExprPath::AssociatedItem(
+                                                AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            ident: `raw_contours`,
-                                                            ty_item_kind: Memo,
-                                                        },
-                                                    ),
-                                                    impl_block: ImplBlock {
-                                                        id: ImplBlockId {
-                                                            module_path: `mnist_classifier::connected_component`,
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            },
-                                                        },
-                                                        ast_idx: 125,
-                                                        body: ArenaIdxRange(
-                                                            67..79,
-                                                        ),
-                                                        variant: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
                                                         },
                                                     },
-                                                    ast_idx: 67,
                                                     ident: `raw_contours`,
-                                                    associated_item_kind: TypeItem(
-                                                        Memo,
-                                                    ),
-                                                    accessibility: PubicUnder(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                    is_generic: false,
                                                 },
                                             ),
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                NewBoxList {
+                                                Expr::NewBoxList {
                                                     caller: None,
                                                     lbox_token_idx: TokenIdx(
                                                         91,
@@ -5193,13 +5094,13 @@ Ok(
                                                         92,
                                                     ),
                                                 },
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
                                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     ),
                                                 },
-                                                Application {
+                                                Expr::Application {
                                                     function: 0,
                                                     argument: 1,
                                                 },
@@ -5207,7 +5108,7 @@ Ok(
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         93,
                                                     ),
@@ -5277,32 +5178,19 @@ Ok(
                                                     ExprRegion {
                                                         data: ExprRegionData {
                                                             parent: None,
-                                                            path: Decl(
-                                                                ImplBlock(
-                                                                    ImplBlock {
-                                                                        id: ImplBlockId {
-                                                                            module_path: `mnist_classifier::connected_component`,
-                                                                            impl_block_kind: Type {
-                                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                            },
-                                                                        },
-                                                                        ast_idx: 125,
-                                                                        body: ArenaIdxRange(
-                                                                            67..79,
-                                                                        ),
-                                                                        variant: Type {
-                                                                            ty: TypePath(
-                                                                                Id {
-                                                                                    value: 19,
-                                                                                },
-                                                                            ),
+                                                            path: RegionPath::Decl(
+                                                                DeclExprPath::ImplBlock(
+                                                                    ImplBlockId {
+                                                                        module_path: `mnist_classifier::connected_component`,
+                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                         },
                                                                     },
                                                                 ),
                                                             ),
                                                             expr_arena: Arena {
                                                                 data: [
-                                                                    EntityPath {
+                                                                    Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
                                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -5312,7 +5200,7 @@ Ok(
                                                             },
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
-                                                                    Root {
+                                                                    EntityPathExpr::Root {
                                                                         token_idx: TokenIdx(
                                                                             86,
                                                                         ),
@@ -5354,73 +5242,22 @@ Ok(
                                                         },
                                                     },
                                                 ),
-                                                path: Decl(
-                                                    AssociatedItem(
-                                                        AssociatedItem {
-                                                            id: AssociatedItemId {
-                                                                impl_block_id: ImplBlockId {
-                                                                    module_path: ModulePath(
-                                                                        Id {
-                                                                            value: 22,
-                                                                        },
-                                                                    ),
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(
-                                                                            Id {
-                                                                                value: 19,
-                                                                            },
-                                                                        ),
-                                                                    },
-                                                                },
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 138,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            },
-                                                            path: Some(
-                                                                TypeItemPath {
+                                                path: RegionPath::Decl(
+                                                    DeclExprPath::AssociatedItem(
+                                                        AssociatedItemId {
+                                                            impl_block_id: ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
                                                                     ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    ident: `raw_contours`,
-                                                                    ty_item_kind: Memo,
-                                                                },
-                                                            ),
-                                                            impl_block: ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
                                                                 },
                                                             },
-                                                            ast_idx: 67,
                                                             ident: `raw_contours`,
-                                                            associated_item_kind: TypeItem(
-                                                                Memo,
-                                                            ),
-                                                            accessibility: PubicUnder(
-                                                                `mnist_classifier::connected_component`,
-                                                            ),
-                                                            is_generic: false,
                                                         },
                                                     ),
                                                 ),
                                                 expr_arena: Arena {
                                                     data: [
-                                                        NewBoxList {
+                                                        Expr::NewBoxList {
                                                             caller: None,
                                                             lbox_token_idx: TokenIdx(
                                                                 91,
@@ -5432,13 +5269,13 @@ Ok(
                                                                 92,
                                                             ),
                                                         },
-                                                        EntityPath {
+                                                        Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
                                                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                             ),
                                                         },
-                                                        Application {
+                                                        Expr::Application {
                                                             function: 0,
                                                             argument: 1,
                                                         },
@@ -5446,7 +5283,7 @@ Ok(
                                                 },
                                                 entity_path_expr_arena: Arena {
                                                     data: [
-                                                        Root {
+                                                        EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 93,
                                                             ),
@@ -5488,31 +5325,17 @@ Ok(
                                             },
                                         },
                                     ),
-                                    path: Defn(
-                                        AssociatedItem(
+                                    path: RegionPath::Defn(
+                                        DefnExprPath::AssociatedItem(
                                             AssociatedItem {
                                                 id: AssociatedItemId {
                                                     impl_block_id: ImplBlockId {
-                                                        module_path: ModulePath(
-                                                            Id {
-                                                                value: 22,
-                                                            },
-                                                        ),
-                                                        impl_block_kind: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
+                                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         },
                                                     },
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 138,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `raw_contours`,
                                                 },
                                                 path: Some(
                                                     TypeItemPath {
@@ -5524,7 +5347,7 @@ Ok(
                                                 impl_block: ImplBlock {
                                                     id: ImplBlockId {
                                                         module_path: `mnist_classifier::connected_component`,
-                                                        impl_block_kind: Type {
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         },
                                                     },
@@ -5532,12 +5355,8 @@ Ok(
                                                     body: ArenaIdxRange(
                                                         67..79,
                                                     ),
-                                                    variant: Type {
-                                                        ty: TypePath(
-                                                            Id {
-                                                                value: 19,
-                                                            },
-                                                        ),
+                                                    variant: ImplBlockVariant::Type {
+                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     },
                                                 },
                                                 ast_idx: 67,
@@ -5554,18 +5373,18 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
                                                 ),
                                             },
-                                            SelfValue(
+                                            Expr::SelfValue(
                                                 TokenIdx(
                                                     97,
                                                 ),
                                             ),
-                                            ApplicationOrFunctionCall {
+                                            Expr::ApplicationOrFunctionCall {
                                                 function: 0,
                                                 lpar_token_idx: TokenIdx(
                                                     96,
@@ -5575,7 +5394,7 @@ Ok(
                                                     98,
                                                 ),
                                             },
-                                            Block {
+                                            Expr::Block {
                                                 stmts: ArenaIdxRange(
                                                     0..1,
                                                 ),
@@ -5584,7 +5403,7 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     95,
                                                 ),
@@ -5595,7 +5414,7 @@ Ok(
                                     },
                                     stmt_arena: Arena {
                                         data: [
-                                            Eval {
+                                            Stmt::Eval {
                                                 expr: 2,
                                             },
                                         ],
@@ -5653,26 +5472,12 @@ Ok(
                                 associated_item: AssociatedItem {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId {
-                                            module_path: ModulePath(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                            impl_block_kind: Type {
-                                                ty: TypePath(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
+                                            module_path: `mnist_classifier::connected_component`,
+                                            impl_block_kind: ImplBlockKind::Type {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 139,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `eff_holes`,
                                     },
                                     path: Some(
                                         TypeItemPath {
@@ -5684,7 +5489,7 @@ Ok(
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
                                             module_path: `mnist_classifier::connected_component`,
-                                            impl_block_kind: Type {
+                                            impl_block_kind: ImplBlockKind::Type {
                                                 ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
@@ -5692,12 +5497,8 @@ Ok(
                                         body: ArenaIdxRange(
                                             67..79,
                                         ),
-                                        variant: Type {
-                                            ty: TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
-                                            ),
+                                        variant: ImplBlockVariant::Type {
+                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         },
                                     },
                                     ast_idx: 68,
@@ -5717,32 +5518,19 @@ Ok(
                                             ExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
-                                                    path: Decl(
-                                                        ImplBlock(
-                                                            ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
+                                                    path: RegionPath::Decl(
+                                                        DeclExprPath::ImplBlock(
+                                                            ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                 },
                                                             },
                                                         ),
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            EntityPath {
+                                                            Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
                                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -5752,7 +5540,7 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
-                                                            Root {
+                                                            EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     86,
                                                                 ),
@@ -5794,73 +5582,22 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: Decl(
-                                            AssociatedItem(
-                                                AssociatedItem {
-                                                    id: AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
-                                                            module_path: ModulePath(
-                                                                Id {
-                                                                    value: 22,
-                                                                },
-                                                            ),
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(
-                                                                    Id {
-                                                                        value: 19,
-                                                                    },
-                                                                ),
-                                                            },
-                                                        },
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 139,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    path: Some(
-                                                        TypeItemPath {
+                                        path: RegionPath::Decl(
+                                            DeclExprPath::AssociatedItem(
+                                                AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            ident: `eff_holes`,
-                                                            ty_item_kind: Memo,
-                                                        },
-                                                    ),
-                                                    impl_block: ImplBlock {
-                                                        id: ImplBlockId {
-                                                            module_path: `mnist_classifier::connected_component`,
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            },
-                                                        },
-                                                        ast_idx: 125,
-                                                        body: ArenaIdxRange(
-                                                            67..79,
-                                                        ),
-                                                        variant: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
                                                         },
                                                     },
-                                                    ast_idx: 68,
                                                     ident: `eff_holes`,
-                                                    associated_item_kind: TypeItem(
-                                                        Memo,
-                                                    ),
-                                                    accessibility: PubicUnder(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                    is_generic: false,
                                                 },
                                             ),
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
                                                         TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
@@ -5870,7 +5607,7 @@ Ok(
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         102,
                                                     ),
@@ -5940,32 +5677,19 @@ Ok(
                                                     ExprRegion {
                                                         data: ExprRegionData {
                                                             parent: None,
-                                                            path: Decl(
-                                                                ImplBlock(
-                                                                    ImplBlock {
-                                                                        id: ImplBlockId {
-                                                                            module_path: `mnist_classifier::connected_component`,
-                                                                            impl_block_kind: Type {
-                                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                            },
-                                                                        },
-                                                                        ast_idx: 125,
-                                                                        body: ArenaIdxRange(
-                                                                            67..79,
-                                                                        ),
-                                                                        variant: Type {
-                                                                            ty: TypePath(
-                                                                                Id {
-                                                                                    value: 19,
-                                                                                },
-                                                                            ),
+                                                            path: RegionPath::Decl(
+                                                                DeclExprPath::ImplBlock(
+                                                                    ImplBlockId {
+                                                                        module_path: `mnist_classifier::connected_component`,
+                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                         },
                                                                     },
                                                                 ),
                                                             ),
                                                             expr_arena: Arena {
                                                                 data: [
-                                                                    EntityPath {
+                                                                    Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
                                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -5975,7 +5699,7 @@ Ok(
                                                             },
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
-                                                                    Root {
+                                                                    EntityPathExpr::Root {
                                                                         token_idx: TokenIdx(
                                                                             86,
                                                                         ),
@@ -6017,73 +5741,22 @@ Ok(
                                                         },
                                                     },
                                                 ),
-                                                path: Decl(
-                                                    AssociatedItem(
-                                                        AssociatedItem {
-                                                            id: AssociatedItemId {
-                                                                impl_block_id: ImplBlockId {
-                                                                    module_path: ModulePath(
-                                                                        Id {
-                                                                            value: 22,
-                                                                        },
-                                                                    ),
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(
-                                                                            Id {
-                                                                                value: 19,
-                                                                            },
-                                                                        ),
-                                                                    },
-                                                                },
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 139,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            },
-                                                            path: Some(
-                                                                TypeItemPath {
+                                                path: RegionPath::Decl(
+                                                    DeclExprPath::AssociatedItem(
+                                                        AssociatedItemId {
+                                                            impl_block_id: ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
                                                                     ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    ident: `eff_holes`,
-                                                                    ty_item_kind: Memo,
-                                                                },
-                                                            ),
-                                                            impl_block: ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
                                                                 },
                                                             },
-                                                            ast_idx: 68,
                                                             ident: `eff_holes`,
-                                                            associated_item_kind: TypeItem(
-                                                                Memo,
-                                                            ),
-                                                            accessibility: PubicUnder(
-                                                                `mnist_classifier::connected_component`,
-                                                            ),
-                                                            is_generic: false,
                                                         },
                                                     ),
                                                 ),
                                                 expr_arena: Arena {
                                                     data: [
-                                                        EntityPath {
+                                                        Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
                                                                 TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
@@ -6093,7 +5766,7 @@ Ok(
                                                 },
                                                 entity_path_expr_arena: Arena {
                                                     data: [
-                                                        Root {
+                                                        EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 102,
                                                             ),
@@ -6135,31 +5808,17 @@ Ok(
                                             },
                                         },
                                     ),
-                                    path: Defn(
-                                        AssociatedItem(
+                                    path: RegionPath::Defn(
+                                        DefnExprPath::AssociatedItem(
                                             AssociatedItem {
                                                 id: AssociatedItemId {
                                                     impl_block_id: ImplBlockId {
-                                                        module_path: ModulePath(
-                                                            Id {
-                                                                value: 22,
-                                                            },
-                                                        ),
-                                                        impl_block_kind: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
+                                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         },
                                                     },
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 139,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `eff_holes`,
                                                 },
                                                 path: Some(
                                                     TypeItemPath {
@@ -6171,7 +5830,7 @@ Ok(
                                                 impl_block: ImplBlock {
                                                     id: ImplBlockId {
                                                         module_path: `mnist_classifier::connected_component`,
-                                                        impl_block_kind: Type {
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         },
                                                     },
@@ -6179,12 +5838,8 @@ Ok(
                                                     body: ArenaIdxRange(
                                                         67..79,
                                                     ),
-                                                    variant: Type {
-                                                        ty: TypePath(
-                                                            Id {
-                                                                value: 19,
-                                                            },
-                                                        ),
+                                                    variant: ImplBlockVariant::Type {
+                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     },
                                                 },
                                                 ast_idx: 68,
@@ -6201,12 +5856,12 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            SelfValue(
+                                            Expr::SelfValue(
                                                 TokenIdx(
                                                     108,
                                                 ),
                                             ),
-                                            Field {
+                                            Expr::Field {
                                                 this_expr: 0,
                                                 dot_token_idx: TokenIdx(
                                                     109,
@@ -6218,7 +5873,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            MethodCall {
+                                            Expr::MethodCall {
                                                 this_expr: 1,
                                                 dot_token_idx: TokenIdx(
                                                     111,
@@ -6240,13 +5895,13 @@ Ok(
                                                     114,
                                                 ),
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                 ),
                                             },
-                                            FunctionCall {
+                                            Expr::FunctionCall {
                                                 function: 3,
                                                 implicit_arguments: None,
                                                 lpar_token_idx: TokenIdx(
@@ -6259,14 +5914,14 @@ Ok(
                                                     125,
                                                 ),
                                             },
-                                            PrefixOpn {
+                                            Expr::PrefixOpn {
                                                 opr: Ref,
                                                 opr_token_idx: TokenIdx(
                                                     122,
                                                 ),
                                                 opd: 4,
                                             },
-                                            NewBoxList {
+                                            Expr::NewBoxList {
                                                 caller: None,
                                                 lbox_token_idx: TokenIdx(
                                                     119,
@@ -6278,34 +5933,34 @@ Ok(
                                                     120,
                                                 ),
                                             },
-                                            PrefixOpn {
+                                            Expr::PrefixOpn {
                                                 opr: Option,
                                                 opr_token_idx: TokenIdx(
                                                     121,
                                                 ),
                                                 opd: 5,
                                             },
-                                            Application {
+                                            Expr::Application {
                                                 function: 6,
                                                 argument: 7,
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `raw_contours`,
                                                 token_idx: TokenIdx(
                                                     126,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 1,
                                                 },
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
                                                     FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
                                                 ),
                                             },
-                                            MethodCall {
+                                            Expr::MethodCall {
                                                 this_expr: 9,
                                                 dot_token_idx: TokenIdx(
                                                     127,
@@ -6327,33 +5982,33 @@ Ok(
                                                     131,
                                                 ),
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `matches`,
                                                 token_idx: TokenIdx(
                                                     133,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 0,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `raw_contours`,
                                                 token_idx: TokenIdx(
                                                     137,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 1,
                                                 },
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 2,
                                                 entity_path: Some(
                                                     FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
                                                 ),
                                             },
-                                            MethodCall {
+                                            Expr::MethodCall {
                                                 this_expr: 13,
                                                 dot_token_idx: TokenIdx(
                                                     138,
@@ -6375,7 +6030,7 @@ Ok(
                                                     142,
                                                 ),
                                             },
-                                            MethodCall {
+                                            Expr::MethodCall {
                                                 this_expr: 12,
                                                 dot_token_idx: TokenIdx(
                                                     134,
@@ -6397,33 +6052,33 @@ Ok(
                                                     143,
                                                 ),
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `matches`,
                                                 token_idx: TokenIdx(
                                                     144,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 0,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `raw_contours`,
                                                 token_idx: TokenIdx(
                                                     148,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 1,
                                                 },
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 3,
                                                 entity_path: Some(
                                                     FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
                                                 ),
                                             },
-                                            MethodCall {
+                                            Expr::MethodCall {
                                                 this_expr: 18,
                                                 dot_token_idx: TokenIdx(
                                                     149,
@@ -6445,7 +6100,7 @@ Ok(
                                                     153,
                                                 ),
                                             },
-                                            MethodCall {
+                                            Expr::MethodCall {
                                                 this_expr: 17,
                                                 dot_token_idx: TokenIdx(
                                                     145,
@@ -6467,23 +6122,23 @@ Ok(
                                                     154,
                                                 ),
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 4,
                                                 entity_path: Some(
                                                     TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                                 ),
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `matches`,
                                                 token_idx: TokenIdx(
                                                     158,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 0,
                                                 },
                                             },
-                                            ApplicationOrFunctionCall {
+                                            Expr::ApplicationOrFunctionCall {
                                                 function: 22,
                                                 lpar_token_idx: TokenIdx(
                                                     157,
@@ -6493,7 +6148,7 @@ Ok(
                                                     159,
                                                 ),
                                             },
-                                            Block {
+                                            Expr::Block {
                                                 stmts: ArenaIdxRange(
                                                     0..6,
                                                 ),
@@ -6502,35 +6157,35 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     123,
                                                 ),
                                                 ident: `RawContour`,
                                                 entity_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             },
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     130,
                                                 ),
                                                 ident: `hole_tmpl`,
                                                 entity_path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
                                             },
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     141,
                                                 ),
                                                 ident: `hole_tmpl`,
                                                 entity_path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
                                             },
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     152,
                                                 ),
                                                 ident: `hole_tmpl`,
                                                 entity_path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
                                             },
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     156,
                                                 ),
@@ -6541,7 +6196,7 @@ Ok(
                                     },
                                     stmt_arena: Arena {
                                         data: [
-                                            Let {
+                                            Stmt::Let {
                                                 let_token: LetToken {
                                                     token_idx: TokenIdx(
                                                         104,
@@ -6570,7 +6225,7 @@ Ok(
                                                     2,
                                                 ),
                                             },
-                                            Let {
+                                            Stmt::Let {
                                                 let_token: LetToken {
                                                     token_idx: TokenIdx(
                                                         115,
@@ -6599,16 +6254,16 @@ Ok(
                                                     8,
                                                 ),
                                             },
-                                            Eval {
+                                            Stmt::Eval {
                                                 expr: 11,
                                             },
-                                            Eval {
+                                            Stmt::Eval {
                                                 expr: 16,
                                             },
-                                            Eval {
+                                            Stmt::Eval {
                                                 expr: 21,
                                             },
-                                            Return {
+                                            Stmt::Return {
                                                 return_token: ReturnToken {
                                                     token_idx: TokenIdx(
                                                         155,
@@ -6623,7 +6278,7 @@ Ok(
                                     pattern_expr_region: PatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `raw_contours`,
                                                         token_idx: TokenIdx(
@@ -6632,7 +6287,7 @@ Ok(
                                                     },
                                                     liason: None,
                                                 },
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `matches`,
                                                         token_idx: TokenIdx(
@@ -6675,10 +6330,10 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     0,
                                                 ),
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     1,
                                                 ),
                                             ],
@@ -6702,7 +6357,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    variant: LetVariable {
+                                                    variant: CurrentSymbolVariant::LetVariable {
                                                         pattern_symbol: 0,
                                                     },
                                                 },
@@ -6718,7 +6373,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    variant: LetVariable {
+                                                    variant: CurrentSymbolVariant::LetVariable {
                                                         pattern_symbol: 1,
                                                     },
                                                 },
@@ -6760,26 +6415,12 @@ Ok(
                                 associated_item: AssociatedItem {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId {
-                                            module_path: ModulePath(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                            impl_block_kind: Type {
-                                                ty: TypePath(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
+                                            module_path: `mnist_classifier::connected_component`,
+                                            impl_block_kind: ImplBlockKind::Type {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 143,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `max_hole_ilen`,
                                     },
                                     path: Some(
                                         TypeItemPath {
@@ -6791,7 +6432,7 @@ Ok(
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
                                             module_path: `mnist_classifier::connected_component`,
-                                            impl_block_kind: Type {
+                                            impl_block_kind: ImplBlockKind::Type {
                                                 ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
@@ -6799,12 +6440,8 @@ Ok(
                                         body: ArenaIdxRange(
                                             67..79,
                                         ),
-                                        variant: Type {
-                                            ty: TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
-                                            ),
+                                        variant: ImplBlockVariant::Type {
+                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         },
                                     },
                                     ast_idx: 69,
@@ -6824,32 +6461,19 @@ Ok(
                                             ExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
-                                                    path: Decl(
-                                                        ImplBlock(
-                                                            ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
+                                                    path: RegionPath::Decl(
+                                                        DeclExprPath::ImplBlock(
+                                                            ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                 },
                                                             },
                                                         ),
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            EntityPath {
+                                                            Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
                                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -6859,7 +6483,7 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
-                                                            Root {
+                                                            EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     86,
                                                                 ),
@@ -6901,73 +6525,22 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: Decl(
-                                            AssociatedItem(
-                                                AssociatedItem {
-                                                    id: AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
-                                                            module_path: ModulePath(
-                                                                Id {
-                                                                    value: 22,
-                                                                },
-                                                            ),
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(
-                                                                    Id {
-                                                                        value: 19,
-                                                                    },
-                                                                ),
-                                                            },
-                                                        },
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 143,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    path: Some(
-                                                        TypeItemPath {
+                                        path: RegionPath::Decl(
+                                            DeclExprPath::AssociatedItem(
+                                                AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            ident: `max_hole_ilen`,
-                                                            ty_item_kind: Memo,
-                                                        },
-                                                    ),
-                                                    impl_block: ImplBlock {
-                                                        id: ImplBlockId {
-                                                            module_path: `mnist_classifier::connected_component`,
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            },
-                                                        },
-                                                        ast_idx: 125,
-                                                        body: ArenaIdxRange(
-                                                            67..79,
-                                                        ),
-                                                        variant: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
                                                         },
                                                     },
-                                                    ast_idx: 69,
                                                     ident: `max_hole_ilen`,
-                                                    associated_item_kind: TypeItem(
-                                                        Memo,
-                                                    ),
-                                                    accessibility: PubicUnder(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                    is_generic: false,
                                                 },
                                             ),
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
                                                         TypePath(`core::num::f32`, `Alien`),
@@ -6977,7 +6550,7 @@ Ok(
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         163,
                                                     ),
@@ -7047,32 +6620,19 @@ Ok(
                                                     ExprRegion {
                                                         data: ExprRegionData {
                                                             parent: None,
-                                                            path: Decl(
-                                                                ImplBlock(
-                                                                    ImplBlock {
-                                                                        id: ImplBlockId {
-                                                                            module_path: `mnist_classifier::connected_component`,
-                                                                            impl_block_kind: Type {
-                                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                            },
-                                                                        },
-                                                                        ast_idx: 125,
-                                                                        body: ArenaIdxRange(
-                                                                            67..79,
-                                                                        ),
-                                                                        variant: Type {
-                                                                            ty: TypePath(
-                                                                                Id {
-                                                                                    value: 19,
-                                                                                },
-                                                                            ),
+                                                            path: RegionPath::Decl(
+                                                                DeclExprPath::ImplBlock(
+                                                                    ImplBlockId {
+                                                                        module_path: `mnist_classifier::connected_component`,
+                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                         },
                                                                     },
                                                                 ),
                                                             ),
                                                             expr_arena: Arena {
                                                                 data: [
-                                                                    EntityPath {
+                                                                    Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
                                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -7082,7 +6642,7 @@ Ok(
                                                             },
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
-                                                                    Root {
+                                                                    EntityPathExpr::Root {
                                                                         token_idx: TokenIdx(
                                                                             86,
                                                                         ),
@@ -7124,73 +6684,22 @@ Ok(
                                                         },
                                                     },
                                                 ),
-                                                path: Decl(
-                                                    AssociatedItem(
-                                                        AssociatedItem {
-                                                            id: AssociatedItemId {
-                                                                impl_block_id: ImplBlockId {
-                                                                    module_path: ModulePath(
-                                                                        Id {
-                                                                            value: 22,
-                                                                        },
-                                                                    ),
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(
-                                                                            Id {
-                                                                                value: 19,
-                                                                            },
-                                                                        ),
-                                                                    },
-                                                                },
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 143,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            },
-                                                            path: Some(
-                                                                TypeItemPath {
+                                                path: RegionPath::Decl(
+                                                    DeclExprPath::AssociatedItem(
+                                                        AssociatedItemId {
+                                                            impl_block_id: ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
                                                                     ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    ident: `max_hole_ilen`,
-                                                                    ty_item_kind: Memo,
-                                                                },
-                                                            ),
-                                                            impl_block: ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
                                                                 },
                                                             },
-                                                            ast_idx: 69,
                                                             ident: `max_hole_ilen`,
-                                                            associated_item_kind: TypeItem(
-                                                                Memo,
-                                                            ),
-                                                            accessibility: PubicUnder(
-                                                                `mnist_classifier::connected_component`,
-                                                            ),
-                                                            is_generic: false,
                                                         },
                                                     ),
                                                 ),
                                                 expr_arena: Arena {
                                                     data: [
-                                                        EntityPath {
+                                                        Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
                                                                 TypePath(`core::num::f32`, `Alien`),
@@ -7200,7 +6709,7 @@ Ok(
                                                 },
                                                 entity_path_expr_arena: Arena {
                                                     data: [
-                                                        Root {
+                                                        EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 163,
                                                             ),
@@ -7242,31 +6751,17 @@ Ok(
                                             },
                                         },
                                     ),
-                                    path: Defn(
-                                        AssociatedItem(
+                                    path: RegionPath::Defn(
+                                        DefnExprPath::AssociatedItem(
                                             AssociatedItem {
                                                 id: AssociatedItemId {
                                                     impl_block_id: ImplBlockId {
-                                                        module_path: ModulePath(
-                                                            Id {
-                                                                value: 22,
-                                                            },
-                                                        ),
-                                                        impl_block_kind: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
+                                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         },
                                                     },
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 143,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `max_hole_ilen`,
                                                 },
                                                 path: Some(
                                                     TypeItemPath {
@@ -7278,7 +6773,7 @@ Ok(
                                                 impl_block: ImplBlock {
                                                     id: ImplBlockId {
                                                         module_path: `mnist_classifier::connected_component`,
-                                                        impl_block_kind: Type {
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         },
                                                     },
@@ -7286,12 +6781,8 @@ Ok(
                                                     body: ArenaIdxRange(
                                                         67..79,
                                                     ),
-                                                    variant: Type {
-                                                        ty: TypePath(
-                                                            Id {
-                                                                value: 19,
-                                                            },
-                                                        ),
+                                                    variant: ImplBlockVariant::Type {
+                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     },
                                                 },
                                                 ast_idx: 69,
@@ -7308,17 +6799,17 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Literal(
+                                            Expr::Literal(
                                                 TokenIdx(
                                                     169,
                                                 ),
                                             ),
-                                            SelfValue(
+                                            Expr::SelfValue(
                                                 TokenIdx(
                                                     173,
                                                 ),
                                             ),
-                                            Field {
+                                            Expr::Field {
                                                 this_expr: 1,
                                                 dot_token_idx: TokenIdx(
                                                     174,
@@ -7330,32 +6821,32 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            Literal(
+                                            Expr::Literal(
                                                 TokenIdx(
                                                     177,
                                                 ),
                                             ),
-                                            FrameVarDecl {
+                                            Expr::FrameVarDecl {
                                                 token_idx: TokenIdx(
                                                     179,
                                                 ),
                                                 ident: `i`,
                                                 current_symbol_idx: 2,
-                                                current_symbol_kind: FrameVariable(
+                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                     4,
                                                 ),
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `raw_contours`,
                                                 token_idx: TokenIdx(
                                                     181,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 0,
                                                 },
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 3,
                                                 opr: Comparison(
                                                     Less,
@@ -7365,7 +6856,7 @@ Ok(
                                                 ),
                                                 ropd: 4,
                                             },
-                                            MethodCall {
+                                            Expr::MethodCall {
                                                 this_expr: 5,
                                                 dot_token_idx: TokenIdx(
                                                     182,
@@ -7387,7 +6878,7 @@ Ok(
                                                     185,
                                                 ),
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 6,
                                                 opr: Comparison(
                                                     Less,
@@ -7397,27 +6888,27 @@ Ok(
                                                 ),
                                                 ropd: 7,
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `raw_contours`,
                                                 token_idx: TokenIdx(
                                                     190,
                                                 ),
                                                 current_symbol_idx: 2,
-                                                current_symbol_kind: FrameVariable(
+                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                     4,
                                                 ),
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `i`,
                                                 token_idx: TokenIdx(
                                                     192,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 1,
                                                 },
                                             },
-                                            NewBoxList {
+                                            Expr::NewBoxList {
                                                 caller: Some(
                                                     9,
                                                 ),
@@ -7431,7 +6922,7 @@ Ok(
                                                     193,
                                                 ),
                                             },
-                                            Field {
+                                            Expr::Field {
                                                 this_expr: 11,
                                                 dot_token_idx: TokenIdx(
                                                     194,
@@ -7443,7 +6934,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            MethodCall {
+                                            Expr::MethodCall {
                                                 this_expr: 12,
                                                 dot_token_idx: TokenIdx(
                                                     196,
@@ -7465,27 +6956,27 @@ Ok(
                                                     199,
                                                 ),
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `max_hole_ilen`,
                                                 token_idx: TokenIdx(
                                                     201,
                                                 ),
                                                 current_symbol_idx: 3,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 2,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `hole_ilen`,
                                                 token_idx: TokenIdx(
                                                     203,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 0,
                                                 },
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 14,
                                                 opr: Comparison(
                                                     Less,
@@ -7495,27 +6986,27 @@ Ok(
                                                 ),
                                                 ropd: 15,
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `max_hole_ilen`,
                                                 token_idx: TokenIdx(
                                                     205,
                                                 ),
                                                 current_symbol_idx: 3,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 2,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `hole_ilen`,
                                                 token_idx: TokenIdx(
                                                     207,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 0,
                                                 },
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 17,
                                                 opr: Assign(
                                                     None,
@@ -7525,23 +7016,23 @@ Ok(
                                                 ),
                                                 ropd: 18,
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `max_hole_ilen`,
                                                 token_idx: TokenIdx(
                                                     209,
                                                 ),
                                                 current_symbol_idx: 3,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 2,
                                                 },
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`core::num::f32`, `Alien`),
                                                 ),
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 20,
                                                 opr: As,
                                                 opr_token_idx: TokenIdx(
@@ -7549,7 +7040,7 @@ Ok(
                                                 ),
                                                 ropd: 21,
                                             },
-                                            Block {
+                                            Expr::Block {
                                                 stmts: ArenaIdxRange(
                                                     3..7,
                                                 ),
@@ -7558,7 +7049,7 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     211,
                                                 ),
@@ -7569,10 +7060,10 @@ Ok(
                                     },
                                     stmt_arena: Arena {
                                         data: [
-                                            Eval {
+                                            Stmt::Eval {
                                                 expr: 19,
                                             },
-                                            Let {
+                                            Stmt::Let {
                                                 let_token: LetToken {
                                                     token_idx: TokenIdx(
                                                         187,
@@ -7601,7 +7092,7 @@ Ok(
                                                     13,
                                                 ),
                                             },
-                                            IfElse {
+                                            Stmt::IfElse {
                                                 if_branch: IfBranch {
                                                     if_token: IfToken {
                                                         token_idx: TokenIdx(
@@ -7627,7 +7118,7 @@ Ok(
                                                 elif_branches: [],
                                                 else_branch: None,
                                             },
-                                            Let {
+                                            Stmt::Let {
                                                 let_token: LetToken {
                                                     token_idx: TokenIdx(
                                                         165,
@@ -7656,7 +7147,7 @@ Ok(
                                                     0,
                                                 ),
                                             },
-                                            Let {
+                                            Stmt::Let {
                                                 let_token: LetToken {
                                                     token_idx: TokenIdx(
                                                         170,
@@ -7685,7 +7176,7 @@ Ok(
                                                     2,
                                                 ),
                                             },
-                                            ForBetween {
+                                            Stmt::ForBetween {
                                                 for_token: ForToken {
                                                     token_idx: TokenIdx(
                                                         176,
@@ -7734,7 +7225,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Return {
+                                            Stmt::Return {
                                                 return_token: ReturnToken {
                                                     token_idx: TokenIdx(
                                                         208,
@@ -7749,7 +7240,7 @@ Ok(
                                     pattern_expr_region: PatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `max_hole_ilen`,
                                                         token_idx: TokenIdx(
@@ -7758,7 +7249,7 @@ Ok(
                                                     },
                                                     liason: None,
                                                 },
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `raw_contours`,
                                                         token_idx: TokenIdx(
@@ -7767,7 +7258,7 @@ Ok(
                                                     },
                                                     liason: None,
                                                 },
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `hole_ilen`,
                                                         token_idx: TokenIdx(
@@ -7823,13 +7314,13 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     0,
                                                 ),
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     1,
                                                 ),
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     2,
                                                 ),
                                             ],
@@ -7853,7 +7344,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    variant: LetVariable {
+                                                    variant: CurrentSymbolVariant::LetVariable {
                                                         pattern_symbol: 0,
                                                     },
                                                 },
@@ -7869,7 +7360,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    variant: LetVariable {
+                                                    variant: CurrentSymbolVariant::LetVariable {
                                                         pattern_symbol: 1,
                                                     },
                                                 },
@@ -7885,7 +7376,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    variant: FrameVariable(
+                                                    variant: CurrentSymbolVariant::FrameVariable(
                                                         4,
                                                     ),
                                                 },
@@ -7901,7 +7392,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    variant: LetVariable {
+                                                    variant: CurrentSymbolVariant::LetVariable {
                                                         pattern_symbol: 2,
                                                     },
                                                 },
@@ -7945,26 +7436,12 @@ Ok(
                                 associated_item: AssociatedItem {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId {
-                                            module_path: ModulePath(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                            impl_block_kind: Type {
-                                                ty: TypePath(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
+                                            module_path: `mnist_classifier::connected_component`,
+                                            impl_block_kind: ImplBlockKind::Type {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 148,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `max_row_span`,
                                     },
                                     path: Some(
                                         TypeItemPath {
@@ -7976,7 +7453,7 @@ Ok(
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
                                             module_path: `mnist_classifier::connected_component`,
-                                            impl_block_kind: Type {
+                                            impl_block_kind: ImplBlockKind::Type {
                                                 ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
@@ -7984,12 +7461,8 @@ Ok(
                                         body: ArenaIdxRange(
                                             67..79,
                                         ),
-                                        variant: Type {
-                                            ty: TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
-                                            ),
+                                        variant: ImplBlockVariant::Type {
+                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         },
                                     },
                                     ast_idx: 70,
@@ -8009,32 +7482,19 @@ Ok(
                                             ExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
-                                                    path: Decl(
-                                                        ImplBlock(
-                                                            ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
+                                                    path: RegionPath::Decl(
+                                                        DeclExprPath::ImplBlock(
+                                                            ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                 },
                                                             },
                                                         ),
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            EntityPath {
+                                                            Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
                                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -8044,7 +7504,7 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
-                                                            Root {
+                                                            EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     86,
                                                                 ),
@@ -8086,73 +7546,22 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: Decl(
-                                            AssociatedItem(
-                                                AssociatedItem {
-                                                    id: AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
-                                                            module_path: ModulePath(
-                                                                Id {
-                                                                    value: 22,
-                                                                },
-                                                            ),
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(
-                                                                    Id {
-                                                                        value: 19,
-                                                                    },
-                                                                ),
-                                                            },
-                                                        },
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 148,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    path: Some(
-                                                        TypeItemPath {
+                                        path: RegionPath::Decl(
+                                            DeclExprPath::AssociatedItem(
+                                                AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            ident: `max_row_span`,
-                                                            ty_item_kind: Memo,
-                                                        },
-                                                    ),
-                                                    impl_block: ImplBlock {
-                                                        id: ImplBlockId {
-                                                            module_path: `mnist_classifier::connected_component`,
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            },
-                                                        },
-                                                        ast_idx: 125,
-                                                        body: ArenaIdxRange(
-                                                            67..79,
-                                                        ),
-                                                        variant: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
                                                         },
                                                     },
-                                                    ast_idx: 70,
                                                     ident: `max_row_span`,
-                                                    associated_item_kind: TypeItem(
-                                                        Memo,
-                                                    ),
-                                                    accessibility: PubicUnder(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                    is_generic: false,
                                                 },
                                             ),
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
                                                         TypePath(`core::num::f32`, `Alien`),
@@ -8162,7 +7571,7 @@ Ok(
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         215,
                                                     ),
@@ -8232,32 +7641,19 @@ Ok(
                                                     ExprRegion {
                                                         data: ExprRegionData {
                                                             parent: None,
-                                                            path: Decl(
-                                                                ImplBlock(
-                                                                    ImplBlock {
-                                                                        id: ImplBlockId {
-                                                                            module_path: `mnist_classifier::connected_component`,
-                                                                            impl_block_kind: Type {
-                                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                            },
-                                                                        },
-                                                                        ast_idx: 125,
-                                                                        body: ArenaIdxRange(
-                                                                            67..79,
-                                                                        ),
-                                                                        variant: Type {
-                                                                            ty: TypePath(
-                                                                                Id {
-                                                                                    value: 19,
-                                                                                },
-                                                                            ),
+                                                            path: RegionPath::Decl(
+                                                                DeclExprPath::ImplBlock(
+                                                                    ImplBlockId {
+                                                                        module_path: `mnist_classifier::connected_component`,
+                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                         },
                                                                     },
                                                                 ),
                                                             ),
                                                             expr_arena: Arena {
                                                                 data: [
-                                                                    EntityPath {
+                                                                    Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
                                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -8267,7 +7663,7 @@ Ok(
                                                             },
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
-                                                                    Root {
+                                                                    EntityPathExpr::Root {
                                                                         token_idx: TokenIdx(
                                                                             86,
                                                                         ),
@@ -8309,73 +7705,22 @@ Ok(
                                                         },
                                                     },
                                                 ),
-                                                path: Decl(
-                                                    AssociatedItem(
-                                                        AssociatedItem {
-                                                            id: AssociatedItemId {
-                                                                impl_block_id: ImplBlockId {
-                                                                    module_path: ModulePath(
-                                                                        Id {
-                                                                            value: 22,
-                                                                        },
-                                                                    ),
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(
-                                                                            Id {
-                                                                                value: 19,
-                                                                            },
-                                                                        ),
-                                                                    },
-                                                                },
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 148,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            },
-                                                            path: Some(
-                                                                TypeItemPath {
+                                                path: RegionPath::Decl(
+                                                    DeclExprPath::AssociatedItem(
+                                                        AssociatedItemId {
+                                                            impl_block_id: ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
                                                                     ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    ident: `max_row_span`,
-                                                                    ty_item_kind: Memo,
-                                                                },
-                                                            ),
-                                                            impl_block: ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
                                                                 },
                                                             },
-                                                            ast_idx: 70,
                                                             ident: `max_row_span`,
-                                                            associated_item_kind: TypeItem(
-                                                                Memo,
-                                                            ),
-                                                            accessibility: PubicUnder(
-                                                                `mnist_classifier::connected_component`,
-                                                            ),
-                                                            is_generic: false,
                                                         },
                                                     ),
                                                 ),
                                                 expr_arena: Arena {
                                                     data: [
-                                                        EntityPath {
+                                                        Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
                                                                 TypePath(`core::num::f32`, `Alien`),
@@ -8385,7 +7730,7 @@ Ok(
                                                 },
                                                 entity_path_expr_arena: Arena {
                                                     data: [
-                                                        Root {
+                                                        EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 215,
                                                             ),
@@ -8427,31 +7772,17 @@ Ok(
                                             },
                                         },
                                     ),
-                                    path: Defn(
-                                        AssociatedItem(
+                                    path: RegionPath::Defn(
+                                        DefnExprPath::AssociatedItem(
                                             AssociatedItem {
                                                 id: AssociatedItemId {
                                                     impl_block_id: ImplBlockId {
-                                                        module_path: ModulePath(
-                                                            Id {
-                                                                value: 22,
-                                                            },
-                                                        ),
-                                                        impl_block_kind: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
+                                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         },
                                                     },
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 148,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `max_row_span`,
                                                 },
                                                 path: Some(
                                                     TypeItemPath {
@@ -8463,7 +7794,7 @@ Ok(
                                                 impl_block: ImplBlock {
                                                     id: ImplBlockId {
                                                         module_path: `mnist_classifier::connected_component`,
-                                                        impl_block_kind: Type {
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         },
                                                     },
@@ -8471,12 +7802,8 @@ Ok(
                                                     body: ArenaIdxRange(
                                                         67..79,
                                                     ),
-                                                    variant: Type {
-                                                        ty: TypePath(
-                                                            Id {
-                                                                value: 19,
-                                                            },
-                                                        ),
+                                                    variant: ImplBlockVariant::Type {
+                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     },
                                                 },
                                                 ast_idx: 70,
@@ -8493,27 +7820,27 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Literal(
+                                            Expr::Literal(
                                                 TokenIdx(
                                                     221,
                                                 ),
                                             ),
-                                            Literal(
+                                            Expr::Literal(
                                                 TokenIdx(
                                                     223,
                                                 ),
                                             ),
-                                            FrameVarDecl {
+                                            Expr::FrameVarDecl {
                                                 token_idx: TokenIdx(
                                                     225,
                                                 ),
                                                 ident: `i`,
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: FrameVariable(
+                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                     2,
                                                 ),
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 1,
                                                 opr: Comparison(
                                                     Less,
@@ -8523,12 +7850,12 @@ Ok(
                                                 ),
                                                 ropd: 2,
                                             },
-                                            Literal(
+                                            Expr::Literal(
                                                 TokenIdx(
                                                     227,
                                                 ),
                                             ),
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 3,
                                                 opr: Comparison(
                                                     Less,
@@ -8538,22 +7865,22 @@ Ok(
                                                 ),
                                                 ropd: 4,
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `max_row`,
                                                 token_idx: TokenIdx(
                                                     231,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: FrameVariable(
+                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                     2,
                                                 ),
                                             },
-                                            SelfValue(
+                                            Expr::SelfValue(
                                                 TokenIdx(
                                                     235,
                                                 ),
                                             ),
-                                            Field {
+                                            Expr::Field {
                                                 this_expr: 7,
                                                 dot_token_idx: TokenIdx(
                                                     236,
@@ -8565,17 +7892,17 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `i`,
                                                 token_idx: TokenIdx(
                                                     239,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 0,
                                                 },
                                             },
-                                            NewBoxList {
+                                            Expr::NewBoxList {
                                                 caller: Some(
                                                     8,
                                                 ),
@@ -8589,7 +7916,7 @@ Ok(
                                                     240,
                                                 ),
                                             },
-                                            MethodCall {
+                                            Expr::MethodCall {
                                                 this_expr: 10,
                                                 dot_token_idx: TokenIdx(
                                                     241,
@@ -8611,17 +7938,17 @@ Ok(
                                                     244,
                                                 ),
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `max_row`,
                                                 token_idx: TokenIdx(
                                                     229,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: FrameVariable(
+                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                     2,
                                                 ),
                                             },
-                                            MethodCall {
+                                            Expr::MethodCall {
                                                 this_expr: 6,
                                                 dot_token_idx: TokenIdx(
                                                     232,
@@ -8643,7 +7970,7 @@ Ok(
                                                     245,
                                                 ),
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 12,
                                                 opr: Assign(
                                                     None,
@@ -8653,23 +7980,23 @@ Ok(
                                                 ),
                                                 ropd: 13,
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `max_row`,
                                                 token_idx: TokenIdx(
                                                     247,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: FrameVariable(
+                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                     2,
                                                 ),
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`core::num::f32`, `Alien`),
                                                 ),
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 15,
                                                 opr: As,
                                                 opr_token_idx: TokenIdx(
@@ -8677,7 +8004,7 @@ Ok(
                                                 ),
                                                 ropd: 16,
                                             },
-                                            Block {
+                                            Expr::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..4,
                                                 ),
@@ -8686,7 +8013,7 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     249,
                                                 ),
@@ -8697,10 +8024,10 @@ Ok(
                                     },
                                     stmt_arena: Arena {
                                         data: [
-                                            Eval {
+                                            Stmt::Eval {
                                                 expr: 14,
                                             },
-                                            Let {
+                                            Stmt::Let {
                                                 let_token: LetToken {
                                                     token_idx: TokenIdx(
                                                         217,
@@ -8729,7 +8056,7 @@ Ok(
                                                     0,
                                                 ),
                                             },
-                                            ForBetween {
+                                            Stmt::ForBetween {
                                                 for_token: ForToken {
                                                     token_idx: TokenIdx(
                                                         222,
@@ -8778,7 +8105,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Return {
+                                            Stmt::Return {
                                                 return_token: ReturnToken {
                                                     token_idx: TokenIdx(
                                                         246,
@@ -8793,7 +8120,7 @@ Ok(
                                     pattern_expr_region: PatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `max_row`,
                                                         token_idx: TokenIdx(
@@ -8823,7 +8150,7 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -8847,7 +8174,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    variant: LetVariable {
+                                                    variant: CurrentSymbolVariant::LetVariable {
                                                         pattern_symbol: 0,
                                                     },
                                                 },
@@ -8863,7 +8190,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    variant: FrameVariable(
+                                                    variant: CurrentSymbolVariant::FrameVariable(
                                                         2,
                                                     ),
                                                 },
@@ -8907,26 +8234,12 @@ Ok(
                                 associated_item: AssociatedItem {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId {
-                                            module_path: ModulePath(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                            impl_block_kind: Type {
-                                                ty: TypePath(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
+                                            module_path: `mnist_classifier::connected_component`,
+                                            impl_block_kind: ImplBlockKind::Type {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 152,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `row_span_sum`,
                                     },
                                     path: Some(
                                         TypeItemPath {
@@ -8938,7 +8251,7 @@ Ok(
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
                                             module_path: `mnist_classifier::connected_component`,
-                                            impl_block_kind: Type {
+                                            impl_block_kind: ImplBlockKind::Type {
                                                 ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
@@ -8946,12 +8259,8 @@ Ok(
                                         body: ArenaIdxRange(
                                             67..79,
                                         ),
-                                        variant: Type {
-                                            ty: TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
-                                            ),
+                                        variant: ImplBlockVariant::Type {
+                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         },
                                     },
                                     ast_idx: 71,
@@ -8971,32 +8280,19 @@ Ok(
                                             ExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
-                                                    path: Decl(
-                                                        ImplBlock(
-                                                            ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
+                                                    path: RegionPath::Decl(
+                                                        DeclExprPath::ImplBlock(
+                                                            ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                 },
                                                             },
                                                         ),
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            EntityPath {
+                                                            Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
                                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -9006,7 +8302,7 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
-                                                            Root {
+                                                            EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     86,
                                                                 ),
@@ -9048,73 +8344,22 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: Decl(
-                                            AssociatedItem(
-                                                AssociatedItem {
-                                                    id: AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
-                                                            module_path: ModulePath(
-                                                                Id {
-                                                                    value: 22,
-                                                                },
-                                                            ),
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(
-                                                                    Id {
-                                                                        value: 19,
-                                                                    },
-                                                                ),
-                                                            },
-                                                        },
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 152,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    path: Some(
-                                                        TypeItemPath {
+                                        path: RegionPath::Decl(
+                                            DeclExprPath::AssociatedItem(
+                                                AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            ident: `row_span_sum`,
-                                                            ty_item_kind: Memo,
-                                                        },
-                                                    ),
-                                                    impl_block: ImplBlock {
-                                                        id: ImplBlockId {
-                                                            module_path: `mnist_classifier::connected_component`,
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            },
-                                                        },
-                                                        ast_idx: 125,
-                                                        body: ArenaIdxRange(
-                                                            67..79,
-                                                        ),
-                                                        variant: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
                                                         },
                                                     },
-                                                    ast_idx: 71,
                                                     ident: `row_span_sum`,
-                                                    associated_item_kind: TypeItem(
-                                                        Memo,
-                                                    ),
-                                                    accessibility: PubicUnder(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                    is_generic: false,
                                                 },
                                             ),
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
                                                         TypePath(`core::num::f32`, `Alien`),
@@ -9124,7 +8369,7 @@ Ok(
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         253,
                                                     ),
@@ -9194,32 +8439,19 @@ Ok(
                                                     ExprRegion {
                                                         data: ExprRegionData {
                                                             parent: None,
-                                                            path: Decl(
-                                                                ImplBlock(
-                                                                    ImplBlock {
-                                                                        id: ImplBlockId {
-                                                                            module_path: `mnist_classifier::connected_component`,
-                                                                            impl_block_kind: Type {
-                                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                            },
-                                                                        },
-                                                                        ast_idx: 125,
-                                                                        body: ArenaIdxRange(
-                                                                            67..79,
-                                                                        ),
-                                                                        variant: Type {
-                                                                            ty: TypePath(
-                                                                                Id {
-                                                                                    value: 19,
-                                                                                },
-                                                                            ),
+                                                            path: RegionPath::Decl(
+                                                                DeclExprPath::ImplBlock(
+                                                                    ImplBlockId {
+                                                                        module_path: `mnist_classifier::connected_component`,
+                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                         },
                                                                     },
                                                                 ),
                                                             ),
                                                             expr_arena: Arena {
                                                                 data: [
-                                                                    EntityPath {
+                                                                    Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
                                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -9229,7 +8461,7 @@ Ok(
                                                             },
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
-                                                                    Root {
+                                                                    EntityPathExpr::Root {
                                                                         token_idx: TokenIdx(
                                                                             86,
                                                                         ),
@@ -9271,73 +8503,22 @@ Ok(
                                                         },
                                                     },
                                                 ),
-                                                path: Decl(
-                                                    AssociatedItem(
-                                                        AssociatedItem {
-                                                            id: AssociatedItemId {
-                                                                impl_block_id: ImplBlockId {
-                                                                    module_path: ModulePath(
-                                                                        Id {
-                                                                            value: 22,
-                                                                        },
-                                                                    ),
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(
-                                                                            Id {
-                                                                                value: 19,
-                                                                            },
-                                                                        ),
-                                                                    },
-                                                                },
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 152,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            },
-                                                            path: Some(
-                                                                TypeItemPath {
+                                                path: RegionPath::Decl(
+                                                    DeclExprPath::AssociatedItem(
+                                                        AssociatedItemId {
+                                                            impl_block_id: ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
                                                                     ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    ident: `row_span_sum`,
-                                                                    ty_item_kind: Memo,
-                                                                },
-                                                            ),
-                                                            impl_block: ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
                                                                 },
                                                             },
-                                                            ast_idx: 71,
                                                             ident: `row_span_sum`,
-                                                            associated_item_kind: TypeItem(
-                                                                Memo,
-                                                            ),
-                                                            accessibility: PubicUnder(
-                                                                `mnist_classifier::connected_component`,
-                                                            ),
-                                                            is_generic: false,
                                                         },
                                                     ),
                                                 ),
                                                 expr_arena: Arena {
                                                     data: [
-                                                        EntityPath {
+                                                        Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
                                                                 TypePath(`core::num::f32`, `Alien`),
@@ -9347,7 +8528,7 @@ Ok(
                                                 },
                                                 entity_path_expr_arena: Arena {
                                                     data: [
-                                                        Root {
+                                                        EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 253,
                                                             ),
@@ -9389,31 +8570,17 @@ Ok(
                                             },
                                         },
                                     ),
-                                    path: Defn(
-                                        AssociatedItem(
+                                    path: RegionPath::Defn(
+                                        DefnExprPath::AssociatedItem(
                                             AssociatedItem {
                                                 id: AssociatedItemId {
                                                     impl_block_id: ImplBlockId {
-                                                        module_path: ModulePath(
-                                                            Id {
-                                                                value: 22,
-                                                            },
-                                                        ),
-                                                        impl_block_kind: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
+                                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         },
                                                     },
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 152,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `row_span_sum`,
                                                 },
                                                 path: Some(
                                                     TypeItemPath {
@@ -9425,7 +8592,7 @@ Ok(
                                                 impl_block: ImplBlock {
                                                     id: ImplBlockId {
                                                         module_path: `mnist_classifier::connected_component`,
-                                                        impl_block_kind: Type {
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         },
                                                     },
@@ -9433,12 +8600,8 @@ Ok(
                                                     body: ArenaIdxRange(
                                                         67..79,
                                                     ),
-                                                    variant: Type {
-                                                        ty: TypePath(
-                                                            Id {
-                                                                value: 19,
-                                                            },
-                                                        ),
+                                                    variant: ImplBlockVariant::Type {
+                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     },
                                                 },
                                                 ast_idx: 71,
@@ -9455,27 +8618,27 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Literal(
+                                            Expr::Literal(
                                                 TokenIdx(
                                                     259,
                                                 ),
                                             ),
-                                            Literal(
+                                            Expr::Literal(
                                                 TokenIdx(
                                                     261,
                                                 ),
                                             ),
-                                            FrameVarDecl {
+                                            Expr::FrameVarDecl {
                                                 token_idx: TokenIdx(
                                                     263,
                                                 ),
                                                 ident: `i`,
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: FrameVariable(
+                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                     2,
                                                 ),
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 1,
                                                 opr: Comparison(
                                                     Less,
@@ -9485,12 +8648,12 @@ Ok(
                                                 ),
                                                 ropd: 2,
                                             },
-                                            Literal(
+                                            Expr::Literal(
                                                 TokenIdx(
                                                     265,
                                                 ),
                                             ),
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 3,
                                                 opr: Comparison(
                                                     Less,
@@ -9500,12 +8663,12 @@ Ok(
                                                 ),
                                                 ropd: 4,
                                             },
-                                            SelfValue(
+                                            Expr::SelfValue(
                                                 TokenIdx(
                                                     269,
                                                 ),
                                             ),
-                                            Field {
+                                            Expr::Field {
                                                 this_expr: 6,
                                                 dot_token_idx: TokenIdx(
                                                     270,
@@ -9517,17 +8680,17 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `i`,
                                                 token_idx: TokenIdx(
                                                     273,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 0,
                                                 },
                                             },
-                                            NewBoxList {
+                                            Expr::NewBoxList {
                                                 caller: Some(
                                                     7,
                                                 ),
@@ -9541,17 +8704,17 @@ Ok(
                                                     274,
                                                 ),
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `row_span_sum`,
                                                 token_idx: TokenIdx(
                                                     267,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: FrameVariable(
+                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                     2,
                                                 ),
                                             },
-                                            MethodCall {
+                                            Expr::MethodCall {
                                                 this_expr: 9,
                                                 dot_token_idx: TokenIdx(
                                                     275,
@@ -9573,7 +8736,7 @@ Ok(
                                                     278,
                                                 ),
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 10,
                                                 opr: Assign(
                                                     Some(
@@ -9585,23 +8748,23 @@ Ok(
                                                 ),
                                                 ropd: 11,
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `row_span_sum`,
                                                 token_idx: TokenIdx(
                                                     280,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: FrameVariable(
+                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                     2,
                                                 ),
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`core::num::f32`, `Alien`),
                                                 ),
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 13,
                                                 opr: As,
                                                 opr_token_idx: TokenIdx(
@@ -9609,7 +8772,7 @@ Ok(
                                                 ),
                                                 ropd: 14,
                                             },
-                                            Block {
+                                            Expr::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..4,
                                                 ),
@@ -9618,7 +8781,7 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     282,
                                                 ),
@@ -9629,10 +8792,10 @@ Ok(
                                     },
                                     stmt_arena: Arena {
                                         data: [
-                                            Eval {
+                                            Stmt::Eval {
                                                 expr: 12,
                                             },
-                                            Let {
+                                            Stmt::Let {
                                                 let_token: LetToken {
                                                     token_idx: TokenIdx(
                                                         255,
@@ -9661,7 +8824,7 @@ Ok(
                                                     0,
                                                 ),
                                             },
-                                            ForBetween {
+                                            Stmt::ForBetween {
                                                 for_token: ForToken {
                                                     token_idx: TokenIdx(
                                                         260,
@@ -9710,7 +8873,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Return {
+                                            Stmt::Return {
                                                 return_token: ReturnToken {
                                                     token_idx: TokenIdx(
                                                         279,
@@ -9725,7 +8888,7 @@ Ok(
                                     pattern_expr_region: PatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `row_span_sum`,
                                                         token_idx: TokenIdx(
@@ -9755,7 +8918,7 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -9779,7 +8942,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    variant: LetVariable {
+                                                    variant: CurrentSymbolVariant::LetVariable {
                                                         pattern_symbol: 0,
                                                     },
                                                 },
@@ -9795,7 +8958,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    variant: FrameVariable(
+                                                    variant: CurrentSymbolVariant::FrameVariable(
                                                         2,
                                                     ),
                                                 },
@@ -9839,26 +9002,12 @@ Ok(
                                 associated_item: AssociatedItem {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId {
-                                            module_path: ModulePath(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                            impl_block_kind: Type {
-                                                ty: TypePath(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
+                                            module_path: `mnist_classifier::connected_component`,
+                                            impl_block_kind: ImplBlockKind::Type {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 153,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `distribution`,
                                     },
                                     path: Some(
                                         TypeItemPath {
@@ -9870,7 +9019,7 @@ Ok(
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
                                             module_path: `mnist_classifier::connected_component`,
-                                            impl_block_kind: Type {
+                                            impl_block_kind: ImplBlockKind::Type {
                                                 ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
@@ -9878,12 +9027,8 @@ Ok(
                                         body: ArenaIdxRange(
                                             67..79,
                                         ),
-                                        variant: Type {
-                                            ty: TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
-                                            ),
+                                        variant: ImplBlockVariant::Type {
+                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         },
                                     },
                                     ast_idx: 72,
@@ -9903,32 +9048,19 @@ Ok(
                                             ExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
-                                                    path: Decl(
-                                                        ImplBlock(
-                                                            ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
+                                                    path: RegionPath::Decl(
+                                                        DeclExprPath::ImplBlock(
+                                                            ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                 },
                                                             },
                                                         ),
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            EntityPath {
+                                                            Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
                                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -9938,7 +9070,7 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
-                                                            Root {
+                                                            EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     86,
                                                                 ),
@@ -9980,73 +9112,22 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: Decl(
-                                            AssociatedItem(
-                                                AssociatedItem {
-                                                    id: AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
-                                                            module_path: ModulePath(
-                                                                Id {
-                                                                    value: 22,
-                                                                },
-                                                            ),
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(
-                                                                    Id {
-                                                                        value: 19,
-                                                                    },
-                                                                ),
-                                                            },
-                                                        },
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 153,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    path: Some(
-                                                        TypeItemPath {
+                                        path: RegionPath::Decl(
+                                            DeclExprPath::AssociatedItem(
+                                                AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            ident: `distribution`,
-                                                            ty_item_kind: Memo,
-                                                        },
-                                                    ),
-                                                    impl_block: ImplBlock {
-                                                        id: ImplBlockId {
-                                                            module_path: `mnist_classifier::connected_component`,
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            },
-                                                        },
-                                                        ast_idx: 125,
-                                                        body: ArenaIdxRange(
-                                                            67..79,
-                                                        ),
-                                                        variant: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
                                                         },
                                                     },
-                                                    ast_idx: 72,
                                                     ident: `distribution`,
-                                                    associated_item_kind: TypeItem(
-                                                        Memo,
-                                                    ),
-                                                    accessibility: PubicUnder(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                    is_generic: false,
                                                 },
                                             ),
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
                                                         TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
@@ -10056,7 +9137,7 @@ Ok(
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         286,
                                                     ),
@@ -10126,32 +9207,19 @@ Ok(
                                                     ExprRegion {
                                                         data: ExprRegionData {
                                                             parent: None,
-                                                            path: Decl(
-                                                                ImplBlock(
-                                                                    ImplBlock {
-                                                                        id: ImplBlockId {
-                                                                            module_path: `mnist_classifier::connected_component`,
-                                                                            impl_block_kind: Type {
-                                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                            },
-                                                                        },
-                                                                        ast_idx: 125,
-                                                                        body: ArenaIdxRange(
-                                                                            67..79,
-                                                                        ),
-                                                                        variant: Type {
-                                                                            ty: TypePath(
-                                                                                Id {
-                                                                                    value: 19,
-                                                                                },
-                                                                            ),
+                                                            path: RegionPath::Decl(
+                                                                DeclExprPath::ImplBlock(
+                                                                    ImplBlockId {
+                                                                        module_path: `mnist_classifier::connected_component`,
+                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                         },
                                                                     },
                                                                 ),
                                                             ),
                                                             expr_arena: Arena {
                                                                 data: [
-                                                                    EntityPath {
+                                                                    Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
                                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -10161,7 +9229,7 @@ Ok(
                                                             },
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
-                                                                    Root {
+                                                                    EntityPathExpr::Root {
                                                                         token_idx: TokenIdx(
                                                                             86,
                                                                         ),
@@ -10203,73 +9271,22 @@ Ok(
                                                         },
                                                     },
                                                 ),
-                                                path: Decl(
-                                                    AssociatedItem(
-                                                        AssociatedItem {
-                                                            id: AssociatedItemId {
-                                                                impl_block_id: ImplBlockId {
-                                                                    module_path: ModulePath(
-                                                                        Id {
-                                                                            value: 22,
-                                                                        },
-                                                                    ),
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(
-                                                                            Id {
-                                                                                value: 19,
-                                                                            },
-                                                                        ),
-                                                                    },
-                                                                },
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 153,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            },
-                                                            path: Some(
-                                                                TypeItemPath {
+                                                path: RegionPath::Decl(
+                                                    DeclExprPath::AssociatedItem(
+                                                        AssociatedItemId {
+                                                            impl_block_id: ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
                                                                     ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    ident: `distribution`,
-                                                                    ty_item_kind: Memo,
-                                                                },
-                                                            ),
-                                                            impl_block: ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
                                                                 },
                                                             },
-                                                            ast_idx: 72,
                                                             ident: `distribution`,
-                                                            associated_item_kind: TypeItem(
-                                                                Memo,
-                                                            ),
-                                                            accessibility: PubicUnder(
-                                                                `mnist_classifier::connected_component`,
-                                                            ),
-                                                            is_generic: false,
                                                         },
                                                     ),
                                                 ),
                                                 expr_arena: Arena {
                                                     data: [
-                                                        EntityPath {
+                                                        Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
                                                                 TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
@@ -10279,7 +9296,7 @@ Ok(
                                                 },
                                                 entity_path_expr_arena: Arena {
                                                     data: [
-                                                        Root {
+                                                        EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 286,
                                                             ),
@@ -10321,31 +9338,17 @@ Ok(
                                             },
                                         },
                                     ),
-                                    path: Defn(
-                                        AssociatedItem(
+                                    path: RegionPath::Defn(
+                                        DefnExprPath::AssociatedItem(
                                             AssociatedItem {
                                                 id: AssociatedItemId {
                                                     impl_block_id: ImplBlockId {
-                                                        module_path: ModulePath(
-                                                            Id {
-                                                                value: 22,
-                                                            },
-                                                        ),
-                                                        impl_block_kind: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
+                                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         },
                                                     },
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 153,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `distribution`,
                                                 },
                                                 path: Some(
                                                     TypeItemPath {
@@ -10357,7 +9360,7 @@ Ok(
                                                 impl_block: ImplBlock {
                                                     id: ImplBlockId {
                                                         module_path: `mnist_classifier::connected_component`,
-                                                        impl_block_kind: Type {
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         },
                                                     },
@@ -10365,12 +9368,8 @@ Ok(
                                                     body: ArenaIdxRange(
                                                         67..79,
                                                     ),
-                                                    variant: Type {
-                                                        ty: TypePath(
-                                                            Id {
-                                                                value: 19,
-                                                            },
-                                                        ),
+                                                    variant: ImplBlockVariant::Type {
+                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     },
                                                 },
                                                 ast_idx: 72,
@@ -10387,17 +9386,17 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Literal(
+                                            Expr::Literal(
                                                 TokenIdx(
                                                     292,
                                                 ),
                                             ),
-                                            SelfValue(
+                                            Expr::SelfValue(
                                                 TokenIdx(
                                                     299,
                                                 ),
                                             ),
-                                            Field {
+                                            Expr::Field {
                                                 this_expr: 1,
                                                 dot_token_idx: TokenIdx(
                                                     300,
@@ -10409,17 +9408,17 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `row_start`,
                                                 token_idx: TokenIdx(
                                                     303,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 0,
                                                 },
                                             },
-                                            NewBoxList {
+                                            Expr::NewBoxList {
                                                 caller: Some(
                                                     2,
                                                 ),
@@ -10433,22 +9432,22 @@ Ok(
                                                     304,
                                                 ),
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `row_start`,
                                                 token_idx: TokenIdx(
                                                     311,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 1,
                                                 },
                                             },
-                                            Literal(
+                                            Expr::Literal(
                                                 TokenIdx(
                                                     313,
                                                 ),
                                             ),
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 5,
                                                 opr: PureClosed(
                                                     Add,
@@ -10458,12 +9457,12 @@ Ok(
                                                 ),
                                                 ropd: 6,
                                             },
-                                            SelfValue(
+                                            Expr::SelfValue(
                                                 TokenIdx(
                                                     321,
                                                 ),
                                             ),
-                                            Field {
+                                            Expr::Field {
                                                 this_expr: 8,
                                                 dot_token_idx: TokenIdx(
                                                     322,
@@ -10475,17 +9474,17 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `row_end`,
                                                 token_idx: TokenIdx(
                                                     325,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 0,
                                                 },
                                             },
-                                            NewBoxList {
+                                            Expr::NewBoxList {
                                                 caller: Some(
                                                     9,
                                                 ),
@@ -10499,34 +9498,34 @@ Ok(
                                                     326,
                                                 ),
                                             },
-                                            PrefixOpn {
+                                            Expr::PrefixOpn {
                                                 opr: Not,
                                                 opr_token_idx: TokenIdx(
                                                     320,
                                                 ),
                                                 opd: 11,
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `row_end`,
                                                 token_idx: TokenIdx(
                                                     332,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 1,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `row_start`,
                                                 token_idx: TokenIdx(
                                                     334,
                                                 ),
                                                 current_symbol_idx: 2,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 2,
                                                 },
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 13,
                                                 opr: PureClosed(
                                                     Sub,
@@ -10536,22 +9535,22 @@ Ok(
                                                 ),
                                                 ropd: 14,
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `height`,
                                                 token_idx: TokenIdx(
                                                     338,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 1,
                                                 },
                                             },
-                                            Literal(
+                                            Expr::Literal(
                                                 TokenIdx(
                                                     340,
                                                 ),
                                             ),
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 16,
                                                 opr: PureClosed(
                                                     Div,
@@ -10561,52 +9560,52 @@ Ok(
                                                 ),
                                                 ropd: 17,
                                             },
-                                            Literal(
+                                            Expr::Literal(
                                                 TokenIdx(
                                                     345,
                                                 ),
                                             ),
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `row_start`,
                                                 token_idx: TokenIdx(
                                                     347,
                                                 ),
                                                 current_symbol_idx: 4,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 4,
                                                 },
                                             },
-                                            FrameVarDecl {
+                                            Expr::FrameVarDecl {
                                                 token_idx: TokenIdx(
                                                     349,
                                                 ),
                                                 ident: `i1`,
                                                 current_symbol_idx: 5,
-                                                current_symbol_kind: FrameVariable(
+                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                     21,
                                                 ),
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `row_start`,
                                                 token_idx: TokenIdx(
                                                     351,
                                                 ),
                                                 current_symbol_idx: 4,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 4,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `half_height`,
                                                 token_idx: TokenIdx(
                                                     353,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 1,
                                                 },
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 20,
                                                 opr: Comparison(
                                                     Leq,
@@ -10616,7 +9615,7 @@ Ok(
                                                 ),
                                                 ropd: 21,
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 22,
                                                 opr: PureClosed(
                                                     Add,
@@ -10626,7 +9625,7 @@ Ok(
                                                 ),
                                                 ropd: 23,
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 24,
                                                 opr: Comparison(
                                                     Less,
@@ -10636,12 +9635,12 @@ Ok(
                                                 ),
                                                 ropd: 25,
                                             },
-                                            SelfValue(
+                                            Expr::SelfValue(
                                                 TokenIdx(
                                                     357,
                                                 ),
                                             ),
-                                            Field {
+                                            Expr::Field {
                                                 this_expr: 27,
                                                 dot_token_idx: TokenIdx(
                                                     358,
@@ -10653,17 +9652,17 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `i1`,
                                                 token_idx: TokenIdx(
                                                     361,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 0,
                                                 },
                                             },
-                                            NewBoxList {
+                                            Expr::NewBoxList {
                                                 caller: Some(
                                                     28,
                                                 ),
@@ -10677,17 +9676,17 @@ Ok(
                                                     362,
                                                 ),
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `upper_mass`,
                                                 token_idx: TokenIdx(
                                                     355,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 1,
                                                 },
                                             },
-                                            MethodCall {
+                                            Expr::MethodCall {
                                                 this_expr: 30,
                                                 dot_token_idx: TokenIdx(
                                                     363,
@@ -10709,7 +9708,7 @@ Ok(
                                                     366,
                                                 ),
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 31,
                                                 opr: Assign(
                                                     Some(
@@ -10721,52 +9720,52 @@ Ok(
                                                 ),
                                                 ropd: 32,
                                             },
-                                            Literal(
+                                            Expr::Literal(
                                                 TokenIdx(
                                                     371,
                                                 ),
                                             ),
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `row_end`,
                                                 token_idx: TokenIdx(
                                                     373,
                                                 ),
                                                 current_symbol_idx: 5,
-                                                current_symbol_kind: FrameVariable(
+                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                     21,
                                                 ),
                                             },
-                                            FrameVarDecl {
+                                            Expr::FrameVarDecl {
                                                 token_idx: TokenIdx(
                                                     375,
                                                 ),
                                                 ident: `i2`,
                                                 current_symbol_idx: 7,
-                                                current_symbol_kind: FrameVariable(
+                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                     36,
                                                 ),
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `row_end`,
                                                 token_idx: TokenIdx(
                                                     377,
                                                 ),
                                                 current_symbol_idx: 5,
-                                                current_symbol_kind: FrameVariable(
+                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                     21,
                                                 ),
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `half_height`,
                                                 token_idx: TokenIdx(
                                                     379,
                                                 ),
                                                 current_symbol_idx: 3,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 3,
                                                 },
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 35,
                                                 opr: Comparison(
                                                     Greater,
@@ -10776,7 +9775,7 @@ Ok(
                                                 ),
                                                 ropd: 36,
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 37,
                                                 opr: PureClosed(
                                                     Sub,
@@ -10786,7 +9785,7 @@ Ok(
                                                 ),
                                                 ropd: 38,
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 39,
                                                 opr: Comparison(
                                                     Geq,
@@ -10796,12 +9795,12 @@ Ok(
                                                 ),
                                                 ropd: 40,
                                             },
-                                            SelfValue(
+                                            Expr::SelfValue(
                                                 TokenIdx(
                                                     383,
                                                 ),
                                             ),
-                                            Field {
+                                            Expr::Field {
                                                 this_expr: 42,
                                                 dot_token_idx: TokenIdx(
                                                     384,
@@ -10813,17 +9812,17 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `i2`,
                                                 token_idx: TokenIdx(
                                                     387,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 0,
                                                 },
                                             },
-                                            NewBoxList {
+                                            Expr::NewBoxList {
                                                 caller: Some(
                                                     43,
                                                 ),
@@ -10837,17 +9836,17 @@ Ok(
                                                     388,
                                                 ),
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `lower_mass`,
                                                 token_idx: TokenIdx(
                                                     381,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 1,
                                                 },
                                             },
-                                            MethodCall {
+                                            Expr::MethodCall {
                                                 this_expr: 45,
                                                 dot_token_idx: TokenIdx(
                                                     389,
@@ -10869,7 +9868,7 @@ Ok(
                                                     392,
                                                 ),
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 46,
                                                 opr: Assign(
                                                     Some(
@@ -10881,53 +9880,53 @@ Ok(
                                                 ),
                                                 ropd: 47,
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                                 ),
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `row_start`,
                                                 token_idx: TokenIdx(
                                                     396,
                                                 ),
                                                 current_symbol_idx: 7,
-                                                current_symbol_kind: FrameVariable(
+                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                     36,
                                                 ),
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `row_end`,
                                                 token_idx: TokenIdx(
                                                     398,
                                                 ),
                                                 current_symbol_idx: 6,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 5,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `upper_mass`,
                                                 token_idx: TokenIdx(
                                                     400,
                                                 ),
                                                 current_symbol_idx: 3,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 3,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `lower_mass`,
                                                 token_idx: TokenIdx(
                                                     402,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 1,
                                                 },
                                             },
-                                            FunctionCall {
+                                            Expr::FunctionCall {
                                                 function: 49,
                                                 implicit_arguments: None,
                                                 lpar_token_idx: TokenIdx(
@@ -10940,7 +9939,7 @@ Ok(
                                                     404,
                                                 ),
                                             },
-                                            Block {
+                                            Expr::Block {
                                                 stmts: ArenaIdxRange(
                                                     6..17,
                                                 ),
@@ -10949,7 +9948,7 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     394,
                                                 ),
@@ -10960,14 +9959,14 @@ Ok(
                                     },
                                     stmt_arena: Arena {
                                         data: [
-                                            Break {
+                                            Stmt::Break {
                                                 break_token: BreakToken {
                                                     token_idx: TokenIdx(
                                                         306,
                                                     ),
                                                 },
                                             },
-                                            IfElse {
+                                            Stmt::IfElse {
                                                 if_branch: IfBranch {
                                                     if_token: IfToken {
                                                         token_idx: TokenIdx(
@@ -10993,14 +9992,14 @@ Ok(
                                                 elif_branches: [],
                                                 else_branch: None,
                                             },
-                                            Break {
+                                            Stmt::Break {
                                                 break_token: BreakToken {
                                                     token_idx: TokenIdx(
                                                         328,
                                                     ),
                                                 },
                                             },
-                                            IfElse {
+                                            Stmt::IfElse {
                                                 if_branch: IfBranch {
                                                     if_token: IfToken {
                                                         token_idx: TokenIdx(
@@ -11026,13 +10025,13 @@ Ok(
                                                 elif_branches: [],
                                                 else_branch: None,
                                             },
-                                            Eval {
+                                            Stmt::Eval {
                                                 expr: 33,
                                             },
-                                            Eval {
+                                            Stmt::Eval {
                                                 expr: 48,
                                             },
-                                            Let {
+                                            Stmt::Let {
                                                 let_token: LetToken {
                                                     token_idx: TokenIdx(
                                                         288,
@@ -11061,7 +10060,7 @@ Ok(
                                                     0,
                                                 ),
                                             },
-                                            ForExt {
+                                            Stmt::ForExt {
                                                 forext_token: ForextToken {
                                                     token_idx: TokenIdx(
                                                         293,
@@ -11080,7 +10079,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Let {
+                                            Stmt::Let {
                                                 let_token: LetToken {
                                                     token_idx: TokenIdx(
                                                         307,
@@ -11109,7 +10108,7 @@ Ok(
                                                     7,
                                                 ),
                                             },
-                                            ForExt {
+                                            Stmt::ForExt {
                                                 forext_token: ForextToken {
                                                     token_idx: TokenIdx(
                                                         314,
@@ -11128,7 +10127,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Let {
+                                            Stmt::Let {
                                                 let_token: LetToken {
                                                     token_idx: TokenIdx(
                                                         329,
@@ -11157,7 +10156,7 @@ Ok(
                                                     15,
                                                 ),
                                             },
-                                            Let {
+                                            Stmt::Let {
                                                 let_token: LetToken {
                                                     token_idx: TokenIdx(
                                                         335,
@@ -11186,7 +10185,7 @@ Ok(
                                                     18,
                                                 ),
                                             },
-                                            Let {
+                                            Stmt::Let {
                                                 let_token: LetToken {
                                                     token_idx: TokenIdx(
                                                         341,
@@ -11215,7 +10214,7 @@ Ok(
                                                     19,
                                                 ),
                                             },
-                                            ForBetween {
+                                            Stmt::ForBetween {
                                                 for_token: ForToken {
                                                     token_idx: TokenIdx(
                                                         346,
@@ -11264,7 +10263,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Let {
+                                            Stmt::Let {
                                                 let_token: LetToken {
                                                     token_idx: TokenIdx(
                                                         367,
@@ -11293,7 +10292,7 @@ Ok(
                                                     34,
                                                 ),
                                             },
-                                            ForBetween {
+                                            Stmt::ForBetween {
                                                 for_token: ForToken {
                                                     token_idx: TokenIdx(
                                                         372,
@@ -11342,7 +10341,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Return {
+                                            Stmt::Return {
                                                 return_token: ReturnToken {
                                                     token_idx: TokenIdx(
                                                         393,
@@ -11357,7 +10356,7 @@ Ok(
                                     pattern_expr_region: PatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `row_start`,
                                                         token_idx: TokenIdx(
@@ -11366,7 +10365,7 @@ Ok(
                                                     },
                                                     liason: None,
                                                 },
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `row_end`,
                                                         token_idx: TokenIdx(
@@ -11375,7 +10374,7 @@ Ok(
                                                     },
                                                     liason: None,
                                                 },
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `height`,
                                                         token_idx: TokenIdx(
@@ -11384,7 +10383,7 @@ Ok(
                                                     },
                                                     liason: None,
                                                 },
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `half_height`,
                                                         token_idx: TokenIdx(
@@ -11393,7 +10392,7 @@ Ok(
                                                     },
                                                     liason: None,
                                                 },
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `upper_mass`,
                                                         token_idx: TokenIdx(
@@ -11402,7 +10401,7 @@ Ok(
                                                     },
                                                     liason: None,
                                                 },
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `lower_mass`,
                                                         token_idx: TokenIdx(
@@ -11497,22 +10496,22 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     0,
                                                 ),
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     1,
                                                 ),
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     2,
                                                 ),
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     3,
                                                 ),
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     4,
                                                 ),
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     5,
                                                 ),
                                             ],
@@ -11536,7 +10535,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    variant: LetVariable {
+                                                    variant: CurrentSymbolVariant::LetVariable {
                                                         pattern_symbol: 0,
                                                     },
                                                 },
@@ -11552,7 +10551,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    variant: LetVariable {
+                                                    variant: CurrentSymbolVariant::LetVariable {
                                                         pattern_symbol: 1,
                                                     },
                                                 },
@@ -11568,7 +10567,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    variant: LetVariable {
+                                                    variant: CurrentSymbolVariant::LetVariable {
                                                         pattern_symbol: 2,
                                                     },
                                                 },
@@ -11584,7 +10583,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    variant: LetVariable {
+                                                    variant: CurrentSymbolVariant::LetVariable {
                                                         pattern_symbol: 3,
                                                     },
                                                 },
@@ -11600,7 +10599,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    variant: LetVariable {
+                                                    variant: CurrentSymbolVariant::LetVariable {
                                                         pattern_symbol: 4,
                                                     },
                                                 },
@@ -11616,7 +10615,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    variant: FrameVariable(
+                                                    variant: CurrentSymbolVariant::FrameVariable(
                                                         21,
                                                     ),
                                                 },
@@ -11632,7 +10631,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    variant: LetVariable {
+                                                    variant: CurrentSymbolVariant::LetVariable {
                                                         pattern_symbol: 5,
                                                     },
                                                 },
@@ -11648,7 +10647,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    variant: FrameVariable(
+                                                    variant: CurrentSymbolVariant::FrameVariable(
                                                         36,
                                                     ),
                                                 },
@@ -11693,26 +10692,12 @@ Ok(
                                 associated_item: AssociatedItem {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId {
-                                            module_path: ModulePath(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                            impl_block_kind: Type {
-                                                ty: TypePath(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
+                                            module_path: `mnist_classifier::connected_component`,
+                                            impl_block_kind: ImplBlockKind::Type {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 128,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `upper_mass`,
                                     },
                                     path: Some(
                                         TypeItemPath {
@@ -11724,7 +10709,7 @@ Ok(
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
                                             module_path: `mnist_classifier::connected_component`,
-                                            impl_block_kind: Type {
+                                            impl_block_kind: ImplBlockKind::Type {
                                                 ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
@@ -11732,12 +10717,8 @@ Ok(
                                         body: ArenaIdxRange(
                                             67..79,
                                         ),
-                                        variant: Type {
-                                            ty: TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
-                                            ),
+                                        variant: ImplBlockVariant::Type {
+                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         },
                                     },
                                     ast_idx: 73,
@@ -11757,32 +10738,19 @@ Ok(
                                             ExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
-                                                    path: Decl(
-                                                        ImplBlock(
-                                                            ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
+                                                    path: RegionPath::Decl(
+                                                        DeclExprPath::ImplBlock(
+                                                            ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                 },
                                                             },
                                                         ),
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            EntityPath {
+                                                            Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
                                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -11792,7 +10760,7 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
-                                                            Root {
+                                                            EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     86,
                                                                 ),
@@ -11834,73 +10802,22 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: Decl(
-                                            AssociatedItem(
-                                                AssociatedItem {
-                                                    id: AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
-                                                            module_path: ModulePath(
-                                                                Id {
-                                                                    value: 22,
-                                                                },
-                                                            ),
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(
-                                                                    Id {
-                                                                        value: 19,
-                                                                    },
-                                                                ),
-                                                            },
-                                                        },
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 128,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    path: Some(
-                                                        TypeItemPath {
+                                        path: RegionPath::Decl(
+                                            DeclExprPath::AssociatedItem(
+                                                AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            ident: `upper_mass`,
-                                                            ty_item_kind: Memo,
-                                                        },
-                                                    ),
-                                                    impl_block: ImplBlock {
-                                                        id: ImplBlockId {
-                                                            module_path: `mnist_classifier::connected_component`,
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            },
-                                                        },
-                                                        ast_idx: 125,
-                                                        body: ArenaIdxRange(
-                                                            67..79,
-                                                        ),
-                                                        variant: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
                                                         },
                                                     },
-                                                    ast_idx: 73,
                                                     ident: `upper_mass`,
-                                                    associated_item_kind: TypeItem(
-                                                        Memo,
-                                                    ),
-                                                    accessibility: PubicUnder(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                    is_generic: false,
                                                 },
                                             ),
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
                                                         TypePath(`core::num::f32`, `Alien`),
@@ -11910,7 +10827,7 @@ Ok(
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         408,
                                                     ),
@@ -11980,32 +10897,19 @@ Ok(
                                                     ExprRegion {
                                                         data: ExprRegionData {
                                                             parent: None,
-                                                            path: Decl(
-                                                                ImplBlock(
-                                                                    ImplBlock {
-                                                                        id: ImplBlockId {
-                                                                            module_path: `mnist_classifier::connected_component`,
-                                                                            impl_block_kind: Type {
-                                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                            },
-                                                                        },
-                                                                        ast_idx: 125,
-                                                                        body: ArenaIdxRange(
-                                                                            67..79,
-                                                                        ),
-                                                                        variant: Type {
-                                                                            ty: TypePath(
-                                                                                Id {
-                                                                                    value: 19,
-                                                                                },
-                                                                            ),
+                                                            path: RegionPath::Decl(
+                                                                DeclExprPath::ImplBlock(
+                                                                    ImplBlockId {
+                                                                        module_path: `mnist_classifier::connected_component`,
+                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                         },
                                                                     },
                                                                 ),
                                                             ),
                                                             expr_arena: Arena {
                                                                 data: [
-                                                                    EntityPath {
+                                                                    Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
                                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -12015,7 +10919,7 @@ Ok(
                                                             },
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
-                                                                    Root {
+                                                                    EntityPathExpr::Root {
                                                                         token_idx: TokenIdx(
                                                                             86,
                                                                         ),
@@ -12057,73 +10961,22 @@ Ok(
                                                         },
                                                     },
                                                 ),
-                                                path: Decl(
-                                                    AssociatedItem(
-                                                        AssociatedItem {
-                                                            id: AssociatedItemId {
-                                                                impl_block_id: ImplBlockId {
-                                                                    module_path: ModulePath(
-                                                                        Id {
-                                                                            value: 22,
-                                                                        },
-                                                                    ),
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(
-                                                                            Id {
-                                                                                value: 19,
-                                                                            },
-                                                                        ),
-                                                                    },
-                                                                },
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 128,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            },
-                                                            path: Some(
-                                                                TypeItemPath {
+                                                path: RegionPath::Decl(
+                                                    DeclExprPath::AssociatedItem(
+                                                        AssociatedItemId {
+                                                            impl_block_id: ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
                                                                     ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    ident: `upper_mass`,
-                                                                    ty_item_kind: Memo,
-                                                                },
-                                                            ),
-                                                            impl_block: ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
                                                                 },
                                                             },
-                                                            ast_idx: 73,
                                                             ident: `upper_mass`,
-                                                            associated_item_kind: TypeItem(
-                                                                Memo,
-                                                            ),
-                                                            accessibility: PubicUnder(
-                                                                `mnist_classifier::connected_component`,
-                                                            ),
-                                                            is_generic: false,
                                                         },
                                                     ),
                                                 ),
                                                 expr_arena: Arena {
                                                     data: [
-                                                        EntityPath {
+                                                        Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
                                                                 TypePath(`core::num::f32`, `Alien`),
@@ -12133,7 +10986,7 @@ Ok(
                                                 },
                                                 entity_path_expr_arena: Arena {
                                                     data: [
-                                                        Root {
+                                                        EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 408,
                                                             ),
@@ -12175,31 +11028,17 @@ Ok(
                                             },
                                         },
                                     ),
-                                    path: Defn(
-                                        AssociatedItem(
+                                    path: RegionPath::Defn(
+                                        DefnExprPath::AssociatedItem(
                                             AssociatedItem {
                                                 id: AssociatedItemId {
                                                     impl_block_id: ImplBlockId {
-                                                        module_path: ModulePath(
-                                                            Id {
-                                                                value: 22,
-                                                            },
-                                                        ),
-                                                        impl_block_kind: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
+                                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         },
                                                     },
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 128,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `upper_mass`,
                                                 },
                                                 path: Some(
                                                     TypeItemPath {
@@ -12211,7 +11050,7 @@ Ok(
                                                 impl_block: ImplBlock {
                                                     id: ImplBlockId {
                                                         module_path: `mnist_classifier::connected_component`,
-                                                        impl_block_kind: Type {
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         },
                                                     },
@@ -12219,12 +11058,8 @@ Ok(
                                                     body: ArenaIdxRange(
                                                         67..79,
                                                     ),
-                                                    variant: Type {
-                                                        ty: TypePath(
-                                                            Id {
-                                                                value: 19,
-                                                            },
-                                                        ),
+                                                    variant: ImplBlockVariant::Type {
+                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     },
                                                 },
                                                 ast_idx: 73,
@@ -12241,12 +11076,12 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            SelfValue(
+                                            Expr::SelfValue(
                                                 TokenIdx(
                                                     410,
                                                 ),
                                             ),
-                                            Field {
+                                            Expr::Field {
                                                 this_expr: 0,
                                                 dot_token_idx: TokenIdx(
                                                     411,
@@ -12258,7 +11093,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            Field {
+                                            Expr::Field {
                                                 this_expr: 1,
                                                 dot_token_idx: TokenIdx(
                                                     413,
@@ -12270,13 +11105,13 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`core::num::f32`, `Alien`),
                                                 ),
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 2,
                                                 opr: As,
                                                 opr_token_idx: TokenIdx(
@@ -12284,7 +11119,7 @@ Ok(
                                                 ),
                                                 ropd: 3,
                                             },
-                                            Block {
+                                            Expr::Block {
                                                 stmts: ArenaIdxRange(
                                                     0..1,
                                                 ),
@@ -12293,7 +11128,7 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     416,
                                                 ),
@@ -12304,7 +11139,7 @@ Ok(
                                     },
                                     stmt_arena: Arena {
                                         data: [
-                                            Eval {
+                                            Stmt::Eval {
                                                 expr: 4,
                                             },
                                         ],
@@ -12362,26 +11197,12 @@ Ok(
                                 associated_item: AssociatedItem {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId {
-                                            module_path: ModulePath(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                            impl_block_kind: Type {
-                                                ty: TypePath(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
+                                            module_path: `mnist_classifier::connected_component`,
+                                            impl_block_kind: ImplBlockKind::Type {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 129,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `lower_mass`,
                                     },
                                     path: Some(
                                         TypeItemPath {
@@ -12393,7 +11214,7 @@ Ok(
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
                                             module_path: `mnist_classifier::connected_component`,
-                                            impl_block_kind: Type {
+                                            impl_block_kind: ImplBlockKind::Type {
                                                 ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
@@ -12401,12 +11222,8 @@ Ok(
                                         body: ArenaIdxRange(
                                             67..79,
                                         ),
-                                        variant: Type {
-                                            ty: TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
-                                            ),
+                                        variant: ImplBlockVariant::Type {
+                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         },
                                     },
                                     ast_idx: 74,
@@ -12426,32 +11243,19 @@ Ok(
                                             ExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
-                                                    path: Decl(
-                                                        ImplBlock(
-                                                            ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
+                                                    path: RegionPath::Decl(
+                                                        DeclExprPath::ImplBlock(
+                                                            ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                 },
                                                             },
                                                         ),
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            EntityPath {
+                                                            Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
                                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -12461,7 +11265,7 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
-                                                            Root {
+                                                            EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     86,
                                                                 ),
@@ -12503,73 +11307,22 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: Decl(
-                                            AssociatedItem(
-                                                AssociatedItem {
-                                                    id: AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
-                                                            module_path: ModulePath(
-                                                                Id {
-                                                                    value: 22,
-                                                                },
-                                                            ),
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(
-                                                                    Id {
-                                                                        value: 19,
-                                                                    },
-                                                                ),
-                                                            },
-                                                        },
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 129,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    path: Some(
-                                                        TypeItemPath {
+                                        path: RegionPath::Decl(
+                                            DeclExprPath::AssociatedItem(
+                                                AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            ident: `lower_mass`,
-                                                            ty_item_kind: Memo,
-                                                        },
-                                                    ),
-                                                    impl_block: ImplBlock {
-                                                        id: ImplBlockId {
-                                                            module_path: `mnist_classifier::connected_component`,
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            },
-                                                        },
-                                                        ast_idx: 125,
-                                                        body: ArenaIdxRange(
-                                                            67..79,
-                                                        ),
-                                                        variant: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
                                                         },
                                                     },
-                                                    ast_idx: 74,
                                                     ident: `lower_mass`,
-                                                    associated_item_kind: TypeItem(
-                                                        Memo,
-                                                    ),
-                                                    accessibility: PubicUnder(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                    is_generic: false,
                                                 },
                                             ),
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
                                                         TypePath(`core::num::f32`, `Alien`),
@@ -12579,7 +11332,7 @@ Ok(
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         420,
                                                     ),
@@ -12649,32 +11402,19 @@ Ok(
                                                     ExprRegion {
                                                         data: ExprRegionData {
                                                             parent: None,
-                                                            path: Decl(
-                                                                ImplBlock(
-                                                                    ImplBlock {
-                                                                        id: ImplBlockId {
-                                                                            module_path: `mnist_classifier::connected_component`,
-                                                                            impl_block_kind: Type {
-                                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                            },
-                                                                        },
-                                                                        ast_idx: 125,
-                                                                        body: ArenaIdxRange(
-                                                                            67..79,
-                                                                        ),
-                                                                        variant: Type {
-                                                                            ty: TypePath(
-                                                                                Id {
-                                                                                    value: 19,
-                                                                                },
-                                                                            ),
+                                                            path: RegionPath::Decl(
+                                                                DeclExprPath::ImplBlock(
+                                                                    ImplBlockId {
+                                                                        module_path: `mnist_classifier::connected_component`,
+                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                         },
                                                                     },
                                                                 ),
                                                             ),
                                                             expr_arena: Arena {
                                                                 data: [
-                                                                    EntityPath {
+                                                                    Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
                                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -12684,7 +11424,7 @@ Ok(
                                                             },
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
-                                                                    Root {
+                                                                    EntityPathExpr::Root {
                                                                         token_idx: TokenIdx(
                                                                             86,
                                                                         ),
@@ -12726,73 +11466,22 @@ Ok(
                                                         },
                                                     },
                                                 ),
-                                                path: Decl(
-                                                    AssociatedItem(
-                                                        AssociatedItem {
-                                                            id: AssociatedItemId {
-                                                                impl_block_id: ImplBlockId {
-                                                                    module_path: ModulePath(
-                                                                        Id {
-                                                                            value: 22,
-                                                                        },
-                                                                    ),
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(
-                                                                            Id {
-                                                                                value: 19,
-                                                                            },
-                                                                        ),
-                                                                    },
-                                                                },
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 129,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            },
-                                                            path: Some(
-                                                                TypeItemPath {
+                                                path: RegionPath::Decl(
+                                                    DeclExprPath::AssociatedItem(
+                                                        AssociatedItemId {
+                                                            impl_block_id: ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
                                                                     ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    ident: `lower_mass`,
-                                                                    ty_item_kind: Memo,
-                                                                },
-                                                            ),
-                                                            impl_block: ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
                                                                 },
                                                             },
-                                                            ast_idx: 74,
                                                             ident: `lower_mass`,
-                                                            associated_item_kind: TypeItem(
-                                                                Memo,
-                                                            ),
-                                                            accessibility: PubicUnder(
-                                                                `mnist_classifier::connected_component`,
-                                                            ),
-                                                            is_generic: false,
                                                         },
                                                     ),
                                                 ),
                                                 expr_arena: Arena {
                                                     data: [
-                                                        EntityPath {
+                                                        Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
                                                                 TypePath(`core::num::f32`, `Alien`),
@@ -12802,7 +11491,7 @@ Ok(
                                                 },
                                                 entity_path_expr_arena: Arena {
                                                     data: [
-                                                        Root {
+                                                        EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 420,
                                                             ),
@@ -12844,31 +11533,17 @@ Ok(
                                             },
                                         },
                                     ),
-                                    path: Defn(
-                                        AssociatedItem(
+                                    path: RegionPath::Defn(
+                                        DefnExprPath::AssociatedItem(
                                             AssociatedItem {
                                                 id: AssociatedItemId {
                                                     impl_block_id: ImplBlockId {
-                                                        module_path: ModulePath(
-                                                            Id {
-                                                                value: 22,
-                                                            },
-                                                        ),
-                                                        impl_block_kind: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
+                                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         },
                                                     },
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 129,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `lower_mass`,
                                                 },
                                                 path: Some(
                                                     TypeItemPath {
@@ -12880,7 +11555,7 @@ Ok(
                                                 impl_block: ImplBlock {
                                                     id: ImplBlockId {
                                                         module_path: `mnist_classifier::connected_component`,
-                                                        impl_block_kind: Type {
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         },
                                                     },
@@ -12888,12 +11563,8 @@ Ok(
                                                     body: ArenaIdxRange(
                                                         67..79,
                                                     ),
-                                                    variant: Type {
-                                                        ty: TypePath(
-                                                            Id {
-                                                                value: 19,
-                                                            },
-                                                        ),
+                                                    variant: ImplBlockVariant::Type {
+                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     },
                                                 },
                                                 ast_idx: 74,
@@ -12910,12 +11581,12 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            SelfValue(
+                                            Expr::SelfValue(
                                                 TokenIdx(
                                                     422,
                                                 ),
                                             ),
-                                            Field {
+                                            Expr::Field {
                                                 this_expr: 0,
                                                 dot_token_idx: TokenIdx(
                                                     423,
@@ -12927,7 +11598,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            Field {
+                                            Expr::Field {
                                                 this_expr: 1,
                                                 dot_token_idx: TokenIdx(
                                                     425,
@@ -12939,13 +11610,13 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`core::num::f32`, `Alien`),
                                                 ),
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 2,
                                                 opr: As,
                                                 opr_token_idx: TokenIdx(
@@ -12953,7 +11624,7 @@ Ok(
                                                 ),
                                                 ropd: 3,
                                             },
-                                            Block {
+                                            Expr::Block {
                                                 stmts: ArenaIdxRange(
                                                     0..1,
                                                 ),
@@ -12962,7 +11633,7 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     428,
                                                 ),
@@ -12973,7 +11644,7 @@ Ok(
                                     },
                                     stmt_arena: Arena {
                                         data: [
-                                            Eval {
+                                            Stmt::Eval {
                                                 expr: 4,
                                             },
                                         ],
@@ -13024,26 +11695,12 @@ Ok(
                                 associated_item: AssociatedItem {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId {
-                                            module_path: ModulePath(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                            impl_block_kind: Type {
-                                                ty: TypePath(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
+                                            module_path: `mnist_classifier::connected_component`,
+                                            impl_block_kind: ImplBlockKind::Type {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 159,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `top_k_row_span_sum`,
                                     },
                                     path: Some(
                                         TypeItemPath {
@@ -13055,7 +11712,7 @@ Ok(
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
                                             module_path: `mnist_classifier::connected_component`,
-                                            impl_block_kind: Type {
+                                            impl_block_kind: ImplBlockKind::Type {
                                                 ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
@@ -13063,12 +11720,8 @@ Ok(
                                         body: ArenaIdxRange(
                                             67..79,
                                         ),
-                                        variant: Type {
-                                            ty: TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
-                                            ),
+                                        variant: ImplBlockVariant::Type {
+                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         },
                                     },
                                     ast_idx: 75,
@@ -13095,32 +11748,19 @@ Ok(
                                             ExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
-                                                    path: Decl(
-                                                        ImplBlock(
-                                                            ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
+                                                    path: RegionPath::Decl(
+                                                        DeclExprPath::ImplBlock(
+                                                            ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                 },
                                                             },
                                                         ),
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            EntityPath {
+                                                            Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
                                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -13130,7 +11770,7 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
-                                                            Root {
+                                                            EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     86,
                                                                 ),
@@ -13172,79 +11812,28 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: Decl(
-                                            AssociatedItem(
-                                                AssociatedItem {
-                                                    id: AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
-                                                            module_path: ModulePath(
-                                                                Id {
-                                                                    value: 22,
-                                                                },
-                                                            ),
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(
-                                                                    Id {
-                                                                        value: 19,
-                                                                    },
-                                                                ),
-                                                            },
-                                                        },
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 159,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    path: Some(
-                                                        TypeItemPath {
+                                        path: RegionPath::Decl(
+                                            DeclExprPath::AssociatedItem(
+                                                AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            ident: `top_k_row_span_sum`,
-                                                            ty_item_kind: Method,
-                                                        },
-                                                    ),
-                                                    impl_block: ImplBlock {
-                                                        id: ImplBlockId {
-                                                            module_path: `mnist_classifier::connected_component`,
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            },
-                                                        },
-                                                        ast_idx: 125,
-                                                        body: ArenaIdxRange(
-                                                            67..79,
-                                                        ),
-                                                        variant: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
                                                         },
                                                     },
-                                                    ast_idx: 75,
                                                     ident: `top_k_row_span_sum`,
-                                                    associated_item_kind: TypeItem(
-                                                        Method,
-                                                    ),
-                                                    accessibility: PubicUnder(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                    is_generic: false,
                                                 },
                                             ),
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
                                                         TypePath(`core::num::i32`, `Alien`),
                                                     ),
                                                 },
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 1,
                                                     entity_path: Some(
                                                         TypePath(`core::num::f32`, `Alien`),
@@ -13254,14 +11843,14 @@ Ok(
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         434,
                                                     ),
                                                     ident: `i32`,
                                                     entity_path: TypePath(`core::num::i32`, `Alien`),
                                                 },
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         437,
                                                     ),
@@ -13276,7 +11865,7 @@ Ok(
                                         pattern_expr_region: PatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    Identifier {
+                                                    PatternExpr::Identifier {
                                                         ident_token: IdentifierToken {
                                                             ident: `k`,
                                                             token_idx: TokenIdx(
@@ -13306,7 +11895,7 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    Atom(
+                                                    PatternSymbol::Atom(
                                                         0,
                                                     ),
                                                 ],
@@ -13324,7 +11913,7 @@ Ok(
                                                             433,
                                                         ),
                                                         access_end: None,
-                                                        variant: Parameter {
+                                                        variant: CurrentSymbolVariant::Parameter {
                                                             pattern_symbol: 0,
                                                         },
                                                     },
@@ -13404,32 +11993,19 @@ Ok(
                                                     ExprRegion {
                                                         data: ExprRegionData {
                                                             parent: None,
-                                                            path: Decl(
-                                                                ImplBlock(
-                                                                    ImplBlock {
-                                                                        id: ImplBlockId {
-                                                                            module_path: `mnist_classifier::connected_component`,
-                                                                            impl_block_kind: Type {
-                                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                            },
-                                                                        },
-                                                                        ast_idx: 125,
-                                                                        body: ArenaIdxRange(
-                                                                            67..79,
-                                                                        ),
-                                                                        variant: Type {
-                                                                            ty: TypePath(
-                                                                                Id {
-                                                                                    value: 19,
-                                                                                },
-                                                                            ),
+                                                            path: RegionPath::Decl(
+                                                                DeclExprPath::ImplBlock(
+                                                                    ImplBlockId {
+                                                                        module_path: `mnist_classifier::connected_component`,
+                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                         },
                                                                     },
                                                                 ),
                                                             ),
                                                             expr_arena: Arena {
                                                                 data: [
-                                                                    EntityPath {
+                                                                    Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
                                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -13439,7 +12015,7 @@ Ok(
                                                             },
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
-                                                                    Root {
+                                                                    EntityPathExpr::Root {
                                                                         token_idx: TokenIdx(
                                                                             86,
                                                                         ),
@@ -13481,79 +12057,28 @@ Ok(
                                                         },
                                                     },
                                                 ),
-                                                path: Decl(
-                                                    AssociatedItem(
-                                                        AssociatedItem {
-                                                            id: AssociatedItemId {
-                                                                impl_block_id: ImplBlockId {
-                                                                    module_path: ModulePath(
-                                                                        Id {
-                                                                            value: 22,
-                                                                        },
-                                                                    ),
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(
-                                                                            Id {
-                                                                                value: 19,
-                                                                            },
-                                                                        ),
-                                                                    },
-                                                                },
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 159,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            },
-                                                            path: Some(
-                                                                TypeItemPath {
+                                                path: RegionPath::Decl(
+                                                    DeclExprPath::AssociatedItem(
+                                                        AssociatedItemId {
+                                                            impl_block_id: ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
                                                                     ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    ident: `top_k_row_span_sum`,
-                                                                    ty_item_kind: Method,
-                                                                },
-                                                            ),
-                                                            impl_block: ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
                                                                 },
                                                             },
-                                                            ast_idx: 75,
                                                             ident: `top_k_row_span_sum`,
-                                                            associated_item_kind: TypeItem(
-                                                                Method,
-                                                            ),
-                                                            accessibility: PubicUnder(
-                                                                `mnist_classifier::connected_component`,
-                                                            ),
-                                                            is_generic: false,
                                                         },
                                                     ),
                                                 ),
                                                 expr_arena: Arena {
                                                     data: [
-                                                        EntityPath {
+                                                        Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
                                                                 TypePath(`core::num::i32`, `Alien`),
                                                             ),
                                                         },
-                                                        EntityPath {
+                                                        Expr::EntityPath {
                                                             entity_path_expr: 1,
                                                             entity_path: Some(
                                                                 TypePath(`core::num::f32`, `Alien`),
@@ -13563,14 +12088,14 @@ Ok(
                                                 },
                                                 entity_path_expr_arena: Arena {
                                                     data: [
-                                                        Root {
+                                                        EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 434,
                                                             ),
                                                             ident: `i32`,
                                                             entity_path: TypePath(`core::num::i32`, `Alien`),
                                                         },
-                                                        Root {
+                                                        EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 437,
                                                             ),
@@ -13585,7 +12110,7 @@ Ok(
                                                 pattern_expr_region: PatternExprRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [
-                                                            Identifier {
+                                                            PatternExpr::Identifier {
                                                                 ident_token: IdentifierToken {
                                                                     ident: `k`,
                                                                     token_idx: TokenIdx(
@@ -13615,7 +12140,7 @@ Ok(
                                                     ],
                                                     pattern_symbol_arena: Arena {
                                                         data: [
-                                                            Atom(
+                                                            PatternSymbol::Atom(
                                                                 0,
                                                             ),
                                                         ],
@@ -13633,7 +12158,7 @@ Ok(
                                                                     433,
                                                                 ),
                                                                 access_end: None,
-                                                                variant: Parameter {
+                                                                variant: CurrentSymbolVariant::Parameter {
                                                                     pattern_symbol: 0,
                                                                 },
                                                             },
@@ -13657,31 +12182,17 @@ Ok(
                                             },
                                         },
                                     ),
-                                    path: Defn(
-                                        AssociatedItem(
+                                    path: RegionPath::Defn(
+                                        DefnExprPath::AssociatedItem(
                                             AssociatedItem {
                                                 id: AssociatedItemId {
                                                     impl_block_id: ImplBlockId {
-                                                        module_path: ModulePath(
-                                                            Id {
-                                                                value: 22,
-                                                            },
-                                                        ),
-                                                        impl_block_kind: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
+                                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         },
                                                     },
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 159,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `top_k_row_span_sum`,
                                                 },
                                                 path: Some(
                                                     TypeItemPath {
@@ -13693,7 +12204,7 @@ Ok(
                                                 impl_block: ImplBlock {
                                                     id: ImplBlockId {
                                                         module_path: `mnist_classifier::connected_component`,
-                                                        impl_block_kind: Type {
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         },
                                                     },
@@ -13701,12 +12212,8 @@ Ok(
                                                     body: ArenaIdxRange(
                                                         67..79,
                                                     ),
-                                                    variant: Type {
-                                                        ty: TypePath(
-                                                            Id {
-                                                                value: 19,
-                                                            },
-                                                        ),
+                                                    variant: ImplBlockVariant::Type {
+                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     },
                                                 },
                                                 ast_idx: 75,
@@ -13723,25 +12230,25 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Literal(
+                                            Expr::Literal(
                                                 TokenIdx(
                                                     443,
                                                 ),
                                             ),
-                                            InheritedSymbol {
+                                            Expr::InheritedSymbol {
                                                 ident: `k`,
                                                 token_idx: TokenIdx(
                                                     445,
                                                 ),
                                                 inherited_symbol_idx: 0,
-                                                inherited_symbol_kind: Parameter,
+                                                inherited_symbol_kind: InheritedSymbolKind::Parameter,
                                             },
-                                            Literal(
+                                            Expr::Literal(
                                                 TokenIdx(
                                                     447,
                                                 ),
                                             ),
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 1,
                                                 opr: Comparison(
                                                     Greater,
@@ -13751,17 +12258,17 @@ Ok(
                                                 ),
                                                 ropd: 2,
                                             },
-                                            Literal(
+                                            Expr::Literal(
                                                 TokenIdx(
                                                     452,
                                                 ),
                                             ),
-                                            SelfValue(
+                                            Expr::SelfValue(
                                                 TokenIdx(
                                                     459,
                                                 ),
                                             ),
-                                            Field {
+                                            Expr::Field {
                                                 this_expr: 5,
                                                 dot_token_idx: TokenIdx(
                                                     460,
@@ -13773,17 +12280,17 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `i`,
                                                 token_idx: TokenIdx(
                                                     463,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 0,
                                                 },
                                             },
-                                            NewBoxList {
+                                            Expr::NewBoxList {
                                                 caller: Some(
                                                     6,
                                                 ),
@@ -13797,45 +12304,45 @@ Ok(
                                                     464,
                                                 ),
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `i`,
                                                 token_idx: TokenIdx(
                                                     468,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 0,
                                                 },
                                             },
-                                            FrameVarDecl {
+                                            Expr::FrameVarDecl {
                                                 token_idx: TokenIdx(
                                                     470,
                                                 ),
                                                 ident: `j`,
                                                 current_symbol_idx: 2,
-                                                current_symbol_kind: FrameVariable(
+                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                     10,
                                                 ),
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `i`,
                                                 token_idx: TokenIdx(
                                                     472,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 0,
                                                 },
                                             },
-                                            InheritedSymbol {
+                                            Expr::InheritedSymbol {
                                                 ident: `k`,
                                                 token_idx: TokenIdx(
                                                     474,
                                                 ),
                                                 inherited_symbol_idx: 0,
-                                                inherited_symbol_kind: Parameter,
+                                                inherited_symbol_kind: InheritedSymbolKind::Parameter,
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 9,
                                                 opr: Comparison(
                                                     Leq,
@@ -13845,7 +12352,7 @@ Ok(
                                                 ),
                                                 ropd: 10,
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 11,
                                                 opr: PureClosed(
                                                     Add,
@@ -13855,7 +12362,7 @@ Ok(
                                                 ),
                                                 ropd: 12,
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 13,
                                                 opr: Comparison(
                                                     Less,
@@ -13865,12 +12372,12 @@ Ok(
                                                 ),
                                                 ropd: 14,
                                             },
-                                            SelfValue(
+                                            Expr::SelfValue(
                                                 TokenIdx(
                                                     478,
                                                 ),
                                             ),
-                                            Field {
+                                            Expr::Field {
                                                 this_expr: 16,
                                                 dot_token_idx: TokenIdx(
                                                     479,
@@ -13882,17 +12389,17 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `j`,
                                                 token_idx: TokenIdx(
                                                     482,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 0,
                                                 },
                                             },
-                                            NewBoxList {
+                                            Expr::NewBoxList {
                                                 caller: Some(
                                                     17,
                                                 ),
@@ -13906,17 +12413,17 @@ Ok(
                                                     483,
                                                 ),
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `top_k_row_span_sum`,
                                                 token_idx: TokenIdx(
                                                     476,
                                                 ),
                                                 current_symbol_idx: 2,
-                                                current_symbol_kind: FrameVariable(
+                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                     10,
                                                 ),
                                             },
-                                            MethodCall {
+                                            Expr::MethodCall {
                                                 this_expr: 19,
                                                 dot_token_idx: TokenIdx(
                                                     484,
@@ -13938,7 +12445,7 @@ Ok(
                                                     487,
                                                 ),
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 20,
                                                 opr: Assign(
                                                     Some(
@@ -13950,23 +12457,23 @@ Ok(
                                                 ),
                                                 ropd: 21,
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `top_k_row_span_sum`,
                                                 token_idx: TokenIdx(
                                                     489,
                                                 ),
                                                 current_symbol_idx: 2,
-                                                current_symbol_kind: FrameVariable(
+                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                     10,
                                                 ),
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`core::num::f32`, `Alien`),
                                                 ),
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 23,
                                                 opr: As,
                                                 opr_token_idx: TokenIdx(
@@ -13974,7 +12481,7 @@ Ok(
                                                 ),
                                                 ropd: 24,
                                             },
-                                            Block {
+                                            Expr::Block {
                                                 stmts: ArenaIdxRange(
                                                     3..9,
                                                 ),
@@ -13983,7 +12490,7 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     491,
                                                 ),
@@ -13994,14 +12501,14 @@ Ok(
                                     },
                                     stmt_arena: Arena {
                                         data: [
-                                            Break {
+                                            Stmt::Break {
                                                 break_token: BreakToken {
                                                     token_idx: TokenIdx(
                                                         466,
                                                     ),
                                                 },
                                             },
-                                            IfElse {
+                                            Stmt::IfElse {
                                                 if_branch: IfBranch {
                                                     if_token: IfToken {
                                                         token_idx: TokenIdx(
@@ -14027,10 +12534,10 @@ Ok(
                                                 elif_branches: [],
                                                 else_branch: None,
                                             },
-                                            Eval {
+                                            Stmt::Eval {
                                                 expr: 22,
                                             },
-                                            Let {
+                                            Stmt::Let {
                                                 let_token: LetToken {
                                                     token_idx: TokenIdx(
                                                         439,
@@ -14059,7 +12566,7 @@ Ok(
                                                     0,
                                                 ),
                                             },
-                                            Assert {
+                                            Stmt::Assert {
                                                 assert_token: AssertToken {
                                                     token_idx: TokenIdx(
                                                         444,
@@ -14069,7 +12576,7 @@ Ok(
                                                     3,
                                                 ),
                                             },
-                                            Let {
+                                            Stmt::Let {
                                                 let_token: LetToken {
                                                     token_idx: TokenIdx(
                                                         448,
@@ -14098,7 +12605,7 @@ Ok(
                                                     4,
                                                 ),
                                             },
-                                            ForExt {
+                                            Stmt::ForExt {
                                                 forext_token: ForextToken {
                                                     token_idx: TokenIdx(
                                                         453,
@@ -14117,7 +12624,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            ForBetween {
+                                            Stmt::ForBetween {
                                                 for_token: ForToken {
                                                     token_idx: TokenIdx(
                                                         467,
@@ -14166,7 +12673,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Return {
+                                            Stmt::Return {
                                                 return_token: ReturnToken {
                                                     token_idx: TokenIdx(
                                                         488,
@@ -14181,7 +12688,7 @@ Ok(
                                     pattern_expr_region: PatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `top_k_row_span_sum`,
                                                         token_idx: TokenIdx(
@@ -14190,7 +12697,7 @@ Ok(
                                                     },
                                                     liason: None,
                                                 },
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `i`,
                                                         token_idx: TokenIdx(
@@ -14233,10 +12740,10 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     0,
                                                 ),
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     1,
                                                 ),
                                             ],
@@ -14247,7 +12754,7 @@ Ok(
                                             data: [
                                                 InheritedSymbol {
                                                     ident: `k`,
-                                                    kind: Parameter,
+                                                    kind: InheritedSymbolKind::Parameter,
                                                 },
                                             ],
                                         },
@@ -14265,7 +12772,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    variant: LetVariable {
+                                                    variant: CurrentSymbolVariant::LetVariable {
                                                         pattern_symbol: 0,
                                                     },
                                                 },
@@ -14281,7 +12788,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    variant: LetVariable {
+                                                    variant: CurrentSymbolVariant::LetVariable {
                                                         pattern_symbol: 1,
                                                     },
                                                 },
@@ -14297,7 +12804,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    variant: FrameVariable(
+                                                    variant: CurrentSymbolVariant::FrameVariable(
                                                         10,
                                                     ),
                                                 },
@@ -14334,26 +12841,12 @@ Ok(
                                 associated_item: AssociatedItem {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId {
-                                            module_path: ModulePath(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                            impl_block_kind: Type {
-                                                ty: TypePath(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
+                                            module_path: `mnist_classifier::connected_component`,
+                                            impl_block_kind: ImplBlockKind::Type {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 162,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `top_k_row_right_mass_sum`,
                                     },
                                     path: Some(
                                         TypeItemPath {
@@ -14365,7 +12858,7 @@ Ok(
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
                                             module_path: `mnist_classifier::connected_component`,
-                                            impl_block_kind: Type {
+                                            impl_block_kind: ImplBlockKind::Type {
                                                 ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
@@ -14373,12 +12866,8 @@ Ok(
                                         body: ArenaIdxRange(
                                             67..79,
                                         ),
-                                        variant: Type {
-                                            ty: TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
-                                            ),
+                                        variant: ImplBlockVariant::Type {
+                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         },
                                     },
                                     ast_idx: 76,
@@ -14405,32 +12894,19 @@ Ok(
                                             ExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
-                                                    path: Decl(
-                                                        ImplBlock(
-                                                            ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
+                                                    path: RegionPath::Decl(
+                                                        DeclExprPath::ImplBlock(
+                                                            ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                 },
                                                             },
                                                         ),
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            EntityPath {
+                                                            Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
                                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -14440,7 +12916,7 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
-                                                            Root {
+                                                            EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     86,
                                                                 ),
@@ -14482,79 +12958,28 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: Decl(
-                                            AssociatedItem(
-                                                AssociatedItem {
-                                                    id: AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
-                                                            module_path: ModulePath(
-                                                                Id {
-                                                                    value: 22,
-                                                                },
-                                                            ),
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(
-                                                                    Id {
-                                                                        value: 19,
-                                                                    },
-                                                                ),
-                                                            },
-                                                        },
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 162,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    path: Some(
-                                                        TypeItemPath {
+                                        path: RegionPath::Decl(
+                                            DeclExprPath::AssociatedItem(
+                                                AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            ident: `top_k_row_right_mass_sum`,
-                                                            ty_item_kind: Method,
-                                                        },
-                                                    ),
-                                                    impl_block: ImplBlock {
-                                                        id: ImplBlockId {
-                                                            module_path: `mnist_classifier::connected_component`,
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            },
-                                                        },
-                                                        ast_idx: 125,
-                                                        body: ArenaIdxRange(
-                                                            67..79,
-                                                        ),
-                                                        variant: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
                                                         },
                                                     },
-                                                    ast_idx: 76,
                                                     ident: `top_k_row_right_mass_sum`,
-                                                    associated_item_kind: TypeItem(
-                                                        Method,
-                                                    ),
-                                                    accessibility: PubicUnder(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                    is_generic: false,
                                                 },
                                             ),
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
                                                         TypePath(`core::num::i32`, `Alien`),
                                                     ),
                                                 },
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 1,
                                                     entity_path: Some(
                                                         TypePath(`core::num::f32`, `Alien`),
@@ -14564,14 +12989,14 @@ Ok(
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         497,
                                                     ),
                                                     ident: `i32`,
                                                     entity_path: TypePath(`core::num::i32`, `Alien`),
                                                 },
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         500,
                                                     ),
@@ -14586,7 +13011,7 @@ Ok(
                                         pattern_expr_region: PatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    Identifier {
+                                                    PatternExpr::Identifier {
                                                         ident_token: IdentifierToken {
                                                             ident: `k`,
                                                             token_idx: TokenIdx(
@@ -14616,7 +13041,7 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    Atom(
+                                                    PatternSymbol::Atom(
                                                         0,
                                                     ),
                                                 ],
@@ -14634,7 +13059,7 @@ Ok(
                                                             496,
                                                         ),
                                                         access_end: None,
-                                                        variant: Parameter {
+                                                        variant: CurrentSymbolVariant::Parameter {
                                                             pattern_symbol: 0,
                                                         },
                                                     },
@@ -14714,32 +13139,19 @@ Ok(
                                                     ExprRegion {
                                                         data: ExprRegionData {
                                                             parent: None,
-                                                            path: Decl(
-                                                                ImplBlock(
-                                                                    ImplBlock {
-                                                                        id: ImplBlockId {
-                                                                            module_path: `mnist_classifier::connected_component`,
-                                                                            impl_block_kind: Type {
-                                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                            },
-                                                                        },
-                                                                        ast_idx: 125,
-                                                                        body: ArenaIdxRange(
-                                                                            67..79,
-                                                                        ),
-                                                                        variant: Type {
-                                                                            ty: TypePath(
-                                                                                Id {
-                                                                                    value: 19,
-                                                                                },
-                                                                            ),
+                                                            path: RegionPath::Decl(
+                                                                DeclExprPath::ImplBlock(
+                                                                    ImplBlockId {
+                                                                        module_path: `mnist_classifier::connected_component`,
+                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                         },
                                                                     },
                                                                 ),
                                                             ),
                                                             expr_arena: Arena {
                                                                 data: [
-                                                                    EntityPath {
+                                                                    Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
                                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -14749,7 +13161,7 @@ Ok(
                                                             },
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
-                                                                    Root {
+                                                                    EntityPathExpr::Root {
                                                                         token_idx: TokenIdx(
                                                                             86,
                                                                         ),
@@ -14791,79 +13203,28 @@ Ok(
                                                         },
                                                     },
                                                 ),
-                                                path: Decl(
-                                                    AssociatedItem(
-                                                        AssociatedItem {
-                                                            id: AssociatedItemId {
-                                                                impl_block_id: ImplBlockId {
-                                                                    module_path: ModulePath(
-                                                                        Id {
-                                                                            value: 22,
-                                                                        },
-                                                                    ),
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(
-                                                                            Id {
-                                                                                value: 19,
-                                                                            },
-                                                                        ),
-                                                                    },
-                                                                },
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 162,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            },
-                                                            path: Some(
-                                                                TypeItemPath {
+                                                path: RegionPath::Decl(
+                                                    DeclExprPath::AssociatedItem(
+                                                        AssociatedItemId {
+                                                            impl_block_id: ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
                                                                     ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    ident: `top_k_row_right_mass_sum`,
-                                                                    ty_item_kind: Method,
-                                                                },
-                                                            ),
-                                                            impl_block: ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
                                                                 },
                                                             },
-                                                            ast_idx: 76,
                                                             ident: `top_k_row_right_mass_sum`,
-                                                            associated_item_kind: TypeItem(
-                                                                Method,
-                                                            ),
-                                                            accessibility: PubicUnder(
-                                                                `mnist_classifier::connected_component`,
-                                                            ),
-                                                            is_generic: false,
                                                         },
                                                     ),
                                                 ),
                                                 expr_arena: Arena {
                                                     data: [
-                                                        EntityPath {
+                                                        Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
                                                                 TypePath(`core::num::i32`, `Alien`),
                                                             ),
                                                         },
-                                                        EntityPath {
+                                                        Expr::EntityPath {
                                                             entity_path_expr: 1,
                                                             entity_path: Some(
                                                                 TypePath(`core::num::f32`, `Alien`),
@@ -14873,14 +13234,14 @@ Ok(
                                                 },
                                                 entity_path_expr_arena: Arena {
                                                     data: [
-                                                        Root {
+                                                        EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 497,
                                                             ),
                                                             ident: `i32`,
                                                             entity_path: TypePath(`core::num::i32`, `Alien`),
                                                         },
-                                                        Root {
+                                                        EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 500,
                                                             ),
@@ -14895,7 +13256,7 @@ Ok(
                                                 pattern_expr_region: PatternExprRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [
-                                                            Identifier {
+                                                            PatternExpr::Identifier {
                                                                 ident_token: IdentifierToken {
                                                                     ident: `k`,
                                                                     token_idx: TokenIdx(
@@ -14925,7 +13286,7 @@ Ok(
                                                     ],
                                                     pattern_symbol_arena: Arena {
                                                         data: [
-                                                            Atom(
+                                                            PatternSymbol::Atom(
                                                                 0,
                                                             ),
                                                         ],
@@ -14943,7 +13304,7 @@ Ok(
                                                                     496,
                                                                 ),
                                                                 access_end: None,
-                                                                variant: Parameter {
+                                                                variant: CurrentSymbolVariant::Parameter {
                                                                     pattern_symbol: 0,
                                                                 },
                                                             },
@@ -14967,31 +13328,17 @@ Ok(
                                             },
                                         },
                                     ),
-                                    path: Defn(
-                                        AssociatedItem(
+                                    path: RegionPath::Defn(
+                                        DefnExprPath::AssociatedItem(
                                             AssociatedItem {
                                                 id: AssociatedItemId {
                                                     impl_block_id: ImplBlockId {
-                                                        module_path: ModulePath(
-                                                            Id {
-                                                                value: 22,
-                                                            },
-                                                        ),
-                                                        impl_block_kind: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
+                                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         },
                                                     },
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 162,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `top_k_row_right_mass_sum`,
                                                 },
                                                 path: Some(
                                                     TypeItemPath {
@@ -15003,7 +13350,7 @@ Ok(
                                                 impl_block: ImplBlock {
                                                     id: ImplBlockId {
                                                         module_path: `mnist_classifier::connected_component`,
-                                                        impl_block_kind: Type {
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         },
                                                     },
@@ -15011,12 +13358,8 @@ Ok(
                                                     body: ArenaIdxRange(
                                                         67..79,
                                                     ),
-                                                    variant: Type {
-                                                        ty: TypePath(
-                                                            Id {
-                                                                value: 19,
-                                                            },
-                                                        ),
+                                                    variant: ImplBlockVariant::Type {
+                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     },
                                                 },
                                                 ast_idx: 76,
@@ -15033,25 +13376,25 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Literal(
+                                            Expr::Literal(
                                                 TokenIdx(
                                                     506,
                                                 ),
                                             ),
-                                            InheritedSymbol {
+                                            Expr::InheritedSymbol {
                                                 ident: `k`,
                                                 token_idx: TokenIdx(
                                                     508,
                                                 ),
                                                 inherited_symbol_idx: 0,
-                                                inherited_symbol_kind: Parameter,
+                                                inherited_symbol_kind: InheritedSymbolKind::Parameter,
                                             },
-                                            Literal(
+                                            Expr::Literal(
                                                 TokenIdx(
                                                     510,
                                                 ),
                                             ),
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 1,
                                                 opr: Comparison(
                                                     Greater,
@@ -15061,17 +13404,17 @@ Ok(
                                                 ),
                                                 ropd: 2,
                                             },
-                                            Literal(
+                                            Expr::Literal(
                                                 TokenIdx(
                                                     515,
                                                 ),
                                             ),
-                                            SelfValue(
+                                            Expr::SelfValue(
                                                 TokenIdx(
                                                     522,
                                                 ),
                                             ),
-                                            Field {
+                                            Expr::Field {
                                                 this_expr: 5,
                                                 dot_token_idx: TokenIdx(
                                                     523,
@@ -15083,17 +13426,17 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `i`,
                                                 token_idx: TokenIdx(
                                                     526,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 0,
                                                 },
                                             },
-                                            NewBoxList {
+                                            Expr::NewBoxList {
                                                 caller: Some(
                                                     6,
                                                 ),
@@ -15107,45 +13450,45 @@ Ok(
                                                     527,
                                                 ),
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `i`,
                                                 token_idx: TokenIdx(
                                                     531,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 0,
                                                 },
                                             },
-                                            FrameVarDecl {
+                                            Expr::FrameVarDecl {
                                                 token_idx: TokenIdx(
                                                     533,
                                                 ),
                                                 ident: `j`,
                                                 current_symbol_idx: 2,
-                                                current_symbol_kind: FrameVariable(
+                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                     10,
                                                 ),
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `i`,
                                                 token_idx: TokenIdx(
                                                     535,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 0,
                                                 },
                                             },
-                                            InheritedSymbol {
+                                            Expr::InheritedSymbol {
                                                 ident: `k`,
                                                 token_idx: TokenIdx(
                                                     537,
                                                 ),
                                                 inherited_symbol_idx: 0,
-                                                inherited_symbol_kind: Parameter,
+                                                inherited_symbol_kind: InheritedSymbolKind::Parameter,
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 9,
                                                 opr: Comparison(
                                                     Leq,
@@ -15155,7 +13498,7 @@ Ok(
                                                 ),
                                                 ropd: 10,
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 11,
                                                 opr: PureClosed(
                                                     Add,
@@ -15165,7 +13508,7 @@ Ok(
                                                 ),
                                                 ropd: 12,
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 13,
                                                 opr: Comparison(
                                                     Less,
@@ -15175,12 +13518,12 @@ Ok(
                                                 ),
                                                 ropd: 14,
                                             },
-                                            SelfValue(
+                                            Expr::SelfValue(
                                                 TokenIdx(
                                                     541,
                                                 ),
                                             ),
-                                            Field {
+                                            Expr::Field {
                                                 this_expr: 16,
                                                 dot_token_idx: TokenIdx(
                                                     542,
@@ -15192,17 +13535,17 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `j`,
                                                 token_idx: TokenIdx(
                                                     545,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: LetVariable {
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                     pattern_symbol: 0,
                                                 },
                                             },
-                                            NewBoxList {
+                                            Expr::NewBoxList {
                                                 caller: Some(
                                                     17,
                                                 ),
@@ -15216,17 +13559,17 @@ Ok(
                                                     546,
                                                 ),
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `top_k_row_span_sum`,
                                                 token_idx: TokenIdx(
                                                     539,
                                                 ),
                                                 current_symbol_idx: 2,
-                                                current_symbol_kind: FrameVariable(
+                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                     10,
                                                 ),
                                             },
-                                            MethodCall {
+                                            Expr::MethodCall {
                                                 this_expr: 19,
                                                 dot_token_idx: TokenIdx(
                                                     547,
@@ -15248,7 +13591,7 @@ Ok(
                                                     550,
                                                 ),
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 20,
                                                 opr: Assign(
                                                     Some(
@@ -15260,23 +13603,23 @@ Ok(
                                                 ),
                                                 ropd: 21,
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `top_k_row_span_sum`,
                                                 token_idx: TokenIdx(
                                                     552,
                                                 ),
                                                 current_symbol_idx: 2,
-                                                current_symbol_kind: FrameVariable(
+                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                     10,
                                                 ),
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`core::num::f32`, `Alien`),
                                                 ),
                                             },
-                                            BinaryOpn {
+                                            Expr::BinaryOpn {
                                                 lopd: 23,
                                                 opr: As,
                                                 opr_token_idx: TokenIdx(
@@ -15284,7 +13627,7 @@ Ok(
                                                 ),
                                                 ropd: 24,
                                             },
-                                            Block {
+                                            Expr::Block {
                                                 stmts: ArenaIdxRange(
                                                     3..9,
                                                 ),
@@ -15293,7 +13636,7 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     554,
                                                 ),
@@ -15304,14 +13647,14 @@ Ok(
                                     },
                                     stmt_arena: Arena {
                                         data: [
-                                            Break {
+                                            Stmt::Break {
                                                 break_token: BreakToken {
                                                     token_idx: TokenIdx(
                                                         529,
                                                     ),
                                                 },
                                             },
-                                            IfElse {
+                                            Stmt::IfElse {
                                                 if_branch: IfBranch {
                                                     if_token: IfToken {
                                                         token_idx: TokenIdx(
@@ -15337,10 +13680,10 @@ Ok(
                                                 elif_branches: [],
                                                 else_branch: None,
                                             },
-                                            Eval {
+                                            Stmt::Eval {
                                                 expr: 22,
                                             },
-                                            Let {
+                                            Stmt::Let {
                                                 let_token: LetToken {
                                                     token_idx: TokenIdx(
                                                         502,
@@ -15369,7 +13712,7 @@ Ok(
                                                     0,
                                                 ),
                                             },
-                                            Assert {
+                                            Stmt::Assert {
                                                 assert_token: AssertToken {
                                                     token_idx: TokenIdx(
                                                         507,
@@ -15379,7 +13722,7 @@ Ok(
                                                     3,
                                                 ),
                                             },
-                                            Let {
+                                            Stmt::Let {
                                                 let_token: LetToken {
                                                     token_idx: TokenIdx(
                                                         511,
@@ -15408,7 +13751,7 @@ Ok(
                                                     4,
                                                 ),
                                             },
-                                            ForExt {
+                                            Stmt::ForExt {
                                                 forext_token: ForextToken {
                                                     token_idx: TokenIdx(
                                                         516,
@@ -15427,7 +13770,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            ForBetween {
+                                            Stmt::ForBetween {
                                                 for_token: ForToken {
                                                     token_idx: TokenIdx(
                                                         530,
@@ -15476,7 +13819,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Return {
+                                            Stmt::Return {
                                                 return_token: ReturnToken {
                                                     token_idx: TokenIdx(
                                                         551,
@@ -15491,7 +13834,7 @@ Ok(
                                     pattern_expr_region: PatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `top_k_row_span_sum`,
                                                         token_idx: TokenIdx(
@@ -15500,7 +13843,7 @@ Ok(
                                                     },
                                                     liason: None,
                                                 },
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `i`,
                                                         token_idx: TokenIdx(
@@ -15543,10 +13886,10 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     0,
                                                 ),
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     1,
                                                 ),
                                             ],
@@ -15557,7 +13900,7 @@ Ok(
                                             data: [
                                                 InheritedSymbol {
                                                     ident: `k`,
-                                                    kind: Parameter,
+                                                    kind: InheritedSymbolKind::Parameter,
                                                 },
                                             ],
                                         },
@@ -15575,7 +13918,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    variant: LetVariable {
+                                                    variant: CurrentSymbolVariant::LetVariable {
                                                         pattern_symbol: 0,
                                                     },
                                                 },
@@ -15591,7 +13934,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    variant: LetVariable {
+                                                    variant: CurrentSymbolVariant::LetVariable {
                                                         pattern_symbol: 1,
                                                     },
                                                 },
@@ -15607,7 +13950,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    variant: FrameVariable(
+                                                    variant: CurrentSymbolVariant::FrameVariable(
                                                         10,
                                                     ),
                                                 },

@@ -1,30 +1,16 @@
 [
     ExprTypeRegion {
-        path: Defn(
-            AssociatedItem(
+        path: RegionPath::Defn(
+            DefnExprPath::AssociatedItem(
                 AssociatedItem {
                     id: AssociatedItemId {
                         impl_block_id: ImplBlockId {
-                            module_path: ModulePath(
-                                Id {
-                                    value: 40,
-                                },
-                            ),
-                            impl_block_kind: Type {
-                                ty: TypePath(
-                                    Id {
-                                        value: 41,
-                                    },
-                                ),
+                            module_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                            impl_block_kind: ImplBlockKind::Type {
+                                ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                             },
                         },
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 212,
-                                },
-                            ),
-                        ),
+                        ident: `displacement`,
                     },
                     path: Some(
                         TypeItemPath {
@@ -36,7 +22,7 @@
                     impl_block: ImplBlock {
                         id: ImplBlockId {
                             module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                            impl_block_kind: Type {
+                            impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                             },
                         },
@@ -44,12 +30,8 @@
                         body: ArenaIdxRange(
                             13..15,
                         ),
-                        variant: Type {
-                            ty: TypePath(
-                                Id {
-                                    value: 41,
-                                },
-                            ),
+                        variant: ImplBlockVariant::Type {
+                            ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                         },
                     },
                     ast_idx: 13,
@@ -67,31 +49,17 @@
         expr_ty_infos: [],
     },
     ExprTypeRegion {
-        path: Defn(
-            AssociatedItem(
+        path: RegionPath::Defn(
+            DefnExprPath::AssociatedItem(
                 AssociatedItem {
                     id: AssociatedItemId {
                         impl_block_id: ImplBlockId {
-                            module_path: ModulePath(
-                                Id {
-                                    value: 40,
-                                },
-                            ),
-                            impl_block_kind: Type {
-                                ty: TypePath(
-                                    Id {
-                                        value: 41,
-                                    },
-                                ),
+                            module_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                            impl_block_kind: ImplBlockKind::Type {
+                                ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                             },
                         },
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 344,
-                                },
-                            ),
-                        ),
+                        ident: `dist_to_point`,
                     },
                     path: Some(
                         TypeItemPath {
@@ -103,7 +71,7 @@
                     impl_block: ImplBlock {
                         id: ImplBlockId {
                             module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                            impl_block_kind: Type {
+                            impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                             },
                         },
@@ -111,12 +79,8 @@
                         body: ArenaIdxRange(
                             13..15,
                         ),
-                        variant: Type {
-                            ty: TypePath(
-                                Id {
-                                    value: 41,
-                                },
-                            ),
+                        variant: ImplBlockVariant::Type {
+                            ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                         },
                     },
                     ast_idx: 14,

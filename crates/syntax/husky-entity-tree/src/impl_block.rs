@@ -15,6 +15,7 @@ pub struct ImplBlock {
 }
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum ImplBlockVariant {
     Type { ty: TypePath },
     TypeAsTrait { ty: TypePath, trai: TraitPath },
@@ -32,30 +33,10 @@ impl ImplBlockVariant {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct ImplBlockId {
     module_path: ModulePath,
     impl_block_kind: ImplBlockKind,
-}
-
-impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for ImplBlockId {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
-        f.debug_struct("ImplBlockId")
-            .field(
-                "module_path",
-                &self.module_path.debug_with(db, include_all_fields),
-            )
-            .field(
-                "impl_block_kind",
-                &self.impl_block_kind.debug_with(db, include_all_fields),
-            )
-            .finish()
-    }
 }
 
 impl ImplBlockId {
@@ -65,33 +46,11 @@ impl ImplBlockId {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum ImplBlockKind {
     Type { ty: TypePath },
     TypeAsTrait { ty: TypePath, trai: TraitPath },
     Err,
-}
-
-impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for ImplBlockKind {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
-        match self {
-            ImplBlockKind::Type { ty } => f
-                .debug_struct("Type")
-                .field("ty", &ty.debug_with(db, include_all_fields))
-                .finish(),
-            ImplBlockKind::TypeAsTrait { ty, trai } => f
-                .debug_struct("TypeAsTrait")
-                .field("ty", &ty.debug_with(db, include_all_fields))
-                .field("trai", &trai.debug_with(db, include_all_fields))
-                .finish(),
-            ImplBlockKind::Err => f.write_str("Err"),
-        }
-    }
 }
 
 impl ImplBlock {
@@ -184,6 +143,7 @@ fn new_impl_block(
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum ImplBlockError {
     #[error("unmatched angle bras")]
     UnmatchedAngleBras,
