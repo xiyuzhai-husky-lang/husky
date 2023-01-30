@@ -25,15 +25,15 @@ where
     }
 
     fn ty_decl(&self, path: TypePath) -> DeclResultBorrowed<TypeDecl> {
-        ty_decl(self, path).as_ref().map(|decl| *decl)
+        ty_decl(self, path).as_ref().copied()
     }
 
     fn trai_decl(&self, path: TraitPath) -> DeclResultBorrowed<TraitDecl> {
-        trai_decl(self, path).as_ref().map(|decl| *decl)
+        trai_decl(self, path).as_ref().copied()
     }
 
     fn form_decl(&self, path: FormPath) -> DeclResultBorrowed<FormDecl> {
-        form_decl(self, path).as_ref().map(|decl| *decl)
+        form_decl(self, path).as_ref().copied()
     }
 
     fn decl_sheet<'a>(&'a self, module_path: ModulePath) -> EntityTreeResult<DeclSheet<'a>> {
@@ -41,7 +41,7 @@ where
     }
 
     fn impl_block_decl(&self, impl_block: ImplBlock) -> DeclResultBorrowed<ImplBlockDecl> {
-        impl_block_decl(self, impl_block).as_ref().map(|decl| *decl)
+        impl_block_decl(self, impl_block).as_ref().copied()
     }
 
     fn associated_item_decl(
@@ -50,6 +50,6 @@ where
     ) -> DeclResultBorrowed<AssociatedItemDecl> {
         associated_item_decl(self, associated_item)
             .as_ref()
-            .map(|decl| *decl)
+            .copied()
     }
 }

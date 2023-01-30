@@ -18,7 +18,7 @@ impl DefnSheet {
     }
 
     pub fn defns<'a>(&'a self) -> impl Iterator<Item = Defn> + 'a {
-        self.defns.iter().map(|defn| *defn)
+        self.defns.iter().copied()
     }
 }
 

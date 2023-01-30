@@ -292,7 +292,7 @@ impl<'a> TokenGroupIter<'a> {
         let end = self
             .line_group_starts
             .get(self.current + 1)
-            .map(|end| *end)
+            .copied()
             .unwrap_or(self.tokens.len());
         Some((
             TokenGroupIdx(idx),
@@ -483,7 +483,7 @@ impl TokenSheetData {
         let end = self
             .group_starts
             .get(token_group_idx.0 + 1)
-            .map(|end| *end)
+            .copied()
             .unwrap_or(self.tokens.len());
         TokenIdxRange::new(start, end)
     }
@@ -501,7 +501,7 @@ impl std::ops::Index<TokenGroupIdx> for TokenSheetData {
         let end = self
             .group_starts
             .get(index.0 + 1)
-            .map(|end| *end)
+            .copied()
             .unwrap_or(self.tokens.len());
         &self.tokens[start..end]
     }

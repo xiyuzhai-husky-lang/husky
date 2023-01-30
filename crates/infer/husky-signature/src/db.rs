@@ -20,7 +20,7 @@ where
     }
 
     fn trai_signature(&self, decl: TraitDecl) -> SignatureResultRef<TraitSignature> {
-        trai_signature(self, decl).as_ref().map(|s| *s)
+        trai_signature(self, decl).as_ref().copied()
     }
 
     fn form_signature(&self, decl: FormDecl) -> SignatureResultRef<FormSignature> {

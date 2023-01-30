@@ -72,7 +72,7 @@ impl EntityTreeCrateBundle {
     }
 
     pub fn impl_block_iter<'a>(&'a self) -> impl Iterator<Item = ImplBlock> + 'a {
-        self.impl_blocks.iter().map(|v| *v)
+        self.impl_blocks.iter().copied()
     }
 }
 

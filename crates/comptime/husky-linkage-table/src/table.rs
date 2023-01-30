@@ -131,13 +131,7 @@ impl LinkageTable {
     }
 
     fn get_linkage(&self, key: LinkageKey) -> Option<__Linkage> {
-        self.internal.read(|entries| {
-            entries
-                .as_ref()
-                .unwrap()
-                .linkages
-                .get(&key)
-                .map(|linkage_source| *linkage_source)
-        })
+        self.internal
+            .read(|entries| entries.as_ref().unwrap().linkages.get(&key).copied())
     }
 }

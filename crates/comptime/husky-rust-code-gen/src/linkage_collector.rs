@@ -102,7 +102,7 @@ pub(crate) fn entity_link_dependees(
         // let len0 = dependees.len();
         // for subroute in dependees[start..]
         //     .iter()
-        //     .map(|subroute| *subroute)
+        //     .copied()
         //     .collect::<Vec<_>>()
         // {
         //     match subroute.variant {
