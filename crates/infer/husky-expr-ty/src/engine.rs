@@ -115,17 +115,7 @@ impl<'a> ExprTypeEngine<'a> {
                 opr,
                 opr_token_idx,
                 ropd,
-            } => {
-                let Some(lopd_ty) = self.infer_new_resolved(*lopd, None)
-                    else {
-                        return Err(DerivedExprTypeError::BinaryOpnFirstArgumentTypeNotInferred.into())
-                    };
-                let Some(ropd_ty) = self.infer_new_resolved(*ropd, None)
-                    else {
-                        return Err(DerivedExprTypeError::BinaryOpnSecondArgumentTypeNotInferred.into())
-                    };
-                todo!()
-            }
+            } => self.calc_binary(*lopd, *ropd),
             Expr::Be {
                 src,
                 be_token_idx,
@@ -135,26 +125,7 @@ impl<'a> ExprTypeEngine<'a> {
                 opr,
                 opr_token_idx,
                 opd,
-            } => {
-                let opd_ty = self.infer_new(*opd, None);
-                match opr {
-                    PrefixOpr::Minus => todo!(),
-                    PrefixOpr::Not => todo!(),
-                    PrefixOpr::BitNot => todo!(),
-                    PrefixOpr::Ref => {
-                        // Should consider more cases, could also be taking references
-                        opd_ty.ok_or(DerivedExprTypeError::PrefixOperandTypeNotInferred.into())
-                    }
-                    PrefixOpr::Vector => todo!(),
-                    PrefixOpr::Slice => todo!(),
-                    PrefixOpr::CyclicSlice => todo!(),
-                    PrefixOpr::Array(_) => todo!(),
-                    PrefixOpr::Option => {
-                        // Should check this is type.
-                        opd_ty.ok_or(DerivedExprTypeError::PrefixOperandTypeNotInferred.into())
-                    }
-                }
-            }
+            } => self.calc_prefix(*opd, *opr),
             Expr::SuffixOpn {
                 opd,
                 punctuation,
@@ -191,50 +162,7 @@ impl<'a> ExprTypeEngine<'a> {
                 template,
                 implicit_arguments,
             } => todo!(),
-            Expr::Application { function, argument } => {
-                let function_expr = &self[*function];
-                match function_expr {
-                    Expr::NewBoxList {
-                        caller: None,
-                        lbox_token_idx,
-                        items,
-                        rbox_token_idx,
-                    } => {
-                        match items.len() {
-                            0 => {
-                                let argument_ty = self.infer_new(*argument, None);
-                                // check this is type
-                                argument_ty.ok_or(
-                                    DerivedExprTypeError::ApplicationArgumentTypeNotInferred.into(),
-                                )
-                            }
-                            1 => {
-                                let arg0_ty = self.infer_new(items.start(), None);
-                                match arg0_ty {
-                                    Some(_) => todo!(),
-                                    None => Err(
-                                        DerivedExprTypeError::BoxListApplicationFirstArgumentError
-                                            .into(),
-                                    ),
-                                }
-                            }
-                            n => {
-                                todo!()
-                            }
-                        }
-                    }
-                    Expr::BoxColon {
-                        caller,
-                        lbox_token_idx,
-                        colon_token_idx,
-                        rbox_token,
-                    } => todo!(),
-                    _ => {
-                        let function_ty = self.infer_new(*function, None);
-                        todo!()
-                    }
-                }
-            }
+            Expr::Application { function, argument } => self.calc_application(*function, *argument),
             Expr::Bracketed {
                 lpar_token_idx,
                 item,
@@ -258,8 +186,93 @@ impl<'a> ExprTypeEngine<'a> {
                 colon_token_idx,
                 rbox_token,
             } => todo!(),
-            Expr::Block { stmts } => todo!(),
+            Expr::Block { stmts } => self.calc_block(*stmts),
             Expr::Err(_) => Err(DerivedExprTypeError::ExprError.into()),
+        }
+    }
+
+    fn calc_block(&mut self, stmts: StmtIdxRange) -> ExprTypeResult<LocalTerm> {
+        todo!()
+    }
+
+    fn calc_binary(&mut self, lopd: ExprIdx, ropd: ExprIdx) -> ExprTypeResult<LocalTerm> {
+        let Some(lopd_ty) = self.infer_new_resolved(lopd, None)
+            else {
+                return Err(DerivedExprTypeError::BinaryOpnFirstArgumentTypeNotInferred.into())
+            };
+        let Some(ropd_ty) = self.infer_new_resolved(ropd, None)
+            else {
+                return Err(DerivedExprTypeError::BinaryOpnSecondArgumentTypeNotInferred.into())
+            };
+        todo!()
+    }
+
+    fn calc_prefix(&mut self, opd: ExprIdx, opr: PrefixOpr) -> ExprTypeResult<LocalTerm> {
+        let opd_ty = self.infer_new(opd, None);
+        match opr {
+            PrefixOpr::Minus => todo!(),
+            PrefixOpr::Not => todo!(),
+            PrefixOpr::BitNot => todo!(),
+            PrefixOpr::Ref => {
+                // Should consider more cases, could also be taking references
+                opd_ty.ok_or(DerivedExprTypeError::PrefixOperandTypeNotInferred.into())
+            }
+            PrefixOpr::Vector => todo!(),
+            PrefixOpr::Slice => todo!(),
+            PrefixOpr::CyclicSlice => todo!(),
+            PrefixOpr::Array(_) => todo!(),
+            PrefixOpr::Option => {
+                // Should check this is type.
+                opd_ty.ok_or(DerivedExprTypeError::PrefixOperandTypeNotInferred.into())
+            }
+        }
+    }
+
+    fn calc_application(
+        &mut self,
+        function: ExprIdx,
+        argument: ExprIdx,
+    ) -> Result<LocalTerm, ExprTypeError> {
+        let function_expr = &self[function];
+        match function_expr {
+            Expr::NewBoxList {
+                caller: None,
+                lbox_token_idx,
+                items,
+                rbox_token_idx,
+            } => {
+                match items.len() {
+                    0 => {
+                        let argument_ty = self.infer_new(argument, None);
+                        // check this is type
+                        argument_ty
+                            .ok_or(DerivedExprTypeError::ApplicationArgumentTypeNotInferred.into())
+                    }
+                    1 => {
+                        let arg0_ty = self.infer_new(items.start(), None);
+                        match arg0_ty {
+                            Some(_) => todo!(),
+                            None => {
+                                Err(DerivedExprTypeError::BoxListApplicationFirstArgumentError
+                                    .into())
+                            }
+                        }
+                    }
+                    n => {
+                        todo!()
+                    }
+                }
+            }
+            Expr::BoxColon {
+                caller,
+                lbox_token_idx,
+                colon_token_idx,
+                rbox_token,
+            } => todo!(),
+            _ => {
+                let function_ty = self.infer_new(function, None);
+                todo!()
+            }
         }
     }
 }
