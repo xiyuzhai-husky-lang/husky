@@ -32,7 +32,7 @@ impl SignatureTermRegion {
     }
 
     pub fn expr_term(&self, expr: ExprIdx) -> SignatureTermResultBorrowed<Term> {
-        self.expr_terms[expr].as_ref().map(|t| *t)
+        self.expr_terms[expr].as_ref().copied()
     }
 
     pub fn path(&self) -> RegionPath {

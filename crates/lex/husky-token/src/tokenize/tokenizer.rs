@@ -172,7 +172,7 @@ impl<'token> Tokenizer<'token> {
     //                     first_line.tokens.end
     //                 } else {
     //                     loop {
-    //                         if let Some(line) = line_iter.peek().map(|e| *e) {
+    //                         if let Some(line) = line_iter.peek().copied() {
     //                             match line.indent.within(group_indent) {
     //                                 Ok(is_within) => {
     //                                     if is_within {

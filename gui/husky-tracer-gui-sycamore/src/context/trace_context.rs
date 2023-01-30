@@ -51,7 +51,7 @@ impl DeveloperGuiContext {
                     .unwrap()
                     + 1,
             )
-            .map(|id| *id)
+            .copied()
     }
 
     pub(super) fn update_trace_listing(&self) {

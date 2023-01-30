@@ -35,7 +35,7 @@ impl ExprTypeInfo {
     }
 
     pub(crate) fn ty(&self) -> ExprTypeResultRef<LocalTerm> {
-        self.ty_result.as_ref().map(|t| *t)
+        self.ty_result.as_ref().copied()
     }
 }
 

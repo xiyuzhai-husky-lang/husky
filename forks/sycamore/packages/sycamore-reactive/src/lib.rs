@@ -105,7 +105,7 @@ impl<'a, 'b: 'a> BoundedScope<'a, 'b> {
     /// context type ids
     pub fn context_type_ids(&self) -> Vec<TypeId> {
         if let Some(ref context) = self.raw.inner.borrow_mut().contexts {
-            context.keys().map(|k| *k).collect()
+            context.keys().copied().collect()
         } else {
             vec![]
         }
