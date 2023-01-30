@@ -3,27 +3,27 @@ Ok(
         decls: [
             Ok(
                 Form(
-                    Function(
+                    FormDecl::Function(
                         FunctionDecl {
                             path: FormPath(`quick_sort::quick_sort`, `Function`),
                             ast_idx: 30,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             FormPath(`quick_sort::quick_sort`, `Function`),
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TraitPath(`core::cmp::Ord`),
                                                 ),
                                             },
-                                            BoxColon {
+                                            Expr::BoxColon {
                                                 caller: None,
                                                 lbox_token_idx: TokenIdx(
                                                     12,
@@ -37,14 +37,14 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `T`,
                                                 token_idx: TokenIdx(
                                                     15,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: ImplicitParameter {
-                                                    implicit_parameter_kind: Type {
+                                                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                                                    implicit_parameter_kind: ImplicitParameterKind::Type {
                                                         ident_token: IdentifierToken {
                                                             ident: `T`,
                                                             token_idx: TokenIdx(
@@ -54,7 +54,7 @@ Ok(
                                                     },
                                                 },
                                             },
-                                            Application {
+                                            Expr::Application {
                                                 function: 1,
                                                 argument: 2,
                                             },
@@ -62,7 +62,7 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     6,
                                                 ),
@@ -77,7 +77,7 @@ Ok(
                                     pattern_expr_region: PatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `arr`,
                                                         token_idx: TokenIdx(
@@ -107,7 +107,7 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -125,8 +125,8 @@ Ok(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    variant: ImplicitParameter {
-                                                        implicit_parameter_variant: Type {
+                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                        implicit_parameter_variant: ImplicitParameterVariant::Type {
                                                             ident_token: IdentifierToken {
                                                                 ident: `T`,
                                                                 token_idx: TokenIdx(
@@ -142,7 +142,7 @@ Ok(
                                                         11,
                                                     ),
                                                     access_end: None,
-                                                    variant: Parameter {
+                                                    variant: CurrentSymbolVariant::Parameter {
                                                         pattern_symbol: 0,
                                                     },
                                                 },
@@ -264,27 +264,27 @@ Ok(
             ),
             Ok(
                 Form(
-                    Function(
+                    FormDecl::Function(
                         FunctionDecl {
                             path: FormPath(`quick_sort::quick_sort_aux`, `Function`),
                             ast_idx: 31,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             FormPath(`quick_sort::quick_sort_aux`, `Function`),
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TraitPath(`core::cmp::Ord`),
                                                 ),
                                             },
-                                            BoxColon {
+                                            Expr::BoxColon {
                                                 caller: None,
                                                 lbox_token_idx: TokenIdx(
                                                     51,
@@ -298,14 +298,14 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `T`,
                                                 token_idx: TokenIdx(
                                                     54,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: ImplicitParameter {
-                                                    implicit_parameter_kind: Type {
+                                                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                                                    implicit_parameter_kind: ImplicitParameterKind::Type {
                                                         ident_token: IdentifierToken {
                                                             ident: `T`,
                                                             token_idx: TokenIdx(
@@ -315,11 +315,11 @@ Ok(
                                                     },
                                                 },
                                             },
-                                            Application {
+                                            Expr::Application {
                                                 function: 1,
                                                 argument: 2,
                                             },
-                                            Err(
+                                            Expr::Err(
                                                 UnrecognizedIdentifier {
                                                     token_idx: TokenIdx(
                                                         58,
@@ -333,7 +333,7 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            Err(
+                                            Expr::Err(
                                                 UnrecognizedIdentifier {
                                                     token_idx: TokenIdx(
                                                         62,
@@ -351,7 +351,7 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     45,
                                                 ),
@@ -366,7 +366,7 @@ Ok(
                                     pattern_expr_region: PatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `arr`,
                                                         token_idx: TokenIdx(
@@ -375,7 +375,7 @@ Ok(
                                                     },
                                                     liason: None,
                                                 },
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `low`,
                                                         token_idx: TokenIdx(
@@ -384,7 +384,7 @@ Ok(
                                                     },
                                                     liason: None,
                                                 },
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `high`,
                                                         token_idx: TokenIdx(
@@ -440,13 +440,13 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     0,
                                                 ),
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     1,
                                                 ),
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     2,
                                                 ),
                                             ],
@@ -464,8 +464,8 @@ Ok(
                                                         44,
                                                     ),
                                                     access_end: None,
-                                                    variant: ImplicitParameter {
-                                                        implicit_parameter_variant: Type {
+                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                        implicit_parameter_variant: ImplicitParameterVariant::Type {
                                                             ident_token: IdentifierToken {
                                                                 ident: `T`,
                                                                 token_idx: TokenIdx(
@@ -481,7 +481,7 @@ Ok(
                                                         50,
                                                     ),
                                                     access_end: None,
-                                                    variant: Parameter {
+                                                    variant: CurrentSymbolVariant::Parameter {
                                                         pattern_symbol: 0,
                                                     },
                                                 },
@@ -491,7 +491,7 @@ Ok(
                                                         57,
                                                     ),
                                                     access_end: None,
-                                                    variant: Parameter {
+                                                    variant: CurrentSymbolVariant::Parameter {
                                                         pattern_symbol: 1,
                                                     },
                                                 },
@@ -501,7 +501,7 @@ Ok(
                                                         61,
                                                     ),
                                                     access_end: None,
-                                                    variant: Parameter {
+                                                    variant: CurrentSymbolVariant::Parameter {
                                                         pattern_symbol: 2,
                                                     },
                                                 },
@@ -666,27 +666,27 @@ Ok(
             ),
             Ok(
                 Form(
-                    Function(
+                    FormDecl::Function(
                         FunctionDecl {
                             path: FormPath(`quick_sort::partition`, `Function`),
                             ast_idx: 32,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             FormPath(`quick_sort::partition`, `Function`),
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TraitPath(`core::cmp::Ord`),
                                                 ),
                                             },
-                                            BoxColon {
+                                            Expr::BoxColon {
                                                 caller: None,
                                                 lbox_token_idx: TokenIdx(
                                                     112,
@@ -700,14 +700,14 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            Expr::CurrentSymbol {
                                                 ident: `T`,
                                                 token_idx: TokenIdx(
                                                     115,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: ImplicitParameter {
-                                                    implicit_parameter_kind: Type {
+                                                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                                                    implicit_parameter_kind: ImplicitParameterKind::Type {
                                                         ident_token: IdentifierToken {
                                                             ident: `T`,
                                                             token_idx: TokenIdx(
@@ -717,11 +717,11 @@ Ok(
                                                     },
                                                 },
                                             },
-                                            Application {
+                                            Expr::Application {
                                                 function: 1,
                                                 argument: 2,
                                             },
-                                            Err(
+                                            Expr::Err(
                                                 UnrecognizedIdentifier {
                                                     token_idx: TokenIdx(
                                                         119,
@@ -735,7 +735,7 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            Err(
+                                            Expr::Err(
                                                 UnrecognizedIdentifier {
                                                     token_idx: TokenIdx(
                                                         123,
@@ -749,7 +749,7 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            Err(
+                                            Expr::Err(
                                                 UnrecognizedIdentifier {
                                                     token_idx: TokenIdx(
                                                         126,
@@ -767,7 +767,7 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     106,
                                                 ),
@@ -782,7 +782,7 @@ Ok(
                                     pattern_expr_region: PatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `arr`,
                                                         token_idx: TokenIdx(
@@ -791,7 +791,7 @@ Ok(
                                                     },
                                                     liason: None,
                                                 },
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `low`,
                                                         token_idx: TokenIdx(
@@ -800,7 +800,7 @@ Ok(
                                                     },
                                                     liason: None,
                                                 },
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `high`,
                                                         token_idx: TokenIdx(
@@ -856,13 +856,13 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     0,
                                                 ),
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     1,
                                                 ),
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     2,
                                                 ),
                                             ],
@@ -880,8 +880,8 @@ Ok(
                                                         105,
                                                     ),
                                                     access_end: None,
-                                                    variant: ImplicitParameter {
-                                                        implicit_parameter_variant: Type {
+                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                        implicit_parameter_variant: ImplicitParameterVariant::Type {
                                                             ident_token: IdentifierToken {
                                                                 ident: `T`,
                                                                 token_idx: TokenIdx(
@@ -897,7 +897,7 @@ Ok(
                                                         111,
                                                     ),
                                                     access_end: None,
-                                                    variant: Parameter {
+                                                    variant: CurrentSymbolVariant::Parameter {
                                                         pattern_symbol: 0,
                                                     },
                                                 },
@@ -907,7 +907,7 @@ Ok(
                                                         118,
                                                     ),
                                                     access_end: None,
-                                                    variant: Parameter {
+                                                    variant: CurrentSymbolVariant::Parameter {
                                                         pattern_symbol: 1,
                                                     },
                                                 },
@@ -917,7 +917,7 @@ Ok(
                                                         122,
                                                     ),
                                                     access_end: None,
-                                                    variant: Parameter {
+                                                    variant: CurrentSymbolVariant::Parameter {
                                                         pattern_symbol: 2,
                                                     },
                                                 },
@@ -1085,7 +1085,7 @@ Ok(
             ),
             Ok(
                 Form(
-                    Feature(
+                    FormDecl::Feature(
                         FeatureDecl {
                             path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
                             ast_idx: 34,
@@ -1113,8 +1113,8 @@ Ok(
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
                                         ),
                                     ),
@@ -1157,7 +1157,7 @@ Ok(
             ),
             Ok(
                 Form(
-                    Feature(
+                    FormDecl::Feature(
                         FeatureDecl {
                             path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
                             ast_idx: 36,
@@ -1185,8 +1185,8 @@ Ok(
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
                                         ),
                                     ),

@@ -508,7 +508,7 @@ impl<'a> DeclParser<'a> {
         impl_block: ImplBlock,
     ) -> DeclResult<TypeImplBlockDecl> {
         let mut parser = self.expr_parser(
-            DeclExprPath::ImplBlock(impl_block),
+            DeclExprPath::ImplBlock(impl_block.id(self.db)),
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
@@ -603,7 +603,7 @@ impl<'a> DeclParser<'a> {
         let Ok(impl_block_decl) = self.db.impl_block_decl(associated_item.impl_block(self.db))
             else { return Err(DeclError::UnableToParseImplBlockDeclForTyMethodDecl) };
         let mut parser = self.expr_parser(
-            DeclExprPath::AssociatedItem(associated_item),
+            DeclExprPath::AssociatedItem(associated_item.id(self.db)),
             Some(impl_block_decl.expr_region(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,
@@ -650,7 +650,7 @@ impl<'a> DeclParser<'a> {
         let Ok(impl_block_decl) = self.db.impl_block_decl(associated_item.impl_block(self.db))
             else { todo!() };
         let mut parser = self.expr_parser(
-            DeclExprPath::AssociatedItem(associated_item),
+            DeclExprPath::AssociatedItem(associated_item.id(self.db)),
             Some(impl_block_decl.expr_region(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,
@@ -690,7 +690,7 @@ impl<'a> DeclParser<'a> {
         let Ok(impl_block_decl) = self.db.impl_block_decl(associated_item.impl_block(self.db))
             else { return Err(DeclError::UnableToParseImplBlockDeclForTyAsTraitMethodDecl) };
         let mut parser = self.expr_parser(
-            DeclExprPath::AssociatedItem(associated_item),
+            DeclExprPath::AssociatedItem(associated_item.id(self.db)),
             Some(impl_block_decl.expr_region(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,

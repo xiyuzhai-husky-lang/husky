@@ -42,6 +42,7 @@ macro_rules! report {
 use report;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum RegionPath {
     Snippet(Toolchain),
     Decl(DeclExprPath),
@@ -61,71 +62,18 @@ impl From<DeclExprPath> for RegionPath {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum DeclExprPath {
     Entity(EntityPath),
-    ImplBlock(ImplBlock),
-    AssociatedItem(AssociatedItem),
+    ImplBlock(ImplBlockId),
+    AssociatedItem(AssociatedItemId),
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum DefnExprPath {
     Entity(EntityPath),
     AssociatedItem(AssociatedItem),
-}
-
-impl<Db: ExprDb + ?Sized> DebugWithDb<Db> for RegionPath {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<ExprJar>>::as_jar_db(db);
-        match self {
-            RegionPath::Snippet(path) => f.debug_tuple("Snippet").field(&path.debug(db)).finish(),
-            RegionPath::Decl(path) => f.debug_tuple("Decl").field(&path.debug(db)).finish(),
-            RegionPath::Defn(path) => f.debug_tuple("Defn").field(&path.debug(db)).finish(),
-        }
-    }
-}
-
-impl<Db: ExprDb + ?Sized> DebugWithDb<Db> for DeclExprPath {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<ExprJar>>::as_jar_db(db);
-        match self {
-            DeclExprPath::Entity(path) => f.debug_tuple("Entity").field(&path.debug(db)).finish(),
-            DeclExprPath::ImplBlock(path) => {
-                f.debug_tuple("ImplBlock").field(&path.debug(db)).finish()
-            }
-            DeclExprPath::AssociatedItem(path) => f
-                .debug_tuple("AssociatedItem")
-                .field(&path.debug(db))
-                .finish(),
-        }
-    }
-}
-
-impl<Db: ExprDb + ?Sized> DebugWithDb<Db> for DefnExprPath {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<ExprJar>>::as_jar_db(db);
-        match self {
-            DefnExprPath::Entity(path) => f.debug_tuple("Entity").field(&path.debug(db)).finish(),
-            DefnExprPath::AssociatedItem(path) => f
-                .debug_tuple("AssociatedItem")
-                .field(&path.debug(db))
-                .finish(),
-        }
-    }
 }
 
 pub struct ExprParser<'a> {

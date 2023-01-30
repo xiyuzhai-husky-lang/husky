@@ -1,7 +1,7 @@
 [
     Ok(
         Type(
-            Foreign(
+            TypeSignature::Foreign(
                 AlienTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -12,7 +12,7 @@
     ),
     Ok(
         Type(
-            Foreign(
+            TypeSignature::Foreign(
                 AlienTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -23,7 +23,7 @@
     ),
     Ok(
         Type(
-            Foreign(
+            TypeSignature::Foreign(
                 AlienTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -34,7 +34,7 @@
     ),
     Ok(
         Type(
-            Foreign(
+            TypeSignature::Foreign(
                 AlienTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -45,7 +45,7 @@
     ),
     Ok(
         Type(
-            Foreign(
+            TypeSignature::Foreign(
                 AlienTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -56,7 +56,7 @@
     ),
     Ok(
         Type(
-            Foreign(
+            TypeSignature::Foreign(
                 AlienTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -67,7 +67,7 @@
     ),
     Ok(
         Type(
-            Foreign(
+            TypeSignature::Foreign(
                 AlienTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -78,7 +78,7 @@
     ),
     Ok(
         Type(
-            Foreign(
+            TypeSignature::Foreign(
                 AlienTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -104,7 +104,7 @@
     Ok(
         AssociatedItem(
             TypeItem(
-                Method(
+                TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
@@ -137,7 +137,7 @@
     Ok(
         AssociatedItem(
             TypeItem(
-                Method(
+                TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
@@ -170,7 +170,7 @@
     Ok(
         AssociatedItem(
             TypeItem(
-                Method(
+                TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
@@ -203,7 +203,7 @@
     Ok(
         AssociatedItem(
             TypeItem(
-                Method(
+                TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
@@ -236,7 +236,7 @@
     Ok(
         AssociatedItem(
             TypeItem(
-                Method(
+                TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
@@ -269,7 +269,7 @@
     Ok(
         AssociatedItem(
             TypeItem(
-                Method(
+                TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
@@ -302,7 +302,7 @@
     Ok(
         AssociatedItem(
             TypeItem(
-                Method(
+                TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
@@ -335,7 +335,7 @@
     Ok(
         AssociatedItem(
             TypeItem(
-                Method(
+                TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],

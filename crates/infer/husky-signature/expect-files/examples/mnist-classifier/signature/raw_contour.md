@@ -1,7 +1,7 @@
 [
     Ok(
         Type(
-            RegularStruct(
+            TypeSignature::RegularStruct(
                 RegularStructTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -46,7 +46,7 @@
     ),
     Ok(
         Type(
-            Enum(
+            TypeSignature::Enum(
                 EnumTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -375,7 +375,7 @@
     ),
     Ok(
         Type(
-            RegularStruct(
+            TypeSignature::RegularStruct(
                 RegularStructTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -506,7 +506,7 @@
     Ok(
         AssociatedItem(
             TypeItem(
-                Memo(
+                TypeItemSignature::Memo(
                     TypeMemoSignature {
                         output_ty: Entity(
                             TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -519,7 +519,7 @@
     Ok(
         AssociatedItem(
             TypeItem(
-                Memo(
+                TypeItemSignature::Memo(
                     TypeMemoSignature {
                         output_ty: Entity(
                             TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -532,7 +532,7 @@
     Ok(
         AssociatedItem(
             TypeItem(
-                Memo(
+                TypeItemSignature::Memo(
                     TypeMemoSignature {
                         output_ty: Entity(
                             TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -545,7 +545,7 @@
     Ok(
         AssociatedItem(
             TypeItem(
-                Memo(
+                TypeItemSignature::Memo(
                     TypeMemoSignature {
                         output_ty: Entity(
                             TypePath(`core::num::f32`, `Alien`),
@@ -558,7 +558,7 @@
     Ok(
         AssociatedItem(
             TypeItem(
-                Method(
+                TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],

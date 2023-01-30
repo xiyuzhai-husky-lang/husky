@@ -2,18 +2,18 @@ Ok(
     AstSheet {
         arena: Arena {
             data: [
-                Decor {
+                Ast::Decor {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
                 },
-                Err {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
                     error: UnexpectedStmtInsideModule,
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),

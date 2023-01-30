@@ -1,7 +1,7 @@
 [
     ExprTypeRegion {
-        path: Decl(
-            Entity(
+        path: RegionPath::Decl(
+            DeclExprPath::Entity(
                 TraitPath(`core::fmt::Debug`),
             ),
         ),

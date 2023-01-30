@@ -3,15 +3,15 @@ Ok(
         decls: [
             Ok(
                 Type(
-                    Foreign(
+                    TypeDecl::Foreign(
                         AlienTypeDecl {
                             path: TypePath(`core::basic::bool`, `Alien`),
                             ast_idx: 0,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             TypePath(`core::basic::bool`, `Alien`),
                                         ),
                                     ),
@@ -55,15 +55,15 @@ Ok(
             ),
             Ok(
                 Type(
-                    Structure(
+                    TypeDecl::Structure(
                         StructureTypeDecl {
                             path: TypePath(`core::basic::Trait`, `Structure`),
                             ast_idx: 1,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             TypePath(`core::basic::Trait`, `Structure`),
                                         ),
                                     ),
@@ -107,15 +107,15 @@ Ok(
             ),
             Ok(
                 Type(
-                    Structure(
+                    TypeDecl::Structure(
                         StructureTypeDecl {
                             path: TypePath(`core::basic::Module`, `Structure`),
                             ast_idx: 2,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             TypePath(`core::basic::Module`, `Structure`),
                                         ),
                                     ),

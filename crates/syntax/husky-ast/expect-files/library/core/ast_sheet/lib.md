@@ -2,7 +2,7 @@ Ok(
     AstSheet {
         arena: Arena {
             data: [
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
@@ -28,7 +28,7 @@ Ok(
                         2,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
@@ -54,7 +54,7 @@ Ok(
                         4,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
@@ -80,7 +80,7 @@ Ok(
                         6,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
@@ -106,7 +106,7 @@ Ok(
                         8,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
@@ -132,7 +132,7 @@ Ok(
                         10,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
@@ -158,7 +158,7 @@ Ok(
                         12,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
@@ -184,7 +184,7 @@ Ok(
                         14,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         7,
                     ),
@@ -210,7 +210,7 @@ Ok(
                         16,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
@@ -236,7 +236,7 @@ Ok(
                         18,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         9,
                     ),
@@ -262,7 +262,7 @@ Ok(
                         20,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         10,
                     ),

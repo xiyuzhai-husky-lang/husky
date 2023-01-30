@@ -10,8 +10,8 @@ Ok(
                         expr_region: ExprRegion {
                             data: ExprRegionData {
                                 parent: None,
-                                path: Decl(
-                                    Entity(
+                                path: RegionPath::Decl(
+                                    DeclExprPath::Entity(
                                         TraitPath(`core::ops::Add`),
                                     ),
                                 ),
@@ -46,8 +46,8 @@ Ok(
                                                     12,
                                                 ),
                                                 access_end: None,
-                                                variant: ImplicitParameter {
-                                                    implicit_parameter_variant: Type {
+                                                variant: CurrentSymbolVariant::ImplicitParameter {
+                                                    implicit_parameter_variant: ImplicitParameterVariant::Type {
                                                         ident_token: IdentifierToken {
                                                             ident: `B`,
                                                             token_idx: TokenIdx(

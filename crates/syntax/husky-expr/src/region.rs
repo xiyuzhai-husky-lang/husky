@@ -119,8 +119,8 @@ impl ExprRegion {
             RegionPath::Snippet(toolchain) => toolchain,
             RegionPath::Decl(path) => match path {
                 DeclExprPath::Entity(path) => path.toolchain(db),
-                DeclExprPath::ImplBlock(impl_block) => impl_block.module_path(db).toolchain(db),
-                DeclExprPath::AssociatedItem(item) => item.module_path(db).toolchain(db),
+                DeclExprPath::ImplBlock(impl_block) => impl_block.module_path().toolchain(db),
+                DeclExprPath::AssociatedItem(item) => item.module_path().toolchain(db),
             },
             RegionPath::Defn(path) => match path {
                 DefnExprPath::Entity(path) => path.toolchain(db),

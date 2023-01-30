@@ -26,6 +26,7 @@ pub use stmt::*;
 pub use symbol::*;
 
 use husky_entity_path::EntityPath;
+use husky_entity_tree::*;
 use husky_opn_syntax::*;
 use husky_text::*;
 use husky_token::*;

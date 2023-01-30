@@ -30,14 +30,14 @@ Ok(
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Err(
+                                            Expr::Err(
                                                 UnrecognizedIdentifier {
                                                     token_idx: TokenIdx(
                                                         67,
@@ -92,32 +92,32 @@ Ok(
                         expr_region: ExprRegion {
                             data: ExprRegionData {
                                 parent: None,
-                                path: Defn(
-                                    Entity(
+                                path: RegionPath::Defn(
+                                    DefnExprPath::Entity(
                                         FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
                                     ),
                                 ),
                                 expr_arena: Arena {
                                     data: [
-                                        EntityPath {
+                                        Expr::EntityPath {
                                             entity_path_expr: 0,
                                             entity_path: Some(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
                                         },
-                                        EntityPath {
+                                        Expr::EntityPath {
                                             entity_path_expr: 2,
                                             entity_path: Some(
                                                 FormPath(`mnist_classifier::digits::zero::almost_closed`, `Function`),
                                             ),
                                         },
-                                        EntityPath {
+                                        Expr::EntityPath {
                                             entity_path_expr: 1,
                                             entity_path: Some(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
                                         },
-                                        NewBoxList {
+                                        Expr::NewBoxList {
                                             caller: None,
                                             lbox_token_idx: TokenIdx(
                                                 73,
@@ -129,7 +129,7 @@ Ok(
                                                 75,
                                             ),
                                         },
-                                        FunctionCall {
+                                        Expr::FunctionCall {
                                             function: 0,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -142,7 +142,7 @@ Ok(
                                                 76,
                                             ),
                                         },
-                                        Block {
+                                        Expr::Block {
                                             stmts: ArenaIdxRange(
                                                 0..1,
                                             ),
@@ -151,21 +151,21 @@ Ok(
                                 },
                                 entity_path_expr_arena: Arena {
                                     data: [
-                                        Root {
+                                        EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 69,
                                             ),
                                             ident: `fermi_match`,
                                             entity_path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                         },
-                                        Root {
+                                        EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 71,
                                             ),
                                             ident: `major_concave_components`,
                                             entity_path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                         },
-                                        Root {
+                                        EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 74,
                                             ),
@@ -176,7 +176,7 @@ Ok(
                                 },
                                 stmt_arena: Arena {
                                     data: [
-                                        Eval {
+                                        Stmt::Eval {
                                             expr: 4,
                                         },
                                     ],
@@ -221,33 +221,33 @@ Ok(
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             FormPath(`mnist_classifier::digits::zero::almost_closed`, `Function`),
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                 ),
                                             },
-                                            PrefixOpn {
+                                            Expr::PrefixOpn {
                                                 opr: Ref,
                                                 opr_token_idx: TokenIdx(
                                                     82,
                                                 ),
                                                 opd: 0,
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
                                                     TypePath(`core::num::f32`, `Alien`),
                                                 ),
                                             },
-                                            PrefixOpn {
+                                            Expr::PrefixOpn {
                                                 opr: Option,
                                                 opr_token_idx: TokenIdx(
                                                     86,
@@ -258,14 +258,14 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     83,
                                                 ),
                                                 ident: `ConcaveComponent`,
                                                 entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             },
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     87,
                                                 ),
@@ -280,7 +280,7 @@ Ok(
                                     pattern_expr_region: PatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `cc`,
                                                         token_idx: TokenIdx(
@@ -310,7 +310,7 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -328,7 +328,7 @@ Ok(
                                                         81,
                                                     ),
                                                     access_end: None,
-                                                    variant: Parameter {
+                                                    variant: CurrentSymbolVariant::Parameter {
                                                         pattern_symbol: 0,
                                                     },
                                                 },
@@ -405,33 +405,33 @@ Ok(
                                     ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
-                                            path: Decl(
-                                                Entity(
+                                            path: RegionPath::Decl(
+                                                DeclExprPath::Entity(
                                                     FormPath(`mnist_classifier::digits::zero::almost_closed`, `Function`),
                                                 ),
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    EntityPath {
+                                                    Expr::EntityPath {
                                                         entity_path_expr: 0,
                                                         entity_path: Some(
                                                             TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         ),
                                                     },
-                                                    PrefixOpn {
+                                                    Expr::PrefixOpn {
                                                         opr: Ref,
                                                         opr_token_idx: TokenIdx(
                                                             82,
                                                         ),
                                                         opd: 0,
                                                     },
-                                                    EntityPath {
+                                                    Expr::EntityPath {
                                                         entity_path_expr: 1,
                                                         entity_path: Some(
                                                             TypePath(`core::num::f32`, `Alien`),
                                                         ),
                                                     },
-                                                    PrefixOpn {
+                                                    Expr::PrefixOpn {
                                                         opr: Option,
                                                         opr_token_idx: TokenIdx(
                                                             86,
@@ -442,14 +442,14 @@ Ok(
                                             },
                                             entity_path_expr_arena: Arena {
                                                 data: [
-                                                    Root {
+                                                    EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
                                                             83,
                                                         ),
                                                         ident: `ConcaveComponent`,
                                                         entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     },
-                                                    Root {
+                                                    EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
                                                             87,
                                                         ),
@@ -464,7 +464,7 @@ Ok(
                                             pattern_expr_region: PatternExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        Identifier {
+                                                        PatternExpr::Identifier {
                                                             ident_token: IdentifierToken {
                                                                 ident: `cc`,
                                                                 token_idx: TokenIdx(
@@ -494,7 +494,7 @@ Ok(
                                                 ],
                                                 pattern_symbol_arena: Arena {
                                                     data: [
-                                                        Atom(
+                                                        PatternSymbol::Atom(
                                                             0,
                                                         ),
                                                     ],
@@ -512,7 +512,7 @@ Ok(
                                                                 81,
                                                             ),
                                                             access_end: None,
-                                                            variant: Parameter {
+                                                            variant: CurrentSymbolVariant::Parameter {
                                                                 pattern_symbol: 0,
                                                             },
                                                         },
@@ -536,22 +536,22 @@ Ok(
                                         },
                                     },
                                 ),
-                                path: Defn(
-                                    Entity(
+                                path: RegionPath::Defn(
+                                    DefnExprPath::Entity(
                                         FormPath(`mnist_classifier::digits::zero::almost_closed`, `Function`),
                                     ),
                                 ),
                                 expr_arena: Arena {
                                     data: [
-                                        InheritedSymbol {
+                                        Expr::InheritedSymbol {
                                             ident: `cc`,
                                             token_idx: TokenIdx(
                                                 90,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
                                         },
-                                        Field {
+                                        Expr::Field {
                                             this_expr: 0,
                                             dot_token_idx: TokenIdx(
                                                 91,
@@ -563,17 +563,17 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 94,
                                             ),
                                         ),
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 97,
                                             ),
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 1,
                                             opr: PureClosed(
                                                 Add,
@@ -583,14 +583,14 @@ Ok(
                                             ),
                                             ropd: 2,
                                         },
-                                        PrefixOpn {
+                                        Expr::PrefixOpn {
                                             opr: Minus,
                                             opr_token_idx: TokenIdx(
                                                 96,
                                             ),
                                             opd: 3,
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 4,
                                             opr: Comparison(
                                                 Less,
@@ -600,15 +600,15 @@ Ok(
                                             ),
                                             ropd: 5,
                                         },
-                                        InheritedSymbol {
+                                        Expr::InheritedSymbol {
                                             ident: `cc`,
                                             token_idx: TokenIdx(
                                                 99,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
                                         },
-                                        Field {
+                                        Expr::Field {
                                             this_expr: 7,
                                             dot_token_idx: TokenIdx(
                                                 100,
@@ -620,19 +620,19 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        PrefixOpn {
+                                        Expr::PrefixOpn {
                                             opr: Minus,
                                             opr_token_idx: TokenIdx(
                                                 98,
                                             ),
                                             opd: 8,
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 103,
                                             ),
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 9,
                                             opr: PureClosed(
                                                 Add,
@@ -642,7 +642,7 @@ Ok(
                                             ),
                                             ropd: 10,
                                         },
-                                        Block {
+                                        Expr::Block {
                                             stmts: ArenaIdxRange(
                                                 0..2,
                                             ),
@@ -654,7 +654,7 @@ Ok(
                                 },
                                 stmt_arena: Arena {
                                     data: [
-                                        Require {
+                                        Stmt::Require {
                                             require_token: RequireToken {
                                                 token_idx: TokenIdx(
                                                     89,
@@ -664,7 +664,7 @@ Ok(
                                                 6,
                                             ),
                                         },
-                                        Eval {
+                                        Stmt::Eval {
                                             expr: 11,
                                         },
                                     ],
@@ -684,7 +684,7 @@ Ok(
                                         data: [
                                             InheritedSymbol {
                                                 ident: `cc`,
-                                                kind: Parameter,
+                                                kind: InheritedSymbolKind::Parameter,
                                             },
                                         ],
                                     },
@@ -733,14 +733,14 @@ Ok(
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Err(
+                                            Expr::Err(
                                                 UnrecognizedIdentifier {
                                                     token_idx: TokenIdx(
                                                         108,
@@ -754,7 +754,7 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            PrefixOpn {
+                                            Expr::PrefixOpn {
                                                 opr: Option,
                                                 opr_token_idx: TokenIdx(
                                                     107,
@@ -802,14 +802,14 @@ Ok(
                         expr_region: ExprRegion {
                             data: ExprRegionData {
                                 parent: None,
-                                path: Defn(
-                                    Entity(
+                                path: RegionPath::Defn(
+                                    DefnExprPath::Entity(
                                         FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
                                     ),
                                 ),
                                 expr_arena: Arena {
                                     data: [
-                                        Err(
+                                        Expr::Err(
                                             UnrecognizedIdentifier {
                                                 token_idx: TokenIdx(
                                                     111,
@@ -823,7 +823,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        Be {
+                                        Expr::Be {
                                             src: 0,
                                             be_token_idx: TokenIdx(
                                                 112,
@@ -834,13 +834,13 @@ Ok(
                                                 },
                                             ),
                                         },
-                                        EntityPath {
+                                        Expr::EntityPath {
                                             entity_path_expr: 0,
                                             entity_path: Some(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
                                         },
-                                        Field {
+                                        Expr::Field {
                                             this_expr: 2,
                                             dot_token_idx: TokenIdx(
                                                 116,
@@ -852,7 +852,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        MethodCall {
+                                        Expr::MethodCall {
                                             this_expr: 3,
                                             dot_token_idx: TokenIdx(
                                                 118,
@@ -874,12 +874,12 @@ Ok(
                                                 121,
                                             ),
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 123,
                                             ),
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 4,
                                             opr: Comparison(
                                                 Eq,
@@ -889,13 +889,13 @@ Ok(
                                             ),
                                             ropd: 5,
                                         },
-                                        EntityPath {
+                                        Expr::EntityPath {
                                             entity_path_expr: 1,
                                             entity_path: Some(
                                                 FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
                                             ),
                                         },
-                                        Err(
+                                        Expr::Err(
                                             UnrecognizedIdentifier {
                                                 token_idx: TokenIdx(
                                                     125,
@@ -909,7 +909,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        Field {
+                                        Expr::Field {
                                             this_expr: 7,
                                             dot_token_idx: TokenIdx(
                                                 128,
@@ -921,7 +921,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 8,
                                             opr: Assign(
                                                 None,
@@ -931,7 +931,7 @@ Ok(
                                             ),
                                             ropd: 9,
                                         },
-                                        Err(
+                                        Expr::Err(
                                             UnrecognizedIdentifier {
                                                 token_idx: TokenIdx(
                                                     131,
@@ -945,12 +945,12 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 133,
                                             ),
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 11,
                                             opr: Comparison(
                                                 Less,
@@ -960,13 +960,13 @@ Ok(
                                             ),
                                             ropd: 12,
                                         },
-                                        EntityPath {
+                                        Expr::EntityPath {
                                             entity_path_expr: 2,
                                             entity_path: Some(
                                                 FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
                                             ),
                                         },
-                                        Field {
+                                        Expr::Field {
                                             this_expr: 14,
                                             dot_token_idx: TokenIdx(
                                                 136,
@@ -978,12 +978,12 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 139,
                                             ),
                                         ),
-                                        NewBoxList {
+                                        Expr::NewBoxList {
                                             caller: Some(
                                                 15,
                                             ),
@@ -997,7 +997,7 @@ Ok(
                                                 140,
                                             ),
                                         },
-                                        Be {
+                                        Expr::Be {
                                             src: 17,
                                             be_token_idx: TokenIdx(
                                                 141,
@@ -1008,13 +1008,13 @@ Ok(
                                                 },
                                             ),
                                         },
-                                        EntityPath {
+                                        Expr::EntityPath {
                                             entity_path_expr: 3,
                                             entity_path: Some(
                                                 FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                             ),
                                         },
-                                        MethodCall {
+                                        Expr::MethodCall {
                                             this_expr: 19,
                                             dot_token_idx: TokenIdx(
                                                 145,
@@ -1036,12 +1036,12 @@ Ok(
                                                 148,
                                             ),
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 150,
                                             ),
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 20,
                                             opr: Comparison(
                                                 Eq,
@@ -1051,13 +1051,13 @@ Ok(
                                             ),
                                             ropd: 21,
                                         },
-                                        EntityPath {
+                                        Expr::EntityPath {
                                             entity_path_expr: 4,
                                             entity_path: Some(
                                                 FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
                                             ),
                                         },
-                                        Field {
+                                        Expr::Field {
                                             this_expr: 23,
                                             dot_token_idx: TokenIdx(
                                                 154,
@@ -1069,12 +1069,12 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 157,
                                             ),
                                         ),
-                                        NewBoxList {
+                                        Expr::NewBoxList {
                                             caller: Some(
                                                 24,
                                             ),
@@ -1088,7 +1088,7 @@ Ok(
                                                 158,
                                             ),
                                         },
-                                        MethodCall {
+                                        Expr::MethodCall {
                                             this_expr: 26,
                                             dot_token_idx: TokenIdx(
                                                 159,
@@ -1110,7 +1110,7 @@ Ok(
                                                 162,
                                             ),
                                         },
-                                        Err(
+                                        Expr::Err(
                                             UnrecognizedIdentifier {
                                                 token_idx: TokenIdx(
                                                     151,
@@ -1124,7 +1124,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        MethodCall {
+                                        Expr::MethodCall {
                                             this_expr: 27,
                                             dot_token_idx: TokenIdx(
                                                 163,
@@ -1146,7 +1146,7 @@ Ok(
                                                 166,
                                             ),
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 28,
                                             opr: Assign(
                                                 None,
@@ -1156,7 +1156,7 @@ Ok(
                                             ),
                                             ropd: 29,
                                         },
-                                        Err(
+                                        Expr::Err(
                                             UnrecognizedIdentifier {
                                                 token_idx: TokenIdx(
                                                     168,
@@ -1170,12 +1170,12 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 170,
                                             ),
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 31,
                                             opr: Comparison(
                                                 Less,
@@ -1185,7 +1185,7 @@ Ok(
                                             ),
                                             ropd: 32,
                                         },
-                                        Err(
+                                        Expr::Err(
                                             UnrecognizedIdentifier {
                                                 token_idx: TokenIdx(
                                                     171,
@@ -1199,7 +1199,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        Err(
+                                        Expr::Err(
                                             UnresolvedSubentity {
                                                 token_idx: TokenIdx(
                                                     173,
@@ -1213,7 +1213,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 34,
                                             opr: ScopeResolution,
                                             opr_token_idx: TokenIdx(
@@ -1221,19 +1221,19 @@ Ok(
                                             ),
                                             ropd: 35,
                                         },
-                                        EntityPath {
+                                        Expr::EntityPath {
                                             entity_path_expr: 5,
                                             entity_path: Some(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
                                         },
-                                        EntityPath {
+                                        Expr::EntityPath {
                                             entity_path_expr: 6,
                                             entity_path: Some(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
                                         },
-                                        NewBoxList {
+                                        Expr::NewBoxList {
                                             caller: None,
                                             lbox_token_idx: TokenIdx(
                                                 180,
@@ -1245,7 +1245,7 @@ Ok(
                                                 181,
                                             ),
                                         },
-                                        Err(
+                                        Expr::Err(
                                             UnrecognizedIdentifier {
                                                 token_idx: TokenIdx(
                                                     174,
@@ -1259,7 +1259,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        FunctionCall {
+                                        Expr::FunctionCall {
                                             function: 37,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -1272,7 +1272,7 @@ Ok(
                                                 182,
                                             ),
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 40,
                                             opr: Assign(
                                                 None,
@@ -1282,7 +1282,7 @@ Ok(
                                             ),
                                             ropd: 41,
                                         },
-                                        Err(
+                                        Expr::Err(
                                             UnrecognizedIdentifier {
                                                 token_idx: TokenIdx(
                                                     183,
@@ -1296,7 +1296,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        Err(
+                                        Expr::Err(
                                             UnrecognizedIdentifier {
                                                 token_idx: TokenIdx(
                                                     185,
@@ -1310,7 +1310,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        Err(
+                                        Expr::Err(
                                             UnresolvedSubentity {
                                                 token_idx: TokenIdx(
                                                     187,
@@ -1324,7 +1324,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        Err(
+                                        Expr::Err(
                                             UnrecognizedIdentifier {
                                                 token_idx: TokenIdx(
                                                     191,
@@ -1338,7 +1338,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        Err(
+                                        Expr::Err(
                                             UnrecognizedIdentifier {
                                                 token_idx: TokenIdx(
                                                     195,
@@ -1352,7 +1352,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        Err(
+                                        Expr::Err(
                                             UnrecognizedIdentifier {
                                                 token_idx: TokenIdx(
                                                     199,
@@ -1366,7 +1366,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 44,
                                             opr: ScopeResolution,
                                             opr_token_idx: TokenIdx(
@@ -1374,12 +1374,12 @@ Ok(
                                             ),
                                             ropd: 45,
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 189,
                                             ),
                                         ),
-                                        Field {
+                                        Expr::Field {
                                             this_expr: 46,
                                             dot_token_idx: TokenIdx(
                                                 192,
@@ -1391,7 +1391,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        Field {
+                                        Expr::Field {
                                             this_expr: 47,
                                             dot_token_idx: TokenIdx(
                                                 196,
@@ -1403,7 +1403,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        Field {
+                                        Expr::Field {
                                             this_expr: 48,
                                             dot_token_idx: TokenIdx(
                                                 200,
@@ -1415,7 +1415,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        FunctionCall {
+                                        Expr::FunctionCall {
                                             function: 43,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -1428,14 +1428,14 @@ Ok(
                                                 203,
                                             ),
                                         },
-                                        SuffixOpn {
+                                        Expr::SuffixOpn {
                                             opd: 54,
                                             punctuation: Unveil,
                                             punctuation_token_idx: TokenIdx(
                                                 204,
                                             ),
                                         },
-                                        Err(
+                                        Expr::Err(
                                             UnrecognizedIdentifier {
                                                 token_idx: TokenIdx(
                                                     206,
@@ -1449,7 +1449,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        Field {
+                                        Expr::Field {
                                             this_expr: 56,
                                             dot_token_idx: TokenIdx(
                                                 207,
@@ -1461,12 +1461,12 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 210,
                                             ),
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 57,
                                             opr: Comparison(
                                                 Less,
@@ -1476,13 +1476,13 @@ Ok(
                                             ),
                                             ropd: 58,
                                         },
-                                        EntityPath {
+                                        Expr::EntityPath {
                                             entity_path_expr: 7,
                                             entity_path: Some(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
                                         },
-                                        Field {
+                                        Expr::Field {
                                             this_expr: 60,
                                             dot_token_idx: TokenIdx(
                                                 213,
@@ -1494,7 +1494,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        Field {
+                                        Expr::Field {
                                             this_expr: 61,
                                             dot_token_idx: TokenIdx(
                                                 215,
@@ -1506,12 +1506,12 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 218,
                                             ),
                                         ),
-                                        NewBoxList {
+                                        Expr::NewBoxList {
                                             caller: Some(
                                                 62,
                                             ),
@@ -1525,7 +1525,7 @@ Ok(
                                                 219,
                                             ),
                                         },
-                                        Be {
+                                        Expr::Be {
                                             src: 64,
                                             be_token_idx: TokenIdx(
                                                 220,
@@ -1536,13 +1536,13 @@ Ok(
                                                 },
                                             ),
                                         },
-                                        EntityPath {
+                                        Expr::EntityPath {
                                             entity_path_expr: 8,
                                             entity_path: Some(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
                                         },
-                                        Field {
+                                        Expr::Field {
                                             this_expr: 66,
                                             dot_token_idx: TokenIdx(
                                                 224,
@@ -1554,7 +1554,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        Field {
+                                        Expr::Field {
                                             this_expr: 67,
                                             dot_token_idx: TokenIdx(
                                                 226,
@@ -1566,12 +1566,12 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 229,
                                             ),
                                         ),
-                                        NewBoxList {
+                                        Expr::NewBoxList {
                                             caller: Some(
                                                 68,
                                             ),
@@ -1585,7 +1585,7 @@ Ok(
                                                 230,
                                             ),
                                         },
-                                        Be {
+                                        Expr::Be {
                                             src: 70,
                                             be_token_idx: TokenIdx(
                                                 231,
@@ -1596,13 +1596,13 @@ Ok(
                                                 },
                                             ),
                                         },
-                                        EntityPath {
+                                        Expr::EntityPath {
                                             entity_path_expr: 9,
                                             entity_path: Some(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
                                         },
-                                        Field {
+                                        Expr::Field {
                                             this_expr: 72,
                                             dot_token_idx: TokenIdx(
                                                 236,
@@ -1614,7 +1614,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        Field {
+                                        Expr::Field {
                                             this_expr: 73,
                                             dot_token_idx: TokenIdx(
                                                 238,
@@ -1626,12 +1626,12 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 241,
                                             ),
                                         ),
-                                        Err(
+                                        Expr::Err(
                                             UnrecognizedIdentifier {
                                                 token_idx: TokenIdx(
                                                     233,
@@ -1645,7 +1645,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        NewBoxList {
+                                        Expr::NewBoxList {
                                             caller: Some(
                                                 74,
                                             ),
@@ -1659,7 +1659,7 @@ Ok(
                                                 242,
                                             ),
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 76,
                                             opr: Assign(
                                                 None,
@@ -1669,7 +1669,7 @@ Ok(
                                             ),
                                             ropd: 77,
                                         },
-                                        Err(
+                                        Expr::Err(
                                             UnrecognizedIdentifier {
                                                 token_idx: TokenIdx(
                                                     245,
@@ -1683,7 +1683,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        Field {
+                                        Expr::Field {
                                             this_expr: 79,
                                             dot_token_idx: TokenIdx(
                                                 246,
@@ -1695,7 +1695,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        Err(
+                                        Expr::Err(
                                             UnrecognizedIdentifier {
                                                 token_idx: TokenIdx(
                                                     253,
@@ -1709,7 +1709,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        Field {
+                                        Expr::Field {
                                             this_expr: 81,
                                             dot_token_idx: TokenIdx(
                                                 254,
@@ -1721,7 +1721,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        MethodCall {
+                                        Expr::MethodCall {
                                             this_expr: 80,
                                             dot_token_idx: TokenIdx(
                                                 248,
@@ -1743,7 +1743,7 @@ Ok(
                                                 251,
                                             ),
                                         },
-                                        MethodCall {
+                                        Expr::MethodCall {
                                             this_expr: 82,
                                             dot_token_idx: TokenIdx(
                                                 256,
@@ -1765,7 +1765,7 @@ Ok(
                                                 259,
                                             ),
                                         },
-                                        Err(
+                                        Expr::Err(
                                             UnrecognizedIdentifier {
                                                 token_idx: TokenIdx(
                                                     243,
@@ -1779,7 +1779,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 83,
                                             opr: PureClosed(
                                                 Sub,
@@ -1789,7 +1789,7 @@ Ok(
                                             ),
                                             ropd: 84,
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 85,
                                             opr: Assign(
                                                 None,
@@ -1799,13 +1799,13 @@ Ok(
                                             ),
                                             ropd: 86,
                                         },
-                                        EntityPath {
+                                        Expr::EntityPath {
                                             entity_path_expr: 10,
                                             entity_path: Some(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                             ),
                                         },
-                                        Field {
+                                        Expr::Field {
                                             this_expr: 88,
                                             dot_token_idx: TokenIdx(
                                                 263,
@@ -1817,13 +1817,13 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        EntityPath {
+                                        Expr::EntityPath {
                                             entity_path_expr: 11,
                                             entity_path: Some(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                             ),
                                         },
-                                        Field {
+                                        Expr::Field {
                                             this_expr: 90,
                                             dot_token_idx: TokenIdx(
                                                 271,
@@ -1835,7 +1835,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        MethodCall {
+                                        Expr::MethodCall {
                                             this_expr: 89,
                                             dot_token_idx: TokenIdx(
                                                 265,
@@ -1857,7 +1857,7 @@ Ok(
                                                 268,
                                             ),
                                         },
-                                        MethodCall {
+                                        Expr::MethodCall {
                                             this_expr: 91,
                                             dot_token_idx: TokenIdx(
                                                 273,
@@ -1879,7 +1879,7 @@ Ok(
                                                 276,
                                             ),
                                         },
-                                        Err(
+                                        Expr::Err(
                                             UnrecognizedIdentifier {
                                                 token_idx: TokenIdx(
                                                     260,
@@ -1893,7 +1893,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 92,
                                             opr: PureClosed(
                                                 Sub,
@@ -1903,7 +1903,7 @@ Ok(
                                             ),
                                             ropd: 93,
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 94,
                                             opr: Assign(
                                                 None,
@@ -1913,7 +1913,7 @@ Ok(
                                             ),
                                             ropd: 95,
                                         },
-                                        Err(
+                                        Expr::Err(
                                             UnrecognizedIdentifier {
                                                 token_idx: TokenIdx(
                                                     279,
@@ -1927,7 +1927,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        Err(
+                                        Expr::Err(
                                             UnrecognizedIdentifier {
                                                 token_idx: TokenIdx(
                                                     281,
@@ -1941,7 +1941,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        Err(
+                                        Expr::Err(
                                             UnrecognizedIdentifier {
                                                 token_idx: TokenIdx(
                                                     277,
@@ -1955,7 +1955,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 97,
                                             opr: PureClosed(
                                                 Div,
@@ -1965,7 +1965,7 @@ Ok(
                                             ),
                                             ropd: 98,
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 99,
                                             opr: Assign(
                                                 None,
@@ -1975,7 +1975,7 @@ Ok(
                                             ),
                                             ropd: 100,
                                         },
-                                        Err(
+                                        Expr::Err(
                                             UnrecognizedIdentifier {
                                                 token_idx: TokenIdx(
                                                     283,
@@ -1989,12 +1989,12 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        Literal(
+                                        Expr::Literal(
                                             TokenIdx(
                                                 285,
                                             ),
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 102,
                                             opr: Comparison(
                                                 Greater,
@@ -2004,7 +2004,7 @@ Ok(
                                             ),
                                             ropd: 103,
                                         },
-                                        Err(
+                                        Expr::Err(
                                             UnrecognizedIdentifier {
                                                 token_idx: TokenIdx(
                                                     288,
@@ -2018,7 +2018,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        Err(
+                                        Expr::Err(
                                             UnrecognizedIdentifier {
                                                 token_idx: TokenIdx(
                                                     286,
@@ -2032,7 +2032,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        Field {
+                                        Expr::Field {
                                             this_expr: 105,
                                             dot_token_idx: TokenIdx(
                                                 289,
@@ -2044,7 +2044,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 106,
                                             opr: Assign(
                                                 None,
@@ -2054,7 +2054,7 @@ Ok(
                                             ),
                                             ropd: 107,
                                         },
-                                        Err(
+                                        Expr::Err(
                                             UnrecognizedIdentifier {
                                                 token_idx: TokenIdx(
                                                     291,
@@ -2068,7 +2068,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        Err(
+                                        Expr::Err(
                                             UnresolvedSubentity {
                                                 token_idx: TokenIdx(
                                                     293,
@@ -2082,7 +2082,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        BinaryOpn {
+                                        Expr::BinaryOpn {
                                             lopd: 109,
                                             opr: ScopeResolution,
                                             opr_token_idx: TokenIdx(
@@ -2090,7 +2090,7 @@ Ok(
                                             ),
                                             ropd: 110,
                                         },
-                                        Block {
+                                        Expr::Block {
                                             stmts: ArenaIdxRange(
                                                 7..21,
                                             ),
@@ -2099,84 +2099,84 @@ Ok(
                                 },
                                 entity_path_expr_arena: Arena {
                                     data: [
-                                        Root {
+                                        EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 115,
                                             ),
                                             ident: `major_connected_component`,
                                             entity_path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                         },
-                                        Root {
+                                        EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 127,
                                             ),
                                             ident: `open_one_match`,
                                             entity_path: FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
                                         },
-                                        Root {
+                                        EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 135,
                                             ),
                                             ident: `open_one_match`,
                                             entity_path: FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
                                         },
-                                        Root {
+                                        EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 144,
                                             ),
                                             ident: `connected_components`,
                                             entity_path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                         },
-                                        Root {
+                                        EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 153,
                                             ),
                                             ident: `open_one_match`,
                                             entity_path: FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
                                         },
-                                        Root {
+                                        EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 176,
                                             ),
                                             ident: `fermi_match`,
                                             entity_path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                         },
-                                        Root {
+                                        EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 178,
                                             ),
                                             ident: `major_concave_components`,
                                             entity_path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                         },
-                                        Root {
+                                        EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 212,
                                             ),
                                             ident: `major_connected_component`,
                                             entity_path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                         },
-                                        Root {
+                                        EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 223,
                                             ),
                                             ident: `major_connected_component`,
                                             entity_path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                         },
-                                        Root {
+                                        EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 235,
                                             ),
                                             ident: `major_connected_component`,
                                             entity_path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                         },
-                                        Root {
+                                        EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 262,
                                             ),
                                             ident: `major_line_segment_sketch`,
                                             entity_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                         },
-                                        Root {
+                                        EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 270,
                                             ),
@@ -2187,10 +2187,10 @@ Ok(
                                 },
                                 stmt_arena: Arena {
                                     data: [
-                                        Eval {
+                                        Stmt::Eval {
                                             expr: 10,
                                         },
-                                        Require {
+                                        Stmt::Require {
                                             require_token: RequireToken {
                                                 token_idx: TokenIdx(
                                                     130,
@@ -2200,7 +2200,7 @@ Ok(
                                                 13,
                                             ),
                                         },
-                                        Require {
+                                        Stmt::Require {
                                             require_token: RequireToken {
                                                 token_idx: TokenIdx(
                                                     134,
@@ -2210,7 +2210,7 @@ Ok(
                                                 18,
                                             ),
                                         },
-                                        Require {
+                                        Stmt::Require {
                                             require_token: RequireToken {
                                                 token_idx: TokenIdx(
                                                     143,
@@ -2220,10 +2220,10 @@ Ok(
                                                 22,
                                             ),
                                         },
-                                        Eval {
+                                        Stmt::Eval {
                                             expr: 30,
                                         },
-                                        Require {
+                                        Stmt::Require {
                                             require_token: RequireToken {
                                                 token_idx: TokenIdx(
                                                     167,
@@ -2233,10 +2233,10 @@ Ok(
                                                 33,
                                             ),
                                         },
-                                        Eval {
+                                        Stmt::Eval {
                                             expr: 36,
                                         },
-                                        Require {
+                                        Stmt::Require {
                                             require_token: RequireToken {
                                                 token_idx: TokenIdx(
                                                     110,
@@ -2246,7 +2246,7 @@ Ok(
                                                 1,
                                             ),
                                         },
-                                        IfElse {
+                                        Stmt::IfElse {
                                             if_branch: IfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
@@ -2272,13 +2272,13 @@ Ok(
                                             elif_branches: [],
                                             else_branch: None,
                                         },
-                                        Eval {
+                                        Stmt::Eval {
                                             expr: 42,
                                         },
-                                        Eval {
+                                        Stmt::Eval {
                                             expr: 55,
                                         },
-                                        Require {
+                                        Stmt::Require {
                                             require_token: RequireToken {
                                                 token_idx: TokenIdx(
                                                     205,
@@ -2288,7 +2288,7 @@ Ok(
                                                 59,
                                             ),
                                         },
-                                        Require {
+                                        Stmt::Require {
                                             require_token: RequireToken {
                                                 token_idx: TokenIdx(
                                                     211,
@@ -2298,7 +2298,7 @@ Ok(
                                                 65,
                                             ),
                                         },
-                                        Require {
+                                        Stmt::Require {
                                             require_token: RequireToken {
                                                 token_idx: TokenIdx(
                                                     222,
@@ -2308,19 +2308,19 @@ Ok(
                                                 71,
                                             ),
                                         },
-                                        Eval {
+                                        Stmt::Eval {
                                             expr: 78,
                                         },
-                                        Eval {
+                                        Stmt::Eval {
                                             expr: 87,
                                         },
-                                        Eval {
+                                        Stmt::Eval {
                                             expr: 96,
                                         },
-                                        Eval {
+                                        Stmt::Eval {
                                             expr: 101,
                                         },
-                                        Require {
+                                        Stmt::Require {
                                             require_token: RequireToken {
                                                 token_idx: TokenIdx(
                                                     282,
@@ -2330,10 +2330,10 @@ Ok(
                                                 104,
                                             ),
                                         },
-                                        Eval {
+                                        Stmt::Eval {
                                             expr: 108,
                                         },
-                                        Eval {
+                                        Stmt::Eval {
                                             expr: 111,
                                         },
                                     ],
@@ -2341,7 +2341,7 @@ Ok(
                                 pattern_expr_region: PatternExprRegion {
                                     pattern_expr_arena: Arena {
                                         data: [
-                                            Identifier {
+                                            PatternExpr::Identifier {
                                                 ident_token: IdentifierToken {
                                                     ident: `none`,
                                                     token_idx: TokenIdx(
@@ -2350,7 +2350,7 @@ Ok(
                                                 },
                                                 liason: None,
                                             },
-                                            Identifier {
+                                            PatternExpr::Identifier {
                                                 ident_token: IdentifierToken {
                                                     ident: `some`,
                                                     token_idx: TokenIdx(
@@ -2359,7 +2359,7 @@ Ok(
                                                 },
                                                 liason: None,
                                             },
-                                            Identifier {
+                                            PatternExpr::Identifier {
                                                 ident_token: IdentifierToken {
                                                     ident: `none`,
                                                     token_idx: TokenIdx(
@@ -2368,7 +2368,7 @@ Ok(
                                                 },
                                                 liason: None,
                                             },
-                                            Identifier {
+                                            PatternExpr::Identifier {
                                                 ident_token: IdentifierToken {
                                                     ident: `some`,
                                                     token_idx: TokenIdx(
@@ -2437,16 +2437,16 @@ Ok(
                                     ],
                                     pattern_symbol_arena: Arena {
                                         data: [
-                                            Atom(
+                                            PatternSymbol::Atom(
                                                 0,
                                             ),
-                                            Atom(
+                                            PatternSymbol::Atom(
                                                 1,
                                             ),
-                                            Atom(
+                                            PatternSymbol::Atom(
                                                 2,
                                             ),
-                                            Atom(
+                                            PatternSymbol::Atom(
                                                 3,
                                             ),
                                         ],
