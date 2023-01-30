@@ -2,7 +2,7 @@ Ok(
     AstSheet {
         arena: Arena {
             data: [
-                BasicStmtOrBranch {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
@@ -10,7 +10,7 @@ Ok(
                         0..0,
                     ),
                 },
-                BasicStmtOrBranch {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
@@ -18,7 +18,7 @@ Ok(
                         1..1,
                     ),
                 },
-                Config {
+                Ast::Config {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
@@ -26,7 +26,7 @@ Ok(
                         0..1,
                     ),
                 },
-                Main {
+                Ast::Main {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),

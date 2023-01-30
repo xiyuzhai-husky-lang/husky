@@ -3,15 +3,15 @@ Ok(
         decls: [
             Ok(
                 Type(
-                    Foreign(
+                    TypeDecl::Foreign(
                         AlienTypeDecl {
                             path: TypePath(`core::logic::Prop`, `Alien`),
                             ast_idx: 0,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             TypePath(`core::logic::Prop`, `Alien`),
                                         ),
                                     ),
@@ -55,27 +55,27 @@ Ok(
             ),
             Ok(
                 Type(
-                    Structure(
+                    TypeDecl::Structure(
                         StructureTypeDecl {
                             path: TypePath(`core::logic::LogicAnd`, `Structure`),
                             ast_idx: 1,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             TypePath(`core::logic::LogicAnd`, `Structure`),
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`core::logic::Prop`, `Alien`),
                                                 ),
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
                                                     TypePath(`core::logic::Prop`, `Alien`),
@@ -85,14 +85,14 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     10,
                                                 ),
                                                 ident: `Prop`,
                                                 entity_path: TypePath(`core::logic::Prop`, `Alien`),
                                             },
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     14,
                                                 ),
@@ -126,8 +126,8 @@ Ok(
                                                         9,
                                                     ),
                                                     access_end: None,
-                                                    variant: ImplicitParameter {
-                                                        implicit_parameter_variant: Type {
+                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                        implicit_parameter_variant: ImplicitParameterVariant::Type {
                                                             ident_token: IdentifierToken {
                                                                 ident: `P`,
                                                                 token_idx: TokenIdx(
@@ -143,8 +143,8 @@ Ok(
                                                         13,
                                                     ),
                                                     access_end: None,
-                                                    variant: ImplicitParameter {
-                                                        implicit_parameter_variant: Type {
+                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                        implicit_parameter_variant: ImplicitParameterVariant::Type {
                                                             ident_token: IdentifierToken {
                                                                 ident: `Q`,
                                                                 token_idx: TokenIdx(
@@ -259,27 +259,27 @@ Ok(
             ),
             Ok(
                 Type(
-                    Inductive(
+                    TypeDecl::Inductive(
                         InductiveTypeDecl {
                             path: TypePath(`core::logic::LogicOr`, `Inductive`),
                             ast_idx: 2,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             TypePath(`core::logic::LogicOr`, `Inductive`),
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`core::logic::Prop`, `Alien`),
                                                 ),
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
                                                     TypePath(`core::logic::Prop`, `Alien`),
@@ -289,14 +289,14 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     32,
                                                 ),
                                                 ident: `Prop`,
                                                 entity_path: TypePath(`core::logic::Prop`, `Alien`),
                                             },
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     36,
                                                 ),
@@ -330,8 +330,8 @@ Ok(
                                                         31,
                                                     ),
                                                     access_end: None,
-                                                    variant: ImplicitParameter {
-                                                        implicit_parameter_variant: Type {
+                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                        implicit_parameter_variant: ImplicitParameterVariant::Type {
                                                             ident_token: IdentifierToken {
                                                                 ident: `P`,
                                                                 token_idx: TokenIdx(
@@ -347,8 +347,8 @@ Ok(
                                                         35,
                                                     ),
                                                     access_end: None,
-                                                    variant: ImplicitParameter {
-                                                        implicit_parameter_variant: Type {
+                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                        implicit_parameter_variant: ImplicitParameterVariant::Type {
                                                             ident_token: IdentifierToken {
                                                                 ident: `Q`,
                                                                 token_idx: TokenIdx(

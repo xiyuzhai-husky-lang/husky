@@ -37,7 +37,7 @@ fn enum_struct_variant_debug_with_db(
     variant: &Variant,
 ) -> proc_macro2::TokenStream {
     let variant_ident = &variant.ident;
-    let ident_string = variant_ident.to_string();
+    let variant_string = format!("{}::{}", ty_ident, variant_ident);
     let field_decls = variant
         .fields
         .iter()
@@ -75,7 +75,7 @@ fn enum_struct_variant_debug_with_db(
 
     quote! {
             #ty_ident::#variant_ident { #(#field_decls),* }  => {
-                let mut debug_struct = &mut f.debug_struct(#ident_string);
+                let mut debug_struct = &mut f.debug_struct(#variant_string);
 
                 #field_debugs
 
@@ -89,7 +89,7 @@ fn enum_tuple_variant_debug_with_db(
     variant: &Variant,
 ) -> proc_macro2::TokenStream {
     let ident = &variant.ident;
-    let ident_string = ident.to_string();
+    let variant_string = format!("{}::{}", ty_ident, ident);
     // `::salsa::debug::helper::SalsaDebug` will use `DebugWithDb` or fallbak to `Debug`
     let name_field = |field_idx: usize| format!("v{}", field_idx);
     let field_decls =
@@ -130,7 +130,7 @@ fn enum_tuple_variant_debug_with_db(
 
     quote! {
             #ty_ident::#ident(#(#field_decls),*) => {
-                let mut debug_tuple = &mut f.debug_tuple(#ident_string);
+                let mut debug_tuple = &mut f.debug_tuple(#variant_string);
 
                 #field_debugs
 
@@ -144,8 +144,8 @@ fn enum_unit_variant_debug_with_db(
     variant: &Variant,
 ) -> proc_macro2::TokenStream {
     let ident = &variant.ident;
-    let ident_string = ident.to_string();
+    let variant_string = format!("{}::{}", ty_ident, ident);
     quote! {
-            #ty_ident::#ident => f.write_str(#ident_string),
+            #ty_ident::#ident => f.write_str(#variant_string),
     }
 }

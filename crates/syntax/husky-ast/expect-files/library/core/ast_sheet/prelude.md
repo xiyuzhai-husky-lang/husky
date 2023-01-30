@@ -2,37 +2,37 @@ Ok(
     AstSheet {
         arena: Arena {
             data: [
-                Use {
+                Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
                 },
-                Use {
+                Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
                 },
-                Use {
+                Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
                 },
-                Use {
+                Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
                 },
-                Use {
+                Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
                 },
-                Use {
+                Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
                 },
-                Use {
+                Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),

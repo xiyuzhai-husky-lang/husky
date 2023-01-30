@@ -11,8 +11,8 @@ Ok(
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             TypePath(`core::basic::bool`, `Alien`),
                                         ),
                                     ),
@@ -64,8 +64,8 @@ Ok(
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             TypePath(`core::basic::Trait`, `Structure`),
                                         ),
                                     ),
@@ -117,8 +117,8 @@ Ok(
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             TypePath(`core::basic::Module`, `Structure`),
                                         ),
                                     ),

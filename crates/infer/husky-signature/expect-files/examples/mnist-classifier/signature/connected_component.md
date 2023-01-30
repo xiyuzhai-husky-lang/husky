@@ -1,7 +1,7 @@
 [
     Ok(
         Type(
-            RegularStruct(
+            TypeSignature::RegularStruct(
                 RegularStructTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -94,7 +94,7 @@
     ),
     Ok(
         Type(
-            RegularStruct(
+            TypeSignature::RegularStruct(
                 RegularStructTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -229,7 +229,7 @@
     Ok(
         AssociatedItem(
             TypeItem(
-                Memo(
+                TypeItemSignature::Memo(
                     TypeMemoSignature {
                         output_ty: Application(
                             TermApplication {
@@ -249,7 +249,7 @@
     Ok(
         AssociatedItem(
             TypeItem(
-                Memo(
+                TypeItemSignature::Memo(
                     TypeMemoSignature {
                         output_ty: Entity(
                             TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
@@ -262,7 +262,7 @@
     Ok(
         AssociatedItem(
             TypeItem(
-                Memo(
+                TypeItemSignature::Memo(
                     TypeMemoSignature {
                         output_ty: Entity(
                             TypePath(`core::num::f32`, `Alien`),
@@ -275,7 +275,7 @@
     Ok(
         AssociatedItem(
             TypeItem(
-                Memo(
+                TypeItemSignature::Memo(
                     TypeMemoSignature {
                         output_ty: Entity(
                             TypePath(`core::num::f32`, `Alien`),
@@ -288,7 +288,7 @@
     Ok(
         AssociatedItem(
             TypeItem(
-                Memo(
+                TypeItemSignature::Memo(
                     TypeMemoSignature {
                         output_ty: Entity(
                             TypePath(`core::num::f32`, `Alien`),
@@ -301,7 +301,7 @@
     Ok(
         AssociatedItem(
             TypeItem(
-                Memo(
+                TypeItemSignature::Memo(
                     TypeMemoSignature {
                         output_ty: Entity(
                             TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
@@ -314,7 +314,7 @@
     Ok(
         AssociatedItem(
             TypeItem(
-                Memo(
+                TypeItemSignature::Memo(
                     TypeMemoSignature {
                         output_ty: Entity(
                             TypePath(`core::num::f32`, `Alien`),
@@ -327,7 +327,7 @@
     Ok(
         AssociatedItem(
             TypeItem(
-                Memo(
+                TypeItemSignature::Memo(
                     TypeMemoSignature {
                         output_ty: Entity(
                             TypePath(`core::num::f32`, `Alien`),
@@ -340,7 +340,7 @@
     Ok(
         AssociatedItem(
             TypeItem(
-                Method(
+                TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
@@ -374,7 +374,7 @@
     Ok(
         AssociatedItem(
             TypeItem(
-                Method(
+                TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],

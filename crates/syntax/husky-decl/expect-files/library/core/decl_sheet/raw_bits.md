@@ -3,15 +3,15 @@ Ok(
         decls: [
             Ok(
                 Type(
-                    Foreign(
+                    TypeDecl::Foreign(
                         AlienTypeDecl {
                             path: TypePath(`core::raw_bits::r32`, `Alien`),
                             ast_idx: 2,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             TypePath(`core::raw_bits::r32`, `Alien`),
                                         ),
                                     ),

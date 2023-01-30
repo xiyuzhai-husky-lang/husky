@@ -2,7 +2,7 @@ Ok(
     AstSheet {
         arena: Arena {
             data: [
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),

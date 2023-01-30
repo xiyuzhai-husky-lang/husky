@@ -2,7 +2,7 @@ Ok(
     AstSheet {
         arena: Arena {
             data: [
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
@@ -30,19 +30,19 @@ Ok(
                         14,
                     ),
                 },
-                Err {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
                     error: UnexpectedStmtInsideImpl,
                 },
-                Err {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
                     error: UnexpectedStmtInsideImpl,
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
@@ -73,19 +73,19 @@ Ok(
                         2,
                     ),
                 },
-                Err {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
                     error: UnexpectedStmtInsideModule,
                 },
-                Err {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
                     error: UnexpectedStmtInsideModule,
                 },
-                Impl {
+                Ast::Impl {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
@@ -93,7 +93,7 @@ Ok(
                         0..3,
                     ),
                 },
-                Err {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         7,
                     ),
@@ -103,13 +103,13 @@ Ok(
                         ),
                     ),
                 },
-                Err {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
                     error: ExcessiveIndent,
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         9,
                     ),
@@ -140,7 +140,7 @@ Ok(
                         86,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         10,
                     ),

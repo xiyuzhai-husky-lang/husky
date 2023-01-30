@@ -1,7 +1,7 @@
 [
     ExprTypeRegion {
-        path: Decl(
-            Entity(
+        path: RegionPath::Decl(
+            DeclExprPath::Entity(
                 TypePath(`core::raw_bits::r32`, `Alien`),
             ),
         ),

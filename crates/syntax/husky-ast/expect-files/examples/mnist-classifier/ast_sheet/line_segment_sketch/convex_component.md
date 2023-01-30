@@ -2,7 +2,7 @@ Ok(
     AstSheet {
         arena: Arena {
             data: [
-                Err {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
@@ -12,18 +12,18 @@ Ok(
                         ),
                     ),
                 },
-                Err {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
                     error: ExcessiveIndent,
                 },
-                Use {
+                Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
@@ -54,7 +54,7 @@ Ok(
                         8,
                     ),
                 },
-                Impl {
+                Ast::Impl {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),

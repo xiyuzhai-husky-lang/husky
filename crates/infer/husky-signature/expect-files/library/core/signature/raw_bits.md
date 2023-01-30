@@ -1,7 +1,7 @@
 [
     Ok(
         Type(
-            Foreign(
+            TypeSignature::Foreign(
                 AlienTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],

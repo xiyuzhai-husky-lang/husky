@@ -3,7 +3,7 @@ Ok(
         decls: [
             Ok(
                 Form(
-                    Feature(
+                    FormDecl::Feature(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
                             ast_idx: 33,
@@ -29,14 +29,14 @@ Ok(
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Err(
+                                            Expr::Err(
                                                 UnrecognizedIdentifier {
                                                     token_idx: TokenIdx(
                                                         67,
@@ -93,40 +93,40 @@ Ok(
             ),
             Ok(
                 Form(
-                    Function(
+                    FormDecl::Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::digits::zero::almost_closed`, `Function`),
                             ast_idx: 34,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             FormPath(`mnist_classifier::digits::zero::almost_closed`, `Function`),
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                 ),
                                             },
-                                            PrefixOpn {
+                                            Expr::PrefixOpn {
                                                 opr: Ref,
                                                 opr_token_idx: TokenIdx(
                                                     82,
                                                 ),
                                                 opd: 0,
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
                                                     TypePath(`core::num::f32`, `Alien`),
                                                 ),
                                             },
-                                            PrefixOpn {
+                                            Expr::PrefixOpn {
                                                 opr: Option,
                                                 opr_token_idx: TokenIdx(
                                                     86,
@@ -137,14 +137,14 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     83,
                                                 ),
                                                 ident: `ConcaveComponent`,
                                                 entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             },
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     87,
                                                 ),
@@ -159,7 +159,7 @@ Ok(
                                     pattern_expr_region: PatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `cc`,
                                                         token_idx: TokenIdx(
@@ -189,7 +189,7 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -207,7 +207,7 @@ Ok(
                                                         81,
                                                     ),
                                                     access_end: None,
-                                                    variant: Parameter {
+                                                    variant: CurrentSymbolVariant::Parameter {
                                                         pattern_symbol: 0,
                                                     },
                                                 },
@@ -283,7 +283,7 @@ Ok(
             ),
             Ok(
                 Form(
-                    Feature(
+                    FormDecl::Feature(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
                             ast_idx: 35,
@@ -309,14 +309,14 @@ Ok(
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Err(
+                                            Expr::Err(
                                                 UnrecognizedIdentifier {
                                                     token_idx: TokenIdx(
                                                         108,
@@ -330,7 +330,7 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            PrefixOpn {
+                                            Expr::PrefixOpn {
                                                 opr: Option,
                                                 opr_token_idx: TokenIdx(
                                                     107,

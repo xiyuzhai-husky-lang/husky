@@ -2,7 +2,7 @@ Ok(
     AstSheet {
         arena: Arena {
             data: [
-                BasicStmtOrBranch {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
@@ -10,7 +10,7 @@ Ok(
                         0..0,
                     ),
                 },
-                BasicStmtOrBranch {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
@@ -18,7 +18,7 @@ Ok(
                         0..0,
                     ),
                 },
-                BasicStmtOrBranch {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
@@ -26,7 +26,7 @@ Ok(
                         0..1,
                     ),
                 },
-                BasicStmtOrBranch {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         7,
                     ),
@@ -34,7 +34,7 @@ Ok(
                         1..1,
                     ),
                 },
-                BasicStmtOrBranch {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         11,
                     ),
@@ -42,7 +42,7 @@ Ok(
                         4..4,
                     ),
                 },
-                BasicStmtOrBranch {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         9,
                     ),
@@ -50,7 +50,7 @@ Ok(
                         4..4,
                     ),
                 },
-                BasicStmtOrBranch {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         10,
                     ),
@@ -58,7 +58,7 @@ Ok(
                         4..5,
                     ),
                 },
-                BasicStmtOrBranch {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         12,
                     ),
@@ -66,7 +66,7 @@ Ok(
                         5..5,
                     ),
                 },
-                BasicStmtOrBranch {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         16,
                     ),
@@ -74,7 +74,7 @@ Ok(
                         8..8,
                     ),
                 },
-                BasicStmtOrBranch {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         14,
                     ),
@@ -82,7 +82,7 @@ Ok(
                         8..8,
                     ),
                 },
-                BasicStmtOrBranch {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         15,
                     ),
@@ -90,7 +90,7 @@ Ok(
                         8..9,
                     ),
                 },
-                BasicStmtOrBranch {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         17,
                     ),
@@ -98,7 +98,7 @@ Ok(
                         9..9,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
@@ -126,7 +126,7 @@ Ok(
                         28,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
@@ -154,7 +154,7 @@ Ok(
                         66,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         13,
                     ),
@@ -182,7 +182,7 @@ Ok(
                         104,
                     ),
                 },
-                BasicStmtOrBranch {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         22,
                     ),
@@ -190,7 +190,7 @@ Ok(
                         15..15,
                     ),
                 },
-                BasicStmtOrBranch {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         23,
                     ),
@@ -198,7 +198,7 @@ Ok(
                         15..15,
                     ),
                 },
-                BasicStmtOrBranch {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         19,
                     ),
@@ -206,7 +206,7 @@ Ok(
                         15..15,
                     ),
                 },
-                BasicStmtOrBranch {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         20,
                     ),
@@ -214,7 +214,7 @@ Ok(
                         15..15,
                     ),
                 },
-                BasicStmtOrBranch {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         21,
                     ),
@@ -222,7 +222,7 @@ Ok(
                         15..17,
                     ),
                 },
-                BasicStmtOrBranch {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         24,
                     ),
@@ -230,12 +230,12 @@ Ok(
                         17..17,
                     ),
                 },
-                Use {
+                Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
@@ -266,7 +266,7 @@ Ok(
                         6,
                     ),
                 },
-                Impl {
+                Ast::Impl {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
@@ -274,7 +274,7 @@ Ok(
                         12..15,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         18,
                     ),

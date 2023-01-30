@@ -1,23 +1,23 @@
 [
     ExprTypeRegion {
-        path: Defn(
-            Entity(
+        path: RegionPath::Defn(
+            DefnExprPath::Entity(
                 FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Feature`),
             ),
         ),
         expr_ty_infos: [],
     },
     ExprTypeRegion {
-        path: Defn(
-            Entity(
+        path: RegionPath::Defn(
+            DefnExprPath::Entity(
                 FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
             ),
         ),
         expr_ty_infos: [],
     },
     ExprTypeRegion {
-        path: Defn(
-            Entity(
+        path: RegionPath::Defn(
+            DefnExprPath::Entity(
                 FormPath(`mnist_classifier::digits::eight::big_mouth`, `Function`),
             ),
         ),

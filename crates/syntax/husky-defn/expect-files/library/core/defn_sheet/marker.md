@@ -10,8 +10,8 @@ Ok(
                         expr_region: ExprRegion {
                             data: ExprRegionData {
                                 parent: None,
-                                path: Decl(
-                                    Entity(
+                                path: RegionPath::Decl(
+                                    DeclExprPath::Entity(
                                         TraitPath(`core::marker::Copy`),
                                     ),
                                 ),
@@ -61,8 +61,8 @@ Ok(
                         expr_region: ExprRegion {
                             data: ExprRegionData {
                                 parent: None,
-                                path: Decl(
-                                    Entity(
+                                path: RegionPath::Decl(
+                                    DeclExprPath::Entity(
                                         TraitPath(`core::marker::Sized`),
                                     ),
                                 ),

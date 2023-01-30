@@ -10,8 +10,8 @@ Ok(
                         expr_region: ExprRegion {
                             data: ExprRegionData {
                                 parent: None,
-                                path: Decl(
-                                    Entity(
+                                path: RegionPath::Decl(
+                                    DeclExprPath::Entity(
                                         TraitPath(`core::cmp::PartialEq`),
                                     ),
                                 ),
@@ -61,8 +61,8 @@ Ok(
                         expr_region: ExprRegion {
                             data: ExprRegionData {
                                 parent: None,
-                                path: Decl(
-                                    Entity(
+                                path: RegionPath::Decl(
+                                    DeclExprPath::Entity(
                                         TraitPath(`core::cmp::Eq`),
                                     ),
                                 ),
@@ -112,8 +112,8 @@ Ok(
                         expr_region: ExprRegion {
                             data: ExprRegionData {
                                 parent: None,
-                                path: Decl(
-                                    Entity(
+                                path: RegionPath::Decl(
+                                    DeclExprPath::Entity(
                                         TraitPath(`core::cmp::PartialOrd`),
                                     ),
                                 ),
@@ -163,8 +163,8 @@ Ok(
                         expr_region: ExprRegion {
                             data: ExprRegionData {
                                 parent: None,
-                                path: Decl(
-                                    Entity(
+                                path: RegionPath::Decl(
+                                    DeclExprPath::Entity(
                                         TraitPath(`core::cmp::Ord`),
                                     ),
                                 ),

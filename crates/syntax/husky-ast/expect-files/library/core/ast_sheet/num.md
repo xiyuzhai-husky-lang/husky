@@ -2,7 +2,7 @@ Ok(
     AstSheet {
         arena: Arena {
             data: [
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
@@ -28,7 +28,7 @@ Ok(
                         30,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
@@ -54,7 +54,7 @@ Ok(
                         50,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         11,
                     ),
@@ -80,7 +80,7 @@ Ok(
                         88,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         13,
                     ),
@@ -106,7 +106,7 @@ Ok(
                         108,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         18,
                     ),
@@ -132,7 +132,7 @@ Ok(
                         146,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         20,
                     ),
@@ -160,7 +160,7 @@ Ok(
                         165,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         25,
                     ),
@@ -186,7 +186,7 @@ Ok(
                         203,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         27,
                     ),
@@ -212,7 +212,7 @@ Ok(
                         223,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         32,
                     ),
@@ -238,7 +238,7 @@ Ok(
                         261,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         34,
                     ),
@@ -264,7 +264,7 @@ Ok(
                         281,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         39,
                     ),
@@ -290,7 +290,7 @@ Ok(
                         319,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         41,
                     ),
@@ -316,7 +316,7 @@ Ok(
                         339,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         46,
                     ),
@@ -342,7 +342,7 @@ Ok(
                         377,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         48,
                     ),
@@ -370,7 +370,7 @@ Ok(
                         396,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         53,
                     ),
@@ -396,7 +396,7 @@ Ok(
                         434,
                     ),
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         55,
                     ),
@@ -422,18 +422,18 @@ Ok(
                         454,
                     ),
                 },
-                Decor {
+                Ast::Decor {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
                 },
-                Err {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
                     error: UnexpectedStmtInsideModule,
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
@@ -462,7 +462,7 @@ Ok(
                         23,
                     ),
                 },
-                Impl {
+                Ast::Impl {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
@@ -470,7 +470,7 @@ Ok(
                         0..1,
                     ),
                 },
-                Impl {
+                Ast::Impl {
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
@@ -478,18 +478,18 @@ Ok(
                         1..2,
                     ),
                 },
-                Decor {
+                Ast::Decor {
                     token_group_idx: TokenGroupIdx(
                         7,
                     ),
                 },
-                Err {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
                     error: UnexpectedStmtInsideModule,
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         9,
                     ),
@@ -518,7 +518,7 @@ Ok(
                         81,
                     ),
                 },
-                Impl {
+                Ast::Impl {
                     token_group_idx: TokenGroupIdx(
                         10,
                     ),
@@ -526,7 +526,7 @@ Ok(
                         2..3,
                     ),
                 },
-                Impl {
+                Ast::Impl {
                     token_group_idx: TokenGroupIdx(
                         12,
                     ),
@@ -534,18 +534,18 @@ Ok(
                         3..4,
                     ),
                 },
-                Decor {
+                Ast::Decor {
                     token_group_idx: TokenGroupIdx(
                         14,
                     ),
                 },
-                Err {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         15,
                     ),
                     error: UnexpectedStmtInsideModule,
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         16,
                     ),
@@ -574,7 +574,7 @@ Ok(
                         139,
                     ),
                 },
-                Impl {
+                Ast::Impl {
                     token_group_idx: TokenGroupIdx(
                         17,
                     ),
@@ -582,7 +582,7 @@ Ok(
                         4..5,
                     ),
                 },
-                Impl {
+                Ast::Impl {
                     token_group_idx: TokenGroupIdx(
                         19,
                     ),
@@ -590,18 +590,18 @@ Ok(
                         5..6,
                     ),
                 },
-                Decor {
+                Ast::Decor {
                     token_group_idx: TokenGroupIdx(
                         21,
                     ),
                 },
-                Err {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         22,
                     ),
                     error: UnexpectedStmtInsideModule,
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         23,
                     ),
@@ -630,7 +630,7 @@ Ok(
                         196,
                     ),
                 },
-                Impl {
+                Ast::Impl {
                     token_group_idx: TokenGroupIdx(
                         24,
                     ),
@@ -638,7 +638,7 @@ Ok(
                         6..7,
                     ),
                 },
-                Impl {
+                Ast::Impl {
                     token_group_idx: TokenGroupIdx(
                         26,
                     ),
@@ -646,18 +646,18 @@ Ok(
                         7..8,
                     ),
                 },
-                Decor {
+                Ast::Decor {
                     token_group_idx: TokenGroupIdx(
                         28,
                     ),
                 },
-                Err {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         29,
                     ),
                     error: UnexpectedStmtInsideModule,
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         30,
                     ),
@@ -686,7 +686,7 @@ Ok(
                         254,
                     ),
                 },
-                Impl {
+                Ast::Impl {
                     token_group_idx: TokenGroupIdx(
                         31,
                     ),
@@ -694,7 +694,7 @@ Ok(
                         8..9,
                     ),
                 },
-                Impl {
+                Ast::Impl {
                     token_group_idx: TokenGroupIdx(
                         33,
                     ),
@@ -702,18 +702,18 @@ Ok(
                         9..10,
                     ),
                 },
-                Decor {
+                Ast::Decor {
                     token_group_idx: TokenGroupIdx(
                         35,
                     ),
                 },
-                Err {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         36,
                     ),
                     error: UnexpectedStmtInsideModule,
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         37,
                     ),
@@ -742,7 +742,7 @@ Ok(
                         312,
                     ),
                 },
-                Impl {
+                Ast::Impl {
                     token_group_idx: TokenGroupIdx(
                         38,
                     ),
@@ -750,7 +750,7 @@ Ok(
                         10..11,
                     ),
                 },
-                Impl {
+                Ast::Impl {
                     token_group_idx: TokenGroupIdx(
                         40,
                     ),
@@ -758,18 +758,18 @@ Ok(
                         11..12,
                     ),
                 },
-                Decor {
+                Ast::Decor {
                     token_group_idx: TokenGroupIdx(
                         42,
                     ),
                 },
-                Err {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         43,
                     ),
                     error: UnexpectedStmtInsideModule,
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         44,
                     ),
@@ -798,7 +798,7 @@ Ok(
                         370,
                     ),
                 },
-                Impl {
+                Ast::Impl {
                     token_group_idx: TokenGroupIdx(
                         45,
                     ),
@@ -806,7 +806,7 @@ Ok(
                         12..13,
                     ),
                 },
-                Impl {
+                Ast::Impl {
                     token_group_idx: TokenGroupIdx(
                         47,
                     ),
@@ -814,18 +814,18 @@ Ok(
                         13..14,
                     ),
                 },
-                Decor {
+                Ast::Decor {
                     token_group_idx: TokenGroupIdx(
                         49,
                     ),
                 },
-                Err {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         50,
                     ),
                     error: UnexpectedStmtInsideModule,
                 },
-                Defn {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         51,
                     ),
@@ -854,7 +854,7 @@ Ok(
                         427,
                     ),
                 },
-                Impl {
+                Ast::Impl {
                     token_group_idx: TokenGroupIdx(
                         52,
                     ),
@@ -862,7 +862,7 @@ Ok(
                         14..15,
                     ),
                 },
-                Impl {
+                Ast::Impl {
                     token_group_idx: TokenGroupIdx(
                         54,
                     ),
