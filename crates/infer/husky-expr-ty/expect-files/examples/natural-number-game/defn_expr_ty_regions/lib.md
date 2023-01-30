@@ -1,30 +1,16 @@
 [
     ExprTypeRegion {
-        path: Defn(
-            AssociatedItem(
+        path: RegionPath::Defn(
+            DefnExprPath::AssociatedItem(
                 AssociatedItem {
                     id: AssociatedItemId {
                         impl_block_id: ImplBlockId {
-                            module_path: ModulePath(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
-                            impl_block_kind: Type {
-                                ty: TypePath(
-                                    Id {
-                                        value: 43,
-                                    },
-                                ),
+                            module_path: `natural_number_game`,
+                            impl_block_kind: ImplBlockKind::Type {
+                                ty: TypePath(`natural_number_game::Nat`, `Inductive`),
                             },
                         },
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 35,
-                                },
-                            ),
-                        ),
+                        ident: `add`,
                     },
                     path: Some(
                         TypeItemPath {
@@ -36,7 +22,7 @@
                     impl_block: ImplBlock {
                         id: ImplBlockId {
                             module_path: `natural_number_game`,
-                            impl_block_kind: Type {
+                            impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`natural_number_game::Nat`, `Inductive`),
                             },
                         },
@@ -44,12 +30,8 @@
                         body: ArenaIdxRange(
                             0..3,
                         ),
-                        variant: Type {
-                            ty: TypePath(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
+                        variant: ImplBlockVariant::Type {
+                            ty: TypePath(`natural_number_game::Nat`, `Inductive`),
                         },
                     },
                     ast_idx: 0,

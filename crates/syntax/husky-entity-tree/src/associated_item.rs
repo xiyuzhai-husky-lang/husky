@@ -18,9 +18,16 @@ pub struct AssociatedItem {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct AssociatedItemId {
     impl_block_id: ImplBlockId,
     ident: Identifier,
+}
+
+impl AssociatedItemId {
+    pub fn module_path(self) -> ModulePath {
+        self.impl_block_id.module_path()
+    }
 }
 
 impl AssociatedItem {

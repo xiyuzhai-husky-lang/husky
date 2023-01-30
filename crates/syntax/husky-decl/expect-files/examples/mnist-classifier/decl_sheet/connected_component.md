@@ -3,39 +3,39 @@ Ok(
         decls: [
             Ok(
                 Type(
-                    RegularStruct(
+                    TypeDecl::RegularStruct(
                         RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                             ast_idx: 121,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`core::num::i32`, `Alien`),
                                                 ),
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
                                                     TypePath(`core::num::i32`, `Alien`),
                                                 ),
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 2,
                                                 entity_path: Some(
                                                     TypePath(`core::num::i32`, `Alien`),
                                                 ),
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 3,
                                                 entity_path: Some(
                                                     TypePath(`core::num::i32`, `Alien`),
@@ -45,28 +45,28 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     24,
                                                 ),
                                                 ident: `i32`,
                                                 entity_path: TypePath(`core::num::i32`, `Alien`),
                                             },
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     28,
                                                 ),
                                                 ident: `i32`,
                                                 entity_path: TypePath(`core::num::i32`, `Alien`),
                                             },
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     32,
                                                 ),
                                                 ident: `i32`,
                                                 entity_path: TypePath(`core::num::i32`, `Alien`),
                                             },
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     36,
                                                 ),
@@ -240,34 +240,34 @@ Ok(
             ),
             Ok(
                 Type(
-                    RegularStruct(
+                    TypeDecl::RegularStruct(
                         RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                             ast_idx: 122,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                 ),
                                             },
-                                            PrefixOpn {
+                                            Expr::PrefixOpn {
                                                 opr: Ref,
                                                 opr_token_idx: TokenIdx(
                                                     48,
                                                 ),
                                                 opd: 0,
                                             },
-                                            NewBoxList {
+                                            Expr::NewBoxList {
                                                 caller: None,
                                                 lbox_token_idx: TokenIdx(
                                                     45,
@@ -279,14 +279,14 @@ Ok(
                                                     46,
                                                 ),
                                             },
-                                            PrefixOpn {
+                                            Expr::PrefixOpn {
                                                 opr: Option,
                                                 opr_token_idx: TokenIdx(
                                                     47,
                                                 ),
                                                 opd: 1,
                                             },
-                                            Application {
+                                            Expr::Application {
                                                 function: 2,
                                                 argument: 3,
                                             },
@@ -294,7 +294,7 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     49,
                                                 ),
@@ -381,40 +381,40 @@ Ok(
             ),
             Ok(
                 Form(
-                    Function(
+                    FormDecl::Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
                             ast_idx: 123,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                 ),
                                             },
-                                            PrefixOpn {
+                                            Expr::PrefixOpn {
                                                 opr: Ref,
                                                 opr_token_idx: TokenIdx(
                                                     57,
                                                 ),
                                                 opd: 0,
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
                                                     TypePath(`core::num::f32`, `Alien`),
                                                 ),
                                             },
-                                            PrefixOpn {
+                                            Expr::PrefixOpn {
                                                 opr: Option,
                                                 opr_token_idx: TokenIdx(
                                                     61,
@@ -425,14 +425,14 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     58,
                                                 ),
                                                 ident: `RawContour`,
                                                 entity_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             },
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     62,
                                                 ),
@@ -447,7 +447,7 @@ Ok(
                                     pattern_expr_region: PatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `ct`,
                                                         token_idx: TokenIdx(
@@ -477,7 +477,7 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -495,7 +495,7 @@ Ok(
                                                         56,
                                                     ),
                                                     access_end: None,
-                                                    variant: Parameter {
+                                                    variant: CurrentSymbolVariant::Parameter {
                                                         pattern_symbol: 0,
                                                     },
                                                 },
@@ -571,21 +571,21 @@ Ok(
             ),
             Ok(
                 Type(
-                    RegularStruct(
+                    TypeDecl::RegularStruct(
                         RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                             ast_idx: 124,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Err(
+                                            Expr::Err(
                                                 UnrecognizedIdentifier {
                                                     token_idx: TokenIdx(
                                                         83,
@@ -676,33 +676,33 @@ Ok(
             ),
             Ok(
                 Form(
-                    Function(
+                    FormDecl::Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
                             ast_idx: 126,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`core::raw_bits::r32`, `Alien`),
                                                 ),
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
                                                     TypePath(`core::raw_bits::r32`, `Alien`),
                                                 ),
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 2,
                                                 entity_path: Some(
                                                     TypePath(`core::raw_bits::r32`, `Alien`),
@@ -712,21 +712,21 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     563,
                                                 ),
                                                 ident: `r32`,
                                                 entity_path: TypePath(`core::raw_bits::r32`, `Alien`),
                                             },
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     567,
                                                 ),
                                                 ident: `r32`,
                                                 entity_path: TypePath(`core::raw_bits::r32`, `Alien`),
                                             },
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     570,
                                                 ),
@@ -741,7 +741,7 @@ Ok(
                                     pattern_expr_region: PatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `a`,
                                                         token_idx: TokenIdx(
@@ -750,7 +750,7 @@ Ok(
                                                     },
                                                     liason: None,
                                                 },
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `x`,
                                                         token_idx: TokenIdx(
@@ -793,10 +793,10 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     0,
                                                 ),
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     1,
                                                 ),
                                             ],
@@ -814,7 +814,7 @@ Ok(
                                                         562,
                                                     ),
                                                     access_end: None,
-                                                    variant: Parameter {
+                                                    variant: CurrentSymbolVariant::Parameter {
                                                         pattern_symbol: 0,
                                                     },
                                                 },
@@ -824,7 +824,7 @@ Ok(
                                                         566,
                                                     ),
                                                     access_end: None,
-                                                    variant: Parameter {
+                                                    variant: CurrentSymbolVariant::Parameter {
                                                         pattern_symbol: 1,
                                                     },
                                                 },
@@ -922,21 +922,21 @@ Ok(
             ),
             Ok(
                 Form(
-                    Function(
+                    FormDecl::Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
                             ast_idx: 127,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        Entity(
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::Entity(
                                             FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Err(
+                                            Expr::Err(
                                                 UnrecognizedIdentifier {
                                                     token_idx: TokenIdx(
                                                         649,
@@ -950,7 +950,7 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            NewBoxList {
+                                            Expr::NewBoxList {
                                                 caller: None,
                                                 lbox_token_idx: TokenIdx(
                                                     652,
@@ -962,13 +962,13 @@ Ok(
                                                     653,
                                                 ),
                                             },
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                 ),
                                             },
-                                            Application {
+                                            Expr::Application {
                                                 function: 1,
                                                 argument: 2,
                                             },
@@ -976,7 +976,7 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     654,
                                                 ),
@@ -991,7 +991,7 @@ Ok(
                                     pattern_expr_region: PatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                Identifier {
+                                                PatternExpr::Identifier {
                                                     ident_token: IdentifierToken {
                                                         ident: `img`,
                                                         token_idx: TokenIdx(
@@ -1021,7 +1021,7 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                Atom(
+                                                PatternSymbol::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -1039,7 +1039,7 @@ Ok(
                                                         648,
                                                     ),
                                                     access_end: None,
-                                                    variant: Parameter {
+                                                    variant: CurrentSymbolVariant::Parameter {
                                                         pattern_symbol: 0,
                                                     },
                                                 },
@@ -1115,13 +1115,13 @@ Ok(
             ),
             Ok(
                 ImplBlock(
-                    TypeImplBlock(
+                    ImplBlockDecl::TypeImplBlock(
                         TypeImplBlockDecl {
                             ast_idx: 125,
                             impl_block: ImplBlock {
                                 id: ImplBlockId {
                                     module_path: `mnist_classifier::connected_component`,
-                                    impl_block_kind: Type {
+                                    impl_block_kind: ImplBlockKind::Type {
                                         ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     },
                                 },
@@ -1129,12 +1129,8 @@ Ok(
                                 body: ArenaIdxRange(
                                     67..79,
                                 ),
-                                variant: Type {
-                                    ty: TypePath(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
+                                variant: ImplBlockVariant::Type {
+                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 },
                             },
                             impl_token: ImplToken {
@@ -1156,32 +1152,19 @@ Ok(
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
-                                    path: Decl(
-                                        ImplBlock(
-                                            ImplBlock {
-                                                id: ImplBlockId {
-                                                    module_path: `mnist_classifier::connected_component`,
-                                                    impl_block_kind: Type {
-                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                    },
-                                                },
-                                                ast_idx: 125,
-                                                body: ArenaIdxRange(
-                                                    67..79,
-                                                ),
-                                                variant: Type {
-                                                    ty: TypePath(
-                                                        Id {
-                                                            value: 19,
-                                                        },
-                                                    ),
+                                    path: RegionPath::Decl(
+                                        DeclExprPath::ImplBlock(
+                                            ImplBlockId {
+                                                module_path: `mnist_classifier::connected_component`,
+                                                impl_block_kind: ImplBlockKind::Type {
+                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                 },
                                             },
                                         ),
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            EntityPath {
+                                            Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -1191,7 +1174,7 @@ Ok(
                                     },
                                     entity_path_expr_arena: Arena {
                                         data: [
-                                            Root {
+                                            EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     86,
                                                 ),
@@ -1238,8 +1221,8 @@ Ok(
             ),
             Ok(
                 AssociatedItem(
-                    TypeItem(
-                        Memo(
+                    AssociatedItemDecl::TypeItem(
+                        TypeItemDecl::Memo(
                             TypeMemoDecl {
                                 path: Some(
                                     TypeItemPath {
@@ -1251,26 +1234,12 @@ Ok(
                                 associated_item: AssociatedItem {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId {
-                                            module_path: ModulePath(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                            impl_block_kind: Type {
-                                                ty: TypePath(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
+                                            module_path: `mnist_classifier::connected_component`,
+                                            impl_block_kind: ImplBlockKind::Type {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 138,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `raw_contours`,
                                     },
                                     path: Some(
                                         TypeItemPath {
@@ -1282,7 +1251,7 @@ Ok(
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
                                             module_path: `mnist_classifier::connected_component`,
-                                            impl_block_kind: Type {
+                                            impl_block_kind: ImplBlockKind::Type {
                                                 ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
@@ -1290,12 +1259,8 @@ Ok(
                                         body: ArenaIdxRange(
                                             67..79,
                                         ),
-                                        variant: Type {
-                                            ty: TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
-                                            ),
+                                        variant: ImplBlockVariant::Type {
+                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         },
                                     },
                                     ast_idx: 67,
@@ -1315,32 +1280,19 @@ Ok(
                                             ExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
-                                                    path: Decl(
-                                                        ImplBlock(
-                                                            ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
+                                                    path: RegionPath::Decl(
+                                                        DeclExprPath::ImplBlock(
+                                                            ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                 },
                                                             },
                                                         ),
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            EntityPath {
+                                                            Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
                                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -1350,7 +1302,7 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
-                                                            Root {
+                                                            EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     86,
                                                                 ),
@@ -1392,73 +1344,22 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: Decl(
-                                            AssociatedItem(
-                                                AssociatedItem {
-                                                    id: AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
-                                                            module_path: ModulePath(
-                                                                Id {
-                                                                    value: 22,
-                                                                },
-                                                            ),
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(
-                                                                    Id {
-                                                                        value: 19,
-                                                                    },
-                                                                ),
-                                                            },
-                                                        },
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 138,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    path: Some(
-                                                        TypeItemPath {
+                                        path: RegionPath::Decl(
+                                            DeclExprPath::AssociatedItem(
+                                                AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            ident: `raw_contours`,
-                                                            ty_item_kind: Memo,
-                                                        },
-                                                    ),
-                                                    impl_block: ImplBlock {
-                                                        id: ImplBlockId {
-                                                            module_path: `mnist_classifier::connected_component`,
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            },
-                                                        },
-                                                        ast_idx: 125,
-                                                        body: ArenaIdxRange(
-                                                            67..79,
-                                                        ),
-                                                        variant: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
                                                         },
                                                     },
-                                                    ast_idx: 67,
                                                     ident: `raw_contours`,
-                                                    associated_item_kind: TypeItem(
-                                                        Memo,
-                                                    ),
-                                                    accessibility: PubicUnder(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                    is_generic: false,
                                                 },
                                             ),
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                NewBoxList {
+                                                Expr::NewBoxList {
                                                     caller: None,
                                                     lbox_token_idx: TokenIdx(
                                                         91,
@@ -1470,13 +1371,13 @@ Ok(
                                                         92,
                                                     ),
                                                 },
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
                                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     ),
                                                 },
-                                                Application {
+                                                Expr::Application {
                                                     function: 0,
                                                     argument: 1,
                                                 },
@@ -1484,7 +1385,7 @@ Ok(
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         93,
                                                     ),
@@ -1551,8 +1452,8 @@ Ok(
             ),
             Ok(
                 AssociatedItem(
-                    TypeItem(
-                        Memo(
+                    AssociatedItemDecl::TypeItem(
+                        TypeItemDecl::Memo(
                             TypeMemoDecl {
                                 path: Some(
                                     TypeItemPath {
@@ -1564,26 +1465,12 @@ Ok(
                                 associated_item: AssociatedItem {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId {
-                                            module_path: ModulePath(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                            impl_block_kind: Type {
-                                                ty: TypePath(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
+                                            module_path: `mnist_classifier::connected_component`,
+                                            impl_block_kind: ImplBlockKind::Type {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 139,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `eff_holes`,
                                     },
                                     path: Some(
                                         TypeItemPath {
@@ -1595,7 +1482,7 @@ Ok(
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
                                             module_path: `mnist_classifier::connected_component`,
-                                            impl_block_kind: Type {
+                                            impl_block_kind: ImplBlockKind::Type {
                                                 ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
@@ -1603,12 +1490,8 @@ Ok(
                                         body: ArenaIdxRange(
                                             67..79,
                                         ),
-                                        variant: Type {
-                                            ty: TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
-                                            ),
+                                        variant: ImplBlockVariant::Type {
+                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         },
                                     },
                                     ast_idx: 68,
@@ -1628,32 +1511,19 @@ Ok(
                                             ExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
-                                                    path: Decl(
-                                                        ImplBlock(
-                                                            ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
+                                                    path: RegionPath::Decl(
+                                                        DeclExprPath::ImplBlock(
+                                                            ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                 },
                                                             },
                                                         ),
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            EntityPath {
+                                                            Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
                                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -1663,7 +1533,7 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
-                                                            Root {
+                                                            EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     86,
                                                                 ),
@@ -1705,73 +1575,22 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: Decl(
-                                            AssociatedItem(
-                                                AssociatedItem {
-                                                    id: AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
-                                                            module_path: ModulePath(
-                                                                Id {
-                                                                    value: 22,
-                                                                },
-                                                            ),
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(
-                                                                    Id {
-                                                                        value: 19,
-                                                                    },
-                                                                ),
-                                                            },
-                                                        },
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 139,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    path: Some(
-                                                        TypeItemPath {
+                                        path: RegionPath::Decl(
+                                            DeclExprPath::AssociatedItem(
+                                                AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            ident: `eff_holes`,
-                                                            ty_item_kind: Memo,
-                                                        },
-                                                    ),
-                                                    impl_block: ImplBlock {
-                                                        id: ImplBlockId {
-                                                            module_path: `mnist_classifier::connected_component`,
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            },
-                                                        },
-                                                        ast_idx: 125,
-                                                        body: ArenaIdxRange(
-                                                            67..79,
-                                                        ),
-                                                        variant: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
                                                         },
                                                     },
-                                                    ast_idx: 68,
                                                     ident: `eff_holes`,
-                                                    associated_item_kind: TypeItem(
-                                                        Memo,
-                                                    ),
-                                                    accessibility: PubicUnder(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                    is_generic: false,
                                                 },
                                             ),
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
                                                         TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
@@ -1781,7 +1600,7 @@ Ok(
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         102,
                                                     ),
@@ -1848,8 +1667,8 @@ Ok(
             ),
             Ok(
                 AssociatedItem(
-                    TypeItem(
-                        Memo(
+                    AssociatedItemDecl::TypeItem(
+                        TypeItemDecl::Memo(
                             TypeMemoDecl {
                                 path: Some(
                                     TypeItemPath {
@@ -1861,26 +1680,12 @@ Ok(
                                 associated_item: AssociatedItem {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId {
-                                            module_path: ModulePath(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                            impl_block_kind: Type {
-                                                ty: TypePath(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
+                                            module_path: `mnist_classifier::connected_component`,
+                                            impl_block_kind: ImplBlockKind::Type {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 143,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `max_hole_ilen`,
                                     },
                                     path: Some(
                                         TypeItemPath {
@@ -1892,7 +1697,7 @@ Ok(
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
                                             module_path: `mnist_classifier::connected_component`,
-                                            impl_block_kind: Type {
+                                            impl_block_kind: ImplBlockKind::Type {
                                                 ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
@@ -1900,12 +1705,8 @@ Ok(
                                         body: ArenaIdxRange(
                                             67..79,
                                         ),
-                                        variant: Type {
-                                            ty: TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
-                                            ),
+                                        variant: ImplBlockVariant::Type {
+                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         },
                                     },
                                     ast_idx: 69,
@@ -1925,32 +1726,19 @@ Ok(
                                             ExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
-                                                    path: Decl(
-                                                        ImplBlock(
-                                                            ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
+                                                    path: RegionPath::Decl(
+                                                        DeclExprPath::ImplBlock(
+                                                            ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                 },
                                                             },
                                                         ),
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            EntityPath {
+                                                            Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
                                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -1960,7 +1748,7 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
-                                                            Root {
+                                                            EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     86,
                                                                 ),
@@ -2002,73 +1790,22 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: Decl(
-                                            AssociatedItem(
-                                                AssociatedItem {
-                                                    id: AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
-                                                            module_path: ModulePath(
-                                                                Id {
-                                                                    value: 22,
-                                                                },
-                                                            ),
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(
-                                                                    Id {
-                                                                        value: 19,
-                                                                    },
-                                                                ),
-                                                            },
-                                                        },
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 143,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    path: Some(
-                                                        TypeItemPath {
+                                        path: RegionPath::Decl(
+                                            DeclExprPath::AssociatedItem(
+                                                AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            ident: `max_hole_ilen`,
-                                                            ty_item_kind: Memo,
-                                                        },
-                                                    ),
-                                                    impl_block: ImplBlock {
-                                                        id: ImplBlockId {
-                                                            module_path: `mnist_classifier::connected_component`,
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            },
-                                                        },
-                                                        ast_idx: 125,
-                                                        body: ArenaIdxRange(
-                                                            67..79,
-                                                        ),
-                                                        variant: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
                                                         },
                                                     },
-                                                    ast_idx: 69,
                                                     ident: `max_hole_ilen`,
-                                                    associated_item_kind: TypeItem(
-                                                        Memo,
-                                                    ),
-                                                    accessibility: PubicUnder(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                    is_generic: false,
                                                 },
                                             ),
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
                                                         TypePath(`core::num::f32`, `Alien`),
@@ -2078,7 +1815,7 @@ Ok(
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         163,
                                                     ),
@@ -2145,8 +1882,8 @@ Ok(
             ),
             Ok(
                 AssociatedItem(
-                    TypeItem(
-                        Memo(
+                    AssociatedItemDecl::TypeItem(
+                        TypeItemDecl::Memo(
                             TypeMemoDecl {
                                 path: Some(
                                     TypeItemPath {
@@ -2158,26 +1895,12 @@ Ok(
                                 associated_item: AssociatedItem {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId {
-                                            module_path: ModulePath(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                            impl_block_kind: Type {
-                                                ty: TypePath(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
+                                            module_path: `mnist_classifier::connected_component`,
+                                            impl_block_kind: ImplBlockKind::Type {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 148,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `max_row_span`,
                                     },
                                     path: Some(
                                         TypeItemPath {
@@ -2189,7 +1912,7 @@ Ok(
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
                                             module_path: `mnist_classifier::connected_component`,
-                                            impl_block_kind: Type {
+                                            impl_block_kind: ImplBlockKind::Type {
                                                 ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
@@ -2197,12 +1920,8 @@ Ok(
                                         body: ArenaIdxRange(
                                             67..79,
                                         ),
-                                        variant: Type {
-                                            ty: TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
-                                            ),
+                                        variant: ImplBlockVariant::Type {
+                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         },
                                     },
                                     ast_idx: 70,
@@ -2222,32 +1941,19 @@ Ok(
                                             ExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
-                                                    path: Decl(
-                                                        ImplBlock(
-                                                            ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
+                                                    path: RegionPath::Decl(
+                                                        DeclExprPath::ImplBlock(
+                                                            ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                 },
                                                             },
                                                         ),
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            EntityPath {
+                                                            Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
                                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -2257,7 +1963,7 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
-                                                            Root {
+                                                            EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     86,
                                                                 ),
@@ -2299,73 +2005,22 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: Decl(
-                                            AssociatedItem(
-                                                AssociatedItem {
-                                                    id: AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
-                                                            module_path: ModulePath(
-                                                                Id {
-                                                                    value: 22,
-                                                                },
-                                                            ),
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(
-                                                                    Id {
-                                                                        value: 19,
-                                                                    },
-                                                                ),
-                                                            },
-                                                        },
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 148,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    path: Some(
-                                                        TypeItemPath {
+                                        path: RegionPath::Decl(
+                                            DeclExprPath::AssociatedItem(
+                                                AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            ident: `max_row_span`,
-                                                            ty_item_kind: Memo,
-                                                        },
-                                                    ),
-                                                    impl_block: ImplBlock {
-                                                        id: ImplBlockId {
-                                                            module_path: `mnist_classifier::connected_component`,
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            },
-                                                        },
-                                                        ast_idx: 125,
-                                                        body: ArenaIdxRange(
-                                                            67..79,
-                                                        ),
-                                                        variant: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
                                                         },
                                                     },
-                                                    ast_idx: 70,
                                                     ident: `max_row_span`,
-                                                    associated_item_kind: TypeItem(
-                                                        Memo,
-                                                    ),
-                                                    accessibility: PubicUnder(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                    is_generic: false,
                                                 },
                                             ),
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
                                                         TypePath(`core::num::f32`, `Alien`),
@@ -2375,7 +2030,7 @@ Ok(
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         215,
                                                     ),
@@ -2442,8 +2097,8 @@ Ok(
             ),
             Ok(
                 AssociatedItem(
-                    TypeItem(
-                        Memo(
+                    AssociatedItemDecl::TypeItem(
+                        TypeItemDecl::Memo(
                             TypeMemoDecl {
                                 path: Some(
                                     TypeItemPath {
@@ -2455,26 +2110,12 @@ Ok(
                                 associated_item: AssociatedItem {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId {
-                                            module_path: ModulePath(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                            impl_block_kind: Type {
-                                                ty: TypePath(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
+                                            module_path: `mnist_classifier::connected_component`,
+                                            impl_block_kind: ImplBlockKind::Type {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 152,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `row_span_sum`,
                                     },
                                     path: Some(
                                         TypeItemPath {
@@ -2486,7 +2127,7 @@ Ok(
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
                                             module_path: `mnist_classifier::connected_component`,
-                                            impl_block_kind: Type {
+                                            impl_block_kind: ImplBlockKind::Type {
                                                 ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
@@ -2494,12 +2135,8 @@ Ok(
                                         body: ArenaIdxRange(
                                             67..79,
                                         ),
-                                        variant: Type {
-                                            ty: TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
-                                            ),
+                                        variant: ImplBlockVariant::Type {
+                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         },
                                     },
                                     ast_idx: 71,
@@ -2519,32 +2156,19 @@ Ok(
                                             ExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
-                                                    path: Decl(
-                                                        ImplBlock(
-                                                            ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
+                                                    path: RegionPath::Decl(
+                                                        DeclExprPath::ImplBlock(
+                                                            ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                 },
                                                             },
                                                         ),
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            EntityPath {
+                                                            Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
                                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -2554,7 +2178,7 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
-                                                            Root {
+                                                            EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     86,
                                                                 ),
@@ -2596,73 +2220,22 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: Decl(
-                                            AssociatedItem(
-                                                AssociatedItem {
-                                                    id: AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
-                                                            module_path: ModulePath(
-                                                                Id {
-                                                                    value: 22,
-                                                                },
-                                                            ),
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(
-                                                                    Id {
-                                                                        value: 19,
-                                                                    },
-                                                                ),
-                                                            },
-                                                        },
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 152,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    path: Some(
-                                                        TypeItemPath {
+                                        path: RegionPath::Decl(
+                                            DeclExprPath::AssociatedItem(
+                                                AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            ident: `row_span_sum`,
-                                                            ty_item_kind: Memo,
-                                                        },
-                                                    ),
-                                                    impl_block: ImplBlock {
-                                                        id: ImplBlockId {
-                                                            module_path: `mnist_classifier::connected_component`,
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            },
-                                                        },
-                                                        ast_idx: 125,
-                                                        body: ArenaIdxRange(
-                                                            67..79,
-                                                        ),
-                                                        variant: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
                                                         },
                                                     },
-                                                    ast_idx: 71,
                                                     ident: `row_span_sum`,
-                                                    associated_item_kind: TypeItem(
-                                                        Memo,
-                                                    ),
-                                                    accessibility: PubicUnder(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                    is_generic: false,
                                                 },
                                             ),
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
                                                         TypePath(`core::num::f32`, `Alien`),
@@ -2672,7 +2245,7 @@ Ok(
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         253,
                                                     ),
@@ -2739,8 +2312,8 @@ Ok(
             ),
             Ok(
                 AssociatedItem(
-                    TypeItem(
-                        Memo(
+                    AssociatedItemDecl::TypeItem(
+                        TypeItemDecl::Memo(
                             TypeMemoDecl {
                                 path: Some(
                                     TypeItemPath {
@@ -2752,26 +2325,12 @@ Ok(
                                 associated_item: AssociatedItem {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId {
-                                            module_path: ModulePath(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                            impl_block_kind: Type {
-                                                ty: TypePath(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
+                                            module_path: `mnist_classifier::connected_component`,
+                                            impl_block_kind: ImplBlockKind::Type {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 153,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `distribution`,
                                     },
                                     path: Some(
                                         TypeItemPath {
@@ -2783,7 +2342,7 @@ Ok(
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
                                             module_path: `mnist_classifier::connected_component`,
-                                            impl_block_kind: Type {
+                                            impl_block_kind: ImplBlockKind::Type {
                                                 ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
@@ -2791,12 +2350,8 @@ Ok(
                                         body: ArenaIdxRange(
                                             67..79,
                                         ),
-                                        variant: Type {
-                                            ty: TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
-                                            ),
+                                        variant: ImplBlockVariant::Type {
+                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         },
                                     },
                                     ast_idx: 72,
@@ -2816,32 +2371,19 @@ Ok(
                                             ExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
-                                                    path: Decl(
-                                                        ImplBlock(
-                                                            ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
+                                                    path: RegionPath::Decl(
+                                                        DeclExprPath::ImplBlock(
+                                                            ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                 },
                                                             },
                                                         ),
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            EntityPath {
+                                                            Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
                                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -2851,7 +2393,7 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
-                                                            Root {
+                                                            EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     86,
                                                                 ),
@@ -2893,73 +2435,22 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: Decl(
-                                            AssociatedItem(
-                                                AssociatedItem {
-                                                    id: AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
-                                                            module_path: ModulePath(
-                                                                Id {
-                                                                    value: 22,
-                                                                },
-                                                            ),
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(
-                                                                    Id {
-                                                                        value: 19,
-                                                                    },
-                                                                ),
-                                                            },
-                                                        },
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 153,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    path: Some(
-                                                        TypeItemPath {
+                                        path: RegionPath::Decl(
+                                            DeclExprPath::AssociatedItem(
+                                                AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            ident: `distribution`,
-                                                            ty_item_kind: Memo,
-                                                        },
-                                                    ),
-                                                    impl_block: ImplBlock {
-                                                        id: ImplBlockId {
-                                                            module_path: `mnist_classifier::connected_component`,
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            },
-                                                        },
-                                                        ast_idx: 125,
-                                                        body: ArenaIdxRange(
-                                                            67..79,
-                                                        ),
-                                                        variant: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
                                                         },
                                                     },
-                                                    ast_idx: 72,
                                                     ident: `distribution`,
-                                                    associated_item_kind: TypeItem(
-                                                        Memo,
-                                                    ),
-                                                    accessibility: PubicUnder(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                    is_generic: false,
                                                 },
                                             ),
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
                                                         TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
@@ -2969,7 +2460,7 @@ Ok(
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         286,
                                                     ),
@@ -3036,8 +2527,8 @@ Ok(
             ),
             Ok(
                 AssociatedItem(
-                    TypeItem(
-                        Memo(
+                    AssociatedItemDecl::TypeItem(
+                        TypeItemDecl::Memo(
                             TypeMemoDecl {
                                 path: Some(
                                     TypeItemPath {
@@ -3049,26 +2540,12 @@ Ok(
                                 associated_item: AssociatedItem {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId {
-                                            module_path: ModulePath(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                            impl_block_kind: Type {
-                                                ty: TypePath(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
+                                            module_path: `mnist_classifier::connected_component`,
+                                            impl_block_kind: ImplBlockKind::Type {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 128,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `upper_mass`,
                                     },
                                     path: Some(
                                         TypeItemPath {
@@ -3080,7 +2557,7 @@ Ok(
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
                                             module_path: `mnist_classifier::connected_component`,
-                                            impl_block_kind: Type {
+                                            impl_block_kind: ImplBlockKind::Type {
                                                 ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
@@ -3088,12 +2565,8 @@ Ok(
                                         body: ArenaIdxRange(
                                             67..79,
                                         ),
-                                        variant: Type {
-                                            ty: TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
-                                            ),
+                                        variant: ImplBlockVariant::Type {
+                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         },
                                     },
                                     ast_idx: 73,
@@ -3113,32 +2586,19 @@ Ok(
                                             ExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
-                                                    path: Decl(
-                                                        ImplBlock(
-                                                            ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
+                                                    path: RegionPath::Decl(
+                                                        DeclExprPath::ImplBlock(
+                                                            ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                 },
                                                             },
                                                         ),
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            EntityPath {
+                                                            Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
                                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -3148,7 +2608,7 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
-                                                            Root {
+                                                            EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     86,
                                                                 ),
@@ -3190,73 +2650,22 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: Decl(
-                                            AssociatedItem(
-                                                AssociatedItem {
-                                                    id: AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
-                                                            module_path: ModulePath(
-                                                                Id {
-                                                                    value: 22,
-                                                                },
-                                                            ),
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(
-                                                                    Id {
-                                                                        value: 19,
-                                                                    },
-                                                                ),
-                                                            },
-                                                        },
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 128,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    path: Some(
-                                                        TypeItemPath {
+                                        path: RegionPath::Decl(
+                                            DeclExprPath::AssociatedItem(
+                                                AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            ident: `upper_mass`,
-                                                            ty_item_kind: Memo,
-                                                        },
-                                                    ),
-                                                    impl_block: ImplBlock {
-                                                        id: ImplBlockId {
-                                                            module_path: `mnist_classifier::connected_component`,
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            },
-                                                        },
-                                                        ast_idx: 125,
-                                                        body: ArenaIdxRange(
-                                                            67..79,
-                                                        ),
-                                                        variant: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
                                                         },
                                                     },
-                                                    ast_idx: 73,
                                                     ident: `upper_mass`,
-                                                    associated_item_kind: TypeItem(
-                                                        Memo,
-                                                    ),
-                                                    accessibility: PubicUnder(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                    is_generic: false,
                                                 },
                                             ),
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
                                                         TypePath(`core::num::f32`, `Alien`),
@@ -3266,7 +2675,7 @@ Ok(
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         408,
                                                     ),
@@ -3333,8 +2742,8 @@ Ok(
             ),
             Ok(
                 AssociatedItem(
-                    TypeItem(
-                        Memo(
+                    AssociatedItemDecl::TypeItem(
+                        TypeItemDecl::Memo(
                             TypeMemoDecl {
                                 path: Some(
                                     TypeItemPath {
@@ -3346,26 +2755,12 @@ Ok(
                                 associated_item: AssociatedItem {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId {
-                                            module_path: ModulePath(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                            impl_block_kind: Type {
-                                                ty: TypePath(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
+                                            module_path: `mnist_classifier::connected_component`,
+                                            impl_block_kind: ImplBlockKind::Type {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 129,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `lower_mass`,
                                     },
                                     path: Some(
                                         TypeItemPath {
@@ -3377,7 +2772,7 @@ Ok(
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
                                             module_path: `mnist_classifier::connected_component`,
-                                            impl_block_kind: Type {
+                                            impl_block_kind: ImplBlockKind::Type {
                                                 ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
@@ -3385,12 +2780,8 @@ Ok(
                                         body: ArenaIdxRange(
                                             67..79,
                                         ),
-                                        variant: Type {
-                                            ty: TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
-                                            ),
+                                        variant: ImplBlockVariant::Type {
+                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         },
                                     },
                                     ast_idx: 74,
@@ -3410,32 +2801,19 @@ Ok(
                                             ExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
-                                                    path: Decl(
-                                                        ImplBlock(
-                                                            ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
+                                                    path: RegionPath::Decl(
+                                                        DeclExprPath::ImplBlock(
+                                                            ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                 },
                                                             },
                                                         ),
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            EntityPath {
+                                                            Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
                                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -3445,7 +2823,7 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
-                                                            Root {
+                                                            EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     86,
                                                                 ),
@@ -3487,73 +2865,22 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: Decl(
-                                            AssociatedItem(
-                                                AssociatedItem {
-                                                    id: AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
-                                                            module_path: ModulePath(
-                                                                Id {
-                                                                    value: 22,
-                                                                },
-                                                            ),
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(
-                                                                    Id {
-                                                                        value: 19,
-                                                                    },
-                                                                ),
-                                                            },
-                                                        },
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 129,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    path: Some(
-                                                        TypeItemPath {
+                                        path: RegionPath::Decl(
+                                            DeclExprPath::AssociatedItem(
+                                                AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            ident: `lower_mass`,
-                                                            ty_item_kind: Memo,
-                                                        },
-                                                    ),
-                                                    impl_block: ImplBlock {
-                                                        id: ImplBlockId {
-                                                            module_path: `mnist_classifier::connected_component`,
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            },
-                                                        },
-                                                        ast_idx: 125,
-                                                        body: ArenaIdxRange(
-                                                            67..79,
-                                                        ),
-                                                        variant: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
                                                         },
                                                     },
-                                                    ast_idx: 74,
                                                     ident: `lower_mass`,
-                                                    associated_item_kind: TypeItem(
-                                                        Memo,
-                                                    ),
-                                                    accessibility: PubicUnder(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                    is_generic: false,
                                                 },
                                             ),
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
                                                         TypePath(`core::num::f32`, `Alien`),
@@ -3563,7 +2890,7 @@ Ok(
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         420,
                                                     ),
@@ -3630,32 +2957,18 @@ Ok(
             ),
             Ok(
                 AssociatedItem(
-                    TypeItem(
-                        Method(
+                    AssociatedItemDecl::TypeItem(
+                        TypeItemDecl::Method(
                             TypeMethodDecl {
                                 associated_item: AssociatedItem {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId {
-                                            module_path: ModulePath(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                            impl_block_kind: Type {
-                                                ty: TypePath(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
+                                            module_path: `mnist_classifier::connected_component`,
+                                            impl_block_kind: ImplBlockKind::Type {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 159,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `top_k_row_span_sum`,
                                     },
                                     path: Some(
                                         TypeItemPath {
@@ -3667,7 +2980,7 @@ Ok(
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
                                             module_path: `mnist_classifier::connected_component`,
-                                            impl_block_kind: Type {
+                                            impl_block_kind: ImplBlockKind::Type {
                                                 ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
@@ -3675,12 +2988,8 @@ Ok(
                                         body: ArenaIdxRange(
                                             67..79,
                                         ),
-                                        variant: Type {
-                                            ty: TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
-                                            ),
+                                        variant: ImplBlockVariant::Type {
+                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         },
                                     },
                                     ast_idx: 75,
@@ -3707,32 +3016,19 @@ Ok(
                                             ExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
-                                                    path: Decl(
-                                                        ImplBlock(
-                                                            ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
+                                                    path: RegionPath::Decl(
+                                                        DeclExprPath::ImplBlock(
+                                                            ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                 },
                                                             },
                                                         ),
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            EntityPath {
+                                                            Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
                                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -3742,7 +3038,7 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
-                                                            Root {
+                                                            EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     86,
                                                                 ),
@@ -3784,79 +3080,28 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: Decl(
-                                            AssociatedItem(
-                                                AssociatedItem {
-                                                    id: AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
-                                                            module_path: ModulePath(
-                                                                Id {
-                                                                    value: 22,
-                                                                },
-                                                            ),
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(
-                                                                    Id {
-                                                                        value: 19,
-                                                                    },
-                                                                ),
-                                                            },
-                                                        },
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 159,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    path: Some(
-                                                        TypeItemPath {
+                                        path: RegionPath::Decl(
+                                            DeclExprPath::AssociatedItem(
+                                                AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            ident: `top_k_row_span_sum`,
-                                                            ty_item_kind: Method,
-                                                        },
-                                                    ),
-                                                    impl_block: ImplBlock {
-                                                        id: ImplBlockId {
-                                                            module_path: `mnist_classifier::connected_component`,
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            },
-                                                        },
-                                                        ast_idx: 125,
-                                                        body: ArenaIdxRange(
-                                                            67..79,
-                                                        ),
-                                                        variant: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
                                                         },
                                                     },
-                                                    ast_idx: 75,
                                                     ident: `top_k_row_span_sum`,
-                                                    associated_item_kind: TypeItem(
-                                                        Method,
-                                                    ),
-                                                    accessibility: PubicUnder(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                    is_generic: false,
                                                 },
                                             ),
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
                                                         TypePath(`core::num::i32`, `Alien`),
                                                     ),
                                                 },
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 1,
                                                     entity_path: Some(
                                                         TypePath(`core::num::f32`, `Alien`),
@@ -3866,14 +3111,14 @@ Ok(
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         434,
                                                     ),
                                                     ident: `i32`,
                                                     entity_path: TypePath(`core::num::i32`, `Alien`),
                                                 },
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         437,
                                                     ),
@@ -3888,7 +3133,7 @@ Ok(
                                         pattern_expr_region: PatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    Identifier {
+                                                    PatternExpr::Identifier {
                                                         ident_token: IdentifierToken {
                                                             ident: `k`,
                                                             token_idx: TokenIdx(
@@ -3918,7 +3163,7 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    Atom(
+                                                    PatternSymbol::Atom(
                                                         0,
                                                     ),
                                                 ],
@@ -3936,7 +3181,7 @@ Ok(
                                                             433,
                                                         ),
                                                         access_end: None,
-                                                        variant: Parameter {
+                                                        variant: CurrentSymbolVariant::Parameter {
                                                             pattern_symbol: 0,
                                                         },
                                                     },
@@ -4013,32 +3258,18 @@ Ok(
             ),
             Ok(
                 AssociatedItem(
-                    TypeItem(
-                        Method(
+                    AssociatedItemDecl::TypeItem(
+                        TypeItemDecl::Method(
                             TypeMethodDecl {
                                 associated_item: AssociatedItem {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId {
-                                            module_path: ModulePath(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                            impl_block_kind: Type {
-                                                ty: TypePath(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
+                                            module_path: `mnist_classifier::connected_component`,
+                                            impl_block_kind: ImplBlockKind::Type {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 162,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `top_k_row_right_mass_sum`,
                                     },
                                     path: Some(
                                         TypeItemPath {
@@ -4050,7 +3281,7 @@ Ok(
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
                                             module_path: `mnist_classifier::connected_component`,
-                                            impl_block_kind: Type {
+                                            impl_block_kind: ImplBlockKind::Type {
                                                 ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         },
@@ -4058,12 +3289,8 @@ Ok(
                                         body: ArenaIdxRange(
                                             67..79,
                                         ),
-                                        variant: Type {
-                                            ty: TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
-                                            ),
+                                        variant: ImplBlockVariant::Type {
+                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         },
                                     },
                                     ast_idx: 76,
@@ -4090,32 +3317,19 @@ Ok(
                                             ExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
-                                                    path: Decl(
-                                                        ImplBlock(
-                                                            ImplBlock {
-                                                                id: ImplBlockId {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    impl_block_kind: Type {
-                                                                        ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    },
-                                                                },
-                                                                ast_idx: 125,
-                                                                body: ArenaIdxRange(
-                                                                    67..79,
-                                                                ),
-                                                                variant: Type {
-                                                                    ty: TypePath(
-                                                                        Id {
-                                                                            value: 19,
-                                                                        },
-                                                                    ),
+                                                    path: RegionPath::Decl(
+                                                        DeclExprPath::ImplBlock(
+                                                            ImplBlockId {
+                                                                module_path: `mnist_classifier::connected_component`,
+                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                 },
                                                             },
                                                         ),
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            EntityPath {
+                                                            Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
                                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -4125,7 +3339,7 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
-                                                            Root {
+                                                            EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     86,
                                                                 ),
@@ -4167,79 +3381,28 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: Decl(
-                                            AssociatedItem(
-                                                AssociatedItem {
-                                                    id: AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
-                                                            module_path: ModulePath(
-                                                                Id {
-                                                                    value: 22,
-                                                                },
-                                                            ),
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(
-                                                                    Id {
-                                                                        value: 19,
-                                                                    },
-                                                                ),
-                                                            },
-                                                        },
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 162,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    path: Some(
-                                                        TypeItemPath {
+                                        path: RegionPath::Decl(
+                                            DeclExprPath::AssociatedItem(
+                                                AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        impl_block_kind: ImplBlockKind::Type {
                                                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            ident: `top_k_row_right_mass_sum`,
-                                                            ty_item_kind: Method,
-                                                        },
-                                                    ),
-                                                    impl_block: ImplBlock {
-                                                        id: ImplBlockId {
-                                                            module_path: `mnist_classifier::connected_component`,
-                                                            impl_block_kind: Type {
-                                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                            },
-                                                        },
-                                                        ast_idx: 125,
-                                                        body: ArenaIdxRange(
-                                                            67..79,
-                                                        ),
-                                                        variant: Type {
-                                                            ty: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
                                                         },
                                                     },
-                                                    ast_idx: 76,
                                                     ident: `top_k_row_right_mass_sum`,
-                                                    associated_item_kind: TypeItem(
-                                                        Method,
-                                                    ),
-                                                    accessibility: PubicUnder(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                    is_generic: false,
                                                 },
                                             ),
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
                                                         TypePath(`core::num::i32`, `Alien`),
                                                     ),
                                                 },
-                                                EntityPath {
+                                                Expr::EntityPath {
                                                     entity_path_expr: 1,
                                                     entity_path: Some(
                                                         TypePath(`core::num::f32`, `Alien`),
@@ -4249,14 +3412,14 @@ Ok(
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         497,
                                                     ),
                                                     ident: `i32`,
                                                     entity_path: TypePath(`core::num::i32`, `Alien`),
                                                 },
-                                                Root {
+                                                EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         500,
                                                     ),
@@ -4271,7 +3434,7 @@ Ok(
                                         pattern_expr_region: PatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    Identifier {
+                                                    PatternExpr::Identifier {
                                                         ident_token: IdentifierToken {
                                                             ident: `k`,
                                                             token_idx: TokenIdx(
@@ -4301,7 +3464,7 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    Atom(
+                                                    PatternSymbol::Atom(
                                                         0,
                                                     ),
                                                 ],
@@ -4319,7 +3482,7 @@ Ok(
                                                             496,
                                                         ),
                                                         access_end: None,
-                                                        variant: Parameter {
+                                                        variant: CurrentSymbolVariant::Parameter {
                                                             pattern_symbol: 0,
                                                         },
                                                     },
