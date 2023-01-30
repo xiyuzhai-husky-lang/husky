@@ -1,0 +1,11 @@
+[package]
+name = "husky-debugger-egui"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+eframe = { git = "https://github.com/xiyuzhai-husky-lang/egui", features = [
+    "__screenshot", # __screenshot is so we can dump a ascreenshot using EFRAME_SCREENSHOT_TO
+
+] }
