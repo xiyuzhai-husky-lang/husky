@@ -73,7 +73,7 @@ pub enum DeclExprPath {
 #[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum DefnExprPath {
     Entity(EntityPath),
-    AssociatedItem(AssociatedItem),
+    AssociatedItem(AssociatedItemId),
 }
 
 pub struct ExprParser<'a> {
