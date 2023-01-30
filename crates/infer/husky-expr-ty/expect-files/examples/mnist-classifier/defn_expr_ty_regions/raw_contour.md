@@ -66,47 +66,14 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::AssociatedItem(
-                AssociatedItem {
-                    id: AssociatedItemId {
-                        impl_block_id: ImplBlockId {
-                            module_path: `mnist_classifier::raw_contour`,
-                            impl_block_kind: ImplBlockKind::Type {
-                                ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                            },
-                        },
-                        ident: `line_segment_sketch`,
-                    },
-                    path: Some(
-                        TypeItemPath {
-                            ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                            ident: `line_segment_sketch`,
-                            ty_item_kind: Memo,
-                        },
-                    ),
-                    impl_block: ImplBlock {
-                        id: ImplBlockId {
-                            module_path: `mnist_classifier::raw_contour`,
-                            impl_block_kind: ImplBlockKind::Type {
-                                ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                            },
-                        },
-                        ast_idx: 200,
-                        body: ArenaIdxRange(
-                            27..34,
-                        ),
-                        variant: ImplBlockVariant::Type {
+                AssociatedItemId {
+                    impl_block_id: ImplBlockId {
+                        module_path: `mnist_classifier::raw_contour`,
+                        impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         },
                     },
-                    ast_idx: 27,
                     ident: `line_segment_sketch`,
-                    associated_item_kind: TypeItem(
-                        Memo,
-                    ),
-                    accessibility: PubicUnder(
-                        `mnist_classifier::raw_contour`,
-                    ),
-                    is_generic: false,
                 },
             ),
         ),
@@ -115,47 +82,14 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::AssociatedItem(
-                AssociatedItem {
-                    id: AssociatedItemId {
-                        impl_block_id: ImplBlockId {
-                            module_path: `mnist_classifier::raw_contour`,
-                            impl_block_kind: ImplBlockKind::Type {
-                                ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                            },
-                        },
-                        ident: `bounding_box`,
-                    },
-                    path: Some(
-                        TypeItemPath {
-                            ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                            ident: `bounding_box`,
-                            ty_item_kind: Memo,
-                        },
-                    ),
-                    impl_block: ImplBlock {
-                        id: ImplBlockId {
-                            module_path: `mnist_classifier::raw_contour`,
-                            impl_block_kind: ImplBlockKind::Type {
-                                ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                            },
-                        },
-                        ast_idx: 200,
-                        body: ArenaIdxRange(
-                            27..34,
-                        ),
-                        variant: ImplBlockVariant::Type {
+                AssociatedItemId {
+                    impl_block_id: ImplBlockId {
+                        module_path: `mnist_classifier::raw_contour`,
+                        impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         },
                     },
-                    ast_idx: 28,
                     ident: `bounding_box`,
-                    associated_item_kind: TypeItem(
-                        Memo,
-                    ),
-                    accessibility: PubicUnder(
-                        `mnist_classifier::raw_contour`,
-                    ),
-                    is_generic: false,
                 },
             ),
         ),
@@ -164,47 +98,14 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::AssociatedItem(
-                AssociatedItem {
-                    id: AssociatedItemId {
-                        impl_block_id: ImplBlockId {
-                            module_path: `mnist_classifier::raw_contour`,
-                            impl_block_kind: ImplBlockKind::Type {
-                                ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                            },
-                        },
-                        ident: `relative_bounding_box`,
-                    },
-                    path: Some(
-                        TypeItemPath {
-                            ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                            ident: `relative_bounding_box`,
-                            ty_item_kind: Memo,
-                        },
-                    ),
-                    impl_block: ImplBlock {
-                        id: ImplBlockId {
-                            module_path: `mnist_classifier::raw_contour`,
-                            impl_block_kind: ImplBlockKind::Type {
-                                ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                            },
-                        },
-                        ast_idx: 200,
-                        body: ArenaIdxRange(
-                            27..34,
-                        ),
-                        variant: ImplBlockVariant::Type {
+                AssociatedItemId {
+                    impl_block_id: ImplBlockId {
+                        module_path: `mnist_classifier::raw_contour`,
+                        impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         },
                     },
-                    ast_idx: 29,
                     ident: `relative_bounding_box`,
-                    associated_item_kind: TypeItem(
-                        Memo,
-                    ),
-                    accessibility: PubicUnder(
-                        `mnist_classifier::raw_contour`,
-                    ),
-                    is_generic: false,
                 },
             ),
         ),
@@ -213,47 +114,14 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::AssociatedItem(
-                AssociatedItem {
-                    id: AssociatedItemId {
-                        impl_block_id: ImplBlockId {
-                            module_path: `mnist_classifier::raw_contour`,
-                            impl_block_kind: ImplBlockKind::Type {
-                                ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                            },
-                        },
-                        ident: `contour_len`,
-                    },
-                    path: Some(
-                        TypeItemPath {
-                            ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                            ident: `contour_len`,
-                            ty_item_kind: Memo,
-                        },
-                    ),
-                    impl_block: ImplBlock {
-                        id: ImplBlockId {
-                            module_path: `mnist_classifier::raw_contour`,
-                            impl_block_kind: ImplBlockKind::Type {
-                                ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                            },
-                        },
-                        ast_idx: 200,
-                        body: ArenaIdxRange(
-                            27..34,
-                        ),
-                        variant: ImplBlockVariant::Type {
+                AssociatedItemId {
+                    impl_block_id: ImplBlockId {
+                        module_path: `mnist_classifier::raw_contour`,
+                        impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         },
                     },
-                    ast_idx: 30,
                     ident: `contour_len`,
-                    associated_item_kind: TypeItem(
-                        Memo,
-                    ),
-                    accessibility: PubicUnder(
-                        `mnist_classifier::raw_contour`,
-                    ),
-                    is_generic: false,
                 },
             ),
         ),
@@ -262,47 +130,14 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::AssociatedItem(
-                AssociatedItem {
-                    id: AssociatedItemId {
-                        impl_block_id: ImplBlockId {
-                            module_path: `mnist_classifier::raw_contour`,
-                            impl_block_kind: ImplBlockKind::Type {
-                                ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                            },
-                        },
-                        ident: `displacement`,
-                    },
-                    path: Some(
-                        TypeItemPath {
-                            ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                            ident: `displacement`,
-                            ty_item_kind: Method,
-                        },
-                    ),
-                    impl_block: ImplBlock {
-                        id: ImplBlockId {
-                            module_path: `mnist_classifier::raw_contour`,
-                            impl_block_kind: ImplBlockKind::Type {
-                                ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                            },
-                        },
-                        ast_idx: 200,
-                        body: ArenaIdxRange(
-                            27..34,
-                        ),
-                        variant: ImplBlockVariant::Type {
+                AssociatedItemId {
+                    impl_block_id: ImplBlockId {
+                        module_path: `mnist_classifier::raw_contour`,
+                        impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         },
                     },
-                    ast_idx: 31,
                     ident: `displacement`,
-                    associated_item_kind: TypeItem(
-                        Method,
-                    ),
-                    accessibility: PubicUnder(
-                        `mnist_classifier::raw_contour`,
-                    ),
-                    is_generic: false,
                 },
             ),
         ),

@@ -169,7 +169,7 @@ impl<'a> DefnCollector<'a> {
     fn parse_ty_method_defn(&self, decl: TypeMethodDecl) -> TypeMethodDefn {
         let path = decl.path(self.db);
         let mut parser = self.expr_parser(
-            DefnExprPath::AssociatedItem(decl.associated_item(self.db)),
+            DefnExprPath::AssociatedItem(decl.associated_item(self.db).id(self.db)),
             Some(decl.expr_region(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,
@@ -187,7 +187,7 @@ impl<'a> DefnCollector<'a> {
     fn parse_ty_memo_defn(&self, decl: TypeMemoDecl) -> TypeMemoDefn {
         let path = decl.path(self.db);
         let mut parser = self.expr_parser(
-            DefnExprPath::AssociatedItem(decl.associated_item(self.db)),
+            DefnExprPath::AssociatedItem(decl.associated_item(self.db).id(self.db)),
             Some(decl.expr_region(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,
@@ -218,7 +218,7 @@ impl<'a> DefnCollector<'a> {
     fn parse_ty_as_trai_method_defn(&self, decl: TypeAsTraitMethodDecl) -> TypeAsTraitMethodDefn {
         let path = decl.path(self.db);
         let mut parser = self.expr_parser(
-            DefnExprPath::AssociatedItem(decl.associated_item(self.db)),
+            DefnExprPath::AssociatedItem(decl.associated_item(self.db).id(self.db)),
             Some(decl.expr_region(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,

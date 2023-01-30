@@ -2187,47 +2187,14 @@ Ok(
                                     ),
                                     path: RegionPath::Defn(
                                         DefnExprPath::AssociatedItem(
-                                            AssociatedItem {
-                                                id: AssociatedItemId {
-                                                    impl_block_id: ImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        impl_block_kind: ImplBlockKind::Type {
-                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        },
-                                                    },
-                                                    ident: `norm`,
-                                                },
-                                                path: Some(
-                                                    TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        ident: `norm`,
-                                                        ty_item_kind: Memo,
-                                                    },
-                                                ),
-                                                impl_block: ImplBlock {
-                                                    id: ImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        impl_block_kind: ImplBlockKind::Type {
-                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        },
-                                                    },
-                                                    ast_idx: 75,
-                                                    body: ArenaIdxRange(
-                                                        39..53,
-                                                    ),
-                                                    variant: ImplBlockVariant::Type {
+                                            AssociatedItemId {
+                                                impl_block_id: ImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    impl_block_kind: ImplBlockKind::Type {
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     },
                                                 },
-                                                ast_idx: 39,
                                                 ident: `norm`,
-                                                associated_item_kind: TypeItem(
-                                                    Memo,
-                                                ),
-                                                accessibility: PubicUnder(
-                                                    `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ),
-                                                is_generic: false,
                                             },
                                         ),
                                     ),
@@ -2658,47 +2625,14 @@ Ok(
                                     ),
                                     path: RegionPath::Defn(
                                         DefnExprPath::AssociatedItem(
-                                            AssociatedItem {
-                                                id: AssociatedItemId {
-                                                    impl_block_id: ImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        impl_block_kind: ImplBlockKind::Type {
-                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        },
-                                                    },
-                                                    ident: `rel_norm`,
-                                                },
-                                                path: Some(
-                                                    TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        ident: `rel_norm`,
-                                                        ty_item_kind: Memo,
-                                                    },
-                                                ),
-                                                impl_block: ImplBlock {
-                                                    id: ImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        impl_block_kind: ImplBlockKind::Type {
-                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        },
-                                                    },
-                                                    ast_idx: 75,
-                                                    body: ArenaIdxRange(
-                                                        39..53,
-                                                    ),
-                                                    variant: ImplBlockVariant::Type {
+                                            AssociatedItemId {
+                                                impl_block_id: ImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    impl_block_kind: ImplBlockKind::Type {
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     },
                                                 },
-                                                ast_idx: 40,
                                                 ident: `rel_norm`,
-                                                associated_item_kind: TypeItem(
-                                                    Memo,
-                                                ),
-                                                accessibility: PubicUnder(
-                                                    `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ),
-                                                is_generic: false,
                                             },
                                         ),
                                     ),
@@ -3188,47 +3122,14 @@ Ok(
                                     ),
                                     path: RegionPath::Defn(
                                         DefnExprPath::AssociatedItem(
-                                            AssociatedItem {
-                                                id: AssociatedItemId {
-                                                    impl_block_id: ImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        impl_block_kind: ImplBlockKind::Type {
-                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        },
-                                                    },
-                                                    ident: `hausdorff_norm`,
-                                                },
-                                                path: Some(
-                                                    TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        ident: `hausdorff_norm`,
-                                                        ty_item_kind: Memo,
-                                                    },
-                                                ),
-                                                impl_block: ImplBlock {
-                                                    id: ImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        impl_block_kind: ImplBlockKind::Type {
-                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        },
-                                                    },
-                                                    ast_idx: 75,
-                                                    body: ArenaIdxRange(
-                                                        39..53,
-                                                    ),
-                                                    variant: ImplBlockVariant::Type {
+                                            AssociatedItemId {
+                                                impl_block_id: ImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    impl_block_kind: ImplBlockKind::Type {
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     },
                                                 },
-                                                ast_idx: 41,
                                                 ident: `hausdorff_norm`,
-                                                associated_item_kind: TypeItem(
-                                                    Memo,
-                                                ),
-                                                accessibility: PubicUnder(
-                                                    `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ),
-                                                is_generic: false,
                                             },
                                         ),
                                     ),
@@ -4560,47 +4461,14 @@ Ok(
                                     ),
                                     path: RegionPath::Defn(
                                         DefnExprPath::AssociatedItem(
-                                            AssociatedItem {
-                                                id: AssociatedItemId {
-                                                    impl_block_id: ImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        impl_block_kind: ImplBlockKind::Type {
-                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        },
-                                                    },
-                                                    ident: `angle_change`,
-                                                },
-                                                path: Some(
-                                                    TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        ident: `angle_change`,
-                                                        ty_item_kind: Memo,
-                                                    },
-                                                ),
-                                                impl_block: ImplBlock {
-                                                    id: ImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        impl_block_kind: ImplBlockKind::Type {
-                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        },
-                                                    },
-                                                    ast_idx: 75,
-                                                    body: ArenaIdxRange(
-                                                        39..53,
-                                                    ),
-                                                    variant: ImplBlockVariant::Type {
+                                            AssociatedItemId {
+                                                impl_block_id: ImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    impl_block_kind: ImplBlockKind::Type {
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     },
                                                 },
-                                                ast_idx: 42,
                                                 ident: `angle_change`,
-                                                associated_item_kind: TypeItem(
-                                                    Memo,
-                                                ),
-                                                accessibility: PubicUnder(
-                                                    `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ),
-                                                is_generic: false,
                                             },
                                         ),
                                     ),
@@ -5656,47 +5524,14 @@ Ok(
                                     ),
                                     path: RegionPath::Defn(
                                         DefnExprPath::AssociatedItem(
-                                            AssociatedItem {
-                                                id: AssociatedItemId {
-                                                    impl_block_id: ImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        impl_block_kind: ImplBlockKind::Type {
-                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        },
-                                                    },
-                                                    ident: `bounding_box`,
-                                                },
-                                                path: Some(
-                                                    TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        ident: `bounding_box`,
-                                                        ty_item_kind: Memo,
-                                                    },
-                                                ),
-                                                impl_block: ImplBlock {
-                                                    id: ImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        impl_block_kind: ImplBlockKind::Type {
-                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        },
-                                                    },
-                                                    ast_idx: 75,
-                                                    body: ArenaIdxRange(
-                                                        39..53,
-                                                    ),
-                                                    variant: ImplBlockVariant::Type {
+                                            AssociatedItemId {
+                                                impl_block_id: ImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    impl_block_kind: ImplBlockKind::Type {
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     },
                                                 },
-                                                ast_idx: 43,
                                                 ident: `bounding_box`,
-                                                associated_item_kind: TypeItem(
-                                                    Memo,
-                                                ),
-                                                accessibility: PubicUnder(
-                                                    `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ),
-                                                is_generic: false,
                                             },
                                         ),
                                     ),
@@ -7316,47 +7151,14 @@ Ok(
                                     ),
                                     path: RegionPath::Defn(
                                         DefnExprPath::AssociatedItem(
-                                            AssociatedItem {
-                                                id: AssociatedItemId {
-                                                    impl_block_id: ImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        impl_block_kind: ImplBlockKind::Type {
-                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        },
-                                                    },
-                                                    ident: `relative_bounding_box`,
-                                                },
-                                                path: Some(
-                                                    TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        ident: `relative_bounding_box`,
-                                                        ty_item_kind: Memo,
-                                                    },
-                                                ),
-                                                impl_block: ImplBlock {
-                                                    id: ImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        impl_block_kind: ImplBlockKind::Type {
-                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        },
-                                                    },
-                                                    ast_idx: 75,
-                                                    body: ArenaIdxRange(
-                                                        39..53,
-                                                    ),
-                                                    variant: ImplBlockVariant::Type {
+                                            AssociatedItemId {
+                                                impl_block_id: ImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    impl_block_kind: ImplBlockKind::Type {
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     },
                                                 },
-                                                ast_idx: 44,
                                                 ident: `relative_bounding_box`,
-                                                associated_item_kind: TypeItem(
-                                                    Memo,
-                                                ),
-                                                accessibility: PubicUnder(
-                                                    `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ),
-                                                is_generic: false,
                                             },
                                         ),
                                     ),
@@ -7853,47 +7655,14 @@ Ok(
                                     ),
                                     path: RegionPath::Defn(
                                         DefnExprPath::AssociatedItem(
-                                            AssociatedItem {
-                                                id: AssociatedItemId {
-                                                    impl_block_id: ImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        impl_block_kind: ImplBlockKind::Type {
-                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        },
-                                                    },
-                                                    ident: `line_segment`,
-                                                },
-                                                path: Some(
-                                                    TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        ident: `line_segment`,
-                                                        ty_item_kind: Method,
-                                                    },
-                                                ),
-                                                impl_block: ImplBlock {
-                                                    id: ImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        impl_block_kind: ImplBlockKind::Type {
-                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        },
-                                                    },
-                                                    ast_idx: 75,
-                                                    body: ArenaIdxRange(
-                                                        39..53,
-                                                    ),
-                                                    variant: ImplBlockVariant::Type {
+                                            AssociatedItemId {
+                                                impl_block_id: ImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    impl_block_kind: ImplBlockKind::Type {
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     },
                                                 },
-                                                ast_idx: 45,
                                                 ident: `line_segment`,
-                                                associated_item_kind: TypeItem(
-                                                    Method,
-                                                ),
-                                                accessibility: PubicUnder(
-                                                    `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ),
-                                                is_generic: false,
                                             },
                                         ),
                                     ),
@@ -8495,47 +8264,14 @@ Ok(
                                     ),
                                     path: RegionPath::Defn(
                                         DefnExprPath::AssociatedItem(
-                                            AssociatedItem {
-                                                id: AssociatedItemId {
-                                                    impl_block_id: ImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        impl_block_kind: ImplBlockKind::Type {
-                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        },
-                                                    },
-                                                    ident: `start`,
-                                                },
-                                                path: Some(
-                                                    TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        ident: `start`,
-                                                        ty_item_kind: Method,
-                                                    },
-                                                ),
-                                                impl_block: ImplBlock {
-                                                    id: ImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        impl_block_kind: ImplBlockKind::Type {
-                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        },
-                                                    },
-                                                    ast_idx: 75,
-                                                    body: ArenaIdxRange(
-                                                        39..53,
-                                                    ),
-                                                    variant: ImplBlockVariant::Type {
+                                            AssociatedItemId {
+                                                impl_block_id: ImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    impl_block_kind: ImplBlockKind::Type {
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     },
                                                 },
-                                                ast_idx: 46,
                                                 ident: `start`,
-                                                associated_item_kind: TypeItem(
-                                                    Method,
-                                                ),
-                                                accessibility: PubicUnder(
-                                                    `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ),
-                                                is_generic: false,
                                             },
                                         ),
                                     ),
@@ -9037,47 +8773,14 @@ Ok(
                                     ),
                                     path: RegionPath::Defn(
                                         DefnExprPath::AssociatedItem(
-                                            AssociatedItem {
-                                                id: AssociatedItemId {
-                                                    impl_block_id: ImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        impl_block_kind: ImplBlockKind::Type {
-                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        },
-                                                    },
-                                                    ident: `end`,
-                                                },
-                                                path: Some(
-                                                    TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        ident: `end`,
-                                                        ty_item_kind: Method,
-                                                    },
-                                                ),
-                                                impl_block: ImplBlock {
-                                                    id: ImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        impl_block_kind: ImplBlockKind::Type {
-                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        },
-                                                    },
-                                                    ast_idx: 75,
-                                                    body: ArenaIdxRange(
-                                                        39..53,
-                                                    ),
-                                                    variant: ImplBlockVariant::Type {
+                                            AssociatedItemId {
+                                                impl_block_id: ImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    impl_block_kind: ImplBlockKind::Type {
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     },
                                                 },
-                                                ast_idx: 47,
                                                 ident: `end`,
-                                                associated_item_kind: TypeItem(
-                                                    Method,
-                                                ),
-                                                accessibility: PubicUnder(
-                                                    `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ),
-                                                is_generic: false,
                                             },
                                         ),
                                     ),
@@ -9579,47 +9282,14 @@ Ok(
                                     ),
                                     path: RegionPath::Defn(
                                         DefnExprPath::AssociatedItem(
-                                            AssociatedItem {
-                                                id: AssociatedItemId {
-                                                    impl_block_id: ImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        impl_block_kind: ImplBlockKind::Type {
-                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        },
-                                                    },
-                                                    ident: `displacement`,
-                                                },
-                                                path: Some(
-                                                    TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        ident: `displacement`,
-                                                        ty_item_kind: Method,
-                                                    },
-                                                ),
-                                                impl_block: ImplBlock {
-                                                    id: ImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        impl_block_kind: ImplBlockKind::Type {
-                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        },
-                                                    },
-                                                    ast_idx: 75,
-                                                    body: ArenaIdxRange(
-                                                        39..53,
-                                                    ),
-                                                    variant: ImplBlockVariant::Type {
+                                            AssociatedItemId {
+                                                impl_block_id: ImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    impl_block_kind: ImplBlockKind::Type {
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     },
                                                 },
-                                                ast_idx: 48,
                                                 ident: `displacement`,
-                                                associated_item_kind: TypeItem(
-                                                    Method,
-                                                ),
-                                                accessibility: PubicUnder(
-                                                    `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ),
-                                                is_generic: false,
                                             },
                                         ),
                                     ),
@@ -10097,47 +9767,14 @@ Ok(
                                     ),
                                     path: RegionPath::Defn(
                                         DefnExprPath::AssociatedItem(
-                                            AssociatedItem {
-                                                id: AssociatedItemId {
-                                                    impl_block_id: ImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        impl_block_kind: ImplBlockKind::Type {
-                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        },
-                                                    },
-                                                    ident: `start_tangent`,
-                                                },
-                                                path: Some(
-                                                    TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        ident: `start_tangent`,
-                                                        ty_item_kind: Method,
-                                                    },
-                                                ),
-                                                impl_block: ImplBlock {
-                                                    id: ImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        impl_block_kind: ImplBlockKind::Type {
-                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        },
-                                                    },
-                                                    ast_idx: 75,
-                                                    body: ArenaIdxRange(
-                                                        39..53,
-                                                    ),
-                                                    variant: ImplBlockVariant::Type {
+                                            AssociatedItemId {
+                                                impl_block_id: ImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    impl_block_kind: ImplBlockKind::Type {
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     },
                                                 },
-                                                ast_idx: 49,
                                                 ident: `start_tangent`,
-                                                associated_item_kind: TypeItem(
-                                                    Method,
-                                                ),
-                                                accessibility: PubicUnder(
-                                                    `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ),
-                                                is_generic: false,
                                             },
                                         ),
                                     ),
@@ -10627,47 +10264,14 @@ Ok(
                                     ),
                                     path: RegionPath::Defn(
                                         DefnExprPath::AssociatedItem(
-                                            AssociatedItem {
-                                                id: AssociatedItemId {
-                                                    impl_block_id: ImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        impl_block_kind: ImplBlockKind::Type {
-                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        },
-                                                    },
-                                                    ident: `end_tangent`,
-                                                },
-                                                path: Some(
-                                                    TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        ident: `end_tangent`,
-                                                        ty_item_kind: Method,
-                                                    },
-                                                ),
-                                                impl_block: ImplBlock {
-                                                    id: ImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        impl_block_kind: ImplBlockKind::Type {
-                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        },
-                                                    },
-                                                    ast_idx: 75,
-                                                    body: ArenaIdxRange(
-                                                        39..53,
-                                                    ),
-                                                    variant: ImplBlockVariant::Type {
+                                            AssociatedItemId {
+                                                impl_block_id: ImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    impl_block_kind: ImplBlockKind::Type {
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     },
                                                 },
-                                                ast_idx: 50,
                                                 ident: `end_tangent`,
-                                                associated_item_kind: TypeItem(
-                                                    Method,
-                                                ),
-                                                accessibility: PubicUnder(
-                                                    `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ),
-                                                is_generic: false,
                                             },
                                         ),
                                     ),

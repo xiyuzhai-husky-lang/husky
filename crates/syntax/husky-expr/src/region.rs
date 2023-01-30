@@ -124,7 +124,7 @@ impl ExprRegion {
             },
             RegionPath::Defn(path) => match path {
                 DefnExprPath::Entity(path) => path.toolchain(db),
-                DefnExprPath::AssociatedItem(item) => item.module_path(db).toolchain(db),
+                DefnExprPath::AssociatedItem(item) => item.module_path().toolchain(db),
             },
         }
     }
