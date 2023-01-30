@@ -2417,7 +2417,12 @@ Ok(
                                         FrameVariable,
                                     ],
                                 },
-                                roots: [],
+                                roots: [
+                                    ExprRoot {
+                                        kind: BlockExpr,
+                                        expr: 93,
+                                    },
+                                ],
                             },
                         },
                         body: Ok(

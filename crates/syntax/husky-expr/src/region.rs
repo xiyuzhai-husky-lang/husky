@@ -46,6 +46,7 @@ pub enum ExprRootKind {
     Trait,
     OutputType,
     FieldType,
+    BlockExpr,
 }
 
 impl ExprRegionData {

@@ -62,7 +62,10 @@ impl<'a> BlockExprParser<'a> {
 
     pub fn parse_block_expr(&mut self, body: AstIdxRange) -> Option<ExprIdx> {
         let stmts = self.parse_block_stmts(body)?;
-        Some(self.alloc_expr(Expr::Block { stmts }))
+        let expr = self.alloc_expr(Expr::Block { stmts });
+        self.expr_roots
+            .push(ExprRoot::new(ExprRootKind::BlockExpr, expr));
+        Some(expr)
     }
 
     fn parse_stmt(
