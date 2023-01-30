@@ -37,20 +37,6 @@ pub(crate) struct DB {
 
 impl salsa::Database for DB {}
 
-fn defn_expr_ty_regions(db: &DB, module_path: ModulePath) -> Vec<&ExprTypeRegion> {
-    let Ok(defn_sheet) = db.defn_sheet(module_path)
-        else { return vec![] };
-    defn_sheet
-        .defns()
-        .filter_map(|defn| Some(db.expr_ty_region(defn.expr_region(db)?)))
-        .collect()
-}
-
-#[test]
-fn defn_expr_ty_sheets_works() {
-    DB::default().vfs_expect_test_debug_with_db("defn_expr_ty_regions", defn_expr_ty_regions)
-}
-
 fn decl_expr_ty_regions(db: &DB, module_path: ModulePath) -> Vec<&ExprTypeRegion> {
     let Ok(decl_sheet) = db.decl_sheet(module_path)
         else { return vec![] };
@@ -64,4 +50,18 @@ fn decl_expr_ty_regions(db: &DB, module_path: ModulePath) -> Vec<&ExprTypeRegion
 #[test]
 fn decl_expr_ty_sheets_works() {
     DB::default().vfs_expect_test_debug_with_db("decl_expr_ty_regions", decl_expr_ty_regions)
+}
+
+fn defn_expr_ty_regions(db: &DB, module_path: ModulePath) -> Vec<&ExprTypeRegion> {
+    let Ok(defn_sheet) = db.defn_sheet(module_path)
+        else { return vec![] };
+    defn_sheet
+        .defns()
+        .filter_map(|defn| Some(db.expr_ty_region(defn.expr_region(db)?)))
+        .collect()
+}
+
+#[test]
+fn defn_expr_ty_sheets_works() {
+    DB::default().vfs_expect_test_debug_with_db("defn_expr_ty_regions", defn_expr_ty_regions)
 }

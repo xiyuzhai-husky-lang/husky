@@ -215,7 +215,12 @@ Ok(
                                     allow_self_value: False,
                                     ty_constraints: [],
                                 },
-                                roots: [],
+                                roots: [
+                                    ExprRoot {
+                                        kind: BlockExpr,
+                                        expr: 6,
+                                    },
+                                ],
                             },
                         },
                         body: Ok(
@@ -641,7 +646,12 @@ Ok(
                                     allow_self_value: False,
                                     ty_constraints: [],
                                 },
-                                roots: [],
+                                roots: [
+                                    ExprRoot {
+                                        kind: BlockExpr,
+                                        expr: 3,
+                                    },
+                                ],
                             },
                         },
                         body: Ok(
@@ -851,7 +861,12 @@ Ok(
                                     allow_self_value: False,
                                     ty_constraints: [],
                                 },
-                                roots: [],
+                                roots: [
+                                    ExprRoot {
+                                        kind: BlockExpr,
+                                        expr: 5,
+                                    },
+                                ],
                             },
                         },
                         body: Ok(
@@ -1061,7 +1076,12 @@ Ok(
                                     allow_self_value: False,
                                     ty_constraints: [],
                                 },
-                                roots: [],
+                                roots: [
+                                    ExprRoot {
+                                        kind: BlockExpr,
+                                        expr: 5,
+                                    },
+                                ],
                             },
                         },
                         body: Ok(
@@ -3141,7 +3161,12 @@ Ok(
                                     allow_self_value: False,
                                     ty_constraints: [],
                                 },
-                                roots: [],
+                                roots: [
+                                    ExprRoot {
+                                        kind: BlockExpr,
+                                        expr: 93,
+                                    },
+                                ],
                             },
                         },
                         body: Ok(
@@ -3699,7 +3724,12 @@ Ok(
                                     allow_self_value: False,
                                     ty_constraints: [],
                                 },
-                                roots: [],
+                                roots: [
+                                    ExprRoot {
+                                        kind: BlockExpr,
+                                        expr: 8,
+                                    },
+                                ],
                             },
                         },
                         body: Ok(
@@ -4344,7 +4374,12 @@ Ok(
                                     allow_self_value: False,
                                     ty_constraints: [],
                                 },
-                                roots: [],
+                                roots: [
+                                    ExprRoot {
+                                        kind: BlockExpr,
+                                        expr: 14,
+                                    },
+                                ],
                             },
                         },
                         body: Ok(

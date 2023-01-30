@@ -741,7 +741,12 @@ Ok(
                                         allow_self_value: True,
                                         ty_constraints: [],
                                     },
-                                    roots: [],
+                                    roots: [
+                                        ExprRoot {
+                                            kind: BlockExpr,
+                                            expr: 5,
+                                        },
+                                    ],
                                 },
                             },
                             body: Ok(
@@ -2029,7 +2034,12 @@ Ok(
                                         allow_self_value: True,
                                         ty_constraints: [],
                                     },
-                                    roots: [],
+                                    roots: [
+                                        ExprRoot {
+                                            kind: BlockExpr,
+                                            expr: 31,
+                                        },
+                                    ],
                                 },
                             },
                             body: Ok(

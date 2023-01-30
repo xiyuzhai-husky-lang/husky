@@ -1438,7 +1438,12 @@ Ok(
                                         FrameVariable,
                                     ],
                                 },
-                                roots: [],
+                                roots: [
+                                    ExprRoot {
+                                        kind: BlockExpr,
+                                        expr: 24,
+                                    },
+                                ],
                             },
                         },
                         body: Ok(
@@ -2291,7 +2296,12 @@ Ok(
                                             FrameVariable,
                                         ],
                                     },
-                                    roots: [],
+                                    roots: [
+                                        ExprRoot {
+                                            kind: BlockExpr,
+                                            expr: 16,
+                                        },
+                                    ],
                                 },
                             },
                             body: Ok(
@@ -3041,7 +3051,12 @@ Ok(
                                             FrameVariable,
                                         ],
                                     },
-                                    roots: [],
+                                    roots: [
+                                        ExprRoot {
+                                            kind: BlockExpr,
+                                            expr: 16,
+                                        },
+                                    ],
                                 },
                             },
                             body: Ok(
@@ -3813,7 +3828,12 @@ Ok(
                                             FrameVariable,
                                         ],
                                     },
-                                    roots: [],
+                                    roots: [
+                                        ExprRoot {
+                                            kind: BlockExpr,
+                                            expr: 17,
+                                        },
+                                    ],
                                 },
                             },
                             body: Ok(

@@ -673,7 +673,12 @@ Ok(
                                     allow_self_value: False,
                                     ty_constraints: [],
                                 },
-                                roots: [],
+                                roots: [
+                                    ExprRoot {
+                                        kind: BlockExpr,
+                                        expr: 12,
+                                    },
+                                ],
                             },
                         },
                         body: Ok(
@@ -1723,7 +1728,12 @@ Ok(
                                     allow_self_value: False,
                                     ty_constraints: [],
                                 },
-                                roots: [],
+                                roots: [
+                                    ExprRoot {
+                                        kind: BlockExpr,
+                                        expr: 22,
+                                    },
+                                ],
                             },
                         },
                         body: Ok(
@@ -3475,7 +3485,12 @@ Ok(
                                     allow_self_value: False,
                                     ty_constraints: [],
                                 },
-                                roots: [],
+                                roots: [
+                                    ExprRoot {
+                                        kind: BlockExpr,
+                                        expr: 62,
+                                    },
+                                ],
                             },
                         },
                         body: Ok(
@@ -3879,7 +3894,12 @@ Ok(
                                     allow_self_value: False,
                                     ty_constraints: [],
                                 },
-                                roots: [],
+                                roots: [
+                                    ExprRoot {
+                                        kind: BlockExpr,
+                                        expr: 29,
+                                    },
+                                ],
                             },
                         },
                         body: Ok(
@@ -4229,7 +4249,12 @@ Ok(
                                     allow_self_value: False,
                                     ty_constraints: [],
                                 },
-                                roots: [],
+                                roots: [
+                                    ExprRoot {
+                                        kind: BlockExpr,
+                                        expr: 19,
+                                    },
+                                ],
                             },
                         },
                         body: Ok(
