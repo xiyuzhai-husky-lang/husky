@@ -29,6 +29,7 @@ pub enum DerivedExprTypeError {
     PrefixOperandTypeNotInferred,
     BinaryOpnFirstArgumentTypeNotInferred,
     BinaryOpnSecondArgumentTypeNotInferred,
+    BlockTypeError,
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;

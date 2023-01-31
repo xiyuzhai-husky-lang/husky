@@ -5,7 +5,6 @@ use crate::*;
 pub struct ExprTypeRegion {
     path: RegionPath,
     expr_ty_infos: ExprMap<TypeInfo>,
-    stmt_ty_infos: StmtMap<TypeInfo>,
     unresolved_term_table: UnresolvedTermTable,
 }
 
@@ -13,17 +12,14 @@ impl ExprTypeRegion {
     pub(crate) fn new(
         path: RegionPath,
         mut expr_ty_infos: ExprMap<TypeInfo>,
-        mut stmt_ty_infos: StmtMap<TypeInfo>,
         unresolved_term_table: UnresolvedTermTable,
     ) -> Self {
         expr_ty_infos
             .iter_mut()
-            .chain(stmt_ty_infos.iter_mut())
             .for_each(|info| info.finalize(&unresolved_term_table));
         Self {
             path,
             expr_ty_infos,
-            stmt_ty_infos,
             unresolved_term_table,
         }
     }
