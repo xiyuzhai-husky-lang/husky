@@ -4,27 +4,18 @@ use idx_arena::{Arena, ArenaIdx, OptionArenaIdx};
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub(crate) struct UnresolvedTermIdx(usize);
 
+#[derive(Debug, PartialEq, Eq)]
 pub(crate) struct UnresolvedTermEntry {
     unresolved_term: UnresolvedTerm,
     resolve_progress: ExprTypeResult<LocalTerm>,
 }
 
-#[derive(Default)]
+#[derive(Default, Debug, PartialEq, Eq)]
 pub(crate) struct UnresolvedTermTable {
     unresolved_terms: Vec<UnresolvedTermEntry>,
     first_unresolved_term: usize,
     expectations: Arena<(Expectation, ExpectationState)>,
     first_unresolved_expectation: usize,
-}
-
-#[derive(Debug, PartialEq, Eq)]
-pub(crate) enum Expectation {
-    Err(OriginalTypeError),
-}
-
-#[derive(Debug, PartialEq, Eq)]
-pub(crate) enum ExpectationState {
-    Unresolved,
 }
 
 pub(crate) type ExpectationIdx = ArenaIdx<(Expectation, ExpectationState)>;
