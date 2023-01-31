@@ -223,6 +223,15 @@ pub struct OptionArenaIdx<T> {
     phantom: PhantomData<T>,
 }
 
+impl<T> OptionArenaIdx<T> {
+    pub fn into_option(self) -> Option<ArenaIdx<T>> {
+        (self.raw != usize::MAX).then_some(ArenaIdx {
+            raw: self.raw,
+            phantom: PhantomData,
+        })
+    }
+}
+
 impl<T> Default for OptionArenaIdx<T> {
     fn default() -> Self {
         Self {
@@ -243,10 +252,7 @@ impl<T> From<ArenaIdx<T>> for OptionArenaIdx<T> {
 
 impl<T> Into<Option<ArenaIdx<T>>> for OptionArenaIdx<T> {
     fn into(self) -> Option<ArenaIdx<T>> {
-        (self.raw != usize::MAX).then_some(ArenaIdx {
-            raw: self.raw,
-            phantom: PhantomData,
-        })
+        self.into_option()
     }
 }
 

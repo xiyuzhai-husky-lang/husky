@@ -65,9 +65,16 @@ impl<T, V> ArenaMap<T, V> {
         }
     }
 
-    pub fn iter(&self) -> impl Iterator<Item = (ArenaIdx<T>, &V)> {
+    pub fn enum_iter(&self) -> impl Iterator<Item = (ArenaIdx<T>, &V)> {
         self.data.iter().enumerate().filter_map(|(i, v)| match v {
             Some(ref v) => Some((ArenaIdx::new(i), v)),
+            None => None,
+        })
+    }
+
+    pub fn iter_mut(&mut self) -> impl Iterator<Item = &mut V> {
+        self.data.iter_mut().filter_map(|v| match v {
+            Some(v) => Some(v),
             None => None,
         })
     }

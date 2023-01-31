@@ -7,8 +7,10 @@ pub(crate) struct ExprTypeEngine<'a> {
     db: &'a dyn ExprTypeDb,
     term_menu: &'a TermMenu,
     expr_region_data: &'a ExprRegionData,
-    expr_ty_infos: ExprMap<ExprTypeInfo>,
+    expr_ty_infos: ExprMap<TypeInfo>,
+    stmt_ty_infos: StmtMap<TypeInfo>,
     unresolved_term_table: UnresolvedTermTable,
+    output_ty: Option<Term>,
 }
 
 impl<'a> std::ops::Index<ExprIdx> for ExprTypeEngine<'a> {
@@ -22,12 +24,24 @@ impl<'a> std::ops::Index<ExprIdx> for ExprTypeEngine<'a> {
 impl<'a> ExprTypeEngine<'a> {
     pub(crate) fn new(db: &'a dyn ExprTypeDb, expr_region: ExprRegion) -> Self {
         let expr_region_data = expr_region.data(db);
+        let output_ty = expr_region_data
+            .parent()
+            .map(|parent| {
+                db.expr_ty_region(parent)[parent.data(db).output_ty()?]
+                    .resolved_ty()
+                    .as_ref()
+                    .ok()
+                    .copied()
+            })
+            .flatten();
         Self {
             db,
             term_menu: db.term_menu(expr_region.toolchain(db)).as_ref().unwrap(),
             expr_region_data,
             expr_ty_infos: ExprMap::new(expr_region_data.expr_arena()),
+            stmt_ty_infos: StmtMap::new(expr_region_data.stmt_arena()),
             unresolved_term_table: Default::default(),
+            output_ty,
         }
     }
 
@@ -43,13 +57,13 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: ExprIdx,
         expectation: Option<Expectation>,
     ) -> Option<LocalTerm> {
-        let ty_result = self.calc(expr_idx, expectation.as_ref());
+        let ty_result = self.calc_expr(expr_idx, expectation.as_ref());
         let ty = match ty_result {
             Ok(ty) => Some(ty),
             Err(_) => None,
         };
         let opt_expectation = self.unresolved_term_table.intern_expection(expectation);
-        self.save(expr_idx, ExprTypeInfo::new(ty_result, opt_expectation));
+        self.save(expr_idx, TypeInfo::new(ty_result, opt_expectation));
         ty
     }
 
@@ -64,15 +78,20 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    fn save(&mut self, expr_idx: ExprIdx, info: ExprTypeInfo) {
+    fn save(&mut self, expr_idx: ExprIdx, info: TypeInfo) {
         self.expr_ty_infos.insert_new(expr_idx, info)
     }
 
     pub(crate) fn finish(self) -> ExprTypeRegion {
-        ExprTypeRegion::new(self.expr_region_data.path(), self.expr_ty_infos)
+        ExprTypeRegion::new(
+            self.expr_region_data.path(),
+            self.expr_ty_infos,
+            self.stmt_ty_infos,
+            self.unresolved_term_table,
+        )
     }
 
-    fn calc(
+    fn calc_expr(
         &mut self,
         expr_idx: ExprIdx,
         expection: Option<&Expectation>,
@@ -192,7 +211,10 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     fn calc_block(&mut self, stmts: StmtIdxRange) -> ExprTypeResult<LocalTerm> {
-        todo!()
+        for stmt in stmts.start()..(stmts.end() - 1) {
+            self.calc_stmt(stmt)
+        }
+        self.calc_stmt(stmts.end() - 1, Some(Expectation))
     }
 
     fn calc_binary(&mut self, lopd: ExprIdx, ropd: ExprIdx) -> ExprTypeResult<LocalTerm> {
