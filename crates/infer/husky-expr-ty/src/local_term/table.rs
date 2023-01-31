@@ -14,18 +14,18 @@ pub(crate) struct UnresolvedTermEntry {
 pub(crate) struct UnresolvedTermTable {
     unresolved_terms: Vec<UnresolvedTermEntry>,
     first_unresolved_term: usize,
-    expectations: Arena<(Expectation, ExpectationState)>,
+    expectation_rules: Arena<ExpectationRule>,
     first_unresolved_expectation: usize,
 }
 
-pub(crate) type ExpectationIdx = ArenaIdx<(Expectation, ExpectationState)>;
-pub(crate) type OptionExpectationIdx = OptionArenaIdx<(Expectation, ExpectationState)>;
+pub(crate) type ExpectationIdx = ArenaIdx<ExpectationRule>;
+pub(crate) type OptionExpectationIdx = OptionArenaIdx<ExpectationRule>;
 
 impl std::ops::Index<ExpectationIdx> for UnresolvedTermTable {
-    type Output = Expectation;
+    type Output = ExpectationRule;
 
     fn index(&self, index: ExpectationIdx) -> &Self::Output {
-        &self.expectations[index].0
+        &self.expectation_rules[index]
     }
 }
 
@@ -58,20 +58,17 @@ impl UnresolvedTermTable {
         }
     }
 
-    pub(crate) fn intern_expection(
+    pub(crate) fn add_expection_rule(
         &mut self,
-        expectation: Option<Expectation>,
+        ty: LocalTerm,
+        expectation: Expectation,
     ) -> OptionExpectationIdx {
-        match expectation {
-            Some(expectation) => self
-                .expectations
-                .intern(
-                    (expectation, ExpectationState::Unresolved),
-                    |(t0, _), (t1, _)| t0 == t1,
-                )
-                .into(),
-            None => Default::default(),
-        }
+        let item = match expectation {
+            Expectation::None => return Default::default(),
+            Expectation::Type => todo!(),
+            Expectation::UnitOrNever => todo!(),
+        };
+        self.expectation_rules.alloc_one(item).into()
     }
 
     pub(crate) fn resolve_term(&mut self, unresolved_term_idx: UnresolvedTermIdx) -> Option<Term> {

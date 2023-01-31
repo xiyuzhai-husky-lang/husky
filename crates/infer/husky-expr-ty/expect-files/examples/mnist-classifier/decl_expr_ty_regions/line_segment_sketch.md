@@ -75,11 +75,10 @@
                 resolved_ty: None,
             },
         ],
-        stmt_ty_infos: [],
         unresolved_term_table: UnresolvedTermTable {
             unresolved_terms: [],
             first_unresolved_term: 0,
-            expectations: Arena {
+            expectation_rules: Arena {
                 data: [],
             },
             first_unresolved_expectation: 0,
@@ -118,11 +117,10 @@
                 ),
             },
         ],
-        stmt_ty_infos: [],
         unresolved_term_table: UnresolvedTermTable {
             unresolved_terms: [],
             first_unresolved_term: 0,
-            expectations: Arena {
+            expectation_rules: Arena {
                 data: [],
             },
             first_unresolved_expectation: 0,
@@ -161,11 +159,10 @@
                 ),
             },
         ],
-        stmt_ty_infos: [],
         unresolved_term_table: UnresolvedTermTable {
             unresolved_terms: [],
             first_unresolved_term: 0,
-            expectations: Arena {
+            expectation_rules: Arena {
                 data: [],
             },
             first_unresolved_expectation: 0,
@@ -204,11 +201,10 @@
                 ),
             },
         ],
-        stmt_ty_infos: [],
         unresolved_term_table: UnresolvedTermTable {
             unresolved_terms: [],
             first_unresolved_term: 0,
-            expectations: Arena {
+            expectation_rules: Arena {
                 data: [],
             },
             first_unresolved_expectation: 0,
@@ -247,11 +243,10 @@
                 ),
             },
         ],
-        stmt_ty_infos: [],
         unresolved_term_table: UnresolvedTermTable {
             unresolved_terms: [],
             first_unresolved_term: 0,
-            expectations: Arena {
+            expectation_rules: Arena {
                 data: [],
             },
             first_unresolved_expectation: 0,
@@ -283,11 +278,10 @@
                 resolved_ty: None,
             },
         ],
-        stmt_ty_infos: [],
         unresolved_term_table: UnresolvedTermTable {
             unresolved_terms: [],
             first_unresolved_term: 0,
-            expectations: Arena {
+            expectation_rules: Arena {
                 data: [],
             },
             first_unresolved_expectation: 0,
@@ -315,11 +309,10 @@
                 resolved_ty: None,
             },
         ],
-        stmt_ty_infos: [],
         unresolved_term_table: UnresolvedTermTable {
             unresolved_terms: [],
             first_unresolved_term: 0,
-            expectations: Arena {
+            expectation_rules: Arena {
                 data: [],
             },
             first_unresolved_expectation: 0,
@@ -350,11 +343,10 @@
                 resolved_ty: None,
             },
         ],
-        stmt_ty_infos: [],
         unresolved_term_table: UnresolvedTermTable {
             unresolved_terms: [],
             first_unresolved_term: 0,
-            expectations: Arena {
+            expectation_rules: Arena {
                 data: [],
             },
             first_unresolved_expectation: 0,
@@ -401,11 +393,10 @@
                 ),
             },
         ],
-        stmt_ty_infos: [],
         unresolved_term_table: UnresolvedTermTable {
             unresolved_terms: [],
             first_unresolved_term: 0,
-            expectations: Arena {
+            expectation_rules: Arena {
                 data: [],
             },
             first_unresolved_expectation: 0,
@@ -449,11 +440,10 @@
                 ),
             },
         ],
-        stmt_ty_infos: [],
         unresolved_term_table: UnresolvedTermTable {
             unresolved_terms: [],
             first_unresolved_term: 0,
-            expectations: Arena {
+            expectation_rules: Arena {
                 data: [],
             },
             first_unresolved_expectation: 0,
@@ -493,11 +483,10 @@
                 resolved_ty: None,
             },
         ],
-        stmt_ty_infos: [],
         unresolved_term_table: UnresolvedTermTable {
             unresolved_terms: [],
             first_unresolved_term: 0,
-            expectations: Arena {
+            expectation_rules: Arena {
                 data: [],
             },
             first_unresolved_expectation: 0,
@@ -528,11 +517,10 @@
                 resolved_ty: None,
             },
         ],
-        stmt_ty_infos: [],
         unresolved_term_table: UnresolvedTermTable {
             unresolved_terms: [],
             first_unresolved_term: 0,
-            expectations: Arena {
+            expectation_rules: Arena {
                 data: [],
             },
             first_unresolved_expectation: 0,
@@ -579,11 +567,10 @@
                 ),
             },
         ],
-        stmt_ty_infos: [],
         unresolved_term_table: UnresolvedTermTable {
             unresolved_terms: [],
             first_unresolved_term: 0,
-            expectations: Arena {
+            expectation_rules: Arena {
                 data: [],
             },
             first_unresolved_expectation: 0,

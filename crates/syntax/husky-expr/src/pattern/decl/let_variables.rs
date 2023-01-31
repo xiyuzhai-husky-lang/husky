@@ -56,4 +56,8 @@ impl LetVariablesPattern {
     pub fn pattern_expr_idx(&self) -> ArenaIdx<PatternExpr> {
         self.pattern
     }
+
+    pub fn ty(&self) -> Option<ExprIdx> {
+        self.ty
+    }
 }

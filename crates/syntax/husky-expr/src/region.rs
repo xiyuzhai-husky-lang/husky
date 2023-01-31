@@ -119,6 +119,14 @@ impl std::ops::Index<ExprIdx> for ExprRegionData {
     }
 }
 
+impl std::ops::Index<StmtIdx> for ExprRegionData {
+    type Output = Stmt;
+
+    fn index(&self, index: StmtIdx) -> &Self::Output {
+        &self.stmt_arena[index]
+    }
+}
+
 impl ExprRegion {
     pub fn toolchain(self, db: &dyn ExprDb) -> Toolchain {
         // ad hoc

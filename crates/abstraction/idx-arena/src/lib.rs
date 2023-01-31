@@ -51,20 +51,20 @@ impl<T> Arena<T> {
         idx
     }
 
-    pub fn intern(&mut self, item: T, eq: impl Fn(&T, &T) -> bool) -> ArenaIdx<T>
-    where
-        T: Eq,
-    {
-        if let Some(position) = self.data.iter().position(|item1| eq(item1, &item)) {
-            return ArenaIdx {
-                raw: position,
-                phantom: PhantomData,
-            };
-        };
-        let idx = ArenaIdx::new(self.data.len());
-        self.data.push(item);
-        idx
-    }
+    // pub fn intern(&mut self, item: T, eq: impl Fn(&T, &T) -> bool) -> ArenaIdx<T>
+    // where
+    //     T: Eq,
+    // {
+    //     if let Some(position) = self.data.iter().position(|item1| eq(item1, &item)) {
+    //         return ArenaIdx {
+    //             raw: position,
+    //             phantom: PhantomData,
+    //         };
+    //     };
+    //     let idx = ArenaIdx::new(self.data.len());
+    //     self.data.push(item);
+    //     idx
+    // }
 
     pub fn len(&self) -> usize {
         self.data.len()
