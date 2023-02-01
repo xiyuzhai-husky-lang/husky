@@ -37,30 +37,35 @@ pub struct SymbolRegion {
     current_symbol_arena: CurrentSymbolArena,
     allow_self_type: AllowSelfType,
     allow_self_value: AllowSelfValue,
-    ty_constraints: Vec<TypeConstraint>,
+    pattern_ty_constraints: Vec<PatternTypeConstraint>,
 }
 
 impl SymbolRegion {
-    pub fn parameter_pattern_ty(&self, target: PatternExprIdx) -> Option<ExprIdx> {
-        self.ty_constraints
+    pub fn regular_parameter_pattern_ty_constraint(
+        &self,
+        target: PatternExprIdx,
+    ) -> Option<ExprIdx> {
+        self.pattern_ty_constraints
             .iter()
-            .find_map(|ty_constraint| match ty_constraint {
-                TypeConstraint::RegularParameter { pattern, ty } if *pattern == target => Some(*ty),
+            .find_map(|pattern_ty_constraint| match pattern_ty_constraint {
+                PatternTypeConstraint::RegularParameter { pattern, ty } if *pattern == target => {
+                    Some(*ty)
+                }
                 _ => None,
             })
     }
 
-    pub(crate) fn add_ty_constraint(&mut self, constraint: TypeConstraint) {
-        self.ty_constraints.push(constraint)
+    pub(crate) fn add_ty_constraint(&mut self, constraint: PatternTypeConstraint) {
+        self.pattern_ty_constraints.push(constraint)
     }
 
-    pub fn ty_constraints(&self) -> &[TypeConstraint] {
-        self.ty_constraints.as_ref()
+    pub fn pattern_ty_constraints(&self) -> &[PatternTypeConstraint] {
+        self.pattern_ty_constraints.as_ref()
     }
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum TypeConstraint {
+pub enum PatternTypeConstraint {
     LetVariables {
         pattern: PatternExprIdx,
         ty: ExprIdx,
@@ -103,7 +108,7 @@ impl SymbolRegion {
             current_symbol_arena: Default::default(),
             allow_self_type,
             allow_self_value,
-            ty_constraints: vec![],
+            pattern_ty_constraints: vec![],
         }
     }
 
@@ -111,9 +116,10 @@ impl SymbolRegion {
     pub(crate) fn define_symbols(
         &mut self,
         variables: impl IntoIterator<Item = CurrentSymbol>,
-        ty_constraint: Option<TypeConstraint>,
+        ty_constraint: Option<PatternTypeConstraint>,
     ) -> ArenaIdxRange<CurrentSymbol> {
-        self.ty_constraints.extend(ty_constraint.into_iter());
+        self.pattern_ty_constraints
+            .extend(ty_constraint.into_iter());
         self.current_symbol_arena.alloc_batch(variables)
     }
 
@@ -138,6 +144,10 @@ impl SymbolRegion {
             })
     }
 
+    pub fn inherited_symbol_iter<'a>(&'a self) -> impl Iterator<Item = &'a InheritedSymbol> + 'a {
+        self.inherited_symbol_arena.data().iter()
+    }
+
     pub fn indexed_inherited_symbol_iter<'a>(
         &'a self,
     ) -> impl Iterator<Item = (InheritedSymbolIdx, &'a InheritedSymbol)> + 'a {
@@ -150,25 +160,28 @@ impl SymbolRegion {
         self.current_symbol_arena.indexed_iter()
     }
 
+    pub fn current_symbol_index_iter(&self) -> impl Iterator<Item = CurrentSymbolIdx> {
+        self.current_symbol_arena.index_iter()
+    }
+
     fn bequeath(&self) -> InheritedSymbolArena {
         let mut inherited_symbol_arena = InheritedSymbolArena::default();
         for _ in self.indexed_inherited_symbol_iter() {
             todo!()
         }
-        for (original_current_symbol_idx, current_symbol) in self.indexed_current_symbol_iter() {
-            inherited_symbol_arena.alloc_one(match current_symbol.variant {
-                CurrentSymbolVariant::Parameter { .. } => InheritedSymbol {
-                    ident: current_symbol.ident,
-                    kind: InheritedSymbolKind::Parameter,
-                },
+        for (current_symbol_idx, current_symbol) in self.indexed_current_symbol_iter() {
+            let kind = match current_symbol.variant {
+                CurrentSymbolVariant::RegularParameter { .. } => InheritedSymbolKind::Parameter,
                 CurrentSymbolVariant::LetVariable { .. } => todo!(),
                 CurrentSymbolVariant::FrameVariable(_) => todo!(),
                 CurrentSymbolVariant::ImplicitParameter {
                     ref implicit_parameter_variant,
-                } => InheritedSymbol {
-                    ident: current_symbol.ident,
-                    kind: InheritedSymbolKind::ImplicitParameter,
-                },
+                } => InheritedSymbolKind::ImplicitParameter,
+            };
+            inherited_symbol_arena.alloc_one(InheritedSymbol {
+                ident: current_symbol.ident,
+                kind,
+                parent_symbol_idx: current_symbol_idx.into(),
             });
         }
         inherited_symbol_arena
@@ -184,6 +197,10 @@ impl SymbolRegion {
 
     pub fn inherited_symbol_arena(&self) -> &InheritedSymbolArena {
         &self.inherited_symbol_arena
+    }
+
+    pub fn current_symbol_arena(&self) -> &CurrentSymbolArena {
+        &self.current_symbol_arena
     }
 }
 

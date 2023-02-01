@@ -351,27 +351,29 @@ impl<'a> AuxInferEngine<'a> {
     ) {
         let current_symbol_kind = current_symbol.kind();
         match current_symbol_kind {
-            CurrentSymbolKind::LetVariable { pattern_symbol }
-            | CurrentSymbolKind::Parameter { pattern_symbol } => {
-                match self.symbol_context[pattern_symbol] {
-                    PatternSymbol::Atom(pattern_expr_idx) => {
-                        match self.symbol_context[pattern_expr_idx] {
-                            PatternExpr::Identifier {
-                                ident_token,
-                                liason,
-                            } => self.sheet.add(
-                                ident_token.token_idx(),
-                                TokenInfo::CurrentSymbol {
-                                    current_symbol_idx,
-                                    expr_region: self.expr_region,
-                                    current_symbol_kind,
-                                },
-                            ),
-                            _ => unreachable!(),
-                        }
+            CurrentSymbolKind::LetVariable {
+                pattern_symbol_idx: pattern_symbol,
+            }
+            | CurrentSymbolKind::Parameter {
+                pattern_symbol_idx: pattern_symbol,
+            } => match self.symbol_context[pattern_symbol] {
+                PatternSymbol::Atom(pattern_expr_idx) => {
+                    match self.symbol_context[pattern_expr_idx] {
+                        PatternExpr::Identifier {
+                            ident_token,
+                            liason,
+                        } => self.sheet.add(
+                            ident_token.token_idx(),
+                            TokenInfo::CurrentSymbol {
+                                current_symbol_idx,
+                                expr_region: self.expr_region,
+                                current_symbol_kind,
+                            },
+                        ),
+                        _ => unreachable!(),
                     }
                 }
-            }
+            },
             CurrentSymbolKind::FrameVariable(_) => (),
             CurrentSymbolKind::ImplicitParameter {
                 implicit_parameter_kind,

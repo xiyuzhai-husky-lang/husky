@@ -94,7 +94,7 @@ Ok(
                                         },
                                         allow_self_type: True,
                                         allow_self_value: False,
-                                        ty_constraints: [],
+                                        pattern_ty_constraints: [],
                                     },
                                     roots: [
                                         ExprRoot {
@@ -219,7 +219,7 @@ Ok(
                                         },
                                         allow_self_type: True,
                                         allow_self_value: False,
-                                        ty_constraints: [],
+                                        pattern_ty_constraints: [],
                                     },
                                     roots: [],
                                 },
@@ -369,8 +369,8 @@ Ok(
                                                         407,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 0,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 0,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -379,15 +379,15 @@ Ok(
                                                         411,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 1,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 1,
                                                     },
                                                 },
                                             ],
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
-                                        ty_constraints: [
+                                        pattern_ty_constraints: [
                                             RegularParameter {
                                                 pattern: 0,
                                                 ty: 0,
@@ -615,8 +615,8 @@ Ok(
                                                         432,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 0,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 0,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -625,15 +625,15 @@ Ok(
                                                         436,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 1,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 1,
                                                     },
                                                 },
                                             ],
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
-                                        ty_constraints: [
+                                        pattern_ty_constraints: [
                                             RegularParameter {
                                                 pattern: 0,
                                                 ty: 0,
@@ -861,8 +861,8 @@ Ok(
                                                         453,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 0,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 0,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -871,15 +871,15 @@ Ok(
                                                         457,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 1,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 1,
                                                     },
                                                 },
                                             ],
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
-                                        ty_constraints: [
+                                        pattern_ty_constraints: [
                                             RegularParameter {
                                                 pattern: 0,
                                                 ty: 0,
@@ -1145,8 +1145,8 @@ Ok(
                                                         478,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 0,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 0,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -1155,8 +1155,8 @@ Ok(
                                                         482,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 1,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 1,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -1165,15 +1165,15 @@ Ok(
                                                         486,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 2,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 2,
                                                     },
                                                 },
                                             ],
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
-                                        ty_constraints: [
+                                        pattern_ty_constraints: [
                                             RegularParameter {
                                                 pattern: 0,
                                                 ty: 0,
@@ -1427,8 +1427,8 @@ Ok(
                                                         624,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 0,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 0,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -1437,15 +1437,15 @@ Ok(
                                                         628,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 1,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 1,
                                                     },
                                                 },
                                             ],
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
-                                        ty_constraints: [
+                                        pattern_ty_constraints: [
                                             RegularParameter {
                                                 pattern: 0,
                                                 ty: 0,
@@ -1749,8 +1749,8 @@ Ok(
                                                         688,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 0,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 0,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -1759,8 +1759,8 @@ Ok(
                                                         692,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 1,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 1,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -1769,8 +1769,8 @@ Ok(
                                                         696,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 2,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 2,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -1779,15 +1779,15 @@ Ok(
                                                         700,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 3,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 3,
                                                     },
                                                 },
                                             ],
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
-                                        ty_constraints: [
+                                        pattern_ty_constraints: [
                                             RegularParameter {
                                                 pattern: 0,
                                                 ty: 0,
@@ -1992,7 +1992,7 @@ Ok(
                                         },
                                         allow_self_type: True,
                                         allow_self_value: False,
-                                        ty_constraints: [],
+                                        pattern_ty_constraints: [],
                                     },
                                     roots: [
                                         ExprRoot {
@@ -2193,15 +2193,15 @@ Ok(
                                                         927,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 0,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 0,
                                                     },
                                                 },
                                             ],
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
-                                        ty_constraints: [
+                                        pattern_ty_constraints: [
                                             RegularParameter {
                                                 pattern: 0,
                                                 ty: 2,
@@ -2392,15 +2392,15 @@ Ok(
                                                         992,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 0,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 0,
                                                     },
                                                 },
                                             ],
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
-                                        ty_constraints: [
+                                        pattern_ty_constraints: [
                                             RegularParameter {
                                                 pattern: 0,
                                                 ty: 1,
@@ -2558,7 +2558,7 @@ Ok(
                                         },
                                         allow_self_type: True,
                                         allow_self_value: False,
-                                        ty_constraints: [],
+                                        pattern_ty_constraints: [],
                                     },
                                     roots: [
                                         ExprRoot {
@@ -2686,7 +2686,7 @@ Ok(
                                                         },
                                                         allow_self_type: True,
                                                         allow_self_value: False,
-                                                        ty_constraints: [],
+                                                        pattern_ty_constraints: [],
                                                     },
                                                     roots: [
                                                         ExprRoot {
@@ -2753,7 +2753,7 @@ Ok(
                                             },
                                             allow_self_type: True,
                                             allow_self_value: True,
-                                            ty_constraints: [],
+                                            pattern_ty_constraints: [],
                                         },
                                         roots: [
                                             ExprRoot {
@@ -2901,7 +2901,7 @@ Ok(
                                                         },
                                                         allow_self_type: True,
                                                         allow_self_value: False,
-                                                        ty_constraints: [],
+                                                        pattern_ty_constraints: [],
                                                     },
                                                     roots: [
                                                         ExprRoot {
@@ -2968,7 +2968,7 @@ Ok(
                                             },
                                             allow_self_type: True,
                                             allow_self_value: True,
-                                            ty_constraints: [],
+                                            pattern_ty_constraints: [],
                                         },
                                         roots: [
                                             ExprRoot {
@@ -3116,7 +3116,7 @@ Ok(
                                                         },
                                                         allow_self_type: True,
                                                         allow_self_value: False,
-                                                        ty_constraints: [],
+                                                        pattern_ty_constraints: [],
                                                     },
                                                     roots: [
                                                         ExprRoot {
@@ -3183,7 +3183,7 @@ Ok(
                                             },
                                             allow_self_type: True,
                                             allow_self_value: True,
-                                            ty_constraints: [],
+                                            pattern_ty_constraints: [],
                                         },
                                         roots: [
                                             ExprRoot {
@@ -3331,7 +3331,7 @@ Ok(
                                                         },
                                                         allow_self_type: True,
                                                         allow_self_value: False,
-                                                        ty_constraints: [],
+                                                        pattern_ty_constraints: [],
                                                     },
                                                     roots: [
                                                         ExprRoot {
@@ -3398,7 +3398,7 @@ Ok(
                                             },
                                             allow_self_type: True,
                                             allow_self_value: True,
-                                            ty_constraints: [],
+                                            pattern_ty_constraints: [],
                                         },
                                         roots: [
                                             ExprRoot {
@@ -3546,7 +3546,7 @@ Ok(
                                                         },
                                                         allow_self_type: True,
                                                         allow_self_value: False,
-                                                        ty_constraints: [],
+                                                        pattern_ty_constraints: [],
                                                     },
                                                     roots: [
                                                         ExprRoot {
@@ -3696,8 +3696,8 @@ Ok(
                                                             333,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::Parameter {
-                                                            pattern_symbol: 0,
+                                                        variant: CurrentSymbolVariant::RegularParameter {
+                                                            pattern_symbol_idx: 0,
                                                         },
                                                     },
                                                     CurrentSymbol {
@@ -3706,15 +3706,15 @@ Ok(
                                                             337,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::Parameter {
-                                                            pattern_symbol: 1,
+                                                        variant: CurrentSymbolVariant::RegularParameter {
+                                                            pattern_symbol_idx: 1,
                                                         },
                                                     },
                                                 ],
                                             },
                                             allow_self_type: True,
                                             allow_self_value: True,
-                                            ty_constraints: [
+                                            pattern_ty_constraints: [
                                                 RegularParameter {
                                                     pattern: 0,
                                                     ty: 0,

@@ -124,7 +124,7 @@ Ok(
                                         },
                                         allow_self_type: True,
                                         allow_self_value: False,
-                                        ty_constraints: [],
+                                        pattern_ty_constraints: [],
                                     },
                                     roots: [
                                         ExprRoot {
@@ -436,8 +436,8 @@ Ok(
                                                         149,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 0,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 0,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -446,15 +446,15 @@ Ok(
                                                         156,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 1,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 1,
                                                     },
                                                 },
                                             ],
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
-                                        ty_constraints: [
+                                        pattern_ty_constraints: [
                                             RegularParameter {
                                                 pattern: 0,
                                                 ty: 3,
@@ -634,7 +634,7 @@ Ok(
                                         },
                                         allow_self_type: True,
                                         allow_self_value: False,
-                                        ty_constraints: [],
+                                        pattern_ty_constraints: [],
                                     },
                                     roots: [
                                         ExprRoot {
@@ -762,7 +762,7 @@ Ok(
                                                         },
                                                         allow_self_type: True,
                                                         allow_self_value: False,
-                                                        ty_constraints: [],
+                                                        pattern_ty_constraints: [],
                                                     },
                                                     roots: [
                                                         ExprRoot {
@@ -829,7 +829,7 @@ Ok(
                                             },
                                             allow_self_type: True,
                                             allow_self_value: True,
-                                            ty_constraints: [],
+                                            pattern_ty_constraints: [],
                                         },
                                         roots: [
                                             ExprRoot {
@@ -977,7 +977,7 @@ Ok(
                                                         },
                                                         allow_self_type: True,
                                                         allow_self_value: False,
-                                                        ty_constraints: [],
+                                                        pattern_ty_constraints: [],
                                                     },
                                                     roots: [
                                                         ExprRoot {
@@ -1044,7 +1044,7 @@ Ok(
                                             },
                                             allow_self_type: True,
                                             allow_self_value: True,
-                                            ty_constraints: [],
+                                            pattern_ty_constraints: [],
                                         },
                                         roots: [
                                             ExprRoot {
@@ -1192,7 +1192,7 @@ Ok(
                                                         },
                                                         allow_self_type: True,
                                                         allow_self_value: False,
-                                                        ty_constraints: [],
+                                                        pattern_ty_constraints: [],
                                                     },
                                                     roots: [
                                                         ExprRoot {
@@ -1259,7 +1259,7 @@ Ok(
                                             },
                                             allow_self_type: True,
                                             allow_self_value: True,
-                                            ty_constraints: [],
+                                            pattern_ty_constraints: [],
                                         },
                                         roots: [
                                             ExprRoot {

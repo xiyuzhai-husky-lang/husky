@@ -23,14 +23,33 @@ impl TermSymbolRegion {
     fn new(parent: Option<&TermSymbolRegion>, symbol_region: &SymbolRegion) -> Self {
         let registry = parent.map_or(Default::default(), |parent| parent.registry.clone());
         let inherited_symbol_terms = symbol_region
-            .indexed_inherited_symbol_iter()
-            .map(|(idx, symbol)| todo!())
+            .inherited_symbol_iter()
+            .map(|symbol| {
+                parent
+                    .unwrap()
+                    .parent_symbol_term(symbol.parent_symbol_idx())
+            })
             .collect();
         Self {
             registry,
             inherited_symbol_terms,
             current_symbol_terms: Default::default(),
         }
+    }
+
+    fn parent_symbol_term(&self, parent_symbol_idx: ParentSymbolIdx) -> TermSymbol {
+        match parent_symbol_idx {
+            ParentSymbolIdx::Inherited(inherited_symbol_idx) => {
+                self.inherited_symbol_term(inherited_symbol_idx)
+            }
+            ParentSymbolIdx::Current(current_symbol_idx) => {
+                self.current_symbol_term(current_symbol_idx)
+            }
+        }
+    }
+
+    pub fn inherited_symbol_term(&self, inherited_symbol_idx: InheritedSymbolIdx) -> TermSymbol {
+        self.inherited_symbol_terms[inherited_symbol_idx.raw()]
     }
 
     pub fn current_symbol_term(&self, current_symbol_idx: CurrentSymbolIdx) -> TermSymbol {
@@ -74,16 +93,18 @@ impl<'a> SignatureTermEngine<'a> {
                     implicit_parameter_variant,
                 } => match implicit_parameter_variant {
                     ImplicitParameterVariant::Type { .. } => Ok(self.term_menu.ty0()),
+                    ImplicitParameterVariant::Lifetime => todo!(),
+                    _ => todo!(),
                 },
-                CurrentSymbolVariant::Parameter { pattern_symbol } => {
+                CurrentSymbolVariant::RegularParameter { pattern_symbol_idx } => {
                     let pattern_symbol =
-                        &self.expr_region_data.pattern_expr_region()[*pattern_symbol];
+                        &self.expr_region_data.pattern_expr_region()[*pattern_symbol_idx];
                     match pattern_symbol {
                         PatternSymbol::Atom(pattern) => {
                             let ty = self
                                 .expr_region_data
                                 .symbol_region()
-                                .parameter_pattern_ty(*pattern)
+                                .regular_parameter_pattern_ty_constraint(*pattern)
                                 .unwrap();
                             match self.infer_new(ty) {
                                 Ok(ty) => Ok(ty),
@@ -92,8 +113,8 @@ impl<'a> SignatureTermEngine<'a> {
                         }
                     }
                 }
-                CurrentSymbolVariant::LetVariable { pattern_symbol } => todo!(),
-                CurrentSymbolVariant::FrameVariable(_) => todo!(),
+                CurrentSymbolVariant::LetVariable { .. }
+                | CurrentSymbolVariant::FrameVariable(_) => return,
             };
             self.term_symbol_region
                 .current_symbol_terms

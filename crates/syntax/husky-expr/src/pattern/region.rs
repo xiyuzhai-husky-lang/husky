@@ -93,3 +93,11 @@ impl std::ops::Index<PatternSymbolIdx> for PatternExprRegion {
         &self.pattern_symbol_arena[index]
     }
 }
+
+impl std::ops::Index<&PatternSymbolIdx> for PatternExprRegion {
+    type Output = PatternSymbol;
+
+    fn index(&self, index: &PatternSymbolIdx) -> &Self::Output {
+        &self.pattern_symbol_arena[index]
+    }
+}
