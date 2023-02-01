@@ -25,7 +25,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         access_start,
                         Some(access_end),
                         CurrentSymbolVariant::LetVariable {
-                            pattern_symbol: *pattern_symbol,
+                            pattern_symbol_idx: *pattern_symbol,
                         },
                     )
                 })
@@ -38,7 +38,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 )),
                 _ => None,
             };
-            let ty_constraint = ty.map(|ty| TypeConstraint::LetVariables { pattern, ty });
+            let ty_constraint = ty.map(|ty| PatternTypeConstraint::LetVariables { pattern, ty });
             let variables = self.define_symbols(symbols, ty_constraint);
             Ok(LetVariablesPattern {
                 pattern,

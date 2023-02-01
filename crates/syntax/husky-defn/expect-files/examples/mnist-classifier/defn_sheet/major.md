@@ -94,7 +94,7 @@ Ok(
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
-                                        ty_constraints: [],
+                                        pattern_ty_constraints: [],
                                     },
                                     roots: [
                                         ExprRoot {
@@ -189,7 +189,7 @@ Ok(
                                     },
                                     allow_self_type: False,
                                     allow_self_value: False,
-                                    ty_constraints: [],
+                                    pattern_ty_constraints: [],
                                 },
                                 roots: [
                                     ExprRoot {
@@ -282,7 +282,7 @@ Ok(
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
-                                        ty_constraints: [],
+                                        pattern_ty_constraints: [],
                                     },
                                     roots: [
                                         ExprRoot {
@@ -374,7 +374,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 1,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 1,
+                                                pattern_symbol_idx: 1,
                                             },
                                         },
                                         Expr::NewBoxList {
@@ -410,7 +410,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 0,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 0,
+                                                pattern_symbol_idx: 0,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -450,7 +450,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 0,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 0,
+                                                pattern_symbol_idx: 0,
                                             },
                                         },
                                         Expr::BinaryOpn {
@@ -470,7 +470,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 3,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 2,
+                                                pattern_symbol_idx: 2,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -480,7 +480,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 1,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 1,
+                                                pattern_symbol_idx: 1,
                                             },
                                         },
                                         Expr::BinaryOpn {
@@ -506,7 +506,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 3,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 2,
+                                                pattern_symbol_idx: 2,
                                             },
                                         },
                                         Expr::NewBoxList {
@@ -843,7 +843,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 0,
+                                                    pattern_symbol_idx: 0,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -859,7 +859,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 1,
+                                                    pattern_symbol_idx: 1,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -891,14 +891,14 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 2,
+                                                    pattern_symbol_idx: 2,
                                                 },
                                             },
                                         ],
                                     },
                                     allow_self_type: False,
                                     allow_self_value: False,
-                                    ty_constraints: [
+                                    pattern_ty_constraints: [
                                         FrameVariable,
                                     ],
                                 },
@@ -993,7 +993,7 @@ Ok(
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
-                                        ty_constraints: [],
+                                        pattern_ty_constraints: [],
                                     },
                                     roots: [
                                         ExprRoot {
@@ -1080,7 +1080,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 0,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 0,
+                                                pattern_symbol_idx: 0,
                                             },
                                         },
                                         Expr::NewBoxList {
@@ -1352,7 +1352,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 0,
+                                                    pattern_symbol_idx: 0,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -1375,7 +1375,7 @@ Ok(
                                     },
                                     allow_self_type: False,
                                     allow_self_value: False,
-                                    ty_constraints: [
+                                    pattern_ty_constraints: [
                                         FrameVariable,
                                     ],
                                 },
@@ -1486,7 +1486,7 @@ Ok(
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
-                                        ty_constraints: [],
+                                        pattern_ty_constraints: [],
                                     },
                                     roots: [
                                         ExprRoot {
@@ -1569,7 +1569,7 @@ Ok(
                                     },
                                     allow_self_type: False,
                                     allow_self_value: False,
-                                    ty_constraints: [],
+                                    pattern_ty_constraints: [],
                                 },
                                 roots: [
                                     ExprRoot {
@@ -1662,7 +1662,7 @@ Ok(
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
-                                        ty_constraints: [],
+                                        pattern_ty_constraints: [],
                                     },
                                     roots: [
                                         ExprRoot {
@@ -1764,7 +1764,7 @@ Ok(
                                     },
                                     allow_self_type: False,
                                     allow_self_value: False,
-                                    ty_constraints: [],
+                                    pattern_ty_constraints: [],
                                 },
                                 roots: [
                                     ExprRoot {
@@ -1857,7 +1857,7 @@ Ok(
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
-                                        ty_constraints: [],
+                                        pattern_ty_constraints: [],
                                     },
                                     roots: [
                                         ExprRoot {
@@ -1940,7 +1940,7 @@ Ok(
                                     },
                                     allow_self_type: False,
                                     allow_self_value: False,
-                                    ty_constraints: [],
+                                    pattern_ty_constraints: [],
                                 },
                                 roots: [
                                     ExprRoot {
@@ -2049,7 +2049,7 @@ Ok(
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
-                                        ty_constraints: [],
+                                        pattern_ty_constraints: [],
                                     },
                                     roots: [
                                         ExprRoot {
@@ -2132,7 +2132,7 @@ Ok(
                                     },
                                     allow_self_type: False,
                                     allow_self_value: False,
-                                    ty_constraints: [],
+                                    pattern_ty_constraints: [],
                                 },
                                 roots: [
                                     ExprRoot {

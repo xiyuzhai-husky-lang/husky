@@ -45,7 +45,7 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDeclPatter
                         implicit_parameter_variant: ImplicitParameterVariant::Type { ident_token },
                     },
                 )],
-                Some(TypeConstraint::ImplicitTypeParameter),
+                Some(PatternTypeConstraint::ImplicitTypeParameter),
             );
             Ok(Some(ImplicitParameterDeclPattern {
                 annotated_variance_token,

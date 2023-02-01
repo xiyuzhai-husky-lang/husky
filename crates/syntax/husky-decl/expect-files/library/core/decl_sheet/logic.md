@@ -43,7 +43,7 @@ Ok(
                                         },
                                         allow_self_type: True,
                                         allow_self_value: False,
-                                        ty_constraints: [],
+                                        pattern_ty_constraints: [],
                                     },
                                     roots: [],
                                 },
@@ -158,7 +158,7 @@ Ok(
                                         },
                                         allow_self_type: True,
                                         allow_self_value: False,
-                                        ty_constraints: [
+                                        pattern_ty_constraints: [
                                             ImplicitTypeParameter,
                                             ImplicitTypeParameter,
                                         ],
@@ -362,7 +362,7 @@ Ok(
                                         },
                                         allow_self_type: True,
                                         allow_self_value: False,
-                                        ty_constraints: [
+                                        pattern_ty_constraints: [
                                             ImplicitTypeParameter,
                                             ImplicitTypeParameter,
                                         ],

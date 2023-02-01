@@ -6,6 +6,7 @@ pub use region::*;
 
 use crate::*;
 use husky_entity_tree::{CrateSymbolContext, ModuleSymbolContext, PreludeResult};
+use husky_term::Term;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = ExprDb)]
@@ -19,7 +20,22 @@ pub enum Symbol {
 #[salsa::derive_debug_with_db(db = ExprDb)]
 pub struct InheritedSymbol {
     ident: Identifier,
+    parent_symbol_idx: ParentSymbolIdx,
     kind: InheritedSymbolKind,
+}
+
+impl InheritedSymbol {
+    pub fn kind(&self) -> InheritedSymbolKind {
+        self.kind
+    }
+
+    pub fn parent_symbol_idx(&self) -> ParentSymbolIdx {
+        self.parent_symbol_idx
+    }
+
+    pub fn ident(&self) -> Identifier {
+        self.ident
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -70,10 +86,10 @@ pub enum CurrentSymbolKind {
         implicit_parameter_kind: ImplicitParameterKind,
     },
     Parameter {
-        pattern_symbol: PatternSymbolIdx,
+        pattern_symbol_idx: PatternSymbolIdx,
     },
     LetVariable {
-        pattern_symbol: PatternSymbolIdx,
+        pattern_symbol_idx: PatternSymbolIdx,
     },
     FrameVariable(ExprIdx),
 }
@@ -90,18 +106,20 @@ pub enum CurrentSymbolVariant {
     ImplicitParameter {
         implicit_parameter_variant: ImplicitParameterVariant,
     },
-    Parameter {
-        pattern_symbol: PatternSymbolIdx,
+    RegularParameter {
+        pattern_symbol_idx: PatternSymbolIdx,
     },
     LetVariable {
-        pattern_symbol: PatternSymbolIdx,
+        pattern_symbol_idx: PatternSymbolIdx,
     },
     FrameVariable(ExprIdx),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = ExprDb)]
+#[non_exhaustive]
 pub enum ImplicitParameterVariant {
+    Lifetime,
     Type { ident_token: IdentifierToken },
 }
 
@@ -113,12 +131,14 @@ impl CurrentSymbolVariant {
             } => CurrentSymbolKind::ImplicitParameter {
                 implicit_parameter_kind: implicit_parameter_variant.kind(),
             },
-            CurrentSymbolVariant::Parameter { pattern_symbol } => CurrentSymbolKind::Parameter {
-                pattern_symbol: *pattern_symbol,
-            },
-            CurrentSymbolVariant::LetVariable { pattern_symbol } => {
+            CurrentSymbolVariant::RegularParameter { pattern_symbol_idx } => {
+                CurrentSymbolKind::Parameter {
+                    pattern_symbol_idx: *pattern_symbol_idx,
+                }
+            }
+            CurrentSymbolVariant::LetVariable { pattern_symbol_idx } => {
                 CurrentSymbolKind::LetVariable {
-                    pattern_symbol: *pattern_symbol,
+                    pattern_symbol_idx: *pattern_symbol_idx,
                 }
             }
             CurrentSymbolVariant::FrameVariable(variable_idx) => {
@@ -134,6 +154,7 @@ impl ImplicitParameterVariant {
             ImplicitParameterVariant::Type { ident_token } => ImplicitParameterKind::Type {
                 ident_token: *ident_token,
             },
+            ImplicitParameterVariant::Lifetime => todo!(),
         }
     }
 }
@@ -141,7 +162,27 @@ impl ImplicitParameterVariant {
 pub type InheritedSymbolArena = Arena<InheritedSymbol>;
 pub type InheritedSymbolIdx = ArenaIdx<InheritedSymbol>;
 pub type InheritedSymbolIdxRange = ArenaIdxRange<InheritedSymbol>;
+pub type InheritedSymbolMap<V> = ArenaMap<InheritedSymbol, V>;
 
 pub type CurrentSymbolArena = Arena<CurrentSymbol>;
 pub type CurrentSymbolIdx = ArenaIdx<CurrentSymbol>;
 pub type CurrentSymbolIdxRange = ArenaIdxRange<CurrentSymbol>;
+pub type CurrentSymbolMap<V> = ArenaMap<CurrentSymbol, V>;
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ParentSymbolIdx {
+    Inherited(InheritedSymbolIdx),
+    Current(CurrentSymbolIdx),
+}
+
+impl From<InheritedSymbolIdx> for ParentSymbolIdx {
+    fn from(v: InheritedSymbolIdx) -> Self {
+        Self::Inherited(v)
+    }
+}
+
+impl From<CurrentSymbolIdx> for ParentSymbolIdx {
+    fn from(v: CurrentSymbolIdx) -> Self {
+        Self::Current(v)
+    }
+}

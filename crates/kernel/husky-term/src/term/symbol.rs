@@ -3,10 +3,10 @@ use thiserror::Error;
 
 #[salsa::interned(db = TermDb, jar = TermJar)]
 pub struct TermSymbol {
-    ty: TermSymbolTypeResult<Term>,
+    pub ty: TermSymbolTypeResult<Term>,
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
-    idx: u8,
+    pub idx: u8,
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy, Hash)]

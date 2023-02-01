@@ -226,7 +226,7 @@ impl<'a> BlockExprParser<'a> {
                             Some(access_end),
                             current_symbol_variant,
                         )],
-                        Some(TypeConstraint::FrameVariable),
+                        Some(PatternTypeConstraint::FrameVariable),
                     )
                     .start();
                 unsafe {

@@ -95,7 +95,7 @@ Ok(
                                         },
                                         allow_self_type: True,
                                         allow_self_value: False,
-                                        ty_constraints: [],
+                                        pattern_ty_constraints: [],
                                     },
                                     roots: [
                                         ExprRoot {
@@ -221,7 +221,7 @@ Ok(
                                         },
                                         allow_self_type: True,
                                         allow_self_value: False,
-                                        ty_constraints: [],
+                                        pattern_ty_constraints: [],
                                     },
                                     roots: [],
                                 },
@@ -372,8 +372,8 @@ Ok(
                                                         407,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 0,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 0,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -382,15 +382,15 @@ Ok(
                                                         411,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 1,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 1,
                                                     },
                                                 },
                                             ],
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
-                                        ty_constraints: [
+                                        pattern_ty_constraints: [
                                             RegularParameter {
                                                 pattern: 0,
                                                 ty: 0,
@@ -612,8 +612,8 @@ Ok(
                                                                 407,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::Parameter {
-                                                                pattern_symbol: 0,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                pattern_symbol_idx: 0,
                                                             },
                                                         },
                                                         CurrentSymbol {
@@ -622,15 +622,15 @@ Ok(
                                                                 411,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::Parameter {
-                                                                pattern_symbol: 1,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                pattern_symbol_idx: 1,
                                                             },
                                                         },
                                                     ],
                                                 },
                                                 allow_self_type: False,
                                                 allow_self_value: False,
-                                                ty_constraints: [
+                                                pattern_ty_constraints: [
                                                     RegularParameter {
                                                         pattern: 0,
                                                         ty: 0,
@@ -763,10 +763,16 @@ Ok(
                                         data: [
                                             InheritedSymbol {
                                                 ident: `row`,
+                                                parent_symbol_idx: Current(
+                                                    0,
+                                                ),
                                                 kind: InheritedSymbolKind::Parameter,
                                             },
                                             InheritedSymbol {
                                                 ident: `j`,
+                                                parent_symbol_idx: Current(
+                                                    1,
+                                                ),
                                                 kind: InheritedSymbolKind::Parameter,
                                             },
                                         ],
@@ -776,7 +782,7 @@ Ok(
                                     },
                                     allow_self_type: False,
                                     allow_self_value: False,
-                                    ty_constraints: [],
+                                    pattern_ty_constraints: [],
                                 },
                                 roots: [
                                     ExprRoot {
@@ -933,8 +939,8 @@ Ok(
                                                         432,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 0,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 0,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -943,15 +949,15 @@ Ok(
                                                         436,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 1,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 1,
                                                     },
                                                 },
                                             ],
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
-                                        ty_constraints: [
+                                        pattern_ty_constraints: [
                                             RegularParameter {
                                                 pattern: 0,
                                                 ty: 0,
@@ -1173,8 +1179,8 @@ Ok(
                                                                 432,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::Parameter {
-                                                                pattern_symbol: 0,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                pattern_symbol_idx: 0,
                                                             },
                                                         },
                                                         CurrentSymbol {
@@ -1183,15 +1189,15 @@ Ok(
                                                                 436,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::Parameter {
-                                                                pattern_symbol: 1,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                pattern_symbol_idx: 1,
                                                             },
                                                         },
                                                     ],
                                                 },
                                                 allow_self_type: False,
                                                 allow_self_value: False,
-                                                ty_constraints: [
+                                                pattern_ty_constraints: [
                                                     RegularParameter {
                                                         pattern: 0,
                                                         ty: 0,
@@ -1300,10 +1306,16 @@ Ok(
                                         data: [
                                             InheritedSymbol {
                                                 ident: `row`,
+                                                parent_symbol_idx: Current(
+                                                    0,
+                                                ),
                                                 kind: InheritedSymbolKind::Parameter,
                                             },
                                             InheritedSymbol {
                                                 ident: `j`,
+                                                parent_symbol_idx: Current(
+                                                    1,
+                                                ),
                                                 kind: InheritedSymbolKind::Parameter,
                                             },
                                         ],
@@ -1313,7 +1325,7 @@ Ok(
                                     },
                                     allow_self_type: False,
                                     allow_self_value: False,
-                                    ty_constraints: [],
+                                    pattern_ty_constraints: [],
                                 },
                                 roots: [
                                     ExprRoot {
@@ -1470,8 +1482,8 @@ Ok(
                                                         453,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 0,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 0,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -1480,15 +1492,15 @@ Ok(
                                                         457,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 1,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 1,
                                                     },
                                                 },
                                             ],
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
-                                        ty_constraints: [
+                                        pattern_ty_constraints: [
                                             RegularParameter {
                                                 pattern: 0,
                                                 ty: 0,
@@ -1710,8 +1722,8 @@ Ok(
                                                                 453,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::Parameter {
-                                                                pattern_symbol: 0,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                pattern_symbol_idx: 0,
                                                             },
                                                         },
                                                         CurrentSymbol {
@@ -1720,15 +1732,15 @@ Ok(
                                                                 457,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::Parameter {
-                                                                pattern_symbol: 1,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                pattern_symbol_idx: 1,
                                                             },
                                                         },
                                                     ],
                                                 },
                                                 allow_self_type: False,
                                                 allow_self_value: False,
-                                                ty_constraints: [
+                                                pattern_ty_constraints: [
                                                     RegularParameter {
                                                         pattern: 0,
                                                         ty: 0,
@@ -1861,10 +1873,16 @@ Ok(
                                         data: [
                                             InheritedSymbol {
                                                 ident: `row`,
+                                                parent_symbol_idx: Current(
+                                                    0,
+                                                ),
                                                 kind: InheritedSymbolKind::Parameter,
                                             },
                                             InheritedSymbol {
                                                 ident: `j`,
+                                                parent_symbol_idx: Current(
+                                                    1,
+                                                ),
                                                 kind: InheritedSymbolKind::Parameter,
                                             },
                                         ],
@@ -1874,7 +1892,7 @@ Ok(
                                     },
                                     allow_self_type: False,
                                     allow_self_value: False,
-                                    ty_constraints: [],
+                                    pattern_ty_constraints: [],
                                 },
                                 roots: [
                                     ExprRoot {
@@ -2069,8 +2087,8 @@ Ok(
                                                         478,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 0,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 0,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -2079,8 +2097,8 @@ Ok(
                                                         482,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 1,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 1,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -2089,15 +2107,15 @@ Ok(
                                                         486,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 2,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 2,
                                                     },
                                                 },
                                             ],
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
-                                        ty_constraints: [
+                                        pattern_ty_constraints: [
                                             RegularParameter {
                                                 pattern: 0,
                                                 ty: 0,
@@ -2383,8 +2401,8 @@ Ok(
                                                                 478,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::Parameter {
-                                                                pattern_symbol: 0,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                pattern_symbol_idx: 0,
                                                             },
                                                         },
                                                         CurrentSymbol {
@@ -2393,8 +2411,8 @@ Ok(
                                                                 482,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::Parameter {
-                                                                pattern_symbol: 1,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                pattern_symbol_idx: 1,
                                                             },
                                                         },
                                                         CurrentSymbol {
@@ -2403,15 +2421,15 @@ Ok(
                                                                 486,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::Parameter {
-                                                                pattern_symbol: 2,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                pattern_symbol_idx: 2,
                                                             },
                                                         },
                                                     ],
                                                 },
                                                 allow_self_type: False,
                                                 allow_self_value: False,
-                                                ty_constraints: [
+                                                pattern_ty_constraints: [
                                                     RegularParameter {
                                                         pattern: 0,
                                                         ty: 0,
@@ -2669,14 +2687,23 @@ Ok(
                                         data: [
                                             InheritedSymbol {
                                                 ident: `row_above`,
+                                                parent_symbol_idx: Current(
+                                                    0,
+                                                ),
                                                 kind: InheritedSymbolKind::Parameter,
                                             },
                                             InheritedSymbol {
                                                 ident: `row_below`,
+                                                parent_symbol_idx: Current(
+                                                    1,
+                                                ),
                                                 kind: InheritedSymbolKind::Parameter,
                                             },
                                             InheritedSymbol {
                                                 ident: `j`,
+                                                parent_symbol_idx: Current(
+                                                    2,
+                                                ),
                                                 kind: InheritedSymbolKind::Parameter,
                                             },
                                         ],
@@ -2696,7 +2723,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 0,
+                                                    pattern_symbol_idx: 0,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -2712,14 +2739,14 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 1,
+                                                    pattern_symbol_idx: 1,
                                                 },
                                             },
                                         ],
                                     },
                                     allow_self_type: False,
                                     allow_self_value: False,
-                                    ty_constraints: [],
+                                    pattern_ty_constraints: [],
                                 },
                                 roots: [
                                     ExprRoot {
@@ -2876,8 +2903,8 @@ Ok(
                                                         624,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 0,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 0,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -2886,15 +2913,15 @@ Ok(
                                                         628,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 1,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 1,
                                                     },
                                                 },
                                             ],
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
-                                        ty_constraints: [
+                                        pattern_ty_constraints: [
                                             RegularParameter {
                                                 pattern: 0,
                                                 ty: 0,
@@ -3116,8 +3143,8 @@ Ok(
                                                                 624,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::Parameter {
-                                                                pattern_symbol: 0,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                pattern_symbol_idx: 0,
                                                             },
                                                         },
                                                         CurrentSymbol {
@@ -3126,15 +3153,15 @@ Ok(
                                                                 628,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::Parameter {
-                                                                pattern_symbol: 1,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                pattern_symbol_idx: 1,
                                                             },
                                                         },
                                                     ],
                                                 },
                                                 allow_self_type: False,
                                                 allow_self_value: False,
-                                                ty_constraints: [
+                                                pattern_ty_constraints: [
                                                     RegularParameter {
                                                         pattern: 0,
                                                         ty: 0,
@@ -3402,10 +3429,16 @@ Ok(
                                         data: [
                                             InheritedSymbol {
                                                 ident: `inward`,
+                                                parent_symbol_idx: Current(
+                                                    0,
+                                                ),
                                                 kind: InheritedSymbolKind::Parameter,
                                             },
                                             InheritedSymbol {
                                                 ident: `outward`,
+                                                parent_symbol_idx: Current(
+                                                    1,
+                                                ),
                                                 kind: InheritedSymbolKind::Parameter,
                                             },
                                         ],
@@ -3425,14 +3458,14 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 0,
+                                                    pattern_symbol_idx: 0,
                                                 },
                                             },
                                         ],
                                     },
                                     allow_self_type: False,
                                     allow_self_value: False,
-                                    ty_constraints: [],
+                                    pattern_ty_constraints: [],
                                 },
                                 roots: [
                                     ExprRoot {
@@ -3665,8 +3698,8 @@ Ok(
                                                         688,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 0,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 0,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -3675,8 +3708,8 @@ Ok(
                                                         692,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 1,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 1,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -3685,8 +3718,8 @@ Ok(
                                                         696,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 2,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 2,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -3695,15 +3728,15 @@ Ok(
                                                         700,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 3,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 3,
                                                     },
                                                 },
                                             ],
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
-                                        ty_constraints: [
+                                        pattern_ty_constraints: [
                                             RegularParameter {
                                                 pattern: 0,
                                                 ty: 0,
@@ -4048,8 +4081,8 @@ Ok(
                                                                 688,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::Parameter {
-                                                                pattern_symbol: 0,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                pattern_symbol_idx: 0,
                                                             },
                                                         },
                                                         CurrentSymbol {
@@ -4058,8 +4091,8 @@ Ok(
                                                                 692,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::Parameter {
-                                                                pattern_symbol: 1,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                pattern_symbol_idx: 1,
                                                             },
                                                         },
                                                         CurrentSymbol {
@@ -4068,8 +4101,8 @@ Ok(
                                                                 696,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::Parameter {
-                                                                pattern_symbol: 2,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                pattern_symbol_idx: 2,
                                                             },
                                                         },
                                                         CurrentSymbol {
@@ -4078,15 +4111,15 @@ Ok(
                                                                 700,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::Parameter {
-                                                                pattern_symbol: 3,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                pattern_symbol_idx: 3,
                                                             },
                                                         },
                                                     ],
                                                 },
                                                 allow_self_type: False,
                                                 allow_self_value: False,
-                                                ty_constraints: [
+                                                pattern_ty_constraints: [
                                                     RegularParameter {
                                                         pattern: 0,
                                                         ty: 0,
@@ -4348,18 +4381,30 @@ Ok(
                                         data: [
                                             InheritedSymbol {
                                                 ident: `row_above`,
+                                                parent_symbol_idx: Current(
+                                                    0,
+                                                ),
                                                 kind: InheritedSymbolKind::Parameter,
                                             },
                                             InheritedSymbol {
                                                 ident: `row_below`,
+                                                parent_symbol_idx: Current(
+                                                    1,
+                                                ),
                                                 kind: InheritedSymbolKind::Parameter,
                                             },
                                             InheritedSymbol {
                                                 ident: `j`,
+                                                parent_symbol_idx: Current(
+                                                    2,
+                                                ),
                                                 kind: InheritedSymbolKind::Parameter,
                                             },
                                             InheritedSymbol {
                                                 ident: `inward_direction`,
+                                                parent_symbol_idx: Current(
+                                                    3,
+                                                ),
                                                 kind: InheritedSymbolKind::Parameter,
                                             },
                                         ],
@@ -4379,7 +4424,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 0,
+                                                    pattern_symbol_idx: 0,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -4395,14 +4440,14 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 1,
+                                                    pattern_symbol_idx: 1,
                                                 },
                                             },
                                         ],
                                     },
                                     allow_self_type: False,
                                     allow_self_value: False,
-                                    ty_constraints: [],
+                                    pattern_ty_constraints: [],
                                 },
                                 roots: [
                                     ExprRoot {
@@ -4489,7 +4534,7 @@ Ok(
                                         },
                                         allow_self_type: True,
                                         allow_self_value: False,
-                                        ty_constraints: [],
+                                        pattern_ty_constraints: [],
                                     },
                                     roots: [
                                         ExprRoot {
@@ -4691,15 +4736,15 @@ Ok(
                                                         927,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 0,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 0,
                                                     },
                                                 },
                                             ],
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
-                                        ty_constraints: [
+                                        pattern_ty_constraints: [
                                             RegularParameter {
                                                 pattern: 0,
                                                 ty: 2,
@@ -4877,15 +4922,15 @@ Ok(
                                                                 927,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::Parameter {
-                                                                pattern_symbol: 0,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                pattern_symbol_idx: 0,
                                                             },
                                                         },
                                                     ],
                                                 },
                                                 allow_self_type: False,
                                                 allow_self_value: False,
-                                                ty_constraints: [
+                                                pattern_ty_constraints: [
                                                     RegularParameter {
                                                         pattern: 0,
                                                         ty: 2,
@@ -4953,7 +4998,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 1,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 1,
+                                                pattern_symbol_idx: 1,
                                             },
                                         },
                                         Expr::Literal(
@@ -5000,7 +5045,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 2,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 2,
+                                                pattern_symbol_idx: 2,
                                             },
                                         },
                                         Expr::Literal(
@@ -5045,7 +5090,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 1,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 1,
+                                                pattern_symbol_idx: 1,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -5055,7 +5100,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 0,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 0,
+                                                pattern_symbol_idx: 0,
                                             },
                                         },
                                         Expr::Field {
@@ -5113,7 +5158,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 1,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 1,
+                                                pattern_symbol_idx: 1,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -5123,7 +5168,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 0,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 0,
+                                                pattern_symbol_idx: 0,
                                             },
                                         },
                                         Expr::Field {
@@ -5413,6 +5458,9 @@ Ok(
                                         data: [
                                             InheritedSymbol {
                                                 ident: `points`,
+                                                parent_symbol_idx: Current(
+                                                    0,
+                                                ),
                                                 kind: InheritedSymbolKind::Parameter,
                                             },
                                         ],
@@ -5432,7 +5480,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 0,
+                                                    pattern_symbol_idx: 0,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -5448,7 +5496,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 1,
+                                                    pattern_symbol_idx: 1,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -5464,14 +5512,14 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 2,
+                                                    pattern_symbol_idx: 2,
                                                 },
                                             },
                                         ],
                                     },
                                     allow_self_type: False,
                                     allow_self_value: False,
-                                    ty_constraints: [],
+                                    pattern_ty_constraints: [],
                                 },
                                 roots: [
                                     ExprRoot {
@@ -5613,15 +5661,15 @@ Ok(
                                                         992,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::Parameter {
-                                                        pattern_symbol: 0,
+                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                        pattern_symbol_idx: 0,
                                                     },
                                                 },
                                             ],
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
-                                        ty_constraints: [
+                                        pattern_ty_constraints: [
                                             RegularParameter {
                                                 pattern: 0,
                                                 ty: 1,
@@ -5806,15 +5854,15 @@ Ok(
                                                                 992,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::Parameter {
-                                                                pattern_symbol: 0,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                pattern_symbol_idx: 0,
                                                             },
                                                         },
                                                     ],
                                                 },
                                                 allow_self_type: False,
                                                 allow_self_value: False,
-                                                ty_constraints: [
+                                                pattern_ty_constraints: [
                                                     RegularParameter {
                                                         pattern: 0,
                                                         ty: 1,
@@ -5966,7 +6014,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 1,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 1,
+                                                pattern_symbol_idx: 1,
                                             },
                                         },
                                         Expr::Literal(
@@ -6099,7 +6147,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 5,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 4,
+                                                pattern_symbol_idx: 4,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -6109,7 +6157,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 4,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 3,
+                                                pattern_symbol_idx: 3,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -6119,7 +6167,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 3,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 2,
+                                                pattern_symbol_idx: 2,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -6149,7 +6197,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 1,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 1,
+                                                pattern_symbol_idx: 1,
                                             },
                                         },
                                         Expr::BinaryOpn {
@@ -6169,7 +6217,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 0,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 0,
+                                                pattern_symbol_idx: 0,
                                             },
                                         },
                                         Expr::BinaryOpn {
@@ -6189,7 +6237,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 3,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 2,
+                                                pattern_symbol_idx: 2,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -6219,7 +6267,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 1,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 1,
+                                                pattern_symbol_idx: 1,
                                             },
                                         },
                                         Expr::BinaryOpn {
@@ -6239,7 +6287,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 0,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 0,
+                                                pattern_symbol_idx: 0,
                                             },
                                         },
                                         Expr::BinaryOpn {
@@ -6367,7 +6415,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 6,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 5,
+                                                pattern_symbol_idx: 5,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -6377,7 +6425,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 0,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 0,
+                                                pattern_symbol_idx: 0,
                                             },
                                         },
                                         Expr::NewBoxList {
@@ -6446,7 +6494,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 9,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 7,
+                                                pattern_symbol_idx: 7,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -6456,7 +6504,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 3,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 2,
+                                                pattern_symbol_idx: 2,
                                             },
                                         },
                                         Expr::NewBoxList {
@@ -6581,7 +6629,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 3,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 2,
+                                                pattern_symbol_idx: 2,
                                             },
                                         },
                                         Expr::NewBoxList {
@@ -6621,7 +6669,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 1,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 1,
+                                                pattern_symbol_idx: 1,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -6631,7 +6679,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 3,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 2,
+                                                pattern_symbol_idx: 2,
                                             },
                                         },
                                         Expr::FunctionCall {
@@ -6654,7 +6702,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 5,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 4,
+                                                pattern_symbol_idx: 4,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -6664,7 +6712,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 5,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 4,
+                                                pattern_symbol_idx: 4,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -6674,7 +6722,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 3,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 2,
+                                                pattern_symbol_idx: 2,
                                             },
                                         },
                                         Expr::Literal(
@@ -6735,7 +6783,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 13,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 11,
+                                                pattern_symbol_idx: 11,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -6745,7 +6793,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 8,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 6,
+                                                pattern_symbol_idx: 6,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -6755,7 +6803,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 12,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 10,
+                                                pattern_symbol_idx: 10,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -6795,7 +6843,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 9,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 7,
+                                                pattern_symbol_idx: 7,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -6805,7 +6853,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 6,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 5,
+                                                pattern_symbol_idx: 5,
                                             },
                                         },
                                         Expr::BinaryOpn {
@@ -6867,7 +6915,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 12,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 10,
+                                                pattern_symbol_idx: 10,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -6877,7 +6925,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 11,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 9,
+                                                pattern_symbol_idx: 9,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -6887,7 +6935,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 13,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 11,
+                                                pattern_symbol_idx: 11,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -6897,7 +6945,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 10,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 8,
+                                                pattern_symbol_idx: 8,
                                             },
                                         },
                                         Expr::FunctionCall {
@@ -6926,7 +6974,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 11,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 9,
+                                                pattern_symbol_idx: 9,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -6936,7 +6984,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 1,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 1,
+                                                pattern_symbol_idx: 1,
                                             },
                                         },
                                         Expr::FunctionCall {
@@ -6959,7 +7007,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 23,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 21,
+                                                pattern_symbol_idx: 21,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -6969,7 +7017,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 15,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 13,
+                                                pattern_symbol_idx: 13,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -6979,7 +7027,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 23,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 21,
+                                                pattern_symbol_idx: 21,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -6989,7 +7037,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 15,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 13,
+                                                pattern_symbol_idx: 13,
                                             },
                                         },
                                         Expr::Literal(
@@ -7004,7 +7052,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 14,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 12,
+                                                pattern_symbol_idx: 12,
                                             },
                                         },
                                         Expr::BinaryOpn {
@@ -7098,7 +7146,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 0,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 0,
+                                                pattern_symbol_idx: 0,
                                             },
                                         },
                                         Expr::Literal(
@@ -7135,7 +7183,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 6,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 5,
+                                                pattern_symbol_idx: 5,
                                             },
                                         },
                                         Expr::PrefixOpn {
@@ -7212,7 +7260,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 4,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 3,
+                                                pattern_symbol_idx: 3,
                                             },
                                         },
                                         Expr::PrefixOpn {
@@ -7249,7 +7297,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 3,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 2,
+                                                pattern_symbol_idx: 2,
                                             },
                                         },
                                         Expr::Literal(
@@ -7294,7 +7342,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 16,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 14,
+                                                pattern_symbol_idx: 14,
                                             },
                                         },
                                         Expr::EntityPath {
@@ -7310,7 +7358,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 16,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 14,
+                                                pattern_symbol_idx: 14,
                                             },
                                         },
                                         Expr::MethodCall {
@@ -7362,7 +7410,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 16,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 14,
+                                                pattern_symbol_idx: 14,
                                             },
                                         },
                                         Expr::EntityPath {
@@ -7376,7 +7424,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 15,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 13,
+                                                pattern_symbol_idx: 13,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -7386,7 +7434,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 14,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 12,
+                                                pattern_symbol_idx: 12,
                                             },
                                         },
                                         Expr::FunctionCall {
@@ -7436,7 +7484,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 3,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 2,
+                                                pattern_symbol_idx: 2,
                                             },
                                         },
                                         Expr::PrefixOpn {
@@ -7468,7 +7516,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 4,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 3,
+                                                pattern_symbol_idx: 3,
                                             },
                                         },
                                         Expr::PrefixOpn {
@@ -7520,7 +7568,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 6,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 5,
+                                                pattern_symbol_idx: 5,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -7560,7 +7608,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 0,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 0,
+                                                pattern_symbol_idx: 0,
                                             },
                                         },
                                         Expr::BinaryOpn {
@@ -7580,7 +7628,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 11,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 9,
+                                                pattern_symbol_idx: 9,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -7590,7 +7638,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 1,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 1,
+                                                pattern_symbol_idx: 1,
                                             },
                                         },
                                         Expr::BinaryOpn {
@@ -7716,7 +7764,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 4,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 3,
+                                                pattern_symbol_idx: 3,
                                             },
                                         },
                                         Expr::Literal(
@@ -7761,7 +7809,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 16,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 14,
+                                                pattern_symbol_idx: 14,
                                             },
                                         },
                                         Expr::MethodCall {
@@ -7793,7 +7841,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 24,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 22,
+                                                pattern_symbol_idx: 22,
                                             },
                                         },
                                         Expr::EntityPath {
@@ -7817,7 +7865,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 16,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 14,
+                                                pattern_symbol_idx: 14,
                                             },
                                         },
                                         Expr::FunctionCall {
@@ -7862,7 +7910,7 @@ Ok(
                                             ),
                                             current_symbol_idx: 24,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol: 22,
+                                                pattern_symbol_idx: 22,
                                             },
                                         },
                                         Expr::Block {
@@ -9530,6 +9578,9 @@ Ok(
                                         data: [
                                             InheritedSymbol {
                                                 ident: `cc`,
+                                                parent_symbol_idx: Current(
+                                                    0,
+                                                ),
                                                 kind: InheritedSymbolKind::Parameter,
                                             },
                                         ],
@@ -9549,7 +9600,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 0,
+                                                    pattern_symbol_idx: 0,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -9565,7 +9616,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 1,
+                                                    pattern_symbol_idx: 1,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -9597,7 +9648,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 2,
+                                                    pattern_symbol_idx: 2,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -9613,7 +9664,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 3,
+                                                    pattern_symbol_idx: 3,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -9629,7 +9680,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 4,
+                                                    pattern_symbol_idx: 4,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -9645,7 +9696,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 5,
+                                                    pattern_symbol_idx: 5,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -9677,7 +9728,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 6,
+                                                    pattern_symbol_idx: 6,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -9693,7 +9744,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 7,
+                                                    pattern_symbol_idx: 7,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -9709,7 +9760,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 8,
+                                                    pattern_symbol_idx: 8,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -9725,7 +9776,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 9,
+                                                    pattern_symbol_idx: 9,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -9741,7 +9792,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 10,
+                                                    pattern_symbol_idx: 10,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -9757,7 +9808,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 11,
+                                                    pattern_symbol_idx: 11,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -9773,7 +9824,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 12,
+                                                    pattern_symbol_idx: 12,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -9789,7 +9840,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 13,
+                                                    pattern_symbol_idx: 13,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -9805,7 +9856,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 14,
+                                                    pattern_symbol_idx: 14,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -9821,7 +9872,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 15,
+                                                    pattern_symbol_idx: 15,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -9837,7 +9888,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 16,
+                                                    pattern_symbol_idx: 16,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -9853,7 +9904,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 17,
+                                                    pattern_symbol_idx: 17,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -9869,7 +9920,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 18,
+                                                    pattern_symbol_idx: 18,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -9885,7 +9936,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 19,
+                                                    pattern_symbol_idx: 19,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -9901,7 +9952,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 20,
+                                                    pattern_symbol_idx: 20,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -9917,7 +9968,7 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 21,
+                                                    pattern_symbol_idx: 21,
                                                 },
                                             },
                                             CurrentSymbol {
@@ -9933,14 +9984,14 @@ Ok(
                                                     ),
                                                 ),
                                                 variant: CurrentSymbolVariant::LetVariable {
-                                                    pattern_symbol: 22,
+                                                    pattern_symbol_idx: 22,
                                                 },
                                             },
                                         ],
                                     },
                                     allow_self_type: False,
                                     allow_self_value: False,
-                                    ty_constraints: [
+                                    pattern_ty_constraints: [
                                         FrameVariable,
                                         FrameVariable,
                                     ],
@@ -10050,7 +10101,7 @@ Ok(
                                     },
                                     allow_self_type: True,
                                     allow_self_value: False,
-                                    ty_constraints: [],
+                                    pattern_ty_constraints: [],
                                 },
                                 roots: [
                                     ExprRoot {
@@ -10184,7 +10235,7 @@ Ok(
                                                         },
                                                         allow_self_type: True,
                                                         allow_self_value: False,
-                                                        ty_constraints: [],
+                                                        pattern_ty_constraints: [],
                                                     },
                                                     roots: [
                                                         ExprRoot {
@@ -10251,7 +10302,7 @@ Ok(
                                             },
                                             allow_self_type: True,
                                             allow_self_value: True,
-                                            ty_constraints: [],
+                                            pattern_ty_constraints: [],
                                         },
                                         roots: [
                                             ExprRoot {
@@ -10343,7 +10394,7 @@ Ok(
                                                                 },
                                                                 allow_self_type: True,
                                                                 allow_self_value: False,
-                                                                ty_constraints: [],
+                                                                pattern_ty_constraints: [],
                                                             },
                                                             roots: [
                                                                 ExprRoot {
@@ -10410,7 +10461,7 @@ Ok(
                                                     },
                                                     allow_self_type: True,
                                                     allow_self_value: True,
-                                                    ty_constraints: [],
+                                                    pattern_ty_constraints: [],
                                                 },
                                                 roots: [
                                                     ExprRoot {
@@ -10539,7 +10590,7 @@ Ok(
                                         },
                                         allow_self_type: True,
                                         allow_self_value: True,
-                                        ty_constraints: [],
+                                        pattern_ty_constraints: [],
                                     },
                                     roots: [
                                         ExprRoot {
@@ -10677,7 +10728,7 @@ Ok(
                                                         },
                                                         allow_self_type: True,
                                                         allow_self_value: False,
-                                                        ty_constraints: [],
+                                                        pattern_ty_constraints: [],
                                                     },
                                                     roots: [
                                                         ExprRoot {
@@ -10744,7 +10795,7 @@ Ok(
                                             },
                                             allow_self_type: True,
                                             allow_self_value: True,
-                                            ty_constraints: [],
+                                            pattern_ty_constraints: [],
                                         },
                                         roots: [
                                             ExprRoot {
@@ -10836,7 +10887,7 @@ Ok(
                                                                 },
                                                                 allow_self_type: True,
                                                                 allow_self_value: False,
-                                                                ty_constraints: [],
+                                                                pattern_ty_constraints: [],
                                                             },
                                                             roots: [
                                                                 ExprRoot {
@@ -10903,7 +10954,7 @@ Ok(
                                                     },
                                                     allow_self_type: True,
                                                     allow_self_value: True,
-                                                    ty_constraints: [],
+                                                    pattern_ty_constraints: [],
                                                 },
                                                 roots: [
                                                     ExprRoot {
@@ -10972,7 +11023,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 1,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 1,
+                                                    pattern_symbol_idx: 1,
                                                 },
                                             },
                                             Expr::Field {
@@ -10994,7 +11045,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 2,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 2,
+                                                    pattern_symbol_idx: 2,
                                                 },
                                             },
                                             Expr::Field {
@@ -11016,7 +11067,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 3,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 3,
+                                                    pattern_symbol_idx: 3,
                                                 },
                                             },
                                             Expr::Field {
@@ -11038,7 +11089,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 4,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 4,
+                                                    pattern_symbol_idx: 4,
                                                 },
                                             },
                                             Expr::Field {
@@ -11136,7 +11187,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 1,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 1,
+                                                    pattern_symbol_idx: 1,
                                                 },
                                             },
                                             Expr::NewBoxList {
@@ -11170,7 +11221,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 0,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 0,
+                                                    pattern_symbol_idx: 0,
                                                 },
                                             },
                                             Expr::Field {
@@ -11234,7 +11285,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 4,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 4,
+                                                    pattern_symbol_idx: 4,
                                                 },
                                             },
                                             Expr::CurrentSymbol {
@@ -11244,7 +11295,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 0,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 0,
+                                                    pattern_symbol_idx: 0,
                                                 },
                                             },
                                             Expr::Field {
@@ -11266,7 +11317,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 4,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 4,
+                                                    pattern_symbol_idx: 4,
                                                 },
                                             },
                                             Expr::MethodCall {
@@ -11308,7 +11359,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 3,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 3,
+                                                    pattern_symbol_idx: 3,
                                                 },
                                             },
                                             Expr::CurrentSymbol {
@@ -11318,7 +11369,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 0,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 0,
+                                                    pattern_symbol_idx: 0,
                                                 },
                                             },
                                             Expr::Field {
@@ -11340,7 +11391,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 3,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 3,
+                                                    pattern_symbol_idx: 3,
                                                 },
                                             },
                                             Expr::MethodCall {
@@ -11382,7 +11433,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 2,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 2,
+                                                    pattern_symbol_idx: 2,
                                                 },
                                             },
                                             Expr::CurrentSymbol {
@@ -11392,7 +11443,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 0,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 0,
+                                                    pattern_symbol_idx: 0,
                                                 },
                                             },
                                             Expr::Field {
@@ -11414,7 +11465,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 2,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 2,
+                                                    pattern_symbol_idx: 2,
                                                 },
                                             },
                                             Expr::MethodCall {
@@ -11478,7 +11529,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 4,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 4,
+                                                    pattern_symbol_idx: 4,
                                                 },
                                             },
                                             Expr::EntityPath {
@@ -11494,7 +11545,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 3,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 3,
+                                                    pattern_symbol_idx: 3,
                                                 },
                                             },
                                             Expr::CurrentSymbol {
@@ -11504,7 +11555,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 2,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 2,
+                                                    pattern_symbol_idx: 2,
                                                 },
                                             },
                                             Expr::FunctionCall {
@@ -12008,7 +12059,7 @@ Ok(
                                                         ),
                                                     ),
                                                     variant: CurrentSymbolVariant::LetVariable {
-                                                        pattern_symbol: 0,
+                                                        pattern_symbol_idx: 0,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -12024,7 +12075,7 @@ Ok(
                                                         ),
                                                     ),
                                                     variant: CurrentSymbolVariant::LetVariable {
-                                                        pattern_symbol: 1,
+                                                        pattern_symbol_idx: 1,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -12040,7 +12091,7 @@ Ok(
                                                         ),
                                                     ),
                                                     variant: CurrentSymbolVariant::LetVariable {
-                                                        pattern_symbol: 2,
+                                                        pattern_symbol_idx: 2,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -12056,7 +12107,7 @@ Ok(
                                                         ),
                                                     ),
                                                     variant: CurrentSymbolVariant::LetVariable {
-                                                        pattern_symbol: 3,
+                                                        pattern_symbol_idx: 3,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -12072,7 +12123,7 @@ Ok(
                                                         ),
                                                     ),
                                                     variant: CurrentSymbolVariant::LetVariable {
-                                                        pattern_symbol: 4,
+                                                        pattern_symbol_idx: 4,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -12104,14 +12155,14 @@ Ok(
                                                         ),
                                                     ),
                                                     variant: CurrentSymbolVariant::LetVariable {
-                                                        pattern_symbol: 5,
+                                                        pattern_symbol_idx: 5,
                                                     },
                                                 },
                                             ],
                                         },
                                         allow_self_type: True,
                                         allow_self_value: True,
-                                        ty_constraints: [
+                                        pattern_ty_constraints: [
                                             FrameVariable,
                                         ],
                                     },
@@ -12251,7 +12302,7 @@ Ok(
                                                         },
                                                         allow_self_type: True,
                                                         allow_self_value: False,
-                                                        ty_constraints: [],
+                                                        pattern_ty_constraints: [],
                                                     },
                                                     roots: [
                                                         ExprRoot {
@@ -12318,7 +12369,7 @@ Ok(
                                             },
                                             allow_self_type: True,
                                             allow_self_value: True,
-                                            ty_constraints: [],
+                                            pattern_ty_constraints: [],
                                         },
                                         roots: [
                                             ExprRoot {
@@ -12410,7 +12461,7 @@ Ok(
                                                                 },
                                                                 allow_self_type: True,
                                                                 allow_self_value: False,
-                                                                ty_constraints: [],
+                                                                pattern_ty_constraints: [],
                                                             },
                                                             roots: [
                                                                 ExprRoot {
@@ -12477,7 +12528,7 @@ Ok(
                                                     },
                                                     allow_self_type: True,
                                                     allow_self_value: True,
-                                                    ty_constraints: [],
+                                                    pattern_ty_constraints: [],
                                                 },
                                                 roots: [
                                                     ExprRoot {
@@ -12638,7 +12689,7 @@ Ok(
                                         },
                                         allow_self_type: True,
                                         allow_self_value: True,
-                                        ty_constraints: [],
+                                        pattern_ty_constraints: [],
                                     },
                                     roots: [
                                         ExprRoot {
@@ -12776,7 +12827,7 @@ Ok(
                                                         },
                                                         allow_self_type: True,
                                                         allow_self_value: False,
-                                                        ty_constraints: [],
+                                                        pattern_ty_constraints: [],
                                                     },
                                                     roots: [
                                                         ExprRoot {
@@ -12843,7 +12894,7 @@ Ok(
                                             },
                                             allow_self_type: True,
                                             allow_self_value: True,
-                                            ty_constraints: [],
+                                            pattern_ty_constraints: [],
                                         },
                                         roots: [
                                             ExprRoot {
@@ -12935,7 +12986,7 @@ Ok(
                                                                 },
                                                                 allow_self_type: True,
                                                                 allow_self_value: False,
-                                                                ty_constraints: [],
+                                                                pattern_ty_constraints: [],
                                                             },
                                                             roots: [
                                                                 ExprRoot {
@@ -13002,7 +13053,7 @@ Ok(
                                                     },
                                                     allow_self_type: True,
                                                     allow_self_value: True,
-                                                    ty_constraints: [],
+                                                    pattern_ty_constraints: [],
                                                 },
                                                 roots: [
                                                     ExprRoot {
@@ -13187,7 +13238,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 2,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 1,
+                                                    pattern_symbol_idx: 1,
                                                 },
                                             },
                                             Expr::NewBoxList {
@@ -13221,7 +13272,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 0,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 0,
+                                                    pattern_symbol_idx: 0,
                                                 },
                                             },
                                             Expr::Field {
@@ -13284,7 +13335,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 0,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 0,
+                                                    pattern_symbol_idx: 0,
                                                 },
                                             },
                                             Expr::Field {
@@ -13381,7 +13432,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 3,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 2,
+                                                    pattern_symbol_idx: 2,
                                                 },
                                             },
                                             Expr::BinaryOpn {
@@ -13544,7 +13595,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 0,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 0,
+                                                    pattern_symbol_idx: 0,
                                                 },
                                             },
                                             Expr::Field {
@@ -13607,7 +13658,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 0,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 0,
+                                                    pattern_symbol_idx: 0,
                                                 },
                                             },
                                             Expr::Field {
@@ -13704,7 +13755,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 5,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 4,
+                                                    pattern_symbol_idx: 4,
                                                 },
                                             },
                                             Expr::BinaryOpn {
@@ -13736,7 +13787,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 5,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 4,
+                                                    pattern_symbol_idx: 4,
                                                 },
                                             },
                                             Expr::Block {
@@ -14121,7 +14172,7 @@ Ok(
                                                         ),
                                                     ),
                                                     variant: CurrentSymbolVariant::LetVariable {
-                                                        pattern_symbol: 0,
+                                                        pattern_symbol_idx: 0,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -14153,7 +14204,7 @@ Ok(
                                                         ),
                                                     ),
                                                     variant: CurrentSymbolVariant::LetVariable {
-                                                        pattern_symbol: 1,
+                                                        pattern_symbol_idx: 1,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -14169,7 +14220,7 @@ Ok(
                                                         ),
                                                     ),
                                                     variant: CurrentSymbolVariant::LetVariable {
-                                                        pattern_symbol: 2,
+                                                        pattern_symbol_idx: 2,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -14185,7 +14236,7 @@ Ok(
                                                         ),
                                                     ),
                                                     variant: CurrentSymbolVariant::LetVariable {
-                                                        pattern_symbol: 3,
+                                                        pattern_symbol_idx: 3,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -14201,14 +14252,14 @@ Ok(
                                                         ),
                                                     ),
                                                     variant: CurrentSymbolVariant::LetVariable {
-                                                        pattern_symbol: 4,
+                                                        pattern_symbol_idx: 4,
                                                     },
                                                 },
                                             ],
                                         },
                                         allow_self_type: True,
                                         allow_self_value: True,
-                                        ty_constraints: [
+                                        pattern_ty_constraints: [
                                             FrameVariable,
                                         ],
                                     },
@@ -14348,7 +14399,7 @@ Ok(
                                                         },
                                                         allow_self_type: True,
                                                         allow_self_value: False,
-                                                        ty_constraints: [],
+                                                        pattern_ty_constraints: [],
                                                     },
                                                     roots: [
                                                         ExprRoot {
@@ -14498,8 +14549,8 @@ Ok(
                                                             333,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::Parameter {
-                                                            pattern_symbol: 0,
+                                                        variant: CurrentSymbolVariant::RegularParameter {
+                                                            pattern_symbol_idx: 0,
                                                         },
                                                     },
                                                     CurrentSymbol {
@@ -14508,15 +14559,15 @@ Ok(
                                                             337,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::Parameter {
-                                                            pattern_symbol: 1,
+                                                        variant: CurrentSymbolVariant::RegularParameter {
+                                                            pattern_symbol_idx: 1,
                                                         },
                                                     },
                                                 ],
                                             },
                                             allow_self_type: True,
                                             allow_self_value: True,
-                                            ty_constraints: [
+                                            pattern_ty_constraints: [
                                                 RegularParameter {
                                                     pattern: 0,
                                                     ty: 0,
@@ -14663,7 +14714,7 @@ Ok(
                                                                 },
                                                                 allow_self_type: True,
                                                                 allow_self_value: False,
-                                                                ty_constraints: [],
+                                                                pattern_ty_constraints: [],
                                                             },
                                                             roots: [
                                                                 ExprRoot {
@@ -14813,8 +14864,8 @@ Ok(
                                                                     333,
                                                                 ),
                                                                 access_end: None,
-                                                                variant: CurrentSymbolVariant::Parameter {
-                                                                    pattern_symbol: 0,
+                                                                variant: CurrentSymbolVariant::RegularParameter {
+                                                                    pattern_symbol_idx: 0,
                                                                 },
                                                             },
                                                             CurrentSymbol {
@@ -14823,15 +14874,15 @@ Ok(
                                                                     337,
                                                                 ),
                                                                 access_end: None,
-                                                                variant: CurrentSymbolVariant::Parameter {
-                                                                    pattern_symbol: 1,
+                                                                variant: CurrentSymbolVariant::RegularParameter {
+                                                                    pattern_symbol_idx: 1,
                                                                 },
                                                             },
                                                         ],
                                                     },
                                                     allow_self_type: True,
                                                     allow_self_value: True,
-                                                    ty_constraints: [
+                                                    pattern_ty_constraints: [
                                                         RegularParameter {
                                                             pattern: 0,
                                                             ty: 0,
@@ -14937,7 +14988,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 1,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 1,
+                                                    pattern_symbol_idx: 1,
                                                 },
                                             },
                                             Expr::BinaryOpn {
@@ -14996,7 +15047,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 2,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 2,
+                                                    pattern_symbol_idx: 2,
                                                 },
                                             },
                                             Expr::BinaryOpn {
@@ -15030,7 +15081,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 1,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 1,
+                                                    pattern_symbol_idx: 1,
                                                 },
                                             },
                                             Expr::CurrentSymbol {
@@ -15040,7 +15091,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 0,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol: 0,
+                                                    pattern_symbol_idx: 0,
                                                 },
                                             },
                                             Expr::MethodCall {
@@ -15263,10 +15314,16 @@ Ok(
                                             data: [
                                                 InheritedSymbol {
                                                     ident: `start`,
+                                                    parent_symbol_idx: Current(
+                                                        0,
+                                                    ),
                                                     kind: InheritedSymbolKind::Parameter,
                                                 },
                                                 InheritedSymbol {
                                                     ident: `end`,
+                                                    parent_symbol_idx: Current(
+                                                        1,
+                                                    ),
                                                     kind: InheritedSymbolKind::Parameter,
                                                 },
                                             ],
@@ -15286,7 +15343,7 @@ Ok(
                                                         ),
                                                     ),
                                                     variant: CurrentSymbolVariant::LetVariable {
-                                                        pattern_symbol: 0,
+                                                        pattern_symbol_idx: 0,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -15302,7 +15359,7 @@ Ok(
                                                         ),
                                                     ),
                                                     variant: CurrentSymbolVariant::LetVariable {
-                                                        pattern_symbol: 1,
+                                                        pattern_symbol_idx: 1,
                                                     },
                                                 },
                                                 CurrentSymbol {
@@ -15318,14 +15375,14 @@ Ok(
                                                         ),
                                                     ),
                                                     variant: CurrentSymbolVariant::LetVariable {
-                                                        pattern_symbol: 2,
+                                                        pattern_symbol_idx: 2,
                                                     },
                                                 },
                                             ],
                                         },
                                         allow_self_type: True,
                                         allow_self_value: True,
-                                        ty_constraints: [],
+                                        pattern_ty_constraints: [],
                                     },
                                     roots: [
                                         ExprRoot {

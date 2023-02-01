@@ -1,8 +1,10 @@
 mod expr;
 mod stmt;
+mod symbol;
 
 use husky_opn_syntax::PrefixOpr;
 use husky_print_utils::p;
+use symbol::*;
 
 use crate::*;
 
@@ -10,7 +12,10 @@ pub(crate) struct ExprTypeEngine<'a> {
     db: &'a dyn ExprTypeDb,
     term_menu: &'a TermMenu,
     expr_region_data: &'a ExprRegionData,
+    signature_term_region: &'a SignatureTermRegion,
     expr_ty_infos: ExprMap<TypeInfo>,
+    inherited_symbol_tys: InheritedSymbolMap<TypeInfo>,
+    current_symbol_ty_infos: CurrentSymbolMap<TypeInfo>,
     unresolved_term_table: UnresolvedTermTable,
     output_ty: Option<Term>,
 }
@@ -36,17 +41,26 @@ impl<'a> ExprTypeEngine<'a> {
                     .copied()
             })
             .flatten();
+        let symbol_region = expr_region_data.symbol_region();
         Self {
             db,
             term_menu: db.term_menu(expr_region.toolchain(db)).as_ref().unwrap(),
             expr_region_data,
+            signature_term_region: db.signature_term_region(expr_region),
             expr_ty_infos: ExprMap::new(expr_region_data.expr_arena()),
+            inherited_symbol_tys: InheritedSymbolMap::new(symbol_region.inherited_symbol_arena()),
+            current_symbol_ty_infos: CurrentSymbolMap::new(symbol_region.current_symbol_arena()),
             unresolved_term_table: Default::default(),
             output_ty,
         }
     }
 
     pub(crate) fn infer_all(&mut self) {
+        self.infer_all_parameter_symbols();
+        self.infer_all_exprs();
+    }
+
+    fn infer_all_exprs(&mut self) {
         for root in self.expr_region_data.roots() {
             let ty = self.infer_new_expr(root.expr(), Expectation::None);
             // todo: check coherence

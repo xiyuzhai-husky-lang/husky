@@ -17,13 +17,13 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for RegularParameterDeclPattern
             let access_start = ctx.state();
             let variables = symbols
                 .iter()
-                .map(|(ident, pattern_symbol)| {
+                .map(|(ident, pattern_symbol_idx)| {
                     CurrentSymbol::new(
                         *ident,
                         access_start,
                         None,
-                        CurrentSymbolVariant::Parameter {
-                            pattern_symbol: *pattern_symbol,
+                        CurrentSymbolVariant::RegularParameter {
+                            pattern_symbol_idx: *pattern_symbol_idx,
                         },
                     )
                 })
@@ -34,7 +34,7 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for RegularParameterDeclPattern
             };
             let variables = ctx.define_symbols(
                 variables,
-                Some(TypeConstraint::RegularParameter { pattern, ty }),
+                Some(PatternTypeConstraint::RegularParameter { pattern, ty }),
             );
             Ok(Some(RegularParameterDeclPattern {
                 pattern,
