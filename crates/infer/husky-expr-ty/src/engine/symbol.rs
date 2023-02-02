@@ -6,18 +6,26 @@ impl<'a> ExprTypeEngine<'a> {
         self.infer_current_parameter_symbols()
     }
 
-    fn infer_inherited_parameter_symbols(&self) {
+    fn infer_inherited_parameter_symbols(&mut self) {
         let Some(parent) = self.expr_region_data.parent()
             else{
                 return;
             };
         let parent_symbol_region = parent.data(self.db).symbol_region();
-        for (idx, symbol) in self
+        for (inherited_symbol_idx, inherited_symbol) in self
             .expr_region_data
             .symbol_region()
             .indexed_inherited_symbol_iter()
         {
-            todo!()
+            if let Ok(ty) = self
+                .signature_term_region
+                .term_symbol_region()
+                .inherited_symbol_term(inherited_symbol_idx)
+                .ty(self.db)
+            {
+                self.inherited_symbol_tys
+                    .insert_new(inherited_symbol_idx, ty)
+            }
         }
     }
 
@@ -27,11 +35,14 @@ impl<'a> ExprTypeEngine<'a> {
             .symbol_region()
             .current_symbol_index_iter()
         {
-            let ty = self
+            let Some(current_symbol_term) = self
                 .signature_term_region
                 .term_symbol_region()
                 .current_symbol_term(current_symbol_idx)
-                .ty(self.db);
+                else {
+                    return
+                };
+            let ty = current_symbol_term.ty(self.db);
             self.current_symbol_ty_infos.insert_new(
                 current_symbol_idx,
                 TypeInfo::new(

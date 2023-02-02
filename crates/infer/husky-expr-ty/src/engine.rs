@@ -14,7 +14,7 @@ pub(crate) struct ExprTypeEngine<'a> {
     expr_region_data: &'a ExprRegionData,
     signature_term_region: &'a SignatureTermRegion,
     expr_ty_infos: ExprMap<TypeInfo>,
-    inherited_symbol_tys: InheritedSymbolMap<TypeInfo>,
+    inherited_symbol_tys: InheritedSymbolMap<Term>,
     current_symbol_ty_infos: CurrentSymbolMap<TypeInfo>,
     unresolved_term_table: UnresolvedTermTable,
     output_ty: Option<Term>,

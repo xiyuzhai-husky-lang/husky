@@ -43,7 +43,7 @@ impl TermSymbolRegion {
                 self.inherited_symbol_term(inherited_symbol_idx)
             }
             ParentSymbolIdx::Current(current_symbol_idx) => {
-                self.current_symbol_term(current_symbol_idx)
+                self.current_symbol_term(current_symbol_idx).unwrap()
             }
         }
     }
@@ -52,8 +52,10 @@ impl TermSymbolRegion {
         self.inherited_symbol_terms[inherited_symbol_idx.raw()]
     }
 
-    pub fn current_symbol_term(&self, current_symbol_idx: CurrentSymbolIdx) -> TermSymbol {
-        self.current_symbol_terms[current_symbol_idx.raw()]
+    pub fn current_symbol_term(&self, current_symbol_idx: CurrentSymbolIdx) -> Option<TermSymbol> {
+        self.current_symbol_terms
+            .get(current_symbol_idx.raw())
+            .copied()
     }
 }
 
@@ -124,6 +126,13 @@ impl<'a> SignatureTermEngine<'a> {
 
     fn init_expr_roots(&mut self) {
         for expr_root in self.expr_region_data.roots() {
+            match expr_root.kind() {
+                ExprRootKind::BlockExpr => return,
+                ExprRootKind::Type
+                | ExprRootKind::Trait
+                | ExprRootKind::OutputType
+                | ExprRootKind::FieldType => (),
+            }
             self.cache_new(expr_root.expr())
         }
     }
@@ -178,6 +187,7 @@ impl<'a> SignatureTermEngine<'a> {
             } => Ok(self
                 .term_symbol_region
                 .current_symbol_term(current_symbol_idx)
+                .expect("not none")
                 .into()),
             Expr::FrameVarDecl {
                 token_idx,
