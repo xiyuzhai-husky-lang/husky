@@ -10,6 +10,8 @@ mod subentity;
 mod symbol;
 mod universe;
 
+use std::fmt::{Debug, Display};
+
 pub use abstraction::TermAbstraction;
 pub use application::TermApplication;
 pub use as_trai_subentity::*;
@@ -18,6 +20,7 @@ pub use constraint::*;
 pub use curry::*;
 pub use durant::*;
 pub use literal::*;
+use salsa::{DebugWithDb, DisplayWithDb};
 pub use subentity::*;
 pub use symbol::*;
 pub use universe::*;
@@ -94,16 +97,31 @@ impl<Db: TermDb + ?Sized> salsa::DebugWithDb<Db> for Term {
         include_all_fields: bool,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
+        f.write_fmt(format_args!(
+            "Term(`{}`)",
+            self.display_with(db, include_all_fields)
+        ))
+    }
+}
+
+impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for Term {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
         match self {
             Term::Literal(term) => f.debug_tuple("Literal").field(&term).finish(),
             Term::Symbol(term) => f.debug_tuple("Symbol").field(&term).finish(),
-            Term::Entity(term) => f.debug_tuple("Entity").field(&term.debug(db)).finish(),
-            Term::Category(term) => f.debug_tuple("Category").field(&term).finish(),
-            Term::Universe(term) => f.debug_tuple("Universe").field(&term).finish(),
-            Term::Curry(term) => f.debug_tuple("Curry").field(&term.debug(db)).finish(),
-            Term::Durant(term) => f.debug_tuple("Durant").field(&term.debug(db)).finish(),
-            Term::Abstraction(term) => f.debug_tuple("Abstraction").field(&term.debug(db)).finish(),
-            Term::Application(term) => f.debug_tuple("Application").field(&term.debug(db)).finish(),
+            Term::Entity(term) => term.debug_with(db, include_all_fields).fmt(f),
+            Term::Category(term) => f.write_str(&term.to_string()),
+            Term::Universe(term) => f.write_str(&term.to_string()),
+            Term::Curry(term) => term.debug_with(db, include_all_fields).fmt(f),
+            Term::Durant(term) => term.debug_with(db, include_all_fields).fmt(f),
+            Term::Abstraction(term) => term.debug_with(db, include_all_fields).fmt(f),
+            Term::Application(term) => term.display_with(db, include_all_fields).fmt(f),
             Term::Subentity(term) => f.debug_tuple("Subentity").field(&term.debug(db)).finish(),
             Term::AsTraitSubentity(term) => f
                 .debug_tuple("AsTraitSubentity")

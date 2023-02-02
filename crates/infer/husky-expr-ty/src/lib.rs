@@ -22,6 +22,7 @@ use husky_signature::*;
 use husky_term::*;
 use husky_ty::*;
 use local_term::*;
+use salsa::DebugWithDb;
 
 #[cfg(test)]
 use tests::*;

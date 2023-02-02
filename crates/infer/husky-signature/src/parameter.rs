@@ -24,7 +24,7 @@ impl ImplicitParameterSignature {
             ImplicitParameterDeclPatternVariant::Type0 { .. } => {
                 ImplicitParameterSignature {
                     term_symbol: region.current_symbol_term(symbol).expect("not none"),
-                    ty: term_menu.ty0(),
+                    ty: term_menu.ty0().into(),
                     // ad hoc
                     traits: vec![],
                     annotated_variance: pattern.annotated_variance_token().map(|t| match t {

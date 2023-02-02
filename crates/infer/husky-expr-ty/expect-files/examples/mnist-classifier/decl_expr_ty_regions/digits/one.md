@@ -70,24 +70,24 @@
             TypeInfo {
                 ty_result: Ok(
                     Resolved(
-                        Application(
-                            TermApplication(
-                                Id {
-                                    value: 1,
-                                },
-                            ),
+                        Category(
+                            TermCategory {
+                                universe: TermUniverse(
+                                    1,
+                                ),
+                            },
                         ),
                     ),
                 ),
                 opt_expectation: None,
                 resolved_ty: Some(
                     Ok(
-                        Application(
-                            TermApplication(
-                                Id {
-                                    value: 1,
-                                },
-                            ),
+                        Category(
+                            TermCategory {
+                                universe: TermUniverse(
+                                    1,
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -95,24 +95,24 @@
             TypeInfo {
                 ty_result: Ok(
                     Resolved(
-                        Application(
-                            TermApplication(
-                                Id {
-                                    value: 1,
-                                },
-                            ),
+                        Category(
+                            TermCategory {
+                                universe: TermUniverse(
+                                    1,
+                                ),
+                            },
                         ),
                     ),
                 ),
                 opt_expectation: None,
                 resolved_ty: Some(
                     Ok(
-                        Application(
-                            TermApplication(
-                                Id {
-                                    value: 1,
-                                },
-                            ),
+                        Category(
+                            TermCategory {
+                                universe: TermUniverse(
+                                    1,
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -137,24 +137,24 @@
             TypeInfo {
                 ty_result: Ok(
                     Resolved(
-                        Application(
-                            TermApplication(
-                                Id {
-                                    value: 1,
-                                },
-                            ),
+                        Category(
+                            TermCategory {
+                                universe: TermUniverse(
+                                    1,
+                                ),
+                            },
                         ),
                     ),
                 ),
                 opt_expectation: None,
                 resolved_ty: Some(
                     Ok(
-                        Application(
-                            TermApplication(
-                                Id {
-                                    value: 1,
-                                },
-                            ),
+                        Category(
+                            TermCategory {
+                                universe: TermUniverse(
+                                    1,
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -162,24 +162,24 @@
             TypeInfo {
                 ty_result: Ok(
                     Resolved(
-                        Application(
-                            TermApplication(
-                                Id {
-                                    value: 1,
-                                },
-                            ),
+                        Category(
+                            TermCategory {
+                                universe: TermUniverse(
+                                    1,
+                                ),
+                            },
                         ),
                     ),
                 ),
                 opt_expectation: None,
                 resolved_ty: Some(
                     Ok(
-                        Application(
-                            TermApplication(
-                                Id {
-                                    value: 1,
-                                },
-                            ),
+                        Category(
+                            TermCategory {
+                                universe: TermUniverse(
+                                    1,
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -204,24 +204,24 @@
             TypeInfo {
                 ty_result: Ok(
                     Resolved(
-                        Application(
-                            TermApplication(
-                                Id {
-                                    value: 1,
-                                },
-                            ),
+                        Category(
+                            TermCategory {
+                                universe: TermUniverse(
+                                    1,
+                                ),
+                            },
                         ),
                     ),
                 ),
                 opt_expectation: None,
                 resolved_ty: Some(
                     Ok(
-                        Application(
-                            TermApplication(
-                                Id {
-                                    value: 1,
-                                },
-                            ),
+                        Category(
+                            TermCategory {
+                                universe: TermUniverse(
+                                    1,
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -229,24 +229,24 @@
             TypeInfo {
                 ty_result: Ok(
                     Resolved(
-                        Application(
-                            TermApplication(
-                                Id {
-                                    value: 1,
-                                },
-                            ),
+                        Category(
+                            TermCategory {
+                                universe: TermUniverse(
+                                    1,
+                                ),
+                            },
                         ),
                     ),
                 ),
                 opt_expectation: None,
                 resolved_ty: Some(
                     Ok(
-                        Application(
-                            TermApplication(
-                                Id {
-                                    value: 1,
-                                },
-                            ),
+                        Category(
+                            TermCategory {
+                                universe: TermUniverse(
+                                    1,
+                                ),
+                            },
                         ),
                     ),
                 ),

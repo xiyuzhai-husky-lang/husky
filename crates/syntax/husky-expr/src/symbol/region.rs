@@ -171,7 +171,9 @@ impl SymbolRegion {
         }
         for (current_symbol_idx, current_symbol) in self.indexed_current_symbol_iter() {
             let kind = match current_symbol.variant {
-                CurrentSymbolVariant::RegularParameter { .. } => InheritedSymbolKind::Parameter,
+                CurrentSymbolVariant::RegularParameter { .. } => {
+                    InheritedSymbolKind::RegularParameter
+                }
                 CurrentSymbolVariant::LetVariable { .. } => todo!(),
                 CurrentSymbolVariant::FrameVariable(_) => todo!(),
                 CurrentSymbolVariant::ImplicitParameter {

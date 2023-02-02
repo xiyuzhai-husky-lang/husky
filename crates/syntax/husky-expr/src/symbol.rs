@@ -41,8 +41,8 @@ impl InheritedSymbol {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum InheritedSymbolKind {
-    Parameter,
     ImplicitParameter,
+    RegularParameter,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
