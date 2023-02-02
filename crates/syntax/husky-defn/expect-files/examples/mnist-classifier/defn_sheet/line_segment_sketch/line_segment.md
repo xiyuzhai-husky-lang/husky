@@ -1323,7 +1323,7 @@ Ok(
                                                     66,
                                                 ),
                                                 inherited_symbol_idx: 0,
-                                                inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                                inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                             },
                                             Expr::MethodCall {
                                                 this_expr: 3,
@@ -1459,7 +1459,7 @@ Ok(
                                                     94,
                                                 ),
                                                 inherited_symbol_idx: 0,
-                                                inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                                inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                             },
                                             Expr::MethodCall {
                                                 this_expr: 14,
@@ -1977,7 +1977,7 @@ Ok(
                                                     parent_symbol_idx: Current(
                                                         0,
                                                     ),
-                                                    kind: InheritedSymbolKind::Parameter,
+                                                    kind: InheritedSymbolKind::RegularParameter,
                                                 },
                                             ],
                                         },

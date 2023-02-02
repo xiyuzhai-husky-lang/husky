@@ -663,7 +663,7 @@ Ok(
                                                 421,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::Literal(
                                             TokenIdx(
@@ -686,7 +686,7 @@ Ok(
                                                 418,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::Bracketed {
                                             lpar_token_idx: TokenIdx(
@@ -766,14 +766,14 @@ Ok(
                                                 parent_symbol_idx: Current(
                                                     0,
                                                 ),
-                                                kind: InheritedSymbolKind::Parameter,
+                                                kind: InheritedSymbolKind::RegularParameter,
                                             },
                                             InheritedSymbol {
                                                 ident: `j`,
                                                 parent_symbol_idx: Current(
                                                     1,
                                                 ),
-                                                kind: InheritedSymbolKind::Parameter,
+                                                kind: InheritedSymbolKind::RegularParameter,
                                             },
                                         ],
                                     },
@@ -1230,7 +1230,7 @@ Ok(
                                                 443,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::InheritedSymbol {
                                             ident: `j`,
@@ -1238,7 +1238,7 @@ Ok(
                                                 445,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::BinaryOpn {
                                             lopd: 0,
@@ -1309,14 +1309,14 @@ Ok(
                                                 parent_symbol_idx: Current(
                                                     0,
                                                 ),
-                                                kind: InheritedSymbolKind::Parameter,
+                                                kind: InheritedSymbolKind::RegularParameter,
                                             },
                                             InheritedSymbol {
                                                 ident: `j`,
                                                 parent_symbol_idx: Current(
                                                     1,
                                                 ),
-                                                kind: InheritedSymbolKind::Parameter,
+                                                kind: InheritedSymbolKind::RegularParameter,
                                             },
                                         ],
                                     },
@@ -1773,7 +1773,7 @@ Ok(
                                                 467,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::Literal(
                                             TokenIdx(
@@ -1796,7 +1796,7 @@ Ok(
                                                 464,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::Bracketed {
                                             lpar_token_idx: TokenIdx(
@@ -1876,14 +1876,14 @@ Ok(
                                                 parent_symbol_idx: Current(
                                                     0,
                                                 ),
-                                                kind: InheritedSymbolKind::Parameter,
+                                                kind: InheritedSymbolKind::RegularParameter,
                                             },
                                             InheritedSymbol {
                                                 ident: `j`,
                                                 parent_symbol_idx: Current(
                                                     1,
                                                 ),
-                                                kind: InheritedSymbolKind::Parameter,
+                                                kind: InheritedSymbolKind::RegularParameter,
                                             },
                                         ],
                                     },
@@ -2472,7 +2472,7 @@ Ok(
                                                 498,
                                             ),
                                             inherited_symbol_idx: 2,
-                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::InheritedSymbol {
                                             ident: `j`,
@@ -2480,7 +2480,7 @@ Ok(
                                                 500,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::FunctionCall {
                                             function: 0,
@@ -2507,7 +2507,7 @@ Ok(
                                                 507,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::InheritedSymbol {
                                             ident: `j`,
@@ -2515,7 +2515,7 @@ Ok(
                                                 509,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::FunctionCall {
                                             function: 4,
@@ -2690,21 +2690,21 @@ Ok(
                                                 parent_symbol_idx: Current(
                                                     0,
                                                 ),
-                                                kind: InheritedSymbolKind::Parameter,
+                                                kind: InheritedSymbolKind::RegularParameter,
                                             },
                                             InheritedSymbol {
                                                 ident: `row_below`,
                                                 parent_symbol_idx: Current(
                                                     1,
                                                 ),
-                                                kind: InheritedSymbolKind::Parameter,
+                                                kind: InheritedSymbolKind::RegularParameter,
                                             },
                                             InheritedSymbol {
                                                 ident: `j`,
                                                 parent_symbol_idx: Current(
                                                     2,
                                                 ),
-                                                kind: InheritedSymbolKind::Parameter,
+                                                kind: InheritedSymbolKind::RegularParameter,
                                             },
                                         ],
                                     },
@@ -3194,7 +3194,7 @@ Ok(
                                                 640,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::EntityPath {
                                             entity_path_expr: 0,
@@ -3216,7 +3216,7 @@ Ok(
                                                 646,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::EntityPath {
                                             entity_path_expr: 1,
@@ -3432,14 +3432,14 @@ Ok(
                                                 parent_symbol_idx: Current(
                                                     0,
                                                 ),
-                                                kind: InheritedSymbolKind::Parameter,
+                                                kind: InheritedSymbolKind::RegularParameter,
                                             },
                                             InheritedSymbol {
                                                 ident: `outward`,
                                                 parent_symbol_idx: Current(
                                                     1,
                                                 ),
-                                                kind: InheritedSymbolKind::Parameter,
+                                                kind: InheritedSymbolKind::RegularParameter,
                                             },
                                         ],
                                     },
@@ -4166,7 +4166,7 @@ Ok(
                                                 712,
                                             ),
                                             inherited_symbol_idx: 3,
-                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::InheritedSymbol {
                                             ident: `j`,
@@ -4174,7 +4174,7 @@ Ok(
                                                 714,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::FunctionCall {
                                             function: 0,
@@ -4201,7 +4201,7 @@ Ok(
                                                 721,
                                             ),
                                             inherited_symbol_idx: 2,
-                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::InheritedSymbol {
                                             ident: `j`,
@@ -4209,7 +4209,7 @@ Ok(
                                                 723,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::FunctionCall {
                                             function: 4,
@@ -4384,28 +4384,28 @@ Ok(
                                                 parent_symbol_idx: Current(
                                                     0,
                                                 ),
-                                                kind: InheritedSymbolKind::Parameter,
+                                                kind: InheritedSymbolKind::RegularParameter,
                                             },
                                             InheritedSymbol {
                                                 ident: `row_below`,
                                                 parent_symbol_idx: Current(
                                                     1,
                                                 ),
-                                                kind: InheritedSymbolKind::Parameter,
+                                                kind: InheritedSymbolKind::RegularParameter,
                                             },
                                             InheritedSymbol {
                                                 ident: `j`,
                                                 parent_symbol_idx: Current(
                                                     2,
                                                 ),
-                                                kind: InheritedSymbolKind::Parameter,
+                                                kind: InheritedSymbolKind::RegularParameter,
                                             },
                                             InheritedSymbol {
                                                 ident: `inward_direction`,
                                                 parent_symbol_idx: Current(
                                                     3,
                                                 ),
-                                                kind: InheritedSymbolKind::Parameter,
+                                                kind: InheritedSymbolKind::RegularParameter,
                                             },
                                         ],
                                     },
@@ -4959,7 +4959,7 @@ Ok(
                                                 938,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::MethodCall {
                                             this_expr: 0,
@@ -4989,7 +4989,7 @@ Ok(
                                                 946,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::CurrentSymbol {
                                             ident: `N`,
@@ -5036,7 +5036,7 @@ Ok(
                                                 955,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::CurrentSymbol {
                                             ident: `N`,
@@ -5461,7 +5461,7 @@ Ok(
                                                 parent_symbol_idx: Current(
                                                     0,
                                                 ),
-                                                kind: InheritedSymbolKind::Parameter,
+                                                kind: InheritedSymbolKind::RegularParameter,
                                             },
                                         ],
                                     },
@@ -5993,7 +5993,7 @@ Ok(
                                                 1027,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::Field {
                                             this_expr: 11,
@@ -6052,7 +6052,7 @@ Ok(
                                                 1038,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::Field {
                                             this_expr: 17,
@@ -6549,7 +6549,7 @@ Ok(
                                                 1126,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::Field {
                                             this_expr: 67,
@@ -6608,7 +6608,7 @@ Ok(
                                                 1138,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::Field {
                                             this_expr: 73,
@@ -7856,7 +7856,7 @@ Ok(
                                                 1531,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                            inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::CurrentSymbol {
                                             ident: `contour`,
@@ -9581,7 +9581,7 @@ Ok(
                                                 parent_symbol_idx: Current(
                                                     0,
                                                 ),
-                                                kind: InheritedSymbolKind::Parameter,
+                                                kind: InheritedSymbolKind::RegularParameter,
                                             },
                                         ],
                                     },
@@ -14979,7 +14979,7 @@ Ok(
                                                     360,
                                                 ),
                                                 inherited_symbol_idx: 1,
-                                                inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                                inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                             },
                                             Expr::CurrentSymbol {
                                                 ident: `N`,
@@ -15038,7 +15038,7 @@ Ok(
                                                     371,
                                                 ),
                                                 inherited_symbol_idx: 0,
-                                                inherited_symbol_kind: InheritedSymbolKind::Parameter,
+                                                inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                             },
                                             Expr::CurrentSymbol {
                                                 ident: `N`,
@@ -15317,14 +15317,14 @@ Ok(
                                                     parent_symbol_idx: Current(
                                                         0,
                                                     ),
-                                                    kind: InheritedSymbolKind::Parameter,
+                                                    kind: InheritedSymbolKind::RegularParameter,
                                                 },
                                                 InheritedSymbol {
                                                     ident: `end`,
                                                     parent_symbol_idx: Current(
                                                         1,
                                                     ),
-                                                    kind: InheritedSymbolKind::Parameter,
+                                                    kind: InheritedSymbolKind::RegularParameter,
                                                 },
                                             ],
                                         },

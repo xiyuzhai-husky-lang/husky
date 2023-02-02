@@ -32,7 +32,7 @@ pub(crate) fn ty_entity_ty(db: &dyn TypeDb, path: TypePath) -> TypeResult<Term> 
         db,
         variances,
         signature.implicit_parameters(db),
-        term_menu.ty0(),
+        term_menu.ty0().into(),
     ))
 }
 
@@ -54,7 +54,7 @@ pub(crate) fn trai_entity_ty(db: &dyn TypeDb, path: TraitPath) -> TypeResult<Ter
         db,
         variances,
         signature.implicit_parameters(db),
-        term_menu.ty0(),
+        term_menu.ty0().into(),
     ))
 }
 

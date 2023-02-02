@@ -1,9 +1,28 @@
 use crate::*;
+use std::fmt::{Debug, Display};
 
 #[salsa::interned(db = TermDb, jar = TermJar)]
 pub struct TermApplication {
     pub function: Term,
     pub argument: Term,
+}
+
+impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermApplication {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
+        self.function(db)
+            .display_with(db, include_all_fields)
+            .fmt(f)?;
+        f.write_str(" ")?;
+        self.argument(db)
+            .display_with(db, include_all_fields)
+            .fmt(f)
+    }
 }
 
 impl From<TermApplication> for Term {

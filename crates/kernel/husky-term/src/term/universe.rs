@@ -21,6 +21,10 @@ impl TermUniverse {
         TermUniverse(0)
     }
 
+    pub fn raw(self) -> u8 {
+        self.0
+    }
+
     pub(crate) fn next(self) -> TermResult<Self> {
         if !(self.0 < UNIVERSE_MAX) {
             return Err(TermError::UniverseOverflow);
@@ -45,7 +49,7 @@ impl TermUniverse {
 }
 
 impl std::fmt::Display for TermUniverse {
-    fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        todo!()
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.0.fmt(f)
     }
 }

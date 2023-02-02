@@ -2,9 +2,10 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermMenu0 {
-    sort: TermCategory,
     universe0: TermUniverse,
     universe1: TermUniverse,
+    prop: TermCategory,
+    ty0: TermCategory,
     eval_lifetime: TermLiteral,
     unit: Term,
     core: Term,
@@ -60,11 +61,14 @@ impl TermMenu0 {
         // let universe1 = db.it_term(TermAtom::new_universe(1).into());
         let vfs_path_menu = db.vfs_path_menu(toolchain).unwrap();
         let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
+        let universe0 = TermUniverse::new(0);
+        let universe1 = TermUniverse::new(1);
         TermMenu0 {
-            sort: TermCategory::Sort,
             eval_lifetime: TermLiteral::EvalLifetime,
-            universe0: TermUniverse::new(0),
-            universe1: TermUniverse::new(1),
+            universe0,
+            universe1,
+            prop: TermCategory::new(universe0),
+            ty0: TermCategory::new(universe1),
             core: Term::Entity(vfs_path_menu.core().into()),
             core_ops: Term::Entity(vfs_path_menu.core_ops().into()),
             core_ops_add: Term::Entity(entity_path_menu.core_ops_add().into()),
@@ -106,16 +110,16 @@ impl TermMenu0 {
         }
     }
 
-    pub fn sort(&self) -> TermCategory {
-        self.sort
-    }
-
     pub fn universe0(&self) -> TermUniverse {
         self.universe0
     }
 
     pub fn universe1(&self) -> TermUniverse {
         self.universe1
+    }
+
+    pub fn ty0(&self) -> TermCategory {
+        self.ty0
     }
 
     // pub fn core(&self) -> Term {

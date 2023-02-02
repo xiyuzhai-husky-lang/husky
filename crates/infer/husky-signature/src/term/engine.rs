@@ -94,7 +94,7 @@ impl<'a> SignatureTermEngine<'a> {
                 CurrentSymbolVariant::ImplicitParameter {
                     implicit_parameter_variant,
                 } => match implicit_parameter_variant {
-                    ImplicitParameterVariant::Type { .. } => Ok(self.term_menu.ty0()),
+                    ImplicitParameterVariant::Type { .. } => Ok(self.term_menu.ty0().into()),
                     ImplicitParameterVariant::Lifetime => todo!(),
                     _ => todo!(),
                 },
