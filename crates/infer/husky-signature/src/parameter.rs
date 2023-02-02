@@ -23,7 +23,7 @@ impl ImplicitParameterSignature {
         match variant {
             ImplicitParameterDeclPatternVariant::Type0 { .. } => {
                 ImplicitParameterSignature {
-                    term_symbol: region.current_symbol_term(symbol),
+                    term_symbol: region.current_symbol_term(symbol).expect("not none"),
                     ty: term_menu.ty0(),
                     // ad hoc
                     traits: vec![],

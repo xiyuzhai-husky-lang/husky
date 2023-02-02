@@ -26,7 +26,7 @@ impl SignatureTermRegion {
         &self.term_symbol_region
     }
 
-    pub fn current_symbol_term(&self, current_symbol_idx: CurrentSymbolIdx) -> TermSymbol {
+    pub fn current_symbol_term(&self, current_symbol_idx: CurrentSymbolIdx) -> Option<TermSymbol> {
         self.term_symbol_region
             .current_symbol_term(current_symbol_idx)
     }
