@@ -1,5 +1,5 @@
 use super::*;
-use husky_text::{TextCharIter, TextPosition};
+use husky_doc::{TextCharIter, TextPosition};
 
 #[derive(Clone)]
 pub(crate) struct TomlTokenIter<'a> {
@@ -61,7 +61,7 @@ impl<'a> TomlTokenIter<'a> {
         variant: TomlTokenVariant,
     ) -> TomlToken {
         TomlToken::new(
-            TextSpan {
+            DocumentSpan {
                 start: start_offset,
                 end: self.chars.current_offset(),
             },

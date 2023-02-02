@@ -9,7 +9,7 @@ thiserror = "1.0.37"
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
 # lex
-husky-text = { path = "../../lex/husky-text" }
+husky-doc = { path = "../../lex/husky-doc" }
 # kernel
 husky-package-path = { path = "../../kernel/husky-package-path" }
 # fs

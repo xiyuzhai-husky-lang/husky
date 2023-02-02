@@ -1,7 +1,7 @@
 use super::*;
+use husky_doc::{TextCharIter, TextRange};
 use husky_opn_syntax::*;
 use husky_print_utils::p;
-use husky_text::{TextCharIter, TextRange};
 use husky_word::WordDb;
 use std::str::FromStr;
 
@@ -13,7 +13,7 @@ pub(crate) struct RangedPretoken {
 impl RangedPretoken {
     fn new(i: u32, start: u32, end: u32, token: Pretoken) -> Self {
         RangedPretoken {
-            range: husky_text::new_same_line(i, start, end),
+            range: husky_doc::new_same_line(i, start, end),
             token,
         }
     }

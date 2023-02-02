@@ -9,7 +9,7 @@ mod tests;
 mod token;
 
 pub use db::*;
-use husky_text::TextRange;
+use husky_doc::TextRange;
 pub use specs::*;
 
 use collect::*;

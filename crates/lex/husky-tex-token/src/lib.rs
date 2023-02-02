@@ -12,7 +12,7 @@ mod tokenize;
 
 pub use db::*;
 pub use error::*;
-use husky_text::TextRange;
+use husky_doc::TextRange;
 pub use paragraph::*;
 pub use sheet::*;
 pub use special::*;
@@ -23,7 +23,7 @@ use tokenize::*;
 #[salsa::jar(db = EnglishTokenDb)]
 pub struct EnglishTokenJar(package_manifest_toml_token_sheet);
 
-use husky_text_span::TextSpan;
+use husky_doc_span::DocumentSpan;
 use husky_word::Word;
 use std::char;
 use std::str;
@@ -35,13 +35,13 @@ pub type StringValue = Arc<String>;
 /// tokens in toml file
 #[derive(Debug, PartialEq, Eq)]
 pub struct EnglishToken {
-    span: TextSpan,
+    span: DocumentSpan,
     range: TextRange,
     variant: EnglishTokenVariant,
 }
 
 impl EnglishToken {
-    pub fn new(span: TextSpan, range: TextRange, variant: EnglishTokenVariant) -> Self {
+    pub fn new(span: DocumentSpan, range: TextRange, variant: EnglishTokenVariant) -> Self {
         Self {
             span,
             range,
@@ -49,7 +49,7 @@ impl EnglishToken {
         }
     }
 
-    pub fn span(&self) -> TextSpan {
+    pub fn span(&self) -> DocumentSpan {
         self.span
     }
 

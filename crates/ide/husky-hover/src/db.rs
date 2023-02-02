@@ -1,7 +1,7 @@
 use crate::*;
 
+use husky_doc::{FilePosition, ModuleRange, RangeInfo, TextPosition, TextRange};
 use husky_entity_tree::EntityTreeResult;
-use husky_text::{FilePosition, ModuleRange, RangeInfo, TextPosition, TextRange};
 use husky_token_info::TokenInfoDb;
 
 pub trait HoverDb: salsa::DbWithJar<HoverJar> + TokenInfoDb {

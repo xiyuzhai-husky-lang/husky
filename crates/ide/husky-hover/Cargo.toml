@@ -18,7 +18,7 @@ husky-documentation = { path = "../../ide/husky-documentation" }
 husky-token-info = { path = "../../infer/husky-token-info" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
-husky-text = { path = "../../lex/husky-text" }
+husky-doc = { path = "../../lex/husky-doc" }
 # kernel
 husky-term = { path = "../../kernel/husky-term" }
 # syntax
@@ -35,7 +35,7 @@ husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
 husky-word = { path = "../../kernel/husky-word" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 # lex
-husky-text = { path = "../../lex/husky-text", features = ["lsp_support"] }
+husky-doc = { path = "../../lex/husky-doc", features = ["lsp_support"] }
 # syntax
 husky-decl = { path = "../../syntax/husky-decl" }
 husky-defn = { path = "../../syntax/husky-defn" }

@@ -30,7 +30,7 @@
 // use husky_opn_syntax::*;
 // use husky_print_utils::*;
 // use husky_term::Term;
-// use husky_text::*;
+// use husky_doc::*;
 // use husky_vm::EntityUid;
 // use std::sync::Arc;
 // use temp::*;

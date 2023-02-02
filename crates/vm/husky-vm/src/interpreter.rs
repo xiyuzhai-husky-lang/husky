@@ -1,9 +1,9 @@
 mod exec;
 mod query;
 
+use husky_doc::ModuleRange;
 use husky_print_utils::ps;
 use husky_term::Term;
-use husky_text::ModuleRange;
 use husky_word::Identifier;
 use indexmap::IndexMap;
 pub use query::InterpreterQueryGroup;

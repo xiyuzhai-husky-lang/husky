@@ -6,7 +6,7 @@ pub use func::*;
 pub use lazy::*;
 pub use proc::*;
 
-use husky_text::{HasTextRange, TextRange};
+use husky_doc::{HasTextRange, TextRange};
 use std::sync::Arc;
 use EntityPath;
 

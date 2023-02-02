@@ -46,7 +46,7 @@ husky-dev-runtime = { path = "../../runtime/husky-dev-runtime" }
 husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
 # syntax
 husky-token = { path = "../../lex/husky-token" }
-husky-text = { path = "../../lex/husky-text" }
+husky-doc = { path = "../../lex/husky-doc" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }

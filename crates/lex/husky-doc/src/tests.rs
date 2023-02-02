@@ -4,7 +4,7 @@ use crate::*;
 
 #[test]
 fn test_text() {
-    let text = Text::new(
+    let text = Document::new(
         r#"abcd
 efgh
   123456"#,

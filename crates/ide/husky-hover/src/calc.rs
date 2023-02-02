@@ -1,6 +1,6 @@
+use husky_doc::TextRange;
 use husky_entity_tree::EntityTreeResult;
 use husky_expr::SymbolRegion;
-use husky_text::TextRange;
 use husky_token::Token;
 use husky_token_info::TokenInfo;
 

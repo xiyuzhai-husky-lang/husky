@@ -7,7 +7,7 @@ pub use error::*;
 
 use crate::*;
 use convexity::*;
-use husky_text::TextCharIter;
+use husky_doc::TextCharIter;
 
 use pretoken::*;
 pub(crate) use reserved::*;

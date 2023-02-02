@@ -1,6 +1,6 @@
 use super::*;
+use husky_doc::TextRange;
 use husky_documentation::Documentation;
-use husky_text::TextRange;
 use std::path::PathBuf;
 
 /// `NavigationTarget` represents an element in the editor's UI which you can
