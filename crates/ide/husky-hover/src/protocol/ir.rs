@@ -1,6 +1,6 @@
 use super::*;
+use husky_doc::FilePosition;
 use husky_term::Term;
-use husky_text::FilePosition;
 
 #[derive(Debug, Clone)]
 pub enum HoverActionIR {

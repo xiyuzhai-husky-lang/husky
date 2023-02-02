@@ -1,8 +1,8 @@
 use super::*;
 
+use husky_doc::TextLine;
 use husky_opn_syntax::*;
 use husky_print_utils::p;
-use husky_text::TextLine;
 
 pub(crate) struct Tokenizer<'lex> {
     db: &'lex dyn TokenDb,

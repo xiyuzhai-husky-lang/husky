@@ -24,7 +24,7 @@ with-db = { path = "../../abstraction/with-db" }
 # fs
 husky-fs-specs = { path = "../../fs/husky-fs-specs" }
 # lex
-husky-text = { path = "../../lex/husky-text" }
+husky-doc = { path = "../../lex/husky-doc" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-platform = { path = "../../kernel/husky-platform" }
@@ -39,4 +39,4 @@ tempfile = "3.3.0"
 [features]
 default = ["dep:relative-path"]
 test_utils = []
-lsp_support = ["dep:lsp-types", "husky-text/lsp_support"]
+lsp_support = ["dep:lsp-types", "husky-doc/lsp_support"]

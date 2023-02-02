@@ -13,7 +13,7 @@ use husky_token::TokenSheetData;
 use husky_word::IdentMap;
 
 use crate::*;
-use husky_text::TextRange;
+use husky_doc::TextRange;
 use vec_like::{AsVecMapEntry, InsertEntryRepeatError};
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]

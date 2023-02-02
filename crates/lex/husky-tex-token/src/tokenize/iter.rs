@@ -1,5 +1,5 @@
 use super::*;
-use husky_text::{TextCharIter, TextPosition};
+use husky_doc::{TextCharIter, TextPosition};
 
 #[derive(Clone)]
 pub(crate) struct EnglishTokenIter<'a> {
@@ -61,7 +61,7 @@ impl<'a> EnglishTokenIter<'a> {
         variant: EnglishTokenVariant,
     ) -> EnglishToken {
         EnglishToken::new(
-            TextSpan {
+            DocumentSpan {
                 start: start_offset,
                 end: self.chars.current_offset(),
             },

@@ -20,7 +20,7 @@ vec-like = { path = "../../abstraction/vec-like" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # lex
-husky-text = { path = "../../lex/husky-text" }
+husky-doc = { path = "../../lex/husky-doc" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 # syntax

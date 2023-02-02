@@ -39,7 +39,7 @@
 //     husky_path::FileQueryStorage,
 //     husky_token_sheet::TokenQueryGroupStorage,
 //     husky_entity_tree::ScopeQueryGroupStorage,
-//     husky_text::TextQueryGroupStorage,
+//     husky_doc::TextQueryGroupStorage,
 //     husky_ast::AstQueryGroupStorage,
 //     husky_syntax_fmt::FormatQueryGroupStorage,
 //     husky_entity_semantics::EntityQueryGroupStorage,

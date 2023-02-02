@@ -13,7 +13,7 @@ mod range;
 #[cfg(test)]
 mod tests;
 
-pub use change::TextChange;
+pub use change::DocumentChange;
 pub use char_iter::{PositionedTextCharIter, TextCharIter};
 pub use indent::TextIndent;
 pub use info::*;
@@ -27,18 +27,18 @@ use line_map::LineMap;
 use std::{iter::Enumerate, ops::Deref, str::Chars};
 
 #[derive(Clone, PartialEq, Eq)]
-pub struct Text {
+pub struct Document {
     content: String,
     line_map: LineMap,
 }
 
-impl std::fmt::Debug for Text {
+impl std::fmt::Debug for Document {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_str("Text...")
     }
 }
 
-impl std::ops::Index<TextRange> for Text {
+impl std::ops::Index<TextRange> for Document {
     type Output = str;
 
     fn index(&self, _index: TextRange) -> &Self::Output {
@@ -46,7 +46,7 @@ impl std::ops::Index<TextRange> for Text {
     }
 }
 
-impl std::ops::Index<std::ops::Range<(u32, u32)>> for Text {
+impl std::ops::Index<std::ops::Range<(u32, u32)>> for Document {
     type Output = str;
 
     fn index(&self, index: std::ops::Range<(u32, u32)>) -> &Self::Output {
@@ -54,7 +54,7 @@ impl std::ops::Index<std::ops::Range<(u32, u32)>> for Text {
     }
 }
 
-impl Text {
+impl Document {
     pub(crate) fn new(content: impl Into<String>) -> Self {
         let content: String = content.into();
         Self {

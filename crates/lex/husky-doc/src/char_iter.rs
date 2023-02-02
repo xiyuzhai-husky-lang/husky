@@ -174,7 +174,7 @@ impl<'a> Iterator for PositionedTextCharIter<'a> {
     }
 }
 
-impl Text {
+impl Document {
     pub fn char_iter<'a>(&'a self) -> TextCharIter<'a> {
         TextCharIter::new_aux(&self.content, 0, Default::default())
     }
@@ -191,7 +191,7 @@ mod tests {
     #[test]
     fn char_iter_works() {
         fn t(text: &str, expect: &[char]) {
-            let text = Text::new(text);
+            let text = Document::new(text);
             let chars: Vec<_> = text.char_iter().collect();
             assert_eq!(chars, expect);
         }
@@ -202,7 +202,7 @@ mod tests {
     #[test]
     fn get_str_slice_with_works() {
         fn t(text: &str, n: usize, predicate: impl Fn(char) -> bool, expect: &str) {
-            let text = Text::new(text);
+            let text = Document::new(text);
             let mut char_iter = text.char_iter();
             for _ in 0..n {
                 char_iter.next();
@@ -222,7 +222,7 @@ mod tests {
         where
             TextPosition: for<'a> From<&'a S>,
         {
-            let text = Text::new(text);
+            let text = Document::new(text);
             let chars: Vec<_> = text.positioned_char_iter().collect();
             let expect: Vec<(TextPosition, char)> =
                 expect.iter().map(|(s, ch)| (s.into(), *ch)).collect();

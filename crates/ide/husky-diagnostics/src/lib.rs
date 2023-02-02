@@ -15,7 +15,7 @@ pub use tests::*;
 
 use collect::collect_module_diagnostics;
 use husky_dev_utils::DevSource;
-use husky_text::TextRange;
+use husky_doc::TextRange;
 use husky_vfs::*;
 
 use std::fmt::Write;

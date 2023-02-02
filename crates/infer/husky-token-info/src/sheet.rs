@@ -1,4 +1,4 @@
-use husky_text::TextRange;
+use husky_doc::TextRange;
 
 use crate::*;
 
