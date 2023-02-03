@@ -13,12 +13,12 @@ inductive InstructionVariant
   | CallRoutine 
     (resolved_linkage : __ResolvedLinkage)
     (nargs : u8)
-    (output_ty : EntityRoutePtr)
+    (return_ty : EntityRoutePtr)
     (discard : Bool)   
   | CallInterpreted 
     (routine_uid : EntityUid)
     (nargs : u8)
-    (output_ty : EntityRoutePtr)
+    (return_ty : EntityRoutePtr)
     (discard : Bool)   
   | VirtualStructField
     (field_idx : u8)
@@ -31,7 +31,7 @@ inductive InstructionVariant
     (body : InstructionSheet)
     (loop_kind : VMLoopKind)
   | Return 
-    (output_ty: EntityRoutePtr)
+    (return_ty: EntityRoutePtr)
   | BreakIfFalse
   | Break
   | Assert

@@ -22,7 +22,7 @@ pub static BOOSTING_WITH_VMAX_NORMALIZED_DEFN: EntityStaticDefn = EntityStaticDe
             modifier: ParameterModifier::None,
             ty: "f32",
         }),
-        output_ty: "TargetOutput",
+        return_ty: "TargetOutput",
         output_liason: OutputModifier::Transfer,
         linkage: __Linkage::Model(__ModelLinkage(&BoostingWithVmaxNormalized)),
     },

@@ -13,5 +13,5 @@ pub(crate) fn trai_method_signature(
 
 #[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct TraitMethodSignature {
-    pub output_ty: Term,
+    pub return_ty: Term,
 }

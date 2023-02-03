@@ -22,13 +22,13 @@ impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_feature_func_block_defn(
         &mut self,
         feature_route: Term,
-        output_ty: Term,
+        return_ty: Term,
         stmts: &[Arc<FuncStmt>],
     ) {
         self.write("pub(crate) fn ");
         let ident = feature_route.ident();
         self.write(&ident);
-        let is_output_option = output_ty.is_option();
+        let is_output_option = return_ty.is_option();
         self.write(format!(
             "<'eval>(__ctx: &dyn __EvalContext<'eval>) -> {}&'eval ",
             match is_output_option {
@@ -36,21 +36,21 @@ impl<'a> RustCodeGenerator<'a> {
                 false => "",
             },
         ));
-        self.gen_entity_route(output_ty.intrinsic(), EntityRouteRole::Decl);
+        self.gen_entity_route(return_ty.intrinsic(), EntityRouteRole::Decl);
         if is_output_option {
             self.write(">")
         }
-        let mangled_output_ty_vtable = self.db.mangled_intrinsic_ty_vtable(output_ty);
+        let mangled_return_ty_vtable = self.db.mangled_intrinsic_ty_vtable(return_ty);
         self.write(&format!(
             r#" {{
     let __feature = feature_ptr!(__ctx, "{feature_route:?}");
     if let Some(__result) = __ctx.opt_cached_feature(__feature) {{
         return __result
             .unwrap()
-            .downcast_{}eval_ref(&__registration__::{mangled_output_ty_vtable});
+            .downcast_{}eval_ref(&__registration__::{mangled_return_ty_vtable});
     }}
 "#,
-            match output_ty.is_option() {
+            match return_ty.is_option() {
                 true => "opt_",
                 false => "",
             }
@@ -62,13 +62,13 @@ impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_feature_proc_block_defn(
         &mut self,
         feature_route: Term,
-        output_ty: Term,
+        return_ty: Term,
         stmts: &[Arc<ProcStmt>],
     ) {
         self.write("pub(crate) fn ");
         let ident = feature_route.ident();
         self.write(&ident);
-        let is_output_option = output_ty.is_option();
+        let is_output_option = return_ty.is_option();
         self.write(format!(
             "<'eval>(__ctx: &dyn __EvalContext<'eval>) -> {}&'eval ",
             match is_output_option {
@@ -76,21 +76,21 @@ impl<'a> RustCodeGenerator<'a> {
                 false => "",
             },
         ));
-        self.gen_entity_route(output_ty.intrinsic(), EntityRouteRole::Decl);
+        self.gen_entity_route(return_ty.intrinsic(), EntityRouteRole::Decl);
         if is_output_option {
             self.write(">")
         }
-        let mangled_output_ty_vtable = self.db.mangled_intrinsic_ty_vtable(output_ty);
+        let mangled_return_ty_vtable = self.db.mangled_intrinsic_ty_vtable(return_ty);
         self.write(&format!(
             r#" {{
     let __feature = feature_ptr!(__ctx, "{feature_route:?}");
     if let Some(__result) = __ctx.opt_cached_feature(__feature) {{
         return __result
             .unwrap()
-            .downcast_{}eval_ref(&__registration__::{mangled_output_ty_vtable});
+            .downcast_{}eval_ref(&__registration__::{mangled_return_ty_vtable});
     }}
 "#,
-            match output_ty.is_option() {
+            match return_ty.is_option() {
                 true => "opt_",
                 false => "",
             }

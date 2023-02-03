@@ -46,6 +46,7 @@ pub struct EntityPathMenu {
     vec_ty: TypePath,
     // prelude
     unit: TypePath,
+    never: TypePath,
     bool: TypePath,
     i32: TypePath,
     i64: TypePath,
@@ -204,6 +205,13 @@ impl EntityPathMenu {
             ModuleItemConnection::Connected,
             TypeKind::Alien,
         );
+        let never = TypePath::new(
+            db,
+            core_basic,
+            word_menu.never(),
+            ModuleItemConnection::Connected,
+            TypeKind::Alien,
+        );
         let bool = TypePath::new(
             db,
             core_basic,
@@ -294,6 +302,7 @@ impl EntityPathMenu {
             ref_ty,
             vec_ty,
             unit,
+            never,
             bool,
             i32,
             i64,
@@ -431,5 +440,9 @@ impl EntityPathMenu {
 
     pub fn lifetime_ty(&self) -> TypePath {
         self.lifetime_ty
+    }
+
+    pub fn never(&self) -> TypePath {
+        self.never
     }
 }

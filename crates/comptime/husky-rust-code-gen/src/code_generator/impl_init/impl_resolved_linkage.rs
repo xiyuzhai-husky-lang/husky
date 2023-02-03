@@ -84,14 +84,14 @@ impl<'a> RustCodeGenerator<'a> {
     //         r#"
     //                 "#
     //     ));
-    //     let output_ty = decl.output.ty();
-    //     let canonical_output_ty = output_ty.canonicalize();
-    //     let output_ty_reg_memory_kind = self.db.reg_memory_kind(output_ty);
-    //     let is_intrinsic_output_ty_primitive = canonical_output_ty.is_intrinsic_route_primitive();
-    //     match canonical_output_ty.kind() {
-    //         CanonicalTyKind::Intrinsic => match output_ty_reg_memory_kind {
+    //     let return_ty = decl.output.ty();
+    //     let canonical_return_ty = return_ty.canonicalize();
+    //     let return_ty_reg_memory_kind = self.db.reg_memory_kind(return_ty);
+    //     let is_intrinsic_return_ty_primitive = canonical_return_ty.is_intrinsic_route_primitive();
+    //     match canonical_return_ty.kind() {
+    //         CanonicalTyKind::Intrinsic => match return_ty_reg_memory_kind {
     //             RegMemoryKind::Direct => {
-    //                 if is_intrinsic_output_ty_primitive {
+    //                 if is_intrinsic_return_ty_primitive {
     //                     // pass
     //                     ()
     //                 } else {
@@ -101,15 +101,15 @@ impl<'a> RustCodeGenerator<'a> {
     //             RegMemoryKind::BoxCopyable | RegMemoryKind::BoxNonCopyable => {
     //                 self.write("__Register::new_box::<");
     //                 self.gen_entity_route(
-    //                     canonical_output_ty.intrinsic_ty(),
+    //                     canonical_return_ty.intrinsic_ty(),
     //                     EntityRouteRole::Decl,
     //                 );
     //                 self.write(">(");
     //             }
     //         },
-    //         CanonicalTyKind::Optional => match output_ty_reg_memory_kind {
+    //         CanonicalTyKind::Optional => match return_ty_reg_memory_kind {
     //             RegMemoryKind::Direct => {
-    //                 if is_intrinsic_output_ty_primitive {
+    //                 if is_intrinsic_return_ty_primitive {
     //                     // pass
     //                     ()
     //                 } else {
@@ -122,7 +122,7 @@ impl<'a> RustCodeGenerator<'a> {
     //         CanonicalTyKind::EvalRef => todo!(),
     //         CanonicalTyKind::OptionalEvalRef => {
     //             self.write("__Register::new_opt_eval_ref::<");
-    //             self.gen_entity_route(canonical_output_ty.intrinsic_ty(), EntityRouteRole::Decl);
+    //             self.gen_entity_route(canonical_return_ty.intrinsic_ty(), EntityRouteRole::Decl);
     //             self.write(">(");
     //         }
     //         CanonicalTyKind::TempRefMut => todo!(),
@@ -159,8 +159,8 @@ impl<'a> RustCodeGenerator<'a> {
     //         }
     //         self.write("__opt_ctx.unwrap()")
     //     }
-    //     let mangled_output_ty_vtable = self.db.mangled_intrinsic_ty_vtable(decl.output.ty());
-    //     if is_intrinsic_output_ty_primitive {
+    //     let mangled_return_ty_vtable = self.db.mangled_intrinsic_ty_vtable(decl.output.ty());
+    //     if is_intrinsic_return_ty_primitive {
     //         self.write(&format!(
     //             r#").to_register()
     //             }}
@@ -170,7 +170,7 @@ impl<'a> RustCodeGenerator<'a> {
     //         ));
     //     } else {
     //         self.write(&format!(
-    //             r#"), &__registration__::{mangled_output_ty_vtable})
+    //             r#"), &__registration__::{mangled_return_ty_vtable})
     //             }}
     //             __wrapper
     //         }},

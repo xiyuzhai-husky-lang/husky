@@ -75,6 +75,10 @@ impl EntityPath {
         }
     }
 
+    pub fn ty_path(self) -> Option<TypePath> {
+        self.module_item_path()?.ty_path()
+    }
+
     pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
         match self {
             EntityPath::Module(path) => path,

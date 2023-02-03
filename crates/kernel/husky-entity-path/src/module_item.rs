@@ -37,6 +37,13 @@ impl ModuleItemPath {
         self.module_path(db).crate_path(db)
     }
 
+    pub fn ty_path(self) -> Option<TypePath> {
+        match self {
+            ModuleItemPath::Type(path) => Some(path),
+            ModuleItemPath::Trait(_) | ModuleItemPath::Form(_) => None,
+        }
+    }
+
     pub(crate) fn entity_kind(self, db: &dyn EntityPathDb) -> EntityKind {
         match self {
             ModuleItemPath::Type(path) => EntityKind::ModuleItem {

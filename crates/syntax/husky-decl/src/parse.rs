@@ -431,14 +431,14 @@ impl<'a> DeclParser<'a> {
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
         let curry_token = ctx.parse_expected2(DeclError::MissingCurry);
-        let output_ty = ctx.parse_expected2(DeclError::MissingOutputType);
+        let return_ty = ctx.parse_expected2(DeclError::MissingOutputType);
         let eol_colon = ctx.parse_expected2(DeclError::MissingEolColon);
         Ok(FeatureDecl::new(
             self.db,
             path,
             ast_idx,
             curry_token,
-            output_ty,
+            return_ty,
             eol_colon,
             parser.finish(),
         )
@@ -468,7 +468,7 @@ impl<'a> DeclParser<'a> {
             todo!()
         };
         let curry_token = ctx.parse_expected2(DeclError::MissingCurry);
-        let output_ty = ctx.parse_expected2(DeclError::MissingOutputType);
+        let return_ty = ctx.parse_expected2(DeclError::MissingOutputType);
         let eol_colon = ctx.parse_expected2(DeclError::MissingEolColon);
         Ok(FunctionDecl::new(
             self.db,
@@ -478,7 +478,7 @@ impl<'a> DeclParser<'a> {
             implicit_parameter_decl_list,
             parameter_decl_list,
             curry_token,
-            output_ty,
+            return_ty,
             eol_colon,
         )
         .into())
@@ -623,7 +623,7 @@ impl<'a> DeclParser<'a> {
             todo!()
         };
         let curry_token = ctx.parse_expected2(DeclError::MissingCurry);
-        let output_ty = ctx.parse_expected2(DeclError::MissingOutputType);
+        let return_ty = ctx.parse_expected2(DeclError::MissingOutputType);
         let eol_colon = ctx.parse_expected2(DeclError::MissingEolColon);
         Ok(TypeMethodDecl::new(
             self.db,
@@ -634,7 +634,7 @@ impl<'a> DeclParser<'a> {
             implicit_parameter_decl_list,
             parameter_decl_list,
             curry_token,
-            output_ty,
+            return_ty,
             eol_colon,
         )
         .into())
@@ -665,7 +665,7 @@ impl<'a> DeclParser<'a> {
             _ => unreachable!(),
         };
         let curry_token = ctx.parse_expected2(DeclError::MissingCurry);
-        let output_ty = ctx.parse_expected2(DeclError::MissingOutputType);
+        let return_ty = ctx.parse_expected2(DeclError::MissingOutputType);
         let eol_colon = ctx.parse_expected2(DeclError::MissingEolColon);
         Ok(TypeMemoDecl::new(
             self.db,
@@ -674,7 +674,7 @@ impl<'a> DeclParser<'a> {
             ast_idx,
             parser.finish(),
             curry_token,
-            output_ty,
+            return_ty,
             eol_colon,
         )
         .into())
@@ -710,7 +710,7 @@ impl<'a> DeclParser<'a> {
             todo!()
         };
         let curry_token = ctx.parse_expected2(DeclError::MissingCurry);
-        let output_ty = ctx.parse_expected2(DeclError::MissingOutputType);
+        let return_ty = ctx.parse_expected2(DeclError::MissingOutputType);
         let eol_colon = ctx.parse_expected2(DeclError::MissingEolColon);
         Ok(TypeAsTraitMethodDecl::new(
             self.db,
@@ -721,7 +721,7 @@ impl<'a> DeclParser<'a> {
             implicit_parameter_decl_list,
             parameter_decl_list,
             curry_token,
-            output_ty,
+            return_ty,
             eol_colon,
         )
         .into())

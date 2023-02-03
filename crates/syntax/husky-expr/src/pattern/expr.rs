@@ -42,6 +42,7 @@ pub enum PatternExpr {
 pub(crate) type PatternExprArena = Arena<PatternExpr>;
 pub type PatternExprIdx = ArenaIdx<PatternExpr>;
 pub type PatternExprIdxRange = ArenaIdxRange<PatternExpr>;
+pub type PatternExprMap<V> = ArenaMap<PatternExpr, V>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum PatternLiason {

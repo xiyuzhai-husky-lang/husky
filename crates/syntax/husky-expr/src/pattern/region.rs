@@ -44,6 +44,10 @@ impl PatternExprRegion {
     pub fn pattern_info(&self, pattern_expr_idx: ArenaIdx<PatternExpr>) -> PatternExprInfo {
         self.pattern_infos[pattern_expr_idx.raw()]
     }
+
+    pub fn pattern_expr_arena(&self) -> &PatternExprArena {
+        &self.pattern_expr_arena
+    }
 }
 
 fn collect_symbols(

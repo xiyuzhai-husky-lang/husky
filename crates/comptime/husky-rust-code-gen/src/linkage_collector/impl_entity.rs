@@ -24,14 +24,14 @@ impl<'a> LinkageCollector<'a> {
         //     }
         //     EntityDefnVariant::Method {
         //         ref parameters,
-        //         output_ty,
+        //         return_ty,
         //         ref opt_source,
         //         ..
         //     } => {
         //         self.insert(defn.base_route);
         //         self.insert(defn.base_route.parent());
         //         self.collect_from_parameters(parameters);
-        //         self.insert(output_ty.route);
+        //         self.insert(return_ty.route);
         //         if let Some(source) = opt_source {
         //             self.collect_from_call_form_source(source)
         //         }

@@ -11,8 +11,15 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn infer_new_nonlast_stmt(&mut self, stmt_idx: StmtIdx) {
         match self.calc_stmt(stmt_idx, Expectation::UnitOrNever) {
-            Some(_) => todo!(),
-            None => todo!(),
+            Some(ty) => match ty {
+                LocalTerm::Resolved(ty) => match ty {
+                    ty if ty == self.term_menu.unit() => return,
+                    ty if ty == self.term_menu.never() => return,
+                    ty => todo!(),
+                },
+                LocalTerm::Unresolved(_) => todo!(),
+            },
+            None => (),
         }
     }
 
@@ -30,24 +37,28 @@ impl<'a> ExprTypeEngine<'a> {
             } => {
                 let pattern_ty = match let_variable_pattern {
                     Ok(pattern) => match pattern.ty() {
-                        Some(_) => todo!(),
+                        Some(ty) => todo!(),
                         None => {
-                            match initial_value {
-                                Ok(initial_value) => {
-                                    let ty = self.infer_new_expr(
+                            initial_value
+                                .as_ref()
+                                .ok()
+                                .map(|initial_value| {
+                                    self.infer_new_expr(
                                         *initial_value,
                                         // ad hoc
                                         Expectation::None,
-                                    );
-                                    todo!()
-                                }
-                                Err(_) => todo!(),
-                            }
+                                    )
+                                })
+                                .flatten()
                         }
                     },
                     Err(_) => todo!(),
                 };
-                todo!()
+                match pattern_ty {
+                    Some(_) => todo!(),
+                    None => (),
+                }
+                Some(self.term_menu.unit().into())
             }
             Stmt::Return { ref result, .. } => todo!(),
             Stmt::Require { ref condition, .. } => todo!(),

@@ -32,7 +32,7 @@ pub static NARROW_DOWN_DEFN: EntityStaticDefn = EntityStaticDefn {
             modifier: ParameterModifier::None,
             ty: "f32",
         }),
-        output_ty: "?TargetOutput",
+        return_ty: "?TargetOutput",
         output_liason: OutputModifier::Transfer,
         linkage: __Linkage::Model(__ModelLinkage(&NarrowDown)),
     },

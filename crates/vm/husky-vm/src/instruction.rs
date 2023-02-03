@@ -71,13 +71,13 @@ pub enum InstructionVariant {
     CallRoutine {
         resolved_linkage: __ResolvedLinkage,
         nargs: u8,
-        output_ty: Term,
+        return_ty: Term,
         discard: bool,
     },
     CallInterpreted {
         routine_uid: EntityUid,
         nargs: u8,
-        output_ty: Term,
+        return_ty: Term,
         discard: bool,
     },
     VirtualStructField {
@@ -94,7 +94,7 @@ pub enum InstructionVariant {
         loop_kind: VMLoopKind,
     },
     Return {
-        output_ty: Term,
+        return_ty: Term,
     },
     BreakIfFalse,
     Break,

@@ -18,7 +18,8 @@ pub(crate) struct ExprTypeEngine<'a> {
     inherited_symbol_tys: InheritedSymbolMap<Term>,
     current_symbol_ty_infos: CurrentSymbolMap<TypeInfo>,
     unresolved_term_table: UnresolvedTermTable,
-    output_ty: Option<Term>,
+    pattern_expr_tys: PatternExprMap<LocalTerm>,
+    return_ty: Option<Term>,
 }
 
 impl<'a> std::ops::Index<ExprIdx> for ExprTypeEngine<'a> {
@@ -32,10 +33,10 @@ impl<'a> std::ops::Index<ExprIdx> for ExprTypeEngine<'a> {
 impl<'a> ExprTypeEngine<'a> {
     pub(crate) fn new(db: &'a dyn ExprTypeDb, expr_region: ExprRegion) -> Self {
         let expr_region_data = expr_region.data(db);
-        let output_ty = expr_region_data
+        let return_ty = expr_region_data
             .parent()
             .map(|parent| {
-                db.expr_ty_region(parent)[parent.data(db).output_ty()?]
+                db.expr_ty_region(parent)[parent.data(db).return_ty()?]
                     .resolved_ty()
                     .as_ref()
                     .ok()
@@ -52,7 +53,10 @@ impl<'a> ExprTypeEngine<'a> {
             inherited_symbol_tys: InheritedSymbolMap::new(symbol_region.inherited_symbol_arena()),
             current_symbol_ty_infos: CurrentSymbolMap::new(symbol_region.current_symbol_arena()),
             unresolved_term_table: Default::default(),
-            output_ty,
+            return_ty: return_ty,
+            pattern_expr_tys: PatternExprMap::new(
+                expr_region_data.pattern_expr_region().pattern_expr_arena(),
+            ),
         }
     }
 

@@ -48,14 +48,14 @@ impl<'a> RustCodeGenerator<'a> {
         //                     _ => (),
         //                 }
         //                 self.write(")");
-        //                 let output_ty = entity_path
+        //                 let return_ty = entity_path
         //                     .spatial_arguments
         //                     .last()
         //                     .unwrap()
         //                     .take_entity_route();
-        //                 if output_ty != EntityRoutePtr::Root(RootBuiltinIdentifier::Void) {
+        //                 if return_ty != EntityRoutePtr::Root(RootBuiltinIdentifier::Void) {
         //                     self.write("->");
-        //                     self.gen_entity_route(output_ty, EntityRouteRole::StaticDecl)
+        //                     self.gen_entity_route(return_ty, EntityRouteRole::StaticDecl)
         //                 }
         //                 match role {
         //                     EntityRouteRole::StaticThinFpTyDecl { .. } => self.write(""),

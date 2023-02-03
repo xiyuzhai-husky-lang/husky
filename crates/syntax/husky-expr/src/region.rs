@@ -108,7 +108,7 @@ impl ExprRegionData {
         self.roots.as_ref()
     }
 
-    pub fn output_ty(&self) -> Option<ExprIdx> {
+    pub fn return_ty(&self) -> Option<ExprIdx> {
         self.roots
             .iter()
             .find_map(|root| (root.kind == ExprRootKind::OutputType).then_some(root.expr))

@@ -6,7 +6,7 @@ pub static VEC_COLLECT_REFS: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_modifier: ParameterModifier::EvalRef,
         parameters: &[],
-        output_ty: "[]&E",
+        return_ty: "[]&E",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(virtual_vec_collect_refs, none)),

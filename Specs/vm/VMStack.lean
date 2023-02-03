@@ -22,12 +22,12 @@ def exec (ins: Instruction) : VMStack :=
   | CallRoutine 
     resolved_linkage 
     nargs
-    output_ty
+    return_ty
     discard => sorry
   | CallInterpreted 
     routine_uid
     nargs
-    output_ty
+    return_ty
     discard   => sorry
   | VirtualStructField
     field_idx
@@ -40,7 +40,7 @@ def exec (ins: Instruction) : VMStack :=
     body 
     loop_kind  => sorry
   | Return 
-    output_ty => sorry
+    return_ty => sorry
   | BreakIfFalse => sorry
   | Break => sorry
   | Assert => sorry

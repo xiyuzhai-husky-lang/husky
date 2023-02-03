@@ -2,9 +2,8 @@ use crate::*;
 use thiserror::Error;
 
 pub type TypeResult<T> = Result<T, TypeError>;
-pub type TypeResultRef<'a, T> = Result<T, &'a TypeError>;
 
-#[derive(Debug, Error, PartialEq, Eq)]
+#[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum TypeError {
     #[error("original `{0}`")]
     Original(OriginalTypeError),
@@ -24,10 +23,10 @@ impl From<DerivedTypeError> for TypeError {
     }
 }
 
-#[derive(Debug, Error, PartialEq, Eq)]
+#[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum OriginalTypeError {}
 
-#[derive(Debug, Error, PartialEq, Eq)]
+#[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum DerivedTypeError {
     #[error("signature error")]
     SignatureError,
