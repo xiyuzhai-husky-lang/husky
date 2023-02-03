@@ -24,7 +24,11 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     fn infer_new_last_stmt(&mut self, stmt_idx: StmtIdx) -> Option<LocalTerm> {
-        todo!()
+        let expectation = match self.return_ty {
+            Some(_) => todo!(),
+            None => Expectation::None,
+        };
+        self.calc_stmt(stmt_idx, expectation)
     }
 
     fn calc_stmt(&mut self, stmt_idx: StmtIdx, expr_expectation: Expectation) -> Option<LocalTerm> {

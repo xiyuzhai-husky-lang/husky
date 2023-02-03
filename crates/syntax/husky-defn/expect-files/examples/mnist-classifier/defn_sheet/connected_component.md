@@ -556,7 +556,7 @@ Ok(
                                     ),
                                 },
                             ),
-                            output_ty: Ok(
+                            return_ty: Ok(
                                 OutputTypeExpr {
                                     expr: 3,
                                 },
@@ -1265,7 +1265,7 @@ Ok(
                                     ),
                                 },
                             ),
-                            output_ty: Ok(
+                            return_ty: Ok(
                                 OutputTypeExpr {
                                     expr: 2,
                                 },
@@ -2344,7 +2344,7 @@ Ok(
                                     ),
                                 },
                             ),
-                            output_ty: Ok(
+                            return_ty: Ok(
                                 OutputTypeExpr {
                                     expr: 3,
                                 },
@@ -5183,7 +5183,7 @@ Ok(
                                         ),
                                     },
                                 ),
-                                output_ty: Ok(
+                                return_ty: Ok(
                                     OutputTypeExpr {
                                         expr: 2,
                                     },
@@ -5654,7 +5654,7 @@ Ok(
                                         ),
                                     },
                                 ),
-                                output_ty: Ok(
+                                return_ty: Ok(
                                     OutputTypeExpr {
                                         expr: 0,
                                     },
@@ -6569,7 +6569,7 @@ Ok(
                                         ),
                                     },
                                 ),
-                                output_ty: Ok(
+                                return_ty: Ok(
                                     OutputTypeExpr {
                                         expr: 0,
                                     },
@@ -7562,7 +7562,7 @@ Ok(
                                         ),
                                     },
                                 ),
-                                output_ty: Ok(
+                                return_ty: Ok(
                                     OutputTypeExpr {
                                         expr: 0,
                                     },
@@ -8332,7 +8332,7 @@ Ok(
                                         ),
                                     },
                                 ),
-                                output_ty: Ok(
+                                return_ty: Ok(
                                     OutputTypeExpr {
                                         expr: 0,
                                     },
@@ -9072,7 +9072,7 @@ Ok(
                                         ),
                                     },
                                 ),
-                                output_ty: Ok(
+                                return_ty: Ok(
                                     OutputTypeExpr {
                                         expr: 0,
                                     },
@@ -10734,7 +10734,7 @@ Ok(
                                         ),
                                     },
                                 ),
-                                output_ty: Ok(
+                                return_ty: Ok(
                                     OutputTypeExpr {
                                         expr: 0,
                                     },
@@ -11211,7 +11211,7 @@ Ok(
                                         ),
                                     },
                                 ),
-                                output_ty: Ok(
+                                return_ty: Ok(
                                     OutputTypeExpr {
                                         expr: 0,
                                     },
@@ -11774,7 +11774,7 @@ Ok(
                                         ),
                                     },
                                 ),
-                                output_ty: Ok(
+                                return_ty: Ok(
                                     OutputTypeExpr {
                                         expr: 1,
                                     },
@@ -12895,7 +12895,7 @@ Ok(
                                         ),
                                     },
                                 ),
-                                output_ty: Ok(
+                                return_ty: Ok(
                                     OutputTypeExpr {
                                         expr: 1,
                                     },

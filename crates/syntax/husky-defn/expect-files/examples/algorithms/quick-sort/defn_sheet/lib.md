@@ -245,7 +245,7 @@ Ok(
                                     ),
                                 ),
                             ),
-                            output_ty: Err(
+                            return_ty: Err(
                                 MissingOutputType(
                                     TokenIdx(
                                         17,
@@ -1078,7 +1078,7 @@ Ok(
                                     ),
                                 ),
                             ),
-                            output_ty: Err(
+                            return_ty: Err(
                                 MissingOutputType(
                                     TokenIdx(
                                         64,
@@ -2164,7 +2164,7 @@ Ok(
                                     ),
                                 },
                             ),
-                            output_ty: Ok(
+                            return_ty: Ok(
                                 OutputTypeExpr {
                                     expr: 6,
                                 },
@@ -3543,7 +3543,7 @@ Ok(
                                     ),
                                 ),
                             ),
-                            output_ty: Err(
+                            return_ty: Err(
                                 MissingOutputType(
                                     TokenIdx(
                                         228,
@@ -3952,7 +3952,7 @@ Ok(
                                     ),
                                 ),
                             ),
-                            output_ty: Err(
+                            return_ty: Err(
                                 MissingOutputType(
                                     TokenIdx(
                                         288,
