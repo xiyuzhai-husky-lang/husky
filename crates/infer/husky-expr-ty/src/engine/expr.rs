@@ -131,8 +131,15 @@ impl<'a> ExprTypeEngine<'a> {
                 arguments,
                 ..
             } => {
-                let this_expr_ty = self.infer_new_expr_resolved(*this_expr, Expectation::None);
-                p!(this_expr_ty.debug(self.db));
+                let Some(this_expr_ty) =
+                    self.infer_new_expr_resolved(*this_expr, Expectation::None)
+                    else {
+                        todo!()
+                    };
+                let method_ty = match self.db.ty_method_ty(this_expr_ty, ident_token.ident()) {
+                    Ok(_) => todo!(),
+                    Err(e) => return Err(e.into()),
+                };
                 todo!()
             }
             Expr::TemplateInstantiation {

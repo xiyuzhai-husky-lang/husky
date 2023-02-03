@@ -246,7 +246,7 @@ impl HuskyDevtime {
             TraceVariant::EagerCallArgument { .. } => todo!(),
             TraceVariant::Module { .. } | TraceVariant::CallHead { .. } => panic!(),
         };
-        assert!(ty == self.runtime().target_output_ty().unwrap());
+        assert!(ty == self.runtime().target_return_ty().unwrap());
         let label_downcast_result = self.runtime().register_to_label_converter()(&value);
         let true_label = self.runtime.session().dev().label(sample_id);
         match label_downcast_result {

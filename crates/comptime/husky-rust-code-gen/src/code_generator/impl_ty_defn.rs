@@ -236,7 +236,7 @@ impl From<i32> for {tyname} {{
             EntityDefnVariant::Method {
                 this_modifier: this_contract,
                 ref parameters,
-                output_ty,
+                return_ty,
                 opt_source: Some(ref source),
                 ..
             } => {
@@ -267,7 +267,7 @@ impl From<i32> for {tyname} {{
                     self.gen_parameter(parameter)
                 }
                 self.write(") -> ");
-                self.gen_entity_route(output_ty.route, EntityRouteRole::Decl);
+                self.gen_entity_route(return_ty.route, EntityRouteRole::Decl);
                 self.write(" {\n");
                 self.gen_call_form_source(source);
                 self.write("    }\n");
@@ -311,7 +311,7 @@ impl From<i32> for {tyname} {{
                         self.write("(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval ");
                         self.gen_entity_route(return_ty.route.intrinsic(), EntityRouteRole::Decl);
                         let route = ty_member.base_route;
-                        let mangled_output_ty_vtable =
+                        let mangled_return_ty_vtable =
                             self.db.mangled_intrinsic_ty_vtable(return_ty.route);
                         self.write(&format!(
                             r#" {{
@@ -322,7 +322,7 @@ impl From<i32> for {tyname} {{
     ) {{
         return __result
             .unwrap()
-            .downcast_{}eval_ref(&__registration__::{mangled_output_ty_vtable});
+            .downcast_{}eval_ref(&__registration__::{mangled_return_ty_vtable});
     }}
 "#,
                             match return_ty.route.is_option() {
@@ -350,7 +350,7 @@ impl From<i32> for {tyname} {{
                         self.write("(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval ");
                         self.gen_entity_route(return_ty.route.intrinsic(), EntityRouteRole::Decl);
                         let route = ty_member.base_route;
-                        let mangled_output_ty_vtable =
+                        let mangled_return_ty_vtable =
                             self.db.mangled_intrinsic_ty_vtable(return_ty.route);
                         self.write(&format!(
                             r#" {{
@@ -361,7 +361,7 @@ impl From<i32> for {tyname} {{
     ) {{
         return __result
             .unwrap()
-            .downcast_{}eval_ref(&__registration__::{mangled_output_ty_vtable});
+            .downcast_{}eval_ref(&__registration__::{mangled_return_ty_vtable});
     }}
 "#,
                             match return_ty.route.is_option() {

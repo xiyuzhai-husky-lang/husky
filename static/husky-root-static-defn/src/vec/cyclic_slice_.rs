@@ -19,7 +19,7 @@ pub static VEC_CYCLIC_SLICE: EntityStaticDefn = EntityStaticDefn {
                 ty: "i32",
             },
         ],
-        output_ty: "[%]E",
+        return_ty: "[%]E",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(virtual_vec_cyclic_slice, none)),

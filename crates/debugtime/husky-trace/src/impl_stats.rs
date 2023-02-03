@@ -127,9 +127,9 @@ fn feature_opt_stats<'eval>(
     _opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
 ) -> __VMResult<Option<TraceStats>> {
     todo!()
-    // let target_output_ty = db.target_output_ty().unwrap();
+    // let target_return_ty = db.target_return_ty().unwrap();
     // // todo check this could cause some problem
-    // if !db.is_implicitly_castable(feature_ty, target_output_ty) {
+    // if !db.is_implicitly_castable(feature_ty, target_return_ty) {
     //     return Ok(None);
     // }
     // let mut dev_samples = 0;

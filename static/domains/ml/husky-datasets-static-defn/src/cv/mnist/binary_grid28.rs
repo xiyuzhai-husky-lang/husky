@@ -28,7 +28,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                             ty: "i32",
                             name: "todo!()",
                         }],
-                        output_ty: "r32",
+                        return_ty: "r32",
                         output_liason: OutputModifier::MemberAccess {
                             member_liason: MemberModifier::Mutable,
                         },
@@ -66,7 +66,7 @@ pub static BINARY_GRID28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         parameters: &[],
         variadic_template: StaticVariadicParameterDecl::None,
-        output_ty: "cv::datasets::mnist::BinaryGrid28",
+        return_ty: "cv::datasets::mnist::BinaryGrid28",
         output_liason: OutputModifier::Transfer,
         linkage: transfer_linkage!(
             |_, _values| __Register::new_box(BinaryGrid28::default(), &__BINARY_GRID_28_VTABLE),

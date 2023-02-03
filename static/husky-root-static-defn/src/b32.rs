@@ -34,7 +34,7 @@ pub static B32_LEADING_ZEROS: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_modifier: ParameterModifier::None,
         parameters: &[],
-        output_ty: "i32",
+        return_ty: "i32",
         output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -52,7 +52,7 @@ pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_modifier: ParameterModifier::None,
         parameters: &[],
-        output_ty: "i32",
+        return_ty: "i32",
         output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -70,7 +70,7 @@ pub static B32_COUNT_ONES: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_modifier: ParameterModifier::None,
         parameters: &[],
-        output_ty: "i32",
+        return_ty: "i32",
         output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -88,7 +88,7 @@ pub static B32_SPAN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_modifier: ParameterModifier::None,
         parameters: &[],
-        output_ty: "i32",
+        return_ty: "i32",
         output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -106,7 +106,7 @@ pub static B32_RIGHT_MASS: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_modifier: ParameterModifier::None,
         parameters: &[],
-        output_ty: "i32",
+        return_ty: "i32",
         output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -128,7 +128,7 @@ pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
             modifier: ParameterModifier::None,
             ty: "i32",
         }],
-        output_ty: "r32",
+        return_ty: "r32",
         output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,

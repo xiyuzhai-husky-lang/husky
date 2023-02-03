@@ -8,6 +8,7 @@ pub struct TermMenu0 {
     ty0: TermCategory,
     eval_lifetime: TermLiteral,
     unit: Term,
+    never: Term,
     core: Term,
     core_ops: Term,
     // core::ops::Add	The addition operator +.
@@ -99,6 +100,7 @@ impl TermMenu0 {
             vec_ty: Term::Entity(entity_path_menu.vec_ty().into()),
             std: Term::Entity(vfs_path_menu.std().into()),
             unit: Term::Entity(entity_path_menu.unit().into()),
+            never: Term::Entity(entity_path_menu.never().into()),
             bool: Term::Entity(entity_path_menu.bool().into()),
             trai_ty: Term::Entity(entity_path_menu.trai_ty().into()),
             lifetime_ty: Term::Entity(entity_path_menu.lifetime_ty().into()),
@@ -219,6 +221,10 @@ impl TermMenu0 {
 
     pub fn unit(&self) -> Term {
         self.unit
+    }
+
+    pub fn never(&self) -> Term {
+        self.never
     }
 
     pub fn trai(&self) -> Term {

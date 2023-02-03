@@ -398,7 +398,7 @@ impl<'a> RustCodeGenerator<'a> {
     //     &mut self,
     //     indent: Indent,
     //     result: &EagerExpr,
-    //     output_ty: EntityRoutePtr,
+    //     return_ty: EntityRoutePtr,
     // ) {
     //     let mangled_intrinsic_ty_vtable =
     //         self.db.mangled_intrinsic_ty_vtable(result.intrinsic_ty());
@@ -410,7 +410,7 @@ impl<'a> RustCodeGenerator<'a> {
     //         __feature,
     //         Ok(__Register::new_box::<"#,
     //             );
-    //             self.gen_entity_route(output_ty.intrinsic(), EntityRouteRole::Decl);
+    //             self.gen_entity_route(return_ty.intrinsic(), EntityRouteRole::Decl);
     //             self.write(">(");
     //             self.gen_expr(indent, result);
     //             self.write(&format!(
@@ -418,7 +418,7 @@ impl<'a> RustCodeGenerator<'a> {
     //     )
     //     .unwrap()
     //     .downcast_{}eval_ref(&__registration__::{mangled_intrinsic_ty_vtable})"#,
-    //                 match output_ty.is_option() {
+    //                 match return_ty.is_option() {
     //                     true => "opt_",
     //                     false => "",
     //                 }
@@ -431,14 +431,14 @@ impl<'a> RustCodeGenerator<'a> {
     //         __feature,
     //         Ok(__Register::new_eval_ref::<"#,
     //             );
-    //             self.gen_entity_route(output_ty.intrinsic(), EntityRouteRole::Decl);
+    //             self.gen_entity_route(return_ty.intrinsic(), EntityRouteRole::Decl);
     //             self.write(r#">(&("#);
     //             self.gen_expr(indent, result);
     //             self.write(&format!(
     //                 r#"), &__registration__::{mangled_intrinsic_ty_vtable}).into()),
     //     )
     //     .unwrap().downcast_{}eval_ref(&__registration__::{mangled_intrinsic_ty_vtable})"#,
-    //                 match output_ty.is_option() {
+    //                 match return_ty.is_option() {
     //                     true => "opt_",
     //                     false => "",
     //                 }
@@ -454,7 +454,7 @@ impl<'a> RustCodeGenerator<'a> {
     //     &mut self,
     //     indent: Indent,
     //     result: &EagerExpr,
-    //     output_ty: EntityRoutePtr,
+    //     return_ty: EntityRoutePtr,
     // ) {
     //     let mangled_intrinsic_ty_vtable =
     //         self.db.mangled_intrinsic_ty_vtable(result.intrinsic_ty());
@@ -466,13 +466,13 @@ impl<'a> RustCodeGenerator<'a> {
     //     __uid,
     //     Ok(__Register::new_box::<"#,
     //             );
-    //             self.gen_entity_route(output_ty.intrinsic(), EntityRouteRole::Decl);
+    //             self.gen_entity_route(return_ty.intrinsic(), EntityRouteRole::Decl);
     //             self.write(r#">("#);
     //             self.gen_expr(indent, result);
     //             self.write(format!(
     //                 r#", &__registration__::{mangled_intrinsic_ty_vtable}))
     // ).unwrap().downcast_{}eval_ref(&__registration__::{mangled_intrinsic_ty_vtable})"#,
-    //                 match output_ty.is_option() {
+    //                 match return_ty.is_option() {
     //                     true => "opt_",
     //                     false => "",
     //                 }
@@ -484,18 +484,18 @@ impl<'a> RustCodeGenerator<'a> {
     //     self as *const _ as *const std::ffi::c_void,
     //     __uid,
     //     Ok(__Register::new_{}eval_ref::<"#,
-    //                 match output_ty.is_option() {
+    //                 match return_ty.is_option() {
     //                     true => "opt_",
     //                     false => "",
     //                 }
     //             ));
-    //             self.gen_entity_route(output_ty.intrinsic(), EntityRouteRole::Decl);
+    //             self.gen_entity_route(return_ty.intrinsic(), EntityRouteRole::Decl);
     //             self.write(r#">(&("#);
     //             self.gen_expr(indent, result);
     //             self.write(format!(
     //                 r#"), &__registration__::{mangled_intrinsic_ty_vtable})).into()
     // ).unwrap().downcast_{}eval_ref(&__registration__::{mangled_intrinsic_ty_vtable})"#,
-    //                 match output_ty.is_option() {
+    //                 match return_ty.is_option() {
     //                     true => "opt_",
     //                     false => "",
     //                 }

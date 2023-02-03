@@ -39,7 +39,7 @@ pub static F32_MIN: EntityStaticDefn = EntityStaticDefn {
             modifier: ParameterModifier::None,
             ty: "f32",
         }],
-        output_ty: "f32",
+        return_ty: "f32",
         output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -65,7 +65,7 @@ pub static F32_MAX: EntityStaticDefn = EntityStaticDefn {
             modifier: ParameterModifier::None,
             ty: "f32",
         }],
-        output_ty: "f32",
+        return_ty: "f32",
         output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -84,7 +84,7 @@ pub static F32_SGN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_modifier: ParameterModifier::None,
         parameters: &[],
-        output_ty: "i32",
+        return_ty: "i32",
         output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -102,7 +102,7 @@ pub static F32_ABS: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_modifier: ParameterModifier::None,
         parameters: &[],
-        output_ty: "f32",
+        return_ty: "f32",
         output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -119,7 +119,7 @@ pub static F32_SQRT: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_modifier: ParameterModifier::None,
         parameters: &[],
-        output_ty: "f32",
+        return_ty: "f32",
         output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -136,7 +136,7 @@ pub static F32_COS: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_modifier: ParameterModifier::None,
         parameters: &[],
-        output_ty: "f32",
+        return_ty: "f32",
         output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -153,7 +153,7 @@ pub static F32_SIN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_modifier: ParameterModifier::None,
         parameters: &[],
-        output_ty: "f32",
+        return_ty: "f32",
         output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -170,7 +170,7 @@ pub static F32_TAN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_modifier: ParameterModifier::None,
         parameters: &[],
-        output_ty: "f32",
+        return_ty: "f32",
         output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -187,7 +187,7 @@ pub static F32_ACOS: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_modifier: ParameterModifier::None,
         parameters: &[],
-        output_ty: "f32",
+        return_ty: "f32",
         output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -205,7 +205,7 @@ pub static F32_ASIN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_modifier: ParameterModifier::None,
         parameters: &[],
-        output_ty: "f32",
+        return_ty: "f32",
         output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
@@ -222,7 +222,7 @@ pub static F32_ATAN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_modifier: ParameterModifier::None,
         parameters: &[],
-        output_ty: "f32",
+        return_ty: "f32",
         output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,

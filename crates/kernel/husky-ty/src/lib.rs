@@ -2,6 +2,7 @@
 mod db;
 mod entity;
 mod error;
+mod method;
 mod term;
 #[cfg(test)]
 mod tests;
@@ -15,6 +16,8 @@ use husky_entity_path::*;
 use husky_entity_taxonomy::*;
 use husky_signature::*;
 use husky_term::*;
+use husky_word::*;
+use method::*;
 use term::*;
 use variance::*;
 
@@ -34,4 +37,6 @@ pub struct TypeJar(
     form_entity_variance_crate_dependencies,
     application_expansion_salsa,
     ApplicationArguments,
+    entity_ty_method_ty,
+    application_ty_method_ty,
 );

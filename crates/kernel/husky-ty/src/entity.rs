@@ -1,20 +1,20 @@
 use crate::*;
 
-pub(crate) fn entity_ty(db: &dyn TypeDb, entipath: EntityPath) -> Result<Term, &TypeError> {
+pub(crate) fn entity_ty(db: &dyn TypeDb, entipath: EntityPath) -> TypeResult<Term> {
     let term_menu = db.term_menu(entipath.toolchain(db)).as_ref().unwrap();
     match entipath {
         EntityPath::Module(_) => todo!(),
         EntityPath::ModuleItem(path) => match path {
-            ModuleItemPath::Type(path) => ty_entity_ty(db, path).as_ref().copied(),
-            ModuleItemPath::Trait(path) => trai_entity_ty(db, path).as_ref().copied(),
-            ModuleItemPath::Form(path) => form_entity_ty(db, path).as_ref().copied(),
+            ModuleItemPath::Type(path) => ty_entity_ty(db, path),
+            ModuleItemPath::Trait(path) => trai_entity_ty(db, path),
+            ModuleItemPath::Form(path) => form_entity_ty(db, path),
         },
         EntityPath::AssociatedItem(_) => todo!(),
         EntityPath::Variant(_) => todo!(),
     }
 }
 
-#[salsa::tracked(jar = TypeJar, return_ref)]
+#[salsa::tracked(jar = TypeJar)]
 pub(crate) fn ty_entity_ty(db: &dyn TypeDb, path: TypePath) -> TypeResult<Term> {
     let term_menu = db.term_menu(path.toolchain(db)).as_ref().unwrap();
     let decl = match db.ty_decl(path) {
@@ -36,7 +36,7 @@ pub(crate) fn ty_entity_ty(db: &dyn TypeDb, path: TypePath) -> TypeResult<Term> 
     ))
 }
 
-#[salsa::tracked(jar = TypeJar, return_ref)]
+#[salsa::tracked(jar = TypeJar)]
 pub(crate) fn trai_entity_ty(db: &dyn TypeDb, path: TraitPath) -> TypeResult<Term> {
     let term_menu = db.term_menu(path.toolchain(db)).as_ref().unwrap();
     let decl = match db.trai_decl(path) {
@@ -58,7 +58,7 @@ pub(crate) fn trai_entity_ty(db: &dyn TypeDb, path: TraitPath) -> TypeResult<Ter
     ))
 }
 
-#[salsa::tracked(jar = TypeJar, return_ref)]
+#[salsa::tracked(jar = TypeJar)]
 pub(crate) fn form_entity_ty(db: &dyn TypeDb, path: FormPath) -> TypeResult<Term> {
     let decl = match db.form_decl(path) {
         Ok(decl) => decl,
@@ -93,12 +93,12 @@ pub(crate) fn function_entity_ty(
         .iter()
         .map(|param| TermDurantParameter::new(param.ty()))
         .collect();
-    let output_ty = signature.output_ty(db);
+    let return_ty = signature.return_ty(db);
     Ok(curry_from_implicit_parameter_tys(
         db,
         variances,
         signature.implicit_parameters(db),
-        TermDurant::new(db, TermDurantKind::Fp, param_tys, output_ty).into(),
+        TermDurant::new(db, TermDurantKind::Fp, param_tys, return_ty).into(),
     ))
 }
 
@@ -107,7 +107,7 @@ pub(crate) fn feature_entity_ty(
     signature: FeatureSignature,
     term_menu: &TermMenu,
 ) -> TypeResult<Term> {
-    Ok(signature.output_ty(db))
+    Ok(signature.return_ty(db))
 }
 
 fn curry_from_implicit_parameter_tys(

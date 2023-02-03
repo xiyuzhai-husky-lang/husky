@@ -24,6 +24,7 @@ pub(crate) fn application_expansion_salsa(
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = TypeDb, jar = TypeJar)]
 pub(crate) struct ApplicationExpansion {
     f: Term,
     arguments: Option<ApplicationArguments>,

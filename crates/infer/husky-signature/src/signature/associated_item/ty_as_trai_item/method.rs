@@ -10,14 +10,14 @@ pub(crate) fn ty_as_trai_method_signature(
     let signature_term_region = signature_term_region(db, expr_region);
     let term_menu = db.term_menu(expr_region.toolchain(db)).as_ref().unwrap();
     todo!()
-    // let output_ty = match decl.output_ty(db) {
-    //     Ok(output_ty) => engine.query_new(*output_ty),
+    // let return_ty = match decl.return_ty(db) {
+    //     Ok(return_ty) => engine.query_new(*return_ty),
     //     Err(_) =>  Err(SignatureTermAbortion::ExprError),
     // };
     // let parameters = ParameterSignatures::from_decl(decl.parameters(db), signature_term_region);
     // let implicit_parameters =
     //     ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), signature_term_region);
-    // TypeAsTraitMethodSignature::new(db, implicit_parameters, parameters, output_ty)
+    // TypeAsTraitMethodSignature::new(db, implicit_parameters, parameters, return_ty)
 }
 
 #[salsa::interned(db = SignatureDb, jar = SignatureJar)]
@@ -26,5 +26,5 @@ pub struct TypeAsTraitMethodSignature {
     pub implicit_parameters: ImplicitParameterSignatures,
     #[return_ref]
     pub parameters: RegularParameterSignatures,
-    pub output_ty: Term,
+    pub return_ty: Term,
 }

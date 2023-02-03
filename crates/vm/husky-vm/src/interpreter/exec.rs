@@ -108,7 +108,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         //         InstructionVariant::CallRoutine {
         //             resolved_linkage,
         //             nargs,
-        //             output_ty,
+        //             return_ty,
         //             discard,
         //         } => {
         //             // p!(ins.src.file(), ins.src.text_range());
@@ -130,7 +130,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         //                             VMControl::Err(ref e) => Err(e.clone().into()),
         //                             _ => Ok(self.stack.eval_top()),
         //                         },
-        //                         ty: output_ty,
+        //                         ty: return_ty,
         //                     },
         //                 ),
         //             }
@@ -139,7 +139,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         //         InstructionVariant::CallInterpreted {
         //             routine_uid,
         //             nargs, // including this
-        //             output_ty,
+        //             return_ty,
         //             discard,
         //         } => {
         //             let instruction_sheet =
@@ -156,7 +156,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         //                         ins,
         //                         HistoryEntry::PureExpr {
         //                             result,
-        //                             ty: output_ty,
+        //                             ty: return_ty,
         //                         },
         //                     );
         //                 }

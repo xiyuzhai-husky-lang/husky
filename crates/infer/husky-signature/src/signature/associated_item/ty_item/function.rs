@@ -13,5 +13,5 @@ pub(crate) fn ty_associated_function_signature(
 
 #[salsa::tracked(db = SignatureDb, jar = SignatureJar)]
 pub struct TypeAssociatedFunctionSignature {
-    pub output_ty: Term,
+    pub return_ty: Term,
 }

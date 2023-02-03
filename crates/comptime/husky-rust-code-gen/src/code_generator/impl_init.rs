@@ -147,11 +147,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //                     let method_name = entity_path.ident().as_str();
         //                     let mangled_intrinsic_ty_vtable =
         //                         self.db.mangled_intrinsic_ty_vtable(parent);
-        //                     let mangled_output_ty_vtable = self
+        //                     let mangled_return_ty_vtable = self
         //                         .db
         //                         .mangled_intrinsic_ty_vtable(call_form_decl.output.ty());
         //                     self.write(&format!(
-        //                         ", __registration__::{mangled_intrinsic_ty_vtable}, __registration__::{mangled_output_ty_vtable}, {method_name})"
+        //                         ", __registration__::{mangled_intrinsic_ty_vtable}, __registration__::{mangled_return_ty_vtable}, {method_name})"
         //                     ))
         //                 }
         //                 _ => {
@@ -211,7 +211,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //     );
     }
 
-    fn gen_eager_feature_linkage_entry(&mut self, entity_path: EntityPath, output_ty: Term) {
+    fn gen_eager_feature_linkage_entry(&mut self, entity_path: EntityPath, return_ty: Term) {
         self.write(&format!(
             r#"
     (
@@ -219,16 +219,16 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             route: "{route}"
         }},
         {}feature_linkage!("#,
-            match output_ty.is_option() {
+            match return_ty.is_option() {
                 true => "opt_",
                 false => "",
             }
         ));
         self.gen_entity_route(route, EntityRouteRole::Caller);
         self.write(", ");
-        self.gen_entity_route(output_ty.intrinsic(), EntityRouteRole::Decl);
+        self.gen_entity_route(return_ty.intrinsic(), EntityRouteRole::Decl);
         self.write(", __registration__::");
-        self.write(&self.db.mangled_intrinsic_ty_vtable(output_ty));
+        self.write(&self.db.mangled_intrinsic_ty_vtable(return_ty));
         self.write(
             r#"),
     ),"#,

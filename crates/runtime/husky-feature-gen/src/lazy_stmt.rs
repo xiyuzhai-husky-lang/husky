@@ -170,7 +170,7 @@ impl FeatureLazyStmt {
         //     eval_id: Default::default(),
         //     opt_arrival_indicator: opt_arrival_indicator.map(|s| s.clone()),
         //     stmt: lazy_stmt.clone(),
-        //     return_ty: lazy_stmt.output_ty.route, // needs to instantiate this
+        //     return_ty: lazy_stmt.return_ty.route, // needs to instantiate this
         // })
     }
 

@@ -17,9 +17,9 @@ pub fn function_signature(
 
     let parameters =
         RegularParameterSignatures::from_decl(decl.parameters(db), signature_term_region)?;
-    let output_ty = match decl.output_ty(db) {
-        Ok(output_ty) => match signature_term_region.expr_term(output_ty.expr()) {
-            Ok(output_ty) => output_ty,
+    let return_ty = match decl.return_ty(db) {
+        Ok(return_ty) => match signature_term_region.expr_term(return_ty.expr()) {
+            Ok(return_ty) => return_ty,
             Err(_) => todo!(),
         },
         Err(_) => return Err(SignatureError::ExprError),
@@ -28,7 +28,7 @@ pub fn function_signature(
         db,
         implicit_parameters,
         parameters,
-        output_ty,
+        return_ty,
     ))
 }
 
@@ -38,7 +38,7 @@ pub struct FunctionSignature {
     pub implicit_parameters: ImplicitParameterSignatures,
     #[return_ref]
     pub parameters: RegularParameterSignatures,
-    pub output_ty: Term,
+    pub return_ty: Term,
 }
 
 impl FunctionSignature {}

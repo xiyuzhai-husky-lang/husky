@@ -4,6 +4,7 @@ pub struct WordMenu {
     std: Identifier,
     core: Identifier,
     unit: Identifier,
+    never: Identifier,
     bool: Identifier,
     i32: Identifier,
     i64: Identifier,
@@ -25,6 +26,7 @@ impl WordMenu {
             core: db.it_ident_borrowed("core").unwrap(),
             std: db.it_ident_borrowed("std").unwrap(),
             unit: db.it_ident_borrowed("unit").unwrap(),
+            never: db.it_ident_borrowed("never").unwrap(),
             bool: db.it_ident_borrowed("bool").unwrap(),
             i32: db.it_ident_borrowed("i32").unwrap(),
             i64: db.it_ident_borrowed("i64").unwrap(),
@@ -103,5 +105,9 @@ impl WordMenu {
 
     pub fn lifetime_ty(&self) -> Identifier {
         self.lifetime_ty
+    }
+
+    pub fn never(&self) -> Identifier {
+        self.never
     }
 }

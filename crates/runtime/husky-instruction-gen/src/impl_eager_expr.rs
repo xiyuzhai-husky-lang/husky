@@ -89,7 +89,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //                     field_binding,
         //                 ) {
         //                     InstructionVariant::CallRoutine {
-        //                         output_ty: expr.intrinsic_ty(),
+        //                         return_ty: expr.intrinsic_ty(),
         //                         nargs: 1,
         //                         resolved_linkage: linkage,
         //                         discard,
@@ -196,7 +196,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //                 __Linkage::Transfer(resolved_linkage) => {
         //                     self.push_instruction(Instruction::new(
         //                         InstructionVariant::CallRoutine {
-        //                             output_ty: expr.intrinsic_ty(),
+        //                             return_ty: expr.intrinsic_ty(),
         //                             nargs: opds.len().try_into().unwrap(),
         //                             resolved_linkage,
         //                             discard,
@@ -211,7 +211,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //                 InstructionVariant::CallInterpreted {
         //                     routine_uid: self.db.entity_uid(routine.route),
         //                     nargs: opds.len().try_into().unwrap(),
-        //                     output_ty: expr.intrinsic_ty(),
+        //                     return_ty: expr.intrinsic_ty(),
         //                     discard,
         //                 },
         //                 expr.clone(),
@@ -234,7 +234,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //                 InstructionVariant::CallRoutine {
         //                     resolved_linkage: linkage,
         //                     nargs: 1,
-        //                     output_ty: expr.intrinsic_ty(),
+        //                     return_ty: expr.intrinsic_ty(),
         //                     discard,
         //                 }
         //             } else {
@@ -324,7 +324,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //         //         if let Some(linkage) = self.db.type_call_linkage(ranged_ty.route) {
         //         //             match linkage {
         //         //                 __Linkage::Transfer(linkage) => InstructionVariant::CallRoutine {
-        //         //                     output_ty: expr.intrinsic_ty(),
+        //         //                     return_ty: expr.intrinsic_ty(),
         //         //                     nargs: opds.len().try_into().unwrap(),
         //         //                     resolved_linkage: linkage,
         //         //                     discard,
@@ -366,15 +366,15 @@ impl<'a> InstructionSheetBuilder<'a> {
         //     EagerOpnVariant::NewVecFromList => {
         //         // no discard
         //         assert!(!discard);
-        //         let output_ty = expr.intrinsic_ty();
-        //         let linkage = self.db.type_call_linkage(output_ty).unwrap();
+        //         let return_ty = expr.intrinsic_ty();
+        //         let linkage = self.db.type_call_linkage(return_ty).unwrap();
         //         self.push_instruction(Instruction::new(
         //             match linkage {
         //                 __Linkage::Member(_) => todo!(),
         //                 __Linkage::Transfer(linkage) => InstructionVariant::CallRoutine {
         //                     resolved_linkage: linkage,
         //                     nargs: opds.len().try_into().unwrap(),
-        //                     output_ty,
+        //                     return_ty,
         //                     discard,
         //                 },
         //                 __Linkage::Model(_) => todo!(),
@@ -386,7 +386,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //         InstructionVariant::CallRoutine {
         //             resolved_linkage: __VALUE_CALL_LINKAGE.transfer(),
         //             nargs: opds.len().try_into().unwrap(),
-        //             output_ty: expr.intrinsic_ty(),
+        //             return_ty: expr.intrinsic_ty(),
         //             discard,
         //         },
         //         expr.clone(),
@@ -496,7 +496,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //         EagerSuffixOpr::Unveil => todo!(),
         //     },
         //     nargs: 1,
-        //     output_ty: expr.intrinsic_ty(),
+        //     return_ty: expr.intrinsic_ty(),
         //     discard,
         // };
         // let instruction = Instruction::new(ins_variant, expr.clone());
@@ -538,7 +538,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //                 BinaryOpr::As => todo!(),
         //             },
         //             nargs: 2,
-        //             output_ty: expr.intrinsic_ty(),
+        //             return_ty: expr.intrinsic_ty(),
         //             discard,
         //         };
         //         let instruction = Instruction::new(ins_kind, expr.clone());
@@ -565,14 +565,14 @@ impl<'a> InstructionSheetBuilder<'a> {
         //             // BinaryComparisonOpr::Neq => InstructionVariant::CallRoutine {
         //             //     resolved_linkage: __NEQ_LINKAGE.transfer(),
         //             //     nargs: 2,
-        //             //     output_ty: expr.intrinsic_ty(),
+        //             //     return_ty: expr.intrinsic_ty(),
         //             //     discard,
         //             // },
         //             // BinaryShortcuitLogicOpr::Or => todo!(),
         //             // BinaryComparisonOpr::Eq => InstructionVariant::CallRoutine {
         //             //     resolved_linkage: __EQ_LINKAGE.transfer(),
         //             //     nargs: 2,
-        //             //     output_ty: expr.intrinsic_ty(),
+        //             //     return_ty: expr.intrinsic_ty(),
         //             //     discard,
         //             // },
         //             // BinaryComparisonOpr::Geq => todo!(),
@@ -586,7 +586,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //                     InstructionVariant::CallRoutine {
         //                         resolved_linkage: __ASSIGN_LINKAGE.transfer(),
         //                         nargs: 2,
-        //                         output_ty: RootBuiltinIdentifier::Void.into(),
+        //                         return_ty: RootBuiltinIdentifier::Void.into(),
         //                         discard,
         //                     }
         //                 }
@@ -621,7 +621,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //                 )
         //                 .transfer(),
         //                 nargs: 1,
-        //                 output_ty: expr.intrinsic_ty(),
+        //                 return_ty: expr.intrinsic_ty(),
         //                 discard,
         //             },
         //             expr.clone(),
@@ -641,7 +641,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         let index_linkage = self.db.index_linkage(opds.map(|opd| opd.intrinsic_ty()));
         self.push_instruction(Instruction::new(
             InstructionVariant::CallRoutine {
-                output_ty: expr.intrinsic_ty(),
+                return_ty: expr.intrinsic_ty(),
                 nargs: opds.len().try_into().unwrap(),
                 resolved_linkage: index_linkage.bind(element_binding),
                 discard: false,
@@ -653,7 +653,7 @@ impl<'a> InstructionSheetBuilder<'a> {
     fn method_call_instruction_variant(
         &self,
         method_route: Term,
-        output_ty: Term,
+        return_ty: Term,
         output_binding: Binding,
         nargs: u8,
         discard: bool,
@@ -663,11 +663,11 @@ impl<'a> InstructionSheetBuilder<'a> {
                 __Linkage::Member { .. } => InstructionVariant::CallRoutine {
                     resolved_linkage: linkage.bind(output_binding),
                     nargs,
-                    output_ty,
+                    return_ty,
                     discard,
                 },
                 __Linkage::Transfer(linkage) => InstructionVariant::CallRoutine {
-                    output_ty,
+                    return_ty,
                     nargs,
 
                     resolved_linkage: linkage,
@@ -684,7 +684,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             //     nargs: (call_form_decl.primary_parameters.len() + 1)
             //         .try_into()
             //         .unwrap(),
-            //     output_ty,
+            //     return_ty,
             //     discard,
             // }
         }
