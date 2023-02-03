@@ -51,7 +51,8 @@ pub struct TermMenu0 {
     r32: Term,
     b64: Term,
     bool: Term,
-    trai: Term,
+    lifetime_ty: Term,
+    trai_ty: Term,
     module: Term,
 }
 
@@ -99,7 +100,8 @@ impl TermMenu0 {
             std: Term::Entity(vfs_path_menu.std().into()),
             unit: Term::Entity(entity_path_menu.unit().into()),
             bool: Term::Entity(entity_path_menu.bool().into()),
-            trai: Term::Entity(entity_path_menu.trai().into()),
+            trai_ty: Term::Entity(entity_path_menu.trai_ty().into()),
+            lifetime_ty: Term::Entity(entity_path_menu.lifetime_ty().into()),
             module: Term::Entity(entity_path_menu.module().into()),
             i32: Term::Entity(entity_path_menu.i32().into()),
             i64: Term::Entity(entity_path_menu.i64().into()),
@@ -220,7 +222,7 @@ impl TermMenu0 {
     }
 
     pub fn trai(&self) -> Term {
-        self.trai
+        self.trai_ty
     }
 
     pub fn module(&self) -> Term {
@@ -257,5 +259,9 @@ impl TermMenu0 {
 
     pub fn eval_lifetime(&self) -> TermLiteral {
         self.eval_lifetime
+    }
+
+    pub fn lifetime_ty(&self) -> Term {
+        self.lifetime_ty
     }
 }

@@ -44,3 +44,18 @@ impl<Db: EntityPathDb + ?Sized> salsa::DebugWithDb<Db> for TypePath {
         f.write_str("`)")
     }
 }
+
+impl<Db> salsa::DisplayWithDb<Db> for TypePath
+where
+    Db: EntityPathDb + ?Sized,
+{
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<EntityPathJar>>::as_jar_db(db);
+        self.show_aux(f, db)
+    }
+}

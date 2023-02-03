@@ -32,3 +32,15 @@ impl TermSymbolRegistry {
         TermSymbol::new(db, ty, idx)
     }
 }
+
+impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermSymbol {
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
+        f.write_fmt(format_args!("${}", self.idx(db)))
+    }
+}

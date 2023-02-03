@@ -55,7 +55,8 @@ pub struct EntityPathMenu {
     b64: TypePath,
     u32: TypePath,
     u64: TypePath,
-    trai: TypePath,
+    trai_ty: TypePath,
+    lifetime_ty: TypePath,
     module: TypePath,
 }
 
@@ -254,14 +255,21 @@ impl EntityPathMenu {
         );
         let trai = TypePath::new(
             db,
-            core_num,
-            word_menu.trai(),
+            core_basic,
+            word_menu.trai_ty(),
+            ModuleItemConnection::Connected,
+            TypeKind::Alien,
+        );
+        let lifetime = TypePath::new(
+            db,
+            core_basic,
+            word_menu.lifetime_ty(),
             ModuleItemConnection::Connected,
             TypeKind::Alien,
         );
         let module = TypePath::new(
             db,
-            core_num,
+            core_basic,
             word_menu.module(),
             ModuleItemConnection::Connected,
             TypeKind::Alien,
@@ -295,8 +303,9 @@ impl EntityPathMenu {
             b64,
             u32,
             u64,
-            trai,
+            trai_ty: trai,
             module,
+            lifetime_ty: lifetime,
         })
     }
 
@@ -404,8 +413,8 @@ impl EntityPathMenu {
         self.vec_ty
     }
 
-    pub fn trai(&self) -> TypePath {
-        self.trai
+    pub fn trai_ty(&self) -> TypePath {
+        self.trai_ty
     }
 
     pub fn module(&self) -> TypePath {
@@ -418,5 +427,9 @@ impl EntityPathMenu {
 
     pub fn bool(&self) -> TypePath {
         self.bool
+    }
+
+    pub fn lifetime_ty(&self) -> TypePath {
+        self.lifetime_ty
     }
 }

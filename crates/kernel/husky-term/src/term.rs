@@ -105,7 +105,7 @@ impl<Db: TermDb + ?Sized> salsa::DebugWithDb<Db> for Term {
 }
 
 impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for Term {
-    fn fmt(
+    fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
@@ -113,9 +113,9 @@ impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for Term {
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
         match self {
-            Term::Literal(term) => f.debug_tuple("Literal").field(&term).finish(),
-            Term::Symbol(term) => f.debug_tuple("Symbol").field(&term).finish(),
-            Term::Entity(term) => term.debug_with(db, include_all_fields).fmt(f),
+            Term::Literal(term) => term.debug_with(db, include_all_fields).fmt(f),
+            Term::Symbol(term) => term.display_with_db_fmt(f, db, include_all_fields),
+            Term::Entity(term) => term.display_with_db_fmt(f, db, include_all_fields),
             Term::Category(term) => f.write_str(&term.to_string()),
             Term::Universe(term) => f.write_str(&term.to_string()),
             Term::Curry(term) => term.debug_with(db, include_all_fields).fmt(f),

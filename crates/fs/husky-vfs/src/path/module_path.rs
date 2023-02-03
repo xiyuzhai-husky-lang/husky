@@ -1,10 +1,9 @@
 mod ancestry;
 
+use super::*;
 pub use ancestry::*;
 use salsa::{DbWithJar, DebugWithDb};
 use with_db::{PartialOrdWithDb, WithDb};
-
-use super::*;
 
 #[salsa::interned(jar = VfsJar, override_debug)]
 pub struct ModulePath {
@@ -142,6 +141,21 @@ impl ModulePath {
                 f.write_str(ident.data(db))
             }
         }
+    }
+}
+
+impl<Db> salsa::DisplayWithDb<Db> for ModulePath
+where
+    Db: VfsDb + ?Sized,
+{
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
+        self.show_aux(f, db)
     }
 }
 

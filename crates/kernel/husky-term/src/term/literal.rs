@@ -3,6 +3,7 @@ use husky_token::StringLiteral;
 use ordered_float::OrderedFloat;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = TermDb, jar = TermJar)]
 pub enum TermLiteral {
     Unit,
     I32(i32),
