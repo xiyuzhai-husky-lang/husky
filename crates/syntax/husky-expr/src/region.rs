@@ -80,6 +80,10 @@ impl ExprRegionData {
         self.path
     }
 
+    pub fn path_ref(&self) -> &RegionPath {
+        &self.path
+    }
+
     pub fn expr_arena(&self) -> &ExprArena {
         &self.expr_arena
     }

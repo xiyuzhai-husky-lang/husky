@@ -21,6 +21,7 @@ pub(crate) fn impl_block_signature(
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = SignatureDb, jar = SignatureJar)]
 pub enum ImplBlockSignature {
     TypeImplBlock(TypeImplBlockSignature),
     TypeAsTraitImplBlock(TypeAsTraitImplBlockSignature),
@@ -41,26 +42,5 @@ impl From<TypeImplBlockSignature> for ImplBlockSignature {
 impl ImplBlockSignature {
     pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
         todo!()
-    }
-}
-
-impl<Db: SignatureDb + ?Sized> salsa::DebugWithDb<Db> for ImplBlockSignature {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<SignatureJar>>::as_jar_db(db);
-        match self {
-            ImplBlockSignature::TypeImplBlock(decl) => f
-                .debug_tuple("TypeImplBlock")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            ImplBlockSignature::TypeAsTraitImplBlock(decl) => f
-                .debug_tuple("TypeAsTraitImplBlock")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-        }
     }
 }

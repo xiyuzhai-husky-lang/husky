@@ -53,6 +53,7 @@ impl<'a> ExprTypeEngine<'a> {
                 None => todo!(),
             },
             Expr::InheritedSymbol {
+                ident,
                 inherited_symbol_idx,
                 ..
             } => {
@@ -60,6 +61,11 @@ impl<'a> ExprTypeEngine<'a> {
                 //     InheritedSymbolKind::ImplicitParameter => todo!(),
                 //     InheritedSymbolKind::RegularParameter => todo!(),
                 // }
+                p!(
+                    ident.debug(self.db),
+                    inherited_symbol_idx,
+                    self.inherited_symbol_tys.debug(self.db)
+                );
                 match self.inherited_symbol_tys.get(*inherited_symbol_idx) {
                     Some(ty) => Ok((*ty).into()),
                     None => todo!(),
@@ -126,7 +132,11 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             } => {
                 let this_expr_ty = self.infer_new_expr_resolved(*this_expr, Expectation::None);
-                p!(this_expr_ty.debug(self.db));
+                p!(
+                    ident_token.token_idx(),
+                    self.path(),
+                    this_expr_ty.debug(self.db)
+                );
                 todo!()
             }
             Expr::TemplateInstantiation {

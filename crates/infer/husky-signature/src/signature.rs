@@ -26,6 +26,7 @@ pub(crate) fn signature(db: &dyn SignatureDb, decl: Decl) -> SignatureResultRef<
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = SignatureDb, jar = SignatureJar)]
 pub enum Signature {
     Type(TypeSignature),
     Form(FormSignature),
@@ -70,42 +71,5 @@ impl From<AssociatedItemSignature> for Signature {
 impl From<VariantSignature> for Signature {
     fn from(v: VariantSignature) -> Self {
         Self::Variant(v)
-    }
-}
-
-impl<Db: SignatureDb + ?Sized> salsa::DebugWithDb<Db> for Signature {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<SignatureJar>>::as_jar_db(db);
-        match self {
-            Signature::Type(decl) => f
-                .debug_tuple("Type")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            Signature::Trait(decl) => f
-                .debug_tuple("Trait")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            Signature::Form(decl) => f
-                .debug_tuple("Form")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            Signature::Variant(decl) => f
-                .debug_tuple("Variant")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            Signature::ImplBlock(decl) => f
-                .debug_tuple("ImplBlock")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            Signature::AssociatedItem(decl) => f
-                .debug_tuple("AssociatedItem")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-        }
     }
 }

@@ -26,6 +26,7 @@ pub(crate) fn associated_item_signature(
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = SignatureDb, jar = SignatureJar)]
 pub enum AssociatedItemSignature {
     TypeItem(TypeItemSignature),
     TraitItem(TraitItemSignature),
@@ -47,31 +48,6 @@ impl From<TraitItemSignature> for AssociatedItemSignature {
 impl From<TypeItemSignature> for AssociatedItemSignature {
     fn from(v: TypeItemSignature) -> Self {
         Self::TypeItem(v)
-    }
-}
-
-impl<Db: SignatureDb + ?Sized> salsa::DebugWithDb<Db> for AssociatedItemSignature {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<SignatureJar>>::as_jar_db(db);
-        match self {
-            AssociatedItemSignature::TypeItem(decl) => f
-                .debug_tuple("TypeItem")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            AssociatedItemSignature::TraitItem(decl) => f
-                .debug_tuple("TraitItem")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            AssociatedItemSignature::TypeAsTraitItem(decl) => f
-                .debug_tuple("TypeAsTraitItem")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-        }
     }
 }
 

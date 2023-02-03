@@ -817,7 +817,7 @@ Ok(
                                             token_idx: TokenIdx(
                                                 176,
                                             ),
-                                            inherited_symbol_idx: 1,
+                                            inherited_symbol_idx: 0,
                                             inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::MethodCall {
@@ -896,7 +896,7 @@ Ok(
                                             token_idx: TokenIdx(
                                                 195,
                                             ),
-                                            inherited_symbol_idx: 0,
+                                            inherited_symbol_idx: 1,
                                             inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::FrameVarDecl {
@@ -946,7 +946,7 @@ Ok(
                                             token_idx: TokenIdx(
                                                 204,
                                             ),
-                                            inherited_symbol_idx: 0,
+                                            inherited_symbol_idx: 1,
                                             inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::CurrentSymbol {
@@ -954,10 +954,10 @@ Ok(
                                             token_idx: TokenIdx(
                                                 206,
                                             ),
-                                            current_symbol_idx: 1,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 1,
-                                            },
+                                            current_symbol_idx: 2,
+                                            current_symbol_kind: CurrentSymbolKind::FrameVariable(
+                                                9,
+                                            ),
                                         },
                                         Expr::NewBoxList {
                                             caller: Some(
@@ -978,19 +978,19 @@ Ok(
                                             token_idx: TokenIdx(
                                                 208,
                                             ),
-                                            current_symbol_idx: 2,
-                                            current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                                                9,
-                                            ),
+                                            current_symbol_idx: 1,
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                                pattern_symbol_idx: 1,
+                                            },
                                         },
                                         Expr::CurrentSymbol {
                                             ident: `others`,
                                             token_idx: TokenIdx(
                                                 212,
                                             ),
-                                            current_symbol_idx: 3,
+                                            current_symbol_idx: 0,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 2,
+                                                pattern_symbol_idx: 0,
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -998,9 +998,9 @@ Ok(
                                             token_idx: TokenIdx(
                                                 216,
                                             ),
-                                            current_symbol_idx: 0,
+                                            current_symbol_idx: 3,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 0,
+                                                pattern_symbol_idx: 2,
                                             },
                                         },
                                         Expr::MethodCall {
@@ -1058,19 +1058,19 @@ Ok(
                                             token_idx: TokenIdx(
                                                 222,
                                             ),
-                                            current_symbol_idx: 2,
-                                            current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                                                9,
-                                            ),
+                                            current_symbol_idx: 1,
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                                pattern_symbol_idx: 1,
+                                            },
                                         },
                                         Expr::CurrentSymbol {
                                             ident: `others`,
                                             token_idx: TokenIdx(
                                                 224,
                                             ),
-                                            current_symbol_idx: 3,
+                                            current_symbol_idx: 0,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 2,
+                                                pattern_symbol_idx: 0,
                                             },
                                         },
                                         Expr::FunctionCall {
@@ -2004,10 +2004,10 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     49,
                                                 ),
-                                                current_symbol_idx: 1,
-                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                                                    3,
-                                                ),
+                                                current_symbol_idx: 0,
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                                    pattern_symbol_idx: 0,
+                                                },
                                             },
                                             Expr::SelfValue(
                                                 TokenIdx(
@@ -2031,10 +2031,10 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     57,
                                                 ),
-                                                current_symbol_idx: 0,
-                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol_idx: 0,
-                                                },
+                                                current_symbol_idx: 1,
+                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
+                                                    3,
+                                                ),
                                             },
                                             Expr::NewBoxList {
                                                 caller: Some(
@@ -2067,10 +2067,10 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     47,
                                                 ),
-                                                current_symbol_idx: 1,
-                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                                                    3,
-                                                ),
+                                                current_symbol_idx: 0,
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                                    pattern_symbol_idx: 0,
+                                                },
                                             },
                                             Expr::MethodCall {
                                                 this_expr: 6,
@@ -2109,10 +2109,10 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     63,
                                                 ),
-                                                current_symbol_idx: 1,
-                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                                                    3,
-                                                ),
+                                                current_symbol_idx: 0,
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                                    pattern_symbol_idx: 0,
+                                                },
                                             },
                                             Expr::Block {
                                                 stmts: ArenaIdxRange(
@@ -2759,10 +2759,10 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     87,
                                                 ),
-                                                current_symbol_idx: 1,
-                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                                                    3,
-                                                ),
+                                                current_symbol_idx: 0,
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                                    pattern_symbol_idx: 0,
+                                                },
                                             },
                                             Expr::SelfValue(
                                                 TokenIdx(
@@ -2786,10 +2786,10 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     95,
                                                 ),
-                                                current_symbol_idx: 0,
-                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol_idx: 0,
-                                                },
+                                                current_symbol_idx: 1,
+                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
+                                                    3,
+                                                ),
                                             },
                                             Expr::NewBoxList {
                                                 caller: Some(
@@ -2822,10 +2822,10 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     85,
                                                 ),
-                                                current_symbol_idx: 1,
-                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                                                    3,
-                                                ),
+                                                current_symbol_idx: 0,
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                                    pattern_symbol_idx: 0,
+                                                },
                                             },
                                             Expr::MethodCall {
                                                 this_expr: 6,
@@ -2864,10 +2864,10 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     101,
                                                 ),
-                                                current_symbol_idx: 1,
-                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                                                    3,
-                                                ),
+                                                current_symbol_idx: 0,
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                                    pattern_symbol_idx: 0,
+                                                },
                                             },
                                             Expr::Block {
                                                 stmts: ArenaIdxRange(
@@ -3514,10 +3514,10 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     125,
                                                 ),
-                                                current_symbol_idx: 1,
-                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                                                    3,
-                                                ),
+                                                current_symbol_idx: 0,
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                                    pattern_symbol_idx: 0,
+                                                },
                                             },
                                             Expr::SelfValue(
                                                 TokenIdx(
@@ -3541,10 +3541,10 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     133,
                                                 ),
-                                                current_symbol_idx: 0,
-                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol_idx: 0,
-                                                },
+                                                current_symbol_idx: 1,
+                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
+                                                    3,
+                                                ),
                                             },
                                             Expr::NewBoxList {
                                                 caller: Some(
@@ -3599,10 +3599,10 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     123,
                                                 ),
-                                                current_symbol_idx: 1,
-                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                                                    3,
-                                                ),
+                                                current_symbol_idx: 0,
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                                    pattern_symbol_idx: 0,
+                                                },
                                             },
                                             Expr::MethodCall {
                                                 this_expr: 6,
@@ -3641,10 +3641,10 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     143,
                                                 ),
-                                                current_symbol_idx: 1,
-                                                current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                                                    3,
-                                                ),
+                                                current_symbol_idx: 0,
+                                                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                                    pattern_symbol_idx: 0,
+                                                },
                                             },
                                             Expr::Block {
                                                 stmts: ArenaIdxRange(

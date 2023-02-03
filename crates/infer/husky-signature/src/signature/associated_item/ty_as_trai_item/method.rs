@@ -25,6 +25,6 @@ pub struct TypeAsTraitMethodSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,
     #[return_ref]
-    pub parameters: ParameterSignatures,
+    pub parameters: RegularParameterSignatures,
     pub output_ty: Term,
 }
