@@ -16,7 +16,8 @@ pub(crate) fn ty_method_signature(
         term_menu,
     );
 
-    let parameters = ParameterSignatures::from_decl(decl.parameters(db), signature_term_region)?;
+    let parameters =
+        RegularParameterSignatures::from_decl(decl.parameters(db), signature_term_region)?;
     let output_ty = match decl.output_ty(db) {
         Ok(output_ty) => match signature_term_region.expr_term(output_ty.expr()) {
             Ok(output_ty) => output_ty,
@@ -37,6 +38,6 @@ pub struct TypeMethodSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,
     #[return_ref]
-    pub parameters: ParameterSignatures,
+    pub parameters: RegularParameterSignatures,
     pub output_ty: Term,
 }

@@ -901,9 +901,9 @@ Ok(
                                             token_idx: TokenIdx(
                                                 170,
                                             ),
-                                            current_symbol_idx: 1,
+                                            current_symbol_idx: 3,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 3,
+                                                pattern_symbol_idx: 6,
                                             },
                                         },
                                         Expr::MethodCall {
@@ -933,9 +933,9 @@ Ok(
                                             token_idx: TokenIdx(
                                                 178,
                                             ),
-                                            current_symbol_idx: 1,
+                                            current_symbol_idx: 4,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 3,
+                                                pattern_symbol_idx: 7,
                                             },
                                         },
                                         Expr::Field {
@@ -955,9 +955,9 @@ Ok(
                                             token_idx: TokenIdx(
                                                 184,
                                             ),
-                                            current_symbol_idx: 6,
+                                            current_symbol_idx: 0,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 9,
+                                                pattern_symbol_idx: 1,
                                             },
                                         },
                                         Expr::MethodCall {
@@ -1050,9 +1050,9 @@ Ok(
                                             token_idx: TokenIdx(
                                                 204,
                                             ),
-                                            current_symbol_idx: 4,
+                                            current_symbol_idx: 3,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 7,
+                                                pattern_symbol_idx: 6,
                                             },
                                         },
                                         Expr::Be {
@@ -1076,9 +1076,9 @@ Ok(
                                             token_idx: TokenIdx(
                                                 209,
                                             ),
-                                            current_symbol_idx: 2,
+                                            current_symbol_idx: 5,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 4,
+                                                pattern_symbol_idx: 8,
                                             },
                                         },
                                         Expr::PrefixOpn {
@@ -1171,9 +1171,9 @@ Ok(
                                             token_idx: TokenIdx(
                                                 225,
                                             ),
-                                            current_symbol_idx: 1,
+                                            current_symbol_idx: 6,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 3,
+                                                pattern_symbol_idx: 9,
                                             },
                                         },
                                         Expr::FunctionCall {
@@ -1255,9 +1255,9 @@ Ok(
                                             token_idx: TokenIdx(
                                                 240,
                                             ),
-                                            current_symbol_idx: 8,
+                                            current_symbol_idx: 0,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 12,
+                                                pattern_symbol_idx: 1,
                                             },
                                         },
                                         Expr::MethodCall {
@@ -1375,9 +1375,9 @@ Ok(
                                             token_idx: TokenIdx(
                                                 254,
                                             ),
-                                            current_symbol_idx: 2,
+                                            current_symbol_idx: 6,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 4,
+                                                pattern_symbol_idx: 9,
                                             },
                                         },
                                         Expr::EntityPath {
@@ -1391,9 +1391,9 @@ Ok(
                                             token_idx: TokenIdx(
                                                 258,
                                             ),
-                                            current_symbol_idx: 6,
+                                            current_symbol_idx: 2,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 9,
+                                                pattern_symbol_idx: 4,
                                             },
                                         },
                                         Expr::MethodCall {
@@ -1443,9 +1443,9 @@ Ok(
                                             token_idx: TokenIdx(
                                                 270,
                                             ),
-                                            current_symbol_idx: 0,
+                                            current_symbol_idx: 8,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 1,
+                                                pattern_symbol_idx: 12,
                                             },
                                         },
                                         Expr::Field {
@@ -1711,9 +1711,9 @@ Ok(
                                             token_idx: TokenIdx(
                                                 309,
                                             ),
-                                            current_symbol_idx: 7,
+                                            current_symbol_idx: 1,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 10,
+                                                pattern_symbol_idx: 3,
                                             },
                                         },
                                         Expr::Field {
@@ -1801,9 +1801,9 @@ Ok(
                                             token_idx: TokenIdx(
                                                 324,
                                             ),
-                                            current_symbol_idx: 7,
+                                            current_symbol_idx: 1,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 10,
+                                                pattern_symbol_idx: 3,
                                             },
                                         },
                                         Expr::Field {
@@ -1853,9 +1853,9 @@ Ok(
                                             token_idx: TokenIdx(
                                                 334,
                                             ),
-                                            current_symbol_idx: 7,
+                                            current_symbol_idx: 1,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 10,
+                                                pattern_symbol_idx: 3,
                                             },
                                         },
                                         Expr::Field {
@@ -1943,9 +1943,9 @@ Ok(
                                             token_idx: TokenIdx(
                                                 349,
                                             ),
-                                            current_symbol_idx: 6,
+                                            current_symbol_idx: 2,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 9,
+                                                pattern_symbol_idx: 4,
                                             },
                                         },
                                         Expr::Literal(
@@ -4383,9 +4383,9 @@ Ok(
                                             token_idx: TokenIdx(
                                                 456,
                                             ),
-                                            current_symbol_idx: 0,
+                                            current_symbol_idx: 1,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 0,
+                                                pattern_symbol_idx: 1,
                                             },
                                         },
                                         Expr::Field {

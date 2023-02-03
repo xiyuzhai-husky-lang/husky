@@ -26,6 +26,7 @@ pub(crate) fn form_signature(
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = SignatureDb, jar = SignatureJar)]
 pub enum FormSignature {
     Function(FunctionSignature),
     Feature(FeatureSignature),
@@ -65,34 +66,5 @@ impl From<FeatureSignature> for FormSignature {
 impl From<FunctionSignature> for FormSignature {
     fn from(v: FunctionSignature) -> Self {
         Self::Function(v)
-    }
-}
-
-impl<Db: SignatureDb + ?Sized> salsa::DebugWithDb<Db> for FormSignature {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as DbWithJar<SignatureJar>>::as_jar_db(db);
-        match self {
-            FormSignature::Function(decl) => f
-                .debug_tuple("Function")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            FormSignature::Feature(decl) => f
-                .debug_tuple("Feature")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            FormSignature::Morphism(decl) => f
-                .debug_tuple("Morphism")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            FormSignature::Value(decl) => f
-                .debug_tuple("Value")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-        }
     }
 }

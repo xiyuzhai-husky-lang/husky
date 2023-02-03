@@ -1352,9 +1352,9 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     69,
                                                 ),
-                                                current_symbol_idx: 1,
+                                                current_symbol_idx: 0,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol_idx: 1,
+                                                    pattern_symbol_idx: 0,
                                                 },
                                             },
                                             Expr::CurrentSymbol {
@@ -1362,9 +1362,9 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     73,
                                                 ),
-                                                current_symbol_idx: 0,
+                                                current_symbol_idx: 1,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol_idx: 0,
+                                                    pattern_symbol_idx: 1,
                                                 },
                                             },
                                             Expr::MethodCall {
@@ -1409,9 +1409,9 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     78,
                                                 ),
-                                                current_symbol_idx: 0,
+                                                current_symbol_idx: 1,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol_idx: 0,
+                                                    pattern_symbol_idx: 1,
                                                 },
                                             },
                                             Expr::MethodCall {
@@ -1488,9 +1488,9 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     97,
                                                 ),
-                                                current_symbol_idx: 2,
+                                                current_symbol_idx: 0,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol_idx: 2,
+                                                    pattern_symbol_idx: 0,
                                                 },
                                             },
                                             Expr::CurrentSymbol {
@@ -1498,9 +1498,9 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     101,
                                                 ),
-                                                current_symbol_idx: 0,
+                                                current_symbol_idx: 2,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol_idx: 0,
+                                                    pattern_symbol_idx: 2,
                                                 },
                                             },
                                             Expr::MethodCall {
@@ -1545,9 +1545,9 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     106,
                                                 ),
-                                                current_symbol_idx: 0,
+                                                current_symbol_idx: 2,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol_idx: 0,
+                                                    pattern_symbol_idx: 2,
                                                 },
                                             },
                                             Expr::MethodCall {
@@ -1577,9 +1577,9 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     113,
                                                 ),
-                                                current_symbol_idx: 2,
+                                                current_symbol_idx: 0,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol_idx: 2,
+                                                    pattern_symbol_idx: 0,
                                                 },
                                             },
                                             Expr::CurrentSymbol {
@@ -1619,9 +1619,9 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     124,
                                                 ),
-                                                current_symbol_idx: 2,
+                                                current_symbol_idx: 0,
                                                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                    pattern_symbol_idx: 2,
+                                                    pattern_symbol_idx: 0,
                                                 },
                                             },
                                             Expr::MethodCall {

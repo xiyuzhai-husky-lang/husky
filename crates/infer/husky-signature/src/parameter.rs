@@ -110,11 +110,11 @@ impl ParameterSignature {
 pub struct ParameterSignaturePattern {}
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct ParameterSignatures {
+pub struct RegularParameterSignatures {
     parameters: Vec<ParameterSignature>,
 }
 
-impl std::ops::Deref for ParameterSignatures {
+impl std::ops::Deref for RegularParameterSignatures {
     type Target = Vec<ParameterSignature>;
 
     fn deref(&self) -> &Self::Target {
@@ -122,7 +122,7 @@ impl std::ops::Deref for ParameterSignatures {
     }
 }
 
-impl ParameterSignatures {
+impl RegularParameterSignatures {
     pub(crate) fn from_decl(
         parameters: &[RegularParameterDeclPattern],
         sheet: &SignatureTermRegion,

@@ -1,5 +1,7 @@
 #![feature(step_trait)]
 pub mod map;
+#[cfg(test)]
+mod tests;
 
 use std::{
     fmt::Debug,
@@ -98,7 +100,8 @@ impl<T> Arena<T> {
     }
 
     pub fn find_rev_indexed(&self, f: impl Fn(&T) -> bool) -> Option<(ArenaIdx<T>, &T)> {
-        self.data.iter().rev().position(|t| f(t)).map(|raw| {
+        self.data.iter().rev().position(|t| f(t)).map(|raw_rev| {
+            let raw = self.data.len() - raw_rev - 1;
             (
                 ArenaIdx {
                     raw,
