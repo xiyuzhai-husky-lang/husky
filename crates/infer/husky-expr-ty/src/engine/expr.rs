@@ -132,11 +132,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             } => {
                 let this_expr_ty = self.infer_new_expr_resolved(*this_expr, Expectation::None);
-                p!(
-                    ident_token.token_idx(),
-                    self.path(),
-                    this_expr_ty.debug(self.db)
-                );
+                p!(this_expr_ty.debug(self.db));
                 todo!()
             }
             Expr::TemplateInstantiation {

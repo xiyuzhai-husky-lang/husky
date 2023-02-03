@@ -100,3 +100,21 @@ where
         }
     }
 }
+
+impl<Db> salsa::DisplayWithDb<Db> for AssociatedItemPath
+where
+    Db: EntityPathDb + ?Sized,
+{
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        match self {
+            AssociatedItemPath::TypeItem(path) => path.display_with_db_fmt(f, db, false),
+            AssociatedItemPath::TraitItem(path) => path.display_with_db_fmt(f, db, false),
+            AssociatedItemPath::TypeAsTraitItem(path) => path.display_with_db_fmt(f, db, false),
+        }
+    }
+}

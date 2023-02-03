@@ -22,7 +22,7 @@ pub use variant::*;
 use husky_entity_taxonomy::*;
 use husky_vfs::*;
 use husky_word::Identifier;
-use salsa::DbWithJar;
+use salsa::{DbWithJar, DebugWithDb};
 #[cfg(test)]
 use tests::*;
 
@@ -141,6 +141,26 @@ where
                 }
                 EntityPath::Variant(enum_variant_path) => enum_variant_path.fmt(f, db, false),
             }
+        }
+    }
+}
+
+impl<Db> salsa::DisplayWithDb<Db> for EntityPath
+where
+    Db: EntityPathDb + ?Sized,
+{
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        let db = <Db as DbWithJar<EntityPathJar>>::as_jar_db(db);
+        match self {
+            EntityPath::Module(path) => path.display_with_db_fmt(f, db, include_all_fields),
+            EntityPath::ModuleItem(path) => path.display_with_db_fmt(f, db, include_all_fields),
+            EntityPath::AssociatedItem(path) => path.display_with_db_fmt(f, db, include_all_fields),
+            EntityPath::Variant(path) => path.display_with_db_fmt(f, db, include_all_fields),
         }
     }
 }

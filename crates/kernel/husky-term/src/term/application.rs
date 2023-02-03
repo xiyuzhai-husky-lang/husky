@@ -8,7 +8,7 @@ pub struct TermApplication {
 }
 
 impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermApplication {
-    fn fmt(
+    fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,

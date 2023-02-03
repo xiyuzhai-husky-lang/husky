@@ -108,3 +108,21 @@ where
         }
     }
 }
+
+impl<Db> salsa::DisplayWithDb<Db> for ModuleItemPath
+where
+    Db: EntityPathDb + ?Sized,
+{
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        match self {
+            ModuleItemPath::Form(path) => path.display_with_db_fmt(f, db, false),
+            ModuleItemPath::Type(path) => path.display_with_db_fmt(f, db, false),
+            ModuleItemPath::Trait(path) => path.display_with_db_fmt(f, db, false),
+        }
+    }
+}

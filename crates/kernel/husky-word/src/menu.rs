@@ -13,7 +13,8 @@ pub struct WordMenu {
     b64: Identifier,
     f32: Identifier,
     f64: Identifier,
-    trai: Identifier,
+    trai_ty: Identifier,
+    lifetime_ty: Identifier,
     module: Identifier,
     crate_word: Identifier,
 }
@@ -33,9 +34,10 @@ impl WordMenu {
             b64: db.it_ident_borrowed("b64").unwrap(),
             f32: db.it_ident_borrowed("f32").unwrap(),
             f64: db.it_ident_borrowed("f64").unwrap(),
-            trai: db.it_ident_borrowed("Trait").unwrap(),
+            trai_ty: db.it_ident_borrowed("Trait").unwrap(),
             module: db.it_ident_borrowed("Module").unwrap(),
             crate_word: db.it_ident_borrowed("crate").unwrap(),
+            lifetime_ty: db.it_ident_borrowed("Lifetime").unwrap(),
         }
     }
 
@@ -87,8 +89,8 @@ impl WordMenu {
         self.u64
     }
 
-    pub fn trai(&self) -> Identifier {
-        self.trai
+    pub fn trai_ty(&self) -> Identifier {
+        self.trai_ty
     }
 
     pub fn module(&self) -> Identifier {
@@ -97,5 +99,9 @@ impl WordMenu {
 
     pub fn crate_word(&self) -> Identifier {
         self.crate_word
+    }
+
+    pub fn lifetime_ty(&self) -> Identifier {
+        self.lifetime_ty
     }
 }

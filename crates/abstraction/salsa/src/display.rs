@@ -78,7 +78,12 @@ pub trait DisplayWithDb<Db: ?Sized> {
     ///     - for [#\[salsa::input\]](salsa_macros::input) no fields
     ///     - for [#\[salsa::tracked\]](salsa_macros::tracked) only fields with `#[id]` attribute
     ///     - for [#\[salsa::interned\]](salsa_macros::interned) any field
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result;
+    fn display_with_db_fmt(
+        &self,
+        f: &mut fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> fmt::Result;
 }
 
 pub struct DisplayWith<'me, Db: ?Sized> {
@@ -105,7 +110,7 @@ impl<T: ?Sized> std::ops::Deref for BoxRef<'_, T> {
 
 impl<D: ?Sized> fmt::Display for DisplayWith<'_, D> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        DisplayWithDb::fmt(&*self.value, f, self.db, self.include_all_fields)
+        DisplayWithDb::display_with_db_fmt(&*self.value, f, self.db, self.include_all_fields)
     }
 }
 
@@ -113,8 +118,13 @@ impl<Db: ?Sized, T: ?Sized> DisplayWithDb<Db> for &T
 where
     T: DisplayWithDb<Db>,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
-        T::fmt(self, f, db, include_all_fields)
+    fn display_with_db_fmt(
+        &self,
+        f: &mut fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> fmt::Result {
+        T::display_with_db_fmt(self, f, db, include_all_fields)
     }
 }
 
@@ -122,8 +132,13 @@ impl<Db: ?Sized, T: ?Sized> DisplayWithDb<Db> for Box<T>
 where
     T: DisplayWithDb<Db>,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
-        T::fmt(self, f, db, include_all_fields)
+    fn display_with_db_fmt(
+        &self,
+        f: &mut fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> fmt::Result {
+        T::display_with_db_fmt(self, f, db, include_all_fields)
     }
 }
 
@@ -131,8 +146,13 @@ impl<Db: ?Sized, T> DisplayWithDb<Db> for Rc<T>
 where
     T: DisplayWithDb<Db>,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
-        T::fmt(self, f, db, include_all_fields)
+    fn display_with_db_fmt(
+        &self,
+        f: &mut fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> fmt::Result {
+        T::display_with_db_fmt(self, f, db, include_all_fields)
     }
 }
 
@@ -140,13 +160,23 @@ impl<Db: ?Sized, T: ?Sized> DisplayWithDb<Db> for Arc<T>
 where
     T: DisplayWithDb<Db>,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
-        T::fmt(self, f, db, include_all_fields)
+    fn display_with_db_fmt(
+        &self,
+        f: &mut fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> fmt::Result {
+        T::display_with_db_fmt(self, f, db, include_all_fields)
     }
 }
 
 impl<Db: ?Sized> DisplayWithDb<Db> for Infallible {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
+    fn display_with_db_fmt(
+        &self,
+        f: &mut fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> fmt::Result {
         unreachable!()
     }
 }
