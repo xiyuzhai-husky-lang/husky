@@ -8,6 +8,7 @@ pub(crate) enum Expectation {
     UnitOrNever,
     Condition,
     Return { ty: Option<Term> },
+    MoveAs { ty: LocalTerm },
 }
 
 #[derive(Debug, PartialEq, Eq)]
