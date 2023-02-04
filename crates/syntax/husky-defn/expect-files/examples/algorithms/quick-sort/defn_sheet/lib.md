@@ -434,7 +434,7 @@ Ok(
                                             inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::MethodCall {
-                                            this_expr: 0,
+                                            self_expr: 0,
                                             dot_token_idx: TokenIdx(
                                                 22,
                                             ),
@@ -448,7 +448,7 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 24,
                                             ),
-                                            arguments: ArenaIdxRange(
+                                            nonself_arguments: ArenaIdxRange(
                                                 1..1,
                                             ),
                                             rpar_token_idx: TokenIdx(
@@ -593,7 +593,7 @@ Ok(
                                             ),
                                         },
                                         Stmt::Eval {
-                                            expr: 11,
+                                            expr_idx: 11,
                                         },
                                     ],
                                 },
@@ -1617,10 +1617,10 @@ Ok(
                                             ),
                                         },
                                         Stmt::Eval {
-                                            expr: 14,
+                                            expr_idx: 14,
                                         },
                                         Stmt::Eval {
-                                            expr: 21,
+                                            expr_idx: 21,
                                         },
                                         Stmt::IfElse {
                                             if_branch: IfBranch {
@@ -2971,7 +2971,7 @@ Ok(
                                             ropd: 49,
                                         },
                                         Expr::MethodCall {
-                                            this_expr: 45,
+                                            self_expr: 45,
                                             dot_token_idx: TokenIdx(
                                                 200,
                                             ),
@@ -2985,7 +2985,7 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 202,
                                             ),
-                                            arguments: ArenaIdxRange(
+                                            nonself_arguments: ArenaIdxRange(
                                                 50..52,
                                             ),
                                             rpar_token_idx: TokenIdx(
@@ -3065,7 +3065,7 @@ Ok(
                                             ropd: 57,
                                         },
                                         Expr::MethodCall {
-                                            this_expr: 53,
+                                            self_expr: 53,
                                             dot_token_idx: TokenIdx(
                                                 212,
                                             ),
@@ -3079,7 +3079,7 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 214,
                                             ),
-                                            arguments: ArenaIdxRange(
+                                            nonself_arguments: ArenaIdxRange(
                                                 58..60,
                                             ),
                                             rpar_token_idx: TokenIdx(
@@ -3109,10 +3109,10 @@ Ok(
                                 stmt_arena: Arena {
                                     data: [
                                         Stmt::Eval {
-                                            expr: 22,
+                                            expr_idx: 22,
                                         },
                                         Stmt::Eval {
-                                            expr: 41,
+                                            expr_idx: 41,
                                         },
                                         Stmt::Break {
                                             break_token: BreakToken {
@@ -3122,10 +3122,10 @@ Ok(
                                             },
                                         },
                                         Stmt::Eval {
-                                            expr: 52,
+                                            expr_idx: 52,
                                         },
                                         Stmt::Eval {
-                                            expr: 10,
+                                            expr_idx: 10,
                                         },
                                         Stmt::While {
                                             while_token: WhileToken {
@@ -3150,7 +3150,7 @@ Ok(
                                             ),
                                         },
                                         Stmt::Eval {
-                                            expr: 25,
+                                            expr_idx: 25,
                                         },
                                         Stmt::While {
                                             while_token: WhileToken {
@@ -3330,10 +3330,10 @@ Ok(
                                             ),
                                         },
                                         Stmt::Eval {
-                                            expr: 60,
+                                            expr_idx: 60,
                                         },
                                         Stmt::Eval {
-                                            expr: 61,
+                                            expr_idx: 61,
                                         },
                                     ],
                                 },
@@ -3843,7 +3843,7 @@ Ok(
                                             ),
                                         },
                                         Stmt::Eval {
-                                            expr: 14,
+                                            expr_idx: 14,
                                         },
                                         Stmt::Assert {
                                             assert_token: AssertToken {
@@ -4198,7 +4198,7 @@ Ok(
                                             ),
                                         },
                                         Stmt::Eval {
-                                            expr: 9,
+                                            expr_idx: 9,
                                         },
                                         Stmt::Assert {
                                             assert_token: AssertToken {

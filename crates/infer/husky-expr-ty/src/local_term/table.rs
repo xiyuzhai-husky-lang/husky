@@ -58,7 +58,7 @@ impl UnresolvedTermTable {
         }
     }
 
-    pub(crate) fn add_expection_rule(
+    pub(crate) fn add_expectation_rule(
         &mut self,
         ty: LocalTerm,
         expectation: Expectation,

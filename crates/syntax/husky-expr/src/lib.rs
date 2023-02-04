@@ -130,17 +130,17 @@ pub enum Expr {
         rpar_token_idx: TokenIdx,
     },
     Field {
-        this_expr: ExprIdx,
+        self_expr: ExprIdx,
         dot_token_idx: TokenIdx,
         ident_token: IdentifierToken,
     },
     MethodCall {
-        this_expr: ExprIdx,
+        self_expr: ExprIdx,
         dot_token_idx: TokenIdx,
         ident_token: IdentifierToken,
         implicit_arguments: Option<ImplicitArgumentList>,
         lpar_token_idx: TokenIdx,
-        arguments: ExprIdxRange,
+        nonself_arguments: ExprIdxRange,
         rpar_token_idx: TokenIdx,
     },
     TemplateInstantiation {

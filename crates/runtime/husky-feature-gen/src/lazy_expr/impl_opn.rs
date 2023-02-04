@@ -410,8 +410,8 @@ impl<'a> FeatureExprBuilder<'a> {
         //     method_ident: method_ident.ident,
         //     opds: opds.iter().map(|opd| opd.feature).collect(),
         // });
-        // let this_expr = &opds[0].expr;
-        // let this_ty_defn = self.db.entity_defn(this_expr.intrinsic_ty()).unwrap();
+        // let self_expr = &opds[0].expr;
+        // let this_ty_defn = self.db.entity_defn(self_expr.intrinsic_ty()).unwrap();
         // let member_idx = self.db.member_idx(method_route);
         // let method_defn = this_ty_defn.method(member_idx);
         // let kind = match method_defn.variant {

@@ -258,7 +258,7 @@ impl<'a> SignatureTermEngine<'a> {
                 todo!()
             }
             Expr::Field {
-                this_expr,
+                self_expr,
                 dot_token_idx,
                 ident_token,
             } => todo!(),
@@ -349,17 +349,17 @@ impl<'a> SignatureTermEngine<'a> {
                                 rpar_token_idx,
                             } => todo!(),
                             Expr::Field {
-                                this_expr,
+                                self_expr,
                                 dot_token_idx,
                                 ident_token,
                             } => todo!(),
                             Expr::MethodCall {
-                                this_expr,
+                                self_expr,
                                 dot_token_idx,
                                 ident_token,
                                 ref implicit_arguments,
                                 lpar_token_idx,
-                                arguments,
+                                nonself_arguments: arguments,
                                 rpar_token_idx,
                             } => todo!(),
                             Expr::TemplateInstantiation {

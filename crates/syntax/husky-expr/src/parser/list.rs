@@ -15,12 +15,12 @@ pub(super) enum UnfinishedListOpr {
         template: ExprIdx,
     },
     MethodInstantiation {
-        this_expr: ExprIdx,
+        self_expr: ExprIdx,
         dot_token_idx: TokenIdx,
         ident_token: IdentifierToken,
     },
     MethodCall {
-        this_expr: ExprIdx,
+        self_expr: ExprIdx,
         dot_token_idx: TokenIdx,
         ident_token: IdentifierToken,
         implicit_arguments: Option<ImplicitArgumentList>,

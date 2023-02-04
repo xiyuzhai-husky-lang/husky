@@ -190,7 +190,7 @@ impl<'a> BlockExprParser<'a> {
             }),
             Ok(None) => ctx
                 .parse_expr(ExprParseEnvironment::None)
-                .map(|expr| Stmt::Eval { expr }),
+                .map(|expr| Stmt::Eval { expr_idx: expr }),
             Err(_) => todo!(),
         }
     }

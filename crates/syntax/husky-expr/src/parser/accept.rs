@@ -85,17 +85,17 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         }
                         UnfinishedListOpr::MethodInstantiation { .. } => todo!(),
                         UnfinishedListOpr::MethodCall {
-                            this_expr,
+                            self_expr,
                             dot_token_idx,
                             ident_token,
                             implicit_arguments,
                         } => Expr::MethodCall {
-                            this_expr,
+                            self_expr,
                             dot_token_idx,
                             ident_token,
                             implicit_arguments,
                             lpar_token_idx: bra_token_idx,
-                            arguments: items,
+                            nonself_arguments: items,
                             rpar_token_idx: ket_token_idx,
                         }
                         .into(),
@@ -146,13 +146,13 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
     fn accept_dot_opr(&mut self, dot_token_idx: TokenIdx) {
         self.replace_top_expr(|this, finished_expr| match finished_expr {
-            Some(this_expr) => {
-                let this_expr = this.alloc_expr(this_expr);
+            Some(self_expr) => {
+                let self_expr = this.alloc_expr(self_expr);
                 match this.parse::<IdentifierToken>() {
                     Ok(Some(ident_token)) => match this.parse::<LeftParenthesisToken>() {
                         Ok(Some(lpar)) => UnfinishedExpr::List {
                             opr: UnfinishedListOpr::MethodCall {
-                                this_expr,
+                                self_expr,
                                 dot_token_idx,
                                 ident_token,
                                 implicit_arguments: None,
@@ -166,7 +166,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         Ok(None) => match this.parse::<ColonColonLeftAngleBracketToken>() {
                             Ok(Some(langle)) => UnfinishedExpr::List {
                                 opr: UnfinishedListOpr::MethodInstantiation {
-                                    this_expr,
+                                    self_expr,
                                     dot_token_idx,
                                     ident_token,
                                 },
@@ -177,7 +177,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             }
                             .into(),
                             Ok(None) => Expr::Field {
-                                this_expr,
+                                self_expr,
                                 dot_token_idx,
                                 ident_token,
                             }
