@@ -97,7 +97,7 @@ pub struct IfBranch {
 }
 
 impl IfBranch {
-    pub fn condition(&self) -> Result<&ArenaIdx<Expr>, &ExprError> {
+    pub fn condition(&self) -> Result<&ExprIdx, &ExprError> {
         self.condition.as_ref()
     }
 
@@ -119,7 +119,7 @@ pub struct ElifBranch {
 }
 
 impl ElifBranch {
-    pub fn condition(&self) -> Result<&ArenaIdx<Expr>, &ExprError> {
+    pub fn condition(&self) -> Result<&ExprIdx, &ExprError> {
         self.condition.as_ref()
     }
 

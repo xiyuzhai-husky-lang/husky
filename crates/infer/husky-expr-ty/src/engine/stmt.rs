@@ -78,25 +78,27 @@ impl<'a> ExprTypeEngine<'a> {
                 ref condition,
                 ref block,
                 ..
-            } => {
-                condition
-                    .as_ref()
-                    .copied()
-                    .map(|condition| self.infer_new_expr(condition, Expectation::Condition));
-                todo!()
             }
-            Stmt::DoWhile {
-                do_token,
-                while_token,
+            | Stmt::DoWhile {
                 ref condition,
-                ref eol_colon,
                 ref block,
+                ..
             } => {
                 condition
                     .as_ref()
                     .copied()
                     .map(|condition| self.infer_new_expr(condition, Expectation::Condition));
-                todo!()
+                block
+                    .as_ref()
+                    .copied()
+                    .map(|block| self.infer_new_block(block, Expectation::UnitOrNever));
+                match expr_expectation {
+                    Expectation::None => todo!(),
+                    Expectation::Type => todo!(),
+                    Expectation::UnitOrNever => todo!(),
+                    Expectation::Condition => todo!(),
+                    Expectation::Return { ty } => todo!(),
+                }
             }
             Stmt::IfElse {
                 ref if_branch,
@@ -116,7 +118,7 @@ impl<'a> ExprTypeEngine<'a> {
     fn calc_let_stmt(
         &mut self,
         let_variable_pattern: &Result<LetVariablesPattern, ExprError>,
-        initial_value: &Result<idx_arena::ArenaIdx<Expr>, ExprError>,
+        initial_value: &Result<ExprIdx, ExprError>,
     ) -> Option<LocalTerm> {
         let pattern_ty = match let_variable_pattern {
             Ok(pattern) => match pattern.ty() {

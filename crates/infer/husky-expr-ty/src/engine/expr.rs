@@ -42,7 +42,9 @@ impl<'a> ExprTypeEngine<'a> {
         expectation: Expectation,
     ) -> ExprTypeResult<LocalTerm> {
         match self.expr_region_data[expr_idx] {
-            Expr::Literal(literal_token_idx) => self.calc_literal(literal_token_idx, expectation),
+            Expr::Literal(literal_token_idx) => {
+                self.calc_literal(expr_idx, literal_token_idx, expectation)
+            }
             Expr::EntityPath {
                 entity_path_expr,
                 entity_path,
@@ -158,13 +160,23 @@ impl<'a> ExprTypeEngine<'a> {
                 .infer_new_expr(item, expectation)
                 .ok_or(DerivedExprTypeError::BracketedItemTypeError.into()),
             Expr::NewTuple { items, .. } => todo!(),
-            Expr::NewBoxList { caller, items, .. } => todo!(),
+            Expr::NewBoxList { caller, items, .. } => self.calc_new_box_list(expr_idx),
             Expr::BoxColon { caller, .. } => todo!(),
             Expr::Block { stmts } => self
                 .infer_new_block(stmts, expectation)
                 .ok_or(DerivedExprTypeError::BlockTypeError.into()),
             Expr::Err(_) => Err(DerivedExprTypeError::ExprError.into()),
         }
+    }
+
+    fn calc_new_box_list(
+        &mut self,
+        expr_idx: idx_arena::ArenaIdx<Expr>,
+    ) -> Result<LocalTerm, ExprTypeError> {
+        let element_ty = self
+            .unresolved_term_table
+            .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ImplicitType);
+        todo!()
     }
 
     fn calc_call_expr(
@@ -272,6 +284,7 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_literal(
         &mut self,
+        expr_idx: ExprIdx,
         literal_token_idx: TokenIdx,
         expectation: Expectation,
     ) -> Result<LocalTerm, ExprTypeError> {
@@ -284,12 +297,10 @@ impl<'a> ExprTypeEngine<'a> {
                 Literal::Integer(integer_literal) => match integer_literal {
                     IntegerLiteral::Unspecified => match expectation {
                         Expectation::None => {
-                            let ty = self
-                                .implicit_symbol_registry
-                                .new_unspecified_integer_ty_symbol(self.term_menu);
-                            let ty = self
-                                .unresolved_term_table
-                                .intern_unresolved_term(UnresolvedTerm::ImplicitSymbol(ty));
+                            let ty = self.unresolved_term_table.new_implicit_symbol(
+                                expr_idx,
+                                ImplicitSymbolVariant::UnspecifiedIntegerType,
+                            );
                             Ok(ty.into())
                         }
                         Expectation::Type => todo!(),
@@ -319,12 +330,10 @@ impl<'a> ExprTypeEngine<'a> {
                 Literal::Float(float_literal) => match float_literal {
                     FloatLiteral::Unspecified => match expectation {
                         Expectation::None => {
-                            let ty = self
-                                .implicit_symbol_registry
-                                .new_unspecified_float_ty_symbol(self.term_menu);
-                            let ty = self
-                                .unresolved_term_table
-                                .intern_unresolved_term(UnresolvedTerm::ImplicitSymbol(ty));
+                            let ty = self.unresolved_term_table.new_implicit_symbol(
+                                expr_idx,
+                                ImplicitSymbolVariant::UnspecifiedFloatType,
+                            );
                             Ok(ty.into())
                         }
                         Expectation::Type => todo!(),

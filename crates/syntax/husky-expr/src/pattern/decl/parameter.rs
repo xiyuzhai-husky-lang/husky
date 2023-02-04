@@ -65,7 +65,7 @@ impl RegularParameterDeclPattern {
         self.colon
     }
 
-    pub fn ty(&self) -> ArenaIdx<Expr> {
+    pub fn ty(&self) -> ExprIdx {
         self.ty
     }
 }

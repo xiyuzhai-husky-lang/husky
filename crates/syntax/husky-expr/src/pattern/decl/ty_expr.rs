@@ -6,7 +6,7 @@ pub struct TypeExpr {
 }
 
 impl TypeExpr {
-    pub fn expr(&self) -> ArenaIdx<Expr> {
+    pub fn expr(&self) -> ExprIdx {
         self.expr
     }
 }
