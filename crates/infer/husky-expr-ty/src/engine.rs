@@ -20,6 +20,7 @@ pub(crate) struct ExprTypeEngine<'a> {
     inherited_symbol_tys: InheritedSymbolMap<Term>,
     current_symbol_ty_infos: CurrentSymbolMap<TypeInfo>,
     unresolved_term_table: UnresolvedTermTable,
+    implicit_symbol_registry: ImplicitSymbolRegistry,
     pattern_expr_tys: PatternExprMap<LocalTerm>,
     return_ty: Option<Term>,
 }
@@ -58,6 +59,7 @@ impl<'a> ExprTypeEngine<'a> {
             inherited_symbol_tys: InheritedSymbolMap::new(symbol_region.inherited_symbol_arena()),
             current_symbol_ty_infos: CurrentSymbolMap::new(symbol_region.current_symbol_arena()),
             unresolved_term_table: Default::default(),
+            implicit_symbol_registry: Default::default(),
             return_ty: return_ty,
             pattern_expr_tys: PatternExprMap::new(
                 expr_region_data.pattern_expr_region().pattern_expr_arena(),

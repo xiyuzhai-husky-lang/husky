@@ -1,3 +1,5 @@
+use husky_token::FloatLiteral;
+
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
@@ -55,27 +57,21 @@ impl<'a> ExprTypeEngine<'a> {
                 ident,
                 inherited_symbol_idx,
                 ..
-            } => {
-                // match inherited_symbol_kind {
-                //     InheritedSymbolKind::ImplicitParameter => todo!(),
-                //     InheritedSymbolKind::RegularParameter => todo!(),
-                // }
-                p!(
-                    ident.debug(self.db),
-                    inherited_symbol_idx,
-                    self.inherited_symbol_tys.debug(self.db)
-                );
-                match self.inherited_symbol_tys.get(inherited_symbol_idx) {
-                    Some(ty) => Ok((*ty).into()),
-                    None => todo!(),
-                }
-            }
+            } => match self.inherited_symbol_tys.get(inherited_symbol_idx) {
+                Some(ty) => Ok((*ty).into()),
+                None => Err(DerivedExprTypeError::InheritedSymbolTypeError.into()),
+            },
             Expr::CurrentSymbol {
                 ident,
                 token_idx,
                 current_symbol_idx,
                 current_symbol_kind,
-            } => todo!(),
+            } => match self.current_symbol_ty_infos.get(current_symbol_idx) {
+                Some(ty_info) => ty_info
+                    .ty()
+                    .map_err(|_| DerivedExprTypeError::CurrentSymbolTypeError.into()),
+                None => Err(DerivedExprTypeError::CurrentSymbolTypeError.into()),
+            },
             Expr::FrameVarDecl {
                 token_idx,
                 ident,
@@ -158,12 +154,14 @@ impl<'a> ExprTypeEngine<'a> {
                 lpar_token_idx,
                 item,
                 rpar_token_idx,
-            } => todo!(),
+            } => self
+                .infer_new_expr(item, expectation)
+                .ok_or(DerivedExprTypeError::BracketedItemTypeError.into()),
             Expr::NewTuple { items, .. } => todo!(),
             Expr::NewBoxList { caller, items, .. } => todo!(),
             Expr::BoxColon { caller, .. } => todo!(),
             Expr::Block { stmts } => self
-                .infer_new_stmts(stmts)
+                .infer_new_block(stmts, expectation)
                 .ok_or(DerivedExprTypeError::BlockTypeError.into()),
             Expr::Err(_) => Err(DerivedExprTypeError::ExprError.into()),
         }
@@ -186,7 +184,7 @@ impl<'a> ExprTypeEngine<'a> {
                 for argument in arguments {
                     self.infer_new_expr(argument, Expectation::None);
                 }
-                todo!()
+                return Err(DerivedExprTypeError::CallableTypeError.into())
             };
         todo!()
     }
@@ -273,7 +271,7 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     fn calc_literal(
-        &self,
+        &mut self,
         literal_token_idx: TokenIdx,
         expectation: Expectation,
     ) -> Result<LocalTerm, ExprTypeError> {
@@ -286,20 +284,55 @@ impl<'a> ExprTypeEngine<'a> {
                 Literal::Integer(integer_literal) => match integer_literal {
                     IntegerLiteral::Unspecified => match expectation {
                         Expectation::None => {
-                            let ty = todo!();
-                            self.unresolved_term_table
-                                .add_expectation_rule(ty, expectation);
-                            todo!()
+                            let ty = self
+                                .implicit_symbol_registry
+                                .new_unspecified_integer_ty_symbol(self.term_menu);
+                            let ty = self
+                                .unresolved_term_table
+                                .intern_unresolved_term(UnresolvedTerm::ImplicitSymbol(ty));
+                            Ok(ty.into())
                         }
                         Expectation::Type => todo!(),
                         Expectation::UnitOrNever => todo!(),
+                        Expectation::Condition => todo!(),
                     },
+                    IntegerLiteral::I8(_) => todo!(),
+                    IntegerLiteral::I16(_) => todo!(),
                     IntegerLiteral::I32(_) => todo!(),
                     IntegerLiteral::I64(_) => todo!(),
+                    IntegerLiteral::I128(_) => todo!(),
+                    IntegerLiteral::ISize(_) => todo!(),
+                    IntegerLiteral::R8(_) => todo!(),
+                    IntegerLiteral::R16(_) => todo!(),
                     IntegerLiteral::R32(_) => todo!(),
                     IntegerLiteral::R64(_) => todo!(),
+                    IntegerLiteral::R128(_) => todo!(),
+                    IntegerLiteral::RSize(_) => todo!(),
+                    IntegerLiteral::U8(_) => todo!(),
+                    IntegerLiteral::U16(_) => todo!(),
+                    IntegerLiteral::U32(_) => todo!(),
+                    IntegerLiteral::U64(_) => todo!(),
+                    IntegerLiteral::U128(_) => todo!(),
+                    IntegerLiteral::USize(_) => todo!(),
                 },
-                Literal::Float(_) => todo!(),
+                Literal::Float(float_literal) => match float_literal {
+                    FloatLiteral::Unspecified => match expectation {
+                        Expectation::None => {
+                            let ty = self
+                                .implicit_symbol_registry
+                                .new_unspecified_float_ty_symbol(self.term_menu);
+                            let ty = self
+                                .unresolved_term_table
+                                .intern_unresolved_term(UnresolvedTerm::ImplicitSymbol(ty));
+                            Ok(ty.into())
+                        }
+                        Expectation::Type => todo!(),
+                        Expectation::UnitOrNever => todo!(),
+                        Expectation::Condition => todo!(),
+                    },
+                    FloatLiteral::F32(_) => todo!(),
+                    FloatLiteral::F64(_) => todo!(),
+                },
                 Literal::TupleIndex(_) => todo!(),
                 Literal::Bool(_) => todo!(),
             },

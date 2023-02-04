@@ -44,12 +44,15 @@ impl From<ImplicitLifetimeSymbolKind> for ImplicitSymbolKind {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum ImplicitLifetimeSymbolKind {}
+pub enum ImplicitLifetimeSymbolKind {
+    UnspecifiedIntegerType,
+    UnspecifiedFloatType,
+}
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct ImplicitSymbolIdx(usize);
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Default, Debug, PartialEq, Eq)]
 pub struct ImplicitSymbolRegistry {
     next: usize,
 }
@@ -61,7 +64,27 @@ impl ImplicitSymbolRegistry {
         idx
     }
 
-    fn new_implicit_lifetime_symbol(
+    pub(crate) fn new_unspecified_integer_ty_symbol(
+        &mut self,
+        term_menu: &TermMenu,
+    ) -> ImplicitSymbol {
+        self.new_implicit_symbol(
+            ImplicitLifetimeSymbolKind::UnspecifiedIntegerType.into(),
+            term_menu.lifetime_ty().into(),
+        )
+    }
+
+    pub(crate) fn new_unspecified_float_ty_symbol(
+        &mut self,
+        term_menu: &TermMenu,
+    ) -> ImplicitSymbol {
+        self.new_implicit_symbol(
+            ImplicitLifetimeSymbolKind::UnspecifiedFloatType.into(),
+            term_menu.lifetime_ty().into(),
+        )
+    }
+
+    pub(crate) fn new_implicit_lifetime_symbol(
         &mut self,
         kind: ImplicitLifetimeSymbolKind,
         term_menu: &TermMenu,
