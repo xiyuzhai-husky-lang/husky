@@ -45,7 +45,11 @@
                     ),
                 ),
                 opt_expectation: None,
-                resolved_ty: None,
+                resolved_ty: Err(
+                    Derived(
+                        ResolvedTypeUninitialized,
+                    ),
+                ),
             },
         ],
         unresolved_term_table: UnresolvedTermTable {

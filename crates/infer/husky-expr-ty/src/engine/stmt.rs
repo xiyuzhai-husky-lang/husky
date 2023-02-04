@@ -47,8 +47,19 @@ impl<'a> ExprTypeEngine<'a> {
                 ref initial_value,
                 ..
             } => self.calc_let_stmt(let_variable_pattern, initial_value),
-            Stmt::Return { ref result, .. } => todo!(),
-            Stmt::Require { ref condition, .. } => todo!(),
+            Stmt::Return { ref result, .. } => {
+                result.as_ref().copied().map(|result| {
+                    self.infer_new_expr(result, Expectation::Return { ty: self.return_ty })
+                });
+                todo!()
+            }
+            Stmt::Require { ref condition, .. } => {
+                condition
+                    .as_ref()
+                    .copied()
+                    .map(|condition| self.infer_new_expr(condition, Expectation::Condition));
+                Some(self.term_menu.unit().into())
+            }
             Stmt::Assert { ref condition, .. } => todo!(),
             Stmt::Break { .. } => Some(self.term_menu.never().into()),
             Stmt::Eval { expr_idx } => self.infer_new_expr(expr_idx, expr_expectation),
@@ -64,18 +75,29 @@ impl<'a> ExprTypeEngine<'a> {
             } => todo!(),
             Stmt::ForExt { ref block, .. } => todo!(),
             Stmt::While {
-                while_token,
                 ref condition,
-                ref eol_colon,
                 ref block,
-            } => todo!(),
+                ..
+            } => {
+                condition
+                    .as_ref()
+                    .copied()
+                    .map(|condition| self.infer_new_expr(condition, Expectation::Condition));
+                todo!()
+            }
             Stmt::DoWhile {
                 do_token,
                 while_token,
                 ref condition,
                 ref eol_colon,
                 ref block,
-            } => todo!(),
+            } => {
+                condition
+                    .as_ref()
+                    .copied()
+                    .map(|condition| self.infer_new_expr(condition, Expectation::Condition));
+                todo!()
+            }
             Stmt::IfElse {
                 ref if_branch,
                 ref elif_branches,
