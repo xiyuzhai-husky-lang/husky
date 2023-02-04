@@ -68,16 +68,19 @@ impl UnresolvedTermTable {
 
     pub(crate) fn add_expectation_rule(
         &mut self,
-        ty: LocalTerm,
+        target: LocalTerm,
         expectation: Expectation,
+        term_menu: &TermMenu,
     ) -> OptionExpectationIdx {
-        let item = match expectation {
+        let variant = match expectation {
             Expectation::None => return Default::default(),
             Expectation::Type => todo!(),
             Expectation::UnitOrNever => todo!(),
-            Expectation::Condition => todo!(),
+            Expectation::Condition => ExpectationRuleVariant::Condition,
+            Expectation::Return { ty } => todo!(),
         };
-        self.expectation_rules.alloc_one(item).into()
+        let rule = ExpectationRule::new(target, variant, term_menu);
+        self.expectation_rules.alloc_one(rule).into()
     }
 
     pub(crate) fn resolve_term(&mut self, unresolved_term_idx: UnresolvedTermIdx) -> Option<Term> {

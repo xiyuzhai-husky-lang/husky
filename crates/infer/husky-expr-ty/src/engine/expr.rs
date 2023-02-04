@@ -13,7 +13,7 @@ impl<'a> ExprTypeEngine<'a> {
             Ok(ty) => (
                 Some(ty),
                 self.unresolved_term_table
-                    .add_expectation_rule(ty, expectation),
+                    .add_expectation_rule(ty, expectation, self.term_menu),
             ),
             Err(_) => (None, Default::default()),
         };
@@ -295,6 +295,7 @@ impl<'a> ExprTypeEngine<'a> {
                         Expectation::Type => todo!(),
                         Expectation::UnitOrNever => todo!(),
                         Expectation::Condition => todo!(),
+                        Expectation::Return { ty } => todo!(),
                     },
                     IntegerLiteral::I8(_) => todo!(),
                     IntegerLiteral::I16(_) => todo!(),
@@ -329,12 +330,13 @@ impl<'a> ExprTypeEngine<'a> {
                         Expectation::Type => todo!(),
                         Expectation::UnitOrNever => todo!(),
                         Expectation::Condition => todo!(),
+                        Expectation::Return { ty } => todo!(),
                     },
                     FloatLiteral::F32(_) => todo!(),
                     FloatLiteral::F64(_) => todo!(),
                 },
                 Literal::TupleIndex(_) => todo!(),
-                Literal::Bool(_) => todo!(),
+                Literal::Bool(_) => Ok(self.term_menu.bool().into()),
             },
             _ => unreachable!(),
         }

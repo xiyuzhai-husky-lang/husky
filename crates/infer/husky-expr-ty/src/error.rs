@@ -68,6 +68,8 @@ pub enum DerivedExprTypeError {
     CallableTypeError,
     #[error("unresolved local term")]
     UnresolvedLocalTerm,
+    #[error("resolved type uninitialized")]
+    ResolvedTypeUninitialized,
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;

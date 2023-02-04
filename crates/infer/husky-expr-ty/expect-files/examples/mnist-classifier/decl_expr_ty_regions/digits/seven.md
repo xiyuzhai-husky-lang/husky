@@ -13,7 +13,11 @@
                     ),
                 ),
                 opt_expectation: None,
-                resolved_ty: None,
+                resolved_ty: Err(
+                    Derived(
+                        ResolvedTypeUninitialized,
+                    ),
+                ),
             },
         ],
         unresolved_term_table: UnresolvedTermTable {
@@ -45,15 +49,13 @@
                     ),
                 ),
                 opt_expectation: None,
-                resolved_ty: Some(
-                    Ok(
-                        Category(
-                            TermCategory {
-                                universe: TermUniverse(
-                                    1,
-                                ),
-                            },
-                        ),
+                resolved_ty: Ok(
+                    Category(
+                        TermCategory {
+                            universe: TermUniverse(
+                                1,
+                            ),
+                        },
                     ),
                 ),
             },
@@ -70,15 +72,13 @@
                     ),
                 ),
                 opt_expectation: None,
-                resolved_ty: Some(
-                    Ok(
-                        Category(
-                            TermCategory {
-                                universe: TermUniverse(
-                                    1,
-                                ),
-                            },
-                        ),
+                resolved_ty: Ok(
+                    Category(
+                        TermCategory {
+                            universe: TermUniverse(
+                                1,
+                            ),
+                        },
                     ),
                 ),
             },
@@ -106,7 +106,11 @@
                     ),
                 ),
                 opt_expectation: None,
-                resolved_ty: None,
+                resolved_ty: Err(
+                    Derived(
+                        ResolvedTypeUninitialized,
+                    ),
+                ),
             },
         ],
         unresolved_term_table: UnresolvedTermTable {
@@ -138,15 +142,13 @@
                     ),
                 ),
                 opt_expectation: None,
-                resolved_ty: Some(
-                    Ok(
-                        Category(
-                            TermCategory {
-                                universe: TermUniverse(
-                                    1,
-                                ),
-                            },
-                        ),
+                resolved_ty: Ok(
+                    Category(
+                        TermCategory {
+                            universe: TermUniverse(
+                                1,
+                            ),
+                        },
                     ),
                 ),
             },
@@ -163,15 +165,13 @@
                     ),
                 ),
                 opt_expectation: None,
-                resolved_ty: Some(
-                    Ok(
-                        Category(
-                            TermCategory {
-                                universe: TermUniverse(
-                                    1,
-                                ),
-                            },
-                        ),
+                resolved_ty: Ok(
+                    Category(
+                        TermCategory {
+                            universe: TermUniverse(
+                                1,
+                            ),
+                        },
                     ),
                 ),
             },
@@ -205,15 +205,13 @@
                     ),
                 ),
                 opt_expectation: None,
-                resolved_ty: Some(
-                    Ok(
-                        Category(
-                            TermCategory {
-                                universe: TermUniverse(
-                                    1,
-                                ),
-                            },
-                        ),
+                resolved_ty: Ok(
+                    Category(
+                        TermCategory {
+                            universe: TermUniverse(
+                                1,
+                            ),
+                        },
                     ),
                 ),
             },
@@ -230,15 +228,13 @@
                     ),
                 ),
                 opt_expectation: None,
-                resolved_ty: Some(
-                    Ok(
-                        Category(
-                            TermCategory {
-                                universe: TermUniverse(
-                                    1,
-                                ),
-                            },
-                        ),
+                resolved_ty: Ok(
+                    Category(
+                        TermCategory {
+                            universe: TermUniverse(
+                                1,
+                            ),
+                        },
                     ),
                 ),
             },
@@ -266,7 +262,11 @@
                     ),
                 ),
                 opt_expectation: None,
-                resolved_ty: None,
+                resolved_ty: Err(
+                    Derived(
+                        ResolvedTypeUninitialized,
+                    ),
+                ),
             },
             TypeInfo {
                 ty_result: Err(
@@ -275,7 +275,11 @@
                     ),
                 ),
                 opt_expectation: None,
-                resolved_ty: None,
+                resolved_ty: Err(
+                    Derived(
+                        ResolvedTypeUninitialized,
+                    ),
+                ),
             },
         ],
         unresolved_term_table: UnresolvedTermTable {

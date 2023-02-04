@@ -43,7 +43,7 @@ pub struct TypeInfo {
     opt_expectation: OptionExpectationIdx,
     // ideally this should be `MaybeUninit`
     // but Rust's type system is not that handy to do this
-    resolved_ty: Option<ExprTypeResult<Term>>,
+    resolved_ty: ExprTypeResult<Term>,
 }
 
 impl TypeInfo {
@@ -54,7 +54,7 @@ impl TypeInfo {
         Self {
             ty_result,
             opt_expectation,
-            resolved_ty: None,
+            resolved_ty: Err(DerivedExprTypeError::ResolvedTypeUninitialized.into()),
         }
     }
 
@@ -64,20 +64,17 @@ impl TypeInfo {
 
     fn finalize(&mut self, unresolved_term_table: &UnresolvedTermTable) {
         let Ok(ty) = self.ty_result else { return };
-        self.resolved_ty = Some(match self.opt_expectation.into_option() {
+        self.resolved_ty = match self.opt_expectation.into_option() {
             Some(expectation) => todo!(),
             None => match ty {
                 LocalTerm::Resolved(ty) => Ok(ty),
                 LocalTerm::Unresolved(ty) => Err(DerivedExprTypeError::UnresolvedLocalTerm.into()),
             },
-        })
+        }
     }
 
     pub(crate) fn resolved_ty(&self) -> &ExprTypeResult<Term> {
-        self.resolved_ty.as_ref().expect(
-            r#"should be initialized by the time it's called;
-            this invariance is guaranteed by `ExprTypeRegion::new`"#,
-        )
+        &self.resolved_ty
     }
 }
 
