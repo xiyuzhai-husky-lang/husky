@@ -59,7 +59,8 @@ impl<'a> ExprTypeEngine<'a> {
                     Err(_) => todo!(),
                 };
                 match pattern_ty {
-                    Some(_) => todo!(),
+                    Some(ty) if ty == self.term_menu.never().into() => todo!(),
+                    Some(ty) => todo!(),
                     None => (),
                 }
                 Some(self.term_menu.unit().into())

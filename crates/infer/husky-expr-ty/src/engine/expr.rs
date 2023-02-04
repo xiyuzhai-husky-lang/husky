@@ -271,4 +271,39 @@ impl<'a> ExprTypeEngine<'a> {
             }
         }
     }
+
+    fn calc_literal(
+        &self,
+        literal_token_idx: TokenIdx,
+        expectation: Expectation,
+    ) -> Result<LocalTerm, ExprTypeError> {
+        let literal_token = self.token_sheet_data[literal_token_idx];
+        match literal_token {
+            Token::Literal(literal) => match literal {
+                Literal::Unit => todo!(),
+                Literal::Char(_) => todo!(),
+                Literal::String(_) => todo!(),
+                Literal::Integer(integer_literal) => match integer_literal {
+                    IntegerLiteral::Unspecified => match expectation {
+                        Expectation::None => {
+                            let ty = todo!();
+                            self.unresolved_term_table
+                                .add_expectation_rule(ty, expectation);
+                            todo!()
+                        }
+                        Expectation::Type => todo!(),
+                        Expectation::UnitOrNever => todo!(),
+                    },
+                    IntegerLiteral::I32(_) => todo!(),
+                    IntegerLiteral::I64(_) => todo!(),
+                    IntegerLiteral::R32(_) => todo!(),
+                    IntegerLiteral::R64(_) => todo!(),
+                },
+                Literal::Float(_) => todo!(),
+                Literal::TupleIndex(_) => todo!(),
+                Literal::Bool(_) => todo!(),
+            },
+            _ => unreachable!(),
+        }
+    }
 }
