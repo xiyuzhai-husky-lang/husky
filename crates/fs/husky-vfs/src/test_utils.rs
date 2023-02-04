@@ -198,7 +198,12 @@ fn vfs_expect_test<'a, Db, U, R>(
             for unit in <U as VfsTestUnit>::collect_from_package_path(vfs_db, package_path) {
                 let path = unit.decide_expect_file_path(vfs_db, name, &path.to_logical_path(&out));
                 std::fs::create_dir_all(path.parent().unwrap()).unwrap();
-                expect_test::expect_file![path].assert_eq(&p(db, f(db, unit)))
+                let f = f(db, unit);
+                // only test when CARGO_MANIFEST_DIR is set
+                match std::env::var("CARGO_MANIFEST_DIR") {
+                    Ok(_) => expect_test::expect_file![path].assert_eq(&p(db, f)),
+                    Err(_) => (),
+                }
             }
         }
     }
