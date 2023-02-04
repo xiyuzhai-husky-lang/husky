@@ -36,28 +36,38 @@ pub enum OriginalExprTypeError {
 
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum DerivedExprTypeError {
-    #[error("todo")]
+    #[error("type info error")]
     TypeInfoError,
-    #[error("todo")]
+    #[error("expr error")]
     ExprError,
-    #[error("todo")]
+    #[error("entity type error")]
     EntityTypeError,
-    #[error("todo")]
+    #[error("boxList application first argument error")]
     BoxListApplicationFirstArgumentError,
-    #[error("todo")]
+    #[error("application argument type not inferred")]
     ApplicationArgumentTypeNotInferred,
-    #[error("todo")]
+    #[error("prefix operand type not inferred")]
     PrefixOperandTypeNotInferred,
-    #[error("todo")]
+    #[error("binary opn first argument type not inferred")]
     BinaryOpnFirstArgumentTypeNotInferred,
-    #[error("todo")]
+    #[error("binary opn second argument type not inferred")]
     BinaryOpnSecondArgumentTypeNotInferred,
-    #[error("todo")]
+    #[error("block type error")]
     BlockTypeError,
-    #[error("todo")]
+    #[error("term symbol type error")]
     TermSymbolTypeError,
     #[error("type error {0}")]
     TypeError(#[from] DerivedTypeError),
+    #[error("bracketed item type error")]
+    BracketedItemTypeError,
+    #[error("current symbol type error")]
+    CurrentSymbolTypeError,
+    #[error("inherited symbol type error")]
+    InheritedSymbolTypeError,
+    #[error("callable type error")]
+    CallableTypeError,
+    #[error("unresolved local term")]
+    UnresolvedLocalTerm,
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;

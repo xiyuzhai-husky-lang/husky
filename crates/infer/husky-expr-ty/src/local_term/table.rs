@@ -21,6 +21,14 @@ pub(crate) struct UnresolvedTermTable {
 pub(crate) type ExpectationIdx = ArenaIdx<ExpectationRule>;
 pub(crate) type OptionExpectationIdx = OptionArenaIdx<ExpectationRule>;
 
+impl std::ops::Index<UnresolvedTermIdx> for UnresolvedTermTable {
+    type Output = UnresolvedTermEntry;
+
+    fn index(&self, index: UnresolvedTermIdx) -> &Self::Output {
+        &self.unresolved_terms[index.0]
+    }
+}
+
 impl std::ops::Index<ExpectationIdx> for UnresolvedTermTable {
     type Output = ExpectationRule;
 
@@ -67,6 +75,7 @@ impl UnresolvedTermTable {
             Expectation::None => return Default::default(),
             Expectation::Type => todo!(),
             Expectation::UnitOrNever => todo!(),
+            Expectation::Condition => todo!(),
         };
         self.expectation_rules.alloc_one(item).into()
     }
@@ -77,6 +86,13 @@ impl UnresolvedTermTable {
     }
 
     fn resolve_as_much_as_possible(&mut self) {
-        todo!()
+        // ad hoc
+        // todo!()
+    }
+
+    pub(crate) fn finalize(&mut self) {
+        self.resolve_as_much_as_possible();
+        // ad hoc
+        // todo!()
     }
 }

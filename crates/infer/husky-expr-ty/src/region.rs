@@ -1,3 +1,5 @@
+use husky_print_utils::p;
+
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -12,8 +14,9 @@ impl ExprTypeRegion {
     pub(crate) fn new(
         path: RegionPath,
         mut expr_ty_infos: ExprMap<TypeInfo>,
-        unresolved_term_table: UnresolvedTermTable,
+        mut unresolved_term_table: UnresolvedTermTable,
     ) -> Self {
+        unresolved_term_table.finalize();
         expr_ty_infos
             .iter_mut()
             .for_each(|info| info.finalize(&unresolved_term_table));
@@ -65,7 +68,7 @@ impl TypeInfo {
             Some(expectation) => todo!(),
             None => match ty {
                 LocalTerm::Resolved(ty) => Ok(ty),
-                LocalTerm::Unresolved(_) => todo!(),
+                LocalTerm::Unresolved(ty) => Err(DerivedExprTypeError::UnresolvedLocalTerm.into()),
             },
         })
     }

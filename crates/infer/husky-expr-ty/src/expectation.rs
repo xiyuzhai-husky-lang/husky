@@ -5,6 +5,7 @@ pub(crate) enum Expectation {
     None,
     Type,
     UnitOrNever,
+    Condition,
 }
 
 #[derive(Debug, PartialEq, Eq)]
