@@ -28,25 +28,16 @@ pub(crate) enum UnresolvedTerm {
 #[derive(Debug, PartialEq, Eq)]
 pub struct ImplicitSymbol {
     idx: ImplicitSymbolIdx,
-    kind: ImplicitSymbolKind,
-    ty: LocalTerm,
+    src_expr_idx: ExprIdx,
+    variant: ImplicitSymbolVariant,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum ImplicitSymbolKind {
-    Lifetime(ImplicitLifetimeSymbolKind),
-}
-
-impl From<ImplicitLifetimeSymbolKind> for ImplicitSymbolKind {
-    fn from(v: ImplicitLifetimeSymbolKind) -> Self {
-        Self::Lifetime(v)
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum ImplicitLifetimeSymbolKind {
+#[derive(Debug, PartialEq, Eq)]
+pub enum ImplicitSymbolVariant {
+    Lifetime,
     UnspecifiedIntegerType,
     UnspecifiedFloatType,
+    ImplicitType,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -64,39 +55,15 @@ impl ImplicitSymbolRegistry {
         idx
     }
 
-    pub(crate) fn new_unspecified_integer_ty_symbol(
+    pub(super) fn new_implicit_symbol(
         &mut self,
-        term_menu: &TermMenu,
+        src_expr_idx: ExprIdx,
+        variant: ImplicitSymbolVariant,
     ) -> ImplicitSymbol {
-        self.new_implicit_symbol(
-            ImplicitLifetimeSymbolKind::UnspecifiedIntegerType.into(),
-            term_menu.lifetime_ty().into(),
-        )
-    }
-
-    pub(crate) fn new_unspecified_float_ty_symbol(
-        &mut self,
-        term_menu: &TermMenu,
-    ) -> ImplicitSymbol {
-        self.new_implicit_symbol(
-            ImplicitLifetimeSymbolKind::UnspecifiedFloatType.into(),
-            term_menu.lifetime_ty().into(),
-        )
-    }
-
-    pub(crate) fn new_implicit_lifetime_symbol(
-        &mut self,
-        kind: ImplicitLifetimeSymbolKind,
-        term_menu: &TermMenu,
-    ) -> ImplicitSymbol {
-        self.new_implicit_symbol(kind.into(), term_menu.lifetime_ty().into())
-    }
-
-    fn new_implicit_symbol(&mut self, kind: ImplicitSymbolKind, ty: LocalTerm) -> ImplicitSymbol {
         ImplicitSymbol {
             idx: self.next(),
-            kind,
-            ty,
+            src_expr_idx,
+            variant,
         }
     }
 }

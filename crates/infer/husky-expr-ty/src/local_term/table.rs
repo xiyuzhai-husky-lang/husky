@@ -12,6 +12,7 @@ pub(crate) struct UnresolvedTermEntry {
 
 #[derive(Default, Debug, PartialEq, Eq)]
 pub(crate) struct UnresolvedTermTable {
+    implicit_symbol_registry: ImplicitSymbolRegistry,
     unresolved_terms: Vec<UnresolvedTermEntry>,
     first_unresolved_term: usize,
     expectation_rules: Arena<ExpectationRule>,
@@ -55,15 +56,17 @@ impl UnresolvedTermTable {
             .position(|entry| entry.unresolved_term == unresolved_term);
         match position {
             Some(idx) => UnresolvedTermIdx(idx),
-            None => {
-                let idx = self.unresolved_terms.len();
-                self.unresolved_terms.push(UnresolvedTermEntry {
-                    unresolved_term,
-                    resolve_progress: Ok(LocalTerm::Unresolved(UnresolvedTermIdx(idx))),
-                });
-                UnresolvedTermIdx(idx)
-            }
+            None => self.alloc_unresolved_term(unresolved_term),
         }
+    }
+
+    fn alloc_unresolved_term(&mut self, unresolved_term: UnresolvedTerm) -> UnresolvedTermIdx {
+        let idx = self.unresolved_terms.len();
+        self.unresolved_terms.push(UnresolvedTermEntry {
+            unresolved_term,
+            resolve_progress: Ok(LocalTerm::Unresolved(UnresolvedTermIdx(idx))),
+        });
+        UnresolvedTermIdx(idx)
     }
 
     pub(crate) fn add_expectation_rule(
@@ -97,5 +100,17 @@ impl UnresolvedTermTable {
         self.resolve_as_much_as_possible();
         // ad hoc
         // todo!()
+    }
+
+    pub(crate) fn new_implicit_symbol(
+        &mut self,
+        expr_idx: ExprIdx,
+        variant: ImplicitSymbolVariant,
+    ) -> LocalTerm {
+        let new_implicit_symbol = self
+            .implicit_symbol_registry
+            .new_implicit_symbol(expr_idx, variant);
+        self.alloc_unresolved_term(UnresolvedTerm::ImplicitSymbol(new_implicit_symbol))
+            .into()
     }
 }

@@ -264,8 +264,8 @@ impl<'a> BlockExprParser<'a> {
 
     fn parse_for_between_particulars(
         &self,
-        lopd: ArenaIdx<Expr>,
-        ropd: ArenaIdx<Expr>,
+        lopd: ExprIdx,
+        ropd: ExprIdx,
         comparison_opr: BinaryComparisonOpr,
     ) -> Result<ForBetweenParticulars, StmtError> {
         use ExprError::UnrecognizedIdentifier;

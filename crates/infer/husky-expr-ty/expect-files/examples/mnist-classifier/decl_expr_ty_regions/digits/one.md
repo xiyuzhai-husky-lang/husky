@@ -21,6 +21,9 @@
             },
         ],
         unresolved_term_table: UnresolvedTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
             unresolved_terms: [],
             first_unresolved_term: 0,
             expectation_rules: Arena {
@@ -64,6 +67,9 @@
             },
         ],
         unresolved_term_table: UnresolvedTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
             unresolved_terms: [],
             first_unresolved_term: 0,
             expectation_rules: Arena {
@@ -127,6 +133,9 @@
             },
         ],
         unresolved_term_table: UnresolvedTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
             unresolved_terms: [],
             first_unresolved_term: 0,
             expectation_rules: Arena {
@@ -190,6 +199,9 @@
             },
         ],
         unresolved_term_table: UnresolvedTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
             unresolved_terms: [],
             first_unresolved_term: 0,
             expectation_rules: Arena {
@@ -253,6 +265,9 @@
             },
         ],
         unresolved_term_table: UnresolvedTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
             unresolved_terms: [],
             first_unresolved_term: 0,
             expectation_rules: Arena {
