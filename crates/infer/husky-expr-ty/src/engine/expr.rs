@@ -160,7 +160,7 @@ impl<'a> ExprTypeEngine<'a> {
                 .infer_new_expr(item, expectation)
                 .ok_or(DerivedExprTypeError::BracketedItemTypeError.into()),
             Expr::NewTuple { items, .. } => todo!(),
-            Expr::NewBoxList { caller, items, .. } => self.calc_new_box_list(expr_idx),
+            Expr::NewBoxList { caller, items, .. } => self.calc_new_box_list(expr_idx, items),
             Expr::BoxColon { caller, .. } => todo!(),
             Expr::Block { stmts } => self
                 .infer_new_block(stmts, expectation)
@@ -171,12 +171,16 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_new_box_list(
         &mut self,
-        expr_idx: idx_arena::ArenaIdx<Expr>,
+        expr_idx: ExprIdx,
+        items: ExprIdxRange,
     ) -> Result<LocalTerm, ExprTypeError> {
         let element_ty = self
             .unresolved_term_table
             .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ImplicitType);
-        todo!()
+        for item in items {
+            self.infer_new_expr(expr_idx, Expectation::MoveAs { ty: element_ty });
+        }
+        Ok(todo!())
     }
 
     fn calc_call_expr(
@@ -307,6 +311,7 @@ impl<'a> ExprTypeEngine<'a> {
                         Expectation::UnitOrNever => todo!(),
                         Expectation::Condition => todo!(),
                         Expectation::Return { ty } => todo!(),
+                        Expectation::MoveAs { ty } => todo!(),
                     },
                     IntegerLiteral::I8(_) => todo!(),
                     IntegerLiteral::I16(_) => todo!(),
@@ -340,6 +345,7 @@ impl<'a> ExprTypeEngine<'a> {
                         Expectation::UnitOrNever => todo!(),
                         Expectation::Condition => todo!(),
                         Expectation::Return { ty } => todo!(),
+                        Expectation::MoveAs { ty } => todo!(),
                     },
                     FloatLiteral::F32(_) => todo!(),
                     FloatLiteral::F64(_) => todo!(),

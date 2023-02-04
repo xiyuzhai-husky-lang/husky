@@ -98,6 +98,7 @@ impl<'a> ExprTypeEngine<'a> {
                     Expectation::UnitOrNever => todo!(),
                     Expectation::Condition => todo!(),
                     Expectation::Return { ty } => todo!(),
+                    Expectation::MoveAs { ty } => todo!(),
                 }
             }
             Stmt::IfElse {

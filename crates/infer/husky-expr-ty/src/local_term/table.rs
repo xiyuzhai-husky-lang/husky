@@ -81,6 +81,7 @@ impl UnresolvedTermTable {
             Expectation::UnitOrNever => todo!(),
             Expectation::Condition => ExpectationRuleVariant::Condition,
             Expectation::Return { ty } => todo!(),
+            Expectation::MoveAs { ty } => todo!(),
         };
         let rule = ExpectationRule::new(target, variant, term_menu);
         self.expectation_rules.alloc_one(rule).into()
