@@ -11,7 +11,7 @@ mod unfinished_expr;
 pub use block::*;
 pub use env::*;
 use husky_print_utils::p;
-use husky_vfs::Toolchain;
+use husky_vfs::{ModulePath, Toolchain};
 
 use crate::*;
 use expr_stack::*;
@@ -49,6 +49,16 @@ pub enum RegionPath {
     Defn(DefnExprPath),
 }
 
+impl RegionPath {
+    pub fn module_path(self, db: &dyn ExprDb) -> ModulePath {
+        match self {
+            RegionPath::Snippet(_) => todo!(),
+            RegionPath::Decl(path) => path.module_path(db),
+            RegionPath::Defn(path) => path.module_path(db),
+        }
+    }
+}
+
 impl From<DefnExprPath> for RegionPath {
     fn from(v: DefnExprPath) -> Self {
         Self::Defn(v)
@@ -69,11 +79,30 @@ pub enum DeclExprPath {
     AssociatedItem(AssociatedItemId),
 }
 
+impl DeclExprPath {
+    pub fn module_path(self, db: &dyn ExprDb) -> ModulePath {
+        match self {
+            DeclExprPath::Entity(path) => path.module_path(db),
+            DeclExprPath::ImplBlock(id) => id.module_path(),
+            DeclExprPath::AssociatedItem(id) => id.module_path(),
+        }
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum DefnExprPath {
     Entity(EntityPath),
     AssociatedItem(AssociatedItemId),
+}
+
+impl DefnExprPath {
+    pub fn module_path(self, db: &dyn ExprDb) -> ModulePath {
+        match self {
+            DefnExprPath::Entity(path) => path.module_path(db),
+            DefnExprPath::AssociatedItem(id) => id.module_path(),
+        }
+    }
 }
 
 pub struct ExprParser<'a> {

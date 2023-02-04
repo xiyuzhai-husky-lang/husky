@@ -24,11 +24,11 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     fn infer_new_last_stmt(&mut self, stmt_idx: StmtIdx) -> Option<LocalTerm> {
-        let expectation = match self.return_ty {
+        let expr_expectation = match self.return_ty {
             Some(_) => todo!(),
             None => Expectation::None,
         };
-        self.calc_stmt(stmt_idx, expectation)
+        self.calc_stmt(stmt_idx, expr_expectation)
     }
 
     fn calc_stmt(&mut self, stmt_idx: StmtIdx, expr_expectation: Expectation) -> Option<LocalTerm> {
@@ -68,7 +68,7 @@ impl<'a> ExprTypeEngine<'a> {
             Stmt::Require { ref condition, .. } => todo!(),
             Stmt::Assert { ref condition, .. } => todo!(),
             Stmt::Break { .. } => todo!(),
-            Stmt::Eval { expr } => todo!(),
+            Stmt::Eval { expr_idx } => self.infer_new_expr(expr_idx, expr_expectation),
             Stmt::ForBetween {
                 ref particulars,
                 ref block,

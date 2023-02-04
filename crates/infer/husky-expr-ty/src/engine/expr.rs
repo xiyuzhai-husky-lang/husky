@@ -11,7 +11,7 @@ impl<'a> ExprTypeEngine<'a> {
             Ok(ty) => (
                 Some(ty),
                 self.unresolved_term_table
-                    .add_expection_rule(ty, expectation),
+                    .add_expectation_rule(ty, expectation),
             ),
             Err(_) => (None, Default::default()),
         };
@@ -37,16 +37,15 @@ impl<'a> ExprTypeEngine<'a> {
     fn calc_expr(
         &mut self,
         expr_idx: ExprIdx,
-        expection: Expectation,
+        expectation: Expectation,
     ) -> ExprTypeResult<LocalTerm> {
-        let expr = &self.expr_region_data[expr_idx];
-        match expr {
-            Expr::Literal(_) => todo!(),
+        match self.expr_region_data[expr_idx] {
+            Expr::Literal(literal_token_idx) => self.calc_literal(literal_token_idx, expectation),
             Expr::EntityPath {
                 entity_path_expr,
                 entity_path,
             } => match entity_path {
-                Some(entity_path) => match self.db.entity_ty(*entity_path) {
+                Some(entity_path) => match self.db.entity_ty(entity_path) {
                     Ok(ty) => Ok(ty.into()),
                     Err(_) => Err(DerivedExprTypeError::EntityTypeError.into()),
                 },
@@ -66,7 +65,7 @@ impl<'a> ExprTypeEngine<'a> {
                     inherited_symbol_idx,
                     self.inherited_symbol_tys.debug(self.db)
                 );
-                match self.inherited_symbol_tys.get(*inherited_symbol_idx) {
+                match self.inherited_symbol_tys.get(inherited_symbol_idx) {
                     Some(ty) => Ok((*ty).into()),
                     None => todo!(),
                 }
@@ -90,17 +89,17 @@ impl<'a> ExprTypeEngine<'a> {
                 opr,
                 opr_token_idx,
                 ropd,
-            } => self.calc_binary(*lopd, *ropd),
+            } => self.calc_binary(lopd, ropd),
             Expr::Be {
                 src,
                 be_token_idx,
-                target,
+                ref target,
             } => todo!(),
             Expr::PrefixOpn {
                 opr,
                 opr_token_idx,
                 opd,
-            } => self.calc_prefix(*opd, *opr),
+            } => self.calc_prefix(opd, opr),
             Expr::SuffixOpn {
                 opd,
                 punctuation,
@@ -114,67 +113,82 @@ impl<'a> ExprTypeEngine<'a> {
             } => todo!(),
             Expr::FunctionCall {
                 function,
-                implicit_arguments,
+                ref implicit_arguments,
                 lpar_token_idx,
                 arguments,
                 rpar_token_idx,
-            } => todo!(),
+            } => {
+                let function_ty = self.infer_new_expr(function, Expectation::None);
+                self.calc_call_expr(None, function_ty, implicit_arguments.as_ref(), arguments)
+            }
             Expr::Field {
-                this_expr,
+                self_expr,
                 dot_token_idx,
                 ident_token,
             } => todo!(),
             Expr::MethodCall {
-                this_expr,
+                self_expr,
                 ident_token,
-                implicit_arguments,
-                arguments,
+                ref implicit_arguments,
+                nonself_arguments,
                 ..
             } => {
-                let Some(this_expr_ty) =
-                    self.infer_new_expr_resolved(*this_expr, Expectation::None)
+                let Some(self_expr_ty) =
+                    self.infer_new_expr_resolved( self_expr, Expectation::None)
                     else {
                         todo!()
                     };
-                let method_ty = match self.db.ty_method_ty(this_expr_ty, ident_token.ident()) {
+                let method_ty = match self.db.ty_method_ty(self_expr_ty, ident_token.ident()) {
                     Ok(_) => todo!(),
                     Err(e) => return Err(e.into()),
                 };
-                todo!()
+                self.calc_call_expr(
+                    Some(self_expr_ty),
+                    method_ty,
+                    implicit_arguments.as_ref(),
+                    nonself_arguments,
+                )
             }
             Expr::TemplateInstantiation {
                 template,
-                implicit_arguments,
+                ref implicit_arguments,
             } => todo!(),
-            Expr::Application { function, argument } => self.calc_application(*function, *argument),
+            Expr::Application { function, argument } => self.calc_application(function, argument),
             Expr::Bracketed {
                 lpar_token_idx,
                 item,
                 rpar_token_idx,
             } => todo!(),
-            Expr::NewTuple {
-                lpar_token_idx,
-                items,
-                commas,
-                rpar_token_idx,
-            } => todo!(),
-            Expr::NewBoxList {
-                caller,
-                lbox_token_idx,
-                items,
-                rbox_token_idx,
-            } => todo!(),
-            Expr::BoxColon {
-                caller,
-                lbox_token_idx,
-                colon_token_idx,
-                rbox_token,
-            } => todo!(),
+            Expr::NewTuple { items, .. } => todo!(),
+            Expr::NewBoxList { caller, items, .. } => todo!(),
+            Expr::BoxColon { caller, .. } => todo!(),
             Expr::Block { stmts } => self
-                .infer_new_stmts(*stmts)
+                .infer_new_stmts(stmts)
                 .ok_or(DerivedExprTypeError::BlockTypeError.into()),
             Expr::Err(_) => Err(DerivedExprTypeError::ExprError.into()),
         }
+    }
+
+    fn calc_call_expr(
+        &mut self,
+        self_ty: Option<Term>,
+        callable_ty: Option<LocalTerm>,
+        implicit_arguments: Option<&ImplicitArgumentList>,
+        arguments: ExprIdxRange,
+    ) -> ExprTypeResult<LocalTerm> {
+        let Some(callable_ty) = callable_ty
+            else {
+                if let Some(implicit_arguments) = implicit_arguments{
+                    for argument in implicit_arguments.arguments() {
+                        self.infer_new_expr(argument, Expectation::None);
+                    }
+                }
+                for argument in arguments {
+                    self.infer_new_expr(argument, Expectation::None);
+                }
+                todo!()
+            };
+        todo!()
     }
 
     fn calc_binary(&mut self, lopd: ExprIdx, ropd: ExprIdx) -> ExprTypeResult<LocalTerm> {

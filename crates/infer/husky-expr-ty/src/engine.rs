@@ -5,6 +5,7 @@ mod util;
 
 use husky_opn_syntax::PrefixOpr;
 use husky_print_utils::p;
+use husky_token::{IntegerLiteral, Literal, Token, TokenIdx, TokenSheetData};
 use symbol::*;
 
 use crate::*;
@@ -12,6 +13,7 @@ use crate::*;
 pub(crate) struct ExprTypeEngine<'a> {
     db: &'a dyn ExprTypeDb,
     term_menu: &'a TermMenu,
+    token_sheet_data: &'a TokenSheetData,
     expr_region_data: &'a ExprRegionData,
     signature_term_region: &'a SignatureTermRegion,
     expr_ty_infos: ExprMap<TypeInfo>,
@@ -47,6 +49,9 @@ impl<'a> ExprTypeEngine<'a> {
         Self {
             db,
             term_menu: db.term_menu(expr_region.toolchain(db)).as_ref().unwrap(),
+            token_sheet_data: db
+                .token_sheet_data(expr_region_data.path().module_path(db))
+                .unwrap(),
             expr_region_data,
             signature_term_region: db.signature_term_region(expr_region),
             expr_ty_infos: ExprMap::new(expr_region_data.expr_arena()),
@@ -78,5 +83,35 @@ impl<'a> ExprTypeEngine<'a> {
             self.expr_ty_infos,
             self.unresolved_term_table,
         )
+    }
+
+    fn calc_literal(
+        &self,
+        literal_token_idx: TokenIdx,
+        expectation: Expectation,
+    ) -> Result<LocalTerm, ExprTypeError> {
+        let literal_token = self.token_sheet_data[literal_token_idx];
+        match literal_token {
+            Token::Literal(literal) => match literal {
+                Literal::Unit => todo!(),
+                Literal::Char(_) => todo!(),
+                Literal::String(_) => todo!(),
+                Literal::Integer(integer_literal) => match integer_literal {
+                    IntegerLiteral::Unspecified => match expectation {
+                        Expectation::None => todo!(),
+                        Expectation::Type => todo!(),
+                        Expectation::UnitOrNever => todo!(),
+                    },
+                    IntegerLiteral::I32(_) => todo!(),
+                    IntegerLiteral::I64(_) => todo!(),
+                    IntegerLiteral::R32(_) => todo!(),
+                    IntegerLiteral::R64(_) => todo!(),
+                },
+                Literal::Float(_) => todo!(),
+                Literal::TupleIndex(_) => todo!(),
+                Literal::Bool(_) => todo!(),
+            },
+            _ => unreachable!(),
+        }
     }
 }

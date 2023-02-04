@@ -38,7 +38,7 @@ pub enum Stmt {
         break_token: BreakToken,
     },
     Eval {
-        expr: ExprIdx,
+        expr_idx: ExprIdx,
     },
     ForBetween {
         for_token: ForToken,

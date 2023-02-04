@@ -166,7 +166,7 @@ Ok(
                                 stmt_arena: Arena {
                                     data: [
                                         Stmt::Eval {
-                                            expr: 2,
+                                            expr_idx: 2,
                                         },
                                     ],
                                 },
@@ -330,7 +330,7 @@ Ok(
                                             ),
                                         },
                                         Expr::MethodCall {
-                                            this_expr: 2,
+                                            self_expr: 2,
                                             dot_token_idx: TokenIdx(
                                                 62,
                                             ),
@@ -344,7 +344,7 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 64,
                                             ),
-                                            arguments: ArenaIdxRange(
+                                            nonself_arguments: ArenaIdxRange(
                                                 3..3,
                                             ),
                                             rpar_token_idx: TokenIdx(
@@ -392,7 +392,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            this_expr: 8,
+                                            self_expr: 8,
                                             dot_token_idx: TokenIdx(
                                                 74,
                                             ),
@@ -558,10 +558,10 @@ Ok(
                                 stmt_arena: Arena {
                                     data: [
                                         Stmt::Eval {
-                                            expr: 15,
+                                            expr_idx: 15,
                                         },
                                         Stmt::Eval {
-                                            expr: 18,
+                                            expr_idx: 18,
                                         },
                                         Stmt::Let {
                                             let_token: LetToken {
@@ -1036,7 +1036,7 @@ Ok(
                                             ),
                                         },
                                         Expr::MethodCall {
-                                            this_expr: 1,
+                                            self_expr: 1,
                                             dot_token_idx: TokenIdx(
                                                 107,
                                             ),
@@ -1050,7 +1050,7 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 109,
                                             ),
-                                            arguments: ArenaIdxRange(
+                                            nonself_arguments: ArenaIdxRange(
                                                 2..2,
                                             ),
                                             rpar_token_idx: TokenIdx(
@@ -1108,7 +1108,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            this_expr: 7,
+                                            self_expr: 7,
                                             dot_token_idx: TokenIdx(
                                                 118,
                                             ),
@@ -1148,7 +1148,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            this_expr: 11,
+                                            self_expr: 11,
                                             dot_token_idx: TokenIdx(
                                                 124,
                                             ),
@@ -1204,7 +1204,7 @@ Ok(
                                 stmt_arena: Arena {
                                     data: [
                                         Stmt::Eval {
-                                            expr: 10,
+                                            expr_idx: 10,
                                         },
                                         Stmt::Let {
                                             let_token: LetToken {
@@ -1514,7 +1514,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            this_expr: 0,
+                                            self_expr: 0,
                                             dot_token_idx: TokenIdx(
                                                 135,
                                             ),
@@ -1546,7 +1546,7 @@ Ok(
                                 stmt_arena: Arena {
                                     data: [
                                         Stmt::Eval {
-                                            expr: 1,
+                                            expr_idx: 1,
                                         },
                                     ],
                                 },
@@ -1690,7 +1690,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            this_expr: 0,
+                                            self_expr: 0,
                                             dot_token_idx: TokenIdx(
                                                 144,
                                             ),
@@ -1741,7 +1741,7 @@ Ok(
                                 stmt_arena: Arena {
                                     data: [
                                         Stmt::Eval {
-                                            expr: 3,
+                                            expr_idx: 3,
                                         },
                                     ],
                                 },
@@ -1885,7 +1885,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            this_expr: 0,
+                                            self_expr: 0,
                                             dot_token_idx: TokenIdx(
                                                 156,
                                             ),
@@ -1917,7 +1917,7 @@ Ok(
                                 stmt_arena: Arena {
                                     data: [
                                         Stmt::Eval {
-                                            expr: 1,
+                                            expr_idx: 1,
                                         },
                                     ],
                                 },
@@ -2077,7 +2077,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            this_expr: 0,
+                                            self_expr: 0,
                                             dot_token_idx: TokenIdx(
                                                 167,
                                             ),
@@ -2109,7 +2109,7 @@ Ok(
                                 stmt_arena: Arena {
                                     data: [
                                         Stmt::Eval {
-                                            expr: 1,
+                                            expr_idx: 1,
                                         },
                                     ],
                                 },
