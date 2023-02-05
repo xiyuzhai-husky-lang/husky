@@ -30,6 +30,8 @@ impl From<TypeError> for ExprTypeError {
 
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalExprTypeError {
+    #[error("unresolved term")]
+    UnresolvedTerm,
     #[error("type error {0}")]
     TypeError(#[from] OriginalTypeError),
 }
@@ -68,8 +70,8 @@ pub enum DerivedExprTypeError {
     CallableTypeError,
     #[error("unresolved local term")]
     UnresolvedLocalTerm,
-    #[error("resolved type uninitialized")]
-    ResolvedTypeUninitialized,
+    #[error("local term resolve error")]
+    LocalTermResolveError,
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;

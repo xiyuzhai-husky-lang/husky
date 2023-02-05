@@ -43,7 +43,7 @@ pub struct EntityPathMenu {
     option_ty: TypePath,
     slice_ty: TypePath,
     ref_ty: TypePath,
-    vec_ty: TypePath,
+    list_ty: TypePath,
     // prelude
     unit: TypePath,
     never: TypePath,
@@ -177,10 +177,10 @@ impl EntityPathMenu {
             ModuleItemConnection::Connected,
             TypeKind::Alien,
         );
-        let vec_ty = TypePath::new(
+        let list_ty = TypePath::new(
             db,
             core_vec,
-            db.it_ident_borrowed("Vec").unwrap(),
+            db.it_ident_borrowed("List").unwrap(),
             ModuleItemConnection::Connected,
             TypeKind::Alien,
         );
@@ -300,7 +300,7 @@ impl EntityPathMenu {
             option_ty,
             slice_ty,
             ref_ty,
-            vec_ty,
+            list_ty,
             unit,
             never,
             bool,
@@ -418,8 +418,8 @@ impl EntityPathMenu {
         self.ref_ty
     }
 
-    pub fn vec_ty(&self) -> TypePath {
-        self.vec_ty
+    pub fn list_ty(&self) -> TypePath {
+        self.list_ty
     }
 
     pub fn trai_ty(&self) -> TypePath {

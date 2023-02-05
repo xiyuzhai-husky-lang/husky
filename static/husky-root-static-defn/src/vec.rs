@@ -96,12 +96,12 @@ static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         }),
         return_ty: "Vec<E>",
         output_liason: OutputModifier::Transfer,
-        linkage: transfer_linkage!(virtual_vec_type_call, none),
+        linkage: transfer_linkage!(virtual_list_type_call, none),
     },
     dev_src: static_dev_src!(),
 };
 
-unsafe fn virtual_vec_type_call<'eval>(
+unsafe fn virtual_list_type_call<'eval>(
     values: &mut [__Register<'eval>],
     _opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {

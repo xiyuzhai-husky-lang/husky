@@ -12,12 +12,8 @@
                         ExprError,
                     ),
                 ),
-                opt_expectation: None,
-                resolved_ty: Err(
-                    Derived(
-                        ResolvedTypeUninitialized,
-                    ),
-                ),
+                expectation_rule: None,
+                resolve_progress: Unresolved,
             },
         ],
         unresolved_term_table: UnresolvedTermTable {
@@ -45,12 +41,8 @@
                         ExprError,
                     ),
                 ),
-                opt_expectation: None,
-                resolved_ty: Err(
-                    Derived(
-                        ResolvedTypeUninitialized,
-                    ),
-                ),
+                expectation_rule: None,
+                resolve_progress: Unresolved,
             },
             TypeInfo {
                 ty_result: Err(
@@ -58,12 +50,8 @@
                         PrefixOperandTypeNotInferred,
                     ),
                 ),
-                opt_expectation: None,
-                resolved_ty: Err(
-                    Derived(
-                        ResolvedTypeUninitialized,
-                    ),
-                ),
+                expectation_rule: None,
+                resolve_progress: Unresolved,
             },
         ],
         unresolved_term_table: UnresolvedTermTable {
@@ -97,16 +85,17 @@
                         ),
                     ),
                 ),
-                opt_expectation: None,
-                resolved_ty: Ok(
-                    Category(
+                expectation_rule: None,
+                resolve_progress: Resolved {
+                    implicit_conversion: None,
+                    term: Category(
                         TermCategory {
                             universe: TermUniverse(
                                 1,
                             ),
                         },
                     ),
-                ),
+                },
             },
             TypeInfo {
                 ty_result: Ok(
@@ -120,16 +109,17 @@
                         ),
                     ),
                 ),
-                opt_expectation: None,
-                resolved_ty: Ok(
-                    Category(
+                expectation_rule: None,
+                resolve_progress: Resolved {
+                    implicit_conversion: None,
+                    term: Category(
                         TermCategory {
                             universe: TermUniverse(
                                 1,
                             ),
                         },
                     ),
-                ),
+                },
             },
         ],
         unresolved_term_table: UnresolvedTermTable {
@@ -163,16 +153,17 @@
                         ),
                     ),
                 ),
-                opt_expectation: None,
-                resolved_ty: Ok(
-                    Category(
+                expectation_rule: None,
+                resolve_progress: Resolved {
+                    implicit_conversion: None,
+                    term: Category(
                         TermCategory {
                             universe: TermUniverse(
                                 1,
                             ),
                         },
                     ),
-                ),
+                },
             },
             TypeInfo {
                 ty_result: Ok(
@@ -186,16 +177,17 @@
                         ),
                     ),
                 ),
-                opt_expectation: None,
-                resolved_ty: Ok(
-                    Category(
+                expectation_rule: None,
+                resolve_progress: Resolved {
+                    implicit_conversion: None,
+                    term: Category(
                         TermCategory {
                             universe: TermUniverse(
                                 1,
                             ),
                         },
                     ),
-                ),
+                },
             },
         ],
         unresolved_term_table: UnresolvedTermTable {
@@ -229,16 +221,17 @@
                         ),
                     ),
                 ),
-                opt_expectation: None,
-                resolved_ty: Ok(
-                    Category(
+                expectation_rule: None,
+                resolve_progress: Resolved {
+                    implicit_conversion: None,
+                    term: Category(
                         TermCategory {
                             universe: TermUniverse(
                                 1,
                             ),
                         },
                     ),
-                ),
+                },
             },
             TypeInfo {
                 ty_result: Ok(
@@ -252,16 +245,17 @@
                         ),
                     ),
                 ),
-                opt_expectation: None,
-                resolved_ty: Ok(
-                    Category(
+                expectation_rule: None,
+                resolve_progress: Resolved {
+                    implicit_conversion: None,
+                    term: Category(
                         TermCategory {
                             universe: TermUniverse(
                                 1,
                             ),
                         },
                     ),
-                ),
+                },
             },
         ],
         unresolved_term_table: UnresolvedTermTable {

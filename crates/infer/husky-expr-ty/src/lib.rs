@@ -2,7 +2,6 @@
 mod db;
 mod engine;
 mod error;
-mod expectation;
 mod local_term;
 mod region;
 #[cfg(test)]
@@ -13,7 +12,6 @@ pub use region::*;
 
 use engine::*;
 use error::*;
-use expectation::*;
 use husky_defn::*;
 use husky_entity_path::*;
 use husky_entity_taxonomy::*;

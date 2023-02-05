@@ -43,7 +43,7 @@ pub struct TermMenu0 {
     option_ty: Term,
     slice_ty: Term,
     ref_ty: Term,
-    vec_ty: Term,
+    list_ty: Term,
     std: Term,
     i32: Term,
     i64: Term,
@@ -97,7 +97,7 @@ impl TermMenu0 {
             option_ty: Term::Entity(entity_path_menu.option_ty().into()),
             slice_ty: Term::Entity(entity_path_menu.slice_ty().into()),
             ref_ty: Term::Entity(entity_path_menu.ref_ty().into()),
-            vec_ty: Term::Entity(entity_path_menu.vec_ty().into()),
+            list_ty: Term::Entity(entity_path_menu.list_ty().into()),
             std: Term::Entity(vfs_path_menu.std().into()),
             unit: Term::Entity(entity_path_menu.unit().into()),
             never: Term::Entity(entity_path_menu.never().into()),
@@ -215,8 +215,8 @@ impl TermMenu0 {
         self.ref_ty
     }
 
-    pub fn vec_ty(&self) -> Term {
-        self.vec_ty
+    pub fn list_ty(&self) -> Term {
+        self.list_ty
     }
 
     pub fn unit(&self) -> Term {
