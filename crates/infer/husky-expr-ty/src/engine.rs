@@ -39,10 +39,8 @@ impl<'a> ExprTypeEngine<'a> {
             .parent()
             .map(|parent| {
                 db.expr_ty_region(parent)[parent.data(db).return_ty()?]
-                    .resolved_ty()
-                    .as_ref()
-                    .ok()
-                    .copied()
+                    .resolve_progress()
+                    .term()
             })
             .flatten();
         let symbol_region = expr_region_data.symbol_region();
@@ -72,7 +70,7 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn infer_all_exprs(&mut self) {
         for root in self.expr_region_data.roots() {
-            let ty = self.infer_new_expr(root.expr(), Expectation::None);
+            let ty = self.infer_new_expr(root.expr(), LocalTermExpectation::None);
             // todo: check coherence
         }
     }

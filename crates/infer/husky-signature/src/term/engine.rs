@@ -286,7 +286,8 @@ impl<'a> SignatureTermEngine<'a> {
                         ..
                     } => match items.len() {
                         0 => Ok(
-                            TermApplication::new(self.db, self.term_menu.vec_ty(), argument).into(),
+                            TermApplication::new(self.db, self.term_menu.list_ty(), argument)
+                                .into(),
                         ),
                         1 => match self.expr_region_data.expr_arena()[items.start()] {
                             Expr::Literal(_) => todo!(),

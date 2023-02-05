@@ -18,16 +18,17 @@
                         ),
                     ),
                 ),
-                opt_expectation: None,
-                resolved_ty: Ok(
-                    Category(
+                expectation_rule: None,
+                resolve_progress: Resolved {
+                    implicit_conversion: None,
+                    term: Category(
                         TermCategory {
                             universe: TermUniverse(
                                 1,
                             ),
                         },
                     ),
-                ),
+                },
             },
         ],
         unresolved_term_table: UnresolvedTermTable {

@@ -15,12 +15,12 @@ pub(crate) struct UnresolvedTermTable {
     implicit_symbol_registry: ImplicitSymbolRegistry,
     unresolved_terms: Vec<UnresolvedTermEntry>,
     first_unresolved_term: usize,
-    expectation_rules: Arena<ExpectationRule>,
+    expectation_rules: Arena<LocalTermExpectationRule>,
     first_unresolved_expectation: usize,
 }
 
-pub(crate) type ExpectationIdx = ArenaIdx<ExpectationRule>;
-pub(crate) type OptionExpectationIdx = OptionArenaIdx<ExpectationRule>;
+pub(crate) type ExpectationIdx = ArenaIdx<LocalTermExpectationRule>;
+pub(crate) type OptionExpectationIdx = OptionArenaIdx<LocalTermExpectationRule>;
 
 impl std::ops::Index<UnresolvedTermIdx> for UnresolvedTermTable {
     type Output = UnresolvedTermEntry;
@@ -31,7 +31,7 @@ impl std::ops::Index<UnresolvedTermIdx> for UnresolvedTermTable {
 }
 
 impl std::ops::Index<ExpectationIdx> for UnresolvedTermTable {
-    type Output = ExpectationRule;
+    type Output = LocalTermExpectationRule;
 
     fn index(&self, index: ExpectationIdx) -> &Self::Output {
         &self.expectation_rules[index]
@@ -72,27 +72,39 @@ impl UnresolvedTermTable {
     pub(crate) fn add_expectation_rule(
         &mut self,
         target: LocalTerm,
-        expectation: Expectation,
+        expectation: LocalTermExpectation,
         term_menu: &TermMenu,
     ) -> OptionExpectationIdx {
         let variant = match expectation {
-            Expectation::None => return Default::default(),
-            Expectation::Type => todo!(),
-            Expectation::UnitOrNever => todo!(),
-            Expectation::Condition => ExpectationRuleVariant::Condition,
-            Expectation::Return { ty } => todo!(),
-            Expectation::MoveAs { ty } => todo!(),
+            LocalTermExpectation::None => return Default::default(),
+            LocalTermExpectation::Type => todo!(),
+            LocalTermExpectation::Condition => ExpectationRuleVariant::Condition,
+            LocalTermExpectation::Return { ty } => todo!(),
+            LocalTermExpectation::ImplicitlyConvertibleTo { term } => {
+                ExpectationRuleVariant::ImplicitlyConvertibleTo { term }
+            }
         };
-        let rule = ExpectationRule::new(target, variant, term_menu);
+        let rule = LocalTermExpectationRule::new(target, variant, term_menu);
         self.expectation_rules.alloc_one(rule).into()
     }
 
     pub(crate) fn resolve_term(&mut self, unresolved_term_idx: UnresolvedTermIdx) -> Option<Term> {
         self.resolve_as_much_as_possible();
-        todo!()
+        match self[unresolved_term_idx].resolve_progress {
+            Ok(LocalTerm::Resolved(term)) => Some(term),
+            Ok(LocalTerm::Unresolved(_)) => {
+                self.unresolved_terms[unresolved_term_idx.0].resolve_progress =
+                    Err(OriginalExprTypeError::UnresolvedTerm.into());
+                None
+            }
+            Err(_) => todo!(),
+        }
     }
 
     fn resolve_as_much_as_possible(&mut self) {
+        while let Some(action) = self.next_term_resolve_action() {
+            todo!()
+        }
         // ad hoc
         // todo!()
     }
@@ -114,4 +126,24 @@ impl UnresolvedTermTable {
         self.alloc_unresolved_term(UnresolvedTerm::ImplicitSymbol(new_implicit_symbol))
             .into()
     }
+
+    fn next_term_resolve_action(&self) -> Option<TermResolveAction> {
+        for expectation_rule in self.unresolved_expectation_rule_iter() {
+            todo!()
+        }
+        None
+    }
+
+    fn unresolved_expectation_rule_iter(&self) -> impl Iterator<Item = &LocalTermExpectationRule> {
+        self.expectation_rules.data()[self.first_unresolved_expectation..]
+            .iter()
+            .filter(|rule| match rule.resolve_progress() {
+                LocalTermResolveProgress::Unresolved => true,
+                LocalTermResolveProgress::Resolved { .. } | LocalTermResolveProgress::Err(_) => {
+                    false
+                }
+            })
+    }
 }
+
+enum TermResolveAction {}

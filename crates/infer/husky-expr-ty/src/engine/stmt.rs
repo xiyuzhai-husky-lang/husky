@@ -4,7 +4,7 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn infer_new_block(
         &mut self,
         stmts: StmtIdxRange,
-        expr_expectation: Expectation,
+        expr_expectation: LocalTermExpectation,
     ) -> Option<LocalTerm> {
         for stmt in stmts.start()..(stmts.end() - 1) {
             self.infer_new_nonlast_stmt(stmt)
@@ -14,11 +14,11 @@ impl<'a> ExprTypeEngine<'a> {
     fn visit_new_exprs_in_stmt(&mut self, stmt_idx: StmtIdx) {}
 
     fn infer_new_nonlast_stmt(&mut self, stmt_idx: StmtIdx) {
-        match self.calc_stmt(stmt_idx, Expectation::UnitOrNever) {
+        let expect_unit = self.expect_unit();
+        match self.calc_stmt(stmt_idx, expect_unit) {
             Some(ty) => match ty {
                 LocalTerm::Resolved(ty) => match ty {
                     ty if ty == self.term_menu.unit() => return,
-                    ty if ty == self.term_menu.never() => return,
                     ty => todo!(),
                 },
                 LocalTerm::Unresolved(_) => todo!(),
@@ -27,19 +27,29 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
+    fn expect_unit(&mut self) -> LocalTermExpectation {
+        LocalTermExpectation::ImplicitlyConvertibleTo {
+            term: self.term_menu.unit().into(),
+        }
+    }
+
     fn infer_new_last_stmt(
         &mut self,
         stmt_idx: StmtIdx,
-        expr_expectation: Expectation,
+        expr_expectation: LocalTermExpectation,
     ) -> Option<LocalTerm> {
         let expr_expectation = match self.return_ty {
             Some(_) => todo!(),
-            None => Expectation::None,
+            None => LocalTermExpectation::None,
         };
         self.calc_stmt(stmt_idx, expr_expectation)
     }
 
-    fn calc_stmt(&mut self, stmt_idx: StmtIdx, expr_expectation: Expectation) -> Option<LocalTerm> {
+    fn calc_stmt(
+        &mut self,
+        stmt_idx: StmtIdx,
+        expr_expectation: LocalTermExpectation,
+    ) -> Option<LocalTerm> {
         match self.expr_region_data[stmt_idx] {
             Stmt::Let {
                 let_token,
@@ -49,15 +59,14 @@ impl<'a> ExprTypeEngine<'a> {
             } => self.calc_let_stmt(let_variable_pattern, initial_value),
             Stmt::Return { ref result, .. } => {
                 result.as_ref().copied().map(|result| {
-                    self.infer_new_expr(result, Expectation::Return { ty: self.return_ty })
+                    self.infer_new_expr(result, LocalTermExpectation::Return { ty: self.return_ty })
                 });
                 todo!()
             }
             Stmt::Require { ref condition, .. } => {
-                condition
-                    .as_ref()
-                    .copied()
-                    .map(|condition| self.infer_new_expr(condition, Expectation::Condition));
+                condition.as_ref().copied().map(|condition| {
+                    self.infer_new_expr(condition, LocalTermExpectation::Condition)
+                });
                 Some(self.term_menu.unit().into())
             }
             Stmt::Assert { ref condition, .. } => todo!(),
@@ -84,22 +93,14 @@ impl<'a> ExprTypeEngine<'a> {
                 ref block,
                 ..
             } => {
-                condition
-                    .as_ref()
-                    .copied()
-                    .map(|condition| self.infer_new_expr(condition, Expectation::Condition));
-                block
-                    .as_ref()
-                    .copied()
-                    .map(|block| self.infer_new_block(block, Expectation::UnitOrNever));
-                match expr_expectation {
-                    Expectation::None => todo!(),
-                    Expectation::Type => todo!(),
-                    Expectation::UnitOrNever => todo!(),
-                    Expectation::Condition => todo!(),
-                    Expectation::Return { ty } => todo!(),
-                    Expectation::MoveAs { ty } => todo!(),
-                }
+                condition.as_ref().copied().map(|condition| {
+                    self.infer_new_expr(condition, LocalTermExpectation::Condition)
+                });
+                block.as_ref().copied().map(|block| {
+                    let expect_unit = self.expect_unit();
+                    self.infer_new_block(block, expect_unit)
+                });
+                Some(self.term_menu.unit().into())
             }
             Stmt::IfElse {
                 ref if_branch,
@@ -132,7 +133,7 @@ impl<'a> ExprTypeEngine<'a> {
                             self.infer_new_expr(
                                 *initial_value,
                                 // ad hoc
-                                Expectation::None,
+                                LocalTermExpectation::None,
                             )
                         })
                         .flatten()
@@ -141,11 +142,12 @@ impl<'a> ExprTypeEngine<'a> {
             Err(_) => todo!(),
         };
         match pattern_ty {
-            Some(ty) if ty == self.term_menu.never().into() => todo!(),
-            Some(ty) => todo!(),
-            None => (),
+            Some(ty) if ty == self.term_menu.never().into() => Some(self.term_menu.never().into()),
+            Some(ty) => {
+                todo!("assign type to variables")
+            }
+            None => Some(self.term_menu.unit().into()),
         }
-        Some(self.term_menu.unit().into())
     }
 
     fn calc_if_else_stmt(
@@ -153,31 +155,69 @@ impl<'a> ExprTypeEngine<'a> {
         if_branch: &IfBranch,
         elif_branches: &[ElifBranch],
         else_branch: Option<&ElseBranch>,
-        mut expr_expectation: Expectation,
+        expr_expectation: LocalTermExpectation,
     ) -> Option<LocalTerm> {
-        let mut ever_ty = None;
-        let mut has_error = false;
+        let mut branch_tys = BranchTypes::new(expr_expectation);
         if_branch
             .condition
             .as_ref()
             .copied()
-            .map(|condition| self.infer_new_expr(condition, Expectation::Condition));
-        match if_branch.block {
-            Ok(stmts) => match self.infer_new_block(stmts, expr_expectation) {
-                Some(_) => todo!(),
-                None => has_error = true,
-            },
-            Err(_) => has_error = true,
-        };
+            .map(|condition| self.infer_new_expr(condition, LocalTermExpectation::Condition));
+        branch_tys.visit_branch(self, &if_branch.block);
         for elif_branch in elif_branches {
-            todo!()
+            elif_branch
+                .condition
+                .as_ref()
+                .copied()
+                .map(|condition| self.infer_new_expr(condition, LocalTermExpectation::Condition));
+            branch_tys.visit_branch(self, &elif_branch.block);
         }
         if let Some(else_branch) = else_branch {
-            todo!()
+            branch_tys.visit_branch(self, &else_branch.block);
         }
-        if has_error {
+        // exhaustive iff else branch exists
+        branch_tys.merge(else_branch.is_some())
+    }
+}
+
+struct BranchTypes {
+    /// this is true if the type of one of the branches cannot be inferred
+    has_error: bool,
+    /// this is true if the type of one of the branches is inferred to be not never
+    has_ever: bool,
+    expr_expectation: LocalTermExpectation,
+}
+
+impl BranchTypes {
+    fn new(expr_expectation: LocalTermExpectation) -> Self {
+        Self {
+            has_error: false,
+            has_ever: false,
+            expr_expectation,
+        }
+    }
+
+    fn visit_branch(&mut self, engine: &mut ExprTypeEngine, block: &ExprResult<StmtIdxRange>) {
+        match block {
+            Ok(stmts) => match engine.infer_new_block(*stmts, self.expr_expectation) {
+                Some(LocalTerm::Resolved(term)) if term == engine.term_menu.never() => (),
+                Some(term) => {
+                    p!(term.debug(engine.db));
+                    todo!()
+                }
+                None => self.has_error = true,
+            },
+            Err(_) => self.has_error = true,
+        };
+    }
+
+    fn merge(self, exhaustive: bool) -> Option<LocalTerm> {
+        if self.has_error {
             return None;
         }
-        ever_ty
+        if self.has_ever {
+            return todo!();
+        }
+        todo!()
     }
 }

@@ -40,21 +40,19 @@ impl std::ops::Index<ExprIdx> for ExprTypeRegion {
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub struct TypeInfo {
     ty_result: ExprTypeResult<LocalTerm>,
-    opt_expectation: OptionExpectationIdx,
-    // ideally this should be `MaybeUninit`
-    // but Rust's type system is not that handy to do this
-    resolved_ty: ExprTypeResult<Term>,
+    expectation_rule: OptionExpectationIdx,
+    resolve_progress: LocalTermResolveProgress,
 }
 
 impl TypeInfo {
     pub(crate) fn new(
         ty_result: ExprTypeResult<LocalTerm>,
-        opt_expectation: OptionExpectationIdx,
+        expectation_rule: OptionExpectationIdx,
     ) -> Self {
         Self {
             ty_result,
-            opt_expectation,
-            resolved_ty: Err(DerivedExprTypeError::ResolvedTypeUninitialized.into()),
+            expectation_rule,
+            resolve_progress: LocalTermResolveProgress::Unresolved,
         }
     }
 
@@ -64,17 +62,24 @@ impl TypeInfo {
 
     fn finalize(&mut self, unresolved_term_table: &UnresolvedTermTable) {
         let Ok(ty) = self.ty_result else { return };
-        self.resolved_ty = match self.opt_expectation.into_option() {
-            Some(expectation) => todo!(),
+        self.resolve_progress = match self.expectation_rule.into_option() {
+            Some(expectation_rule) => unresolved_term_table[expectation_rule]
+                .resolve_progress()
+                .duplicate(),
             None => match ty {
-                LocalTerm::Resolved(ty) => Ok(ty),
-                LocalTerm::Unresolved(ty) => Err(DerivedExprTypeError::UnresolvedLocalTerm.into()),
+                LocalTerm::Resolved(term) => LocalTermResolveProgress::Resolved {
+                    implicit_conversion: LocalTermImplicitConversion::None,
+                    term,
+                },
+                LocalTerm::Unresolved(ty) => {
+                    LocalTermResolveProgress::Err(DerivedExprTypeError::UnresolvedLocalTerm.into())
+                }
             },
         }
     }
 
-    pub(crate) fn resolved_ty(&self) -> &ExprTypeResult<Term> {
-        &self.resolved_ty
+    pub(crate) fn resolve_progress(&self) -> &LocalTermResolveProgress {
+        &self.resolve_progress
     }
 }
 

@@ -6,7 +6,7 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn infer_new_expr(
         &mut self,
         expr_idx: ExprIdx,
-        expectation: Expectation,
+        expectation: LocalTermExpectation,
     ) -> Option<LocalTerm> {
         let ty_result = self.calc_expr(expr_idx, expectation);
         let (ty, opt_expectation) = match ty_result {
@@ -24,7 +24,7 @@ impl<'a> ExprTypeEngine<'a> {
     fn infer_new_expr_resolved(
         &mut self,
         expr_idx: ExprIdx,
-        expectation: Expectation,
+        expectation: LocalTermExpectation,
     ) -> Option<Term> {
         match self.infer_new_expr(expr_idx, expectation)? {
             LocalTerm::Resolved(lopd_ty) => Some(lopd_ty),
@@ -39,7 +39,7 @@ impl<'a> ExprTypeEngine<'a> {
     fn calc_expr(
         &mut self,
         expr_idx: ExprIdx,
-        expectation: Expectation,
+        expectation: LocalTermExpectation,
     ) -> ExprTypeResult<LocalTerm> {
         match self.expr_region_data[expr_idx] {
             Expr::Literal(literal_token_idx) => {
@@ -116,7 +116,7 @@ impl<'a> ExprTypeEngine<'a> {
                 arguments,
                 rpar_token_idx,
             } => {
-                let function_ty = self.infer_new_expr(function, Expectation::None);
+                let function_ty = self.infer_new_expr(function, LocalTermExpectation::None);
                 self.calc_call_expr(None, function_ty, implicit_arguments.as_ref(), arguments)
             }
             Expr::Field {
@@ -132,7 +132,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             } => {
                 let Some(self_expr_ty) =
-                    self.infer_new_expr_resolved( self_expr, Expectation::None)
+                    self.infer_new_expr_resolved( self_expr, LocalTermExpectation::None)
                     else {
                         todo!()
                     };
@@ -178,9 +178,18 @@ impl<'a> ExprTypeEngine<'a> {
             .unresolved_term_table
             .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ImplicitType);
         for item in items {
-            self.infer_new_expr(expr_idx, Expectation::MoveAs { ty: element_ty });
+            self.infer_new_expr(
+                item,
+                LocalTermExpectation::ImplicitlyConvertibleTo { term: element_ty },
+            );
         }
-        Ok(todo!())
+        Ok(self
+            .unresolved_term_table
+            .intern_unresolved_term(UnresolvedTerm::Application {
+                m: self.term_menu.list_ty().into(),
+                n: element_ty,
+            })
+            .into())
     }
 
     fn calc_call_expr(
@@ -194,11 +203,11 @@ impl<'a> ExprTypeEngine<'a> {
             else {
                 if let Some(implicit_arguments) = implicit_arguments{
                     for argument in implicit_arguments.arguments() {
-                        self.infer_new_expr(argument, Expectation::None);
+                        self.infer_new_expr(argument, LocalTermExpectation::None);
                     }
                 }
                 for argument in arguments {
-                    self.infer_new_expr(argument, Expectation::None);
+                    self.infer_new_expr(argument, LocalTermExpectation::None);
                 }
                 return Err(DerivedExprTypeError::CallableTypeError.into())
             };
@@ -206,11 +215,11 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     fn calc_binary(&mut self, lopd: ExprIdx, ropd: ExprIdx) -> ExprTypeResult<LocalTerm> {
-        let Some(lopd_ty) = self.infer_new_expr_resolved(lopd, Expectation::None)
+        let Some(lopd_ty) = self.infer_new_expr_resolved(lopd, LocalTermExpectation::None)
             else {
                 return Err(DerivedExprTypeError::BinaryOpnFirstArgumentTypeNotInferred.into())
             };
-        let Some(ropd_ty) = self.infer_new_expr_resolved(ropd, Expectation::None)
+        let Some(ropd_ty) = self.infer_new_expr_resolved(ropd, LocalTermExpectation::None)
             else {
                 return Err(DerivedExprTypeError::BinaryOpnSecondArgumentTypeNotInferred.into())
             };
@@ -218,7 +227,7 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     fn calc_prefix(&mut self, opd: ExprIdx, opr: PrefixOpr) -> ExprTypeResult<LocalTerm> {
-        let opd_ty = self.infer_new_expr(opd, Expectation::None);
+        let opd_ty = self.infer_new_expr(opd, LocalTermExpectation::None);
         match opr {
             PrefixOpr::Minus => todo!(),
             PrefixOpr::Not => todo!(),
@@ -253,13 +262,14 @@ impl<'a> ExprTypeEngine<'a> {
             } => {
                 match items.len() {
                     0 => {
-                        let argument_ty = self.infer_new_expr(argument, Expectation::None);
+                        let argument_ty = self.infer_new_expr(argument, LocalTermExpectation::None);
                         // check this is type
                         argument_ty
                             .ok_or(DerivedExprTypeError::ApplicationArgumentTypeNotInferred.into())
                     }
                     1 => {
-                        let arg0_ty = self.infer_new_expr(items.start(), Expectation::None);
+                        let arg0_ty =
+                            self.infer_new_expr(items.start(), LocalTermExpectation::None);
                         match arg0_ty {
                             Some(_) => todo!(),
                             None => {
@@ -280,7 +290,7 @@ impl<'a> ExprTypeEngine<'a> {
                 rbox_token,
             } => todo!(),
             _ => {
-                let function_ty = self.infer_new_expr(function, Expectation::None);
+                let function_ty = self.infer_new_expr(function, LocalTermExpectation::None);
                 todo!()
             }
         }
@@ -290,7 +300,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: ExprIdx,
         literal_token_idx: TokenIdx,
-        expectation: Expectation,
+        expectation: LocalTermExpectation,
     ) -> Result<LocalTerm, ExprTypeError> {
         let literal_token = self.token_sheet_data[literal_token_idx];
         match literal_token {
@@ -299,19 +309,16 @@ impl<'a> ExprTypeEngine<'a> {
                 Literal::Char(_) => todo!(),
                 Literal::String(_) => todo!(),
                 Literal::Integer(integer_literal) => match integer_literal {
-                    IntegerLiteral::Unspecified => match expectation {
-                        Expectation::None => {
-                            let ty = self.unresolved_term_table.new_implicit_symbol(
+                    IntegerLiteral::Unspecified => match expectation.term() {
+                        // MOM
+                        Some(term) if term == self.term_menu.i32() => todo!(),
+                        _ => Ok(self
+                            .unresolved_term_table
+                            .new_implicit_symbol(
                                 expr_idx,
                                 ImplicitSymbolVariant::UnspecifiedIntegerType,
-                            );
-                            Ok(ty.into())
-                        }
-                        Expectation::Type => todo!(),
-                        Expectation::UnitOrNever => todo!(),
-                        Expectation::Condition => todo!(),
-                        Expectation::Return { ty } => todo!(),
-                        Expectation::MoveAs { ty } => todo!(),
+                            )
+                            .into()),
                     },
                     IntegerLiteral::I8(_) => todo!(),
                     IntegerLiteral::I16(_) => todo!(),
@@ -334,18 +341,17 @@ impl<'a> ExprTypeEngine<'a> {
                 },
                 Literal::Float(float_literal) => match float_literal {
                     FloatLiteral::Unspecified => match expectation {
-                        Expectation::None => {
+                        LocalTermExpectation::None => {
                             let ty = self.unresolved_term_table.new_implicit_symbol(
                                 expr_idx,
                                 ImplicitSymbolVariant::UnspecifiedFloatType,
                             );
                             Ok(ty.into())
                         }
-                        Expectation::Type => todo!(),
-                        Expectation::UnitOrNever => todo!(),
-                        Expectation::Condition => todo!(),
-                        Expectation::Return { ty } => todo!(),
-                        Expectation::MoveAs { ty } => todo!(),
+                        LocalTermExpectation::Type => todo!(),
+                        LocalTermExpectation::Condition => todo!(),
+                        LocalTermExpectation::Return { ty } => todo!(),
+                        LocalTermExpectation::ImplicitlyConvertibleTo { term: ty } => todo!(),
                     },
                     FloatLiteral::F32(_) => todo!(),
                     FloatLiteral::F64(_) => todo!(),

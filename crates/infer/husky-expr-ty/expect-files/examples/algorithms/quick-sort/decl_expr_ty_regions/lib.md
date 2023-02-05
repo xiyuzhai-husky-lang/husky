@@ -50,12 +50,8 @@
                         ExprError,
                     ),
                 ),
-                opt_expectation: None,
-                resolved_ty: Err(
-                    Derived(
-                        ResolvedTypeUninitialized,
-                    ),
-                ),
+                expectation_rule: None,
+                resolve_progress: Unresolved,
             },
         ],
         unresolved_term_table: UnresolvedTermTable {
