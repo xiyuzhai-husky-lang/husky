@@ -9,6 +9,17 @@ impl TermCategory {
     pub fn new(universe: TermUniverse) -> Self {
         Self { universe }
     }
+
+    pub fn ty(self) -> TermResult<Term> {
+        Ok(Self {
+            universe: self.universe.next()?,
+        }
+        .into())
+    }
+
+    pub fn universe(&self) -> TermUniverse {
+        self.universe
+    }
 }
 
 impl std::fmt::Display for TermCategory {

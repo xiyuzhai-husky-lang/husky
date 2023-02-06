@@ -71,20 +71,21 @@ impl UnresolvedTermTable {
 
     pub(crate) fn add_expectation_rule(
         &mut self,
+        db: &dyn ExprTypeDb,
+        term_menu: &TermMenu,
         target: LocalTerm,
         expectation: LocalTermExpectation,
-        term_menu: &TermMenu,
     ) -> OptionExpectationIdx {
         let variant = match expectation {
             LocalTermExpectation::None => return Default::default(),
-            LocalTermExpectation::Type => todo!(),
-            LocalTermExpectation::Condition => ExpectationRuleVariant::Condition,
+            LocalTermExpectation::Type => ExpectationRuleVariant::Type,
+            LocalTermExpectation::Condition => ExpectationRuleVariant::AsBool,
             LocalTermExpectation::Return { ty } => todo!(),
             LocalTermExpectation::ImplicitlyConvertibleTo { term } => {
                 ExpectationRuleVariant::ImplicitlyConvertibleTo { term }
             }
         };
-        let rule = LocalTermExpectationRule::new(target, variant, term_menu);
+        let rule = LocalTermExpectationRule::new(db, term_menu, target, variant);
         self.expectation_rules.alloc_one(rule).into()
     }
 
