@@ -1,3 +1,5 @@
+use husky_print_utils::p;
+
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -31,23 +33,25 @@ pub struct LocalTermExpectationRule {
 
 impl LocalTermExpectationRule {
     pub(crate) fn new(
+        db: &dyn ExprTypeDb,
+        term_menu: &TermMenu,
         target: LocalTerm,
         variant: ExpectationRuleVariant,
-        term_menu: &TermMenu,
     ) -> Self {
         match target {
-            LocalTerm::Resolved(target) => Self::new_resolved(target, variant, term_menu),
+            LocalTerm::Resolved(target) => Self::new_resolved(db, term_menu, target, variant),
             LocalTerm::Unresolved(target) => Self::new_unresolved(target, variant),
         }
     }
 
     fn new_resolved(
-        term: Term,
-        variant: ExpectationRuleVariant,
+        db: &dyn ExprTypeDb,
         term_menu: &TermMenu,
+        resolved_term: Term,
+        variant: ExpectationRuleVariant,
     ) -> LocalTermExpectationRule {
         let resolve_progress = match variant {
-            ExpectationRuleVariant::Condition => match term {
+            ExpectationRuleVariant::AsBool => match resolved_term {
                 term if term == term_menu.bool() => LocalTermResolveProgress::Resolved {
                     implicit_conversion: LocalTermImplicitConversion::None,
                     term,
@@ -57,10 +61,26 @@ impl LocalTermExpectationRule {
                 term if term == term_menu.r32() => todo!(),
                 term => todo!(),
             },
-            ExpectationRuleVariant::ImplicitlyConvertibleTo { term } => todo!(),
+            ExpectationRuleVariant::ImplicitlyConvertibleTo { term } => {
+                p!(term.debug(db), resolved_term.debug(db));
+                todo!()
+            }
+            ExpectationRuleVariant::Type => match db.term_ty(resolved_term) {
+                Ok(term_ty) => match term_ty {
+                    Term::Category(cat) => match cat.universe().raw() {
+                        0 => todo!(),
+                        _ => LocalTermResolveProgress::Resolved {
+                            implicit_conversion: LocalTermImplicitConversion::None,
+                            term: resolved_term,
+                        },
+                    },
+                    _ => todo!(),
+                },
+                Err(_) => todo!(),
+            },
         };
         Self {
-            target: term.into(),
+            target: resolved_term.into(),
             variant,
             resolve_progress,
         }
@@ -88,6 +108,7 @@ impl LocalTermExpectationRule {
 #[derive(Debug, PartialEq, Eq)]
 #[non_exhaustive]
 pub(crate) enum ExpectationRuleVariant {
-    Condition,
+    AsBool,
     ImplicitlyConvertibleTo { term: LocalTerm },
+    Type,
 }

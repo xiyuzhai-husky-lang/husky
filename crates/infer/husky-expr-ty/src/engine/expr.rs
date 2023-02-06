@@ -12,8 +12,12 @@ impl<'a> ExprTypeEngine<'a> {
         let (ty, opt_expectation) = match ty_result {
             Ok(ty) => (
                 Some(ty),
-                self.unresolved_term_table
-                    .add_expectation_rule(ty, expectation, self.term_menu),
+                self.unresolved_term_table.add_expectation_rule(
+                    self.db,
+                    self.term_menu,
+                    ty,
+                    expectation,
+                ),
             ),
             Err(_) => (None, Default::default()),
         };
@@ -227,12 +231,16 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     fn calc_prefix(&mut self, opd: ExprIdx, opr: PrefixOpr) -> ExprTypeResult<LocalTerm> {
-        let opd_ty = self.infer_new_expr(opd, LocalTermExpectation::None);
         match opr {
-            PrefixOpr::Minus => todo!(),
+            PrefixOpr::Minus => {
+                let _opd_ty = self.infer_new_expr(opd, LocalTermExpectation::Condition);
+                // here we differs from Rust, but agrees with C
+                Ok(self.term_menu.bool().into())
+            }
             PrefixOpr::Not => todo!(),
             PrefixOpr::BitNot => todo!(),
             PrefixOpr::Ref => {
+                let opd_ty = self.infer_new_expr(opd, LocalTermExpectation::None);
                 // Should consider more cases, could also be taking references
                 opd_ty.ok_or(DerivedExprTypeError::PrefixOperandTypeNotInferred.into())
             }
@@ -241,7 +249,7 @@ impl<'a> ExprTypeEngine<'a> {
             PrefixOpr::CyclicSlice => todo!(),
             PrefixOpr::Array(_) => todo!(),
             PrefixOpr::Option => {
-                // Should check this is type.
+                let opd_ty = self.infer_new_expr(opd, LocalTermExpectation::Type);
                 opd_ty.ok_or(DerivedExprTypeError::PrefixOperandTypeNotInferred.into())
             }
         }

@@ -85,7 +85,9 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule: Some(
+                    0,
+                ),
                 resolve_progress: Resolved {
                     implicit_conversion: None,
                     term: Category(
@@ -129,7 +131,30 @@
             unresolved_terms: [],
             first_unresolved_term: 0,
             expectation_rules: Arena {
-                data: [],
+                data: [
+                    LocalTermExpectationRule {
+                        target: Resolved(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                        variant: Type,
+                        resolve_progress: Resolved {
+                            implicit_conversion: None,
+                            term: Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        },
+                    },
+                ],
             },
             first_unresolved_expectation: 0,
         },
@@ -153,7 +178,9 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule: Some(
+                    0,
+                ),
                 resolve_progress: Resolved {
                     implicit_conversion: None,
                     term: Category(
@@ -197,7 +224,30 @@
             unresolved_terms: [],
             first_unresolved_term: 0,
             expectation_rules: Arena {
-                data: [],
+                data: [
+                    LocalTermExpectationRule {
+                        target: Resolved(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                        variant: Type,
+                        resolve_progress: Resolved {
+                            implicit_conversion: None,
+                            term: Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        },
+                    },
+                ],
             },
             first_unresolved_expectation: 0,
         },
@@ -221,7 +271,9 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule: Some(
+                    0,
+                ),
                 resolve_progress: Resolved {
                     implicit_conversion: None,
                     term: Category(
@@ -265,7 +317,30 @@
             unresolved_terms: [],
             first_unresolved_term: 0,
             expectation_rules: Arena {
-                data: [],
+                data: [
+                    LocalTermExpectationRule {
+                        target: Resolved(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                        variant: Type,
+                        resolve_progress: Resolved {
+                            implicit_conversion: None,
+                            term: Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        },
+                    },
+                ],
             },
             first_unresolved_expectation: 0,
         },

@@ -24,7 +24,10 @@ impl From<DerivedTypeError> for TypeError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
-pub enum OriginalTypeError {}
+pub enum OriginalTypeError {
+    #[error("term error")]
+    Term(#[from] TermError),
+}
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum DerivedTypeError {
