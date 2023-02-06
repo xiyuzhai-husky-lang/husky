@@ -61,10 +61,10 @@ impl LocalTermExpectationRule {
                 term if term == term_menu.r32() => todo!(),
                 term => todo!(),
             },
-            ExpectationRuleVariant::ImplicitlyConvertibleTo { term } => {
-                p!(term.debug(db), resolved_term.debug(db));
-                todo!()
-            }
+            ExpectationRuleVariant::ImplicitlyConvertibleTo { term } => match term {
+                LocalTerm::Resolved(_) => todo!(),
+                LocalTerm::Unresolved(_) => LocalTermResolveProgress::Unresolved,
+            },
             ExpectationRuleVariant::Type => match db.term_ty(resolved_term) {
                 Ok(term_ty) => match term_ty {
                     Term::Category(cat) => match cat.universe().raw() {
