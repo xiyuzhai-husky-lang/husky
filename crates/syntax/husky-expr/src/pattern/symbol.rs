@@ -8,3 +8,4 @@ pub enum PatternSymbol {
 
 pub type PatternSymbolArena = Arena<PatternSymbol>;
 pub type PatternSymbolIdx = ArenaIdx<PatternSymbol>;
+pub type PatternSymbolMap<V> = ArenaMap<PatternSymbol, V>;

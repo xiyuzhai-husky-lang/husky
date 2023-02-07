@@ -6,7 +6,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Err(
                     Derived(
                         ExprError,
@@ -35,7 +35,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -61,7 +61,7 @@
                     ),
                 },
             },
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -128,7 +128,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Err(
                     Derived(
                         ExprError,
@@ -137,7 +137,7 @@
                 expectation_rule: None,
                 resolve_progress: Unresolved,
             },
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Err(
                     Derived(
                         PrefixOperandTypeNotInferred,

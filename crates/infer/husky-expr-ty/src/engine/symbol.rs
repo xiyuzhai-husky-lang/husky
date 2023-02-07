@@ -42,15 +42,10 @@ impl<'a> ExprTypeEngine<'a> {
                 else {
                     return
                 };
-            let ty = current_symbol_term.ty(self.db);
-            self.current_symbol_ty_infos.insert_new(
-                current_symbol_idx,
-                TypeInfo::new(
-                    ty.map(Into::into)
-                        .map_err(|_| DerivedExprTypeError::TermSymbolTypeError.into()),
-                    Default::default(),
-                ),
-            )
+            if let Ok(ty) = current_symbol_term.ty(self.db) {
+                self.current_symbol_tys
+                    .insert_new(current_symbol_idx, ty.into())
+            }
         }
     }
 

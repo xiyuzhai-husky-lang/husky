@@ -21,7 +21,7 @@ impl<'a> ExprTypeEngine<'a> {
             ),
             Err(_) => (None, Default::default()),
         };
-        self.save_expr(expr_idx, TypeInfo::new(ty_result, opt_expectation));
+        self.save_expr(expr_idx, ExprTypeInfo::new(ty_result, opt_expectation));
         ty
     }
 
@@ -36,7 +36,7 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    fn save_expr(&mut self, expr_idx: ExprIdx, info: TypeInfo) {
+    fn save_expr(&mut self, expr_idx: ExprIdx, info: ExprTypeInfo) {
         self.expr_ty_infos.insert_new(expr_idx, info)
     }
 
@@ -72,12 +72,11 @@ impl<'a> ExprTypeEngine<'a> {
                 token_idx,
                 current_symbol_idx,
                 current_symbol_kind,
-            } => match self.current_symbol_ty_infos.get(current_symbol_idx) {
-                Some(ty_info) => ty_info
-                    .ty()
-                    .map_err(|_| DerivedExprTypeError::CurrentSymbolTypeError.into()),
-                None => Err(DerivedExprTypeError::CurrentSymbolTypeError.into()),
-            },
+            } => self
+                .current_symbol_tys
+                .get(current_symbol_idx)
+                .copied()
+                .ok_or(DerivedExprTypeError::CurrentSymbolTypeError.into()),
             Expr::FrameVarDecl {
                 token_idx,
                 ident,

@@ -130,6 +130,27 @@ impl std::ops::Index<StmtIdx> for ExprRegionData {
         &self.stmt_arena[index]
     }
 }
+impl std::ops::Index<CurrentSymbolIdx> for ExprRegionData {
+    type Output = CurrentSymbol;
+
+    fn index(&self, index: CurrentSymbolIdx) -> &Self::Output {
+        &self.symbol_region[index]
+    }
+}
+impl std::ops::Index<PatternSymbolIdx> for ExprRegionData {
+    type Output = PatternSymbol;
+
+    fn index(&self, index: PatternSymbolIdx) -> &Self::Output {
+        &self.pattern_expr_region[index]
+    }
+}
+impl std::ops::Index<PatternExprIdx> for ExprRegionData {
+    type Output = PatternExpr;
+
+    fn index(&self, index: PatternExprIdx) -> &Self::Output {
+        &self.pattern_expr_region[index]
+    }
+}
 
 impl ExprRegion {
     pub fn toolchain(self, db: &dyn ExprDb) -> Toolchain {
