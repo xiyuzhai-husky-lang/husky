@@ -6,7 +6,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(

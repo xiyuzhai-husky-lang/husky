@@ -60,4 +60,12 @@ impl LetVariablesPattern {
     pub fn ty(&self) -> Option<ExprIdx> {
         self.ty
     }
+
+    pub fn pattern_expr(&self) -> PatternExprIdx {
+        self.pattern
+    }
+
+    pub fn variables(&self) -> CurrentSymbolIdxRange {
+        self.variables
+    }
 }

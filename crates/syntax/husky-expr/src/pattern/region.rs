@@ -48,6 +48,10 @@ impl PatternExprRegion {
     pub fn pattern_expr_arena(&self) -> &PatternExprArena {
         &self.pattern_expr_arena
     }
+
+    pub fn pattern_symbol_arena(&self) -> &PatternSymbolArena {
+        &self.pattern_symbol_arena
+    }
 }
 
 fn collect_symbols(

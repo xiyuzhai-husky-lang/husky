@@ -6,7 +6,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -30,7 +30,7 @@
                     ),
                 },
             },
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -74,7 +74,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -98,7 +98,7 @@
                     ),
                 },
             },
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -142,7 +142,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -166,7 +166,7 @@
                     ),
                 },
             },
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -210,7 +210,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -234,7 +234,7 @@
                     ),
                 },
             },
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -278,7 +278,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -302,7 +302,7 @@
                     ),
                 },
             },
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -351,7 +351,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -403,7 +403,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -455,7 +455,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -507,7 +507,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -559,7 +559,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -611,7 +611,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -660,7 +660,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -712,7 +712,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -764,7 +764,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -816,7 +816,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -868,7 +868,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -920,7 +920,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -972,7 +972,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -1024,7 +1024,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -1076,7 +1076,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -1125,7 +1125,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Err(
                     Derived(
                         EntityTypeError,
@@ -1162,7 +1162,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -1214,7 +1214,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -1266,7 +1266,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -1318,7 +1318,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -1370,7 +1370,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -1422,7 +1422,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -1471,7 +1471,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -1523,7 +1523,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -1575,7 +1575,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -1627,7 +1627,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -1679,7 +1679,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(

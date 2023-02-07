@@ -6,14 +6,14 @@ use crate::*;
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub struct ExprTypeRegion {
     path: RegionPath,
-    expr_ty_infos: ExprMap<TypeInfo>,
+    expr_ty_infos: ExprMap<ExprTypeInfo>,
     unresolved_term_table: UnresolvedTermTable,
 }
 
 impl ExprTypeRegion {
     pub(crate) fn new(
         path: RegionPath,
-        mut expr_ty_infos: ExprMap<TypeInfo>,
+        mut expr_ty_infos: ExprMap<ExprTypeInfo>,
         mut unresolved_term_table: UnresolvedTermTable,
     ) -> Self {
         unresolved_term_table.finalize();
@@ -29,7 +29,7 @@ impl ExprTypeRegion {
 }
 
 impl std::ops::Index<ExprIdx> for ExprTypeRegion {
-    type Output = TypeInfo;
+    type Output = ExprTypeInfo;
 
     fn index(&self, index: ExprIdx) -> &Self::Output {
         &self.expr_ty_infos[index]
@@ -38,20 +38,20 @@ impl std::ops::Index<ExprIdx> for ExprTypeRegion {
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
-pub struct TypeInfo {
+pub struct ExprTypeInfo {
     ty_result: ExprTypeResult<LocalTerm>,
     expectation_rule: OptionExpectationIdx,
     resolve_progress: LocalTermResolveProgress,
 }
 
-impl TypeInfo {
+impl ExprTypeInfo {
     pub(crate) fn new(
         ty_result: ExprTypeResult<LocalTerm>,
-        expectation_rule: OptionExpectationIdx,
+        expectation_rule_idx: OptionExpectationIdx,
     ) -> Self {
         Self {
             ty_result,
-            expectation_rule,
+            expectation_rule: expectation_rule_idx,
             resolve_progress: LocalTermResolveProgress::Unresolved,
         }
     }
@@ -88,4 +88,28 @@ pub(crate) fn expr_ty_region(db: &dyn ExprTypeDb, expr_region: ExprRegion) -> Ex
     let mut engine = ExprTypeEngine::new(db, expr_region);
     engine.infer_all();
     engine.finish()
+}
+
+pub(crate) struct PatternExprTypeInfo {
+    ty: PatternExprTypeResult<LocalTerm>,
+}
+
+impl PatternExprTypeInfo {
+    pub(crate) fn new(ty: PatternExprTypeResult<LocalTerm>) -> Self {
+        Self { ty }
+    }
+
+    pub(crate) fn ty(&self) -> Result<&LocalTerm, &PatternExprTypeError> {
+        self.ty.as_ref()
+    }
+}
+
+pub(crate) struct PatternSymbolTypeInfo {
+    ty: PatternSymbolTypeResult<LocalTerm>,
+}
+
+impl PatternSymbolTypeInfo {
+    pub(crate) fn new(ty: PatternSymbolTypeResult<LocalTerm>) -> Self {
+        Self { ty }
+    }
 }

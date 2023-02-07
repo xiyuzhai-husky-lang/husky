@@ -6,7 +6,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Err(
                     Derived(
                         EntityTypeError,
@@ -15,7 +15,7 @@
                 expectation_rule: None,
                 resolve_progress: Unresolved,
             },
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Err(
                     Derived(
                         PrefixOperandTypeNotInferred,
@@ -24,7 +24,7 @@
                 expectation_rule: None,
                 resolve_progress: Unresolved,
             },
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Err(
                     Derived(
                         PrefixOperandTypeNotInferred,
@@ -33,7 +33,7 @@
                 expectation_rule: None,
                 resolve_progress: Unresolved,
             },
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Err(
                     Derived(
                         ApplicationArgumentTypeNotInferred,
@@ -42,7 +42,7 @@
                 expectation_rule: None,
                 resolve_progress: Unresolved,
             },
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Err(
                     Derived(
                         EntityTypeError,
@@ -51,7 +51,7 @@
                 expectation_rule: None,
                 resolve_progress: Unresolved,
             },
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Err(
                     Derived(
                         PrefixOperandTypeNotInferred,
@@ -60,7 +60,7 @@
                 expectation_rule: None,
                 resolve_progress: Unresolved,
             },
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Err(
                     Derived(
                         ApplicationArgumentTypeNotInferred,
@@ -89,7 +89,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -138,7 +138,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -190,7 +190,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -242,7 +242,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
@@ -294,7 +294,7 @@
             ),
         ),
         expr_ty_infos: [
-            TypeInfo {
+            ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
                         Category(
