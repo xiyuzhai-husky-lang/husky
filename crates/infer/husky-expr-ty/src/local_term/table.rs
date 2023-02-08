@@ -110,7 +110,7 @@ impl<'a> ExprTypeEngine<'a> {
         let variant = match expectation {
             LocalTermExpectation::None => return Default::default(),
             LocalTermExpectation::Type => ExpectationRuleVariant::Type,
-            LocalTermExpectation::Condition => ExpectationRuleVariant::AsBool,
+            LocalTermExpectation::AsBool => ExpectationRuleVariant::AsBool,
             LocalTermExpectation::Return { ty } => todo!(),
             LocalTermExpectation::ImplicitlyConvertibleTo { term } => {
                 ExpectationRuleVariant::ImplicitlyConvertibleTo { dst: term }

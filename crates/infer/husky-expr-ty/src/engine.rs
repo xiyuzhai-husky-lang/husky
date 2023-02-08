@@ -105,4 +105,8 @@ impl<'a> ExprTypeEngine<'a> {
     pub(crate) fn unresolved_term_table_mut(&mut self) -> &mut UnresolvedTermTable {
         &mut self.unresolved_term_table
     }
+
+    pub(crate) fn expr_region_data(&self) -> &ExprRegionData {
+        self.expr_region_data
+    }
 }
