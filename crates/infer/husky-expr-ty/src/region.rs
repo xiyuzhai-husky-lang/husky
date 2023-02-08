@@ -7,7 +7,7 @@ use crate::*;
 pub struct ExprTypeRegion {
     path: RegionPath,
     expr_ty_infos: ExprMap<ExprTypeInfo>,
-    unresolved_term_table: UnresolvedTermTable,
+    unresolved_term_table: LocalTermTable,
 }
 
 impl ExprTypeRegion {
@@ -16,7 +16,7 @@ impl ExprTypeRegion {
         reduced_term_menu: ReducedTermMenu,
         path: RegionPath,
         mut expr_ty_infos: ExprMap<ExprTypeInfo>,
-        mut unresolved_term_table: UnresolvedTermTable,
+        mut unresolved_term_table: LocalTermTable,
     ) -> Self {
         expr_ty_infos
             .iter_mut()
@@ -61,7 +61,7 @@ impl ExprTypeInfo {
         self.ty_result.as_ref().copied()
     }
 
-    fn finalize(&mut self, unresolved_term_table: &UnresolvedTermTable) {
+    fn finalize(&mut self, unresolved_term_table: &LocalTermTable) {
         let Ok(ty) = self.ty_result else { return };
         self.resolve_progress = match self.expectation_rule_idx.into_option() {
             Some(expectation_rule_idx) => unresolved_term_table[expectation_rule_idx]

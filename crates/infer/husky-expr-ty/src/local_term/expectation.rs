@@ -1,5 +1,6 @@
 use super::*;
 use husky_print_utils::p;
+use idx_arena::Arena;
 use thiserror::Error;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -116,7 +117,7 @@ impl LocalTermExpectationRule {
         self.src_expr_idx
     }
 
-    pub(super) fn resolve(&mut self, expectation_resolved: LocalTermExpectationResolved) {
+    fn resolve(&mut self, expectation_resolved: LocalTermExpectationResolved) {
         self.resolve_progress = LocalTermExpectationResolveProgress::Resolved(expectation_resolved)
     }
 
@@ -134,9 +135,61 @@ impl LocalTermExpectationEffect {
     pub(super) fn actions(self) -> Vec<TermResolveAction> {
         self.actions
     }
+}
 
-    pub(super) fn expectation_resolved(&self) -> LocalTermExpectationResolved {
-        self.expectation_resolved
+#[derive(Default, Debug, PartialEq, Eq)]
+pub(crate) struct LocalTermExpectationRules {
+    arena: Arena<LocalTermExpectationRule>,
+    first_unresolved_expectation: usize,
+}
+
+impl std::ops::Index<LocalTermExpectationRuleIdx> for LocalTermExpectationRules {
+    type Output = LocalTermExpectationRule;
+
+    fn index(&self, index: LocalTermExpectationRuleIdx) -> &Self::Output {
+        &self.arena[index]
+    }
+}
+
+impl LocalTermExpectationRules {
+    pub(super) fn unresolved_rule_iter(
+        &self,
+    ) -> impl Iterator<Item = (LocalTermExpectationRuleIdx, &LocalTermExpectationRule)> {
+        self.arena
+            .indexed_iter_with_start(self.first_unresolved_expectation)
+            .filter(|(_, rule)| match rule.resolve_progress() {
+                LocalTermExpectationResolveProgress::Unresolved => true,
+                LocalTermExpectationResolveProgress::Resolved(_)
+                | LocalTermExpectationResolveProgress::Err(_) => false,
+            })
+    }
+
+    pub(super) fn unresolved_expectation_rule_iter_mut(
+        &mut self,
+    ) -> impl Iterator<Item = (LocalTermExpectationRuleIdx, &mut LocalTermExpectationRule)> {
+        self.arena
+            .indexed_iter_mut_with_start(self.first_unresolved_expectation)
+            .filter(|(_, rule)| match rule.resolve_progress() {
+                LocalTermExpectationResolveProgress::Unresolved => true,
+                LocalTermExpectationResolveProgress::Resolved(_)
+                | LocalTermExpectationResolveProgress::Err(_) => false,
+            })
+    }
+
+    pub(super) fn alloc_rule(
+        &mut self,
+        rule: LocalTermExpectationRule,
+    ) -> LocalTermExpectationRuleIdx {
+        self.arena.alloc_one(rule)
+    }
+
+    pub(super) fn take_effect(
+        &mut self,
+        rule_idx: LocalTermExpectationRuleIdx,
+        effect: &LocalTermExpectationEffect,
+    ) {
+        self.arena
+            .update(rule_idx, |rule| rule.resolve(effect.expectation_resolved))
     }
 }
 
@@ -228,7 +281,7 @@ impl<'a> ExprTypeEngine<'a> {
         rule: &LocalTermExpectationRule,
         level: LocalTermResolveLevel,
     ) -> Option<LocalTermExpectationEffect> {
-        let table = self.unresolved_term_table();
+        let table = self.local_term_table();
         match rule.variant {
             LocalTermExpectationRuleVariant::AsBool => match rule.expectee {
                 LocalTerm::Resolved(_) => todo!(),
@@ -265,7 +318,10 @@ impl<'a> ExprTypeEngine<'a> {
                                     implicit_symbol: dst,
                                     substitution: expectee.into(),
                                 }],
-                                expectation_resolved: todo!(),
+                                expectation_resolved: LocalTermExpectationResolved {
+                                    implicit_conversion: LocalTermImplicitConversion::None,
+                                    local_term: expectee.into(),
+                                },
                             }),
                         },
                         UnresolvedTermPattern::Injection {

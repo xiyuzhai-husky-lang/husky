@@ -19,7 +19,7 @@ pub(crate) struct ExprTypeEngine<'a> {
     expr_ty_infos: ExprMap<ExprTypeInfo>,
     inherited_symbol_tys: InheritedSymbolMap<ReducedTerm>,
     current_symbol_tys: CurrentSymbolMap<LocalTerm>,
-    unresolved_term_table: UnresolvedTermTable,
+    unresolved_term_table: LocalTermTable,
     pattern_expr_ty_infos: PatternExprMap<PatternExprTypeInfo>,
     pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
     return_ty: Option<ReducedTerm>,
@@ -97,11 +97,11 @@ impl<'a> ExprTypeEngine<'a> {
         self.reduced_term_menu
     }
 
-    pub(crate) fn unresolved_term_table(&self) -> &UnresolvedTermTable {
+    pub(crate) fn local_term_table(&self) -> &LocalTermTable {
         &self.unresolved_term_table
     }
 
-    pub(crate) fn unresolved_term_table_mut(&mut self) -> &mut UnresolvedTermTable {
+    pub(crate) fn local_term_table_mut(&mut self) -> &mut LocalTermTable {
         &mut self.unresolved_term_table
     }
 

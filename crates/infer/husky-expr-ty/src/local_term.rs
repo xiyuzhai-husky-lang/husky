@@ -20,6 +20,13 @@ pub(crate) enum LocalTerm {
     Unresolved(UnresolvedTermIdx),
 }
 
+#[derive(Default, Debug, PartialEq, Eq)]
+pub(crate) struct LocalTermTable {
+    implicit_symbol_registry: ImplicitSymbolRegistry,
+    unresolved_terms: UnresolvedTerms,
+    expectation_rules: LocalTermExpectationRules,
+}
+
 impl LocalTerm {
     fn resolved(self) -> Option<ReducedTerm> {
         match self {
