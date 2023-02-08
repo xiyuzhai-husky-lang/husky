@@ -6,7 +6,7 @@ use husky_print_utils::p;
 pub(crate) enum LocalTermExpectation {
     None,
     Type,
-    Condition,
+    AsBool,
     Return { ty: Option<ReducedTerm> },
     ImplicitlyConvertibleTo { term: LocalTerm },
 }
@@ -16,7 +16,7 @@ impl LocalTermExpectation {
         match self {
             LocalTermExpectation::None => None,
             LocalTermExpectation::Type => None,
-            LocalTermExpectation::Condition => None,
+            LocalTermExpectation::AsBool => None,
             LocalTermExpectation::Return { ty } => ty,
             LocalTermExpectation::ImplicitlyConvertibleTo { term } => term.resolved(),
         }
@@ -46,6 +46,10 @@ impl LocalTermExpectationRule {
 
     pub(crate) fn set_resolve_progress(&mut self, resolve_progress: LocalTermResolveProgress) {
         self.resolve_progress = resolve_progress;
+    }
+
+    pub fn src_expr_idx(&self) -> ExprIdx {
+        self.src_expr_idx
     }
 }
 
@@ -143,7 +147,8 @@ impl<'a> ExprTypeEngine<'a> {
                         UnresolvedTermPattern::ImplicitSymbol => {
                             match table[expectee].unresolved_term() {
                                 UnresolvedTerm::ImplicitSymbol(implicit_symbol) => {
-                                    p!(implicit_symbol.src_expr_idx());
+                                    let src_expr_idx = rule.src_expr_idx();
+                                    p!(self.expr_region_data()[src_expr_idx]);
                                     todo!()
                                 }
                                 _ => unreachable!(),

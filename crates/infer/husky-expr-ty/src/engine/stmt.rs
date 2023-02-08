@@ -64,16 +64,18 @@ impl<'a> ExprTypeEngine<'a> {
                 todo!()
             }
             Stmt::Require { ref condition, .. } => {
-                condition.as_ref().copied().map(|condition| {
-                    self.infer_new_expr(condition, LocalTermExpectation::Condition)
-                });
+                condition
+                    .as_ref()
+                    .copied()
+                    .map(|condition| self.infer_new_expr(condition, LocalTermExpectation::AsBool));
                 // todo: check that require can be used for the return ty
                 Some(self.reduced_term_menu.unit().into())
             }
             Stmt::Assert { ref condition, .. } => {
-                condition.as_ref().copied().map(|condition| {
-                    self.infer_new_expr(condition, LocalTermExpectation::Condition)
-                });
+                condition
+                    .as_ref()
+                    .copied()
+                    .map(|condition| self.infer_new_expr(condition, LocalTermExpectation::AsBool));
                 Some(self.reduced_term_menu.unit().into())
             }
             Stmt::Break { .. } => Some(self.reduced_term_menu.never().into()),
@@ -99,9 +101,10 @@ impl<'a> ExprTypeEngine<'a> {
                 ref block,
                 ..
             } => {
-                condition.as_ref().copied().map(|condition| {
-                    self.infer_new_expr(condition, LocalTermExpectation::Condition)
-                });
+                condition
+                    .as_ref()
+                    .copied()
+                    .map(|condition| self.infer_new_expr(condition, LocalTermExpectation::AsBool));
                 block.as_ref().copied().map(|block| {
                     let expect_unit = self.expect_unit();
                     self.infer_new_block(block, expect_unit)
@@ -270,14 +273,14 @@ impl<'a> ExprTypeEngine<'a> {
             .condition
             .as_ref()
             .copied()
-            .map(|condition| self.infer_new_expr(condition, LocalTermExpectation::Condition));
+            .map(|condition| self.infer_new_expr(condition, LocalTermExpectation::AsBool));
         branch_tys.visit_branch(self, &if_branch.block);
         for elif_branch in elif_branches {
             elif_branch
                 .condition
                 .as_ref()
                 .copied()
-                .map(|condition| self.infer_new_expr(condition, LocalTermExpectation::Condition));
+                .map(|condition| self.infer_new_expr(condition, LocalTermExpectation::AsBool));
             branch_tys.visit_branch(self, &elif_branch.block);
         }
         if let Some(else_branch) = else_branch {

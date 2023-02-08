@@ -230,11 +230,13 @@ impl<'a> ExprTypeEngine<'a> {
     fn calc_prefix(&mut self, opd: ExprIdx, opr: PrefixOpr) -> ExprTypeResult<LocalTerm> {
         match opr {
             PrefixOpr::Minus => {
-                let _opd_ty = self.infer_new_expr(opd, LocalTermExpectation::Condition);
+                todo!()
+            }
+            PrefixOpr::Not => {
+                let _opd_ty = self.infer_new_expr(opd, LocalTermExpectation::AsBool);
                 // here we differs from Rust, but agrees with C
                 Ok(self.reduced_term_menu.bool().into())
             }
-            PrefixOpr::Not => todo!(),
             PrefixOpr::BitNot => todo!(),
             PrefixOpr::Ref => {
                 let opd_ty = self.infer_new_expr(opd, LocalTermExpectation::None);
@@ -353,7 +355,7 @@ impl<'a> ExprTypeEngine<'a> {
                             Ok(ty.into())
                         }
                         LocalTermExpectation::Type => todo!(),
-                        LocalTermExpectation::Condition => todo!(),
+                        LocalTermExpectation::AsBool => todo!(),
                         LocalTermExpectation::Return { ty } => todo!(),
                         LocalTermExpectation::ImplicitlyConvertibleTo { term: ty } => todo!(),
                     },
