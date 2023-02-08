@@ -3,7 +3,9 @@ use thiserror::Error;
 
 #[derive(Debug, PartialEq, Eq)]
 pub(crate) enum LocalTermResolveProgress {
-    Ok(LocalTerm),
+    Unresolved,
+    PartiallyResolved(UnresolvedTermIdx),
+    FullyResolved(ReducedTerm),
     Err(LocalTermResolveError),
 }
 
@@ -33,7 +35,13 @@ impl LocalTermResolveProgress {
     // it will use derived type error
     pub(crate) fn duplicate(&self) -> Self {
         match self {
-            LocalTermResolveProgress::Ok(local_term) => LocalTermResolveProgress::Ok(*local_term),
+            LocalTermResolveProgress::Unresolved => LocalTermResolveProgress::Unresolved,
+            LocalTermResolveProgress::PartiallyResolved(unresolved_term) => {
+                LocalTermResolveProgress::PartiallyResolved(*unresolved_term)
+            }
+            LocalTermResolveProgress::FullyResolved(resolved_term) => {
+                LocalTermResolveProgress::FullyResolved(*resolved_term)
+            }
             LocalTermResolveProgress::Err(_) => {
                 LocalTermResolveProgress::Err(DerivedLocalTermResolveError::Duplication.into())
             }
@@ -42,11 +50,17 @@ impl LocalTermResolveProgress {
 
     pub(crate) fn reduced_term(&self) -> Option<ReducedTerm> {
         match self {
-            LocalTermResolveProgress::Ok(local_term) => match local_term {
-                LocalTerm::Resolved(reduced_term) => Some(*reduced_term),
-                LocalTerm::Unresolved(_) => todo!(),
-            },
-            LocalTermResolveProgress::Err(_) => None,
+            LocalTermResolveProgress::FullyResolved(reduced_term) => Some(*reduced_term),
+            LocalTermResolveProgress::Unresolved
+            | LocalTermResolveProgress::PartiallyResolved(_)
+            | LocalTermResolveProgress::Err(_) => None,
+        }
+    }
+
+    pub(crate) fn new(substitution: LocalTerm) -> LocalTermResolveProgress {
+        match substitution {
+            LocalTerm::Resolved(term) => LocalTermResolveProgress::FullyResolved(term),
+            LocalTerm::Unresolved(term) => LocalTermResolveProgress::PartiallyResolved(term),
         }
     }
 }

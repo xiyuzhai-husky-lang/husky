@@ -20,7 +20,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -52,7 +52,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -71,16 +71,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -104,7 +108,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -136,7 +140,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -155,16 +159,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -188,7 +196,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -220,7 +228,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -239,16 +247,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -272,7 +284,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -304,7 +316,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -323,16 +335,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -356,7 +372,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -388,7 +404,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -407,16 +423,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -445,7 +465,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -464,16 +484,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -505,7 +529,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -524,16 +548,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -565,7 +593,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -584,16 +612,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -625,7 +657,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -644,16 +676,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -685,7 +721,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -704,16 +740,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -745,7 +785,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -764,16 +804,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -802,7 +846,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -821,16 +865,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -862,7 +910,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -881,16 +929,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -922,7 +974,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -941,16 +993,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -982,7 +1038,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -1001,16 +1057,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -1042,7 +1102,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -1061,16 +1121,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -1102,7 +1166,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -1121,16 +1185,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -1162,7 +1230,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -1181,16 +1249,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -1222,7 +1294,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -1241,16 +1313,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -1282,7 +1358,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -1301,16 +1377,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -1331,20 +1411,24 @@
                         EntityTypeError,
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Unresolved,
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -1376,7 +1460,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -1395,16 +1479,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -1436,7 +1524,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -1455,16 +1543,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -1496,7 +1588,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -1515,16 +1607,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -1556,7 +1652,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -1575,16 +1671,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -1616,7 +1716,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -1635,16 +1735,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -1676,7 +1780,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -1695,16 +1799,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -1733,7 +1841,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -1752,16 +1860,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -1793,7 +1905,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -1812,16 +1924,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -1853,7 +1969,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -1872,16 +1988,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -1913,7 +2033,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -1932,16 +2052,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
     ExprTypeRegion {
@@ -1973,7 +2097,7 @@
                         ),
                     ),
                 ),
-                expectation_rule: None,
+                expectation_rule_idx: None,
                 resolve_progress: Resolved(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
@@ -1992,16 +2116,20 @@
                 ),
             },
         ],
-        unresolved_term_table: UnresolvedTermTable {
+        unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
-            unresolved_terms: [],
-            first_unresolved_term: 0,
-            expectation_rules: Arena {
-                data: [],
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
             },
-            first_unresolved_expectation: 0,
+            expectation_rules: LocalTermExpectationRules {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
         },
     },
 ]
