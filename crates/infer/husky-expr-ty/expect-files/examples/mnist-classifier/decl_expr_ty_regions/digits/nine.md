@@ -121,13 +121,15 @@
                 ),
                 resolve_progress: Resolved {
                     implicit_conversion: None,
-                    term: ReducedTerm(
-                        Category(
-                            TermCategory {
-                                universe: TermUniverse(
-                                    1,
-                                ),
-                            },
+                    local_term: Resolved(
+                        ReducedTerm(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                 },
@@ -149,13 +151,15 @@
                 expectation_rule: None,
                 resolve_progress: Resolved {
                     implicit_conversion: None,
-                    term: ReducedTerm(
-                        Category(
-                            TermCategory {
-                                universe: TermUniverse(
-                                    1,
-                                ),
-                            },
+                    local_term: Resolved(
+                        ReducedTerm(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                 },
@@ -170,6 +174,7 @@
             expectation_rules: Arena {
                 data: [
                     LocalTermExpectationRule {
+                        src_expr_idx: 2,
                         expectee: Resolved(
                             ReducedTerm(
                                 Category(
@@ -184,13 +189,15 @@
                         variant: Type,
                         resolve_progress: Resolved {
                             implicit_conversion: None,
-                            term: ReducedTerm(
-                                Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
+                            local_term: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
                                 ),
                             ),
                         },
@@ -226,13 +233,15 @@
                 ),
                 resolve_progress: Resolved {
                     implicit_conversion: None,
-                    term: ReducedTerm(
-                        Category(
-                            TermCategory {
-                                universe: TermUniverse(
-                                    1,
-                                ),
-                            },
+                    local_term: Resolved(
+                        ReducedTerm(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                 },
@@ -254,13 +263,15 @@
                 expectation_rule: None,
                 resolve_progress: Resolved {
                     implicit_conversion: None,
-                    term: ReducedTerm(
-                        Category(
-                            TermCategory {
-                                universe: TermUniverse(
-                                    1,
-                                ),
-                            },
+                    local_term: Resolved(
+                        ReducedTerm(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                 },
@@ -275,6 +286,7 @@
             expectation_rules: Arena {
                 data: [
                     LocalTermExpectationRule {
+                        src_expr_idx: 2,
                         expectee: Resolved(
                             ReducedTerm(
                                 Category(
@@ -289,13 +301,15 @@
                         variant: Type,
                         resolve_progress: Resolved {
                             implicit_conversion: None,
-                            term: ReducedTerm(
-                                Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
+                            local_term: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
                                 ),
                             ),
                         },

@@ -16,6 +16,10 @@ impl UnresolvedTermEntry {
     pub(crate) fn pattern(&self) -> &UnresolvedTermPattern {
         &self.unresolved_term_pattern
     }
+
+    pub(crate) fn unresolved_term(&self) -> &UnresolvedTerm {
+        &self.unresolved_term
+    }
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -61,47 +65,45 @@ pub(crate) enum LocalTermResolveLevel {
     Strong,
 }
 
-impl UnresolvedTermTable {
+impl<'a> ExprTypeEngine<'a> {
     pub(crate) fn unresolved_term(
         &self,
         unresolved_term_idx: UnresolvedTermIdx,
     ) -> &UnresolvedTerm {
-        &self.unresolved_terms[unresolved_term_idx.0].unresolved_term
+        &self.unresolved_term_table().unresolved_terms[unresolved_term_idx.0].unresolved_term
     }
 
     pub(crate) fn intern_unresolved_term(
         &mut self,
-        db: &dyn ExprTypeDb,
         unresolved_term: UnresolvedTerm,
     ) -> UnresolvedTermIdx {
         let position = self
+            .unresolved_term_table()
             .unresolved_terms
             .iter()
             .position(|entry| entry.unresolved_term == unresolved_term);
         match position {
             Some(idx) => UnresolvedTermIdx(idx),
-            None => self.alloc_unresolved_term(db, unresolved_term),
+            None => self.alloc_unresolved_term(unresolved_term),
         }
     }
 
-    fn alloc_unresolved_term(
-        &mut self,
-        db: &dyn ExprTypeDb,
-        unresolved_term: UnresolvedTerm,
-    ) -> UnresolvedTermIdx {
-        let idx = self.unresolved_terms.len();
-        self.unresolved_terms.push(UnresolvedTermEntry {
-            unresolved_term_pattern: self.generate_unresolved_term_pattern(&unresolved_term, db),
-            unresolved_term,
-            resolve_progress: Ok(LocalTerm::Unresolved(UnresolvedTermIdx(idx))),
-        });
+    fn alloc_unresolved_term(&mut self, unresolved_term: UnresolvedTerm) -> UnresolvedTermIdx {
+        let idx = self.unresolved_term_table().unresolved_terms.len();
+        let unresolved_term_pattern = self.generate_unresolved_term_pattern(&unresolved_term);
+        self.unresolved_term_table_mut()
+            .unresolved_terms
+            .push(UnresolvedTermEntry {
+                unresolved_term_pattern,
+                unresolved_term,
+                resolve_progress: Ok(LocalTerm::Unresolved(UnresolvedTermIdx(idx))),
+            });
         UnresolvedTermIdx(idx)
     }
 
     pub(crate) fn add_expectation_rule(
         &mut self,
-        db: &dyn ExprTypeDb,
-        reduced_term_menu: ReducedTermMenu,
+        src_expr_idx: ExprIdx,
         target: LocalTerm,
         expectation: LocalTermExpectation,
     ) -> OptionLocalTermExpectationRuleIdx {
@@ -114,68 +116,70 @@ impl UnresolvedTermTable {
                 ExpectationRuleVariant::ImplicitlyConvertibleTo { dst: term }
             }
         };
-        let rule = LocalTermExpectationRule::new(db, reduced_term_menu, target, variant);
-        self.expectation_rules.alloc_one(rule).into()
+        let rule = self.new_expectation_rule(src_expr_idx, target, variant);
+        self.unresolved_term_table_mut()
+            .expectation_rules
+            .alloc_one(rule)
+            .into()
     }
 
-    pub(crate) fn resolve_term(
-        &mut self,
-        db: &dyn ExprTypeDb,
-        reduced_term_menu: ReducedTermMenu,
-        unresolved_term_idx: UnresolvedTermIdx,
-    ) -> Option<Term> {
-        self.resolve_as_much_as_possible(db, reduced_term_menu, LocalTermResolveLevel::Weak);
-        match self[unresolved_term_idx].resolve_progress {
+    pub(crate) fn resolve_term(&mut self, unresolved_term_idx: UnresolvedTermIdx) -> Option<Term> {
+        self.resolve_as_much_as_possible(LocalTermResolveLevel::Weak);
+        match self.unresolved_term_table()[unresolved_term_idx].resolve_progress {
             Ok(LocalTerm::Resolved(term)) => Some(term.term()),
             Ok(LocalTerm::Unresolved(_)) => {
-                self.unresolved_terms[unresolved_term_idx.0].resolve_progress =
-                    Err(OriginalExprTypeError::UnresolvedTerm.into());
+                self.unresolved_term_table_mut().unresolved_terms[unresolved_term_idx.0]
+                    .resolve_progress = Err(OriginalExprTypeError::UnresolvedTerm.into());
                 None
             }
             Err(_) => todo!(),
         }
     }
 
-    fn resolve_as_much_as_possible(
-        &mut self,
-        db: &dyn ExprTypeDb,
-        reduced_term_menu: ReducedTermMenu,
-        level: LocalTermResolveLevel,
-    ) {
-        while let Some(action) = self.next_term_resolve_action(db, reduced_term_menu, level) {
-            todo!()
+    fn resolve_as_much_as_possible(&mut self, level: LocalTermResolveLevel) {
+        while let Some((idx, action)) = self.next_term_resolve_action(level) {
+            let resolve_progress = match action {
+                TermResolveAction::SubstituteExpecteeImplicitSymbol {
+                    implicit_symbol: expectee_implicit_symbol,
+                    substitution,
+                } => LocalTermResolveProgress::Resolved {
+                    implicit_conversion: LocalTermImplicitConversion::None,
+                    local_term: substitution,
+                },
+            };
+            self.unresolved_term_table_mut()
+                .expectation_rules
+                .update(idx, |rule| rule.set_resolve_progress(resolve_progress))
         }
         // ad hoc
         // todo!()
     }
 
-    pub(crate) fn finalize(&mut self, db: &dyn ExprTypeDb, reduced_term_menu: ReducedTermMenu) {
-        self.resolve_as_much_as_possible(db, reduced_term_menu, LocalTermResolveLevel::Strong);
+    pub(crate) fn finalize_unresolved_term_table(&mut self) {
+        self.resolve_as_much_as_possible(LocalTermResolveLevel::Strong);
         // ad hoc
         // todo!()
     }
 
     pub(crate) fn new_implicit_symbol(
         &mut self,
-        db: &dyn ExprTypeDb,
         expr_idx: ExprIdx,
         variant: ImplicitSymbolVariant,
     ) -> LocalTerm {
         let new_implicit_symbol = self
+            .unresolved_term_table_mut()
             .implicit_symbol_registry
             .new_implicit_symbol(expr_idx, variant);
-        self.alloc_unresolved_term(db, UnresolvedTerm::ImplicitSymbol(new_implicit_symbol))
+        self.alloc_unresolved_term(UnresolvedTerm::ImplicitSymbol(new_implicit_symbol))
             .into()
     }
 
     fn next_term_resolve_action(
         &self,
-        db: &dyn ExprTypeDb,
-        reduced_term_menu: ReducedTermMenu,
         level: LocalTermResolveLevel,
     ) -> Option<(LocalTermExpectationRuleIdx, TermResolveAction)> {
         for (idx, rule) in self.unresolved_expectation_rule_iter() {
-            if let Some(action) = rule.action(self, level) {
+            if let Some(action) = self.expectation_rule_action(rule, level) {
                 return Some((idx, action));
             }
         }
@@ -185,8 +189,10 @@ impl UnresolvedTermTable {
     fn unresolved_expectation_rule_iter(
         &self,
     ) -> impl Iterator<Item = (LocalTermExpectationRuleIdx, &LocalTermExpectationRule)> {
-        self.expectation_rules
-            .indexed_iter_with_start(self.first_unresolved_expectation)
+        let table = self.unresolved_term_table();
+        table
+            .expectation_rules
+            .indexed_iter_with_start(table.first_unresolved_expectation)
             .filter(|(_, rule)| match rule.resolve_progress() {
                 LocalTermResolveProgress::Unresolved => true,
                 LocalTermResolveProgress::Resolved { .. } | LocalTermResolveProgress::Err(_) => {
@@ -198,7 +204,6 @@ impl UnresolvedTermTable {
     fn generate_unresolved_term_pattern(
         &self,
         unresolved_term: &UnresolvedTerm,
-        db: &dyn ExprTypeDb,
     ) -> UnresolvedTermPattern {
         match unresolved_term {
             UnresolvedTerm::ImplicitSymbol(_) => UnresolvedTermPattern::ImplicitSymbol,
@@ -210,7 +215,7 @@ impl UnresolvedTermTable {
                 LocalTerm::Resolved(term) => match term.term() {
                     Term::Literal(_) => todo!(),
                     Term::Symbol(_) => todo!(),
-                    Term::Entity(entity) => match entity.entity_kind(db) {
+                    Term::Entity(entity) => match entity.entity_kind(self.db()) {
                         EntityKind::Module => todo!(),
                         EntityKind::ModuleItem {
                             module_item_kind,
@@ -253,4 +258,11 @@ impl UnresolvedTermTable {
     }
 }
 
-pub(super) enum TermResolveAction {}
+impl<'a> ExprTypeEngine<'a> {}
+
+pub(super) enum TermResolveAction {
+    SubstituteExpecteeImplicitSymbol {
+        implicit_symbol: UnresolvedTermIdx,
+        substitution: LocalTerm,
+    },
+}

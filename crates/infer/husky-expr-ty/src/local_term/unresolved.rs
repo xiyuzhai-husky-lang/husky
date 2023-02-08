@@ -35,6 +35,12 @@ pub struct ImplicitSymbol {
     variant: ImplicitSymbolVariant,
 }
 
+impl ImplicitSymbol {
+    pub fn src_expr_idx(&self) -> ExprIdx {
+        self.src_expr_idx
+    }
+}
+
 #[derive(Debug, PartialEq, Eq)]
 pub enum ImplicitSymbolVariant {
     Lifetime,
