@@ -12,17 +12,17 @@ use crate::*;
 
 pub(crate) struct ExprTypeEngine<'a> {
     db: &'a dyn ExprTypeDb,
-    term_menu: &'a TermMenu,
+    reduced_term_menu: ReducedTermMenu<'a>,
     token_sheet_data: &'a TokenSheetData,
     expr_region_data: &'a ExprRegionData,
     signature_term_region: &'a SignatureTermRegion,
     expr_ty_infos: ExprMap<ExprTypeInfo>,
-    inherited_symbol_tys: InheritedSymbolMap<Term>,
+    inherited_symbol_tys: InheritedSymbolMap<ReducedTerm>,
     current_symbol_tys: CurrentSymbolMap<LocalTerm>,
     unresolved_term_table: UnresolvedTermTable,
     pattern_expr_ty_infos: PatternExprMap<PatternExprTypeInfo>,
     pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
-    return_ty: Option<Term>,
+    return_ty: Option<ReducedTerm>,
 }
 
 impl<'a> std::ops::Index<ExprIdx> for ExprTypeEngine<'a> {
@@ -48,7 +48,7 @@ impl<'a> ExprTypeEngine<'a> {
         let pattern_expr_region = expr_region_data.pattern_expr_region();
         Self {
             db,
-            term_menu: db.term_menu(expr_region.toolchain(db)).as_ref().unwrap(),
+            reduced_term_menu: db.reduced_term_menu(expr_region.toolchain(db)).unwrap(),
             token_sheet_data: db
                 .token_sheet_data(expr_region_data.path().module_path(db))
                 .unwrap(),
@@ -80,6 +80,8 @@ impl<'a> ExprTypeEngine<'a> {
 
     pub(crate) fn finish(self) -> ExprTypeRegion {
         ExprTypeRegion::new(
+            self.db,
+            self.reduced_term_menu,
             self.expr_region_data.path(),
             self.expr_ty_infos,
             self.unresolved_term_table,

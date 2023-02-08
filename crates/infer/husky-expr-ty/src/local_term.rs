@@ -16,12 +16,12 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb, jar = ExprTypeJar)]
 pub(crate) enum LocalTerm {
-    Resolved(Term),
+    Resolved(ReducedTerm),
     Unresolved(UnresolvedTermIdx),
 }
 
 impl LocalTerm {
-    fn resolved(self) -> Option<Term> {
+    fn resolved(self) -> Option<ReducedTerm> {
         match self {
             LocalTerm::Resolved(term) => Some(term),
             LocalTerm::Unresolved(_) => None,
@@ -35,8 +35,8 @@ impl From<UnresolvedTermIdx> for LocalTerm {
     }
 }
 
-impl From<Term> for LocalTerm {
-    fn from(v: Term) -> Self {
+impl From<ReducedTerm> for LocalTerm {
+    fn from(v: ReducedTerm) -> Self {
         Self::Resolved(v)
     }
 }

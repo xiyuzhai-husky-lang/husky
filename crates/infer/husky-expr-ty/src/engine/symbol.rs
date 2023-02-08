@@ -23,6 +23,7 @@ impl<'a> ExprTypeEngine<'a> {
                 .inherited_symbol_term(inherited_symbol_idx)
                 .ty(self.db)
             {
+                let ty = self.db.reduced_term(ty);
                 self.inherited_symbol_tys
                     .insert_new(inherited_symbol_idx, ty)
             }
@@ -43,6 +44,7 @@ impl<'a> ExprTypeEngine<'a> {
                     return
                 };
             if let Ok(ty) = current_symbol_term.ty(self.db) {
+                let ty = self.db.reduced_term(ty);
                 self.current_symbol_tys
                     .insert_new(current_symbol_idx, ty.into())
             }

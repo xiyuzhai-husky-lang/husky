@@ -9,6 +9,21 @@
             ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
+                        ReducedTerm(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule: None,
+                resolve_progress: Resolved {
+                    implicit_conversion: None,
+                    term: ReducedTerm(
                         Category(
                             TermCategory {
                                 universe: TermUniverse(
@@ -16,23 +31,27 @@
                                 ),
                             },
                         ),
-                    ),
-                ),
-                expectation_rule: None,
-                resolve_progress: Resolved {
-                    implicit_conversion: None,
-                    term: Category(
-                        TermCategory {
-                            universe: TermUniverse(
-                                1,
-                            ),
-                        },
                     ),
                 },
             },
             ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
+                        ReducedTerm(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule: None,
+                resolve_progress: Resolved {
+                    implicit_conversion: None,
+                    term: ReducedTerm(
                         Category(
                             TermCategory {
                                 universe: TermUniverse(
@@ -40,17 +59,6 @@
                                 ),
                             },
                         ),
-                    ),
-                ),
-                expectation_rule: None,
-                resolve_progress: Resolved {
-                    implicit_conversion: None,
-                    term: Category(
-                        TermCategory {
-                            universe: TermUniverse(
-                                1,
-                            ),
-                        },
                     ),
                 },
             },
@@ -82,6 +90,21 @@
             ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
+                        ReducedTerm(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule: None,
+                resolve_progress: Resolved {
+                    implicit_conversion: None,
+                    term: ReducedTerm(
                         Category(
                             TermCategory {
                                 universe: TermUniverse(
@@ -89,17 +112,6 @@
                                 ),
                             },
                         ),
-                    ),
-                ),
-                expectation_rule: None,
-                resolve_progress: Resolved {
-                    implicit_conversion: None,
-                    term: Category(
-                        TermCategory {
-                            universe: TermUniverse(
-                                1,
-                            ),
-                        },
                     ),
                 },
             },
@@ -134,6 +146,21 @@
             ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
+                        ReducedTerm(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule: None,
+                resolve_progress: Resolved {
+                    implicit_conversion: None,
+                    term: ReducedTerm(
                         Category(
                             TermCategory {
                                 universe: TermUniverse(
@@ -141,17 +168,6 @@
                                 ),
                             },
                         ),
-                    ),
-                ),
-                expectation_rule: None,
-                resolve_progress: Resolved {
-                    implicit_conversion: None,
-                    term: Category(
-                        TermCategory {
-                            universe: TermUniverse(
-                                1,
-                            ),
-                        },
                     ),
                 },
             },
@@ -186,6 +202,21 @@
             ExprTypeInfo {
                 ty_result: Ok(
                     Resolved(
+                        ReducedTerm(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule: None,
+                resolve_progress: Resolved {
+                    implicit_conversion: None,
+                    term: ReducedTerm(
                         Category(
                             TermCategory {
                                 universe: TermUniverse(
@@ -193,17 +224,6 @@
                                 ),
                             },
                         ),
-                    ),
-                ),
-                expectation_rule: None,
-                resolve_progress: Resolved {
-                    implicit_conversion: None,
-                    term: Category(
-                        TermCategory {
-                            universe: TermUniverse(
-                                1,
-                            ),
-                        },
                     ),
                 },
             },

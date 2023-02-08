@@ -99,6 +99,21 @@ impl<T> Arena<T> {
         })
     }
 
+    pub fn indexed_iter_with_start<'a>(
+        &'a self,
+        start: usize,
+    ) -> impl Iterator<Item = (ArenaIdx<T>, &'a T)> + 'a {
+        self.data[start..].iter().enumerate().map(move |(i, t)| {
+            (
+                ArenaIdx {
+                    raw: start + i,
+                    phantom: PhantomData,
+                },
+                t,
+            )
+        })
+    }
+
     pub fn find_rev_indexed(&self, f: impl Fn(&T) -> bool) -> Option<(ArenaIdx<T>, &T)> {
         self.data.iter().rev().position(|t| f(t)).map(|raw_rev| {
             let raw = self.data.len() - raw_rev - 1;

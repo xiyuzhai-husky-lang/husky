@@ -4,21 +4,24 @@ use super::*;
 pub(crate) enum UnresolvedTerm {
     ImplicitSymbol(ImplicitSymbol),
     Curry {
-        x: LocalTerm,
-        y: LocalTerm,
+        // todo: include parameter
+        // so that the following dependent type is possible:
+        // (u: Universe) -> (a: Type u + 1) -> List a -> a
+        parameter_ty: LocalTerm,
+        return_ty: LocalTerm,
     },
     Application {
-        m: LocalTerm,
-        n: LocalTerm,
+        function: LocalTerm,
+        argument: LocalTerm,
     },
     Abstraction {
-        x: TermSymbol,
-        m: LocalTerm,
+        parameter: TermSymbol,
+        body: LocalTerm,
     },
     Durant {
-        kind: TermDurantKind,
-        params: Vec<UnresolvedTermDurantParameter>,
-        y: LocalTerm,
+        durant_kind: TermDurantKind,
+        parameter_book_tys: Vec<UnresolvedTermDurantParameterBookType>,
+        return_ty: LocalTerm,
     },
     Subentity {},
     AsTraitSubentity {},
@@ -69,6 +72,6 @@ impl ImplicitSymbolRegistry {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub(crate) struct UnresolvedTermDurantParameter {
+pub(crate) struct UnresolvedTermDurantParameterBookType {
     ty: LocalTerm,
 }

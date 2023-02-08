@@ -72,6 +72,8 @@ pub enum DerivedExprTypeError {
     UnresolvedLocalTerm,
     #[error("local term resolve error")]
     LocalTermResolveError,
+    #[error("function type not inferred in application or function call")]
+    FunctionTypeNotInferredInApplicationOrFunctionCall,
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;

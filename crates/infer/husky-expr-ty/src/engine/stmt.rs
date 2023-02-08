@@ -18,7 +18,7 @@ impl<'a> ExprTypeEngine<'a> {
         match self.calc_stmt(stmt_idx, expect_unit) {
             Some(ty) => match ty {
                 LocalTerm::Resolved(ty) => match ty {
-                    ty if ty == self.term_menu.unit() => return,
+                    ty if ty == self.reduced_term_menu.unit() => return,
                     ty => todo!(),
                 },
                 LocalTerm::Unresolved(_) => todo!(),
@@ -29,7 +29,7 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn expect_unit(&mut self) -> LocalTermExpectation {
         LocalTermExpectation::ImplicitlyConvertibleTo {
-            term: self.term_menu.unit().into(),
+            term: self.reduced_term_menu.unit().into(),
         }
     }
 
@@ -67,10 +67,16 @@ impl<'a> ExprTypeEngine<'a> {
                 condition.as_ref().copied().map(|condition| {
                     self.infer_new_expr(condition, LocalTermExpectation::Condition)
                 });
-                Some(self.term_menu.unit().into())
+                // todo: check that require can be used for the return ty
+                Some(self.reduced_term_menu.unit().into())
             }
-            Stmt::Assert { ref condition, .. } => todo!(),
-            Stmt::Break { .. } => Some(self.term_menu.never().into()),
+            Stmt::Assert { ref condition, .. } => {
+                condition.as_ref().copied().map(|condition| {
+                    self.infer_new_expr(condition, LocalTermExpectation::Condition)
+                });
+                Some(self.reduced_term_menu.unit().into())
+            }
+            Stmt::Break { .. } => Some(self.reduced_term_menu.never().into()),
             Stmt::Eval { expr_idx } => self.infer_new_expr(expr_idx, expr_expectation),
             Stmt::ForBetween {
                 ref particulars,
@@ -100,7 +106,7 @@ impl<'a> ExprTypeEngine<'a> {
                     let expect_unit = self.expect_unit();
                     self.infer_new_block(block, expect_unit)
                 });
-                Some(self.term_menu.unit().into())
+                Some(self.reduced_term_menu.unit().into())
             }
             Stmt::IfElse {
                 ref if_branch,
@@ -142,7 +148,9 @@ impl<'a> ExprTypeEngine<'a> {
             Err(_) => todo!(),
         };
         match pattern_ty {
-            Some(ty) if ty == self.term_menu.never().into() => Some(self.term_menu.never().into()),
+            Some(ty) if ty == self.reduced_term_menu.never().into() => {
+                Some(self.reduced_term_menu.never().into())
+            }
             Some(ty) => {
                 match let_variable_pattern {
                     Ok(let_variable_pattern) => self.infer_pattern_and_symbols_ty(
@@ -152,9 +160,9 @@ impl<'a> ExprTypeEngine<'a> {
                     ),
                     Err(_) => todo!(),
                 };
-                Some(self.term_menu.unit().into())
+                Some(self.reduced_term_menu.unit().into())
             }
-            None => Some(self.term_menu.unit().into()),
+            None => Some(self.reduced_term_menu.unit().into()),
         }
     }
 
@@ -300,7 +308,7 @@ impl BranchTypes {
     fn visit_branch(&mut self, engine: &mut ExprTypeEngine, block: &ExprResult<StmtIdxRange>) {
         match block {
             Ok(stmts) => match engine.infer_new_block(*stmts, self.expr_expectation) {
-                Some(LocalTerm::Resolved(term)) if term == engine.term_menu.never() => (),
+                Some(LocalTerm::Resolved(term)) if term == engine.reduced_term_menu.never() => (),
                 Some(term) => {
                     p!(term.debug(engine.db));
                     todo!()

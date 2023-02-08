@@ -1,6 +1,6 @@
 use crate::*;
 
-pub(crate) fn entity_ty(db: &dyn TypeDb, entipath: EntityPath) -> TypeResult<Term> {
+pub(crate) fn entity_ty(db: &dyn TypeDb, entipath: EntityPath) -> TypeResult<ReducedTerm> {
     let term_menu = db.term_menu(entipath.toolchain(db)).as_ref().unwrap();
     match entipath {
         EntityPath::Module(_) => todo!(),
@@ -15,7 +15,7 @@ pub(crate) fn entity_ty(db: &dyn TypeDb, entipath: EntityPath) -> TypeResult<Ter
 }
 
 #[salsa::tracked(jar = TypeJar)]
-pub(crate) fn ty_entity_ty(db: &dyn TypeDb, path: TypePath) -> TypeResult<Term> {
+pub(crate) fn ty_entity_ty(db: &dyn TypeDb, path: TypePath) -> TypeResult<ReducedTerm> {
     let term_menu = db.term_menu(path.toolchain(db)).as_ref().unwrap();
     let decl = match db.ty_decl(path) {
         Ok(decl) => decl,
@@ -37,7 +37,7 @@ pub(crate) fn ty_entity_ty(db: &dyn TypeDb, path: TypePath) -> TypeResult<Term> 
 }
 
 #[salsa::tracked(jar = TypeJar)]
-pub(crate) fn trai_entity_ty(db: &dyn TypeDb, path: TraitPath) -> TypeResult<Term> {
+pub(crate) fn trai_entity_ty(db: &dyn TypeDb, path: TraitPath) -> TypeResult<ReducedTerm> {
     let term_menu = db.term_menu(path.toolchain(db)).as_ref().unwrap();
     let decl = match db.trai_decl(path) {
         Ok(decl) => decl,
@@ -59,7 +59,7 @@ pub(crate) fn trai_entity_ty(db: &dyn TypeDb, path: TraitPath) -> TypeResult<Ter
 }
 
 #[salsa::tracked(jar = TypeJar)]
-pub(crate) fn form_entity_ty(db: &dyn TypeDb, path: FormPath) -> TypeResult<Term> {
+pub(crate) fn form_entity_ty(db: &dyn TypeDb, path: FormPath) -> TypeResult<ReducedTerm> {
     let decl = match db.form_decl(path) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedTypeError::DeclError.into()),
@@ -87,7 +87,7 @@ pub(crate) fn function_entity_ty(
     variances: &[Variance],
     signature: FunctionSignature,
     term_menu: &TermMenu,
-) -> TypeResult<Term> {
+) -> TypeResult<ReducedTerm> {
     let param_tys = signature
         .parameters(db)
         .iter()
@@ -106,8 +106,8 @@ pub(crate) fn feature_entity_ty(
     db: &dyn TypeDb,
     signature: FeatureSignature,
     term_menu: &TermMenu,
-) -> TypeResult<Term> {
-    Ok(signature.return_ty(db))
+) -> TypeResult<ReducedTerm> {
+    Ok(reduced_term(db, signature.return_ty(db)))
 }
 
 fn curry_from_implicit_parameter_tys(
@@ -115,12 +115,12 @@ fn curry_from_implicit_parameter_tys(
     variances: &[Variance],
     implicit_parameters: &[ImplicitParameterSignature],
     mut term: Term,
-) -> Term {
+) -> ReducedTerm {
     assert_eq!(variances.len(), implicit_parameters.len());
     for (variance, implicit_parameter) in
         std::iter::zip(variances.iter(), implicit_parameters.iter()).rev()
     {
         term = TermCurry::new(db, *variance, implicit_parameter.ty(), term).into()
     }
-    term
+    reduced_term(db, term)
 }

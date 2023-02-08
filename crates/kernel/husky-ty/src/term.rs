@@ -2,8 +2,8 @@ mod expansion;
 mod reduced;
 mod ty;
 
-pub(crate) use expansion::*;
-pub(crate) use reduced::*;
-pub(crate) use ty::*;
+pub use expansion::*;
+pub use reduced::*;
+pub use ty::*;
 
 use crate::*;
