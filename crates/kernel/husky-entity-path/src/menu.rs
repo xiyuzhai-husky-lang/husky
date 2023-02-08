@@ -54,7 +54,7 @@ pub struct EntityPathMenu {
     f32: TypePath,
     f64: TypePath,
     r32: TypePath,
-    b64: TypePath,
+    r64: TypePath,
     u32: TypePath,
     u64: TypePath,
     trai_ty: TypePath,
@@ -249,10 +249,10 @@ impl EntityPathMenu {
             ModuleItemConnection::Connected,
             TypeKind::Alien,
         );
-        let b64 = TypePath::new(
+        let r64 = TypePath::new(
             db,
             core_num,
-            word_menu.b64(),
+            word_menu.r64(),
             ModuleItemConnection::Connected,
             TypeKind::Alien,
         );
@@ -319,7 +319,7 @@ impl EntityPathMenu {
             f32,
             f64,
             r32,
-            b64,
+            r64,
             u32,
             u64,
             trai_ty: trai,
@@ -348,8 +348,8 @@ impl EntityPathMenu {
         self.r32
     }
 
-    pub fn b64(&self) -> TypePath {
-        self.b64
+    pub fn r64(&self) -> TypePath {
+        self.r64
     }
 
     pub fn u32(&self) -> TypePath {

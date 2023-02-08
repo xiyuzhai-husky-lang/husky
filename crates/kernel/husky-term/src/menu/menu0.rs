@@ -52,7 +52,7 @@ pub struct TermMenu0 {
     f32: Term,
     f64: Term,
     r32: Term,
-    b64: Term,
+    r64: Term,
     bool: Term,
     lifetime_ty: Term,
     trai_ty: Term,
@@ -114,7 +114,7 @@ impl TermMenu0 {
             f32: Term::Entity(entity_path_menu.f32().into()),
             f64: Term::Entity(entity_path_menu.f64().into()),
             r32: Term::Entity(entity_path_menu.r32().into()),
-            b64: Term::Entity(entity_path_menu.b64().into()),
+            r64: Term::Entity(entity_path_menu.r64().into()),
         }
     }
 
@@ -263,8 +263,8 @@ impl TermMenu0 {
         self.r32
     }
 
-    pub fn b64(&self) -> Term {
-        self.b64
+    pub fn r64(&self) -> Term {
+        self.r64
     }
 
     pub fn eval_lifetime(&self) -> Term {
