@@ -85,3 +85,9 @@ impl ImplicitSymbolRegistry {
 pub(crate) struct UnresolvedTermDurantParameterBookType {
     ty: LocalTerm,
 }
+
+impl UnresolvedTermDurantParameterBookType {
+    pub(crate) fn ty(&self) -> LocalTerm {
+        self.ty
+    }
+}

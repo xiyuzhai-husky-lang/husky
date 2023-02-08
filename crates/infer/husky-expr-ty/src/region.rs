@@ -41,7 +41,7 @@ impl std::ops::Index<ExprIdx> for ExprTypeRegion {
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub struct ExprTypeInfo {
     ty_result: ExprTypeResult<LocalTerm>,
-    expectation_rule: OptionLocalTermExpectationRuleIdx,
+    expectation_rule_idx: OptionLocalTermExpectationRuleIdx,
     resolve_progress: LocalTermExpectationResolveProgress,
 }
 
@@ -52,7 +52,7 @@ impl ExprTypeInfo {
     ) -> Self {
         Self {
             ty_result,
-            expectation_rule: expectation_rule_idx,
+            expectation_rule_idx,
             resolve_progress: LocalTermExpectationResolveProgress::Unresolved,
         }
     }
@@ -63,10 +63,10 @@ impl ExprTypeInfo {
 
     fn finalize(&mut self, unresolved_term_table: &UnresolvedTermTable) {
         let Ok(ty) = self.ty_result else { return };
-        self.resolve_progress = match self.expectation_rule.into_option() {
-            Some(expectation_rule) => unresolved_term_table[expectation_rule]
+        self.resolve_progress = match self.expectation_rule_idx.into_option() {
+            Some(expectation_rule_idx) => unresolved_term_table[expectation_rule_idx]
                 .resolve_progress()
-                .duplicate(),
+                .duplicate(expectation_rule_idx),
             None => match ty {
                 LocalTerm::Resolved(term) => {
                     LocalTermExpectationResolveProgress::Resolved(LocalTermExpectationResolved {
@@ -75,7 +75,7 @@ impl ExprTypeInfo {
                     })
                 }
                 LocalTerm::Unresolved(ty) => LocalTermExpectationResolveProgress::Err(
-                    DerivedExprTypeError::UnresolvedLocalTerm.into(),
+                    DerivedLocalTermExpectationResolveError::UnresolvedLocalTerm.into(),
                 ),
             },
         }

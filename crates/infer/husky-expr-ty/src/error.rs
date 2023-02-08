@@ -68,10 +68,6 @@ pub enum DerivedExprTypeError {
     InheritedSymbolTypeError,
     #[error("callable type error")]
     CallableTypeError,
-    #[error("unresolved local term")]
-    UnresolvedLocalTerm,
-    #[error("local term resolve error")]
-    LocalTermResolveError,
     #[error("function type not inferred in application or function call")]
     FunctionTypeNotInferredInApplicationOrFunctionCall,
 }

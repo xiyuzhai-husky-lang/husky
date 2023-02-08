@@ -53,21 +53,6 @@ impl<T> Arena<T> {
         idx
     }
 
-    // pub fn intern(&mut self, item: T, eq: impl Fn(&T, &T) -> bool) -> ArenaIdx<T>
-    // where
-    //     T: Eq,
-    // {
-    //     if let Some(position) = self.data.iter().position(|item1| eq(item1, &item)) {
-    //         return ArenaIdx {
-    //             raw: position,
-    //             phantom: PhantomData,
-    //         };
-    //     };
-    //     let idx = ArenaIdx::new(self.data.len());
-    //     self.data.push(item);
-    //     idx
-    // }
-
     pub fn len(&self) -> usize {
         self.data.len()
     }
@@ -82,6 +67,17 @@ impl<T> Arena<T> {
 
     pub fn update(&mut self, idx: ArenaIdx<T>, f: impl FnOnce(&mut T)) {
         f(&mut self.data[idx.raw])
+    }
+
+    pub fn iter_mut<'a>(&'a mut self) -> impl Iterator<Item = &'a mut T> + 'a {
+        self.data.iter_mut()
+    }
+
+    pub fn iter_mut_with_start<'a>(
+        &'a mut self,
+        start: usize,
+    ) -> impl Iterator<Item = &'a mut T> + 'a {
+        self.data[start..].iter_mut()
     }
 
     pub fn index_iter<'a>(&'a self) -> impl Iterator<Item = ArenaIdx<T>> {
@@ -116,6 +112,24 @@ impl<T> Arena<T> {
                 t,
             )
         })
+    }
+
+    pub fn indexed_iter_mut_with_start<'a>(
+        &'a mut self,
+        start: usize,
+    ) -> impl Iterator<Item = (ArenaIdx<T>, &'a mut T)> + 'a {
+        self.data[start..]
+            .iter_mut()
+            .enumerate()
+            .map(move |(i, t)| {
+                (
+                    ArenaIdx {
+                        raw: start + i,
+                        phantom: PhantomData,
+                    },
+                    t,
+                )
+            })
     }
 
     pub fn find_rev_indexed(&self, f: impl Fn(&T) -> bool) -> Option<(ArenaIdx<T>, &T)> {
