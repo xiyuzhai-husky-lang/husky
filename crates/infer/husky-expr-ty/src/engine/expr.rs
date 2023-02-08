@@ -187,7 +187,7 @@ impl<'a> ExprTypeEngine<'a> {
         }
         Ok(self
             .intern_unresolved_term(UnresolvedTerm::Application {
-                function: self.reduced_term_menu.list_ty().into(),
+                function: self.reduced_term_menu.list().into(),
                 argument: element_ty,
             })
             .into())
@@ -230,7 +230,36 @@ impl<'a> ExprTypeEngine<'a> {
     fn calc_prefix(&mut self, opd: ExprIdx, opr: PrefixOpr) -> ExprTypeResult<LocalTerm> {
         match opr {
             PrefixOpr::Minus => {
-                todo!()
+                let opd_ty = self.infer_new_expr(opd, LocalTermExpectation::None);
+                match opd_ty {
+                    Some(opd_ty) => match opd_ty {
+                        LocalTerm::Resolved(_) => todo!(),
+                        LocalTerm::Unresolved(unresolved_term) => {
+                            match self.unresolved_term_table[unresolved_term].unresolved_term() {
+                                UnresolvedTerm::ImplicitSymbol(implicit_symbol) => {
+                                    match implicit_symbol.variant() {
+                                        ImplicitSymbolVariant::Lifetime => todo!(),
+                                        ImplicitSymbolVariant::UnspecifiedIntegerType
+                                        | ImplicitSymbolVariant::UnspecifiedFloatType => Ok(opd_ty),
+                                        ImplicitSymbolVariant::ImplicitType => todo!(),
+                                    }
+                                }
+                                UnresolvedTerm::Curry { .. } => todo!(),
+                                UnresolvedTerm::Application { function, argument } => todo!(),
+                                UnresolvedTerm::Abstraction { parameter, body } => todo!(),
+                                UnresolvedTerm::Durant {
+                                    durant_kind,
+                                    parameter_book_tys,
+                                    return_ty,
+                                } => todo!(),
+                                UnresolvedTerm::Subentity {} => todo!(),
+                                UnresolvedTerm::AsTraitSubentity {} => todo!(),
+                                UnresolvedTerm::TraitConstraint {} => todo!(),
+                            }
+                        }
+                    },
+                    None => Err(DerivedExprTypeError::PrefixOperandTypeNotInferred.into()),
+                }
             }
             PrefixOpr::Not => {
                 let _opd_ty = self.infer_new_expr(opd, LocalTermExpectation::AsBool);
@@ -314,7 +343,7 @@ impl<'a> ExprTypeEngine<'a> {
             Token::Literal(literal) => match literal {
                 Literal::Unit => todo!(),
                 Literal::Char(_) => todo!(),
-                Literal::String(_) => todo!(),
+                Literal::String(_) => Ok(self.reduced_term_menu.static_str_ref().into()),
                 Literal::Integer(integer_literal) => match integer_literal {
                     IntegerLiteral::Unspecified => match expectation.term() {
                         // MOM
@@ -328,7 +357,7 @@ impl<'a> ExprTypeEngine<'a> {
                     },
                     IntegerLiteral::I8(_) => todo!(),
                     IntegerLiteral::I16(_) => todo!(),
-                    IntegerLiteral::I32(_) => todo!(),
+                    IntegerLiteral::I32(_) => Ok(self.reduced_term_menu.i32().into()),
                     IntegerLiteral::I64(_) => todo!(),
                     IntegerLiteral::I128(_) => todo!(),
                     IntegerLiteral::ISize(_) => todo!(),

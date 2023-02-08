@@ -137,22 +137,19 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     fn resolve_as_much_as_possible(&mut self, level: LocalTermResolveLevel) {
-        while let Some((idx, action)) = self.next_term_resolve_action(level) {
-            let resolve_progress = match action {
-                TermResolveAction::SubstituteExpecteeImplicitSymbol {
-                    implicit_symbol: expectee_implicit_symbol,
-                    substitution,
-                } => LocalTermResolveProgress::Resolved {
-                    implicit_conversion: LocalTermImplicitConversion::None,
-                    local_term: substitution,
-                },
-            };
+        while let Some((idx, effect)) = self.next_expectation_effect(level) {
             self.unresolved_term_table_mut()
                 .expectation_rules
-                .update(idx, |rule| rule.set_resolve_progress(resolve_progress))
+                .update(idx, |rule| rule.take_effect(&effect));
+            for action in effect.actions() {
+                match action {
+                    TermResolveAction::SubstituteImplicitSymbol {
+                        implicit_symbol,
+                        substitution,
+                    } => todo!(),
+                }
+            }
         }
-        // ad hoc
-        // todo!()
     }
 
     pub(crate) fn finalize_unresolved_term_table(&mut self) {
@@ -174,12 +171,12 @@ impl<'a> ExprTypeEngine<'a> {
             .into()
     }
 
-    fn next_term_resolve_action(
+    fn next_expectation_effect(
         &self,
         level: LocalTermResolveLevel,
-    ) -> Option<(LocalTermExpectationRuleIdx, TermResolveAction)> {
+    ) -> Option<(LocalTermExpectationRuleIdx, LocalTermExpectationEffect)> {
         for (idx, rule) in self.unresolved_expectation_rule_iter() {
-            if let Some(action) = self.expectation_rule_action(rule, level) {
+            if let Some(action) = self.expectation_rule_effect(rule, level) {
                 return Some((idx, action));
             }
         }
@@ -194,10 +191,9 @@ impl<'a> ExprTypeEngine<'a> {
             .expectation_rules
             .indexed_iter_with_start(table.first_unresolved_expectation)
             .filter(|(_, rule)| match rule.resolve_progress() {
-                LocalTermResolveProgress::Unresolved => true,
-                LocalTermResolveProgress::Resolved { .. } | LocalTermResolveProgress::Err(_) => {
-                    false
-                }
+                LocalTermExpectationResolveProgress::Unresolved => true,
+                LocalTermExpectationResolveProgress::Resolved(_)
+                | LocalTermExpectationResolveProgress::Err(_) => false,
             })
     }
 
@@ -261,7 +257,7 @@ impl<'a> ExprTypeEngine<'a> {
 impl<'a> ExprTypeEngine<'a> {}
 
 pub(super) enum TermResolveAction {
-    SubstituteExpecteeImplicitSymbol {
+    SubstituteImplicitSymbol {
         implicit_symbol: UnresolvedTermIdx,
         substitution: LocalTerm,
     },

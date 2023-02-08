@@ -29,15 +29,19 @@ pub(crate) enum UnresolvedTerm {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct ImplicitSymbol {
+pub(crate) struct ImplicitSymbol {
     idx: ImplicitSymbolIdx,
     src_expr_idx: ExprIdx,
     variant: ImplicitSymbolVariant,
 }
 
 impl ImplicitSymbol {
-    pub fn src_expr_idx(&self) -> ExprIdx {
+    pub(crate) fn src_expr_idx(&self) -> ExprIdx {
         self.src_expr_idx
+    }
+
+    pub(crate) fn variant(&self) -> &ImplicitSymbolVariant {
+        &self.variant
     }
 }
 

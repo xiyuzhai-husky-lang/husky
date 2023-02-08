@@ -42,7 +42,7 @@ impl std::ops::Index<ExprIdx> for ExprTypeRegion {
 pub struct ExprTypeInfo {
     ty_result: ExprTypeResult<LocalTerm>,
     expectation_rule: OptionLocalTermExpectationRuleIdx,
-    resolve_progress: LocalTermResolveProgress,
+    resolve_progress: LocalTermExpectationResolveProgress,
 }
 
 impl ExprTypeInfo {
@@ -53,7 +53,7 @@ impl ExprTypeInfo {
         Self {
             ty_result,
             expectation_rule: expectation_rule_idx,
-            resolve_progress: LocalTermResolveProgress::Unresolved,
+            resolve_progress: LocalTermExpectationResolveProgress::Unresolved,
         }
     }
 
@@ -68,18 +68,20 @@ impl ExprTypeInfo {
                 .resolve_progress()
                 .duplicate(),
             None => match ty {
-                LocalTerm::Resolved(term) => LocalTermResolveProgress::Resolved {
-                    implicit_conversion: LocalTermImplicitConversion::None,
-                    local_term: term.into(),
-                },
-                LocalTerm::Unresolved(ty) => {
-                    LocalTermResolveProgress::Err(DerivedExprTypeError::UnresolvedLocalTerm.into())
+                LocalTerm::Resolved(term) => {
+                    LocalTermExpectationResolveProgress::Resolved(LocalTermExpectationResolved {
+                        implicit_conversion: LocalTermImplicitConversion::None,
+                        local_term: term.into(),
+                    })
                 }
+                LocalTerm::Unresolved(ty) => LocalTermExpectationResolveProgress::Err(
+                    DerivedExprTypeError::UnresolvedLocalTerm.into(),
+                ),
             },
         }
     }
 
-    pub(crate) fn resolve_progress(&self) -> &LocalTermResolveProgress {
+    pub(crate) fn resolve_progress(&self) -> &LocalTermExpectationResolveProgress {
         &self.resolve_progress
     }
 }

@@ -240,7 +240,7 @@ impl<'a> SignatureTermEngine<'a> {
                     PrefixOpr::Minus => todo!(),
                     PrefixOpr::Not => todo!(),
                     PrefixOpr::BitNot => todo!(),
-                    PrefixOpr::Ref => self.term_menu.eval_ref(),
+                    PrefixOpr::Ref => self.term_menu.eval_ref_ty(),
                     PrefixOpr::Vector => todo!(),
                     PrefixOpr::Slice => todo!(),
                     PrefixOpr::CyclicSlice => todo!(),
@@ -286,8 +286,7 @@ impl<'a> SignatureTermEngine<'a> {
                         ..
                     } => match items.len() {
                         0 => Ok(
-                            TermApplication::new(self.db, self.term_menu.list_ty(), argument)
-                                .into(),
+                            TermApplication::new(self.db, self.term_menu.list(), argument).into(),
                         ),
                         1 => match self.expr_region_data.expr_arena()[items.start()] {
                             Expr::Literal(_) => todo!(),

@@ -7,6 +7,7 @@ pub struct TermMenu0 {
     prop: TermCategory,
     ty0: TermCategory,
     eval_lifetime: TermLiteral,
+    static_lifetime: TermLiteral,
     unit: Term,
     never: Term,
     core: Term,
@@ -42,6 +43,7 @@ pub struct TermMenu0 {
     core_option: Term,
     option_ty: Term,
     slice_ty: Term,
+    str_ty: Term,
     ref_ty: Term,
     list_ty: Term,
     std: Term,
@@ -67,6 +69,7 @@ impl TermMenu0 {
         let universe1 = TermUniverse::new(1);
         TermMenu0 {
             eval_lifetime: TermLiteral::EvalLifetime,
+            static_lifetime: TermLiteral::StaticLifetime,
             universe0,
             universe1,
             prop: TermCategory::new(universe0),
@@ -96,6 +99,7 @@ impl TermMenu0 {
             core_option: Term::Entity(vfs_path_menu.core_option().into()),
             option_ty: Term::Entity(entity_path_menu.option_ty().into()),
             slice_ty: Term::Entity(entity_path_menu.slice_ty().into()),
+            str_ty: Term::Entity(entity_path_menu.str_ty().into()),
             ref_ty: Term::Entity(entity_path_menu.ref_ty().into()),
             list_ty: Term::Entity(entity_path_menu.list_ty().into()),
             std: Term::Entity(vfs_path_menu.std().into()),
@@ -215,7 +219,7 @@ impl TermMenu0 {
         self.ref_ty
     }
 
-    pub fn list_ty(&self) -> Term {
+    pub fn list(&self) -> Term {
         self.list_ty
     }
 
@@ -263,11 +267,19 @@ impl TermMenu0 {
         self.b64
     }
 
-    pub fn eval_lifetime(&self) -> TermLiteral {
-        self.eval_lifetime
+    pub fn eval_lifetime(&self) -> Term {
+        self.eval_lifetime.into()
+    }
+
+    pub fn static_lifetime(&self) -> Term {
+        self.static_lifetime.into()
     }
 
     pub fn lifetime_ty(&self) -> Term {
         self.lifetime_ty
+    }
+
+    pub fn str_ty(&self) -> Term {
+        self.str_ty
     }
 }

@@ -36,7 +36,6 @@ impl<'a> std::ops::Index<ExprIdx> for ExprTypeEngine<'a> {
 impl<'a> ExprTypeEngine<'a> {
     pub(crate) fn new(db: &'a dyn ExprTypeDb, expr_region: ExprRegion) -> Self {
         let expr_region_data = expr_region.data(db);
-        p!(expr_region_data.path().debug(db));
         let return_ty = expr_region_data
             .parent()
             .map(|parent| {

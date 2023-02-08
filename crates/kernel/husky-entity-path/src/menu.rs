@@ -42,6 +42,7 @@ pub struct EntityPathMenu {
     core_ops_not: TraitPath,
     option_ty: TypePath,
     slice_ty: TypePath,
+    str_ty: TypePath,
     ref_ty: TypePath,
     list_ty: TypePath,
     // prelude
@@ -68,6 +69,7 @@ impl EntityPathMenu {
         let core_ops = path_menu.core_ops();
         let core_option = path_menu.core_option();
         let core_slice = path_menu.core_slice();
+        let core_str = path_menu.core_str();
         let core_basic = path_menu.core_basic();
         let core_num = path_menu.core_num();
         let core_mem = path_menu.core_mem();
@@ -174,6 +176,13 @@ impl EntityPathMenu {
             db,
             core_slice,
             db.it_ident_borrowed("Slice").unwrap(),
+            ModuleItemConnection::Connected,
+            TypeKind::Alien,
+        );
+        let str_ty = TypePath::new(
+            db,
+            core_str,
+            db.it_ident_borrowed("str").unwrap(),
             ModuleItemConnection::Connected,
             TypeKind::Alien,
         );
@@ -299,6 +308,7 @@ impl EntityPathMenu {
             core_ops_not,
             option_ty,
             slice_ty,
+            str_ty,
             ref_ty,
             list_ty,
             unit,
@@ -412,6 +422,10 @@ impl EntityPathMenu {
 
     pub fn slice_ty(&self) -> TypePath {
         self.slice_ty
+    }
+
+    pub fn str_ty(&self) -> TypePath {
+        self.str_ty
     }
 
     pub fn ref_ty(&self) -> TypePath {
