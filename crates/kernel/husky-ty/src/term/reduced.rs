@@ -57,7 +57,11 @@ impl<'a> ReducedTermMenu<'a> {
         ReducedTerm(self.term_menu.r32())
     }
 
-    pub fn list_ty(&self) -> ReducedTerm {
-        ReducedTerm(self.term_menu.list_ty())
+    pub fn list(&self) -> ReducedTerm {
+        ReducedTerm(self.term_menu.list())
+    }
+
+    pub fn static_str_ref(&self) -> ReducedTerm {
+        ReducedTerm(self.term_menu.static_str_ref())
     }
 }

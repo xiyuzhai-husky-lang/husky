@@ -98,7 +98,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 98,
+                                                                value: 99,
                                                             },
                                                         ),
                                                     ),
@@ -110,7 +110,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 336,
+                                                                value: 337,
                                                             },
                                                         ),
                                                     ),

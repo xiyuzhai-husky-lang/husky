@@ -14,6 +14,7 @@ pub struct VfsPathMenu {
     /// core::num
     core_num: ModulePath,
     core_slice: ModulePath,
+    core_str: ModulePath,
     core_ops: ModulePath,
     core_option: ModulePath,
     core_prelude: ModulePath,
@@ -42,6 +43,7 @@ impl VfsPathMenu {
         let core_ops = ModulePath::new_child(db, core, db.it_ident_borrowed("ops").unwrap());
         let core_option = ModulePath::new_child(db, core, db.it_ident_borrowed("option").unwrap());
         let core_slice = ModulePath::new_child(db, core, db.it_ident_borrowed("slice").unwrap());
+        let core_str = ModulePath::new_child(db, core, db.it_ident_borrowed("str").unwrap());
         let core_vec = ModulePath::new_child(db, core, db.it_ident_borrowed("vec").unwrap());
         Ok(Self {
             core_package,
@@ -57,6 +59,7 @@ impl VfsPathMenu {
             core_option,
             core_prelude,
             core_slice,
+            core_str,
             core_vec,
         })
     }
@@ -114,5 +117,9 @@ impl VfsPathMenu {
 
     pub fn core_slice(&self) -> ModulePath {
         self.core_slice
+    }
+
+    pub fn core_str(&self) -> ModulePath {
+        self.core_str
     }
 }

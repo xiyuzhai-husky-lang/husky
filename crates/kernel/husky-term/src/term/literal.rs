@@ -19,6 +19,7 @@ pub enum TermLiteral {
     Bool(bool),
     Str(StringLiteral),
     EvalLifetime,
+    StaticLifetime,
 }
 
 /// allowing representing very large number

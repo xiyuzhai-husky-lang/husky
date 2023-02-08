@@ -3,10 +3,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 pub(crate) enum LocalTermResolveProgress {
     Unresolved,
-    Resolved {
-        implicit_conversion: LocalTermImplicitConversion,
-        local_term: LocalTerm,
-    },
+    Resolved { local_term: LocalTerm },
     Err(ExprTypeError),
 }
 
@@ -15,13 +12,11 @@ impl LocalTermResolveProgress {
     pub(crate) fn duplicate(&self) -> Self {
         match self {
             LocalTermResolveProgress::Unresolved => LocalTermResolveProgress::Unresolved,
-            LocalTermResolveProgress::Resolved {
-                implicit_conversion,
-                local_term: term,
-            } => LocalTermResolveProgress::Resolved {
-                implicit_conversion: *implicit_conversion,
-                local_term: *term,
-            },
+            LocalTermResolveProgress::Resolved { local_term } => {
+                LocalTermResolveProgress::Resolved {
+                    local_term: *local_term,
+                }
+            }
             LocalTermResolveProgress::Err(_) => {
                 LocalTermResolveProgress::Err(DerivedExprTypeError::LocalTermResolveError.into())
             }
