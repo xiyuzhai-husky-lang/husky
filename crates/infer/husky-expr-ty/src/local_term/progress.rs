@@ -5,7 +5,7 @@ pub(crate) enum LocalTermResolveProgress {
     Unresolved,
     Resolved {
         implicit_conversion: LocalTermImplicitConversion,
-        term: Term,
+        term: ReducedTerm,
     },
     Err(ExprTypeError),
 }
@@ -28,7 +28,7 @@ impl LocalTermResolveProgress {
         }
     }
 
-    pub(crate) fn term(&self) -> Option<Term> {
+    pub(crate) fn term(&self) -> Option<ReducedTerm> {
         match self {
             LocalTermResolveProgress::Unresolved => None,
             LocalTermResolveProgress::Resolved { term, .. } => Some(*term),

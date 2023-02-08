@@ -12,11 +12,13 @@ pub struct ExprTypeRegion {
 
 impl ExprTypeRegion {
     pub(crate) fn new(
+        db: &dyn ExprTypeDb,
+        reduced_term_menu: ReducedTermMenu,
         path: RegionPath,
         mut expr_ty_infos: ExprMap<ExprTypeInfo>,
         mut unresolved_term_table: UnresolvedTermTable,
     ) -> Self {
-        unresolved_term_table.finalize();
+        unresolved_term_table.finalize(db, reduced_term_menu);
         expr_ty_infos
             .iter_mut()
             .for_each(|info| info.finalize(&unresolved_term_table));
@@ -40,14 +42,14 @@ impl std::ops::Index<ExprIdx> for ExprTypeRegion {
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub struct ExprTypeInfo {
     ty_result: ExprTypeResult<LocalTerm>,
-    expectation_rule: OptionExpectationIdx,
+    expectation_rule: OptionLocalTermExpectationRuleIdx,
     resolve_progress: LocalTermResolveProgress,
 }
 
 impl ExprTypeInfo {
     pub(crate) fn new(
         ty_result: ExprTypeResult<LocalTerm>,
-        expectation_rule_idx: OptionExpectationIdx,
+        expectation_rule_idx: OptionLocalTermExpectationRuleIdx,
     ) -> Self {
         Self {
             ty_result,

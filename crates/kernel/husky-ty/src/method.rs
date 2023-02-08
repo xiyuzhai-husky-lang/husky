@@ -6,7 +6,7 @@ pub(crate) fn ty_method_ty(
     db: &dyn TypeDb,
     ty: ReducedTerm,
     ident: Identifier,
-) -> TypeResult<Option<Term>> {
+) -> TypeResult<Option<ReducedTerm>> {
     match ty.term() {
         Term::Literal(_) => unreachable!(),
         Term::Symbol(_) => Ok(None),
@@ -30,7 +30,7 @@ pub(crate) fn entity_ty_method_ty(
     db: &dyn TypeDb,
     ty: TypePath,
     ident: Identifier,
-) -> TypeResult<Option<Term>> {
+) -> TypeResult<Option<ReducedTerm>> {
     todo!()
 }
 
@@ -39,7 +39,7 @@ pub(crate) fn application_ty_method_ty(
     db: &dyn TypeDb,
     ty: TermApplication,
     ident: Identifier,
-) -> TypeResult<Option<Term>> {
+) -> TypeResult<Option<ReducedTerm>> {
     use salsa::DebugWithDb;
     let application_expansion = application_expansion_salsa(db, ty);
     let f = application_expansion.f();
@@ -69,7 +69,7 @@ fn entity_application_ty_method_ty(
     path: TypePath,
     arguments: &[Term],
     ident: Identifier,
-) -> TypeResult<Option<Term>> {
+) -> TypeResult<Option<ReducedTerm>> {
     let decl = match db.ty_decl(path) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedTypeError::DeclError.into()),

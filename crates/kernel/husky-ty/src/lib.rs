@@ -10,6 +10,7 @@ mod variance;
 
 pub use db::*;
 pub use error::*;
+pub use term::*;
 
 use entity::*;
 use husky_entity_path::*;
@@ -18,7 +19,6 @@ use husky_signature::*;
 use husky_term::*;
 use husky_word::*;
 use method::*;
-use term::*;
 use variance::*;
 
 #[salsa::jar(db=TypeDb)]

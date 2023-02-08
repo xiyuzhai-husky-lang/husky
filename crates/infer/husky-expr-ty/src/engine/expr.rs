@@ -14,7 +14,7 @@ impl<'a> ExprTypeEngine<'a> {
                 Some(ty),
                 self.unresolved_term_table.add_expectation_rule(
                     self.db,
-                    self.term_menu,
+                    self.reduced_term_menu,
                     ty,
                     expectation,
                 ),
@@ -31,8 +31,11 @@ impl<'a> ExprTypeEngine<'a> {
         expectation: LocalTermExpectation,
     ) -> Option<Term> {
         match self.infer_new_expr(expr_idx, expectation)? {
-            LocalTerm::Resolved(lopd_ty) => Some(lopd_ty),
-            LocalTerm::Unresolved(lopd_ty) => self.unresolved_term_table.resolve_term(lopd_ty),
+            LocalTerm::Resolved(lopd_ty) => Some(lopd_ty.term()),
+            LocalTerm::Unresolved(lopd_ty) => {
+                self.unresolved_term_table
+                    .resolve_term(self.db, self.reduced_term_menu, lopd_ty)
+            }
         }
     }
 
@@ -107,11 +110,17 @@ impl<'a> ExprTypeEngine<'a> {
                 punctuation_token_idx,
             } => todo!(),
             Expr::ApplicationOrFunctionCall {
-                function,
-                lpar_token_idx,
-                argument,
-                rpar_token_idx,
-            } => todo!(),
+                function, argument, ..
+            } => {
+                let function_ty = self.infer_new_expr(function, LocalTermExpectation::None);
+                match function_ty {
+                    Some(function_ty) => todo!(),
+                    None => {
+                        self.infer_new_expr(argument, LocalTermExpectation::None);
+                        Err(DerivedExprTypeError::FunctionTypeNotInferredInApplicationOrFunctionCall.into())
+                    }
+                }
+            }
             Expr::FunctionCall {
                 function,
                 ref implicit_arguments,
@@ -177,9 +186,11 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: ExprIdx,
         items: ExprIdxRange,
     ) -> Result<LocalTerm, ExprTypeError> {
-        let element_ty = self
-            .unresolved_term_table
-            .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ImplicitType);
+        let element_ty = self.unresolved_term_table.new_implicit_symbol(
+            self.db,
+            expr_idx,
+            ImplicitSymbolVariant::ImplicitType,
+        );
         for item in items {
             self.infer_new_expr(
                 item,
@@ -188,10 +199,13 @@ impl<'a> ExprTypeEngine<'a> {
         }
         Ok(self
             .unresolved_term_table
-            .intern_unresolved_term(UnresolvedTerm::Application {
-                m: self.term_menu.list_ty().into(),
-                n: element_ty,
-            })
+            .intern_unresolved_term(
+                self.db,
+                UnresolvedTerm::Application {
+                    function: self.reduced_term_menu.list_ty().into(),
+                    argument: element_ty,
+                },
+            )
             .into())
     }
 
@@ -234,7 +248,7 @@ impl<'a> ExprTypeEngine<'a> {
             PrefixOpr::Minus => {
                 let _opd_ty = self.infer_new_expr(opd, LocalTermExpectation::Condition);
                 // here we differs from Rust, but agrees with C
-                Ok(self.term_menu.bool().into())
+                Ok(self.reduced_term_menu.bool().into())
             }
             PrefixOpr::Not => todo!(),
             PrefixOpr::BitNot => todo!(),
@@ -318,10 +332,11 @@ impl<'a> ExprTypeEngine<'a> {
                 Literal::Integer(integer_literal) => match integer_literal {
                     IntegerLiteral::Unspecified => match expectation.term() {
                         // MOM
-                        Some(term) if term == self.term_menu.i32() => todo!(),
+                        Some(term) if term == self.reduced_term_menu.i32() => todo!(),
                         _ => Ok(self
                             .unresolved_term_table
                             .new_implicit_symbol(
+                                self.db,
                                 expr_idx,
                                 ImplicitSymbolVariant::UnspecifiedIntegerType,
                             )
@@ -350,6 +365,7 @@ impl<'a> ExprTypeEngine<'a> {
                     FloatLiteral::Unspecified => match expectation {
                         LocalTermExpectation::None => {
                             let ty = self.unresolved_term_table.new_implicit_symbol(
+                                self.db,
                                 expr_idx,
                                 ImplicitSymbolVariant::UnspecifiedFloatType,
                             );
@@ -364,7 +380,7 @@ impl<'a> ExprTypeEngine<'a> {
                     FloatLiteral::F64(_) => todo!(),
                 },
                 Literal::TupleIndex(_) => todo!(),
-                Literal::Bool(_) => Ok(self.term_menu.bool().into()),
+                Literal::Bool(_) => Ok(self.reduced_term_menu.bool().into()),
             },
             _ => unreachable!(),
         }
