@@ -12,12 +12,7 @@ impl<'a> ExprTypeEngine<'a> {
         let (ty, opt_expectation) = match ty_result {
             Ok(ty) => (
                 Some(ty),
-                self.unresolved_term_table.add_expectation_rule(
-                    self.db,
-                    self.reduced_term_menu,
-                    ty,
-                    expectation,
-                ),
+                self.add_expectation_rule(expr_idx, ty, expectation),
             ),
             Err(_) => (None, Default::default()),
         };
@@ -32,10 +27,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Option<Term> {
         match self.infer_new_expr(expr_idx, expectation)? {
             LocalTerm::Resolved(lopd_ty) => Some(lopd_ty.term()),
-            LocalTerm::Unresolved(lopd_ty) => {
-                self.unresolved_term_table
-                    .resolve_term(self.db, self.reduced_term_menu, lopd_ty)
-            }
+            LocalTerm::Unresolved(lopd_ty) => self.resolve_term(lopd_ty),
         }
     }
 
@@ -186,11 +178,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: ExprIdx,
         items: ExprIdxRange,
     ) -> Result<LocalTerm, ExprTypeError> {
-        let element_ty = self.unresolved_term_table.new_implicit_symbol(
-            self.db,
-            expr_idx,
-            ImplicitSymbolVariant::ImplicitType,
-        );
+        let element_ty = self.new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ImplicitType);
         for item in items {
             self.infer_new_expr(
                 item,
@@ -198,14 +186,10 @@ impl<'a> ExprTypeEngine<'a> {
             );
         }
         Ok(self
-            .unresolved_term_table
-            .intern_unresolved_term(
-                self.db,
-                UnresolvedTerm::Application {
-                    function: self.reduced_term_menu.list_ty().into(),
-                    argument: element_ty,
-                },
-            )
+            .intern_unresolved_term(UnresolvedTerm::Application {
+                function: self.reduced_term_menu.list_ty().into(),
+                argument: element_ty,
+            })
             .into())
     }
 
@@ -334,9 +318,7 @@ impl<'a> ExprTypeEngine<'a> {
                         // MOM
                         Some(term) if term == self.reduced_term_menu.i32() => todo!(),
                         _ => Ok(self
-                            .unresolved_term_table
                             .new_implicit_symbol(
-                                self.db,
                                 expr_idx,
                                 ImplicitSymbolVariant::UnspecifiedIntegerType,
                             )
@@ -364,8 +346,7 @@ impl<'a> ExprTypeEngine<'a> {
                 Literal::Float(float_literal) => match float_literal {
                     FloatLiteral::Unspecified => match expectation {
                         LocalTermExpectation::None => {
-                            let ty = self.unresolved_term_table.new_implicit_symbol(
-                                self.db,
+                            let ty = self.new_implicit_symbol(
                                 expr_idx,
                                 ImplicitSymbolVariant::UnspecifiedFloatType,
                             );

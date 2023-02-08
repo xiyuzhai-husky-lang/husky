@@ -18,7 +18,6 @@ impl ExprTypeRegion {
         mut expr_ty_infos: ExprMap<ExprTypeInfo>,
         mut unresolved_term_table: UnresolvedTermTable,
     ) -> Self {
-        unresolved_term_table.finalize(db, reduced_term_menu);
         expr_ty_infos
             .iter_mut()
             .for_each(|info| info.finalize(&unresolved_term_table));
@@ -71,7 +70,7 @@ impl ExprTypeInfo {
             None => match ty {
                 LocalTerm::Resolved(term) => LocalTermResolveProgress::Resolved {
                     implicit_conversion: LocalTermImplicitConversion::None,
-                    term,
+                    local_term: term.into(),
                 },
                 LocalTerm::Unresolved(ty) => {
                     LocalTermResolveProgress::Err(DerivedExprTypeError::UnresolvedLocalTerm.into())

@@ -25,78 +25,13 @@ impl LocalTermExpectation {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct LocalTermExpectationRule {
+    src_expr_idx: ExprIdx,
     expectee: LocalTerm,
     variant: ExpectationRuleVariant,
     resolve_progress: LocalTermResolveProgress,
 }
 
 impl LocalTermExpectationRule {
-    pub(crate) fn new(
-        db: &dyn ExprTypeDb,
-        reduced_term_menu: ReducedTermMenu,
-        target: LocalTerm,
-        variant: ExpectationRuleVariant,
-    ) -> Self {
-        match target {
-            LocalTerm::Resolved(target) => {
-                Self::new_resolved(db, reduced_term_menu, target, variant)
-            }
-            LocalTerm::Unresolved(target) => Self::new_unresolved(target, variant),
-        }
-    }
-
-    fn new_resolved(
-        db: &dyn ExprTypeDb,
-        reduced_term_menu: ReducedTermMenu,
-        resolved_term: ReducedTerm,
-        variant: ExpectationRuleVariant,
-    ) -> LocalTermExpectationRule {
-        let resolve_progress = match variant {
-            ExpectationRuleVariant::AsBool => match resolved_term {
-                term if term == reduced_term_menu.bool() => LocalTermResolveProgress::Resolved {
-                    implicit_conversion: LocalTermImplicitConversion::None,
-                    term,
-                },
-                // MOM
-                term if term == reduced_term_menu.i32() => todo!(),
-                term if term == reduced_term_menu.r32() => todo!(),
-                term => todo!(),
-            },
-            ExpectationRuleVariant::ImplicitlyConvertibleTo { dst: term } => match term {
-                LocalTerm::Resolved(_) => todo!(),
-                LocalTerm::Unresolved(_) => LocalTermResolveProgress::Unresolved,
-            },
-            ExpectationRuleVariant::Type => match db.term_ty(resolved_term.term()) {
-                Ok(term_ty) => match term_ty.term() {
-                    Term::Category(cat) => match cat.universe().raw() {
-                        0 => todo!(),
-                        _ => LocalTermResolveProgress::Resolved {
-                            implicit_conversion: LocalTermImplicitConversion::None,
-                            term: resolved_term,
-                        },
-                    },
-                    _ => todo!(),
-                },
-                Err(_) => todo!(),
-            },
-        };
-        Self {
-            expectee: resolved_term.into(),
-            variant,
-            resolve_progress,
-        }
-    }
-    fn new_unresolved(
-        target: UnresolvedTermIdx,
-        variant: ExpectationRuleVariant,
-    ) -> LocalTermExpectationRule {
-        Self {
-            expectee: target.into(),
-            variant,
-            resolve_progress: LocalTermResolveProgress::Unresolved,
-        }
-    }
-
     pub(crate) fn variant(&self) -> &ExpectationRuleVariant {
         &self.variant
     }
@@ -109,22 +44,125 @@ impl LocalTermExpectationRule {
         self.expectee
     }
 
-    pub(super) fn action(
+    pub(crate) fn set_resolve_progress(&mut self, resolve_progress: LocalTermResolveProgress) {
+        self.resolve_progress = resolve_progress;
+    }
+}
+
+impl<'a> ExprTypeEngine<'a> {
+    pub(crate) fn new_expectation_rule(
         &self,
-        table: &UnresolvedTermTable,
+        src_expr_idx: ExprIdx,
+        target: LocalTerm,
+        variant: ExpectationRuleVariant,
+    ) -> LocalTermExpectationRule {
+        match target {
+            LocalTerm::Resolved(target) => {
+                self.new_resolved_expectation_rule(src_expr_idx, target, variant)
+            }
+            LocalTerm::Unresolved(target) => {
+                self.new_unresolved_expectation_rule(src_expr_idx, target, variant)
+            }
+        }
+    }
+
+    fn new_resolved_expectation_rule(
+        &self,
+        src_expr_idx: ExprIdx,
+        resolved_term: ReducedTerm,
+        variant: ExpectationRuleVariant,
+    ) -> LocalTermExpectationRule {
+        let db = self.db();
+        let reduced_term_menu = self.reduced_term_menu();
+        let resolve_progress = match variant {
+            ExpectationRuleVariant::AsBool => {
+                match resolved_term {
+                    term if term == reduced_term_menu.bool() => {
+                        LocalTermResolveProgress::Resolved {
+                            implicit_conversion: LocalTermImplicitConversion::None,
+                            local_term: term.into(),
+                        }
+                    }
+                    // MOM
+                    term if term == reduced_term_menu.i32() => todo!(),
+                    term if term == reduced_term_menu.r32() => todo!(),
+                    term => todo!(),
+                }
+            }
+            ExpectationRuleVariant::ImplicitlyConvertibleTo { dst: term } => match term {
+                LocalTerm::Resolved(_) => todo!(),
+                LocalTerm::Unresolved(_) => LocalTermResolveProgress::Unresolved,
+            },
+            ExpectationRuleVariant::Type => match db.term_ty(resolved_term.term()) {
+                Ok(term_ty) => match term_ty.term() {
+                    Term::Category(cat) => match cat.universe().raw() {
+                        0 => todo!(),
+                        _ => LocalTermResolveProgress::Resolved {
+                            implicit_conversion: LocalTermImplicitConversion::None,
+                            local_term: resolved_term.into(),
+                        },
+                    },
+                    _ => todo!(),
+                },
+                Err(_) => todo!(),
+            },
+        };
+        LocalTermExpectationRule {
+            src_expr_idx,
+            expectee: resolved_term.into(),
+            variant,
+            resolve_progress,
+        }
+    }
+    fn new_unresolved_expectation_rule(
+        &self,
+        src_expr_idx: ExprIdx,
+        target: UnresolvedTermIdx,
+        variant: ExpectationRuleVariant,
+    ) -> LocalTermExpectationRule {
+        LocalTermExpectationRule {
+            src_expr_idx,
+            expectee: target.into(),
+            variant,
+            resolve_progress: LocalTermResolveProgress::Unresolved,
+        }
+    }
+
+    pub(super) fn expectation_rule_action(
+        &self,
+        rule: &LocalTermExpectationRule,
         level: LocalTermResolveLevel,
     ) -> Option<TermResolveAction> {
-        match self.variant {
-            ExpectationRuleVariant::AsBool => match level {
-                LocalTermResolveLevel::Weak => None,
-                LocalTermResolveLevel::Strong => todo!(),
+        let table = self.unresolved_term_table();
+        match rule.variant {
+            ExpectationRuleVariant::AsBool => match rule.expectee {
+                LocalTerm::Resolved(_) => todo!(),
+                LocalTerm::Unresolved(expectee) => match level {
+                    LocalTermResolveLevel::Weak => None,
+                    LocalTermResolveLevel::Strong => match table[expectee].pattern() {
+                        UnresolvedTermPattern::ImplicitSymbol => {
+                            match table[expectee].unresolved_term() {
+                                UnresolvedTerm::ImplicitSymbol(implicit_symbol) => {
+                                    p!(implicit_symbol.src_expr_idx());
+                                    todo!()
+                                }
+                                _ => unreachable!(),
+                            };
+                            todo!()
+                        }
+                        UnresolvedTermPattern::Injection {
+                            function,
+                            arguments,
+                        } => todo!(),
+                    },
+                },
             },
-            ExpectationRuleVariant::ImplicitlyConvertibleTo { dst } => match self.expectee {
+            ExpectationRuleVariant::ImplicitlyConvertibleTo { dst } => match rule.expectee {
                 LocalTerm::Resolved(_) => match dst {
                     LocalTerm::Resolved(_) => todo!(),
                     LocalTerm::Unresolved(dst) => match table[dst].pattern() {
                         UnresolvedTermPattern::ImplicitSymbol => match level {
-                            LocalTermResolveLevel::Weak => todo!(),
+                            LocalTermResolveLevel::Weak => None,
                             LocalTermResolveLevel::Strong => todo!(),
                         },
                         UnresolvedTermPattern::Injection {
@@ -136,7 +174,12 @@ impl LocalTermExpectationRule {
                 LocalTerm::Unresolved(expectee) => match table[expectee].pattern() {
                     UnresolvedTermPattern::ImplicitSymbol => match level {
                         LocalTermResolveLevel::Weak => None,
-                        LocalTermResolveLevel::Strong => todo!(),
+                        LocalTermResolveLevel::Strong => {
+                            Some(TermResolveAction::SubstituteExpecteeImplicitSymbol {
+                                implicit_symbol: expectee,
+                                substitution: dst,
+                            })
+                        }
                     },
                     UnresolvedTermPattern::Injection {
                         function,

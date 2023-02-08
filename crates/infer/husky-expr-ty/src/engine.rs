@@ -36,12 +36,13 @@ impl<'a> std::ops::Index<ExprIdx> for ExprTypeEngine<'a> {
 impl<'a> ExprTypeEngine<'a> {
     pub(crate) fn new(db: &'a dyn ExprTypeDb, expr_region: ExprRegion) -> Self {
         let expr_region_data = expr_region.data(db);
+        p!(expr_region_data.path().debug(db));
         let return_ty = expr_region_data
             .parent()
             .map(|parent| {
                 db.expr_ty_region(parent)[parent.data(db).return_ty()?]
                     .resolve_progress()
-                    .term()
+                    .reduced_term()
             })
             .flatten();
         let symbol_region = expr_region_data.symbol_region();
@@ -78,7 +79,8 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    pub(crate) fn finish(self) -> ExprTypeRegion {
+    pub(crate) fn finish(mut self) -> ExprTypeRegion {
+        self.finalize_unresolved_term_table();
         ExprTypeRegion::new(
             self.db,
             self.reduced_term_menu,
@@ -86,5 +88,21 @@ impl<'a> ExprTypeEngine<'a> {
             self.expr_ty_infos,
             self.unresolved_term_table,
         )
+    }
+
+    pub(crate) fn db(&self) -> &'a dyn ExprTypeDb {
+        self.db
+    }
+
+    pub(crate) fn reduced_term_menu(&self) -> ReducedTermMenu<'a> {
+        self.reduced_term_menu
+    }
+
+    pub(crate) fn unresolved_term_table(&self) -> &UnresolvedTermTable {
+        &self.unresolved_term_table
+    }
+
+    pub(crate) fn unresolved_term_table_mut(&mut self) -> &mut UnresolvedTermTable {
+        &mut self.unresolved_term_table
     }
 }
