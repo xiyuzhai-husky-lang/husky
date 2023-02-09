@@ -6,29 +6,10 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 pub(crate) enum UnresolvedTerm {
     ImplicitSymbol(ImplicitSymbol),
-    Curry {
-        // todo: include parameter
-        // so that the following dependent type is possible:
-        // (u: Universe) -> (a: Type u + 1) -> List a -> a
-        parameter_ty: LocalTerm,
-        return_ty: LocalTerm,
+    TypeApplication {
+        ty: TypePath,
+        arguments: Vec<LocalTerm>,
     },
-    Application {
-        function: LocalTerm,
-        argument: LocalTerm,
-    },
-    Abstraction {
-        parameter: TermSymbol,
-        body: LocalTerm,
-    },
-    Durant {
-        durant_kind: TermDurantKind,
-        parameter_book_tys: Vec<UnresolvedTermDurantParameterBookType>,
-        return_ty: LocalTerm,
-    },
-    Subentity {},
-    AsTraitSubentity {},
-    TraitConstraint {},
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -137,28 +118,14 @@ impl LocalTermResolveProgress {
 #[derive(Debug, PartialEq, Eq)]
 pub(crate) struct UnresolvedTermEntry {
     unresolved_term: UnresolvedTerm,
-    unresolved_term_pattern: UnresolvedTermPattern,
     implicit_symbol_dependencies: VecSet<UnresolvedTermIdx>,
     resolve_progress: LocalTermResolveProgress,
 }
 
 impl UnresolvedTermEntry {
-    pub(crate) fn pattern(&self) -> &UnresolvedTermPattern {
-        &self.unresolved_term_pattern
-    }
-
     pub(crate) fn unresolved_term(&self) -> &UnresolvedTerm {
         &self.unresolved_term
     }
-}
-
-#[derive(Debug, PartialEq, Eq)]
-pub(crate) enum UnresolvedTermPattern {
-    ImplicitSymbol,
-    Injection {
-        function: EntityPath,
-        arguments: Vec<LocalTerm>,
-    },
 }
 
 impl UnresolvedTerms {
@@ -169,39 +136,14 @@ impl UnresolvedTerms {
         let mut dependencies: VecSet<UnresolvedTermIdx> = Default::default();
         match unresolved_term {
             UnresolvedTerm::ImplicitSymbol(_) => (),
-            UnresolvedTerm::Curry {
-                parameter_ty,
-                return_ty,
-            } => {
-                self.extract_local_term_implicit_symbol_dependencies(
-                    *parameter_ty,
-                    &mut dependencies,
-                );
-                self.extract_local_term_implicit_symbol_dependencies(*return_ty, &mut dependencies);
-            }
-            UnresolvedTerm::Application { function, argument } => {
-                self.extract_local_term_implicit_symbol_dependencies(*function, &mut dependencies);
-                self.extract_local_term_implicit_symbol_dependencies(*argument, &mut dependencies);
-            }
-            UnresolvedTerm::Abstraction { parameter, body } => {
-                self.extract_local_term_implicit_symbol_dependencies(*body, &mut dependencies);
-            }
-            UnresolvedTerm::Durant {
-                durant_kind,
-                parameter_book_tys,
-                return_ty,
-            } => {
-                for parameter_book_ty in parameter_book_tys {
+            UnresolvedTerm::TypeApplication { ty, arguments } => {
+                for argument in arguments {
                     self.extract_local_term_implicit_symbol_dependencies(
-                        parameter_book_ty.ty(),
+                        *argument,
                         &mut dependencies,
                     );
                 }
-                self.extract_local_term_implicit_symbol_dependencies(*return_ty, &mut dependencies);
             }
-            UnresolvedTerm::Subentity {} => todo!(),
-            UnresolvedTerm::AsTraitSubentity {} => todo!(),
-            UnresolvedTerm::TraitConstraint {} => todo!(),
         }
         dependencies
     }
@@ -288,7 +230,6 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn alloc_unresolved_term(&mut self, unresolved_term: UnresolvedTerm) -> UnresolvedTermIdx {
         let idx = self.local_term_table().unresolved_terms.arena.len();
-        let unresolved_term_pattern = self.generate_unresolved_term_pattern(&unresolved_term);
         let implicit_symbol_dependencies = self
             .local_term_table()
             .unresolved_terms
@@ -297,68 +238,11 @@ impl<'a> ExprTypeEngine<'a> {
             .unresolved_terms
             .arena
             .push(UnresolvedTermEntry {
-                unresolved_term_pattern,
                 unresolved_term,
                 implicit_symbol_dependencies,
                 resolve_progress: LocalTermResolveProgress::Unresolved,
             });
         UnresolvedTermIdx(idx)
-    }
-
-    fn generate_unresolved_term_pattern(
-        &self,
-        unresolved_term: &UnresolvedTerm,
-    ) -> UnresolvedTermPattern {
-        match unresolved_term {
-            UnresolvedTerm::ImplicitSymbol(_) => UnresolvedTermPattern::ImplicitSymbol,
-            UnresolvedTerm::Curry {
-                parameter_ty,
-                return_ty,
-            } => todo!(),
-            UnresolvedTerm::Application { function, argument } => match function {
-                LocalTerm::Resolved(term) => match term.term() {
-                    Term::Literal(_) => todo!(),
-                    Term::Symbol(_) => todo!(),
-                    Term::Entity(entity) => match entity.entity_kind(self.db()) {
-                        EntityKind::Module => todo!(),
-                        EntityKind::ModuleItem {
-                            module_item_kind,
-                            connection,
-                        } => match module_item_kind {
-                            ModuleItemKind::Type(_) => UnresolvedTermPattern::Injection {
-                                function: entity,
-                                arguments: vec![*argument],
-                            },
-                            ModuleItemKind::Form(_) => todo!(),
-                            ModuleItemKind::Trait => todo!(),
-                        },
-                        EntityKind::AssociatedItem {
-                            associated_item_kind,
-                        } => todo!(),
-                        EntityKind::Variant => todo!(),
-                    },
-                    Term::Category(_) => todo!(),
-                    Term::Universe(_) => todo!(),
-                    Term::Curry(_) => todo!(),
-                    Term::Durant(_) => todo!(),
-                    Term::Abstraction(_) => todo!(),
-                    Term::Application(_) => todo!(),
-                    Term::Subentity(_) => todo!(),
-                    Term::AsTraitSubentity(_) => todo!(),
-                    Term::TraitConstraint(_) => todo!(),
-                },
-                LocalTerm::Unresolved(_) => todo!(),
-            },
-            UnresolvedTerm::Abstraction { parameter, body } => todo!(),
-            UnresolvedTerm::Durant {
-                durant_kind,
-                parameter_book_tys,
-                return_ty,
-            } => todo!(),
-            UnresolvedTerm::Subentity {} => todo!(),
-            UnresolvedTerm::AsTraitSubentity {} => todo!(),
-            UnresolvedTerm::TraitConstraint {} => todo!(),
-        }
     }
 
     pub(super) fn substitute_implicit_symbol(

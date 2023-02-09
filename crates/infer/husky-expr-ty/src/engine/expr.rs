@@ -64,42 +64,31 @@ impl<'a> ExprTypeEngine<'a> {
             },
             Expr::CurrentSymbol {
                 ident,
-                token_idx,
                 current_symbol_idx,
                 current_symbol_kind,
+                ..
             } => self
                 .current_symbol_tys
                 .get(current_symbol_idx)
                 .copied()
                 .ok_or(DerivedExprTypeError::CurrentSymbolTypeError.into()),
             Expr::FrameVarDecl {
-                token_idx,
                 ident,
                 current_symbol_idx,
                 current_symbol_kind,
+                ..
             } => todo!(),
             Expr::SelfType(_) => todo!(),
             Expr::SelfValue(_) => todo!(),
             Expr::BinaryOpn {
-                lopd,
-                opr,
-                opr_token_idx,
-                ropd,
+                lopd, opr, ropd, ..
             } => self.calc_binary(lopd, ropd),
             Expr::Be {
-                src,
-                be_token_idx,
-                ref target,
+                src, ref target, ..
             } => todo!(),
-            Expr::PrefixOpn {
-                opr,
-                opr_token_idx,
-                opd,
-            } => self.calc_prefix(opd, opr),
+            Expr::PrefixOpn { opr, opd, .. } => self.calc_prefix(opd, opr),
             Expr::SuffixOpn {
-                opd,
-                punctuation,
-                punctuation_token_idx,
+                opd, punctuation, ..
             } => todo!(),
             Expr::ApplicationOrFunctionCall {
                 function, argument, ..
@@ -116,18 +105,23 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::FunctionCall {
                 function,
                 ref implicit_arguments,
-                lpar_token_idx,
                 arguments,
-                rpar_token_idx,
+                ..
             } => {
                 let function_ty = self.infer_new_expr(function, LocalTermExpectation::None);
                 self.calc_call_expr(None, function_ty, implicit_arguments.as_ref(), arguments)
             }
             Expr::Field {
-                self_expr,
-                dot_token_idx,
-                ident_token,
-            } => todo!(),
+                opd, ident_token, ..
+            } => {
+                if let Some(opd_ty) = self.infer_new_expr_resolved(opd, LocalTermExpectation::None)
+                {
+                    p!(opd_ty.debug(self.db));
+                    todo!()
+                } else {
+                    Err(DerivedExprTypeError::FieldOperandTypeNotInferred.into())
+                }
+            }
             Expr::MethodCall {
                 self_expr,
                 ident_token,
@@ -156,11 +150,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ref implicit_arguments,
             } => todo!(),
             Expr::Application { function, argument } => self.calc_application(function, argument),
-            Expr::Bracketed {
-                lpar_token_idx,
-                item,
-                rpar_token_idx,
-            } => self
+            Expr::Bracketed { item, .. } => self
                 .infer_new_expr(item, expectation)
                 .ok_or(DerivedExprTypeError::BracketedItemTypeError.into()),
             Expr::NewTuple { items, .. } => todo!(),
@@ -186,9 +176,9 @@ impl<'a> ExprTypeEngine<'a> {
             );
         }
         Ok(self
-            .intern_unresolved_term(UnresolvedTerm::Application {
-                function: self.reduced_term_menu.list().into(),
-                argument: element_ty,
+            .intern_unresolved_term(UnresolvedTerm::TypeApplication {
+                ty: self.entity_path_menu.list_ty(),
+                arguments: vec![element_ty],
             })
             .into())
     }
@@ -218,11 +208,11 @@ impl<'a> ExprTypeEngine<'a> {
     fn calc_binary(&mut self, lopd: ExprIdx, ropd: ExprIdx) -> ExprTypeResult<LocalTerm> {
         let Some(lopd_ty) = self.infer_new_expr_resolved(lopd, LocalTermExpectation::None)
             else {
-                return Err(DerivedExprTypeError::BinaryOpnFirstArgumentTypeNotInferred.into())
+                return Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into())
             };
         let Some(ropd_ty) = self.infer_new_expr_resolved(ropd, LocalTermExpectation::None)
             else {
-                return Err(DerivedExprTypeError::BinaryOpnSecondArgumentTypeNotInferred.into())
+                return Err(DerivedExprTypeError::BinaryOperationRightOperandTypeNotInferred.into())
             };
         todo!()
     }
@@ -244,17 +234,7 @@ impl<'a> ExprTypeEngine<'a> {
                                         ImplicitSymbolVariant::ImplicitType => todo!(),
                                     }
                                 }
-                                UnresolvedTerm::Curry { .. } => todo!(),
-                                UnresolvedTerm::Application { function, argument } => todo!(),
-                                UnresolvedTerm::Abstraction { parameter, body } => todo!(),
-                                UnresolvedTerm::Durant {
-                                    durant_kind,
-                                    parameter_book_tys,
-                                    return_ty,
-                                } => todo!(),
-                                UnresolvedTerm::Subentity {} => todo!(),
-                                UnresolvedTerm::AsTraitSubentity {} => todo!(),
-                                UnresolvedTerm::TraitConstraint {} => todo!(),
+                                UnresolvedTerm::TypeApplication { ty, arguments } => todo!(),
                             }
                         }
                     },

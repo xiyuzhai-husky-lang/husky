@@ -130,7 +130,7 @@ pub enum Expr {
         rpar_token_idx: TokenIdx,
     },
     Field {
-        self_expr: ExprIdx,
+        opd: ExprIdx,
         dot_token_idx: TokenIdx,
         ident_token: IdentifierToken,
     },

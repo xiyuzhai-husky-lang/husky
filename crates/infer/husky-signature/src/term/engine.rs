@@ -258,7 +258,7 @@ impl<'a> SignatureTermEngine<'a> {
                 todo!()
             }
             Expr::Field {
-                self_expr,
+                opd: self_expr,
                 dot_token_idx,
                 ident_token,
             } => todo!(),
@@ -349,7 +349,7 @@ impl<'a> SignatureTermEngine<'a> {
                                 rpar_token_idx,
                             } => todo!(),
                             Expr::Field {
-                                self_expr,
+                                opd: self_expr,
                                 dot_token_idx,
                                 ident_token,
                             } => todo!(),

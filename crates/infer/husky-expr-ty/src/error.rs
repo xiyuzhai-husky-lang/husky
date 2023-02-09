@@ -50,10 +50,12 @@ pub enum DerivedExprTypeError {
     ApplicationArgumentTypeNotInferred,
     #[error("prefix operand type not inferred")]
     PrefixOperandTypeNotInferred,
-    #[error("binary opn first argument type not inferred")]
-    BinaryOpnFirstArgumentTypeNotInferred,
-    #[error("binary opn second argument type not inferred")]
-    BinaryOpnSecondArgumentTypeNotInferred,
+    #[error("binary opn left operand type not inferred")]
+    BinaryOperationLeftOperandTypeNotInferred,
+    #[error("binary operation right operand type not inferred")]
+    BinaryOperationRightOperandTypeNotInferred,
+    #[error("field operand type not inferred")]
+    FieldOperandTypeNotInferred,
     #[error("block type error")]
     BlockTypeError,
     #[error("term symbol type error")]

@@ -593,7 +593,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            self_expr: 4,
+                                            opd: 4,
                                             dot_token_idx: TokenIdx(
                                                 118,
                                             ),
@@ -615,7 +615,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            self_expr: 6,
+                                            opd: 6,
                                             dot_token_idx: TokenIdx(
                                                 122,
                                             ),
@@ -663,7 +663,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            self_expr: 11,
+                                            opd: 11,
                                             dot_token_idx: TokenIdx(
                                                 133,
                                             ),
@@ -747,7 +747,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            self_expr: 18,
+                                            opd: 18,
                                             dot_token_idx: TokenIdx(
                                                 150,
                                             ),
@@ -771,7 +771,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            self_expr: 20,
+                                            opd: 20,
                                             dot_token_idx: TokenIdx(
                                                 156,
                                             ),
@@ -783,7 +783,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            self_expr: 21,
+                                            opd: 21,
                                             dot_token_idx: TokenIdx(
                                                 160,
                                             ),
@@ -840,7 +840,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            self_expr: 28,
+                                            opd: 28,
                                             dot_token_idx: TokenIdx(
                                                 168,
                                             ),
@@ -931,7 +931,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            self_expr: 37,
+                                            opd: 37,
                                             dot_token_idx: TokenIdx(
                                                 188,
                                             ),
@@ -989,7 +989,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            self_expr: 43,
+                                            opd: 43,
                                             dot_token_idx: TokenIdx(
                                                 199,
                                             ),
@@ -1028,7 +1028,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            self_expr: 47,
+                                            opd: 47,
                                             dot_token_idx: TokenIdx(
                                                 207,
                                             ),
@@ -1040,7 +1040,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            self_expr: 48,
+                                            opd: 48,
                                             dot_token_idx: TokenIdx(
                                                 211,
                                             ),
@@ -1068,7 +1068,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            self_expr: 52,
+                                            opd: 52,
                                             dot_token_idx: TokenIdx(
                                                 217,
                                             ),
@@ -1152,7 +1152,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            self_expr: 59,
+                                            opd: 59,
                                             dot_token_idx: TokenIdx(
                                                 232,
                                             ),
@@ -1194,7 +1194,7 @@ Ok(
                                             ),
                                         ),
                                         Expr::Field {
-                                            self_expr: 63,
+                                            opd: 63,
                                             dot_token_idx: TokenIdx(
                                                 238,
                                             ),
@@ -1229,7 +1229,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            self_expr: 68,
+                                            opd: 68,
                                             dot_token_idx: TokenIdx(
                                                 245,
                                             ),
@@ -2829,7 +2829,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            self_expr: 2,
+                                            opd: 2,
                                             dot_token_idx: TokenIdx(
                                                 294,
                                             ),
@@ -2866,7 +2866,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            self_expr: 6,
+                                            opd: 6,
                                             dot_token_idx: TokenIdx(
                                                 299,
                                             ),
@@ -3395,7 +3395,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            self_expr: 2,
+                                            opd: 2,
                                             dot_token_idx: TokenIdx(
                                                 323,
                                             ),
@@ -3430,7 +3430,7 @@ Ok(
                                             inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::Field {
-                                            self_expr: 6,
+                                            opd: 6,
                                             dot_token_idx: TokenIdx(
                                                 329,
                                             ),
@@ -3487,7 +3487,7 @@ Ok(
                                             inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::Field {
-                                            self_expr: 11,
+                                            opd: 11,
                                             dot_token_idx: TokenIdx(
                                                 338,
                                             ),
