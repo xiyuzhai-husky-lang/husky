@@ -9,3 +9,5 @@ pub use defn::*;
 pub use entity_path::*;
 pub use expr::*;
 pub use word::*;
+
+use crate::*;
