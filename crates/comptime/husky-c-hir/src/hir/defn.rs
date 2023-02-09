@@ -1,5 +1,7 @@
 mod ty;
 
+use super::*;
+
 pub enum CDefnHir {
     Type(CTypeDefnHir),
     Form(CFormDefnHir),
@@ -23,7 +25,11 @@ pub enum CFormDefnHir {
     Alias(CAliasDefnHir),
 }
 
+#[salsa::tracked(db = CHirDb, jar = CHirJar)]
 pub struct CFunctionDefnHir {}
+
+#[salsa::tracked(db = CHirDb, jar = CHirJar)]
 pub struct CValueDefnHir {}
 
+#[salsa::tracked(db = CHirDb, jar = CHirJar)]
 pub struct CAliasDefnHir {}
