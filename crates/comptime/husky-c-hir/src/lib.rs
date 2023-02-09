@@ -3,14 +3,23 @@ mod engine;
 mod hir;
 #[cfg(test)]
 mod tests;
-mod transpiler;
+mod transpile;
 
 pub use db::*;
 pub use hir::*;
 
 #[cfg(test)]
 use tests::*;
-use transpiler::*;
+use transpile::*;
 
 #[salsa::jar(db = CHirDb)]
-pub struct CHirJar();
+pub struct CHirJar(
+    CStructDeclHir,
+    CEnumDeclHir,
+    CUnionDeclHir,
+    CFunctionDeclHir,
+    CValueDeclHir,
+    CFunctionDefnHir,
+    CValueDefnHir,
+    CAliasDefnHir,
+);

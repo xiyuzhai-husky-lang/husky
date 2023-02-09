@@ -75,9 +75,9 @@ impl CHirTranspile for CExprHir {
                 function,
                 arguments,
             } => {
-                let c_expr_hir_arena = &transpiler.c_expr_hir_arena();
+                let c_expr_hir_arena = transpiler.c_expr_hir_arena();
                 transpiler.transpile_subhir(&ctx, &c_expr_hir_arena[*function]);
-                transpiler.transpile_comma_separated_list(
+                transpiler.transpile_comma_separated_subhirs(
                     &ctx,
                     CBracket::Parenthesis,
                     arguments
