@@ -1,37 +1,48 @@
+mod literal;
+mod opr;
+mod stmt;
+
+pub use literal::*;
+pub use opr::*;
+pub use stmt::*;
+
+use idx_arena::*;
+
 pub enum CExprHir {
-    Literal(LiteralHir),
+    Literal(CLiteralHir),
     InheritedSymbol,
     CurrentSymbol,
     BinaryOpn {
         lopd: CExprHirIdx,
-        opr: BinaryOpr,
+        opr: CBinaryOprHir,
         ropd: CExprHirIdx,
     },
     PrefixOpn {
-        opr: PrefixOpr,
+        opr: CPrefixOprHir,
         opd: CExprHirIdx,
     },
     SuffixOpn {
         opd: CExprHirIdx,
-        punctuation: SuffixOpr,
+        punctuation: CSuffixOprHir,
     },
     FunctionCall {
         function: CExprHirIdx,
-        implicit_arguments: Option<ImplicitArgumentListHir>,
         arguments: CExprHirIdxRange,
     },
     Field {
         self_expr: CExprHirIdx,
-        ident_token: Identifier,
+        ident: CFieldIdentifier,
     },
     NewBoxList {
         caller: Option<CExprHirIdx>,
         items: CExprHirIdxRange,
     },
     Block {
-        stmts: StmtHirIdxRange,
+        stmts: CStmtHirIdxRange,
     },
 }
+
+pub struct CFieldIdentifier {}
 
 pub type CExprHirArena = Arena<CExprHir>;
 pub type CExprHirIdx = ArenaIdx<CExprHir>;
