@@ -1,4 +1,5 @@
 mod db;
+mod engine;
 mod hir;
 #[cfg(test)]
 mod tests;
