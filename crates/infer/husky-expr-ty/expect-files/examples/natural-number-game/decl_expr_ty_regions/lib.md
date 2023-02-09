@@ -156,7 +156,7 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        BinaryOpnFirstArgumentTypeNotInferred,
+                        BinaryOperationLeftOperandTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -165,7 +165,7 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        BinaryOpnFirstArgumentTypeNotInferred,
+                        BinaryOperationLeftOperandTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,

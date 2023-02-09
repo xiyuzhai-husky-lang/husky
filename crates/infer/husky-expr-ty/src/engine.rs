@@ -12,6 +12,8 @@ use crate::*;
 
 pub(crate) struct ExprTypeEngine<'a> {
     db: &'a dyn ExprTypeDb,
+    entity_path_menu: &'a EntityPathMenu,
+    term_menu: &'a TermMenu,
     reduced_term_menu: ReducedTermMenu<'a>,
     token_sheet_data: &'a TokenSheetData,
     expr_region_data: &'a ExprRegionData,
@@ -46,9 +48,13 @@ impl<'a> ExprTypeEngine<'a> {
             .flatten();
         let symbol_region = expr_region_data.symbol_region();
         let pattern_expr_region = expr_region_data.pattern_expr_region();
+        let toolchain = expr_region.toolchain(db);
+        let reduced_term_menu = db.reduced_term_menu(toolchain).unwrap();
         Self {
             db,
-            reduced_term_menu: db.reduced_term_menu(expr_region.toolchain(db)).unwrap(),
+            entity_path_menu: db.entity_path_menu(toolchain).unwrap(),
+            term_menu: reduced_term_menu.term_menu(),
+            reduced_term_menu,
             token_sheet_data: db
                 .token_sheet_data(expr_region_data.path().module_path(db))
                 .unwrap(),

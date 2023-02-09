@@ -287,8 +287,8 @@ impl<'a> ExprTypeEngine<'a> {
                 LocalTerm::Resolved(_) => todo!(),
                 LocalTerm::Unresolved(expectee) => match level {
                     LocalTermResolveLevel::Weak => None,
-                    LocalTermResolveLevel::Strong => match table[expectee].pattern() {
-                        UnresolvedTermPattern::ImplicitSymbol => {
+                    LocalTermResolveLevel::Strong => match table[expectee].unresolved_term() {
+                        UnresolvedTerm::ImplicitSymbol(_) => {
                             match table[expectee].unresolved_term() {
                                 UnresolvedTerm::ImplicitSymbol(implicit_symbol) => {
                                     let src_expr_idx = rule.src_expr_idx();
@@ -299,10 +299,7 @@ impl<'a> ExprTypeEngine<'a> {
                             };
                             todo!()
                         }
-                        UnresolvedTermPattern::Injection {
-                            function,
-                            arguments,
-                        } => todo!(),
+                        UnresolvedTerm::TypeApplication { ty, arguments } => todo!(),
                     },
                 },
             },
@@ -310,8 +307,8 @@ impl<'a> ExprTypeEngine<'a> {
             {
                 LocalTerm::Resolved(expectee) => match dst {
                     LocalTerm::Resolved(_) => todo!(),
-                    LocalTerm::Unresolved(dst) => match table[dst].pattern() {
-                        UnresolvedTermPattern::ImplicitSymbol => match level {
+                    LocalTerm::Unresolved(dst) => match table[dst].unresolved_term() {
+                        UnresolvedTerm::ImplicitSymbol(_) => match level {
                             LocalTermResolveLevel::Weak => None,
                             LocalTermResolveLevel::Strong => Some(LocalTermExpectationEffect {
                                 actions: vec![TermResolveAction::SubstituteImplicitSymbol {
@@ -324,14 +321,11 @@ impl<'a> ExprTypeEngine<'a> {
                                 },
                             }),
                         },
-                        UnresolvedTermPattern::Injection {
-                            function,
-                            arguments,
-                        } => todo!(),
+                        UnresolvedTerm::TypeApplication { ty, arguments } => todo!(),
                     },
                 },
-                LocalTerm::Unresolved(expectee) => match table[expectee].pattern() {
-                    UnresolvedTermPattern::ImplicitSymbol => match level {
+                LocalTerm::Unresolved(expectee) => match table[expectee].unresolved_term() {
+                    UnresolvedTerm::ImplicitSymbol(_) => match level {
                         LocalTermResolveLevel::Weak => None,
                         LocalTermResolveLevel::Strong => Some(LocalTermExpectationEffect {
                             actions: vec![TermResolveAction::SubstituteImplicitSymbol {
@@ -344,10 +338,7 @@ impl<'a> ExprTypeEngine<'a> {
                             },
                         }),
                     },
-                    UnresolvedTermPattern::Injection {
-                        function,
-                        arguments,
-                    } => todo!(),
+                    UnresolvedTerm::TypeApplication { ty, arguments } => todo!(),
                 },
             },
             LocalTermExpectationRuleVariant::Type => todo!(),

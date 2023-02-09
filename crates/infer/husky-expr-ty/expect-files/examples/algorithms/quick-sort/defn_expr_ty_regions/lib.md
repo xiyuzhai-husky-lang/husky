@@ -70,7 +70,7 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        BinaryOpnFirstArgumentTypeNotInferred,
+                        BinaryOperationLeftOperandTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -135,7 +135,7 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        BinaryOpnFirstArgumentTypeNotInferred,
+                        BinaryOperationLeftOperandTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -176,7 +176,6 @@
                                 variant: UnspecifiedIntegerType,
                             },
                         ),
-                        unresolved_term_pattern: ImplicitSymbol,
                         implicit_symbol_dependencies: VecSet {
                             data: [],
                         },
@@ -212,7 +211,7 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        BinaryOpnFirstArgumentTypeNotInferred,
+                        BinaryOperationLeftOperandTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -348,7 +347,7 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        BinaryOpnFirstArgumentTypeNotInferred,
+                        BinaryOperationLeftOperandTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -416,7 +415,7 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        BinaryOpnFirstArgumentTypeNotInferred,
+                        BinaryOperationLeftOperandTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -485,7 +484,7 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        BinaryOpnFirstArgumentTypeNotInferred,
+                        BinaryOperationLeftOperandTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -503,7 +502,7 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        BinaryOpnFirstArgumentTypeNotInferred,
+                        BinaryOperationLeftOperandTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -572,7 +571,7 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        BinaryOpnFirstArgumentTypeNotInferred,
+                        BinaryOperationLeftOperandTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -590,7 +589,7 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        BinaryOpnFirstArgumentTypeNotInferred,
+                        BinaryOperationLeftOperandTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -614,7 +613,7 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        BinaryOpnFirstArgumentTypeNotInferred,
+                        BinaryOperationLeftOperandTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -632,7 +631,7 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        BinaryOpnFirstArgumentTypeNotInferred,
+                        BinaryOperationLeftOperandTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -650,7 +649,7 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        BinaryOpnFirstArgumentTypeNotInferred,
+                        BinaryOperationLeftOperandTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -668,7 +667,7 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        BinaryOpnFirstArgumentTypeNotInferred,
+                        BinaryOperationLeftOperandTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -677,25 +676,7 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        BinaryOpnFirstArgumentTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        CurrentSymbolTypeError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        BinaryOpnFirstArgumentTypeNotInferred,
+                        BinaryOperationLeftOperandTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -713,7 +694,25 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        BinaryOpnFirstArgumentTypeNotInferred,
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        CurrentSymbolTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -840,44 +839,17 @@
                                 variant: ImplicitType,
                             },
                         ),
-                        unresolved_term_pattern: ImplicitSymbol,
                         implicit_symbol_dependencies: VecSet {
                             data: [],
                         },
                         resolve_progress: Unresolved,
                     },
                     UnresolvedTermEntry {
-                        unresolved_term: Application {
-                            function: Resolved(
-                                ReducedTerm(
-                                    Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 21,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            argument: Unresolved(
-                                UnresolvedTermIdx(
-                                    0,
-                                ),
-                            ),
-                        },
-                        unresolved_term_pattern: Injection {
-                            function: ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 21,
-                                        },
-                                    ),
-                                ),
+                        unresolved_term: TypeApplication {
+                            ty: TypePath(
+                                Id {
+                                    value: 21,
+                                },
                             ),
                             arguments: [
                                 Unresolved(
@@ -1259,7 +1231,7 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        BinaryOpnFirstArgumentTypeNotInferred,
+                        BinaryOperationLeftOperandTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -1322,7 +1294,6 @@
                                 variant: ImplicitType,
                             },
                         ),
-                        unresolved_term_pattern: ImplicitSymbol,
                         implicit_symbol_dependencies: VecSet {
                             data: [],
                         },
@@ -1338,7 +1309,6 @@
                                 variant: UnspecifiedIntegerType,
                             },
                         ),
-                        unresolved_term_pattern: ImplicitSymbol,
                         implicit_symbol_dependencies: VecSet {
                             data: [
                                 UnresolvedTermIdx(
@@ -1362,7 +1332,6 @@
                                 variant: UnspecifiedIntegerType,
                             },
                         ),
-                        unresolved_term_pattern: ImplicitSymbol,
                         implicit_symbol_dependencies: VecSet {
                             data: [
                                 UnresolvedTermIdx(
@@ -1386,7 +1355,6 @@
                                 variant: UnspecifiedIntegerType,
                             },
                         ),
-                        unresolved_term_pattern: ImplicitSymbol,
                         implicit_symbol_dependencies: VecSet {
                             data: [
                                 UnresolvedTermIdx(
@@ -1410,7 +1378,6 @@
                                 variant: UnspecifiedIntegerType,
                             },
                         ),
-                        unresolved_term_pattern: ImplicitSymbol,
                         implicit_symbol_dependencies: VecSet {
                             data: [
                                 UnresolvedTermIdx(
@@ -1434,7 +1401,6 @@
                                 variant: UnspecifiedIntegerType,
                             },
                         ),
-                        unresolved_term_pattern: ImplicitSymbol,
                         implicit_symbol_dependencies: VecSet {
                             data: [
                                 UnresolvedTermIdx(
@@ -1458,7 +1424,6 @@
                                 variant: UnspecifiedIntegerType,
                             },
                         ),
-                        unresolved_term_pattern: ImplicitSymbol,
                         implicit_symbol_dependencies: VecSet {
                             data: [
                                 UnresolvedTermIdx(
@@ -1482,7 +1447,6 @@
                                 variant: UnspecifiedIntegerType,
                             },
                         ),
-                        unresolved_term_pattern: ImplicitSymbol,
                         implicit_symbol_dependencies: VecSet {
                             data: [
                                 UnresolvedTermIdx(
@@ -1506,7 +1470,6 @@
                                 variant: UnspecifiedIntegerType,
                             },
                         ),
-                        unresolved_term_pattern: ImplicitSymbol,
                         implicit_symbol_dependencies: VecSet {
                             data: [
                                 UnresolvedTermIdx(
@@ -1530,7 +1493,6 @@
                                 variant: UnspecifiedIntegerType,
                             },
                         ),
-                        unresolved_term_pattern: ImplicitSymbol,
                         implicit_symbol_dependencies: VecSet {
                             data: [
                                 UnresolvedTermIdx(
@@ -1554,7 +1516,6 @@
                                 variant: UnspecifiedIntegerType,
                             },
                         ),
-                        unresolved_term_pattern: ImplicitSymbol,
                         implicit_symbol_dependencies: VecSet {
                             data: [
                                 UnresolvedTermIdx(
@@ -1569,37 +1530,11 @@
                         ),
                     },
                     UnresolvedTermEntry {
-                        unresolved_term: Application {
-                            function: Resolved(
-                                ReducedTerm(
-                                    Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 21,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            argument: Unresolved(
-                                UnresolvedTermIdx(
-                                    0,
-                                ),
-                            ),
-                        },
-                        unresolved_term_pattern: Injection {
-                            function: ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 21,
-                                        },
-                                    ),
-                                ),
+                        unresolved_term: TypeApplication {
+                            ty: TypePath(
+                                Id {
+                                    value: 21,
+                                },
                             ),
                             arguments: [
                                 Unresolved(
@@ -2161,7 +2096,7 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        BinaryOpnFirstArgumentTypeNotInferred,
+                        BinaryOperationLeftOperandTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -2224,7 +2159,6 @@
                                 variant: ImplicitType,
                             },
                         ),
-                        unresolved_term_pattern: ImplicitSymbol,
                         implicit_symbol_dependencies: VecSet {
                             data: [],
                         },
@@ -2241,37 +2175,11 @@
                         ),
                     },
                     UnresolvedTermEntry {
-                        unresolved_term: Application {
-                            function: Resolved(
-                                ReducedTerm(
-                                    Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 21,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            argument: Unresolved(
-                                UnresolvedTermIdx(
-                                    0,
-                                ),
-                            ),
-                        },
-                        unresolved_term_pattern: Injection {
-                            function: ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 21,
-                                        },
-                                    ),
-                                ),
+                        unresolved_term: TypeApplication {
+                            ty: TypePath(
+                                Id {
+                                    value: 21,
+                                },
                             ),
                             arguments: [
                                 Unresolved(

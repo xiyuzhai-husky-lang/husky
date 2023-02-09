@@ -203,4 +203,8 @@ impl<'a> ReducedTermMenu<'a> {
     pub fn str_ty(&self) -> ReducedTerm {
         ReducedTerm(self.term_menu.str_ty())
     }
+
+    pub fn term_menu(&self) -> &'a TermMenu {
+        self.term_menu
+    }
 }
