@@ -39,7 +39,7 @@ impl VfsPathMenu {
         let core_prelude =
             ModulePath::new_child(db, core, db.it_ident_borrowed("prelude").unwrap());
         let core_mem = ModulePath::new_child(db, core, db.it_ident_borrowed("num").unwrap());
-        let core_num = ModulePath::new_child(db, core, db.it_ident_borrowed("num").unwrap());
+        let core_num = ModulePath::new_child(db, core, db.it_ident_borrowed("mem").unwrap());
         let core_ops = ModulePath::new_child(db, core, db.it_ident_borrowed("ops").unwrap());
         let core_option = ModulePath::new_child(db, core, db.it_ident_borrowed("option").unwrap());
         let core_slice = ModulePath::new_child(db, core, db.it_ident_borrowed("slice").unwrap());
