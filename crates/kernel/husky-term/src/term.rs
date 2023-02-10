@@ -4,8 +4,8 @@ mod as_trai_subentity;
 mod category;
 mod constraint;
 mod curry;
-mod durant;
 mod literal;
+mod ritchie;
 mod subentity;
 mod symbol;
 mod universe;
@@ -18,8 +18,8 @@ pub use as_trai_subentity::*;
 pub use category::*;
 pub use constraint::*;
 pub use curry::*;
-pub use durant::*;
 pub use literal::*;
+pub use ritchie::*;
 use salsa::{DebugWithDb, DisplayWithDb};
 pub use subentity::*;
 pub use symbol::*;
@@ -31,19 +31,21 @@ use husky_word::Identifier;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum Term {
-    // atoms
-    // literal: 1,1.0, true, false; variable, entityPath
+    /// atoms
+    ///
+    /// literal: 1,1.0, true, false; variable, entityPath
     Literal(TermLiteral),
     Symbol(TermSymbol),
     Entity(EntityPath),
     Category(TermCategory),
     Universe(TermUniverse),
-    // X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
+    /// X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
     Curry(TermCurry),
-    Durant(TermDurant),
-    // lambda x => expr
+    /// in memory of Dennis M.Ritchie
+    Ritchie(TermRitchie),
+    /// lambda x => expr
     Abstraction(TermAbstraction),
-    // f x, apply a function to term
+    /// f x, apply a function to term
     Application(TermApplication),
     /// ::<ident>
     Subentity(TermSubentity),
@@ -59,9 +61,9 @@ impl From<TermLiteral> for Term {
     }
 }
 
-impl From<TermDurant> for Term {
-    fn from(v: TermDurant) -> Self {
-        Self::Durant(v)
+impl From<TermRitchie> for Term {
+    fn from(v: TermRitchie) -> Self {
+        Self::Ritchie(v)
     }
 }
 
@@ -97,10 +99,7 @@ impl<Db: TermDb + ?Sized> salsa::DebugWithDb<Db> for Term {
         include_all_fields: bool,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
-        f.write_fmt(format_args!(
-            "Term(`{}`)",
-            self.display_with(db, include_all_fields)
-        ))
+        f.write_fmt(format_args!("Term(`{}`)", self.display_with(db, false)))
     }
 }
 
@@ -119,7 +118,7 @@ impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for Term {
             Term::Category(term) => f.write_str(&term.to_string()),
             Term::Universe(term) => f.write_str(&term.to_string()),
             Term::Curry(term) => term.debug_with(db, include_all_fields).fmt(f),
-            Term::Durant(term) => term.debug_with(db, include_all_fields).fmt(f),
+            Term::Ritchie(term) => term.display_with_db_fmt(f, db, include_all_fields),
             Term::Abstraction(term) => term.debug_with(db, include_all_fields).fmt(f),
             Term::Application(term) => term.display_with(db, include_all_fields).fmt(f),
             Term::Subentity(term) => f.debug_tuple("Subentity").field(&term.debug(db)).finish(),

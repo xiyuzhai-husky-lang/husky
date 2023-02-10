@@ -66,11 +66,11 @@ impl ImplicitSymbolRegistry {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub(crate) struct UnresolvedTermDurantParameterBookType {
+pub(crate) struct UnresolvedTermRitchieParameterBookType {
     ty: LocalTerm,
 }
 
-impl UnresolvedTermDurantParameterBookType {
+impl UnresolvedTermRitchieParameterBookType {
     pub(crate) fn ty(&self) -> LocalTerm {
         self.ty
     }

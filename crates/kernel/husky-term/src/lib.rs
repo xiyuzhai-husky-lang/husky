@@ -28,7 +28,7 @@ use husky_word::Identifier;
 pub struct TermJar(
     TermSymbol,
     TermCurry,
-    TermDurant,
+    TermRitchie,
     TermAbstraction,
     TermApplication,
     TermSubentity,

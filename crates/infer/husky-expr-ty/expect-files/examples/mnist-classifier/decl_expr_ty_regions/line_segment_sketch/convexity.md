@@ -49,10 +49,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+                Term(`LineSegmentSketch`),
             ),
             LocalTerm::Resolved(
-                Term(`core::num::i32`),
+                Term(`i32`),
             ),
         ],
         unresolved_term_table: LocalTermTable {

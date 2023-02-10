@@ -161,10 +161,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`core::mem::Ref TermLiteral::EvalLifetime core::vec::List mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                Term(`Ref TermLiteral::EvalLifetime List ConcaveComponent`),
             ),
             LocalTerm::Resolved(
-                Term(`core::vec::List TermCurry { variance: Invariant, x: Term(`core::mem::Ref TermLiteral::EvalLifetime mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`), y: Term(`core::option::Option core::num::f32`) }`),
+                Term(`List TermCurry { variance: Invariant, x: Term(`Ref TermLiteral::EvalLifetime ConcaveComponent`), y: Term(`Option f32`) }`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
