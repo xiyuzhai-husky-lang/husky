@@ -2,6 +2,7 @@
 mod db;
 mod entity;
 mod error;
+mod field;
 mod method;
 mod term;
 #[cfg(test)]
@@ -13,6 +14,7 @@ pub use error::*;
 pub use term::*;
 
 use entity::*;
+use field::*;
 use husky_entity_path::*;
 use husky_entity_taxonomy::*;
 use husky_signature::*;
@@ -39,4 +41,6 @@ pub struct TypeJar(
     ApplicationArguments,
     entity_ty_method_ty,
     application_ty_method_ty,
+    entity_ty_field_ty,
+    application_ty_field_ty,
 );

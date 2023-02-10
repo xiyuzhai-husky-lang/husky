@@ -3,7 +3,8 @@ use husky_vfs::Toolchain;
 
 pub trait TypeDb: salsa::DbWithJar<TypeJar> + SignatureDb {
     fn entity_ty(&self, path: EntityPath) -> TypeResult<ReducedTerm>;
-    fn ty_method_ty(&self, ty: Term, ident: Identifier) -> TypeResult<Option<ReducedTerm>>;
+    fn ty_method_ty(&self, ty: ReducedTerm, ident: Identifier) -> TypeResult<Option<ReducedTerm>>;
+    fn field_ty(&self, ty: ReducedTerm, ident: Identifier) -> TypeResult<Option<ReducedTerm>>;
     fn term_ty(&self, term: Term) -> TypeResult<ReducedTerm>;
     fn reduced_term(&self, term: Term) -> ReducedTerm;
     fn reduced_term_menu<'a>(
@@ -20,8 +21,8 @@ where
         entity_ty(self, path)
     }
 
-    fn ty_method_ty(&self, ty: Term, ident: Identifier) -> TypeResult<Option<ReducedTerm>> {
-        ty_method_ty(self, reduced_term(self, ty), ident)
+    fn ty_method_ty(&self, ty: ReducedTerm, ident: Identifier) -> TypeResult<Option<ReducedTerm>> {
+        ty_method_ty(self, ty, ident)
     }
 
     fn term_ty(&self, term: Term) -> TypeResult<ReducedTerm> {
@@ -38,5 +39,9 @@ where
     ) -> Result<ReducedTermMenu<'a>, &'a TermError> {
         let term_menu = self.term_menu(toolchain).as_ref()?;
         Ok(ReducedTermMenu::new(term_menu))
+    }
+
+    fn field_ty(&self, ty: ReducedTerm, ident: Identifier) -> TypeResult<Option<ReducedTerm>> {
+        field_ty(self, ty, ident)
     }
 }

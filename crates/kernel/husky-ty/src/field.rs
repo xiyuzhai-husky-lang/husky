@@ -1,8 +1,6 @@
-use husky_print_utils::p;
-
 use crate::*;
 
-pub(crate) fn ty_method_ty(
+pub(crate) fn field_ty(
     db: &dyn TypeDb,
     owner_ty: ReducedTerm,
     ident: Identifier,
@@ -11,14 +9,14 @@ pub(crate) fn ty_method_ty(
         Term::Literal(_) => unreachable!(),
         Term::Symbol(_) => Ok(None),
         Term::Entity(path) => {
-            entity_ty_method_ty(db, path.ty_path().expect("should be type"), ident)
+            entity_ty_field_ty(db, path.ty_path().expect("should be type"), ident)
         }
         Term::Category(_) => Ok(None),
         Term::Universe(_) => unreachable!(),
         Term::Curry(_) => Ok(None),
         Term::Durant(_) => Ok(None),
         Term::Abstraction(_) => unreachable!(),
-        Term::Application(ty) => application_ty_method_ty(db, ty, ident),
+        Term::Application(ty) => application_ty_field_ty(db, ty, ident),
         Term::Subentity(_) => todo!(),
         Term::AsTraitSubentity(_) => todo!(),
         Term::TraitConstraint(_) => unreachable!(),
@@ -26,7 +24,7 @@ pub(crate) fn ty_method_ty(
 }
 
 #[salsa::tracked(jar = TypeJar,  )]
-pub(crate) fn entity_ty_method_ty(
+pub(crate) fn entity_ty_field_ty(
     db: &dyn TypeDb,
     ty: TypePath,
     ident: Identifier,
@@ -35,7 +33,7 @@ pub(crate) fn entity_ty_method_ty(
 }
 
 #[salsa::tracked(jar = TypeJar)]
-pub(crate) fn application_ty_method_ty(
+pub(crate) fn application_ty_field_ty(
     db: &dyn TypeDb,
     ty: TermApplication,
     ident: Identifier,
@@ -46,7 +44,7 @@ pub(crate) fn application_ty_method_ty(
     match f {
         Term::Literal(_) => todo!(),
         Term::Symbol(_) => todo!(),
-        Term::Entity(path) => entity_application_ty_method_ty(
+        Term::Entity(path) => entity_application_ty_field_ty(
             db,
             path.ty_path().expect("should be type"),
             application_expansion.arguments(db).unwrap(),
@@ -64,7 +62,7 @@ pub(crate) fn application_ty_method_ty(
     }
 }
 
-fn entity_application_ty_method_ty(
+fn entity_application_ty_field_ty(
     db: &dyn TypeDb,
     path: TypePath,
     arguments: &[Term],
