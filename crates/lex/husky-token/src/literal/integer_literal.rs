@@ -1,7 +1,8 @@
 use std::ops::Neg;
 
+/// integer-like means it looks like an integer
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum IntegerLiteral {
+pub enum IntegerLikeLiteral {
     Unspecified,
     I8(i8),
     I16(i16),
@@ -23,7 +24,7 @@ pub enum IntegerLiteral {
     USize(usize),
 }
 
-impl Neg for IntegerLiteral {
+impl Neg for IntegerLikeLiteral {
     type Output = Self;
 
     fn neg(self) -> Self::Output {

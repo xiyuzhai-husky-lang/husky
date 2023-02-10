@@ -35,8 +35,8 @@ impl From<AmbiguousPretoken> for Pretoken {
     }
 }
 
-impl From<IntegerLiteral> for Pretoken {
-    fn from(val: IntegerLiteral) -> Self {
+impl From<IntegerLikeLiteral> for Pretoken {
+    fn from(val: IntegerLikeLiteral) -> Self {
         Pretoken::Certain(Token::Literal(Literal::Integer(val)))
     }
 }
@@ -199,20 +199,20 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
         } else {
             let integer_suffix = self.get_str_slice_with(|c| c.is_alphanumeric());
             let token: Pretoken = match integer_suffix {
-                "" => IntegerLiteral::Unspecified.into(),
+                "" => IntegerLikeLiteral::Unspecified.into(),
                 "i8" => todo!(),
                 "i16" => todo!(),
                 "i32" => {
                     let Ok(i) = self.buffer.parse() else {
                         return Pretoken::Err(TokenError::ParseIntError)
                     };
-                    IntegerLiteral::I32(i).into()
+                    IntegerLikeLiteral::I32(i).into()
                 }
                 "i64" => {
                     let Ok(i) = self.buffer.parse() else {
                         return Pretoken::Err(TokenError::ParseIntError)
                     };
-                    IntegerLiteral::I64(i).into()
+                    IntegerLikeLiteral::I64(i).into()
                 }
                 "i128" => todo!(),
                 "i256" => todo!(),
@@ -222,13 +222,13 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                     let Ok(i) = self.buffer.parse() else {
                         return Pretoken::Err(TokenError::ParseIntError)
                     };
-                    IntegerLiteral::R32(i).into()
+                    IntegerLikeLiteral::R32(i).into()
                 }
                 "r64" => {
                     let Ok(i) = self.buffer.parse() else {
                         return Pretoken::Err(TokenError::ParseIntError)
                     };
-                    IntegerLiteral::R64(i).into()
+                    IntegerLikeLiteral::R64(i).into()
                 }
                 "r128" => todo!(),
                 "r256" => todo!(),

@@ -39,6 +39,22 @@
                 ),
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [
+            LocalTerm::Resolved(
+                Term(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+            ),
+            LocalTerm::Resolved(
+                Term(`core::num::i32`),
+            ),
+        ],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,

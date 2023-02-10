@@ -7,6 +7,9 @@ use crate::*;
 pub struct ExprTypeRegion {
     path: RegionPath,
     expr_ty_infos: ExprMap<ExprTypeInfo>,
+    expr_terms: ExprMap<ExprTermResult<LocalTerm>>,
+    inherited_symbol_tys: InheritedSymbolMap<ReducedTerm>,
+    current_symbol_tys: CurrentSymbolMap<LocalTerm>,
     unresolved_term_table: LocalTermTable,
 }
 
@@ -16,6 +19,9 @@ impl ExprTypeRegion {
         reduced_term_menu: ReducedTermMenu,
         path: RegionPath,
         mut expr_ty_infos: ExprMap<ExprTypeInfo>,
+        expr_terms: ExprMap<ExprTermResult<LocalTerm>>,
+        inherited_symbol_tys: InheritedSymbolMap<ReducedTerm>,
+        current_symbol_tys: CurrentSymbolMap<LocalTerm>,
         mut unresolved_term_table: LocalTermTable,
     ) -> Self {
         expr_ty_infos
@@ -24,6 +30,9 @@ impl ExprTypeRegion {
         Self {
             path,
             expr_ty_infos,
+            expr_terms,
+            inherited_symbol_tys,
+            current_symbol_tys,
             unresolved_term_table,
         }
     }

@@ -135,6 +135,16 @@
                 ),
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -289,6 +299,17 @@
                 ),
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -411,6 +432,20 @@
                 ),
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [
+            LocalTerm::Resolved(
+                Term(`core::mem::Ref TermLiteral::EvalLifetime mnist_classifier::raw_contour::RawContour`),
+            ),
+        ],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -476,6 +511,13 @@
                 resolve_progress: Unresolved,
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -532,6 +574,22 @@
                 ),
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [
+            LocalTerm::Resolved(
+                Term(`core::raw_bits::r32`),
+            ),
+            LocalTerm::Resolved(
+                Term(`core::raw_bits::r32`),
+            ),
+        ],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -574,6 +632,16 @@
                 resolve_progress: Unresolved,
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -612,6 +680,13 @@
                 resolve_progress: Unresolved,
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -708,6 +783,15 @@
                 ),
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -772,6 +856,13 @@
                 ),
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -836,6 +927,13 @@
                 ),
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -900,6 +998,13 @@
                 ),
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -964,6 +1069,13 @@
                 ),
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -1028,6 +1140,13 @@
                 ),
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -1092,6 +1211,13 @@
                 ),
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -1156,6 +1282,13 @@
                 ),
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -1220,6 +1353,18 @@
                 ),
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [
+            LocalTerm::Resolved(
+                Term(`core::num::i32`),
+            ),
+        ],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -1283,6 +1428,18 @@
                     },
                 ),
             },
+        ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [
+            LocalTerm::Resolved(
+                Term(`core::num::i32`),
+            ),
         ],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {

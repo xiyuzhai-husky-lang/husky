@@ -89,6 +89,17 @@
                 resolve_progress: Unresolved,
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -144,6 +155,22 @@
                     },
                 ),
             },
+        ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [
+            LocalTerm::Resolved(
+                Term(`mnist_classifier::geom2d::Vector2d`),
+            ),
+            LocalTerm::Resolved(
+                Term(`core::num::f32`),
+            ),
         ],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
@@ -201,6 +228,22 @@
                 ),
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [
+            LocalTerm::Resolved(
+                Term(`mnist_classifier::geom2d::Vector2d`),
+            ),
+            LocalTerm::Resolved(
+                Term(`core::num::f32`),
+            ),
+        ],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -256,6 +299,27 @@
                     },
                 ),
             },
+        ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [
+            LocalTerm::Resolved(
+                Term(`core::mem::Ref TermLiteral::EvalLifetime mnist_classifier::raw_contour::RawContour`),
+            ),
+            LocalTerm::Resolved(
+                Term(`core::num::i32`),
+            ),
+            LocalTerm::Resolved(
+                Term(`core::num::f32`),
+            ),
         ],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
@@ -313,6 +377,31 @@
                 ),
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [
+            LocalTerm::Resolved(
+                Term(`core::mem::Ref TermLiteral::EvalLifetime mnist_classifier::raw_contour::RawContour`),
+            ),
+            LocalTerm::Resolved(
+                Term(`core::num::i32`),
+            ),
+            LocalTerm::Resolved(
+                Term(`core::num::i32`),
+            ),
+            LocalTerm::Resolved(
+                Term(`core::num::f32`),
+            ),
+        ],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -355,6 +444,25 @@
                 resolve_progress: Unresolved,
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [
+            LocalTerm::Resolved(
+                Term(`core::mem::Ref TermLiteral::EvalLifetime mnist_classifier::raw_contour::RawContour`),
+            ),
+            LocalTerm::Resolved(
+                Term(`core::num::f32`),
+            ),
+        ],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -393,6 +501,13 @@
                 resolve_progress: Unresolved,
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -433,6 +548,27 @@
                 expectation_rule_idx: None,
                 resolve_progress: Unresolved,
             },
+        ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [
+            LocalTerm::Resolved(
+                Term(`core::mem::Ref TermLiteral::EvalLifetime mnist_classifier::raw_contour::RawContour`),
+            ),
+            LocalTerm::Resolved(
+                Term(`core::num::i32`),
+            ),
+            LocalTerm::Resolved(
+                Term(`core::num::i32`),
+            ),
         ],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
@@ -498,6 +634,13 @@
                 ),
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -559,6 +702,13 @@
                 ),
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -609,6 +759,15 @@
                 resolve_progress: Unresolved,
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -650,6 +809,13 @@
                 resolve_progress: Unresolved,
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -713,6 +879,23 @@
                     },
                 ),
             },
+        ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [
+            LocalTerm::Resolved(
+                Term(`core::mem::Ref TermLiteral::EvalLifetime mnist_classifier::raw_contour::RawContour`),
+            ),
+            LocalTerm::Resolved(
+                Term(`core::num::f32`),
+            ),
         ],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {

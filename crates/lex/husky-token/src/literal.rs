@@ -20,7 +20,7 @@ pub enum Literal {
     Unit,
     Char(CharLiteral),
     String(StringLiteral),
-    Integer(IntegerLiteral),
+    Integer(IntegerLikeLiteral),
     Float(FloatLiteral),
     TupleIndex(TupleIndexLiteral),
     Bool(BoolLiteral),

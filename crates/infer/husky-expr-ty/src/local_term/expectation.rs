@@ -5,22 +5,30 @@ use thiserror::Error;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[non_exhaustive]
-pub(crate) enum LocalTermExpectation {
+pub(crate) enum ExprTypeExpectation {
     None,
-    Type,
-    AsBool,
-    Return { ty: Option<ReducedTerm> },
-    ImplicitlyConvertibleTo { term: LocalTerm },
+    /// expect that the type of the expression
+    /// is equal to `Type u` for some universe u
+    TypeType,
+    CastibleAsBool,
+    FrameVariableType,
+    Return {
+        ty: Option<ReducedTerm>,
+    },
+    ImplicitlyConvertibleTo {
+        ty: LocalTerm,
+    },
 }
 
-impl LocalTermExpectation {
+impl ExprTypeExpectation {
     pub(crate) fn term(self) -> Option<ReducedTerm> {
         match self {
-            LocalTermExpectation::None => None,
-            LocalTermExpectation::Type => None,
-            LocalTermExpectation::AsBool => None,
-            LocalTermExpectation::Return { ty } => ty,
-            LocalTermExpectation::ImplicitlyConvertibleTo { term } => term.resolved(),
+            ExprTypeExpectation::None => None,
+            ExprTypeExpectation::TypeType => None,
+            ExprTypeExpectation::CastibleAsBool => None,
+            ExprTypeExpectation::FrameVariableType => None,
+            ExprTypeExpectation::Return { ty } => ty,
+            ExprTypeExpectation::ImplicitlyConvertibleTo { ty } => ty.resolved(),
         }
     }
 }
@@ -254,6 +262,7 @@ impl<'a> ExprTypeEngine<'a> {
                 },
                 Err(_) => todo!(),
             },
+            LocalTermExpectationRuleVariant::FrameVariableType => todo!(),
         };
         LocalTermExpectationRule {
             src_expr_idx,
@@ -342,6 +351,7 @@ impl<'a> ExprTypeEngine<'a> {
                 },
             },
             LocalTermExpectationRuleVariant::Type => todo!(),
+            LocalTermExpectationRuleVariant::FrameVariableType => todo!(),
         }
     }
 }
@@ -352,4 +362,5 @@ pub(crate) enum LocalTermExpectationRuleVariant {
     AsBool,
     ImplicitlyConvertibleTo { dst: LocalTerm },
     Type,
+    FrameVariableType,
 }

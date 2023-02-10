@@ -1,14 +1,15 @@
+use husky_opn_syntax::BinaryOpr;
 use husky_token::FloatLiteral;
 
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn infer_new_expr(
+    pub(super) fn infer_new_expr_ty(
         &mut self,
         expr_idx: ExprIdx,
-        expectation: LocalTermExpectation,
+        expectation: ExprTypeExpectation,
     ) -> Option<LocalTerm> {
-        let ty_result = self.calc_expr(expr_idx, expectation);
+        let ty_result = self.calc_expr_ty(expr_idx, expectation);
         let (ty, opt_expectation) = match ty_result {
             Ok(ty) => (
                 Some(ty),
@@ -16,29 +17,29 @@ impl<'a> ExprTypeEngine<'a> {
             ),
             Err(_) => (None, Default::default()),
         };
-        self.save_expr(expr_idx, ExprTypeInfo::new(ty_result, opt_expectation));
+        self.save_new_expr_ty(expr_idx, ExprTypeInfo::new(ty_result, opt_expectation));
         ty
     }
 
-    fn infer_new_expr_resolved(
+    fn infer_new_expr_ty_resolved(
         &mut self,
         expr_idx: ExprIdx,
-        expectation: LocalTermExpectation,
+        expectation: ExprTypeExpectation,
     ) -> Option<ReducedTerm> {
-        match self.infer_new_expr(expr_idx, expectation)? {
+        match self.infer_new_expr_ty(expr_idx, expectation)? {
             LocalTerm::Resolved(lopd_ty) => Some(lopd_ty),
             LocalTerm::Unresolved(lopd_ty) => self.resolve_term(lopd_ty),
         }
     }
 
-    fn save_expr(&mut self, expr_idx: ExprIdx, info: ExprTypeInfo) {
+    fn save_new_expr_ty(&mut self, expr_idx: ExprIdx, info: ExprTypeInfo) {
         self.expr_ty_infos.insert_new(expr_idx, info)
     }
 
-    fn calc_expr(
+    fn calc_expr_ty(
         &mut self,
         expr_idx: ExprIdx,
-        expectation: LocalTermExpectation,
+        expectation: ExprTypeExpectation,
     ) -> ExprTypeResult<LocalTerm> {
         match self.expr_region_data[expr_idx] {
             Expr::Literal(literal_token_idx) => {
@@ -82,22 +83,22 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::SelfValue(_) => todo!(),
             Expr::BinaryOpn {
                 lopd, opr, ropd, ..
-            } => self.calc_binary(lopd, ropd),
+            } => self.calc_binary_ty(lopd, opr, ropd),
             Expr::Be {
                 src, ref target, ..
             } => todo!(),
-            Expr::PrefixOpn { opr, opd, .. } => self.calc_prefix(opd, opr),
+            Expr::PrefixOpn { opr, opd, .. } => self.calc_prefix_ty(opd, opr),
             Expr::SuffixOpn {
                 opd, punctuation, ..
             } => todo!(),
             Expr::ApplicationOrFunctionCall {
                 function, argument, ..
             } => {
-                let function_ty = self.infer_new_expr(function, LocalTermExpectation::None);
+                let function_ty = self.infer_new_expr_ty(function, ExprTypeExpectation::None);
                 match function_ty {
                     Some(function_ty) => todo!(),
                     None => {
-                        self.infer_new_expr(argument, LocalTermExpectation::None);
+                        self.infer_new_expr_ty(argument, ExprTypeExpectation::None);
                         Err(DerivedExprTypeError::FunctionTypeNotInferredInApplicationOrFunctionCall.into())
                     }
                 }
@@ -108,14 +109,14 @@ impl<'a> ExprTypeEngine<'a> {
                 arguments,
                 ..
             } => {
-                let function_ty = self.infer_new_expr(function, LocalTermExpectation::None);
-                self.calc_call_expr(None, function_ty, implicit_arguments.as_ref(), arguments)
+                let function_ty = self.infer_new_expr_ty(function, ExprTypeExpectation::None);
+                self.calc_call_ty(None, function_ty, implicit_arguments.as_ref(), arguments)
             }
             Expr::Field {
                 owner, ident_token, ..
             } => {
                 if let Some(owner_ty) =
-                    self.infer_new_expr_resolved(owner, LocalTermExpectation::None)
+                    self.infer_new_expr_ty_resolved(owner, ExprTypeExpectation::None)
                 {
                     let field_ty = self.db.field_ty(owner_ty, ident_token.ident());
                     match field_ty {
@@ -134,7 +135,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             } => {
                 let Some(self_expr_ty) =
-                    self.infer_new_expr_resolved( self_expr, LocalTermExpectation::None)
+                    self.infer_new_expr_ty_resolved( self_expr, ExprTypeExpectation::None)
                     else {
                         if let Some(implicit_arguments) = implicit_arguments {
                             todo!()
@@ -148,7 +149,7 @@ impl<'a> ExprTypeEngine<'a> {
                     Ok(_) => todo!(),
                     Err(e) => return Err(e.into()),
                 };
-                self.calc_call_expr(
+                self.calc_call_ty(
                     Some(self_expr_ty),
                     method_ty,
                     implicit_arguments.as_ref(),
@@ -161,7 +162,7 @@ impl<'a> ExprTypeEngine<'a> {
             } => todo!(),
             Expr::Application { function, argument } => self.calc_application(function, argument),
             Expr::Bracketed { item, .. } => self
-                .infer_new_expr(item, expectation)
+                .infer_new_expr_ty(item, expectation)
                 .ok_or(DerivedExprTypeError::BracketedItemTypeError.into()),
             Expr::NewTuple { items, .. } => todo!(),
             Expr::NewBoxList { caller, items, .. } => self.calc_new_box_list(expr_idx, items),
@@ -180,9 +181,9 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Result<LocalTerm, ExprTypeError> {
         let element_ty = self.new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ImplicitType);
         for item in items {
-            self.infer_new_expr(
+            self.infer_new_expr_ty(
                 item,
-                LocalTermExpectation::ImplicitlyConvertibleTo { term: element_ty },
+                ExprTypeExpectation::ImplicitlyConvertibleTo { ty: element_ty },
             );
         }
         Ok(self
@@ -193,7 +194,7 @@ impl<'a> ExprTypeEngine<'a> {
             .into())
     }
 
-    fn calc_call_expr(
+    fn calc_call_ty(
         &mut self,
         self_ty: Option<ReducedTerm>,
         callable_ty: Option<LocalTerm>,
@@ -204,33 +205,81 @@ impl<'a> ExprTypeEngine<'a> {
             else {
                 if let Some(implicit_arguments) = implicit_arguments{
                     for argument in implicit_arguments.arguments() {
-                        self.infer_new_expr(argument, LocalTermExpectation::None);
+                        self.infer_new_expr_ty(argument, ExprTypeExpectation::None);
                     }
                 }
                 for argument in arguments {
-                    self.infer_new_expr(argument, LocalTermExpectation::None);
+                    self.infer_new_expr_ty(argument, ExprTypeExpectation::None);
                 }
                 return Err(DerivedExprTypeError::CallableTypeError.into())
             };
         todo!()
     }
 
-    fn calc_binary(&mut self, lopd: ExprIdx, ropd: ExprIdx) -> ExprTypeResult<LocalTerm> {
-        let Some(lopd_ty) = self.infer_new_expr_resolved(lopd, LocalTermExpectation::None)
-            else {
-                return Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into())
-            };
-        let Some(ropd_ty) = self.infer_new_expr_resolved(ropd, LocalTermExpectation::None)
-            else {
-                return Err(DerivedExprTypeError::BinaryOperationRightOperandTypeNotInferred.into())
-            };
-        todo!()
+    fn calc_binary_ty(
+        &mut self,
+        lopd: ExprIdx,
+        opr: BinaryOpr,
+        ropd: ExprIdx,
+    ) -> ExprTypeResult<LocalTerm> {
+        match opr {
+            BinaryOpr::PureClosed(_) => {
+                let Some(lopd_ty) = self.infer_new_expr_ty_resolved(lopd, ExprTypeExpectation::None)
+                    else {
+                        return Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into())
+                    };
+                let Some(ropd_ty) = self.infer_new_expr_ty_resolved(ropd, ExprTypeExpectation::None)
+                    else {
+                        return Err(DerivedExprTypeError::BinaryOperationRightOperandTypeNotInferred.into())
+                    };
+                p!(lopd_ty.debug(self.db), opr, ropd_ty.debug(self.db));
+                todo!()
+            }
+            BinaryOpr::Comparison(_) => todo!(),
+            BinaryOpr::ShortcuitLogic(_) => todo!(),
+            BinaryOpr::Assign(_) => todo!(),
+            BinaryOpr::ScopeResolution => todo!(),
+            BinaryOpr::Curry => {
+                let Some(lopd_ty) = self.infer_new_expr_ty_resolved(lopd, ExprTypeExpectation::TypeType)
+                    else {
+                        return Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into())
+                    };
+                let Some(ropd_ty) = self.infer_new_expr_ty_resolved(ropd, ExprTypeExpectation::TypeType)
+                    else {
+                        return Err(DerivedExprTypeError::BinaryOperationRightOperandTypeNotInferred.into())
+                    };
+                p!(lopd_ty.debug(self.db), opr, ropd_ty.debug(self.db));
+                todo!()
+            }
+            BinaryOpr::As => {
+                self.infer_new_expr_ty_resolved(ropd, ExprTypeExpectation::TypeType);
+                let Some(ropd_term) = self.infer_new_expr_term(ropd)
+                    else {
+                        return Err(DerivedExprTypeError::AsOperationRightOperandTermNotInferred.into())
+                    };
+                let Some(lopd_ty) = self.infer_new_expr_ty_resolved(lopd, ExprTypeExpectation::ImplicitlyConvertibleTo{
+                    ty: todo!()
+                })
+                    else {
+                        return Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into())
+                    };
+                todo!()
+            }
+            BinaryOpr::Is => {
+                let Some(ropd_ty) = self.infer_new_expr_ty_resolved(ropd, ExprTypeExpectation::None)
+                    else {
+                        return Err(DerivedExprTypeError::BinaryOperationRightOperandTypeNotInferred.into())
+                    };
+                todo!()
+            }
+            BinaryOpr::In => todo!(),
+        }
     }
 
-    fn calc_prefix(&mut self, opd: ExprIdx, opr: PrefixOpr) -> ExprTypeResult<LocalTerm> {
+    fn calc_prefix_ty(&mut self, opd: ExprIdx, opr: PrefixOpr) -> ExprTypeResult<LocalTerm> {
         match opr {
             PrefixOpr::Minus => {
-                let opd_ty = self.infer_new_expr(opd, LocalTermExpectation::None);
+                let opd_ty = self.infer_new_expr_ty(opd, ExprTypeExpectation::None);
                 match opd_ty {
                     Some(opd_ty) => match opd_ty {
                         LocalTerm::Resolved(_) => todo!(),
@@ -252,13 +301,13 @@ impl<'a> ExprTypeEngine<'a> {
                 }
             }
             PrefixOpr::Not => {
-                let _opd_ty = self.infer_new_expr(opd, LocalTermExpectation::AsBool);
+                let _opd_ty = self.infer_new_expr_ty(opd, ExprTypeExpectation::CastibleAsBool);
                 // here we differs from Rust, but agrees with C
                 Ok(self.reduced_term_menu.bool().into())
             }
             PrefixOpr::BitNot => todo!(),
             PrefixOpr::Ref => {
-                let opd_ty = self.infer_new_expr(opd, LocalTermExpectation::None);
+                let opd_ty = self.infer_new_expr_ty(opd, ExprTypeExpectation::None);
                 // Should consider more cases, could also be taking references
                 opd_ty.ok_or(DerivedExprTypeError::PrefixOperandTypeNotInferred.into())
             }
@@ -267,7 +316,7 @@ impl<'a> ExprTypeEngine<'a> {
             PrefixOpr::CyclicSlice => todo!(),
             PrefixOpr::Array(_) => todo!(),
             PrefixOpr::Option => {
-                let opd_ty = self.infer_new_expr(opd, LocalTermExpectation::Type);
+                let opd_ty = self.infer_new_expr_ty(opd, ExprTypeExpectation::TypeType);
                 opd_ty.ok_or(DerivedExprTypeError::PrefixOperandTypeNotInferred.into())
             }
         }
@@ -288,14 +337,15 @@ impl<'a> ExprTypeEngine<'a> {
             } => {
                 match items.len() {
                     0 => {
-                        let argument_ty = self.infer_new_expr(argument, LocalTermExpectation::None);
+                        let argument_ty =
+                            self.infer_new_expr_ty(argument, ExprTypeExpectation::None);
                         // check this is type
                         argument_ty
                             .ok_or(DerivedExprTypeError::ApplicationArgumentTypeNotInferred.into())
                     }
                     1 => {
                         let arg0_ty =
-                            self.infer_new_expr(items.start(), LocalTermExpectation::None);
+                            self.infer_new_expr_ty(items.start(), ExprTypeExpectation::None);
                         match arg0_ty {
                             Some(_) => todo!(),
                             None => {
@@ -316,7 +366,7 @@ impl<'a> ExprTypeEngine<'a> {
                 rbox_token,
             } => todo!(),
             _ => {
-                let function_ty = self.infer_new_expr(function, LocalTermExpectation::None);
+                let function_ty = self.infer_new_expr_ty(function, ExprTypeExpectation::None);
                 todo!()
             }
         }
@@ -326,7 +376,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: ExprIdx,
         literal_token_idx: TokenIdx,
-        expectation: LocalTermExpectation,
+        expectation: ExprTypeExpectation,
     ) -> Result<LocalTerm, ExprTypeError> {
         let literal_token = self.token_sheet_data[literal_token_idx];
         match literal_token {
@@ -335,7 +385,7 @@ impl<'a> ExprTypeEngine<'a> {
                 Literal::Char(_) => todo!(),
                 Literal::String(_) => Ok(self.reduced_term_menu.static_str_ref().into()),
                 Literal::Integer(integer_literal) => match integer_literal {
-                    IntegerLiteral::Unspecified => match expectation.term() {
+                    IntegerLikeLiteral::Unspecified => match expectation.term() {
                         // MOM
                         Some(term) if term == self.reduced_term_menu.i32() => todo!(),
                         _ => Ok(self
@@ -345,38 +395,39 @@ impl<'a> ExprTypeEngine<'a> {
                             )
                             .into()),
                     },
-                    IntegerLiteral::I8(_) => todo!(),
-                    IntegerLiteral::I16(_) => todo!(),
-                    IntegerLiteral::I32(_) => Ok(self.reduced_term_menu.i32().into()),
-                    IntegerLiteral::I64(_) => todo!(),
-                    IntegerLiteral::I128(_) => todo!(),
-                    IntegerLiteral::ISize(_) => todo!(),
-                    IntegerLiteral::R8(_) => todo!(),
-                    IntegerLiteral::R16(_) => todo!(),
-                    IntegerLiteral::R32(_) => todo!(),
-                    IntegerLiteral::R64(_) => todo!(),
-                    IntegerLiteral::R128(_) => todo!(),
-                    IntegerLiteral::RSize(_) => todo!(),
-                    IntegerLiteral::U8(_) => todo!(),
-                    IntegerLiteral::U16(_) => todo!(),
-                    IntegerLiteral::U32(_) => todo!(),
-                    IntegerLiteral::U64(_) => todo!(),
-                    IntegerLiteral::U128(_) => todo!(),
-                    IntegerLiteral::USize(_) => todo!(),
+                    IntegerLikeLiteral::I8(_) => todo!(),
+                    IntegerLikeLiteral::I16(_) => todo!(),
+                    IntegerLikeLiteral::I32(_) => Ok(self.reduced_term_menu.i32().into()),
+                    IntegerLikeLiteral::I64(_) => todo!(),
+                    IntegerLikeLiteral::I128(_) => todo!(),
+                    IntegerLikeLiteral::ISize(_) => todo!(),
+                    IntegerLikeLiteral::R8(_) => todo!(),
+                    IntegerLikeLiteral::R16(_) => todo!(),
+                    IntegerLikeLiteral::R32(_) => todo!(),
+                    IntegerLikeLiteral::R64(_) => todo!(),
+                    IntegerLikeLiteral::R128(_) => todo!(),
+                    IntegerLikeLiteral::RSize(_) => todo!(),
+                    IntegerLikeLiteral::U8(_) => todo!(),
+                    IntegerLikeLiteral::U16(_) => todo!(),
+                    IntegerLikeLiteral::U32(_) => todo!(),
+                    IntegerLikeLiteral::U64(_) => todo!(),
+                    IntegerLikeLiteral::U128(_) => todo!(),
+                    IntegerLikeLiteral::USize(_) => todo!(),
                 },
                 Literal::Float(float_literal) => match float_literal {
                     FloatLiteral::Unspecified => match expectation {
-                        LocalTermExpectation::None => {
+                        ExprTypeExpectation::None => {
                             let ty = self.new_implicit_symbol(
                                 expr_idx,
                                 ImplicitSymbolVariant::UnspecifiedFloatType,
                             );
                             Ok(ty.into())
                         }
-                        LocalTermExpectation::Type => todo!(),
-                        LocalTermExpectation::AsBool => todo!(),
-                        LocalTermExpectation::Return { ty } => todo!(),
-                        LocalTermExpectation::ImplicitlyConvertibleTo { term: ty } => todo!(),
+                        ExprTypeExpectation::TypeType => todo!(),
+                        ExprTypeExpectation::CastibleAsBool => todo!(),
+                        ExprTypeExpectation::FrameVariableType => todo!(),
+                        ExprTypeExpectation::Return { ty } => todo!(),
+                        ExprTypeExpectation::ImplicitlyConvertibleTo { ty } => todo!(),
                     },
                     FloatLiteral::F32(_) => todo!(),
                     FloatLiteral::F64(_) => todo!(),
@@ -385,6 +436,94 @@ impl<'a> ExprTypeEngine<'a> {
                 Literal::Bool(_) => Ok(self.reduced_term_menu.bool().into()),
             },
             _ => unreachable!(),
+        }
+    }
+
+    fn infer_new_expr_term(&mut self, expr_idx: ExprIdx) -> Option<LocalTerm> {
+        let term_result = self.calc_expr_term(expr_idx);
+        let term = term_result.as_ref().ok().copied();
+        self.save_new_expr_term(expr_idx, term_result);
+        term
+    }
+
+    fn save_new_expr_term(&mut self, expr_idx: ExprIdx, term_result: ExprTermResult<LocalTerm>) {
+        self.expr_terms.insert_new(expr_idx, term_result)
+    }
+
+    fn calc_expr_term(&mut self, expr_idx: ExprIdx) -> ExprTermResult<LocalTerm> {
+        match self.expr_region_data[expr_idx] {
+            Expr::Literal(_) => todo!(),
+            Expr::EntityPath {
+                entity_path_expr,
+                entity_path,
+            } => todo!(),
+            Expr::InheritedSymbol {
+                ident,
+                token_idx,
+                inherited_symbol_idx,
+                inherited_symbol_kind,
+            } => todo!(),
+            Expr::CurrentSymbol {
+                ident,
+                token_idx,
+                current_symbol_idx,
+                current_symbol_kind,
+            } => todo!(),
+            Expr::FrameVarDecl {
+                token_idx,
+                ident,
+                current_symbol_idx,
+                current_symbol_kind,
+            } => todo!(),
+            Expr::SelfType(_) => todo!(),
+            Expr::SelfValue(_) => todo!(),
+            Expr::BinaryOpn {
+                lopd,
+                opr,
+                opr_token_idx,
+                ropd,
+            } => todo!(),
+            Expr::Be { .. } => todo!(),
+            Expr::PrefixOpn {
+                opr,
+                opr_token_idx,
+                opd,
+            } => todo!(),
+            Expr::SuffixOpn {
+                opd,
+                punctuation,
+                punctuation_token_idx,
+            } => todo!(),
+            Expr::ApplicationOrFunctionCall { .. } => todo!(),
+            Expr::FunctionCall { .. } => todo!(),
+            Expr::Field {
+                owner,
+                dot_token_idx,
+                ident_token,
+            } => todo!(),
+            Expr::MethodCall { .. } => todo!(),
+            Expr::TemplateInstantiation { .. } => todo!(),
+            Expr::Application { function, argument } => todo!(),
+            Expr::Bracketed {
+                lpar_token_idx,
+                item,
+                rpar_token_idx,
+            } => todo!(),
+            Expr::NewTuple { .. } => todo!(),
+            Expr::NewBoxList {
+                caller,
+                lbox_token_idx,
+                items,
+                rbox_token_idx,
+            } => todo!(),
+            Expr::BoxColon {
+                caller,
+                lbox_token_idx,
+                colon_token_idx,
+                rbox_token,
+            } => todo!(),
+            Expr::Block { stmts } => todo!(),
+            Expr::Err(_) => Err(DerivedExprTermError::ExprError.into()),
         }
     }
 }

@@ -6,6 +6,11 @@
             ),
         ),
         expr_ty_infos: [],
+        expr_terms: ArenaMap {
+            data: [],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -29,6 +34,21 @@
             ),
         ),
         expr_ty_infos: [],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [
+            LocalTerm::Resolved(
+                Term(`Type`),
+            ),
+            LocalTerm::Resolved(
+                Term(`Type`),
+            ),
+        ],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -52,6 +72,21 @@
             ),
         ),
         expr_ty_infos: [],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [
+            LocalTerm::Resolved(
+                Term(`Type`),
+            ),
+            LocalTerm::Resolved(
+                Term(`Type`),
+            ),
+        ],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
