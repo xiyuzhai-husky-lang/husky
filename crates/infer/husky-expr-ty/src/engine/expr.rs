@@ -1,4 +1,4 @@
-use husky_opn_syntax::BinaryOpr;
+use husky_opn_syntax::{BinaryOpr, BinaryPureClosedOpr};
 use husky_token::FloatLiteral;
 
 use super::*;
@@ -222,8 +222,9 @@ impl<'a> ExprTypeEngine<'a> {
         opr: BinaryOpr,
         ropd: ExprIdx,
     ) -> ExprTypeResult<LocalTerm> {
+        let menu = self.reduced_term_menu;
         match opr {
-            BinaryOpr::PureClosed(_) => {
+            BinaryOpr::PureClosed(opr) => {
                 let lopd_ty = self.infer_new_expr_ty_resolved(lopd, ExprTypeExpectation::None);
                 let ropd_ty = self.infer_new_expr_ty_resolved(ropd, ExprTypeExpectation::None);
                 let Some(lopd_ty) = lopd_ty
@@ -234,11 +235,39 @@ impl<'a> ExprTypeEngine<'a> {
                     else {
                         return Err(DerivedExprTypeError::BinaryOperationRightOperandTypeNotInferred.into())
                     };
-                p!(lopd_ty.debug(self.db), opr, ropd_ty.debug(self.db));
-                todo!()
+                let lopd_ty = self.db.intrinsic_ty(lopd_ty).reduced_term();
+                let ropd_ty = self.db.intrinsic_ty(ropd_ty).reduced_term();
+                match opr {
+                    BinaryPureClosedOpr::Add => match lopd_ty {
+                        lopd_ty if lopd_ty == menu.i32() => match ropd_ty {
+                            ropd_ty if ropd_ty == menu.i32() => Ok(menu.i32().into()),
+                            _ => Err(todo!()),
+                        },
+                        lopd_ty if lopd_ty == menu.i64() => match ropd_ty {
+                            ropd_ty if ropd_ty == menu.i64() => Ok(menu.i64().into()),
+                            _ => Err(todo!()),
+                        },
+                        _ => Err(todo!()),
+                    },
+                    BinaryPureClosedOpr::BitAnd => todo!(),
+                    BinaryPureClosedOpr::BitOr => todo!(),
+                    BinaryPureClosedOpr::BitXor => todo!(),
+                    BinaryPureClosedOpr::Div => todo!(),
+                    BinaryPureClosedOpr::Mul => todo!(),
+                    BinaryPureClosedOpr::RemEuclid => todo!(),
+                    BinaryPureClosedOpr::Power => todo!(),
+                    BinaryPureClosedOpr::Shl => todo!(),
+                    BinaryPureClosedOpr::Shr => todo!(),
+                    BinaryPureClosedOpr::Sub => todo!(),
+                }
             }
             BinaryOpr::Comparison(_) => {
-                todo!();
+                let lopd_ty = self.infer_new_expr_ty_resolved(lopd, ExprTypeExpectation::None);
+                let ropd_ty_expectation = match lopd_ty {
+                    Some(_) => todo!(),
+                    None => ExprTypeExpectation::None,
+                };
+                let ropd_ty = self.infer_new_expr_ty_resolved(ropd, ropd_ty_expectation);
                 Ok(self.reduced_term_menu.bool().into())
             }
             BinaryOpr::ShortcuitLogic(_) => {
