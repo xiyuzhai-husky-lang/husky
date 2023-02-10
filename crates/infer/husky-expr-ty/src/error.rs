@@ -54,8 +54,10 @@ pub enum DerivedExprTypeError {
     BinaryOperationLeftOperandTypeNotInferred,
     #[error("binary operation right operand type not inferred")]
     BinaryOperationRightOperandTypeNotInferred,
-    #[error("field operand type not inferred")]
-    FieldOperandTypeNotInferred,
+    #[error("field owner type not inferred")]
+    FieldOwnerTypeNotInferred,
+    #[error("method owner type not inferred")]
+    MethodOwnerTypeNotInferred,
     #[error("block type error")]
     BlockTypeError,
     #[error("term symbol type error")]

@@ -38,10 +38,6 @@ impl<'a> ExprTypeEngine<'a> {
         stmt_idx: StmtIdx,
         expr_expectation: LocalTermExpectation,
     ) -> Option<LocalTerm> {
-        let expr_expectation = match self.return_ty {
-            Some(_) => todo!(),
-            None => LocalTermExpectation::None,
-        };
         self.calc_stmt(stmt_idx, expr_expectation)
     }
 
@@ -61,7 +57,7 @@ impl<'a> ExprTypeEngine<'a> {
                 result.as_ref().copied().map(|result| {
                     self.infer_new_expr(result, LocalTermExpectation::Return { ty: self.return_ty })
                 });
-                todo!()
+                Some(self.reduced_term_menu.never().into())
             }
             Stmt::Require { ref condition, .. } => {
                 condition
@@ -84,7 +80,9 @@ impl<'a> ExprTypeEngine<'a> {
                 ref particulars,
                 ref block,
                 ..
-            } => todo!(),
+            } => {
+                todo!()
+            }
             Stmt::ForIn {
                 ref condition,
                 ref block,

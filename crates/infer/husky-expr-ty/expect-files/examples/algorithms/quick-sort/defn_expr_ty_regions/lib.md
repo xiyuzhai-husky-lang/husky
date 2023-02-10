@@ -848,7 +848,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 21,
+                                    value: 20,
                                 },
                             ),
                             arguments: [
@@ -1246,7 +1246,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 22,
+                                                value: 21,
                                             },
                                         ),
                                     ),
@@ -1266,7 +1266,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 22,
+                                                    value: 21,
                                                 },
                                             ),
                                         ),
@@ -1533,7 +1533,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 21,
+                                    value: 20,
                                 },
                             ),
                             arguments: [
@@ -2111,7 +2111,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 22,
+                                                value: 21,
                                             },
                                         ),
                                     ),
@@ -2131,7 +2131,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 22,
+                                                    value: 21,
                                                 },
                                             ),
                                         ),
@@ -2178,7 +2178,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 21,
+                                    value: 20,
                                 },
                             ),
                             arguments: [

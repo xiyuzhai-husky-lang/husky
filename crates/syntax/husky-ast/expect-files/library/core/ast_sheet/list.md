@@ -17,10 +17,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::mem::Ref`, `Alien`),
+                        TypePath(`core::list::List`, `Alien`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `Ref`,
+                        ident: `List`,
                         token_idx: TokenIdx(
                             2,
                         ),

@@ -118,10 +118,12 @@ impl<'a> ExprTypeEngine<'a> {
                     self.infer_new_expr_resolved(owner, LocalTermExpectation::None)
                 {
                     let field_ty = self.db.field_ty(owner_ty, ident_token.ident());
-                    p!(owner_ty.debug(self.db));
-                    todo!()
+                    match field_ty {
+                        Ok(_) => todo!(),
+                        Err(e) => Err(e.into()),
+                    }
                 } else {
-                    Err(DerivedExprTypeError::FieldOperandTypeNotInferred.into())
+                    Err(DerivedExprTypeError::FieldOwnerTypeNotInferred.into())
                 }
             }
             Expr::MethodCall {
@@ -134,7 +136,13 @@ impl<'a> ExprTypeEngine<'a> {
                 let Some(self_expr_ty) =
                     self.infer_new_expr_resolved( self_expr, LocalTermExpectation::None)
                     else {
-                        todo!()
+                        if let Some(implicit_arguments) = implicit_arguments {
+                            todo!()
+                        }
+                        for argument in nonself_arguments {
+                            todo!()
+                        }
+                        return Err(DerivedExprTypeError::MethodOwnerTypeNotInferred.into())
                     };
                 let method_ty = match self.db.ty_method_ty(self_expr_ty, ident_token.ident()) {
                     Ok(_) => todo!(),
