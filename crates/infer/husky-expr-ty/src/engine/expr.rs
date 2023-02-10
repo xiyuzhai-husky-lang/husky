@@ -112,11 +112,13 @@ impl<'a> ExprTypeEngine<'a> {
                 self.calc_call_expr(None, function_ty, implicit_arguments.as_ref(), arguments)
             }
             Expr::Field {
-                opd, ident_token, ..
+                owner, ident_token, ..
             } => {
-                if let Some(opd_ty) = self.infer_new_expr_resolved(opd, LocalTermExpectation::None)
+                if let Some(owner_ty) =
+                    self.infer_new_expr_resolved(owner, LocalTermExpectation::None)
                 {
-                    p!(opd_ty.debug(self.db));
+                    let field_ty = self.db.field_ty(owner_ty, ident_token.ident());
+                    p!(owner_ty.debug(self.db));
                     todo!()
                 } else {
                     Err(DerivedExprTypeError::FieldOperandTypeNotInferred.into())
