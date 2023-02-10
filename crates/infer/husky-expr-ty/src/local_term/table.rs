@@ -69,7 +69,10 @@ impl<'a> ExprTypeEngine<'a> {
 }
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(crate) fn resolve_term(&mut self, unresolved_term_idx: UnresolvedTermIdx) -> Option<Term> {
+    pub(crate) fn resolve_term(
+        &mut self,
+        unresolved_term_idx: UnresolvedTermIdx,
+    ) -> Option<ReducedTerm> {
         self.resolve_as_much_as_possible(LocalTermResolveLevel::Weak);
         self.local_term_table_mut()
             .unresolved_terms

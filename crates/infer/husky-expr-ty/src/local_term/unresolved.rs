@@ -83,10 +83,13 @@ pub(crate) struct UnresolvedTerms {
 }
 
 impl UnresolvedTerms {
-    pub(super) fn resolve_term(&mut self, unresolved_term_idx: UnresolvedTermIdx) -> Option<Term> {
+    pub(super) fn resolve_term(
+        &mut self,
+        unresolved_term_idx: UnresolvedTermIdx,
+    ) -> Option<ReducedTerm> {
         let unresolved_term_entry = &mut self.arena[unresolved_term_idx.0];
         match unresolved_term_entry.resolve_progress {
-            LocalTermResolveProgress::FullyResolved(term) => Some(term.term()),
+            LocalTermResolveProgress::FullyResolved(term) => Some(term),
             LocalTermResolveProgress::Unresolved
             | LocalTermResolveProgress::PartiallyResolved(_) => {
                 unresolved_term_entry.resolve_progress = LocalTermResolveProgress::Err(

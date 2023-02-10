@@ -24,9 +24,9 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: ExprIdx,
         expectation: LocalTermExpectation,
-    ) -> Option<Term> {
+    ) -> Option<ReducedTerm> {
         match self.infer_new_expr(expr_idx, expectation)? {
-            LocalTerm::Resolved(lopd_ty) => Some(lopd_ty.term()),
+            LocalTerm::Resolved(lopd_ty) => Some(lopd_ty),
             LocalTerm::Unresolved(lopd_ty) => self.resolve_term(lopd_ty),
         }
     }
@@ -185,7 +185,7 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_call_expr(
         &mut self,
-        self_ty: Option<Term>,
+        self_ty: Option<ReducedTerm>,
         callable_ty: Option<LocalTerm>,
         implicit_arguments: Option<&ImplicitArgumentList>,
         arguments: ExprIdxRange,

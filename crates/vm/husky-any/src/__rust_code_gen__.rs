@@ -7,8 +7,8 @@ type void = ();
 type r32 = u32;
 type b64 = u64;
 
-    use husky_trace_protocol::VisualData;
-    
+use husky_trace_protocol::VisualData;
+
 // DeprecatedVirtualStruct
 #[rustfmt::skip]
 #[no_mangle]

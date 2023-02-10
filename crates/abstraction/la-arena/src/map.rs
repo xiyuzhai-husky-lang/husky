@@ -13,12 +13,18 @@ pub struct ArenaMap<IDX, V> {
 impl<T, V> ArenaMap<Idx<T>, V> {
     /// Creates a new empty map.
     pub const fn new() -> Self {
-        Self { v: Vec::new(), _ty: PhantomData }
+        Self {
+            v: Vec::new(),
+            _ty: PhantomData,
+        }
     }
 
     /// Create a new empty map with specific capacity.
     pub fn with_capacity(capacity: usize) -> Self {
-        Self { v: Vec::with_capacity(capacity), _ty: PhantomData }
+        Self {
+            v: Vec::with_capacity(capacity),
+            _ty: PhantomData,
+        }
     }
 
     /// Reserves capacity for at least additional more elements to be inserted in the map.
@@ -33,7 +39,11 @@ impl<T, V> ArenaMap<Idx<T>, V> {
 
     /// Shrinks the capacity of the map as much as possible.
     pub fn shrink_to_fit(&mut self) {
-        let min_len = self.v.iter().rposition(|slot| slot.is_some()).map_or(0, |i| i + 1);
+        let min_len = self
+            .v
+            .iter()
+            .rposition(|slot| slot.is_some())
+            .map_or(0, |i| i + 1);
         self.v.truncate(min_len);
         self.v.shrink_to_fit();
     }
@@ -83,7 +93,10 @@ impl<T, V> ArenaMap<Idx<T>, V> {
 
     /// Returns an iterator over the arena indexes and values in the map.
     pub fn iter(&self) -> impl Iterator<Item = (Idx<T>, &V)> {
-        self.v.iter().enumerate().filter_map(|(idx, o)| Some((Self::from_idx(idx), o.as_ref()?)))
+        self.v
+            .iter()
+            .enumerate()
+            .filter_map(|(idx, o)| Some((Self::from_idx(idx), o.as_ref()?)))
     }
 
     /// Returns an iterator over the arena indexes and values in the map.
@@ -99,8 +112,14 @@ impl<T, V> ArenaMap<Idx<T>, V> {
         let idx = Self::to_idx(idx);
         self.v.resize_with((idx + 1).max(self.v.len()), || None);
         match &mut self.v[idx] {
-            slot @ Some(_) => Entry::Occupied(OccupiedEntry { slot, _ty: PhantomData }),
-            slot @ None => Entry::Vacant(VacantEntry { slot, _ty: PhantomData }),
+            slot @ Some(_) => Entry::Occupied(OccupiedEntry {
+                slot,
+                _ty: PhantomData,
+            }),
+            slot @ None => Entry::Vacant(VacantEntry {
+                slot,
+                _ty: PhantomData,
+            }),
         }
     }
 
