@@ -3,6 +3,7 @@ mod db;
 mod entity;
 mod error;
 mod field;
+mod intrinsic_ty;
 mod method;
 mod term;
 #[cfg(test)]
@@ -11,6 +12,7 @@ mod variance;
 
 pub use db::*;
 pub use error::*;
+pub use intrinsic_ty::*;
 pub use term::*;
 
 use entity::*;
