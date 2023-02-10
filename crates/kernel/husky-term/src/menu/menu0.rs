@@ -126,6 +126,12 @@ impl TermMenu0 {
         self.universe1
     }
 
+    /// `Prop`
+    pub fn prop(&self) -> TermCategory {
+        self.prop
+    }
+
+    /// `Type`
     pub fn ty0(&self) -> TermCategory {
         self.ty0
     }

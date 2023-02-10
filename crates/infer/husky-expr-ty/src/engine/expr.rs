@@ -279,8 +279,41 @@ impl<'a> ExprTypeEngine<'a> {
                 Ok(self.reduced_term_menu.bool().into())
             }
             BinaryOpr::Assign(opr) => {
+                let lopd_ty = self.infer_new_expr_ty(lopd, ExprTypeExpectation::None);
+                let ropd_ty = self.infer_new_expr_ty(ropd, ExprTypeExpectation::None);
+                let Some(lopd_ty) = lopd_ty
+                    else {
+                        return Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into())
+                    };
+                let Some(ropd_ty) = ropd_ty
+                    else {
+                        return Err(DerivedExprTypeError::BinaryOperationRightOperandTypeNotInferred.into())
+                    };
+                let lopd_ty = match lopd_ty {
+                    LocalTerm::Resolved(lopd_ty) => match lopd_ty.term() {
+                        Term::Application(lopd_ty) => todo!(),
+                        _ => todo!(),
+                    },
+                    LocalTerm::Unresolved(_) => todo!(),
+                };
+                let ropd_ty = match ropd_ty {
+                    LocalTerm::Resolved(ropd_ty) => self.db.intrinsic_ty(ropd_ty).reduced_term(),
+                    LocalTerm::Unresolved(_) => todo!(),
+                };
                 match opr {
-                    Some(_) => todo!(),
+                    Some(opr) => match opr {
+                        BinaryPureClosedOpr::Add => todo!(),
+                        BinaryPureClosedOpr::BitAnd => todo!(),
+                        BinaryPureClosedOpr::BitOr => todo!(),
+                        BinaryPureClosedOpr::BitXor => todo!(),
+                        BinaryPureClosedOpr::Div => todo!(),
+                        BinaryPureClosedOpr::Mul => todo!(),
+                        BinaryPureClosedOpr::RemEuclid => todo!(),
+                        BinaryPureClosedOpr::Power => todo!(),
+                        BinaryPureClosedOpr::Shl => todo!(),
+                        BinaryPureClosedOpr::Shr => todo!(),
+                        BinaryPureClosedOpr::Sub => todo!(),
+                    },
                     None => todo!(),
                 }
                 Ok(self.reduced_term_menu.unit().into())
@@ -295,8 +328,22 @@ impl<'a> ExprTypeEngine<'a> {
                     else {
                         return Err(DerivedExprTypeError::BinaryOperationRightOperandTypeNotInferred.into())
                     };
-                p!(lopd_ty.debug(self.db), opr, ropd_ty.debug(self.db));
-                todo!()
+                let x = lopd_ty.term();
+                match x {
+                    Term::Category(_) => (),
+                    _ => return Err(todo!()),
+                }
+                let y = ropd_ty.term();
+                match y {
+                    Term::Category(_) => (),
+                    _ => return Err(todo!()),
+                }
+                Ok(self
+                    .db
+                    .reduced_term(
+                        TermCurry::new(self.db, /* ad hoc */ Variance::Invariant, x, y).into(),
+                    )
+                    .into())
             }
             BinaryOpr::As => {
                 self.infer_new_expr_ty_resolved(ropd, ExprTypeExpectation::TypeType);
@@ -317,7 +364,20 @@ impl<'a> ExprTypeEngine<'a> {
                     else {
                         return Err(DerivedExprTypeError::BinaryOperationRightOperandTypeNotInferred.into())
                     };
-                todo!()
+                let mut ropd_expectation = ExprTypeExpectation::None;
+                match ropd_ty.term() {
+                    Term::Entity(path) if path == self.entity_path_menu.trai_ty().into() => {
+                        todo!()
+                    }
+                    Term::Category(_) => {
+                        if let Some(ropd_term) = self.infer_new_expr_term(ropd) {
+                            ropd_expectation =
+                                ExprTypeExpectation::ImplicitlyConvertibleTo { ty: ropd_term }
+                        }
+                    }
+                    _ => todo!(),
+                }
+                Ok(self.reduced_term_menu.prop().into())
             }
             BinaryOpr::In => todo!(),
         }
@@ -503,7 +563,10 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::EntityPath {
                 entity_path_expr,
                 entity_path,
-            } => todo!(),
+            } => match entity_path {
+                Some(entity_path) => Ok(self.db.reduced_term(entity_path.into()).into()),
+                None => todo!(),
+            },
             Expr::InheritedSymbol {
                 ident,
                 token_idx,
