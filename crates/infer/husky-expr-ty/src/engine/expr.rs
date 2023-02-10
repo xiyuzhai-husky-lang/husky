@@ -213,6 +213,7 @@ impl<'a> ExprTypeEngine<'a> {
                 }
                 return Err(DerivedExprTypeError::CallableTypeError.into())
             };
+        p!(callable_ty.debug(self.db));
         todo!()
     }
 
@@ -275,7 +276,7 @@ impl<'a> ExprTypeEngine<'a> {
                     ty: self.reduced_term_menu.bool().into(),
                 };
                 self.infer_new_expr_ty_resolved(lopd, expectation);
-                self.infer_new_expr_ty_resolved(lopd, expectation);
+                self.infer_new_expr_ty_resolved(ropd, expectation);
                 Ok(self.reduced_term_menu.bool().into())
             }
             BinaryOpr::Assign(opr) => {
