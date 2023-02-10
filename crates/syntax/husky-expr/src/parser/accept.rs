@@ -177,7 +177,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             }
                             .into(),
                             Ok(None) => Expr::Field {
-                                opd: self_expr,
+                                owner: self_expr,
                                 dot_token_idx,
                                 ident_token,
                             }
