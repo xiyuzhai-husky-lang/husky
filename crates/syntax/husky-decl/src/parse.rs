@@ -76,6 +76,7 @@ impl<'a> DeclParser<'a> {
 
     fn parse_ty_decl(&self, path: TypePath) -> DeclResult<TypeDecl> {
         let ident = path.ident(self.db);
+        p!(path.debug(self.db));
         let module_item_symbol = self
             .module_entity_tree
             .module_symbols()

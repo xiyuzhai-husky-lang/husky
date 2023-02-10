@@ -1,5 +1,6 @@
 mod basic
 mod logic
+mod mem
 mod num
 mod ops
 mod prelude

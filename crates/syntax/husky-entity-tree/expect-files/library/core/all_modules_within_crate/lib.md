@@ -2,6 +2,7 @@
     `core`,
     `core::basic`,
     `core::logic`,
+    `core::mem`,
     `core::num`,
     `core::ops`,
     `core::prelude`,

@@ -36,6 +36,21 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `mem`,
+                            accessibility: PubicUnder(
+                                `core`,
+                            ),
+                            symbol: Submodule(
+                                SubmoduleSymbol {
+                                    path: `core::mem`,
+                                    accessibility: PubicUnder(
+                                        `core`,
+                                    ),
+                                    ast_idx: 2,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `num`,
                             accessibility: PubicUnder(
                                 `core`,
@@ -46,7 +61,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `core`,
                                     ),
-                                    ast_idx: 2,
+                                    ast_idx: 3,
                                 },
                             ),
                         },
@@ -61,7 +76,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `core`,
                                     ),
-                                    ast_idx: 3,
+                                    ast_idx: 4,
                                 },
                             ),
                         },
@@ -76,7 +91,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `core`,
                                     ),
-                                    ast_idx: 4,
+                                    ast_idx: 5,
                                 },
                             ),
                         },
@@ -91,7 +106,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `core`,
                                     ),
-                                    ast_idx: 5,
+                                    ast_idx: 6,
                                 },
                             ),
                         },
@@ -106,7 +121,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `core`,
                                     ),
-                                    ast_idx: 6,
+                                    ast_idx: 7,
                                 },
                             ),
                         },
@@ -121,7 +136,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `core`,
                                     ),
-                                    ast_idx: 7,
+                                    ast_idx: 8,
                                 },
                             ),
                         },
@@ -136,7 +151,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `core`,
                                     ),
-                                    ast_idx: 8,
+                                    ast_idx: 9,
                                 },
                             ),
                         },
@@ -151,7 +166,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `core`,
                                     ),
-                                    ast_idx: 9,
+                                    ast_idx: 10,
                                 },
                             ),
                         },
@@ -166,7 +181,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `core`,
                                     ),
-                                    ast_idx: 10,
+                                    ast_idx: 11,
                                 },
                             ),
                         },
@@ -247,6 +262,24 @@ Ok(
                                     path: TypePath(`core::logic::LogicOr`, `Inductive`),
                                     accessibility: Public,
                                     ast_idx: 2,
+                                },
+                            ),
+                        },
+                    ],
+                ),
+            },
+            EntityTreeSheet {
+                module_path: `core::mem`,
+                module_specific_symbols: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `Ref`,
+                            accessibility: Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    path: TypePath(`core::mem::Ref`, `Alien`),
+                                    accessibility: Public,
+                                    ast_idx: 0,
                                 },
                             ),
                         },

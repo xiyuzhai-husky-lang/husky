@@ -66,10 +66,10 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::num`,
+                        `core::mem`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: `num`,
+                        ident: `mem`,
                         token_idx: TokenIdx(
                             5,
                         ),
@@ -92,10 +92,10 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::ops`,
+                        `core::num`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: `ops`,
+                        ident: `num`,
                         token_idx: TokenIdx(
                             7,
                         ),
@@ -118,10 +118,10 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::prelude`,
+                        `core::ops`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: `prelude`,
+                        ident: `ops`,
                         token_idx: TokenIdx(
                             9,
                         ),
@@ -144,10 +144,10 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::raw_bits`,
+                        `core::prelude`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: `raw_bits`,
+                        ident: `prelude`,
                         token_idx: TokenIdx(
                             11,
                         ),
@@ -170,10 +170,10 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::fmt`,
+                        `core::raw_bits`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: `fmt`,
+                        ident: `raw_bits`,
                         token_idx: TokenIdx(
                             13,
                         ),
@@ -196,10 +196,10 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::clone`,
+                        `core::fmt`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: `clone`,
+                        ident: `fmt`,
                         token_idx: TokenIdx(
                             15,
                         ),
@@ -222,10 +222,10 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::marker`,
+                        `core::clone`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: `marker`,
+                        ident: `clone`,
                         token_idx: TokenIdx(
                             17,
                         ),
@@ -248,10 +248,10 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::vec`,
+                        `core::marker`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: `vec`,
+                        ident: `marker`,
                         token_idx: TokenIdx(
                             19,
                         ),
@@ -274,10 +274,10 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::cmp`,
+                        `core::vec`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: `cmp`,
+                        ident: `vec`,
                         token_idx: TokenIdx(
                             21,
                         ),
@@ -288,10 +288,36 @@ Ok(
                         22,
                     ),
                 },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        11,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PubicUnder(
+                        `core`,
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        `core::cmp`,
+                    ),
+                    ident_token: IdentifierToken {
+                        ident: `cmp`,
+                        token_idx: TokenIdx(
+                            23,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        24,
+                    ),
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..11,
+            0..12,
         ),
     },
 )
