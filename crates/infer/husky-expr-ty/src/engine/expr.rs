@@ -224,20 +224,38 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> ExprTypeResult<LocalTerm> {
         match opr {
             BinaryOpr::PureClosed(_) => {
-                let Some(lopd_ty) = self.infer_new_expr_ty_resolved(lopd, ExprTypeExpectation::None)
+                let lopd_ty = self.infer_new_expr_ty_resolved(lopd, ExprTypeExpectation::None);
+                let ropd_ty = self.infer_new_expr_ty_resolved(ropd, ExprTypeExpectation::None);
+                let Some(lopd_ty) = lopd_ty
                     else {
                         return Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into())
                     };
-                let Some(ropd_ty) = self.infer_new_expr_ty_resolved(ropd, ExprTypeExpectation::None)
+                let Some(ropd_ty) = ropd_ty
                     else {
                         return Err(DerivedExprTypeError::BinaryOperationRightOperandTypeNotInferred.into())
                     };
                 p!(lopd_ty.debug(self.db), opr, ropd_ty.debug(self.db));
                 todo!()
             }
-            BinaryOpr::Comparison(_) => todo!(),
-            BinaryOpr::ShortcuitLogic(_) => todo!(),
-            BinaryOpr::Assign(_) => todo!(),
+            BinaryOpr::Comparison(_) => {
+                todo!();
+                Ok(self.reduced_term_menu.bool().into())
+            }
+            BinaryOpr::ShortcuitLogic(_) => {
+                let expectation = ExprTypeExpectation::ImplicitlyConvertibleTo {
+                    ty: self.reduced_term_menu.bool().into(),
+                };
+                self.infer_new_expr_ty_resolved(lopd, expectation);
+                self.infer_new_expr_ty_resolved(lopd, expectation);
+                Ok(self.reduced_term_menu.bool().into())
+            }
+            BinaryOpr::Assign(opr) => {
+                match opr {
+                    Some(_) => todo!(),
+                    None => todo!(),
+                }
+                Ok(self.reduced_term_menu.unit().into())
+            }
             BinaryOpr::ScopeResolution => todo!(),
             BinaryOpr::Curry => {
                 let Some(lopd_ty) = self.infer_new_expr_ty_resolved(lopd, ExprTypeExpectation::TypeType)
