@@ -870,24 +870,6 @@ Ok(
                 ),
             },
             EntityTreeSheet {
-                module_path: `core::vec`,
-                module_specific_symbols: EntitySymbolTable(
-                    [
-                        EntitySymbolEntry {
-                            ident: `Vec`,
-                            accessibility: Public,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol {
-                                    path: TypePath(`core::vec::Vec`, `Alien`),
-                                    accessibility: Public,
-                                    ast_idx: 0,
-                                },
-                            ),
-                        },
-                    ],
-                ),
-            },
-            EntityTreeSheet {
                 module_path: `core::cmp`,
                 module_specific_symbols: EntitySymbolTable(
                     [

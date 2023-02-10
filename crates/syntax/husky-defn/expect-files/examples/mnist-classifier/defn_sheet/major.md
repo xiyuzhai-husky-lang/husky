@@ -129,7 +129,7 @@ Ok(
                                                 ident: Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 451,
+                                                            value: 452,
                                                         },
                                                     ),
                                                 ),
@@ -690,7 +690,7 @@ Ok(
                                                 frame_var_ident: Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 158,
+                                                            value: 160,
                                                         },
                                                     ),
                                                 ),
@@ -778,7 +778,7 @@ Ok(
                                                 Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 255,
+                                                            value: 256,
                                                         },
                                                     ),
                                                 ),
@@ -790,7 +790,7 @@ Ok(
                                                 Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 452,
+                                                            value: 453,
                                                         },
                                                     ),
                                                 ),
@@ -802,7 +802,7 @@ Ok(
                                                 Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 166,
+                                                            value: 168,
                                                         },
                                                     ),
                                                 ),
@@ -1249,7 +1249,7 @@ Ok(
                                                 frame_var_ident: Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 158,
+                                                            value: 160,
                                                         },
                                                     ),
                                                 ),
@@ -1317,7 +1317,7 @@ Ok(
                                                 Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 453,
+                                                            value: 454,
                                                         },
                                                     ),
                                                 ),
