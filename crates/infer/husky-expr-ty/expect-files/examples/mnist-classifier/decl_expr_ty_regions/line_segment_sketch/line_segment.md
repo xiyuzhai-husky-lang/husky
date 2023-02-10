@@ -71,6 +71,14 @@
                 ),
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -132,6 +140,13 @@
                 ),
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -196,6 +211,13 @@
                 ),
             },
         ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -259,6 +281,18 @@
                     },
                 ),
             },
+        ],
+        expr_terms: ArenaMap {
+            data: [
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [
+            LocalTerm::Resolved(
+                Term(`mnist_classifier::geom2d::Point2d`),
+            ),
         ],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {

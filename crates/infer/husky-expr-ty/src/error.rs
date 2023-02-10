@@ -74,6 +74,8 @@ pub enum DerivedExprTypeError {
     CallableTypeError,
     #[error("function type not inferred in application or function call")]
     FunctionTypeNotInferredInApplicationOrFunctionCall,
+    #[error("AsOperationRightOperandTermNotInferred")]
+    AsOperationRightOperandTermNotInferred,
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;
@@ -140,3 +142,22 @@ pub enum DerivedPatternSymbolTypeError {
 }
 
 pub type PatternSymbolTypeResult<T> = Result<T, PatternSymbolTypeError>;
+
+#[derive(Debug, Error, PartialEq, Eq)]
+pub enum ExprTermError {
+    #[error("original expr term error: {0}")]
+    Original(#[from] OriginalExprTermError),
+    #[error("derived expr term error: {0}")]
+    Derived(#[from] DerivedExprTermError),
+}
+
+#[derive(Debug, Error, PartialEq, Eq)]
+pub enum OriginalExprTermError {}
+
+#[derive(Debug, Error, PartialEq, Eq)]
+pub enum DerivedExprTermError {
+    #[error("expr error")]
+    ExprError,
+}
+
+pub type ExprTermResult<T> = Result<T, ExprTermError>;

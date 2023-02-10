@@ -210,6 +210,7 @@ impl UnresolvedTerms {
                 }
             }
             LocalTermExpectationRuleVariant::Type => Ok(None),
+            LocalTermExpectationRuleVariant::FrameVariableType => todo!(),
         }
     }
 }
