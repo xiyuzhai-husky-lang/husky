@@ -36,7 +36,7 @@ fn struct_regular_fields_debug_with_db(ident: &Ident, fields: &Fields) -> proc_m
             let field_ident_string = field_ident.to_string();
             let field_ty = &field.ty;
 
-            let field_debug = quote_spanned! { field.span() =>
+            let field_debug = quote! {
                 debug_struct = debug_struct.field(
                     #field_ident_string,
                     &::salsa::debug::helper::SalsaDebug::<#field_ty, _Db>::salsa_debug(
@@ -76,7 +76,7 @@ fn struct_tuple_fields_debug_with_db(ident: &Ident, fields: &Fields) -> proc_mac
             };
             let field_ty = &field.ty;
 
-            let field_debug = quote_spanned! { field.span() =>
+            let field_debug = quote! {
                 debug_tuple = debug_tuple.field(
                     &::salsa::debug::helper::SalsaDebug::<#field_ty, _Db>::salsa_debug(
                         #[allow(clippy::needless_borrow)]
@@ -87,7 +87,7 @@ fn struct_tuple_fields_debug_with_db(ident: &Ident, fields: &Fields) -> proc_mac
                 );
             };
 
-            quote_spanned! { field.span() =>
+            quote! {
                 #field_debug
             }
         })

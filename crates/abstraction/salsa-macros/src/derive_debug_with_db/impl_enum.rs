@@ -43,7 +43,7 @@ fn enum_struct_variant_debug_with_db(
         .iter()
         .map(|field| -> proc_macro2::TokenStream {
             let field_ident = field.ident.as_ref().unwrap();
-            quote_spanned! { field.span() =>
+            quote! {
                 ref #field_ident
             }
         });
@@ -55,7 +55,7 @@ fn enum_struct_variant_debug_with_db(
             let field_ident_string = field_ident.to_string();
             let field_ty = &field.ty;
             // `::salsa::debug::helper::SalsaDebug` will use `DebugWithDb` or fallbak to `Debug`
-            let field_debug = quote_spanned! { field.span() =>
+            let field_debug = quote! {
                 debug_struct = debug_struct.field(
                     #field_ident_string,
                     &::salsa::debug::helper::SalsaDebug::<#field_ty, _Db>::salsa_debug(
@@ -67,7 +67,7 @@ fn enum_struct_variant_debug_with_db(
                 );
             };
 
-            quote_spanned! { field.span() =>
+            quote! {
                 #field_debug
             }
         })
@@ -91,15 +91,15 @@ fn enum_tuple_variant_debug_with_db(
     let ident = &variant.ident;
     let variant_string = format!("{}::{}", ty_ident, ident);
     // `::salsa::debug::helper::SalsaDebug` will use `DebugWithDb` or fallbak to `Debug`
-    let name_field = |field_idx: usize| format!("v{}", field_idx);
+    let name_field = |field_idx| format_ident!("v{}", field_idx);
     let field_decls =
         variant
             .fields
             .iter()
             .enumerate()
             .map(|(field_idx, field)| -> proc_macro2::TokenStream {
-                let field_ident = Ident::new(&name_field(field_idx), field.span());
-                quote_spanned! { field.span() =>
+                let field_ident = name_field(field_idx);
+                quote! {
                     ref #field_ident
                 }
             });
@@ -108,10 +108,10 @@ fn enum_tuple_variant_debug_with_db(
         .iter()
         .enumerate()
         .map(|(field_idx, field)| -> proc_macro2::TokenStream {
-            let field_ident = Ident::new(&name_field(field_idx), field.span());
+            let field_ident = name_field(field_idx);
             let field_ty = &field.ty;
 
-            let field_debug = quote_spanned! { field.span() =>
+            let field_debug = quote! {
                 debug_tuple = debug_tuple.field(
                     &::salsa::debug::helper::SalsaDebug::<#field_ty, _Db>::salsa_debug(
                         #[allow(clippy::needless_borrow)]
@@ -122,7 +122,7 @@ fn enum_tuple_variant_debug_with_db(
                 );
             };
 
-            quote_spanned! { field.span() =>
+            quote! {
                 #field_debug
             }
         })
