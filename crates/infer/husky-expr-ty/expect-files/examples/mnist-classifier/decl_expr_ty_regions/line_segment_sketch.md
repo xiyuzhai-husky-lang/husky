@@ -166,10 +166,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`mnist_classifier::geom2d::Vector2d`),
+                Term(`Vector2d`),
             ),
             LocalTerm::Resolved(
-                Term(`core::num::f32`),
+                Term(`f32`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -238,10 +238,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`mnist_classifier::geom2d::Vector2d`),
+                Term(`Vector2d`),
             ),
             LocalTerm::Resolved(
-                Term(`core::num::f32`),
+                Term(`f32`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -312,13 +312,13 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`core::mem::Ref TermLiteral::EvalLifetime mnist_classifier::raw_contour::RawContour`),
+                Term(`Ref TermLiteral::EvalLifetime RawContour`),
             ),
             LocalTerm::Resolved(
-                Term(`core::num::i32`),
+                Term(`i32`),
             ),
             LocalTerm::Resolved(
-                Term(`core::num::f32`),
+                Term(`f32`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -390,16 +390,16 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`core::mem::Ref TermLiteral::EvalLifetime mnist_classifier::raw_contour::RawContour`),
+                Term(`Ref TermLiteral::EvalLifetime RawContour`),
             ),
             LocalTerm::Resolved(
-                Term(`core::num::i32`),
+                Term(`i32`),
             ),
             LocalTerm::Resolved(
-                Term(`core::num::i32`),
+                Term(`i32`),
             ),
             LocalTerm::Resolved(
-                Term(`core::num::f32`),
+                Term(`f32`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -457,10 +457,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`core::mem::Ref TermLiteral::EvalLifetime mnist_classifier::raw_contour::RawContour`),
+                Term(`Ref TermLiteral::EvalLifetime RawContour`),
             ),
             LocalTerm::Resolved(
-                Term(`core::num::f32`),
+                Term(`f32`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -561,13 +561,13 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`core::mem::Ref TermLiteral::EvalLifetime mnist_classifier::raw_contour::RawContour`),
+                Term(`Ref TermLiteral::EvalLifetime RawContour`),
             ),
             LocalTerm::Resolved(
-                Term(`core::num::i32`),
+                Term(`i32`),
             ),
             LocalTerm::Resolved(
-                Term(`core::num::i32`),
+                Term(`i32`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -891,10 +891,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`core::mem::Ref TermLiteral::EvalLifetime mnist_classifier::raw_contour::RawContour`),
+                Term(`Ref TermLiteral::EvalLifetime RawContour`),
             ),
             LocalTerm::Resolved(
-                Term(`core::num::f32`),
+                Term(`f32`),
             ),
         ],
         unresolved_term_table: LocalTermTable {

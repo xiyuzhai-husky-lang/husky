@@ -156,7 +156,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`core::mem::Ref TermLiteral::EvalLifetime mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+                Term(`Ref TermLiteral::EvalLifetime LineSegmentSketch`),
             ),
         ],
         unresolved_term_table: LocalTermTable {

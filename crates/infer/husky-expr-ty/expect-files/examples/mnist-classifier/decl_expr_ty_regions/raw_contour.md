@@ -194,10 +194,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`core::raw_bits::r32`),
+                Term(`r32`),
             ),
             LocalTerm::Resolved(
-                Term(`core::num::i32`),
+                Term(`i32`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -266,10 +266,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`core::raw_bits::r32`),
+                Term(`r32`),
             ),
             LocalTerm::Resolved(
-                Term(`core::num::i32`),
+                Term(`i32`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -338,10 +338,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`core::raw_bits::r32`),
+                Term(`r32`),
             ),
             LocalTerm::Resolved(
-                Term(`core::num::i32`),
+                Term(`i32`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -411,13 +411,13 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`core::raw_bits::r32`),
+                Term(`r32`),
             ),
             LocalTerm::Resolved(
-                Term(`core::raw_bits::r32`),
+                Term(`r32`),
             ),
             LocalTerm::Resolved(
-                Term(`core::num::i32`),
+                Term(`i32`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -486,10 +486,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`mnist_classifier::raw_contour::Direction`),
+                Term(`Direction`),
             ),
             LocalTerm::Resolved(
-                Term(`mnist_classifier::raw_contour::Direction`),
+                Term(`Direction`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -560,16 +560,16 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`core::raw_bits::r32`),
+                Term(`r32`),
             ),
             LocalTerm::Resolved(
-                Term(`core::raw_bits::r32`),
+                Term(`r32`),
             ),
             LocalTerm::Resolved(
-                Term(`core::num::i32`),
+                Term(`i32`),
             ),
             LocalTerm::Resolved(
-                Term(`mnist_classifier::raw_contour::Direction`),
+                Term(`Direction`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -735,7 +735,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`core::vec::List mnist_classifier::geom2d::Point2d`),
+                Term(`List Point2d`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -838,7 +838,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`core::mem::Ref TermLiteral::EvalLifetime mnist_classifier::connected_component::ConnectedComponent`),
+                Term(`Ref TermLiteral::EvalLifetime ConnectedComponent`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -1244,10 +1244,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`core::num::i32`),
+                Term(`i32`),
             ),
             LocalTerm::Resolved(
-                Term(`core::num::i32`),
+                Term(`i32`),
             ),
         ],
         unresolved_term_table: LocalTermTable {

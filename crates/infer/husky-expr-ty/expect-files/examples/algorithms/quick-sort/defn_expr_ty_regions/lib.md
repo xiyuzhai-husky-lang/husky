@@ -167,7 +167,7 @@
         },
         inherited_symbol_tys: [
             Term(`Type`),
-            Term(`core::slice::Slice $0`),
+            Term(`Slice $0`),
         ],
         current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
@@ -560,7 +560,7 @@
         },
         inherited_symbol_tys: [
             Term(`Type`),
-            Term(`core::slice::Slice $0`),
+            Term(`Slice $0`),
         ],
         current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
@@ -1457,7 +1457,7 @@
         },
         inherited_symbol_tys: [
             Term(`Type`),
-            Term(`core::slice::Slice $0`),
+            Term(`Slice $0`),
         ],
         current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {

@@ -12,7 +12,7 @@ pub(crate) fn term_ty(db: &dyn TypeDb, term: Term) -> TypeResult<ReducedTerm> {
             .map_err(|e| OriginalTypeError::Term(e).into()),
         Term::Universe(_) => todo!(),
         Term::Curry(_) => todo!(),
-        Term::Durant(_) => todo!(),
+        Term::Ritchie(_) => todo!(),
         Term::Abstraction(_) => todo!(),
         Term::Application(_) => todo!(),
         Term::Subentity(_) => todo!(),

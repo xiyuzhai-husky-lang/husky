@@ -605,10 +605,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`core::num::i32`),
+                Term(`i32`),
             ),
             LocalTerm::Resolved(
-                Term(`core::num::i32`),
+                Term(`i32`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -755,7 +755,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`mnist_classifier::geom2d::Point2d`),
+                Term(`Point2d`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -902,7 +902,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`mnist_classifier::geom2d::Point2d`),
+                Term(`Point2d`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -1117,7 +1117,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`mnist_classifier::geom2d::Vector2d`),
+                Term(`Vector2d`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -1264,7 +1264,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`mnist_classifier::geom2d::Vector2d`),
+                Term(`Vector2d`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -1340,7 +1340,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`mnist_classifier::geom2d::Vector2d`),
+                Term(`Vector2d`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -1416,7 +1416,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`core::basic::bool`),
+                Term(`bool`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -1492,7 +1492,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`mnist_classifier::geom2d::Vector2d`),
+                Term(`Vector2d`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -1569,10 +1569,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`mnist_classifier::geom2d::Vector2d`),
+                Term(`Vector2d`),
             ),
             LocalTerm::Resolved(
-                Term(`core::basic::bool`),
+                Term(`bool`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -1693,7 +1693,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`mnist_classifier::geom2d::BoundingBox`),
+                Term(`BoundingBox`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -1769,7 +1769,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`mnist_classifier::geom2d::Point2d`),
+                Term(`Point2d`),
             ),
         ],
         unresolved_term_table: LocalTermTable {

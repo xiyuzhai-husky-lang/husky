@@ -126,10 +126,15 @@ where
         db: &Db,
         include_all_fields: bool,
     ) -> std::fmt::Result {
-        match self {
-            ModuleItemPath::Form(path) => path.display_with_db_fmt(f, db, false),
-            ModuleItemPath::Type(path) => path.display_with_db_fmt(f, db, false),
-            ModuleItemPath::Trait(path) => path.display_with_db_fmt(f, db, false),
+        let db = <Db as salsa::DbWithJar<EntityPathJar>>::as_jar_db(db);
+        if include_all_fields {
+            match self {
+                ModuleItemPath::Form(path) => path.display_with_db_fmt(f, db, false),
+                ModuleItemPath::Type(path) => path.display_with_db_fmt(f, db, false),
+                ModuleItemPath::Trait(path) => path.display_with_db_fmt(f, db, false),
+            }
+        } else {
+            f.write_str(self.ident(db).data(db))
         }
     }
 }

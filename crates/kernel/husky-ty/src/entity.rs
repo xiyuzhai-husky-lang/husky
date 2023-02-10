@@ -91,14 +91,14 @@ pub(crate) fn function_entity_ty(
     let param_tys = signature
         .parameters(db)
         .iter()
-        .map(|param| TermDurantParameter::new(param.ty()))
+        .map(|param| TermRitchieParameter::new(param.ty()))
         .collect();
     let return_ty = signature.return_ty(db);
     Ok(curry_from_implicit_parameter_tys(
         db,
         variances,
         signature.implicit_parameters(db),
-        TermDurant::new(db, TermDurantKind::Fp, param_tys, return_ty).into(),
+        TermRitchie::new(db, TermRitchieKind::Fp, param_tys, return_ty).into(),
     ))
 }
 

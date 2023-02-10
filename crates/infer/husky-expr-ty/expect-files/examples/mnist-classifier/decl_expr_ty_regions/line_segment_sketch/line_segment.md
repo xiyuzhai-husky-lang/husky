@@ -291,7 +291,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`mnist_classifier::geom2d::Point2d`),
+                Term(`Point2d`),
             ),
         ],
         unresolved_term_table: LocalTermTable {

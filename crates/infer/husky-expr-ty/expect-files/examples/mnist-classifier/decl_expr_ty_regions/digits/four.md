@@ -124,7 +124,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`core::mem::Ref TermLiteral::EvalLifetime mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                Term(`Ref TermLiteral::EvalLifetime ConcaveComponent`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -390,7 +390,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`core::mem::Ref TermLiteral::EvalLifetime mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                Term(`Ref TermLiteral::EvalLifetime ConcaveComponent`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -526,7 +526,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`core::mem::Ref TermLiteral::EvalLifetime mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                Term(`Ref TermLiteral::EvalLifetime ConcaveComponent`),
             ),
         ],
         unresolved_term_table: LocalTermTable {

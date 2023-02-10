@@ -110,7 +110,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             } => {
                 let function_ty = self.infer_new_expr_ty(function, ExprTypeExpectation::None);
-                self.calc_call_ty(None, function_ty, implicit_arguments.as_ref(), arguments)
+                self.calc_call_ty(function_ty, None, implicit_arguments.as_ref(), arguments)
             }
             Expr::Field {
                 owner, ident_token, ..
@@ -150,8 +150,8 @@ impl<'a> ExprTypeEngine<'a> {
                     Err(e) => return Err(e.into()),
                 };
                 self.calc_call_ty(
-                    Some(self_expr_ty),
                     method_ty,
+                    Some(self_expr_ty),
                     implicit_arguments.as_ref(),
                     nonself_arguments,
                 )
@@ -196,12 +196,12 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_call_ty(
         &mut self,
-        self_ty: Option<ReducedTerm>,
         callable_ty: Option<LocalTerm>,
+        self_ty: Option<ReducedTerm>,
         implicit_arguments: Option<&ImplicitArgumentList>,
         arguments: ExprIdxRange,
     ) -> ExprTypeResult<LocalTerm> {
-        let Some(callable_ty) = callable_ty
+        let Some(mut callable_ty) = callable_ty
             else {
                 if let Some(implicit_arguments) = implicit_arguments{
                     for argument in implicit_arguments.arguments() {
@@ -213,7 +213,47 @@ impl<'a> ExprTypeEngine<'a> {
                 }
                 return Err(DerivedExprTypeError::CallableTypeError.into())
             };
-        p!(callable_ty.debug(self.db));
+        if let Some(implicit_arguments) = implicit_arguments {
+            todo!()
+        }
+        match callable_ty {
+            LocalTerm::Resolved(callable_ty) => match callable_ty.term() {
+                Term::Literal(_) => todo!(),
+                Term::Symbol(_) => todo!(),
+                Term::Entity(_) => todo!(),
+                Term::Category(_) => todo!(),
+                Term::Universe(_) => todo!(),
+                Term::Curry(_) => todo!(),
+                Term::Ritchie(callable_ty) => {
+                    match callable_ty.ritchie_kind(self.db) {
+                        TermRitchieKind::Fp => (),
+                        TermRitchieKind::Fn => todo!(),
+                        TermRitchieKind::FnMut => todo!(),
+                    }
+                    self.calc_call_ty_aux(
+                        callable_ty.parameter_tys(self.db).iter().map(|_| todo!()),
+                        Some(self.db.reduced_term(callable_ty.return_ty(self.db)).into()),
+                        self_ty,
+                        arguments,
+                    )
+                }
+                Term::Abstraction(_) => todo!(),
+                Term::Application(_) => todo!(),
+                Term::Subentity(_) => todo!(),
+                Term::AsTraitSubentity(_) => todo!(),
+                Term::TraitConstraint(_) => todo!(),
+            },
+            LocalTerm::Unresolved(_) => todo!(),
+        }
+    }
+
+    fn calc_call_ty_aux(
+        &mut self,
+        parameter_tys: impl Iterator<Item = Option<LocalTerm>>,
+        return_ty: Option<LocalTerm>,
+        self_ty: Option<ReducedTerm>,
+        arguments: ExprIdxRange,
+    ) -> ExprTypeResult<LocalTerm> {
         todo!()
     }
 

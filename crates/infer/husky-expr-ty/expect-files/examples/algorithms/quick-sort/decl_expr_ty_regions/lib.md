@@ -20,7 +20,7 @@
                 Term(`Type`),
             ),
             LocalTerm::Resolved(
-                Term(`core::slice::Slice $0`),
+                Term(`Slice $0`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -62,7 +62,7 @@
                 Term(`Type`),
             ),
             LocalTerm::Resolved(
-                Term(`core::slice::Slice $0`),
+                Term(`Slice $0`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
@@ -115,7 +115,7 @@
                 Term(`Type`),
             ),
             LocalTerm::Resolved(
-                Term(`core::slice::Slice $0`),
+                Term(`Slice $0`),
             ),
         ],
         unresolved_term_table: LocalTermTable {
