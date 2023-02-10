@@ -243,8 +243,18 @@ impl<'a> ExprTypeEngine<'a> {
                     term => todo!(),
                 }
             }
-            LocalTermExpectationRuleVariant::ImplicitlyConvertibleTo { dst: term } => match term {
-                LocalTerm::Resolved(_) => todo!(),
+            LocalTermExpectationRuleVariant::ImplicitlyConvertibleTo { dst } => match dst {
+                LocalTerm::Resolved(dst) => match (resolved_term, dst) {
+                    (resolved_term, dst) if resolved_term == dst => {
+                        LocalTermExpectationResolveProgress::Resolved(
+                            LocalTermExpectationResolved {
+                                implicit_conversion: LocalTermImplicitConversion::None,
+                                local_term: dst.into(),
+                            },
+                        )
+                    }
+                    _ => todo!(),
+                },
                 LocalTerm::Unresolved(_) => LocalTermExpectationResolveProgress::Unresolved,
             },
             LocalTermExpectationRuleVariant::Type => match db.term_ty(resolved_term.term()) {

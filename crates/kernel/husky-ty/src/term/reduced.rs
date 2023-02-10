@@ -71,6 +71,12 @@ impl<'a> ReducedTermMenu<'a> {
         ReducedTerm(self.term_menu.universe1().into())
     }
 
+    /// `Prop`
+    pub fn prop(&self) -> ReducedTerm {
+        ReducedTerm(self.term_menu.prop().into())
+    }
+
+    /// `Type`
     pub fn ty0(&self) -> ReducedTerm {
         ReducedTerm(self.term_menu.ty0().into())
     }
