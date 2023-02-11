@@ -10,7 +10,7 @@ pub use pure_closed::*;
 pub enum BinaryOpr {
     PureClosed(BinaryPureClosedOpr),
     Comparison(BinaryComparisonOpr),
-    ShortcuitLogic(BinaryShortcuitLogicOpr),
+    ShortCircuitLogic(BinaryShortcuitLogicOpr),
     Assign(Option<BinaryPureClosedOpr>),
     ScopeResolution,
     Curry, // ->
@@ -27,7 +27,7 @@ impl From<Option<BinaryPureClosedOpr>> for BinaryOpr {
 
 impl From<BinaryShortcuitLogicOpr> for BinaryOpr {
     fn from(v: BinaryShortcuitLogicOpr) -> Self {
-        Self::ShortcuitLogic(v)
+        Self::ShortCircuitLogic(v)
     }
 }
 
@@ -62,7 +62,7 @@ impl BinaryOpr {
                 BinaryPureClosedOpr::Sub => "-=",
             },
             BinaryOpr::Comparison(cmp_opr) => cmp_opr.husky_code(),
-            BinaryOpr::ShortcuitLogic(logic_opr) => logic_opr.husky_code(),
+            BinaryOpr::ShortCircuitLogic(logic_opr) => logic_opr.husky_code(),
             BinaryOpr::Curry => "->",
             BinaryOpr::As => todo!(),
             BinaryOpr::Is => todo!(),
@@ -75,7 +75,7 @@ impl BinaryOpr {
         match self {
             BinaryOpr::PureClosed(pure_binary_opr) => pure_binary_opr.spaced_husky_code(),
             BinaryOpr::Comparison(cmp_opr) => cmp_opr.spaced_husky_code(),
-            BinaryOpr::ShortcuitLogic(logic_opr) => logic_opr.spaced_husky_code(),
+            BinaryOpr::ShortCircuitLogic(logic_opr) => logic_opr.spaced_husky_code(),
             BinaryOpr::Assign(opt_binary_opr) => {
                 if let Some(binary_opr) = opt_binary_opr {
                     match binary_opr {

@@ -87,8 +87,15 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::SelfType(_) => todo!(),
             Expr::SelfValue(_) => todo!(),
             Expr::BinaryOpn {
-                lopd, opr, ropd, ..
-            } => self.calc_binary_ty(lopd, opr, ropd),
+                lopd,
+                opr,
+                ropd,
+                opr_token_idx,
+                ..
+            } => {
+                p!(opr_token_idx, self.path());
+                self.calc_binary_expr_ty(lopd, opr, ropd)
+            }
             Expr::Be {
                 src, ref target, ..
             } => todo!(),

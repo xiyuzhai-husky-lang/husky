@@ -195,11 +195,11 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             Token::WordOpr(opr) => match opr {
                 WordOpr::And => ResolvedToken::BinaryOpr(
                     token_idx,
-                    BinaryOpr::ShortcuitLogic(BinaryShortcuitLogicOpr::And),
+                    BinaryOpr::ShortCircuitLogic(BinaryShortcuitLogicOpr::And),
                 ),
                 WordOpr::Or => ResolvedToken::BinaryOpr(
                     token_idx,
-                    BinaryOpr::ShortcuitLogic(BinaryShortcuitLogicOpr::Or),
+                    BinaryOpr::ShortCircuitLogic(BinaryShortcuitLogicOpr::Or),
                 ),
                 WordOpr::As => ResolvedToken::BinaryOpr(token_idx, BinaryOpr::As),
                 WordOpr::Be => ResolvedToken::Be(token_idx),

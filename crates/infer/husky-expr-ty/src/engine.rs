@@ -23,7 +23,7 @@ pub(crate) struct ExprTypeEngine<'a> {
     expr_terms: ExprMap<ExprTermResult<LocalTerm>>,
     inherited_symbol_tys: InheritedSymbolMap<ReducedTerm>,
     current_symbol_tys: CurrentSymbolMap<LocalTerm>,
-    unresolved_term_table: LocalTermTable,
+    local_term_table: LocalTermTable,
     pattern_expr_ty_infos: PatternExprMap<PatternExprTypeInfo>,
     pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
     return_ty: Option<ReducedTerm>,
@@ -66,7 +66,7 @@ impl<'a> ExprTypeEngine<'a> {
             expr_terms: ExprMap::new(expr_region_data.expr_arena()),
             inherited_symbol_tys: InheritedSymbolMap::new(symbol_region.inherited_symbol_arena()),
             current_symbol_tys: CurrentSymbolMap::new(symbol_region.current_symbol_arena()),
-            unresolved_term_table: Default::default(),
+            local_term_table: Default::default(),
             return_ty,
             pattern_expr_ty_infos: PatternExprMap::new(pattern_expr_region.pattern_expr_arena()),
             pattern_symbol_ty_infos: PatternSymbolMap::new(
@@ -97,7 +97,7 @@ impl<'a> ExprTypeEngine<'a> {
             self.expr_terms,
             self.inherited_symbol_tys,
             self.current_symbol_tys,
-            self.unresolved_term_table,
+            self.local_term_table,
         )
     }
 
@@ -110,11 +110,11 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     pub(crate) fn local_term_table(&self) -> &LocalTermTable {
-        &self.unresolved_term_table
+        &self.local_term_table
     }
 
     pub(crate) fn local_term_table_mut(&mut self) -> &mut LocalTermTable {
-        &mut self.unresolved_term_table
+        &mut self.local_term_table
     }
 
     pub(crate) fn expr_region_data(&self) -> &ExprRegionData {

@@ -55,7 +55,7 @@ impl From<BinaryOpr> for Precedence {
                 | BinaryComparisonOpr::Geq
                 | BinaryComparisonOpr::Greater => Precedence::OrdComparison,
             },
-            BinaryOpr::ShortcuitLogic(logic_opr) => match logic_opr {
+            BinaryOpr::ShortCircuitLogic(logic_opr) => match logic_opr {
                 BinaryShortcuitLogicOpr::And => Precedence::And,
                 BinaryShortcuitLogicOpr::Or => Precedence::Or,
             },
