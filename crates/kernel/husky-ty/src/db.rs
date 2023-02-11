@@ -12,6 +12,7 @@ pub trait TypeDb: salsa::DbWithJar<TypeJar> + SignatureDb {
         &'a self,
         toolchain: Toolchain,
     ) -> Result<ReducedTermMenu<'a>, &'a TermError>;
+    fn application_expansion(&self, reduced_term: ReducedTerm) -> ApplicationExpansion;
 }
 
 impl<Db> TypeDb for Db
@@ -48,5 +49,9 @@ where
 
     fn intrinsic_ty(&self, ty: ReducedTerm) -> IntrinsicType {
         intrinsic_ty(self, ty)
+    }
+
+    fn application_expansion(&self, reduced_term: ReducedTerm) -> ApplicationExpansion {
+        application_expansion(self, reduced_term)
     }
 }

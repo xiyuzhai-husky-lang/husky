@@ -25,7 +25,7 @@ pub(crate) fn application_expansion_salsa(
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = TypeDb, jar = TypeJar)]
-pub(crate) struct ApplicationExpansion {
+pub struct ApplicationExpansion {
     f: Term,
     arguments: Option<ApplicationArguments>,
 }
@@ -37,16 +37,20 @@ pub(crate) struct ApplicationArguments {
 }
 
 impl ApplicationExpansion {
-    pub(crate) fn f(&self) -> Term {
+    pub fn f(&self) -> Term {
         self.f
     }
 
-    pub(crate) fn arguments<'a>(&self, db: &'a dyn TypeDb) -> Option<&'a [Term]> {
+    pub fn opt_arguments<'a>(&self, db: &'a dyn TypeDb) -> Option<&'a [Term]> {
         self.arguments.map(|arguments| arguments.data(db) as &[_])
     }
 
+    pub fn arguments<'a>(&self, db: &'a dyn TypeDb) -> &'a [Term] {
+        self.opt_arguments(db).unwrap_or_default()
+    }
+
     fn apply(&self, db: &dyn TypeDb, argument: Term) -> Self {
-        let arguments = self.arguments(db).unwrap_or_default();
+        let arguments = self.arguments(db);
         let mut arguments = arguments.to_vec();
         arguments.push(argument);
         Self {

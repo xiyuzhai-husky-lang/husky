@@ -132,25 +132,24 @@ impl LocalTermExpectationRule {
         self.src_expr_idx
     }
 
-    fn resolve(&mut self, expectation_resolved: LocalTermExpectationResolved) {
+    fn resolve_ok(&mut self, expectation_resolved: LocalTermExpectationResolved) {
         self.resolve_progress =
             LocalTermExpectationResolveProgress::ResolvedOk(expectation_resolved)
     }
 
-    pub(super) fn err(&mut self, error: LocalTermExpectationResolveError) {
+    pub(super) fn resolve_err(&mut self, error: LocalTermExpectationResolveError) {
         self.resolve_progress = LocalTermExpectationResolveProgress::ResolvedErr(error)
     }
 }
 
-pub(super) struct LocalTermExpectationEffect {
-    expectation_resolved: LocalTermExpectationResolved,
-    actions: Vec<TermResolveAction>,
-}
-
-impl LocalTermExpectationEffect {
-    pub(super) fn actions(self) -> Vec<TermResolveAction> {
-        self.actions
-    }
+pub(super) enum LocalTermExpectationEffect {
+    ResolvedOk {
+        expectation_resolved: LocalTermExpectationResolved,
+        actions: Vec<TermResolveAction>,
+    },
+    ResolvedErr {
+        error: LocalTermExpectationResolveError,
+    },
 }
 
 #[derive(Default, Debug, PartialEq, Eq)]
@@ -202,10 +201,22 @@ impl LocalTermExpectationRules {
     pub(super) fn take_effect(
         &mut self,
         rule_idx: LocalTermExpectationRuleIdx,
-        effect: &LocalTermExpectationEffect,
-    ) {
-        self.arena
-            .update(rule_idx, |rule| rule.resolve(effect.expectation_resolved))
+        effect: LocalTermExpectationEffect,
+    ) -> Option<Vec<TermResolveAction>> {
+        match effect {
+            LocalTermExpectationEffect::ResolvedOk {
+                expectation_resolved,
+                actions,
+            } => {
+                self.arena
+                    .update(rule_idx, |rule| rule.resolve_ok(expectation_resolved));
+                Some(actions)
+            }
+            LocalTermExpectationEffect::ResolvedErr { error } => {
+                self.arena.update(rule_idx, |rule| rule.resolve_err(error));
+                None
+            }
+        }
     }
 }
 
@@ -369,14 +380,30 @@ impl<'a> ExprTypeEngine<'a> {
                     },
                 },
             },
-            LocalTermExpectationRuleVariant::ImplicitlyConvertibleTo { dst } => match rule.expectee
-            {
-                LocalTerm::Resolved(expectee) => match dst {
-                    LocalTerm::Resolved(_) => todo!(),
-                    LocalTerm::Unresolved(dst) => match table[dst].unresolved_term() {
-                        UnresolvedTerm::ImplicitSymbol(_) => match level {
-                            LocalTermResolveLevel::Weak => None,
-                            LocalTermResolveLevel::Strong => Some(LocalTermExpectationEffect {
+            LocalTermExpectationRuleVariant::ImplicitlyConvertibleTo { dst } => {
+                self.implicit_conversion_expectation_rule_effect(rule, dst, table, level)
+            }
+            LocalTermExpectationRuleVariant::Type => todo!(),
+            LocalTermExpectationRuleVariant::FrameVariableType => todo!(),
+            LocalTermExpectationRuleVariant::RefMut { lifetime } => todo!(),
+        }
+    }
+
+    fn implicit_conversion_expectation_rule_effect(
+        &self,
+        rule: &LocalTermExpectationRule,
+        dst: LocalTerm,
+        table: &LocalTermTable,
+        level: LocalTermResolveLevel,
+    ) -> Option<LocalTermExpectationEffect> {
+        match rule.expectee {
+            LocalTerm::Resolved(expectee) => match dst {
+                LocalTerm::Resolved(_) => todo!(),
+                LocalTerm::Unresolved(dst) => match table[dst].unresolved_term() {
+                    UnresolvedTerm::ImplicitSymbol(_) => match level {
+                        LocalTermResolveLevel::Weak => None,
+                        LocalTermResolveLevel::Strong => {
+                            Some(LocalTermExpectationEffect::ResolvedOk {
                                 actions: vec![TermResolveAction::SubstituteImplicitSymbol {
                                     implicit_symbol: dst,
                                     substitution: expectee.into(),
@@ -385,31 +412,106 @@ impl<'a> ExprTypeEngine<'a> {
                                     implicit_conversion: LocalTermImplicitConversion::None,
                                     local_term: expectee.into(),
                                 },
-                            }),
-                        },
-                        UnresolvedTerm::TypeApplication { ty, arguments } => todo!(),
-                    },
-                },
-                LocalTerm::Unresolved(expectee) => match table[expectee].unresolved_term() {
-                    UnresolvedTerm::ImplicitSymbol(_) => match level {
-                        LocalTermResolveLevel::Weak => None,
-                        LocalTermResolveLevel::Strong => Some(LocalTermExpectationEffect {
-                            actions: vec![TermResolveAction::SubstituteImplicitSymbol {
-                                implicit_symbol: expectee,
-                                substitution: dst,
-                            }],
-                            expectation_resolved: LocalTermExpectationResolved {
-                                implicit_conversion: LocalTermImplicitConversion::None,
-                                local_term: dst,
-                            },
-                        }),
+                            })
+                        }
                     },
                     UnresolvedTerm::TypeApplication { ty, arguments } => todo!(),
                 },
             },
-            LocalTermExpectationRuleVariant::Type => todo!(),
-            LocalTermExpectationRuleVariant::FrameVariableType => todo!(),
-            LocalTermExpectationRuleVariant::RefMut { lifetime } => todo!(),
+            LocalTerm::Unresolved(expectee) => self
+                .implicit_conversion_to_unresolved_expectee_expectation_rule_effect(
+                    table, expectee, level, dst,
+                ),
+        }
+    }
+
+    fn implicit_conversion_to_unresolved_expectee_expectation_rule_effect(
+        &self,
+        table: &LocalTermTable,
+        expectee: UnresolvedTermIdx,
+        level: LocalTermResolveLevel,
+        dst: LocalTerm,
+    ) -> Option<LocalTermExpectationEffect> {
+        match table[expectee].unresolved_term() {
+            UnresolvedTerm::ImplicitSymbol(_) => match level {
+                LocalTermResolveLevel::Weak => None,
+                LocalTermResolveLevel::Strong => Some(LocalTermExpectationEffect::ResolvedOk {
+                    actions: vec![TermResolveAction::SubstituteImplicitSymbol {
+                        implicit_symbol: expectee,
+                        substitution: dst,
+                    }],
+                    expectation_resolved: LocalTermExpectationResolved {
+                        implicit_conversion: LocalTermImplicitConversion::None,
+                        local_term: dst,
+                    },
+                }),
+            },
+            UnresolvedTerm::TypeApplication { ty, arguments } => self.implicit_conversion_from_unresolved_ty_application_to_unresolved_expectee_expectation_rule_effect(ty, dst),
+        }
+    }
+
+    /// implicit conversion from unresolved type application to unresolved expectee expectation rule effect
+    fn implicit_conversion_from_unresolved_ty_application_to_unresolved_expectee_expectation_rule_effect(
+        &self,
+        ty: &TypePath,
+        dst: LocalTerm,
+    ) -> Option<LocalTermExpectationEffect> {
+        let ty = *ty;
+        match ty {
+            ty if ty == self.entity_path_menu().ref_ty_path() => {
+                todo!()
+            }
+            ty if ty == self.entity_path_menu().ref_mut_ty_path() => {
+                todo!()
+            }
+            ty => {
+                match dst {
+                    LocalTerm::Resolved(dst) => {
+                        let dst_expansion = self.db().application_expansion(dst);
+                        match dst_expansion.f() {
+                            Term::Literal(_) => todo!(),
+                            Term::Symbol(_) => todo!(),
+                            Term::Entity(dst_f) => {
+                                match dst_f {
+                                    EntityPath::Module(_) => todo!(),
+                                    EntityPath::ModuleItem(dst_f) => match dst_f {
+                                        ModuleItemPath::Type(dst_f) => {
+                                            if dst_f != ty {
+                                                return Some(
+                                                    LocalTermExpectationEffect::ResolvedErr {
+                                                        error: todo!(),
+                                                    },
+                                                );
+                                            }
+                                            todo!()
+                                        }
+                                        ModuleItemPath::Trait(_) => todo!(),
+                                        ModuleItemPath::Form(_) => todo!(),
+                                    },
+                                    EntityPath::AssociatedItem(_) => todo!(),
+                                    EntityPath::Variant(_) => todo!(),
+                                }
+                                // let dst_arguments = &dst_expansion.arguments(self.db());
+                                // if dst_arguments.len() != arguments.len() {
+                                //     return Err(todo!());
+                                // }
+                                // p!(dst.debug(self.db()));
+                                todo!()
+                            }
+                            Term::Category(_) => todo!(),
+                            Term::Universe(_) => todo!(),
+                            Term::Curry(_) => todo!(),
+                            Term::Ritchie(_) => todo!(),
+                            Term::Abstraction(_) => todo!(),
+                            Term::Application(_) => todo!(),
+                            Term::Subentity(_) => todo!(),
+                            Term::AsTraitSubentity(_) => todo!(),
+                            Term::TraitConstraint(_) => todo!(),
+                        }
+                    }
+                    LocalTerm::Unresolved(_) => todo!(),
+                }
+            }
         }
     }
 }
