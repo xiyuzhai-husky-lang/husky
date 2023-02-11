@@ -76,13 +76,17 @@ impl<'a> ExprTypeEngine<'a> {
                 let mut expected_frame_var_ty: Option<LocalTerm> = None;
                 if let Some(bound_expr) = particulars.range.initial_boundary.bound_expr {
                     match self.infer_new_expr_ty(bound_expr, LocalTermExpectation::None) {
-                        Some(_) => todo!(),
-                        None => todo!(),
+                        Some(bound_expr_ty) => expected_frame_var_ty = Some(bound_expr_ty),
+                        None => (),
                     }
                 }
                 if let Some(bound_expr) = particulars.range.final_boundary.bound_expr {
                     let expectation = match expected_frame_var_ty {
-                        Some(_) => todo!(),
+                        Some(expected_frame_var_ty) => {
+                            LocalTermExpectation::ImplicitlyConvertibleTo {
+                                ty: expected_frame_var_ty,
+                            }
+                        }
                         None => LocalTermExpectation::None,
                     };
                     match self.infer_new_expr_ty(bound_expr, expectation) {
@@ -108,11 +112,11 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             } => todo!(),
             Stmt::ForExt { ref block, .. } => {
+                // ad hoc: handle for ext particulars
                 if let Ok(block) = block {
                     let expr_expectation = self.expect_unit();
                     self.infer_new_block(*block, expr_expectation);
                 }
-                todo!();
                 Some(self.reduced_term_menu.unit().into())
             }
             Stmt::While {
@@ -331,10 +335,10 @@ impl BranchTypes {
         match block {
             Ok(stmts) => match engine.infer_new_block(*stmts, self.expr_expectation) {
                 Some(LocalTerm::Resolved(term)) if term == engine.reduced_term_menu.never() => (),
-                Some(term) => {
-                    p!(term.debug(engine.db));
-                    todo!()
-                }
+                Some(term) => match self.ever_ty {
+                    Some(_) => todo!(),
+                    None => self.ever_ty = Some(term),
+                },
                 None => self.has_error = true,
             },
             Err(_) => self.has_error = true,
