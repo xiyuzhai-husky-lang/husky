@@ -47,7 +47,7 @@ pub(crate) fn application_ty_field_ty(
         Term::Entity(path) => entity_application_ty_field_ty(
             db,
             path.ty_path().expect("should be type"),
-            application_expansion.arguments(db).unwrap(),
+            application_expansion.opt_arguments(db).unwrap(),
             ident,
         ),
         Term::Category(_) => todo!(),

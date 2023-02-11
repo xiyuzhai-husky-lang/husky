@@ -87,15 +87,18 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn resolve_as_much_as_possible(&mut self, level: LocalTermResolveLevel) {
         while let Some((rule_idx, effect)) = self.next_expectation_effect(level) {
-            self.local_term_table_mut()
+            if let Some(actions) = self
+                .local_term_table_mut()
                 .expectation_rules
-                .take_effect(rule_idx, &effect);
-            for action in effect.actions() {
-                match action {
-                    TermResolveAction::SubstituteImplicitSymbol {
-                        implicit_symbol,
-                        substitution,
-                    } => self.substitute_implicit_symbol(implicit_symbol, substitution),
+                .take_effect(rule_idx, effect)
+            {
+                for action in actions {
+                    match action {
+                        TermResolveAction::SubstituteImplicitSymbol {
+                            implicit_symbol,
+                            substitution,
+                        } => self.substitute_implicit_symbol(implicit_symbol, substitution),
+                    }
                 }
             }
         }

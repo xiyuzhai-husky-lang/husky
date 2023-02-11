@@ -285,7 +285,7 @@ impl<'a> ExprTypeEngine<'a> {
             {
                 Ok(target_substitution) => target_substitution,
                 Err(_) => {
-                    rule.err(
+                    rule.resolve_err(
                         DerivedLocalTermExpectationResolveError::TargetSubstitutionFailure.into(),
                     );
                     continue;
