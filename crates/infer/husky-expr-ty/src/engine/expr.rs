@@ -110,7 +110,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             } => {
                 let function_ty = self.infer_new_expr_ty(function, ExprTypeExpectation::None);
-                self.calc_call_ty(function_ty, None, implicit_arguments.as_ref(), arguments)
+                self.calc_call_ty(function_ty, implicit_arguments.as_ref(), arguments)
             }
             Expr::Field {
                 owner, ident_token, ..
@@ -128,14 +128,14 @@ impl<'a> ExprTypeEngine<'a> {
                 }
             }
             Expr::MethodCall {
-                self_expr,
+                self_argument,
                 ident_token,
                 ref implicit_arguments,
                 nonself_arguments,
                 ..
             } => {
                 let Some(self_expr_ty) =
-                    self.infer_new_expr_ty_resolved( self_expr, ExprTypeExpectation::None)
+                    self.infer_new_expr_ty_resolved( self_argument, ExprTypeExpectation::None)
                     else {
                         if let Some(implicit_arguments) = implicit_arguments {
                             todo!()
@@ -149,12 +149,7 @@ impl<'a> ExprTypeEngine<'a> {
                     Ok(_) => todo!(),
                     Err(e) => return Err(e.into()),
                 };
-                self.calc_call_ty(
-                    method_ty,
-                    Some(self_expr_ty),
-                    implicit_arguments.as_ref(),
-                    nonself_arguments,
-                )
+                self.calc_call_ty(method_ty, implicit_arguments.as_ref(), nonself_arguments)
             }
             Expr::TemplateInstantiation {
                 template,
@@ -197,9 +192,8 @@ impl<'a> ExprTypeEngine<'a> {
     fn calc_call_ty(
         &mut self,
         callable_ty: Option<LocalTerm>,
-        self_ty: Option<ReducedTerm>,
         implicit_arguments: Option<&ImplicitArgumentList>,
-        arguments: ExprIdxRange,
+        nonself_arguments: ExprIdxRange,
     ) -> ExprTypeResult<LocalTerm> {
         let Some(mut callable_ty) = callable_ty
             else {
@@ -208,7 +202,7 @@ impl<'a> ExprTypeEngine<'a> {
                         self.infer_new_expr_ty(argument, ExprTypeExpectation::None);
                     }
                 }
-                for argument in arguments {
+                for argument in nonself_arguments {
                     self.infer_new_expr_ty(argument, ExprTypeExpectation::None);
                 }
                 return Err(DerivedExprTypeError::CallableTypeError.into())
@@ -231,10 +225,16 @@ impl<'a> ExprTypeEngine<'a> {
                         TermRitchieKind::FnMut => todo!(),
                     }
                     self.calc_call_ty_aux(
-                        callable_ty.parameter_tys(self.db).iter().map(|_| todo!()),
+                        callable_ty
+                            .parameter_tys(self.db)
+                            .iter()
+                            .map(|parameter_ty| {
+                                // ad hoc
+                                // needs to consider liason
+                                Some(self.db.reduced_term(parameter_ty.ty()).into())
+                            }),
                         Some(self.db.reduced_term(callable_ty.return_ty(self.db)).into()),
-                        self_ty,
-                        arguments,
+                        nonself_arguments,
                     )
                 }
                 Term::Abstraction(_) => todo!(),
@@ -249,12 +249,30 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_call_ty_aux(
         &mut self,
-        parameter_tys: impl Iterator<Item = Option<LocalTerm>>,
+        mut parameter_tys: impl Iterator<Item = Option<LocalTerm>>,
         return_ty: Option<LocalTerm>,
-        self_ty: Option<ReducedTerm>,
         arguments: ExprIdxRange,
     ) -> ExprTypeResult<LocalTerm> {
-        todo!()
+        let mut arguments = arguments.into_iter();
+        let mut i = 0;
+        loop {
+            match (parameter_tys.next(), arguments.next()) {
+                (Some(parameter_ty), Some(argument)) => {
+                    i += 1;
+                    let expectation = match parameter_ty {
+                        Some(parameter_ty) => {
+                            ExprTypeExpectation::ImplicitlyConvertibleTo { ty: parameter_ty }
+                        }
+                        None => ExprTypeExpectation::None,
+                    };
+                    self.infer_new_expr_ty(argument, expectation);
+                }
+                (None, None) => break,
+                (None, Some(_)) => todo!(),
+                (Some(_), None) => todo!(),
+            }
+        }
+        return_ty.ok_or(DerivedExprTypeError::ReturnTypeNotGivenInRitchieCall.into())
     }
 
     fn calc_binary_ty(
@@ -551,7 +569,7 @@ impl<'a> ExprTypeEngine<'a> {
                     IntegerLikeLiteral::ISize(_) => todo!(),
                     IntegerLikeLiteral::R8(_) => todo!(),
                     IntegerLikeLiteral::R16(_) => todo!(),
-                    IntegerLikeLiteral::R32(_) => todo!(),
+                    IntegerLikeLiteral::R32(_) => Ok(self.reduced_term_menu.r32().into()),
                     IntegerLikeLiteral::R64(_) => todo!(),
                     IntegerLikeLiteral::R128(_) => todo!(),
                     IntegerLikeLiteral::RSize(_) => todo!(),

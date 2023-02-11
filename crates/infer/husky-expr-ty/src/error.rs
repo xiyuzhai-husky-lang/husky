@@ -74,8 +74,11 @@ pub enum DerivedExprTypeError {
     CallableTypeError,
     #[error("function type not inferred in application or function call")]
     FunctionTypeNotInferredInApplicationOrFunctionCall,
+    // MOM
     #[error("AsOperationRightOperandTermNotInferred")]
     AsOperationRightOperandTermNotInferred,
+    #[error("ReturnTypeNotGivenInRitchieCall")]
+    ReturnTypeNotGivenInRitchieCall,
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;
