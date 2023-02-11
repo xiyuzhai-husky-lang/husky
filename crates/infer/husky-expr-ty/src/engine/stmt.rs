@@ -15,16 +15,7 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn infer_new_nonlast_stmt(&mut self, stmt_idx: StmtIdx) {
         let expect_unit = self.expect_unit();
-        match self.calc_stmt(stmt_idx, expect_unit) {
-            Some(ty) => match ty {
-                LocalTerm::Resolved(ty) => match ty {
-                    ty if ty == self.reduced_term_menu.unit() => return,
-                    ty => todo!(),
-                },
-                LocalTerm::Unresolved(_) => todo!(),
-            },
-            None => (),
-        }
+        self.calc_stmt(stmt_idx, expect_unit);
     }
 
     fn expect_unit(&mut self) -> LocalTermExpectation {
@@ -315,7 +306,7 @@ impl<'a> ExprTypeEngine<'a> {
             branch_tys.visit_branch(self, &else_branch.block);
         }
         // exhaustive iff else branch exists
-        branch_tys.merge(else_branch.is_some())
+        branch_tys.merge(else_branch.is_some(), &self.reduced_term_menu)
     }
 }
 
@@ -323,7 +314,7 @@ struct BranchTypes {
     /// this is true if the type of one of the branches cannot be inferred
     has_error: bool,
     /// this is true if the type of one of the branches is inferred to be not never
-    has_ever: bool,
+    ever_ty: Option<LocalTerm>,
     expr_expectation: LocalTermExpectation,
 }
 
@@ -331,7 +322,7 @@ impl BranchTypes {
     fn new(expr_expectation: LocalTermExpectation) -> Self {
         Self {
             has_error: false,
-            has_ever: false,
+            ever_ty: None,
             expr_expectation,
         }
     }
@@ -350,13 +341,13 @@ impl BranchTypes {
         };
     }
 
-    fn merge(self, exhaustive: bool) -> Option<LocalTerm> {
+    fn merge(self, exhaustive: bool, menu: &ReducedTermMenu) -> Option<LocalTerm> {
         if self.has_error {
             return None;
         }
-        if self.has_ever {
-            return todo!();
+        if let Some(ever_ty) = self.ever_ty {
+            return ever_ty.into();
         }
-        todo!()
+        Some(menu.never().into())
     }
 }
