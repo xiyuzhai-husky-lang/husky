@@ -1,4 +1,5 @@
-mod expr;
+mod expr_term;
+mod expr_ty;
 mod stmt;
 mod symbol;
 mod util;
