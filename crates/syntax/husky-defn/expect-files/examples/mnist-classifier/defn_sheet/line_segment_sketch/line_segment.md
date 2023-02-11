@@ -682,7 +682,7 @@ Ok(
                                                 },
                                             },
                                             Expr::MethodCall {
-                                                self_expr: 1,
+                                                self_argument: 1,
                                                 dot_token_idx: TokenIdx(
                                                     32,
                                                 ),
@@ -1279,7 +1279,7 @@ Ok(
                                                 ),
                                             ),
                                             Expr::MethodCall {
-                                                self_expr: 0,
+                                                self_argument: 0,
                                                 dot_token_idx: TokenIdx(
                                                     53,
                                                 ),
@@ -1326,7 +1326,7 @@ Ok(
                                                 inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                             },
                                             Expr::MethodCall {
-                                                self_expr: 3,
+                                                self_argument: 3,
                                                 dot_token_idx: TokenIdx(
                                                     63,
                                                 ),
@@ -1368,7 +1368,7 @@ Ok(
                                                 },
                                             },
                                             Expr::MethodCall {
-                                                self_expr: 6,
+                                                self_argument: 6,
                                                 dot_token_idx: TokenIdx(
                                                     70,
                                                 ),
@@ -1415,7 +1415,7 @@ Ok(
                                                 },
                                             },
                                             Expr::MethodCall {
-                                                self_expr: 11,
+                                                self_argument: 11,
                                                 dot_token_idx: TokenIdx(
                                                     79,
                                                 ),
@@ -1462,7 +1462,7 @@ Ok(
                                                 inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                             },
                                             Expr::MethodCall {
-                                                self_expr: 14,
+                                                self_argument: 14,
                                                 dot_token_idx: TokenIdx(
                                                     91,
                                                 ),
@@ -1504,7 +1504,7 @@ Ok(
                                                 },
                                             },
                                             Expr::MethodCall {
-                                                self_expr: 17,
+                                                self_argument: 17,
                                                 dot_token_idx: TokenIdx(
                                                     98,
                                                 ),
@@ -1551,7 +1551,7 @@ Ok(
                                                 },
                                             },
                                             Expr::MethodCall {
-                                                self_expr: 22,
+                                                self_argument: 22,
                                                 dot_token_idx: TokenIdx(
                                                     107,
                                                 ),
@@ -1593,7 +1593,7 @@ Ok(
                                                 },
                                             },
                                             Expr::MethodCall {
-                                                self_expr: 24,
+                                                self_argument: 24,
                                                 dot_token_idx: TokenIdx(
                                                     114,
                                                 ),
@@ -1625,7 +1625,7 @@ Ok(
                                                 },
                                             },
                                             Expr::MethodCall {
-                                                self_expr: 26,
+                                                self_argument: 26,
                                                 dot_token_idx: TokenIdx(
                                                     119,
                                                 ),
@@ -1647,7 +1647,7 @@ Ok(
                                                 ),
                                             },
                                             Expr::MethodCall {
-                                                self_expr: 27,
+                                                self_argument: 27,
                                                 dot_token_idx: TokenIdx(
                                                     125,
                                                 ),

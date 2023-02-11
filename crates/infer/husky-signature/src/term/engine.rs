@@ -354,7 +354,7 @@ impl<'a> SignatureTermEngine<'a> {
                                 ident_token,
                             } => todo!(),
                             Expr::MethodCall {
-                                self_expr,
+                                self_argument: self_expr,
                                 dot_token_idx,
                                 ident_token,
                                 ref implicit_arguments,

@@ -330,7 +330,7 @@ Ok(
                                             ),
                                         },
                                         Expr::MethodCall {
-                                            self_expr: 2,
+                                            self_argument: 2,
                                             dot_token_idx: TokenIdx(
                                                 62,
                                             ),
@@ -1036,7 +1036,7 @@ Ok(
                                             ),
                                         },
                                         Expr::MethodCall {
-                                            self_expr: 1,
+                                            self_argument: 1,
                                             dot_token_idx: TokenIdx(
                                                 107,
                                             ),

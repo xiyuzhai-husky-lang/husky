@@ -434,7 +434,7 @@ Ok(
                                             inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
                                         Expr::MethodCall {
-                                            self_expr: 0,
+                                            self_argument: 0,
                                             dot_token_idx: TokenIdx(
                                                 22,
                                             ),
@@ -2971,7 +2971,7 @@ Ok(
                                             ropd: 49,
                                         },
                                         Expr::MethodCall {
-                                            self_expr: 45,
+                                            self_argument: 45,
                                             dot_token_idx: TokenIdx(
                                                 200,
                                             ),
@@ -3065,7 +3065,7 @@ Ok(
                                             ropd: 57,
                                         },
                                         Expr::MethodCall {
-                                            self_expr: 53,
+                                            self_argument: 53,
                                             dot_token_idx: TokenIdx(
                                                 212,
                                             ),

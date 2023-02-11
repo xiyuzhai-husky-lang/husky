@@ -135,7 +135,7 @@ pub enum Expr {
         ident_token: IdentifierToken,
     },
     MethodCall {
-        self_expr: ExprIdx,
+        self_argument: ExprIdx,
         dot_token_idx: TokenIdx,
         ident_token: IdentifierToken,
         implicit_arguments: Option<ImplicitArgumentList>,

@@ -866,7 +866,7 @@ Ok(
                                             },
                                         },
                                         Expr::MethodCall {
-                                            self_expr: 3,
+                                            self_argument: 3,
                                             dot_token_idx: TokenIdx(
                                                 118,
                                             ),
@@ -1028,7 +1028,7 @@ Ok(
                                             ),
                                         },
                                         Expr::MethodCall {
-                                            self_expr: 19,
+                                            self_argument: 19,
                                             dot_token_idx: TokenIdx(
                                                 145,
                                             ),
@@ -1102,7 +1102,7 @@ Ok(
                                             ),
                                         },
                                         Expr::MethodCall {
-                                            self_expr: 26,
+                                            self_argument: 26,
                                             dot_token_idx: TokenIdx(
                                                 159,
                                             ),
@@ -1138,7 +1138,7 @@ Ok(
                                             },
                                         ),
                                         Expr::MethodCall {
-                                            self_expr: 27,
+                                            self_argument: 27,
                                             dot_token_idx: TokenIdx(
                                                 163,
                                             ),
@@ -1735,7 +1735,7 @@ Ok(
                                             },
                                         },
                                         Expr::MethodCall {
-                                            self_expr: 80,
+                                            self_argument: 80,
                                             dot_token_idx: TokenIdx(
                                                 248,
                                             ),
@@ -1757,7 +1757,7 @@ Ok(
                                             ),
                                         },
                                         Expr::MethodCall {
-                                            self_expr: 82,
+                                            self_argument: 82,
                                             dot_token_idx: TokenIdx(
                                                 256,
                                             ),
@@ -1849,7 +1849,7 @@ Ok(
                                             },
                                         },
                                         Expr::MethodCall {
-                                            self_expr: 89,
+                                            self_argument: 89,
                                             dot_token_idx: TokenIdx(
                                                 265,
                                             ),
@@ -1871,7 +1871,7 @@ Ok(
                                             ),
                                         },
                                         Expr::MethodCall {
-                                            self_expr: 91,
+                                            self_argument: 91,
                                             dot_token_idx: TokenIdx(
                                                 273,
                                             ),

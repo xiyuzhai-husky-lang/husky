@@ -90,7 +90,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             ident_token,
                             implicit_arguments,
                         } => Expr::MethodCall {
-                            self_expr,
+                            self_argument: self_expr,
                             dot_token_idx,
                             ident_token,
                             implicit_arguments,
