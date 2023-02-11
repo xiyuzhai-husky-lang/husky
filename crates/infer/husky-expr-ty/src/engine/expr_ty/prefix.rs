@@ -13,7 +13,7 @@ impl<'a> ExprTypeEngine<'a> {
                     Some(opd_ty) => match opd_ty {
                         LocalTerm::Resolved(_) => todo!(),
                         LocalTerm::Unresolved(unresolved_term) => {
-                            match self.unresolved_term_table[unresolved_term].unresolved_term() {
+                            match self.local_term_table[unresolved_term].unresolved_term() {
                                 UnresolvedTerm::ImplicitSymbol(implicit_symbol) => {
                                     match implicit_symbol.variant() {
                                         ImplicitSymbolVariant::Lifetime => todo!(),

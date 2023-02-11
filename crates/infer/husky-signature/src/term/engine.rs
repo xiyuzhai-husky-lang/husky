@@ -209,7 +209,7 @@ impl<'a> SignatureTermEngine<'a> {
                 match opr {
                     BinaryOpr::PureClosed(_) => todo!(),
                     BinaryOpr::Comparison(_) => todo!(),
-                    BinaryOpr::ShortcuitLogic(_) => todo!(),
+                    BinaryOpr::ShortCircuitLogic(_) => todo!(),
                     BinaryOpr::Assign(_) => todo!(),
                     BinaryOpr::ScopeResolution => todo!(),
                     BinaryOpr::Curry => Ok(TermCurry::new(
