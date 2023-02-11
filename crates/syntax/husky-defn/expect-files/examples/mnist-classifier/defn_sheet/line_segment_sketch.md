@@ -15805,7 +15805,7 @@ Ok(
                                                     234,
                                                 ),
                                                 ident: `i`,
-                                                current_symbol_idx: 5,
+                                                frame_var_symbol_idx: 5,
                                                 current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                     15,
                                                 ),
@@ -16542,6 +16542,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
+                                                frame_var_symbol_idx: 5,
                                                 eol_colon: Ok(
                                                     EolColonToken {
                                                         token_idx: TokenIdx(

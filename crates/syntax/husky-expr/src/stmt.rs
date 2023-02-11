@@ -43,6 +43,7 @@ pub enum Stmt {
     ForBetween {
         for_token: ForToken,
         particulars: ForBetweenParticulars,
+        frame_var_symbol_idx: CurrentSymbolIdx,
         eol_colon: ExprResult<EolColonToken>,
         block: ExprResult<StmtIdxRange>,
     },
