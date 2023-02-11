@@ -60,13 +60,63 @@ impl<'a> ExprTypeEngine<'a> {
             BinaryPureClosedOpr::BitAnd => todo!(),
             BinaryPureClosedOpr::BitOr => todo!(),
             BinaryPureClosedOpr::BitXor => todo!(),
-            BinaryPureClosedOpr::Div => todo!(),
-            BinaryPureClosedOpr::Mul => todo!(),
-            BinaryPureClosedOpr::RemEuclid => todo!(),
-            BinaryPureClosedOpr::Power => todo!(),
+            BinaryPureClosedOpr::Div => match lopd_ty {
+                lopd_ty if lopd_ty == menu.i32() => match ropd_ty {
+                    ropd_ty if ropd_ty == menu.i32() => Ok(menu.i32().into()),
+                    _ => Err(todo!()),
+                },
+                lopd_ty if lopd_ty == menu.i64() => match ropd_ty {
+                    ropd_ty if ropd_ty == menu.i64() => Ok(menu.i64().into()),
+                    _ => Err(todo!()),
+                },
+                _ => Err(todo!()),
+            },
+            BinaryPureClosedOpr::Mul => match lopd_ty {
+                lopd_ty if lopd_ty == menu.i32() => match ropd_ty {
+                    ropd_ty if ropd_ty == menu.i32() => Ok(menu.i32().into()),
+                    _ => Err(todo!()),
+                },
+                lopd_ty if lopd_ty == menu.i64() => match ropd_ty {
+                    ropd_ty if ropd_ty == menu.i64() => Ok(menu.i64().into()),
+                    _ => Err(todo!()),
+                },
+                _ => Err(todo!()),
+            },
+            BinaryPureClosedOpr::RemEuclid => match lopd_ty {
+                lopd_ty if lopd_ty == menu.i32() => match ropd_ty {
+                    ropd_ty if ropd_ty == menu.i32() => Ok(menu.i32().into()),
+                    _ => Err(todo!()),
+                },
+                lopd_ty if lopd_ty == menu.i64() => match ropd_ty {
+                    ropd_ty if ropd_ty == menu.i64() => Ok(menu.i64().into()),
+                    _ => Err(todo!()),
+                },
+                _ => Err(todo!()),
+            },
+            BinaryPureClosedOpr::Power => match lopd_ty {
+                lopd_ty if lopd_ty == menu.i32() => match ropd_ty {
+                    ropd_ty if ropd_ty == menu.i32() => Ok(menu.i32().into()),
+                    _ => Err(todo!()),
+                },
+                lopd_ty if lopd_ty == menu.i64() => match ropd_ty {
+                    ropd_ty if ropd_ty == menu.i64() => Ok(menu.i64().into()),
+                    _ => Err(todo!()),
+                },
+                _ => Err(todo!()),
+            },
             BinaryPureClosedOpr::Shl => todo!(),
             BinaryPureClosedOpr::Shr => todo!(),
-            BinaryPureClosedOpr::Sub => todo!(),
+            BinaryPureClosedOpr::Sub => match lopd_ty {
+                lopd_ty if lopd_ty == menu.i32() => match ropd_ty {
+                    ropd_ty if ropd_ty == menu.i32() => Ok(menu.i32().into()),
+                    _ => Err(todo!()),
+                },
+                lopd_ty if lopd_ty == menu.i64() => match ropd_ty {
+                    ropd_ty if ropd_ty == menu.i64() => Ok(menu.i64().into()),
+                    _ => Err(todo!()),
+                },
+                _ => Err(todo!()),
+            },
         }
     }
 
