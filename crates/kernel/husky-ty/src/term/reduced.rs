@@ -158,16 +158,16 @@ impl<'a> ReducedTermMenu<'a> {
         ReducedTerm(self.term_menu.core_ops_not())
     }
 
-    pub fn option_ty(&self) -> ReducedTerm {
-        ReducedTerm(self.term_menu.option_ty())
+    pub fn option_ty_path(&self) -> ReducedTerm {
+        ReducedTerm(self.term_menu.option_ty_path())
     }
 
-    pub fn slice_ty(&self) -> ReducedTerm {
-        ReducedTerm(self.term_menu.slice_ty())
+    pub fn slice_ty_path(&self) -> ReducedTerm {
+        ReducedTerm(self.term_menu.slice_ty_path())
     }
 
-    pub fn ref_ty(&self) -> ReducedTerm {
-        ReducedTerm(self.term_menu.ref_ty())
+    pub fn ref_ty_path(&self) -> ReducedTerm {
+        ReducedTerm(self.term_menu.ref_ty_path())
     }
 
     pub fn trai(&self) -> ReducedTerm {
@@ -206,8 +206,8 @@ impl<'a> ReducedTermMenu<'a> {
         ReducedTerm(self.term_menu.lifetime_ty())
     }
 
-    pub fn str_ty(&self) -> ReducedTerm {
-        ReducedTerm(self.term_menu.str_ty())
+    pub fn str_ty_path(&self) -> ReducedTerm {
+        ReducedTerm(self.term_menu.str_ty_path())
     }
 
     pub fn term_menu(&self) -> &'a TermMenu {

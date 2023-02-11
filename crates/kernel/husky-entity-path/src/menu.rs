@@ -40,10 +40,11 @@ pub struct EntityPathMenu {
     core_ops_neg: TraitPath,
     // Not	The unary logical negation operator !.
     core_ops_not: TraitPath,
-    option_ty: TypePath,
-    slice_ty: TypePath,
-    str_ty: TypePath,
-    ref_ty: TypePath,
+    option_ty_path: TypePath,
+    slice_ty_path: TypePath,
+    str_ty_path: TypePath,
+    ref_ty_path: TypePath,
+    ref_mut_ty_path: TypePath,
     list_ty: TypePath,
     // prelude
     unit: TypePath,
@@ -158,28 +159,35 @@ impl EntityPathMenu {
             db.it_ident_borrowed("Not").unwrap(),
             ModuleItemConnection::Connected,
         );
-        let option_ty = TypePath::new(
+        let option_ty_path = TypePath::new(
             db,
             core_option,
             db.it_ident_borrowed("Option").unwrap(),
             ModuleItemConnection::Connected,
             TypeKind::Enum,
         );
-        let ref_ty = TypePath::new(
+        let ref_ty_path = TypePath::new(
             db,
             core_mem,
             db.it_ident_borrowed("Ref").unwrap(),
             ModuleItemConnection::Connected,
             TypeKind::Alien,
         );
-        let slice_ty = TypePath::new(
+        let ref_mut_ty_path = TypePath::new(
+            db,
+            core_mem,
+            db.it_ident_borrowed("RefMut").unwrap(),
+            ModuleItemConnection::Connected,
+            TypeKind::Alien,
+        );
+        let slice_ty_path = TypePath::new(
             db,
             core_slice,
             db.it_ident_borrowed("Slice").unwrap(),
             ModuleItemConnection::Connected,
             TypeKind::Alien,
         );
-        let str_ty = TypePath::new(
+        let str_ty_path = TypePath::new(
             db,
             core_str,
             db.it_ident_borrowed("str").unwrap(),
@@ -193,14 +201,14 @@ impl EntityPathMenu {
             ModuleItemConnection::Connected,
             TypeKind::Alien,
         );
-        let i32 = TypePath::new(
+        let i32_ty_path = TypePath::new(
             db,
             core_num,
             word_menu.i32(),
             ModuleItemConnection::Connected,
             TypeKind::Alien,
         );
-        let i64 = TypePath::new(
+        let i64_ty_path = TypePath::new(
             db,
             core_num,
             word_menu.i64(),
@@ -306,16 +314,17 @@ impl EntityPathMenu {
             core_ops_mul_assign,
             core_ops_neg,
             core_ops_not,
-            option_ty,
-            slice_ty,
-            str_ty,
-            ref_ty,
+            option_ty_path,
+            slice_ty_path,
+            str_ty_path,
+            ref_ty_path,
+            ref_mut_ty_path,
             list_ty,
             unit,
             never,
             bool,
-            i32,
-            i64,
+            i32: i32_ty_path,
+            i64: i64_ty_path,
             f32,
             f64,
             r32,
@@ -416,20 +425,24 @@ impl EntityPathMenu {
         self.core_ops_not
     }
 
-    pub fn option_ty(&self) -> TypePath {
-        self.option_ty
+    pub fn option_ty_path(&self) -> TypePath {
+        self.option_ty_path
     }
 
-    pub fn slice_ty(&self) -> TypePath {
-        self.slice_ty
+    pub fn slice_ty_path(&self) -> TypePath {
+        self.slice_ty_path
     }
 
-    pub fn str_ty(&self) -> TypePath {
-        self.str_ty
+    pub fn str_ty_path(&self) -> TypePath {
+        self.str_ty_path
     }
 
-    pub fn ref_ty(&self) -> TypePath {
-        self.ref_ty
+    pub fn ref_ty_path(&self) -> TypePath {
+        self.ref_ty_path
+    }
+
+    pub fn ref_mut_ty_path(&self) -> TypePath {
+        self.ref_mut_ty_path
     }
 
     pub fn list_ty(&self) -> TypePath {

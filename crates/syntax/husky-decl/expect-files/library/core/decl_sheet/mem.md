@@ -10,6 +10,15 @@ Ok(
                     },
                 ),
             ),
+            Err(
+                Expr(
+                    MissingRightAngleBracket {
+                        langle_token_idx: TokenIdx(
+                            14,
+                        ),
+                    },
+                ),
+            ),
         ],
     },
 )

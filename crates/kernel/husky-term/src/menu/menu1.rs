@@ -21,11 +21,12 @@ impl TermMenu1 {
         Self {
             eval_ref_ty: TermApplication::new(
                 db,
-                menu0.ref_ty().into(),
+                menu0.ref_ty_path().into(),
                 menu0.eval_lifetime().into(),
             )
             .into(),
-            static_ref_ty: TermApplication::new(db, menu0.ref_ty(), menu0.static_lifetime()).into(),
+            static_ref_ty: TermApplication::new(db, menu0.ref_ty_path(), menu0.static_lifetime())
+                .into(),
             parent: menu0,
         }
     }

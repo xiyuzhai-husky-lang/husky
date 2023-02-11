@@ -123,7 +123,7 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Resolved(
+                resolve_progress: ResolvedOk(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
                         local_term: Resolved(
@@ -210,7 +210,7 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Resolved(
+                resolve_progress: ResolvedOk(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
                         local_term: Resolved(
@@ -281,7 +281,7 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Resolved(
+                resolve_progress: ResolvedOk(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
                         local_term: Resolved(
@@ -352,7 +352,7 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Resolved(
+                resolve_progress: ResolvedOk(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
                         local_term: Resolved(
@@ -423,7 +423,7 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Resolved(
+                resolve_progress: ResolvedOk(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
                         local_term: Resolved(

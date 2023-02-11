@@ -110,7 +110,7 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Resolved(
+                resolve_progress: ResolvedOk(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
                         local_term: Resolved(
@@ -181,7 +181,7 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Resolved(
+                resolve_progress: ResolvedOk(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
                         local_term: Resolved(
@@ -215,7 +215,7 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: Resolved(
+                resolve_progress: ResolvedOk(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
                         local_term: Resolved(
@@ -249,7 +249,7 @@
                 expectation_rule_idx: Some(
                     1,
                 ),
-                resolve_progress: Resolved(
+                resolve_progress: ResolvedOk(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
                         local_term: Resolved(
@@ -281,7 +281,7 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Resolved(
+                resolve_progress: ResolvedOk(
                     LocalTermExpectationResolved {
                         implicit_conversion: None,
                         local_term: Resolved(
@@ -311,7 +311,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 48,
+                                                    value: 49,
                                                 },
                                             ),
                                         ),
@@ -353,7 +353,7 @@
                                 ),
                             ),
                             variant: Type,
-                            resolve_progress: Resolved(
+                            resolve_progress: ResolvedOk(
                                 LocalTermExpectationResolved {
                                     implicit_conversion: None,
                                     local_term: Resolved(
@@ -384,7 +384,7 @@
                                 ),
                             ),
                             variant: Type,
-                            resolve_progress: Resolved(
+                            resolve_progress: ResolvedOk(
                                 LocalTermExpectationResolved {
                                     implicit_conversion: None,
                                     local_term: Resolved(

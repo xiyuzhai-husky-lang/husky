@@ -245,7 +245,7 @@ impl<'a> SignatureTermEngine<'a> {
                     PrefixOpr::Slice => todo!(),
                     PrefixOpr::CyclicSlice => todo!(),
                     PrefixOpr::Array(_) => todo!(),
-                    PrefixOpr::Option => self.term_menu.option_ty(),
+                    PrefixOpr::Option => self.term_menu.option_ty_path(),
                 };
                 Ok(TermApplication::new(self.db, tmpl, opd).into())
             }
@@ -277,9 +277,12 @@ impl<'a> SignatureTermEngine<'a> {
                         lbox_token_idx,
                         colon_token_idx,
                         rbox_token,
-                    } => Ok(
-                        TermApplication::new(self.db, self.term_menu.slice_ty(), argument).into(),
-                    ),
+                    } => {
+                        Ok(
+                            TermApplication::new(self.db, self.term_menu.slice_ty_path(), argument)
+                                .into(),
+                        )
+                    }
                     Expr::NewBoxList {
                         caller: None,
                         items,

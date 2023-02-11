@@ -14,6 +14,17 @@ Ok(
                         },
                     ),
                 },
+                NativeEntitySymbolEntry {
+                    ident: `RefMut`,
+                    accessibility: Public,
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: TypePath(`core::mem::RefMut`, `Alien`),
+                            accessibility: Public,
+                            ast_idx: 1,
+                        },
+                    ),
+                },
             ],
         ),
         entity_use_roots: EntityUseExprTrackers(

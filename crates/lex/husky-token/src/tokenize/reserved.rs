@@ -49,6 +49,7 @@ pub(crate) fn reserved_words(_db: &dyn TokenDb) -> VecPairMap<&'static str, Pret
         PatternKeyword::Mut,
         PatternKeyword::Covariant,
         PatternKeyword::Contravariant,
+        PatternKeyword::Invariant,
         AttributeKeyword::Pub,
         AttributeKeyword::Private,
         AttributeKeyword::Async,

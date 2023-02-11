@@ -31,7 +31,8 @@ impl ImplicitSymbol {
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum ImplicitSymbolVariant {
-    Lifetime,
+    ImplicitLifetime,
+    ExprEvalLifetime,
     UnspecifiedIntegerType,
     UnspecifiedFloatType,
     ImplicitType,
@@ -211,6 +212,7 @@ impl UnresolvedTerms {
             }
             LocalTermExpectationRuleVariant::Type => Ok(None),
             LocalTermExpectationRuleVariant::FrameVariableType => todo!(),
+            LocalTermExpectationRuleVariant::RefMut { lifetime } => todo!(),
         }
     }
 }

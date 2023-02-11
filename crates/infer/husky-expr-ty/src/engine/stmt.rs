@@ -4,7 +4,7 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn infer_new_block(
         &mut self,
         stmts: StmtIdxRange,
-        expr_expectation: ExprTypeExpectation,
+        expr_expectation: LocalTermExpectation,
     ) -> Option<LocalTerm> {
         for stmt in stmts.start()..(stmts.end() - 1) {
             self.infer_new_nonlast_stmt(stmt)
@@ -27,8 +27,8 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    fn expect_unit(&mut self) -> ExprTypeExpectation {
-        ExprTypeExpectation::ImplicitlyConvertibleTo {
+    fn expect_unit(&mut self) -> LocalTermExpectation {
+        LocalTermExpectation::ImplicitlyConvertibleTo {
             ty: self.reduced_term_menu.unit().into(),
         }
     }
@@ -36,7 +36,7 @@ impl<'a> ExprTypeEngine<'a> {
     fn infer_new_last_stmt(
         &mut self,
         stmt_idx: StmtIdx,
-        expr_expectation: ExprTypeExpectation,
+        expr_expectation: LocalTermExpectation,
     ) -> Option<LocalTerm> {
         self.calc_stmt(stmt_idx, expr_expectation)
     }
@@ -44,7 +44,7 @@ impl<'a> ExprTypeEngine<'a> {
     fn calc_stmt(
         &mut self,
         stmt_idx: StmtIdx,
-        expr_expectation: ExprTypeExpectation,
+        expr_expectation: LocalTermExpectation,
     ) -> Option<LocalTerm> {
         match self.expr_region_data[stmt_idx] {
             Stmt::Let {
@@ -57,20 +57,20 @@ impl<'a> ExprTypeEngine<'a> {
                 if let Ok(result) = result {
                     self.infer_new_expr_ty(
                         *result,
-                        ExprTypeExpectation::Return { ty: self.return_ty },
+                        LocalTermExpectation::Return { ty: self.return_ty },
                     );
                 };
                 Some(self.reduced_term_menu.never().into())
             }
             Stmt::Require { ref condition, .. } => {
                 if let Ok(condition) = condition {
-                    self.infer_new_expr_ty(*condition, ExprTypeExpectation::CastibleAsBool);
+                    self.infer_new_expr_ty(*condition, LocalTermExpectation::CastibleAsBool);
                 };
                 Some(self.reduced_term_menu.unit().into())
             }
             Stmt::Assert { ref condition, .. } => {
                 if let Ok(condition) = condition {
-                    self.infer_new_expr_ty(*condition, ExprTypeExpectation::CastibleAsBool);
+                    self.infer_new_expr_ty(*condition, LocalTermExpectation::CastibleAsBool);
                 };
                 Some(self.reduced_term_menu.unit().into())
             }
@@ -83,7 +83,7 @@ impl<'a> ExprTypeEngine<'a> {
             } => {
                 let mut expected_frame_var_ty: Option<LocalTerm> = None;
                 if let Some(bound_expr) = particulars.range.initial_boundary.bound_expr {
-                    match self.infer_new_expr_ty(bound_expr, ExprTypeExpectation::None) {
+                    match self.infer_new_expr_ty(bound_expr, LocalTermExpectation::None) {
                         Some(_) => todo!(),
                         None => todo!(),
                     }
@@ -91,7 +91,7 @@ impl<'a> ExprTypeEngine<'a> {
                 if let Some(bound_expr) = particulars.range.final_boundary.bound_expr {
                     let expectation = match expected_frame_var_ty {
                         Some(_) => todo!(),
-                        None => ExprTypeExpectation::None,
+                        None => LocalTermExpectation::None,
                     };
                     match self.infer_new_expr_ty(bound_expr, expectation) {
                         Some(ty) if expected_frame_var_ty == None => {
@@ -100,6 +100,7 @@ impl<'a> ExprTypeEngine<'a> {
                         _ => (),
                     }
                 }
+                todo!();
                 if let Ok(block) = block {
                     let expr_expectation = self.expect_unit();
                     self.infer_new_block(*block, expr_expectation);
@@ -111,7 +112,9 @@ impl<'a> ExprTypeEngine<'a> {
                 ref block,
                 ..
             } => todo!(),
-            Stmt::ForExt { ref block, .. } => todo!(),
+            Stmt::ForExt { ref block, .. } => {
+                todo!()
+            }
             Stmt::While {
                 ref condition,
                 ref block,
@@ -123,7 +126,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             } => {
                 condition.as_ref().copied().map(|condition| {
-                    self.infer_new_expr_ty(condition, ExprTypeExpectation::CastibleAsBool)
+                    self.infer_new_expr_ty(condition, LocalTermExpectation::CastibleAsBool)
                 });
                 block.as_ref().copied().map(|block| {
                     let expect_unit = self.expect_unit();
@@ -162,7 +165,7 @@ impl<'a> ExprTypeEngine<'a> {
                             self.infer_new_expr_ty(
                                 *initial_value,
                                 // ad hoc
-                                ExprTypeExpectation::None,
+                                LocalTermExpectation::None,
                             )
                         })
                         .flatten()
@@ -286,16 +289,16 @@ impl<'a> ExprTypeEngine<'a> {
         if_branch: &IfBranch,
         elif_branches: &[ElifBranch],
         else_branch: Option<&ElseBranch>,
-        expr_expectation: ExprTypeExpectation,
+        expr_expectation: LocalTermExpectation,
     ) -> Option<LocalTerm> {
         let mut branch_tys = BranchTypes::new(expr_expectation);
         if_branch.condition.as_ref().copied().map(|condition| {
-            self.infer_new_expr_ty(condition, ExprTypeExpectation::CastibleAsBool)
+            self.infer_new_expr_ty(condition, LocalTermExpectation::CastibleAsBool)
         });
         branch_tys.visit_branch(self, &if_branch.block);
         for elif_branch in elif_branches {
             elif_branch.condition.as_ref().copied().map(|condition| {
-                self.infer_new_expr_ty(condition, ExprTypeExpectation::CastibleAsBool)
+                self.infer_new_expr_ty(condition, LocalTermExpectation::CastibleAsBool)
             });
             branch_tys.visit_branch(self, &elif_branch.block);
         }
@@ -312,11 +315,11 @@ struct BranchTypes {
     has_error: bool,
     /// this is true if the type of one of the branches is inferred to be not never
     has_ever: bool,
-    expr_expectation: ExprTypeExpectation,
+    expr_expectation: LocalTermExpectation,
 }
 
 impl BranchTypes {
-    fn new(expr_expectation: ExprTypeExpectation) -> Self {
+    fn new(expr_expectation: LocalTermExpectation) -> Self {
         Self {
             has_error: false,
             has_ever: false,

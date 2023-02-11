@@ -82,7 +82,7 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn infer_all_exprs(&mut self) {
         for root in self.expr_region_data.roots() {
-            let ty = self.infer_new_expr_ty(root.expr(), ExprTypeExpectation::None);
+            let ty = self.infer_new_expr_ty(root.expr(), LocalTermExpectation::None);
             // todo: check coherence
         }
     }
@@ -119,5 +119,9 @@ impl<'a> ExprTypeEngine<'a> {
 
     pub(crate) fn expr_region_data(&self) -> &ExprRegionData {
         self.expr_region_data
+    }
+
+    pub(crate) fn entity_path_menu(&self) -> &EntityPathMenu {
+        self.entity_path_menu
     }
 }
