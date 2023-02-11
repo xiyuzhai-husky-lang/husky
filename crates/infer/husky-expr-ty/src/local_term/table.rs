@@ -33,18 +33,21 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         src_expr_idx: ExprIdx,
         target: LocalTerm,
-        expectation: ExprTypeExpectation,
+        expectation: LocalTermExpectation,
     ) -> OptionLocalTermExpectationRuleIdx {
         let variant = match expectation {
-            ExprTypeExpectation::None => return Default::default(),
-            ExprTypeExpectation::TypeType => LocalTermExpectationRuleVariant::Type,
-            ExprTypeExpectation::CastibleAsBool => LocalTermExpectationRuleVariant::AsBool,
-            ExprTypeExpectation::FrameVariableType => {
+            LocalTermExpectation::None => return Default::default(),
+            LocalTermExpectation::TypeType => LocalTermExpectationRuleVariant::Type,
+            LocalTermExpectation::CastibleAsBool => LocalTermExpectationRuleVariant::AsBool,
+            LocalTermExpectation::FrameVariableType => {
                 LocalTermExpectationRuleVariant::FrameVariableType
             }
-            ExprTypeExpectation::Return { ty } => todo!(),
-            ExprTypeExpectation::ImplicitlyConvertibleTo { ty: term } => {
+            LocalTermExpectation::Return { ty } => todo!(),
+            LocalTermExpectation::ImplicitlyConvertibleTo { ty: term } => {
                 LocalTermExpectationRuleVariant::ImplicitlyConvertibleTo { dst: term }
+            }
+            LocalTermExpectation::RefMut { lifetime } => {
+                LocalTermExpectationRuleVariant::RefMut { lifetime }
             }
         };
         let rule = self.new_expectation_rule(src_expr_idx, target, variant);

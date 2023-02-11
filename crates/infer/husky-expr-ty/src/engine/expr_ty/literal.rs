@@ -6,7 +6,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: ExprIdx,
         literal_token_idx: TokenIdx,
-        expectation: ExprTypeExpectation,
+        expectation: LocalTermExpectation,
     ) -> Result<LocalTerm, ExprTypeError> {
         let literal_token = self.token_sheet_data[literal_token_idx];
         match literal_token {
@@ -46,18 +46,19 @@ impl<'a> ExprTypeEngine<'a> {
                 },
                 Literal::Float(float_literal) => match float_literal {
                     FloatLiteral::Unspecified => match expectation {
-                        ExprTypeExpectation::None => {
+                        LocalTermExpectation::None => {
                             let ty = self.new_implicit_symbol(
                                 expr_idx,
                                 ImplicitSymbolVariant::UnspecifiedFloatType,
                             );
                             Ok(ty.into())
                         }
-                        ExprTypeExpectation::TypeType => todo!(),
-                        ExprTypeExpectation::CastibleAsBool => todo!(),
-                        ExprTypeExpectation::FrameVariableType => todo!(),
-                        ExprTypeExpectation::Return { ty } => todo!(),
-                        ExprTypeExpectation::ImplicitlyConvertibleTo { ty } => todo!(),
+                        LocalTermExpectation::TypeType => todo!(),
+                        LocalTermExpectation::CastibleAsBool => todo!(),
+                        LocalTermExpectation::FrameVariableType => todo!(),
+                        LocalTermExpectation::Return { ty } => todo!(),
+                        LocalTermExpectation::ImplicitlyConvertibleTo { ty } => todo!(),
+                        LocalTermExpectation::RefMut { lifetime } => todo!(),
                     },
                     FloatLiteral::F32(_) => todo!(),
                     FloatLiteral::F64(_) => todo!(),

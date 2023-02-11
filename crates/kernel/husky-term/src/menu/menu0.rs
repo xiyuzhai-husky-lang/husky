@@ -41,10 +41,10 @@ pub struct TermMenu0 {
     // Not	The unary logical negation operator !.
     core_ops_not: Term,
     core_option: Term,
-    option_ty: Term,
-    slice_ty: Term,
-    str_ty: Term,
-    ref_ty: Term,
+    option_ty_path: Term,
+    slice_ty_path: Term,
+    str_ty_path: Term,
+    ref_ty_path: Term,
     list_ty: Term,
     std: Term,
     i32: Term,
@@ -97,10 +97,10 @@ impl TermMenu0 {
             core_ops_neg: Term::Entity(entity_path_menu.core_ops_neg().into()),
             core_ops_not: Term::Entity(entity_path_menu.core_ops_not().into()),
             core_option: Term::Entity(vfs_path_menu.core_option().into()),
-            option_ty: Term::Entity(entity_path_menu.option_ty().into()),
-            slice_ty: Term::Entity(entity_path_menu.slice_ty().into()),
-            str_ty: Term::Entity(entity_path_menu.str_ty().into()),
-            ref_ty: Term::Entity(entity_path_menu.ref_ty().into()),
+            option_ty_path: Term::Entity(entity_path_menu.option_ty_path().into()),
+            slice_ty_path: Term::Entity(entity_path_menu.slice_ty_path().into()),
+            str_ty_path: Term::Entity(entity_path_menu.str_ty_path().into()),
+            ref_ty_path: Term::Entity(entity_path_menu.ref_ty_path().into()),
             list_ty: Term::Entity(entity_path_menu.list_ty().into()),
             std: Term::Entity(vfs_path_menu.std().into()),
             unit: Term::Entity(entity_path_menu.unit().into()),
@@ -213,16 +213,16 @@ impl TermMenu0 {
         self.core_ops_not
     }
 
-    pub fn option_ty(&self) -> Term {
-        self.option_ty
+    pub fn option_ty_path(&self) -> Term {
+        self.option_ty_path
     }
 
-    pub fn slice_ty(&self) -> Term {
-        self.slice_ty
+    pub fn slice_ty_path(&self) -> Term {
+        self.slice_ty_path
     }
 
-    pub fn ref_ty(&self) -> Term {
-        self.ref_ty
+    pub fn ref_ty_path(&self) -> Term {
+        self.ref_ty_path
     }
 
     pub fn list(&self) -> Term {
@@ -285,7 +285,7 @@ impl TermMenu0 {
         self.lifetime_ty
     }
 
-    pub fn str_ty(&self) -> Term {
-        self.str_ty
+    pub fn str_ty_path(&self) -> Term {
+        self.str_ty_path
     }
 }

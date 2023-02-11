@@ -732,6 +732,7 @@ fn variance_token_works() {
     let db = DB::default();
     assert!(t(&db, "covariant").unwrap().is_some());
     assert!(t(&db, "contravariant").unwrap().is_some());
+    assert!(t(&db, "invariant").unwrap().is_some());
     assert!(t(&db, "super").unwrap().is_none());
     assert!(t(&db, "Self").unwrap().is_none());
     assert!(t(&db, "use").unwrap().is_none());

@@ -5,6 +5,7 @@ pub enum PatternKeyword {
     Mut,
     Covariant,
     Contravariant,
+    Invariant,
 }
 
 impl const From<PatternKeyword> for Keyword {
@@ -39,6 +40,7 @@ impl PatternKeyword {
             PatternKeyword::Mut => "mut",
             PatternKeyword::Covariant => "covariant",
             PatternKeyword::Contravariant => "contravariant",
+            PatternKeyword::Invariant => "invariant",
         }
     }
 }

@@ -1,1 +1,3 @@
 pub type Ref<'a, covariant E>;
+
+pub type RefMut<covariant 'a, invariant E>;

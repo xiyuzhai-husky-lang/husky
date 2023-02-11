@@ -283,6 +283,17 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `RefMut`,
+                            accessibility: Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    path: TypePath(`core::mem::RefMut`, `Alien`),
+                                    accessibility: Public,
+                                    ast_idx: 1,
+                                },
+                            ),
+                        },
                     ],
                 ),
             },

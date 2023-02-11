@@ -18,7 +18,8 @@ impl TermMenu2 {
     pub(crate) fn new(db: &dyn TermDb, toolchain: Toolchain, menu1: TermMenu1) -> TermResult<Self> {
         // db.it_entity_path_term(db.entity_path_menu(toolchain).as_ref()?.r32());
         Ok(TermMenu2 {
-            static_str_ref: TermApplication::new(db, menu1.static_ref_ty(), menu1.str_ty()).into(),
+            static_str_ref: TermApplication::new(db, menu1.static_ref_ty(), menu1.str_ty_path())
+                .into(),
             parent: menu1,
         })
     }

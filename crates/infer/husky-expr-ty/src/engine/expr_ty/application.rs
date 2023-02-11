@@ -17,14 +17,14 @@ impl<'a> ExprTypeEngine<'a> {
                 match items.len() {
                     0 => {
                         let argument_ty =
-                            self.infer_new_expr_ty(argument, ExprTypeExpectation::None);
+                            self.infer_new_expr_ty(argument, LocalTermExpectation::None);
                         // check this is type
                         argument_ty
                             .ok_or(DerivedExprTypeError::ApplicationArgumentTypeNotInferred.into())
                     }
                     1 => {
                         let arg0_ty =
-                            self.infer_new_expr_ty(items.start(), ExprTypeExpectation::None);
+                            self.infer_new_expr_ty(items.start(), LocalTermExpectation::None);
                         match arg0_ty {
                             Some(_) => todo!(),
                             None => {
@@ -45,7 +45,7 @@ impl<'a> ExprTypeEngine<'a> {
                 rbox_token,
             } => todo!(),
             _ => {
-                let function_ty = self.infer_new_expr_ty(function, ExprTypeExpectation::None);
+                let function_ty = self.infer_new_expr_ty(function, LocalTermExpectation::None);
                 todo!()
             }
         }

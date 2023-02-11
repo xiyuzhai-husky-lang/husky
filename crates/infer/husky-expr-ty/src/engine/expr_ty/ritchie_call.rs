@@ -11,11 +11,11 @@ impl<'a> ExprTypeEngine<'a> {
         else {
             if let Some(implicit_arguments) = implicit_arguments{
                 for argument in implicit_arguments.arguments() {
-                    self.infer_new_expr_ty(argument, ExprTypeExpectation::None);
+                    self.infer_new_expr_ty(argument, LocalTermExpectation::None);
                 }
             }
             for argument in nonself_arguments {
-                self.infer_new_expr_ty(argument, ExprTypeExpectation::None);
+                self.infer_new_expr_ty(argument, LocalTermExpectation::None);
             }
             return Err(DerivedExprTypeError::CallableTypeError.into())
         };
@@ -73,9 +73,9 @@ impl<'a> ExprTypeEngine<'a> {
                     i += 1;
                     let expectation = match parameter_ty {
                         Some(parameter_ty) => {
-                            ExprTypeExpectation::ImplicitlyConvertibleTo { ty: parameter_ty }
+                            LocalTermExpectation::ImplicitlyConvertibleTo { ty: parameter_ty }
                         }
-                        None => ExprTypeExpectation::None,
+                        None => LocalTermExpectation::None,
                     };
                     self.infer_new_expr_ty(argument, expectation);
                 }

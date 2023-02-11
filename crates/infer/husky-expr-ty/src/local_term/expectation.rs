@@ -5,7 +5,7 @@ use thiserror::Error;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[non_exhaustive]
-pub(crate) enum ExprTypeExpectation {
+pub(crate) enum LocalTermExpectation {
     None,
     /// expect that the type of the expression
     /// is equal to `Type u` for some universe u
@@ -18,17 +18,21 @@ pub(crate) enum ExprTypeExpectation {
     ImplicitlyConvertibleTo {
         ty: LocalTerm,
     },
+    RefMut {
+        lifetime: LocalTerm,
+    },
 }
 
-impl ExprTypeExpectation {
+impl LocalTermExpectation {
     pub(crate) fn term(self) -> Option<ReducedTerm> {
         match self {
-            ExprTypeExpectation::None => None,
-            ExprTypeExpectation::TypeType => None,
-            ExprTypeExpectation::CastibleAsBool => None,
-            ExprTypeExpectation::FrameVariableType => None,
-            ExprTypeExpectation::Return { ty } => ty,
-            ExprTypeExpectation::ImplicitlyConvertibleTo { ty } => ty.resolved(),
+            LocalTermExpectation::None => None,
+            LocalTermExpectation::TypeType => None,
+            LocalTermExpectation::CastibleAsBool => None,
+            LocalTermExpectation::FrameVariableType => None,
+            LocalTermExpectation::Return { ty } => ty,
+            LocalTermExpectation::ImplicitlyConvertibleTo { ty } => ty.resolved(),
+            LocalTermExpectation::RefMut { .. } => None,
         }
     }
 }
@@ -50,8 +54,8 @@ pub(crate) struct LocalTermExpectationResolved {
 #[derive(Debug, PartialEq, Eq)]
 pub(crate) enum LocalTermExpectationResolveProgress {
     Unresolved,
-    Resolved(LocalTermExpectationResolved),
-    Err(LocalTermExpectationResolveError),
+    ResolvedOk(LocalTermExpectationResolved),
+    ResolvedErr(LocalTermExpectationResolveError),
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -63,7 +67,10 @@ pub enum LocalTermExpectationResolveError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-pub enum OriginalLocalTermExpectationResolveError {}
+pub enum OriginalLocalTermExpectationResolveError {
+    #[error("todo")]
+    Todo,
+}
 
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum DerivedLocalTermExpectationResolveError {
@@ -82,11 +89,11 @@ impl LocalTermExpectationResolveProgress {
             LocalTermExpectationResolveProgress::Unresolved => {
                 LocalTermExpectationResolveProgress::Unresolved
             }
-            LocalTermExpectationResolveProgress::Resolved(expectation_resolved) => {
-                LocalTermExpectationResolveProgress::Resolved(*expectation_resolved)
+            LocalTermExpectationResolveProgress::ResolvedOk(expectation_resolved) => {
+                LocalTermExpectationResolveProgress::ResolvedOk(*expectation_resolved)
             }
-            LocalTermExpectationResolveProgress::Err(_) => {
-                LocalTermExpectationResolveProgress::Err(
+            LocalTermExpectationResolveProgress::ResolvedErr(_) => {
+                LocalTermExpectationResolveProgress::ResolvedErr(
                     DerivedLocalTermExpectationResolveError::Duplication(src).into(),
                 )
             }
@@ -96,14 +103,14 @@ impl LocalTermExpectationResolveProgress {
     pub(crate) fn reduced_term(&self) -> Option<ReducedTerm> {
         match self {
             LocalTermExpectationResolveProgress::Unresolved => None,
-            LocalTermExpectationResolveProgress::Resolved(LocalTermExpectationResolved {
+            LocalTermExpectationResolveProgress::ResolvedOk(LocalTermExpectationResolved {
                 local_term,
                 ..
             }) => match local_term {
                 LocalTerm::Resolved(reduced_term) => Some(*reduced_term),
                 LocalTerm::Unresolved(_) => todo!(),
             },
-            LocalTermExpectationResolveProgress::Err(_) => None,
+            LocalTermExpectationResolveProgress::ResolvedErr(_) => None,
         }
     }
 }
@@ -126,11 +133,12 @@ impl LocalTermExpectationRule {
     }
 
     fn resolve(&mut self, expectation_resolved: LocalTermExpectationResolved) {
-        self.resolve_progress = LocalTermExpectationResolveProgress::Resolved(expectation_resolved)
+        self.resolve_progress =
+            LocalTermExpectationResolveProgress::ResolvedOk(expectation_resolved)
     }
 
     pub(super) fn err(&mut self, error: LocalTermExpectationResolveError) {
-        self.resolve_progress = LocalTermExpectationResolveProgress::Err(error)
+        self.resolve_progress = LocalTermExpectationResolveProgress::ResolvedErr(error)
     }
 }
 
@@ -167,8 +175,8 @@ impl LocalTermExpectationRules {
             .indexed_iter_with_start(self.first_unresolved_expectation)
             .filter(|(_, rule)| match rule.resolve_progress() {
                 LocalTermExpectationResolveProgress::Unresolved => true,
-                LocalTermExpectationResolveProgress::Resolved(_)
-                | LocalTermExpectationResolveProgress::Err(_) => false,
+                LocalTermExpectationResolveProgress::ResolvedOk(_)
+                | LocalTermExpectationResolveProgress::ResolvedErr(_) => false,
             })
     }
 
@@ -179,8 +187,8 @@ impl LocalTermExpectationRules {
             .indexed_iter_mut_with_start(self.first_unresolved_expectation)
             .filter(|(_, rule)| match rule.resolve_progress() {
                 LocalTermExpectationResolveProgress::Unresolved => true,
-                LocalTermExpectationResolveProgress::Resolved(_)
-                | LocalTermExpectationResolveProgress::Err(_) => false,
+                LocalTermExpectationResolveProgress::ResolvedOk(_)
+                | LocalTermExpectationResolveProgress::ResolvedErr(_) => false,
             })
     }
 
@@ -230,7 +238,7 @@ impl<'a> ExprTypeEngine<'a> {
             LocalTermExpectationRuleVariant::AsBool => {
                 match resolved_term {
                     term if term == reduced_term_menu.bool() => {
-                        LocalTermExpectationResolveProgress::Resolved(
+                        LocalTermExpectationResolveProgress::ResolvedOk(
                             LocalTermExpectationResolved {
                                 implicit_conversion: LocalTermImplicitConversion::None,
                                 local_term: term.into(),
@@ -246,7 +254,7 @@ impl<'a> ExprTypeEngine<'a> {
             LocalTermExpectationRuleVariant::ImplicitlyConvertibleTo { dst } => match dst {
                 LocalTerm::Resolved(dst) => match (resolved_term, dst) {
                     (resolved_term, dst) if resolved_term == dst => {
-                        LocalTermExpectationResolveProgress::Resolved(
+                        LocalTermExpectationResolveProgress::ResolvedOk(
                             LocalTermExpectationResolved {
                                 implicit_conversion: LocalTermImplicitConversion::None,
                                 local_term: dst.into(),
@@ -261,7 +269,7 @@ impl<'a> ExprTypeEngine<'a> {
                 Ok(term_ty) => match term_ty.term() {
                     Term::Category(cat) => match cat.universe().raw() {
                         0 => todo!(),
-                        _ => LocalTermExpectationResolveProgress::Resolved(
+                        _ => LocalTermExpectationResolveProgress::ResolvedOk(
                             LocalTermExpectationResolved {
                                 implicit_conversion: LocalTermImplicitConversion::None,
                                 local_term: resolved_term.into(),
@@ -273,6 +281,12 @@ impl<'a> ExprTypeEngine<'a> {
                 Err(_) => todo!(),
             },
             LocalTermExpectationRuleVariant::FrameVariableType => todo!(),
+            LocalTermExpectationRuleVariant::RefMut { lifetime } => {
+                // ad hoc
+                LocalTermExpectationResolveProgress::ResolvedErr(
+                    OriginalLocalTermExpectationResolveError::Todo.into(),
+                )
+            }
         };
         LocalTermExpectationRule {
             src_expr_idx,
@@ -287,11 +301,44 @@ impl<'a> ExprTypeEngine<'a> {
         target: UnresolvedTermIdx,
         variant: LocalTermExpectationRuleVariant,
     ) -> LocalTermExpectationRule {
+        let resolve_progress = match variant {
+            LocalTermExpectationRuleVariant::AsBool => {
+                // ad hoc
+                LocalTermExpectationResolveProgress::Unresolved
+            }
+            LocalTermExpectationRuleVariant::ImplicitlyConvertibleTo { dst } => {
+                // ad hoc
+                LocalTermExpectationResolveProgress::Unresolved
+            }
+            LocalTermExpectationRuleVariant::Type => {
+                // ad hoc
+                LocalTermExpectationResolveProgress::Unresolved
+            }
+            LocalTermExpectationRuleVariant::FrameVariableType => {
+                // ad hoc
+                LocalTermExpectationResolveProgress::Unresolved
+            }
+            LocalTermExpectationRuleVariant::RefMut { lifetime } => {
+                match self.local_term_table()[target].unresolved_term() {
+                    UnresolvedTerm::ImplicitSymbol(_) => todo!(),
+                    UnresolvedTerm::TypeApplication { ty, arguments }
+                        if *ty == self.entity_path_menu().ref_mut_ty_path() =>
+                    {
+                        todo!()
+                    }
+                    UnresolvedTerm::TypeApplication { ty, arguments } => {
+                        LocalTermExpectationResolveProgress::ResolvedErr(
+                            OriginalLocalTermExpectationResolveError::Todo.into(),
+                        )
+                    }
+                }
+            }
+        };
         LocalTermExpectationRule {
             src_expr_idx,
             expectee: target.into(),
             variant,
-            resolve_progress: LocalTermExpectationResolveProgress::Unresolved,
+            resolve_progress,
         }
     }
 
@@ -362,6 +409,7 @@ impl<'a> ExprTypeEngine<'a> {
             },
             LocalTermExpectationRuleVariant::Type => todo!(),
             LocalTermExpectationRuleVariant::FrameVariableType => todo!(),
+            LocalTermExpectationRuleVariant::RefMut { lifetime } => todo!(),
         }
     }
 }
@@ -373,4 +421,5 @@ pub(crate) enum LocalTermExpectationRuleVariant {
     ImplicitlyConvertibleTo { dst: LocalTerm },
     Type,
     FrameVariableType,
+    RefMut { lifetime: LocalTerm },
 }
