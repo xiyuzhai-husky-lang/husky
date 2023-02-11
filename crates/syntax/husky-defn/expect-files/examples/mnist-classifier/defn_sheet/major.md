@@ -324,7 +324,7 @@ Ok(
                                                 59,
                                             ),
                                             ident: `i`,
-                                            current_symbol_idx: 2,
+                                            frame_var_symbol_idx: 2,
                                             current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                 3,
                                             ),
@@ -710,6 +710,7 @@ Ok(
                                                     ),
                                                 },
                                             },
+                                            frame_var_symbol_idx: 2,
                                             eol_colon: Ok(
                                                 EolColonToken {
                                                     token_idx: TokenIdx(
@@ -1030,7 +1031,7 @@ Ok(
                                                 104,
                                             ),
                                             ident: `i`,
-                                            current_symbol_idx: 1,
+                                            frame_var_symbol_idx: 1,
                                             current_symbol_kind: CurrentSymbolKind::FrameVariable(
                                                 2,
                                             ),
@@ -1269,6 +1270,7 @@ Ok(
                                                     ),
                                                 },
                                             },
+                                            frame_var_symbol_idx: 1,
                                             eol_colon: Ok(
                                                 EolColonToken {
                                                     token_idx: TokenIdx(

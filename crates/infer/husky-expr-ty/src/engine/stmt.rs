@@ -78,6 +78,7 @@ impl<'a> ExprTypeEngine<'a> {
             Stmt::Eval { expr_idx } => self.infer_new_expr_ty(expr_idx, expr_expectation),
             Stmt::ForBetween {
                 ref particulars,
+                frame_var_symbol_idx,
                 ref block,
                 ..
             } => {
@@ -100,7 +101,10 @@ impl<'a> ExprTypeEngine<'a> {
                         _ => (),
                     }
                 }
-                todo!();
+                if let Some(expected_frame_var_ty) = expected_frame_var_ty {
+                    self.current_symbol_tys
+                        .insert_new(frame_var_symbol_idx, expected_frame_var_ty)
+                }
                 if let Ok(block) = block {
                     let expr_expectation = self.expect_unit();
                     self.infer_new_block(*block, expr_expectation);
@@ -113,7 +117,12 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             } => todo!(),
             Stmt::ForExt { ref block, .. } => {
-                todo!()
+                if let Ok(block) = block {
+                    let expr_expectation = self.expect_unit();
+                    self.infer_new_block(*block, expr_expectation);
+                }
+                todo!();
+                Some(self.reduced_term_menu.unit().into())
             }
             Stmt::While {
                 ref condition,

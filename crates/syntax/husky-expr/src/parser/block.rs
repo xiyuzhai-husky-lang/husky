@@ -218,31 +218,31 @@ impl<'a> BlockExprParser<'a> {
                     .start()
                     .token_idx();
                 let access_end = self.ast_token_idx_range_sheet[body.end() - 1].end();
-                let current_symbol_idx = self
+                let frame_var_symbol = CurrentSymbol::new(
+                    particulars.frame_var_ident,
+                    access_start,
+                    Some(access_end),
+                    current_symbol_variant,
+                );
+                let frame_var_symbol_idx = self
                     .define_symbols(
-                        vec![CurrentSymbol::new(
-                            particulars.frame_var_ident,
-                            access_start,
-                            Some(access_end),
-                            current_symbol_variant,
-                        )],
+                        vec![frame_var_symbol],
                         Some(PatternTypeConstraint::FrameVariable),
                     )
                     .start();
-                unsafe {
-                    self.expr_arena.set(
-                        particulars.frame_var_expr_idx,
-                        Expr::FrameVarDecl {
-                            token_idx: particulars.frame_var_token_idx,
-                            ident: particulars.frame_var_ident,
-                            current_symbol_idx,
-                            current_symbol_kind,
-                        },
-                    )
-                }
+                self.expr_arena.set(
+                    particulars.frame_var_expr_idx,
+                    Expr::FrameVarDecl {
+                        token_idx: particulars.frame_var_token_idx,
+                        ident: particulars.frame_var_ident,
+                        frame_var_symbol_idx,
+                        current_symbol_kind,
+                    },
+                );
                 Ok(Stmt::ForBetween {
                     for_token,
                     particulars,
+                    frame_var_symbol_idx,
                     eol_colon,
                     block: self.parse_block_stmts_expected(body, token_group_idx),
                 })

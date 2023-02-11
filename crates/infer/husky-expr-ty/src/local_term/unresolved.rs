@@ -98,7 +98,7 @@ impl UnresolvedTerms {
                 );
                 None
             }
-            LocalTermResolveProgress::Err(_) => todo!(),
+            LocalTermResolveProgress::Err(_) => None,
         }
     }
 

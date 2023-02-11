@@ -90,7 +90,7 @@ impl<'a> ExprTypeEngine<'a> {
                 .ok_or(DerivedExprTypeError::CurrentSymbolTypeError.into()),
             Expr::FrameVarDecl {
                 ident,
-                current_symbol_idx,
+                frame_var_symbol_idx: current_symbol_idx,
                 current_symbol_kind,
                 ..
             } => todo!(),

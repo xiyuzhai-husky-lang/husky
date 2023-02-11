@@ -90,7 +90,7 @@ pub enum Expr {
     FrameVarDecl {
         token_idx: TokenIdx,
         ident: Identifier,
-        current_symbol_idx: CurrentSymbolIdx,
+        frame_var_symbol_idx: CurrentSymbolIdx,
         current_symbol_kind: CurrentSymbolKind,
     },
     SelfType(TokenIdx),

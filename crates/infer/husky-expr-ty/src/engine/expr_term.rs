@@ -37,7 +37,7 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::FrameVarDecl {
                 token_idx,
                 ident,
-                current_symbol_idx,
+                frame_var_symbol_idx: current_symbol_idx,
                 current_symbol_kind,
             } => todo!(),
             Expr::SelfType(_) => todo!(),
