@@ -95,17 +95,16 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             } => todo!(),
             Expr::SelfType(_) => todo!(),
-            Expr::SelfValue(_) => todo!(),
+            Expr::SelfValue(_) => {
+                todo!()
+            }
             Expr::BinaryOpn {
                 lopd,
                 opr,
                 ropd,
                 opr_token_idx,
                 ..
-            } => {
-                p!(opr_token_idx, self.path());
-                self.calc_binary_expr_ty(expr_idx, lopd, opr, ropd)
-            }
+            } => self.calc_binary_expr_ty(expr_idx, lopd, opr, ropd),
             Expr::Be {
                 src, ref target, ..
             } => todo!(),
@@ -118,7 +117,27 @@ impl<'a> ExprTypeEngine<'a> {
             } => {
                 let function_ty = self.infer_new_expr_ty(function, LocalTermExpectation::None);
                 match function_ty {
-                    Some(function_ty) => todo!(),
+                    Some(function_ty) => match function_ty {
+                        LocalTerm::Resolved(function_ty) => match function_ty.term() {
+                            Term::Literal(_) => todo!(),
+                            Term::Symbol(_) => todo!(),
+                            Term::Entity(_) => todo!(),
+                            Term::Category(_) => todo!(),
+                            Term::Universe(_) => todo!(),
+                            Term::Curry(_) => todo!(),
+                            Term::Ritchie(_) => self.calc_ritchie_call_ty(
+                                Some(function_ty.into()),
+                                None,
+                                ExprIdxRange::new_single(argument),
+                            ),
+                            Term::Abstraction(_) => todo!(),
+                            Term::Application(_) => todo!(),
+                            Term::Subentity(_) => todo!(),
+                            Term::AsTraitSubentity(_) => todo!(),
+                            Term::TraitConstraint(_) => todo!(),
+                        },
+                        LocalTerm::Unresolved(_) => todo!(),
+                    },
                     None => {
                         self.infer_new_expr_ty(argument, LocalTermExpectation::None);
                         Err(DerivedExprTypeError::FunctionTypeNotInferredInApplicationOrFunctionCall.into())
@@ -163,7 +182,7 @@ impl<'a> ExprTypeEngine<'a> {
                             todo!()
                         }
                         for argument in nonself_arguments {
-                            todo!()
+                            self.infer_new_expr_ty(argument, LocalTermExpectation::None);
                         }
                         return Err(DerivedExprTypeError::MethodOwnerTypeNotInferred.into())
                     };

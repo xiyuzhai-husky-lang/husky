@@ -96,8 +96,7 @@ impl<'a> ExprTypeEngine<'a> {
                                 ModuleItemPath::Type(dst_f) => {
                                     if dst_f != ty {
                                         return Some(LocalTermExpectationEffect::ResolvedErr {
-                                            error: OriginalLocalTermExpectationResolveError::Todo
-                                                .into(),
+                                            error: OriginalLocalTermExpectationError::Todo.into(),
                                         });
                                     }
                                     todo!()

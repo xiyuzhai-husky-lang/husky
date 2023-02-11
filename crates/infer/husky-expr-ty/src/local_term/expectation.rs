@@ -63,13 +63,13 @@ pub(crate) enum LocalTermExpectationResolveProgress {
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum LocalTermExpectationResolveError {
     #[error("original {0}")]
-    Original(#[from] OriginalLocalTermExpectationResolveError),
+    Original(#[from] OriginalLocalTermExpectationError),
     #[error("derived {0}")]
     Derived(#[from] DerivedLocalTermExpectationResolveError),
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-pub enum OriginalLocalTermExpectationResolveError {
+pub enum OriginalLocalTermExpectationError {
     #[error("todo")]
     Todo,
 }
@@ -297,7 +297,7 @@ impl<'a> ExprTypeEngine<'a> {
             LocalTermExpectationRuleVariant::RefMut { lifetime } => {
                 // ad hoc
                 LocalTermExpectationResolveProgress::ResolvedErr(
-                    OriginalLocalTermExpectationResolveError::Todo.into(),
+                    OriginalLocalTermExpectationError::Todo.into(),
                 )
             }
         };
@@ -341,7 +341,7 @@ impl<'a> ExprTypeEngine<'a> {
                     }
                     UnresolvedTerm::TypeApplication { ty, arguments } => {
                         LocalTermExpectationResolveProgress::ResolvedErr(
-                            OriginalLocalTermExpectationResolveError::Todo.into(),
+                            OriginalLocalTermExpectationError::Todo.into(),
                         )
                     }
                 }
@@ -378,7 +378,11 @@ impl<'a> ExprTypeEngine<'a> {
                             };
                             todo!()
                         }
-                        UnresolvedTerm::TypeApplication { ty, arguments } => todo!(),
+                        UnresolvedTerm::TypeApplication { ty, arguments } => {
+                            Some(LocalTermExpectationEffect::ResolvedErr {
+                                error: OriginalLocalTermExpectationError::Todo.into(),
+                            })
+                        }
                     },
                 },
             },
