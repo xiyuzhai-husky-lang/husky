@@ -95,15 +95,17 @@ impl ExprTypeInfo {
                 .resolve_progress()
                 .duplicate(expectation_rule_idx),
             None => match ty {
-                LocalTerm::Resolved(term) => {
-                    LocalTermExpectationResolveProgress::ResolvedOk(LocalTermExpectationResult {
-                        implicit_conversion: LocalTermImplicitConversion::None,
+                LocalTerm::Resolved(term) => LocalTermExpectationResolveProgress::Resolved(
+                    LocalTermExpectationResult::OkNoExpectation {
                         local_term: term.into(),
-                    })
-                }
-                LocalTerm::Unresolved(ty) => LocalTermExpectationResolveProgress::ResolvedErr(
-                    DerivedLocalTermExpectationError::UnresolvedLocalTerm.into(),
+                        implicit_conversion: LocalTermImplicitConversion::None,
+                    },
                 ),
+                LocalTerm::Unresolved(ty) => {
+                    LocalTermExpectationResolveProgress::Resolved(LocalTermExpectationResult::Err(
+                        DerivedLocalTermExpectationError::UnresolvedLocalTerm.into(),
+                    ))
+                }
             },
         }
     }

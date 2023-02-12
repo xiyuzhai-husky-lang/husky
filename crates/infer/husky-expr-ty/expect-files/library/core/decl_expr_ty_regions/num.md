@@ -268,8 +268,8 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResult {
+                resolve_progress: Resolved(
+                    OkSort {
                         implicit_conversion: None,
                         local_term: Resolved(
                             ReducedTerm(
@@ -318,8 +318,8 @@
                                 ),
                             ),
                             variant: Sort,
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResult {
+                            resolve_progress: Resolved(
+                                OkSort {
                                     implicit_conversion: None,
                                     local_term: Resolved(
                                         ReducedTerm(
@@ -375,8 +375,8 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResult {
+                resolve_progress: Resolved(
+                    OkSort {
                         implicit_conversion: None,
                         local_term: Resolved(
                             ReducedTerm(
@@ -425,8 +425,8 @@
                                 ),
                             ),
                             variant: Sort,
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResult {
+                            resolve_progress: Resolved(
+                                OkSort {
                                     implicit_conversion: None,
                                     local_term: Resolved(
                                         ReducedTerm(
@@ -481,8 +481,8 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResult {
+                resolve_progress: Resolved(
+                    OkSort {
                         implicit_conversion: None,
                         local_term: Resolved(
                             ReducedTerm(
@@ -531,8 +531,8 @@
                                 ),
                             ),
                             variant: Sort,
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResult {
+                            resolve_progress: Resolved(
+                                OkSort {
                                     implicit_conversion: None,
                                     local_term: Resolved(
                                         ReducedTerm(
@@ -588,8 +588,8 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResult {
+                resolve_progress: Resolved(
+                    OkSort {
                         implicit_conversion: None,
                         local_term: Resolved(
                             ReducedTerm(
@@ -638,8 +638,8 @@
                                 ),
                             ),
                             variant: Sort,
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResult {
+                            resolve_progress: Resolved(
+                                OkSort {
                                     implicit_conversion: None,
                                     local_term: Resolved(
                                         ReducedTerm(
@@ -694,8 +694,8 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResult {
+                resolve_progress: Resolved(
+                    OkSort {
                         implicit_conversion: None,
                         local_term: Resolved(
                             ReducedTerm(
@@ -744,8 +744,8 @@
                                 ),
                             ),
                             variant: Sort,
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResult {
+                            resolve_progress: Resolved(
+                                OkSort {
                                     implicit_conversion: None,
                                     local_term: Resolved(
                                         ReducedTerm(
@@ -801,8 +801,8 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResult {
+                resolve_progress: Resolved(
+                    OkSort {
                         implicit_conversion: None,
                         local_term: Resolved(
                             ReducedTerm(
@@ -851,8 +851,8 @@
                                 ),
                             ),
                             variant: Sort,
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResult {
+                            resolve_progress: Resolved(
+                                OkSort {
                                     implicit_conversion: None,
                                     local_term: Resolved(
                                         ReducedTerm(
@@ -907,8 +907,8 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResult {
+                resolve_progress: Resolved(
+                    OkSort {
                         implicit_conversion: None,
                         local_term: Resolved(
                             ReducedTerm(
@@ -957,8 +957,8 @@
                                 ),
                             ),
                             variant: Sort,
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResult {
+                            resolve_progress: Resolved(
+                                OkSort {
                                     implicit_conversion: None,
                                     local_term: Resolved(
                                         ReducedTerm(
@@ -1014,8 +1014,8 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResult {
+                resolve_progress: Resolved(
+                    OkSort {
                         implicit_conversion: None,
                         local_term: Resolved(
                             ReducedTerm(
@@ -1064,8 +1064,8 @@
                                 ),
                             ),
                             variant: Sort,
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResult {
+                            resolve_progress: Resolved(
+                                OkSort {
                                     implicit_conversion: None,
                                     local_term: Resolved(
                                         ReducedTerm(
@@ -1120,8 +1120,8 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResult {
+                resolve_progress: Resolved(
+                    OkSort {
                         implicit_conversion: None,
                         local_term: Resolved(
                             ReducedTerm(
@@ -1170,8 +1170,8 @@
                                 ),
                             ),
                             variant: Sort,
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResult {
+                            resolve_progress: Resolved(
+                                OkSort {
                                     implicit_conversion: None,
                                     local_term: Resolved(
                                         ReducedTerm(
@@ -1227,8 +1227,8 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResult {
+                resolve_progress: Resolved(
+                    OkSort {
                         implicit_conversion: None,
                         local_term: Resolved(
                             ReducedTerm(
@@ -1277,8 +1277,8 @@
                                 ),
                             ),
                             variant: Sort,
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResult {
+                            resolve_progress: Resolved(
+                                OkSort {
                                     implicit_conversion: None,
                                     local_term: Resolved(
                                         ReducedTerm(
@@ -1333,8 +1333,8 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResult {
+                resolve_progress: Resolved(
+                    OkSort {
                         implicit_conversion: None,
                         local_term: Resolved(
                             ReducedTerm(
@@ -1383,8 +1383,8 @@
                                 ),
                             ),
                             variant: Sort,
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResult {
+                            resolve_progress: Resolved(
+                                OkSort {
                                     implicit_conversion: None,
                                     local_term: Resolved(
                                         ReducedTerm(
@@ -1440,8 +1440,8 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResult {
+                resolve_progress: Resolved(
+                    OkSort {
                         implicit_conversion: None,
                         local_term: Resolved(
                             ReducedTerm(
@@ -1490,8 +1490,8 @@
                                 ),
                             ),
                             variant: Sort,
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResult {
+                            resolve_progress: Resolved(
+                                OkSort {
                                     implicit_conversion: None,
                                     local_term: Resolved(
                                         ReducedTerm(
@@ -1546,8 +1546,8 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResult {
+                resolve_progress: Resolved(
+                    OkSort {
                         implicit_conversion: None,
                         local_term: Resolved(
                             ReducedTerm(
@@ -1596,8 +1596,8 @@
                                 ),
                             ),
                             variant: Sort,
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResult {
+                            resolve_progress: Resolved(
+                                OkSort {
                                     implicit_conversion: None,
                                     local_term: Resolved(
                                         ReducedTerm(
@@ -1653,8 +1653,8 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResult {
+                resolve_progress: Resolved(
+                    OkSort {
                         implicit_conversion: None,
                         local_term: Resolved(
                             ReducedTerm(
@@ -1703,8 +1703,8 @@
                                 ),
                             ),
                             variant: Sort,
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResult {
+                            resolve_progress: Resolved(
+                                OkSort {
                                     implicit_conversion: None,
                                     local_term: Resolved(
                                         ReducedTerm(
@@ -1759,8 +1759,8 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResult {
+                resolve_progress: Resolved(
+                    OkSort {
                         implicit_conversion: None,
                         local_term: Resolved(
                             ReducedTerm(
@@ -1809,8 +1809,8 @@
                                 ),
                             ),
                             variant: Sort,
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResult {
+                            resolve_progress: Resolved(
+                                OkSort {
                                     implicit_conversion: None,
                                     local_term: Resolved(
                                         ReducedTerm(
@@ -1866,8 +1866,8 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResult {
+                resolve_progress: Resolved(
+                    OkSort {
                         implicit_conversion: None,
                         local_term: Resolved(
                             ReducedTerm(
@@ -1916,8 +1916,8 @@
                                 ),
                             ),
                             variant: Sort,
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResult {
+                            resolve_progress: Resolved(
+                                OkSort {
                                     implicit_conversion: None,
                                     local_term: Resolved(
                                         ReducedTerm(

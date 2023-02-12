@@ -202,10 +202,10 @@ impl UnresolvedTerms {
     ) -> Result<Option<LocalTermExpectationRuleVariant>, &LocalTermResolveError> {
         match expectation_rule_variant {
             LocalTermExpectationRuleVariant::AsBool => Ok(None),
-            LocalTermExpectationRuleVariant::ImplicitlyConvertibleTo { dst } => {
+            LocalTermExpectationRuleVariant::ImplicitlyConversion { destination: dst } => {
                 match self.try_substitute_local_term(*dst)? {
                     Some(dst) => Ok(Some(
-                        LocalTermExpectationRuleVariant::ImplicitlyConvertibleTo { dst },
+                        LocalTermExpectationRuleVariant::ImplicitlyConversion { destination: dst },
                     )),
                     None => Ok(None),
                 }
@@ -287,9 +287,9 @@ impl<'a> ExprTypeEngine<'a> {
             {
                 Ok(target_substitution) => target_substitution,
                 Err(_) => {
-                    rule.resolve_err(
+                    rule.set_resolved(LocalTermExpectationResult::Err(
                         DerivedLocalTermExpectationError::TargetSubstitutionFailure.into(),
-                    );
+                    ));
                     continue;
                 }
             };

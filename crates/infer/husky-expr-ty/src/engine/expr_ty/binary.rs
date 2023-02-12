@@ -233,13 +233,9 @@ impl<'a> ExprTypeEngine<'a> {
         if let Some(lopd_expectation_rule_idx) = lopd_expectation_rule_idx.into_option() {
             match self.local_term_table[lopd_expectation_rule_idx].resolve_progress() {
                 LocalTermExpectationResolveProgress::Unresolved => unreachable!(),
-                LocalTermExpectationResolveProgress::ResolvedOk(resolved_expectation) => {
-                    match resolved_expectation.local_term {
-                        LocalTerm::Resolved(_) => todo!(),
-                        LocalTerm::Unresolved(_) => todo!(),
-                    }
+                LocalTermExpectationResolveProgress::Resolved(resolved_expectation) => {
+                    todo!()
                 }
-                LocalTermExpectationResolveProgress::ResolvedErr(_) => (),
             }
         }
         // match lopd_ty {
