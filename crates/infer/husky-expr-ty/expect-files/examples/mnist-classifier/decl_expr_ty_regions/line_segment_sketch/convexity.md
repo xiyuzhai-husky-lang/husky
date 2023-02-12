@@ -39,7 +39,7 @@
                 ),
             },
         ],
-        expr_terms: ArenaMap {
+        expr_local_terms: ArenaMap {
             data: [
                 None,
                 None,
@@ -70,5 +70,7 @@
                 first_unresolved_expectation: 0,
             },
         },
+        return_ty: None,
+        self_ty: None,
     },
 ]

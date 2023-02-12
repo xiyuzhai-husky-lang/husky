@@ -2040,7 +2040,7 @@ Ok(
                                     },
                                     roots: [
                                         ExprRoot {
-                                            kind: OutputType,
+                                            kind: ReturnType,
                                             expr: 6,
                                         },
                                     ],
@@ -2453,7 +2453,7 @@ Ok(
                                             },
                                             roots: [
                                                 ExprRoot {
-                                                    kind: OutputType,
+                                                    kind: ReturnType,
                                                     expr: 6,
                                                 },
                                             ],

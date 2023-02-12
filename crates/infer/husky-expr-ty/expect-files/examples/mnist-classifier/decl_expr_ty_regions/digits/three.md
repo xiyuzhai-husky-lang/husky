@@ -16,7 +16,7 @@
                 resolve_progress: Unresolved,
             },
         ],
-        expr_terms: ArenaMap {
+        expr_local_terms: ArenaMap {
             data: [
                 None,
             ],
@@ -38,6 +38,8 @@
                 first_unresolved_expectation: 0,
             },
         },
+        return_ty: None,
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -65,7 +67,7 @@
                 resolve_progress: Unresolved,
             },
         ],
-        expr_terms: ArenaMap {
+        expr_local_terms: ArenaMap {
             data: [
                 None,
                 None,
@@ -88,6 +90,8 @@
                 first_unresolved_expectation: 0,
             },
         },
+        return_ty: None,
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -163,7 +167,7 @@
                 ),
             },
         ],
-        expr_terms: ArenaMap {
+        expr_local_terms: ArenaMap {
             data: [
                 None,
                 None,
@@ -224,6 +228,8 @@
                 first_unresolved_expectation: 0,
             },
         },
+        return_ty: None,
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -299,7 +305,7 @@
                 ),
             },
         ],
-        expr_terms: ArenaMap {
+        expr_local_terms: ArenaMap {
             data: [
                 None,
                 None,
@@ -360,6 +366,8 @@
                 first_unresolved_expectation: 0,
             },
         },
+        return_ty: None,
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -435,7 +443,7 @@
                 ),
             },
         ],
-        expr_terms: ArenaMap {
+        expr_local_terms: ArenaMap {
             data: [
                 None,
                 None,
@@ -496,5 +504,7 @@
                 first_unresolved_expectation: 0,
             },
         },
+        return_ty: None,
+        self_ty: None,
     },
 ]

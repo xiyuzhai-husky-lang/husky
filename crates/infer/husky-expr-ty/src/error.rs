@@ -79,6 +79,8 @@ pub enum DerivedExprTypeError {
     AsOperationRightOperandTermNotInferred,
     #[error("ReturnTypeNotGivenInRitchieCall")]
     ReturnTypeNotGivenInRitchieCall,
+    #[error("SelfTypeNotInferredForSelfValue")]
+    SelfTypeNotInferredForSelfValue,
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;
