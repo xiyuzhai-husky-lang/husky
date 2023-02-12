@@ -45,4 +45,5 @@ pub struct TypeJar(
     application_ty_method_ty,
     entity_ty_field_ty,
     application_ty_field_ty,
+    application_term_ty,
 );

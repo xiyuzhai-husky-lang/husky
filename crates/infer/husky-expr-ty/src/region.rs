@@ -68,14 +68,14 @@ impl ExprTypeRegion {
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub struct ExprTypeInfo {
     ty_result: ExprTypeResult<LocalTerm>,
-    expectation_rule_idx: OptionLocalTermExpectationRuleIdx,
+    expectation_rule_idx: OptionLocalTermExpectationIdx,
     resolve_progress: LocalTermExpectationResolveProgress,
 }
 
 impl ExprTypeInfo {
     pub(crate) fn new(
         ty_result: ExprTypeResult<LocalTerm>,
-        expectation_rule_idx: OptionLocalTermExpectationRuleIdx,
+        expectation_rule_idx: OptionLocalTermExpectationIdx,
     ) -> Self {
         Self {
             ty_result,

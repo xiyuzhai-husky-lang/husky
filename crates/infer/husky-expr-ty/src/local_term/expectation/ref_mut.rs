@@ -32,8 +32,32 @@ impl From<ExpectRefMutResult> for LocalTermExpectationResult {
     }
 }
 
-impl From<ExpectRefMut> for LocalTermExpectationRuleVariant {
+impl From<ExpectRefMut> for LocalTermExpectation {
     fn from(value: ExpectRefMut) -> Self {
-        LocalTermExpectationRuleVariant::RefMut { lifetime: todo!() }
+        LocalTermExpectation::RefMut { lifetime: todo!() }
     }
 }
+// LocalTermExpectationRuleVariant::RefMut { lifetime } => {
+//     // ad hoc
+//     LocalTermExpectationResolveProgress::Resolved(LocalTermExpectationResult::Err(
+//         OriginalLocalTermExpectationError::Todo.into(),
+//     ))
+// }
+
+// LocalTermExpectationRuleVariant::RefMut { lifetime } => {
+//     match self.local_term_table()[target].unresolved_term() {
+//         UnresolvedTerm::ImplicitSymbol(_) => todo!(),
+//         UnresolvedTerm::TypeApplication { ty, arguments }
+//             if *ty == self.entity_path_menu().ref_mut_ty_path() =>
+//         {
+//             todo!()
+//         }
+//         UnresolvedTerm::TypeApplication { ty, arguments } => {
+//             LocalTermExpectationResolveProgress::Resolved(
+//                 LocalTermExpectationResult::Err(
+//                     OriginalLocalTermExpectationError::Todo.into(),
+//                 ),
+//             )
+//         }
+//     }
+// }

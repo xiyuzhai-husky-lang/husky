@@ -198,23 +198,23 @@ impl UnresolvedTerms {
 
     fn try_substitute_expectation_rule_variant(
         &self,
-        expectation_rule_variant: &LocalTermExpectationRuleVariant,
-    ) -> Result<Option<LocalTermExpectationRuleVariant>, &LocalTermResolveError> {
+        expectation_rule_variant: &LocalTermExpectation,
+    ) -> Result<Option<LocalTermExpectation>, &LocalTermResolveError> {
         match expectation_rule_variant {
-            LocalTermExpectationRuleVariant::AsBool => Ok(None),
-            LocalTermExpectationRuleVariant::ImplicitlyConversion { destination: dst } => {
+            LocalTermExpectation::AsBool => Ok(None),
+            LocalTermExpectation::ImplicitlyConversion { destination: dst } => {
                 match self.try_substitute_local_term(*dst)? {
-                    Some(dst) => Ok(Some(
-                        LocalTermExpectationRuleVariant::ImplicitlyConversion { destination: dst },
-                    )),
+                    Some(dst) => Ok(Some(LocalTermExpectation::ImplicitlyConversion {
+                        destination: dst,
+                    })),
                     None => Ok(None),
                 }
             }
-            LocalTermExpectationRuleVariant::Sort => Ok(None),
-            LocalTermExpectationRuleVariant::FrameVariableType => todo!(),
-            LocalTermExpectationRuleVariant::RefMut { lifetime } => todo!(),
-            LocalTermExpectationRuleVariant::RitchieCall => todo!(),
-            LocalTermExpectationRuleVariant::Type => todo!(),
+            LocalTermExpectation::Sort => Ok(None),
+            LocalTermExpectation::FrameVariableType => todo!(),
+            LocalTermExpectation::RefMut { lifetime } => todo!(),
+            LocalTermExpectation::RitchieCall => todo!(),
+            LocalTermExpectation::Type => todo!(),
         }
     }
 }
@@ -276,7 +276,7 @@ impl<'a> ExprTypeEngine<'a> {
                 }
             }
         }
-        let new_expectation_rules: Vec<LocalTermExpectationRule> = Default::default();
+        let new_expectation_rules: Vec<LocalTermExpectationEntry> = Default::default();
         for (idx, rule) in table
             .expectation_rules
             .unresolved_expectation_rule_iter_mut()
