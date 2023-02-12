@@ -1121,7 +1121,7 @@ Ok(
                                             ),
                                             ropd: 48,
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 42,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -2447,7 +2447,7 @@ Ok(
                                             ),
                                             ropd: 48,
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 42,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -3806,7 +3806,7 @@ Ok(
                                             inherited_symbol_idx: 2,
                                             inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 36,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -3843,7 +3843,7 @@ Ok(
                                             inherited_symbol_idx: 2,
                                             inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 40,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -4157,7 +4157,7 @@ Ok(
                                             inherited_symbol_idx: 2,
                                             inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 70,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -4194,7 +4194,7 @@ Ok(
                                             inherited_symbol_idx: 2,
                                             inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 74,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -6670,7 +6670,7 @@ Ok(
                                             inherited_symbol_idx: 3,
                                             inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 37,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -6707,7 +6707,7 @@ Ok(
                                             inherited_symbol_idx: 3,
                                             inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 41,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -6950,7 +6950,7 @@ Ok(
                                             inherited_symbol_idx: 3,
                                             inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 65,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -6987,7 +6987,7 @@ Ok(
                                             inherited_symbol_idx: 3,
                                             inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 69,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -9132,7 +9132,7 @@ Ok(
                                                 1060,
                                             ),
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 0,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -9273,7 +9273,7 @@ Ok(
                                                 pattern_symbol_idx: 2,
                                             },
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 12,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -9328,7 +9328,7 @@ Ok(
                                                 pattern_symbol_idx: 2,
                                             },
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 19,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -9777,7 +9777,7 @@ Ok(
                                                 1184,
                                             ),
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 50,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -9887,7 +9887,7 @@ Ok(
                                                 pattern_symbol_idx: 1,
                                             },
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 64,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -9942,7 +9942,7 @@ Ok(
                                                 pattern_symbol_idx: 2,
                                             },
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 72,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -10588,7 +10588,7 @@ Ok(
                                                 pattern_symbol_idx: 9,
                                             },
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 119,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -11215,7 +11215,7 @@ Ok(
                                                 1435,
                                             ),
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 167,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -16249,7 +16249,7 @@ Ok(
                                                     pattern_symbol_idx: 4,
                                                 },
                                             },
-                                            Expr::FunctionCall {
+                                            Expr::RitchieCall {
                                                 function: 48,
                                                 implicit_arguments: None,
                                                 lpar_token_idx: TokenIdx(
@@ -16262,7 +16262,7 @@ Ok(
                                                     303,
                                                 ),
                                             },
-                                            Expr::FunctionCall {
+                                            Expr::RitchieCall {
                                                 function: 51,
                                                 implicit_arguments: None,
                                                 lpar_token_idx: TokenIdx(
@@ -16275,7 +16275,7 @@ Ok(
                                                     310,
                                                 ),
                                             },
-                                            Expr::FunctionCall {
+                                            Expr::RitchieCall {
                                                 function: 47,
                                                 implicit_arguments: None,
                                                 lpar_token_idx: TokenIdx(
@@ -17560,7 +17560,7 @@ Ok(
                                                 inherited_symbol_idx: 0,
                                                 inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                             },
-                                            Expr::FunctionCall {
+                                            Expr::RitchieCall {
                                                 function: 1,
                                                 implicit_arguments: None,
                                                 lpar_token_idx: TokenIdx(
@@ -17573,7 +17573,7 @@ Ok(
                                                     338,
                                                 ),
                                             },
-                                            Expr::FunctionCall {
+                                            Expr::RitchieCall {
                                                 function: 0,
                                                 implicit_arguments: None,
                                                 lpar_token_idx: TokenIdx(

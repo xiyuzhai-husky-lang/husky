@@ -122,7 +122,7 @@ pub enum Expr {
         argument: ExprIdx,
         rpar_token_idx: TokenIdx,
     },
-    FunctionCall {
+    RitchieCall {
         function: ExprIdx,
         implicit_arguments: Option<ImplicitArgumentList>,
         lpar_token_idx: TokenIdx,

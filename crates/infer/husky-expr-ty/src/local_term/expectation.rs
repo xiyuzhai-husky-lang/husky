@@ -23,6 +23,7 @@ pub(crate) enum LocalTermExpectation {
     RefMut {
         lifetime: LocalTerm,
     },
+    RitchieCall,
 }
 
 impl LocalTermExpectation {
@@ -35,6 +36,7 @@ impl LocalTermExpectation {
             LocalTermExpectation::Return { ty } => ty,
             LocalTermExpectation::ImplicitlyConvertibleTo { ty } => ty.resolved(),
             LocalTermExpectation::RefMut { .. } => None,
+            LocalTermExpectation::RitchieCall => None,
         }
     }
 }
@@ -300,6 +302,9 @@ impl<'a> ExprTypeEngine<'a> {
                     OriginalLocalTermExpectationError::Todo.into(),
                 )
             }
+            LocalTermExpectationRuleVariant::RitchieCall => {
+                todo!()
+            }
         };
         LocalTermExpectationRule {
             src_expr_idx,
@@ -346,6 +351,7 @@ impl<'a> ExprTypeEngine<'a> {
                     }
                 }
             }
+            LocalTermExpectationRuleVariant::RitchieCall => todo!(),
         };
         LocalTermExpectationRule {
             src_expr_idx,
@@ -392,6 +398,7 @@ impl<'a> ExprTypeEngine<'a> {
             LocalTermExpectationRuleVariant::Type => todo!(),
             LocalTermExpectationRuleVariant::FrameVariableType => todo!(),
             LocalTermExpectationRuleVariant::RefMut { lifetime } => todo!(),
+            LocalTermExpectationRuleVariant::RitchieCall => todo!(),
         }
     }
 }
@@ -404,4 +411,5 @@ pub(crate) enum LocalTermExpectationRuleVariant {
     Type,
     FrameVariableType,
     RefMut { lifetime: LocalTerm },
+    RitchieCall,
 }

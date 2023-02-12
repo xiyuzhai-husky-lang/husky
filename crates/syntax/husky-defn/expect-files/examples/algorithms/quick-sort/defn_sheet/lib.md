@@ -530,7 +530,7 @@ Ok(
                                             ),
                                             ropd: 7,
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 2,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -1420,7 +1420,7 @@ Ok(
                                             inherited_symbol_idx: 3,
                                             inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 3,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -1480,7 +1480,7 @@ Ok(
                                             ),
                                             ropd: 10,
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 8,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -1540,7 +1540,7 @@ Ok(
                                             inherited_symbol_idx: 3,
                                             inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 15,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(

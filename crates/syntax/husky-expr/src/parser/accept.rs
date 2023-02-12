@@ -73,7 +73,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                     argument: items.start(),
                                     rpar_token_idx: ket_token_idx,
                                 },
-                                (_, implicit_arguments) => Expr::FunctionCall {
+                                (_, implicit_arguments) => Expr::RitchieCall {
                                     function,
                                     implicit_arguments,
                                     lpar_token_idx: bra_token_idx,

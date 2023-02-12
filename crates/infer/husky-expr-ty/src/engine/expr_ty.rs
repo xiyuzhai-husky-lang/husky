@@ -145,13 +145,14 @@ impl<'a> ExprTypeEngine<'a> {
                     }
                 }
             }
-            Expr::FunctionCall {
+            Expr::RitchieCall {
                 function,
                 ref implicit_arguments,
                 arguments,
                 ..
             } => {
-                let function_ty = self.infer_new_expr_ty(function, LocalTermExpectation::None);
+                let function_ty =
+                    self.infer_new_expr_ty(function, LocalTermExpectation::RitchieCall);
                 self.calc_ritchie_call_ty(function_ty, implicit_arguments.as_ref(), arguments)
             }
             Expr::Field {

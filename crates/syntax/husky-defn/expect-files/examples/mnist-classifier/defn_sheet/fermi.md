@@ -848,7 +848,7 @@ Ok(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 2,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -1073,7 +1073,7 @@ Ok(
                                                 pattern_symbol_idx: 0,
                                             },
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 20,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(

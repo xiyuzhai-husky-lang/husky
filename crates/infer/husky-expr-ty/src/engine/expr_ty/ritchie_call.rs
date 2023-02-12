@@ -8,17 +8,9 @@ impl<'a> ExprTypeEngine<'a> {
         nonself_arguments: ExprIdxRange,
     ) -> ExprTypeResult<LocalTerm> {
         let Some(mut callable_ty) = callable_ty
-        else {
-            if let Some(implicit_arguments) = implicit_arguments{
-                for argument in implicit_arguments.arguments() {
-                    self.infer_new_expr_ty(argument, LocalTermExpectation::None);
-                }
-            }
-            for argument in nonself_arguments {
-                self.infer_new_expr_ty(argument, LocalTermExpectation::None);
-            }
-            return Err(DerivedExprTypeError::CallableTypeError.into())
-        };
+            else {
+                return self.infer_err_ritchie_call_ty(implicit_arguments, nonself_arguments)
+            };
         if let Some(implicit_arguments) = implicit_arguments {
             todo!()
         }
@@ -57,6 +49,22 @@ impl<'a> ExprTypeEngine<'a> {
             },
             LocalTerm::Unresolved(_) => todo!(),
         }
+    }
+
+    fn infer_err_ritchie_call_ty(
+        &mut self,
+        implicit_arguments: Option<&ImplicitArgumentList>,
+        nonself_arguments: idx_arena::ArenaIdxRange<Expr>,
+    ) -> Result<LocalTerm, ExprTypeError> {
+        if let Some(implicit_arguments) = implicit_arguments {
+            for argument in implicit_arguments.arguments() {
+                self.infer_new_expr_ty(argument, LocalTermExpectation::None);
+            }
+        }
+        for argument in nonself_arguments {
+            self.infer_new_expr_ty(argument, LocalTermExpectation::None);
+        }
+        Err(DerivedExprTypeError::CallableTypeError.into())
     }
 
     fn calc_ritchie_call_ty_aux(

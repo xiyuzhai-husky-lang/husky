@@ -213,6 +213,7 @@ impl UnresolvedTerms {
             LocalTermExpectationRuleVariant::Type => Ok(None),
             LocalTermExpectationRuleVariant::FrameVariableType => todo!(),
             LocalTermExpectationRuleVariant::RefMut { lifetime } => todo!(),
+            LocalTermExpectationRuleVariant::RitchieCall => todo!(),
         }
     }
 }
