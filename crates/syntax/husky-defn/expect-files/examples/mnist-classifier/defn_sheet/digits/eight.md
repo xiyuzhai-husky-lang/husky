@@ -129,7 +129,7 @@ Ok(
                                                 89,
                                             ),
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 0,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(

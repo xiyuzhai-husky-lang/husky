@@ -2522,7 +2522,7 @@ Ok(
                                                 661,
                                             ),
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 0,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -2708,7 +2708,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 17,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -2796,7 +2796,7 @@ Ok(
                                                 710,
                                             ),
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 21,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -3022,7 +3022,7 @@ Ok(
                                                 pattern_symbol_idx: 7,
                                             },
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 41,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -3317,7 +3317,7 @@ Ok(
                                                 pattern_symbol_idx: 9,
                                             },
                                         },
-                                        Expr::FunctionCall {
+                                        Expr::RitchieCall {
                                             function: 71,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
@@ -5869,7 +5869,7 @@ Ok(
                                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                 ),
                                             },
-                                            Expr::FunctionCall {
+                                            Expr::RitchieCall {
                                                 function: 3,
                                                 implicit_arguments: None,
                                                 lpar_token_idx: TokenIdx(
@@ -9785,7 +9785,7 @@ Ok(
                                                     pattern_symbol_idx: 5,
                                                 },
                                             },
-                                            Expr::FunctionCall {
+                                            Expr::RitchieCall {
                                                 function: 49,
                                                 implicit_arguments: None,
                                                 lpar_token_idx: TokenIdx(

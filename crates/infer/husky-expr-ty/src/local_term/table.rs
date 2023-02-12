@@ -49,6 +49,7 @@ impl<'a> ExprTypeEngine<'a> {
             LocalTermExpectation::RefMut { lifetime } => {
                 LocalTermExpectationRuleVariant::RefMut { lifetime }
             }
+            LocalTermExpectation::RitchieCall => LocalTermExpectationRuleVariant::RitchieCall,
         };
         let rule = self.new_expectation_rule(src_expr_idx, target, variant);
         self.local_term_table_mut()

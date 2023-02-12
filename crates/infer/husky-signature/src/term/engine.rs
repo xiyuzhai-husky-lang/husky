@@ -254,7 +254,7 @@ impl<'a> SignatureTermEngine<'a> {
                 punctuation,
                 punctuation_token_idx,
             } => todo!(),
-            Expr::FunctionCall { function, .. } => {
+            Expr::RitchieCall { function, .. } => {
                 todo!()
             }
             Expr::Field {
@@ -344,7 +344,7 @@ impl<'a> SignatureTermEngine<'a> {
                                 argument,
                                 rpar_token_idx,
                             } => todo!(),
-                            Expr::FunctionCall {
+                            Expr::RitchieCall {
                                 function,
                                 ref implicit_arguments,
                                 lpar_token_idx,

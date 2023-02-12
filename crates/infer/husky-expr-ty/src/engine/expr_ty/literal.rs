@@ -59,6 +59,7 @@ impl<'a> ExprTypeEngine<'a> {
                         LocalTermExpectation::Return { ty } => todo!(),
                         LocalTermExpectation::ImplicitlyConvertibleTo { ty } => todo!(),
                         LocalTermExpectation::RefMut { lifetime } => todo!(),
+                        LocalTermExpectation::RitchieCall => todo!(),
                     },
                     FloatLiteral::F32(_) => todo!(),
                     FloatLiteral::F64(_) => todo!(),

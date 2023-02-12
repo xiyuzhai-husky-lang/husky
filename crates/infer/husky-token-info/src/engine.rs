@@ -294,7 +294,7 @@ impl<'a> AuxInferEngine<'a> {
             | Expr::Bracketed { .. }
             | Expr::Err(_)
             | Expr::Block { .. }
-            | Expr::FunctionCall { .. }
+            | Expr::RitchieCall { .. }
             | Expr::Be { .. } => (),
             Expr::BoxColon { .. } => (),
             Expr::ApplicationOrFunctionCall { function, .. }
