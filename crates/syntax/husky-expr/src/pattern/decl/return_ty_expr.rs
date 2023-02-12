@@ -16,7 +16,7 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for OutputTypeExpr {
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
         if let Some(expr) = ctx.parse_expr(ExprParseEnvironment::None) {
-            ctx.add_expr_root(ExprRoot::new(ExprRootKind::OutputType, expr));
+            ctx.add_expr_root(ExprRoot::new(ExprRootKind::ReturnType, expr));
             Ok(Some(OutputTypeExpr { expr }))
         } else {
             Ok(None)

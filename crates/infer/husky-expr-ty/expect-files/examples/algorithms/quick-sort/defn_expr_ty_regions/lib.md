@@ -142,7 +142,7 @@
                 resolve_progress: Unresolved,
             },
         ],
-        expr_terms: ArenaMap {
+        expr_local_terms: ArenaMap {
             data: [
                 None,
                 None,
@@ -201,6 +201,8 @@
                 first_unresolved_expectation: 0,
             },
         },
+        return_ty: None,
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -531,7 +533,7 @@
                 resolve_progress: Unresolved,
             },
         ],
-        expr_terms: ArenaMap {
+        expr_local_terms: ArenaMap {
             data: [
                 None,
                 None,
@@ -657,6 +659,8 @@
                 first_unresolved_expectation: 0,
             },
         },
+        return_ty: None,
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -1442,7 +1446,7 @@
                 resolve_progress: Unresolved,
             },
         ],
-        expr_terms: ArenaMap {
+        expr_local_terms: ArenaMap {
             data: [
                 None,
                 Some(
@@ -2305,6 +2309,8 @@
                 first_unresolved_expectation: 0,
             },
         },
+        return_ty: None,
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -2944,7 +2950,7 @@
                 ),
             },
         ],
-        expr_terms: ArenaMap {
+        expr_local_terms: ArenaMap {
             data: [
                 None,
                 None,
@@ -4088,6 +4094,8 @@
                 first_unresolved_expectation: 0,
             },
         },
+        return_ty: None,
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -4665,7 +4673,7 @@
                 ),
             },
         ],
-        expr_terms: ArenaMap {
+        expr_local_terms: ArenaMap {
             data: [
                 None,
                 None,
@@ -5303,5 +5311,7 @@
                 first_unresolved_expectation: 0,
             },
         },
+        return_ty: None,
+        self_ty: None,
     },
 ]

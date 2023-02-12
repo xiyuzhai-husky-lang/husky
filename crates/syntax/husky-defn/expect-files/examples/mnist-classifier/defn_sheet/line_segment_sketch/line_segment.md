@@ -250,7 +250,7 @@ Ok(
                                 },
                                 roots: [
                                     ExprRoot {
-                                        kind: Type,
+                                        kind: SelfType,
                                         expr: 0,
                                     },
                                 ],
@@ -384,7 +384,7 @@ Ok(
                                                     },
                                                     roots: [
                                                         ExprRoot {
-                                                            kind: Type,
+                                                            kind: SelfType,
                                                             expr: 0,
                                                         },
                                                     ],
@@ -451,7 +451,7 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
-                                                kind: OutputType,
+                                                kind: ReturnType,
                                                 expr: 0,
                                             },
                                         ],
@@ -558,7 +558,7 @@ Ok(
                                                             },
                                                             roots: [
                                                                 ExprRoot {
-                                                                    kind: Type,
+                                                                    kind: SelfType,
                                                                     expr: 0,
                                                                 },
                                                             ],
@@ -625,7 +625,7 @@ Ok(
                                                 },
                                                 roots: [
                                                     ExprRoot {
-                                                        kind: OutputType,
+                                                        kind: ReturnType,
                                                         expr: 0,
                                                     },
                                                 ],
@@ -881,7 +881,7 @@ Ok(
                                                     },
                                                     roots: [
                                                         ExprRoot {
-                                                            kind: Type,
+                                                            kind: SelfType,
                                                             expr: 0,
                                                         },
                                                     ],
@@ -1006,7 +1006,7 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
-                                                kind: OutputType,
+                                                kind: ReturnType,
                                                 expr: 1,
                                             },
                                         ],
@@ -1126,7 +1126,7 @@ Ok(
                                                             },
                                                             roots: [
                                                                 ExprRoot {
-                                                                    kind: Type,
+                                                                    kind: SelfType,
                                                                     expr: 0,
                                                                 },
                                                             ],
@@ -1251,7 +1251,7 @@ Ok(
                                                 },
                                                 roots: [
                                                     ExprRoot {
-                                                        kind: OutputType,
+                                                        kind: ReturnType,
                                                         expr: 1,
                                                     },
                                                 ],

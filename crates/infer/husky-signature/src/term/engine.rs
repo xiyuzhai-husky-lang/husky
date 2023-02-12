@@ -128,9 +128,9 @@ impl<'a> SignatureTermEngine<'a> {
         for expr_root in self.expr_region_data.roots() {
             match expr_root.kind() {
                 ExprRootKind::BlockExpr => return,
-                ExprRootKind::Type
+                ExprRootKind::SelfType
                 | ExprRootKind::Trait
-                | ExprRootKind::OutputType
+                | ExprRootKind::ReturnType
                 | ExprRootKind::FieldType => (),
             }
             self.cache_new(expr_root.expr())

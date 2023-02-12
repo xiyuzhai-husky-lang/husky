@@ -95,9 +95,10 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             } => todo!(),
             Expr::SelfType(_) => todo!(),
-            Expr::SelfValue(_) => {
-                todo!()
-            }
+            Expr::SelfValue(_) => match self.self_ty {
+                Some(_) => todo!(),
+                None => Err(DerivedExprTypeError::SelfTypeNotInferredForSelfValue.into()),
+            },
             Expr::BinaryOpn {
                 lopd,
                 opr,

@@ -14,7 +14,7 @@
             ),
         ),
         expr_ty_infos: [],
-        expr_terms: ArenaMap {
+        expr_local_terms: ArenaMap {
             data: [],
         },
         inherited_symbol_tys: [],
@@ -34,6 +34,10 @@
                 first_unresolved_expectation: 0,
             },
         },
+        return_ty: Some(
+            Term(`i8`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -50,7 +54,7 @@
             ),
         ),
         expr_ty_infos: [],
-        expr_terms: ArenaMap {
+        expr_local_terms: ArenaMap {
             data: [],
         },
         inherited_symbol_tys: [],
@@ -70,6 +74,10 @@
                 first_unresolved_expectation: 0,
             },
         },
+        return_ty: Some(
+            Term(`i16`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -86,7 +94,7 @@
             ),
         ),
         expr_ty_infos: [],
-        expr_terms: ArenaMap {
+        expr_local_terms: ArenaMap {
             data: [],
         },
         inherited_symbol_tys: [],
@@ -106,6 +114,10 @@
                 first_unresolved_expectation: 0,
             },
         },
+        return_ty: Some(
+            Term(`i32`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -122,7 +134,7 @@
             ),
         ),
         expr_ty_infos: [],
-        expr_terms: ArenaMap {
+        expr_local_terms: ArenaMap {
             data: [],
         },
         inherited_symbol_tys: [],
@@ -142,6 +154,10 @@
                 first_unresolved_expectation: 0,
             },
         },
+        return_ty: Some(
+            Term(`i64`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -158,7 +174,7 @@
             ),
         ),
         expr_ty_infos: [],
-        expr_terms: ArenaMap {
+        expr_local_terms: ArenaMap {
             data: [],
         },
         inherited_symbol_tys: [],
@@ -178,6 +194,10 @@
                 first_unresolved_expectation: 0,
             },
         },
+        return_ty: Some(
+            Term(`f8`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -194,7 +214,7 @@
             ),
         ),
         expr_ty_infos: [],
-        expr_terms: ArenaMap {
+        expr_local_terms: ArenaMap {
             data: [],
         },
         inherited_symbol_tys: [],
@@ -214,6 +234,10 @@
                 first_unresolved_expectation: 0,
             },
         },
+        return_ty: Some(
+            Term(`f16`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -230,7 +254,7 @@
             ),
         ),
         expr_ty_infos: [],
-        expr_terms: ArenaMap {
+        expr_local_terms: ArenaMap {
             data: [],
         },
         inherited_symbol_tys: [],
@@ -250,6 +274,10 @@
                 first_unresolved_expectation: 0,
             },
         },
+        return_ty: Some(
+            Term(`f32`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -266,7 +294,7 @@
             ),
         ),
         expr_ty_infos: [],
-        expr_terms: ArenaMap {
+        expr_local_terms: ArenaMap {
             data: [],
         },
         inherited_symbol_tys: [],
@@ -286,5 +314,9 @@
                 first_unresolved_expectation: 0,
             },
         },
+        return_ty: Some(
+            Term(`f64`),
+        ),
+        self_ty: None,
     },
 ]

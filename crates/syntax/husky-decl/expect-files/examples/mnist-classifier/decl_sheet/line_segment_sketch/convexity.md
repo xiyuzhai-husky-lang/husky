@@ -172,7 +172,7 @@ Ok(
                                     },
                                     roots: [
                                         ExprRoot {
-                                            kind: OutputType,
+                                            kind: ReturnType,
                                             expr: 2,
                                         },
                                     ],

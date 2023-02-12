@@ -7,10 +7,12 @@ use crate::*;
 pub struct ExprTypeRegion {
     path: RegionPath,
     expr_ty_infos: ExprMap<ExprTypeInfo>,
-    expr_terms: ExprMap<ExprTermResult<LocalTerm>>,
+    expr_local_terms: ExprMap<ExprTermResult<LocalTerm>>,
     inherited_symbol_tys: InheritedSymbolMap<ReducedTerm>,
     current_symbol_tys: CurrentSymbolMap<LocalTerm>,
     unresolved_term_table: LocalTermTable,
+    return_ty: Option<ReducedTerm>,
+    self_ty: Option<ReducedTerm>,
 }
 
 impl ExprTypeRegion {
@@ -23,6 +25,8 @@ impl ExprTypeRegion {
         inherited_symbol_tys: InheritedSymbolMap<ReducedTerm>,
         current_symbol_tys: CurrentSymbolMap<LocalTerm>,
         mut unresolved_term_table: LocalTermTable,
+        return_ty: Option<ReducedTerm>,
+        self_ty: Option<ReducedTerm>,
     ) -> Self {
         expr_ty_infos
             .iter_mut()
@@ -30,20 +34,34 @@ impl ExprTypeRegion {
         Self {
             path,
             expr_ty_infos,
-            expr_terms,
+            expr_local_terms: expr_terms,
             inherited_symbol_tys,
             current_symbol_tys,
             unresolved_term_table,
+            return_ty,
+            self_ty,
         }
     }
-}
 
-impl std::ops::Index<ExprIdx> for ExprTypeRegion {
-    type Output = ExprTypeInfo;
+    // pub fn expr_local_term(
+    //     &self,
+    //     expr_idx: ExprIdx,
+    // ) -> Option<Result<Result<ReducedTerm, &LocalTermResolveError>, &ExprTermError>> {
+    //     self.expr_local_terms.get(expr_idx).map(|expr_term| {
+    //         expr_term
+    //             .as_ref()
+    //             .map(|local_term| self.resolved_term(*local_term))
+    //     })
+    // }
 
-    fn index(&self, index: ExprIdx) -> &Self::Output {
-        &self.expr_ty_infos[index]
-    }
+    // fn resolved_term(&self, local_term: LocalTerm) -> Result<ReducedTerm, &LocalTermResolveError> {
+    //     match local_term {
+    //         LocalTerm::Resolved(term) => Ok(term),
+    //         LocalTerm::Unresolved(term) => {
+    //             todo!()
+    //         }
+    //     }
+    // }
 }
 
 #[derive(Debug, PartialEq, Eq)]

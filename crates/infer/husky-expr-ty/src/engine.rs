@@ -27,6 +27,7 @@ pub(crate) struct ExprTypeEngine<'a> {
     pattern_expr_ty_infos: PatternExprMap<PatternExprTypeInfo>,
     pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
     return_ty: Option<ReducedTerm>,
+    self_ty: Option<ReducedTerm>,
 }
 
 impl<'a> std::ops::Index<ExprIdx> for ExprTypeEngine<'a> {
@@ -40,14 +41,26 @@ impl<'a> std::ops::Index<ExprIdx> for ExprTypeEngine<'a> {
 impl<'a> ExprTypeEngine<'a> {
     pub(crate) fn new(db: &'a dyn ExprTypeDb, expr_region: ExprRegion) -> Self {
         let expr_region_data = expr_region.data(db);
+        // todo: improve this
         let return_ty = expr_region_data
             .parent()
             .map(|parent| {
-                db.expr_ty_region(parent)[parent.data(db).return_ty()?]
-                    .resolve_progress()
-                    .reduced_term()
+                db.signature_term_region(parent)
+                    .expr_term(parent.data(db).return_ty()?)
+                    .ok()
             })
-            .flatten();
+            .flatten()
+            .map(|term| db.reduced_term(term));
+        // todo: improve this
+        let self_ty = expr_region_data
+            .parent()
+            .map(|parent| {
+                db.signature_term_region(parent)
+                    .expr_term(parent.data(db).self_ty()?)
+                    .ok()
+            })
+            .flatten()
+            .map(|term| db.reduced_term(term));
         let symbol_region = expr_region_data.symbol_region();
         let pattern_expr_region = expr_region_data.pattern_expr_region();
         let toolchain = expr_region.toolchain(db);
@@ -72,6 +85,7 @@ impl<'a> ExprTypeEngine<'a> {
             pattern_symbol_ty_infos: PatternSymbolMap::new(
                 pattern_expr_region.pattern_symbol_arena(),
             ),
+            self_ty,
         }
     }
 
@@ -98,6 +112,8 @@ impl<'a> ExprTypeEngine<'a> {
             self.inherited_symbol_tys,
             self.current_symbol_tys,
             self.local_term_table,
+            self.return_ty,
+            self.self_ty,
         )
     }
 

@@ -291,7 +291,7 @@ Ok(
                                 },
                                 roots: [
                                     ExprRoot {
-                                        kind: Type,
+                                        kind: SelfType,
                                         expr: 0,
                                     },
                                 ],

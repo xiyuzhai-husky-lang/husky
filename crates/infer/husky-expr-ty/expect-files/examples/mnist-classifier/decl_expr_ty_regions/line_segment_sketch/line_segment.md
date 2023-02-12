@@ -71,7 +71,7 @@
                 ),
             },
         ],
-        expr_terms: ArenaMap {
+        expr_local_terms: ArenaMap {
             data: [
                 None,
                 None,
@@ -94,6 +94,8 @@
                 first_unresolved_expectation: 0,
             },
         },
+        return_ty: None,
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -140,7 +142,7 @@
                 ),
             },
         ],
-        expr_terms: ArenaMap {
+        expr_local_terms: ArenaMap {
             data: [
                 None,
             ],
@@ -162,6 +164,8 @@
                 first_unresolved_expectation: 0,
             },
         },
+        return_ty: None,
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -211,7 +215,7 @@
                 ),
             },
         ],
-        expr_terms: ArenaMap {
+        expr_local_terms: ArenaMap {
             data: [
                 None,
             ],
@@ -233,6 +237,10 @@
                 first_unresolved_expectation: 0,
             },
         },
+        return_ty: None,
+        self_ty: Some(
+            Term(`LineSegment`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -282,7 +290,7 @@
                 ),
             },
         ],
-        expr_terms: ArenaMap {
+        expr_local_terms: ArenaMap {
             data: [
                 None,
                 None,
@@ -309,5 +317,9 @@
                 first_unresolved_expectation: 0,
             },
         },
+        return_ty: None,
+        self_ty: Some(
+            Term(`LineSegment`),
+        ),
     },
 ]
