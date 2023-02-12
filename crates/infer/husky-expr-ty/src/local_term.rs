@@ -24,7 +24,7 @@ pub(crate) enum LocalTerm {
 pub(crate) struct LocalTermTable {
     implicit_symbol_registry: ImplicitSymbolRegistry,
     unresolved_terms: UnresolvedTerms,
-    expectation_rules: LocalTermExpectationRules,
+    expectation_rules: LocalTermExpectations,
 }
 
 impl LocalTerm {

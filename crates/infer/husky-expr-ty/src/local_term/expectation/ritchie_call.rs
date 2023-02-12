@@ -26,8 +26,8 @@ impl From<ExpectRitchieCallResult> for LocalTermExpectationResult {
     }
 }
 
-impl From<ExpectRitchieCall> for LocalTermExpectationRuleVariant {
+impl From<ExpectRitchieCall> for LocalTermExpectation {
     fn from(value: ExpectRitchieCall) -> Self {
-        LocalTermExpectationRuleVariant::RitchieCall
+        LocalTermExpectation::RitchieCall
     }
 }

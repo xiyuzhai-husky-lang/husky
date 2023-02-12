@@ -3,8 +3,8 @@ use husky_print_utils::p;
 use idx_arena::{Arena, ArenaIdx, OptionArenaIdx};
 use vec_like::VecSet;
 
-pub(crate) type LocalTermExpectationRuleIdx = ArenaIdx<LocalTermExpectationRule>;
-pub(crate) type OptionLocalTermExpectationRuleIdx = OptionArenaIdx<LocalTermExpectationRule>;
+pub(crate) type LocalTermExpectationRuleIdx = ArenaIdx<LocalTermExpectationEntry>;
+pub(crate) type OptionLocalTermExpectationIdx = OptionArenaIdx<LocalTermExpectationEntry>;
 
 impl std::ops::Index<UnresolvedTermIdx> for LocalTermTable {
     type Output = UnresolvedTermEntry;
@@ -15,7 +15,7 @@ impl std::ops::Index<UnresolvedTermIdx> for LocalTermTable {
 }
 
 impl std::ops::Index<LocalTermExpectationRuleIdx> for LocalTermTable {
-    type Output = LocalTermExpectationRule;
+    type Output = LocalTermExpectationEntry;
 
     fn index(&self, index: LocalTermExpectationRuleIdx) -> &Self::Output {
         &self.expectation_rules[index]
@@ -29,45 +29,16 @@ pub(crate) enum LocalTermResolveLevel {
 }
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(crate) fn add_expectation_rule(
-        &mut self,
-        src_expr_idx: ExprIdx,
-        target: LocalTerm,
-        expectation: impl ExpectLocalTerm,
-    ) -> OptionLocalTermExpectationRuleIdx {
-        // let variant = match expectation {
-        //     ExpectType => return Default::default(),
-        //     ExpectSort => LocalTermExpectationRuleVariant::Sort,
-        //     ExpectExplicitConversion::Bool => LocalTermExpectationRuleVariant::AsBool,
-        //     LocalTermExpectation::FrameVariableType => {
-        //         LocalTermExpectationRuleVariant::FrameVariableType
-        //     }
-        //     LocalTermExpectation::Return { ty } => todo!(),
-        //     ExpectImplicitConversion { ty: term } => {
-        //         LocalTermExpectationRuleVariant::ImplicitlyConvertibleTo { dst: term }
-        //     }
-        //     LocalTermExpectation::RefMut { lifetime } => {
-        //         LocalTermExpectationRuleVariant::RefMut { lifetime }
-        //     }
-        //     LocalTermExpectation::RitchieCall => LocalTermExpectationRuleVariant::RitchieCall,
-        // };
-        let rule = self.new_expectation_rule(src_expr_idx, target, expectation.into());
-        self.local_term_table_mut()
-            .expectation_rules
-            .alloc_rule(rule)
-            .into()
-    }
-
     fn next_expectation_effect(
         &self,
         level: LocalTermResolveLevel,
-    ) -> Option<(LocalTermExpectationRuleIdx, LocalTermExpectationEffect)> {
+    ) -> Option<(LocalTermExpectationRuleIdx, LocalTermExpectationResultM)> {
         for (idx, rule) in self
             .local_term_table()
             .expectation_rules
             .unresolved_rule_iter()
         {
-            if let Some(action) = self.expectation_rule_effect(rule, level) {
+            if let Some(action) = self.resolve_expectation(rule, level) {
                 return Some((idx, action));
             }
         }

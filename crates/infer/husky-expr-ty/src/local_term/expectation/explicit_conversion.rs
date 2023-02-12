@@ -8,7 +8,7 @@ pub(crate) struct ExpectExplicitConversion {
 
 pub(crate) struct ExpectExplicitConversionResult {}
 
-impl From<ExpectExplicitConversion> for LocalTermExpectationRuleVariant {
+impl From<ExpectExplicitConversion> for LocalTermExpectation {
     fn from(value: ExpectExplicitConversion) -> Self {
         todo!()
     }
@@ -27,3 +27,20 @@ impl ExpectLocalTerm for ExpectExplicitConversion {
         Some(self.destination)
     }
 }
+
+// LocalTermExpectationRuleVariant::AsBool => {
+//     match resolved_term {
+//         term if term == reduced_term_menu.bool() => {
+//             LocalTermExpectationResolveProgress::Resolved(
+//                 LocalTermExpectationResult::OkExplicitConversion {
+//                     local_term: term.into(),
+//                     implicit_conversion: LocalTermImplicitConversion::None,
+//                 },
+//             )
+//         }
+//         // MOM
+//         term if term == reduced_term_menu.i32() => todo!(),
+//         term if term == reduced_term_menu.r32() => todo!(),
+//         term => todo!(),
+//     }
+// }

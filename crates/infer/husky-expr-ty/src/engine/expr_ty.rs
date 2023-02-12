@@ -23,7 +23,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: ExprIdx,
         expectation: impl ExpectLocalTerm,
-    ) -> (Option<LocalTerm>, OptionLocalTermExpectationRuleIdx) {
+    ) -> (Option<LocalTerm>, OptionLocalTermExpectationIdx) {
         let ty_result = self.calc_expr_ty(expr_idx, &expectation);
         let (ty, opt_expectation) = match ty_result {
             Ok(ty) => (

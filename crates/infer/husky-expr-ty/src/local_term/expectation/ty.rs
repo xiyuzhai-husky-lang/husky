@@ -16,9 +16,9 @@ pub(crate) enum ExpectTypeResult {
     ResolvedErr(LocalTermExpectationError),
 }
 
-impl From<ExpectType> for LocalTermExpectationRuleVariant {
+impl From<ExpectType> for LocalTermExpectation {
     fn from(value: ExpectType) -> Self {
-        LocalTermExpectationRuleVariant::Sort
+        LocalTermExpectation::Sort
     }
 }
 

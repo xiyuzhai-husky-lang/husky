@@ -8,9 +8,9 @@ pub(crate) struct ExpectImplicitConversion {
 
 pub(crate) struct ExpectImplicitConversionResult {}
 
-impl From<ExpectImplicitConversion> for LocalTermExpectationRuleVariant {
+impl From<ExpectImplicitConversion> for LocalTermExpectation {
     fn from(value: ExpectImplicitConversion) -> Self {
-        LocalTermExpectationRuleVariant::ImplicitlyConversion {
+        LocalTermExpectation::ImplicitlyConversion {
             destination: value.destination,
         }
     }
@@ -31,20 +31,20 @@ impl ExpectLocalTerm for ExpectImplicitConversion {
 }
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn implicit_conversion_expectation_rule_effect(
+    pub(super) fn resolve_implicit_conversion(
         &self,
-        rule: &LocalTermExpectationRule,
+        rule: &LocalTermExpectationEntry,
         dst: LocalTerm,
         table: &LocalTermTable,
         level: LocalTermResolveLevel,
-    ) -> Option<LocalTermExpectationEffect> {
+    ) -> Option<LocalTermExpectationResultM> {
         match rule.expectee {
             LocalTerm::Resolved(expectee) => match dst {
                 LocalTerm::Resolved(_) => todo!(),
                 LocalTerm::Unresolved(dst) => match table[dst].unresolved_term() {
                     UnresolvedTerm::ImplicitSymbol(_) => match level {
                         LocalTermResolveLevel::Weak => None,
-                        LocalTermResolveLevel::Strong => Some(LocalTermExpectationEffect {
+                        LocalTermResolveLevel::Strong => Some(LocalTermExpectationResultM {
                             actions: vec![TermResolveAction::SubstituteImplicitSymbol {
                                 implicit_symbol: dst,
                                 substitution: expectee.into(),
@@ -68,11 +68,11 @@ impl<'a> ExprTypeEngine<'a> {
         expectee: UnresolvedTermIdx,
         level: LocalTermResolveLevel,
         dst: LocalTerm,
-    ) -> Option<LocalTermExpectationEffect> {
+    ) -> Option<LocalTermExpectationResultM> {
         match table[expectee].unresolved_term() {
             UnresolvedTerm::ImplicitSymbol(_) => match level {
                 LocalTermResolveLevel::Weak => None,
-                LocalTermResolveLevel::Strong => Some(LocalTermExpectationEffect {
+                LocalTermResolveLevel::Strong => Some(LocalTermExpectationResultM {
                     actions: vec![TermResolveAction::SubstituteImplicitSymbol {
                         implicit_symbol: expectee,
                         substitution: dst,
@@ -94,7 +94,7 @@ impl<'a> ExprTypeEngine<'a> {
         &self,
         ty: TypePath,
         dst: LocalTerm,
-    ) -> Option<LocalTermExpectationEffect> {
+    ) -> Option<LocalTermExpectationResultM> {
         match ty {
             ty if ty == self.entity_path_menu().ref_ty_path() => {
                 todo!()
@@ -110,7 +110,7 @@ impl<'a> ExprTypeEngine<'a> {
         &self,
         dst: LocalTerm,
         ty: TypePath,
-    ) -> Option<LocalTermExpectationEffect> {
+    ) -> Option<LocalTermExpectationResultM> {
         match dst {
             LocalTerm::Resolved(dst) => {
                 let dst_expansion = self.db().application_expansion(dst);
@@ -123,7 +123,7 @@ impl<'a> ExprTypeEngine<'a> {
                             EntityPath::ModuleItem(dst_f) => match dst_f {
                                 ModuleItemPath::Type(dst_f) => {
                                     if dst_f != ty {
-                                        return Some(LocalTermExpectationEffect {
+                                        return Some(LocalTermExpectationResultM {
                                             result: LocalTermExpectationResult::Err(
                                                 OriginalLocalTermExpectationError::Todo.into(),
                                             ),

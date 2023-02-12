@@ -14,9 +14,17 @@ pub(crate) fn term_ty(db: &dyn TypeDb, term: Term) -> TypeResult<ReducedTerm> {
         Term::Curry(_) => todo!(),
         Term::Ritchie(_) => todo!(),
         Term::Abstraction(_) => todo!(),
-        Term::Application(_) => todo!(),
+        Term::Application(term) => application_term_ty(db, term),
         Term::Subentity(_) => todo!(),
         Term::AsTraitSubentity(_) => todo!(),
         Term::TraitConstraint(_) => todo!(),
     }
+}
+
+#[salsa::tracked(jar = TypeJar)]
+pub(crate) fn application_term_ty(
+    db: &dyn TypeDb,
+    term: TermApplication,
+) -> TypeResult<ReducedTerm> {
+    todo!()
 }
