@@ -8,7 +8,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> ExprTypeResult<LocalTerm> {
         match opr {
             PrefixOpr::Minus => {
-                let opd_ty = self.infer_new_expr_ty(opd, LocalTermExpectation::None);
+                let opd_ty = self.infer_new_expr_ty(opd, ExpectType);
                 match opd_ty {
                     Some(opd_ty) => match opd_ty {
                         LocalTerm::Resolved(_) => todo!(),
@@ -31,13 +31,13 @@ impl<'a> ExprTypeEngine<'a> {
                 }
             }
             PrefixOpr::Not => {
-                let _opd_ty = self.infer_new_expr_ty(opd, LocalTermExpectation::CastibleAsBool);
+                let _opd_ty = self.infer_new_expr_ty(opd, self.expect_bool());
                 // here we differs from Rust, but agrees with C
                 Ok(self.reduced_term_menu.bool().into())
             }
             PrefixOpr::BitNot => todo!(),
             PrefixOpr::Ref => {
-                let opd_ty = self.infer_new_expr_ty(opd, LocalTermExpectation::None);
+                let opd_ty = self.infer_new_expr_ty(opd, ExpectType);
                 // Should consider more cases, could also be taking references
                 opd_ty.ok_or(DerivedExprTypeError::PrefixOperandTypeNotInferred.into())
             }
@@ -46,7 +46,7 @@ impl<'a> ExprTypeEngine<'a> {
             PrefixOpr::CyclicSlice => todo!(),
             PrefixOpr::Array(_) => todo!(),
             PrefixOpr::Option => {
-                let opd_ty = self.infer_new_expr_ty(opd, LocalTermExpectation::TypeType);
+                let opd_ty = self.infer_new_expr_ty(opd, self.expect_bool());
                 opd_ty.ok_or(DerivedExprTypeError::PrefixOperandTypeNotInferred.into())
             }
         }

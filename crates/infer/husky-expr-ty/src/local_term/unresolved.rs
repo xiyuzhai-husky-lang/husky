@@ -210,10 +210,11 @@ impl UnresolvedTerms {
                     None => Ok(None),
                 }
             }
-            LocalTermExpectationRuleVariant::Type => Ok(None),
+            LocalTermExpectationRuleVariant::Sort => Ok(None),
             LocalTermExpectationRuleVariant::FrameVariableType => todo!(),
             LocalTermExpectationRuleVariant::RefMut { lifetime } => todo!(),
             LocalTermExpectationRuleVariant::RitchieCall => todo!(),
+            LocalTermExpectationRuleVariant::Type => todo!(),
         }
     }
 }
@@ -287,7 +288,7 @@ impl<'a> ExprTypeEngine<'a> {
                 Ok(target_substitution) => target_substitution,
                 Err(_) => {
                     rule.resolve_err(
-                        DerivedLocalTermExpectationResolveError::TargetSubstitutionFailure.into(),
+                        DerivedLocalTermExpectationError::TargetSubstitutionFailure.into(),
                     );
                     continue;
                 }

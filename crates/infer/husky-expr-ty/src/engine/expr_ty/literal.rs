@@ -6,7 +6,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: ExprIdx,
         literal_token_idx: TokenIdx,
-        expectation: LocalTermExpectation,
+        expectation: &impl ExpectLocalTerm,
     ) -> Result<LocalTerm, ExprTypeError> {
         let literal_token = self.token_sheet_data[literal_token_idx];
         match literal_token {
@@ -15,9 +15,9 @@ impl<'a> ExprTypeEngine<'a> {
                 Literal::Char(_) => todo!(),
                 Literal::String(_) => Ok(self.reduced_term_menu.static_str_ref().into()),
                 Literal::Integer(integer_literal) => match integer_literal {
-                    IntegerLikeLiteral::Unspecified => match expectation.term() {
+                    IntegerLikeLiteral::Unspecified => match expectation.destination() {
                         // MOM
-                        Some(term) if term == self.reduced_term_menu.i32() => todo!(),
+                        Some(term) if term == self.reduced_term_menu.i32().into() => todo!(),
                         _ => Ok(self
                             .new_implicit_symbol(
                                 expr_idx,
@@ -45,21 +45,14 @@ impl<'a> ExprTypeEngine<'a> {
                     IntegerLikeLiteral::USize(_) => todo!(),
                 },
                 Literal::Float(float_literal) => match float_literal {
-                    FloatLiteral::Unspecified => match expectation {
-                        LocalTermExpectation::None => {
-                            let ty = self.new_implicit_symbol(
+                    FloatLiteral::Unspecified => match expectation.destination() {
+                        Some(_) => todo!(),
+                        None => Ok(self
+                            .new_implicit_symbol(
                                 expr_idx,
                                 ImplicitSymbolVariant::UnspecifiedFloatType,
-                            );
-                            Ok(ty.into())
-                        }
-                        LocalTermExpectation::TypeType => todo!(),
-                        LocalTermExpectation::CastibleAsBool => todo!(),
-                        LocalTermExpectation::FrameVariableType => todo!(),
-                        LocalTermExpectation::Return { ty } => todo!(),
-                        LocalTermExpectation::ImplicitlyConvertibleTo { ty } => todo!(),
-                        LocalTermExpectation::RefMut { lifetime } => todo!(),
-                        LocalTermExpectation::RitchieCall => todo!(),
+                            )
+                            .into()),
                     },
                     FloatLiteral::F32(_) => todo!(),
                     FloatLiteral::F64(_) => todo!(),

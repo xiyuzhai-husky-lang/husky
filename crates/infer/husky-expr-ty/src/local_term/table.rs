@@ -33,25 +33,25 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         src_expr_idx: ExprIdx,
         target: LocalTerm,
-        expectation: LocalTermExpectation,
+        expectation: impl ExpectLocalTerm,
     ) -> OptionLocalTermExpectationRuleIdx {
-        let variant = match expectation {
-            LocalTermExpectation::None => return Default::default(),
-            LocalTermExpectation::TypeType => LocalTermExpectationRuleVariant::Type,
-            LocalTermExpectation::CastibleAsBool => LocalTermExpectationRuleVariant::AsBool,
-            LocalTermExpectation::FrameVariableType => {
-                LocalTermExpectationRuleVariant::FrameVariableType
-            }
-            LocalTermExpectation::Return { ty } => todo!(),
-            LocalTermExpectation::ImplicitlyConvertibleTo { ty: term } => {
-                LocalTermExpectationRuleVariant::ImplicitlyConvertibleTo { dst: term }
-            }
-            LocalTermExpectation::RefMut { lifetime } => {
-                LocalTermExpectationRuleVariant::RefMut { lifetime }
-            }
-            LocalTermExpectation::RitchieCall => LocalTermExpectationRuleVariant::RitchieCall,
-        };
-        let rule = self.new_expectation_rule(src_expr_idx, target, variant);
+        // let variant = match expectation {
+        //     ExpectType => return Default::default(),
+        //     ExpectSort => LocalTermExpectationRuleVariant::Sort,
+        //     ExpectExplicitConversion::Bool => LocalTermExpectationRuleVariant::AsBool,
+        //     LocalTermExpectation::FrameVariableType => {
+        //         LocalTermExpectationRuleVariant::FrameVariableType
+        //     }
+        //     LocalTermExpectation::Return { ty } => todo!(),
+        //     ExpectImplicitConversion { ty: term } => {
+        //         LocalTermExpectationRuleVariant::ImplicitlyConvertibleTo { dst: term }
+        //     }
+        //     LocalTermExpectation::RefMut { lifetime } => {
+        //         LocalTermExpectationRuleVariant::RefMut { lifetime }
+        //     }
+        //     LocalTermExpectation::RitchieCall => LocalTermExpectationRuleVariant::RitchieCall,
+        // };
+        let rule = self.new_expectation_rule(src_expr_idx, target, expectation.into());
         self.local_term_table_mut()
             .expectation_rules
             .alloc_rule(rule)

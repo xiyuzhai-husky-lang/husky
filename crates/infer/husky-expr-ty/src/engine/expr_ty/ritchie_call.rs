@@ -58,11 +58,11 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Result<LocalTerm, ExprTypeError> {
         if let Some(implicit_arguments) = implicit_arguments {
             for argument in implicit_arguments.arguments() {
-                self.infer_new_expr_ty(argument, LocalTermExpectation::None);
+                self.infer_new_expr_ty(argument, ExpectType);
             }
         }
         for argument in nonself_arguments {
-            self.infer_new_expr_ty(argument, LocalTermExpectation::None);
+            self.infer_new_expr_ty(argument, ExpectType);
         }
         Err(DerivedExprTypeError::CallableTypeError.into())
     }
@@ -79,13 +79,19 @@ impl<'a> ExprTypeEngine<'a> {
             match (parameter_tys.next(), arguments.next()) {
                 (Some(parameter_ty), Some(argument)) => {
                     i += 1;
-                    let expectation = match parameter_ty {
+                    match parameter_ty {
                         Some(parameter_ty) => {
-                            LocalTermExpectation::ImplicitlyConvertibleTo { ty: parameter_ty }
+                            self.infer_new_expr_ty(
+                                argument,
+                                ExpectImplicitConversion {
+                                    destination: parameter_ty,
+                                },
+                            );
                         }
-                        None => LocalTermExpectation::None,
-                    };
-                    self.infer_new_expr_ty(argument, expectation);
+                        None => {
+                            self.infer_new_expr_ty(argument, ExpectType);
+                        }
+                    }
                 }
                 (None, None) => break,
                 (None, Some(_)) => todo!(),

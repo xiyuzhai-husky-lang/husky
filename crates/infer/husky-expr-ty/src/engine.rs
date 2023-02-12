@@ -1,3 +1,4 @@
+mod expect;
 mod expr_term;
 mod expr_ty;
 mod stmt;
@@ -96,7 +97,7 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn infer_all_exprs(&mut self) {
         for root in self.expr_region_data.roots() {
-            let ty = self.infer_new_expr_ty(root.expr(), LocalTermExpectation::None);
+            let ty = self.infer_new_expr_ty(root.expr(), ExpectType);
             // todo: check coherence
         }
     }

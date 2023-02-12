@@ -1,5 +1,33 @@
 use super::*;
 
+/// expect a type that is implicitly convertible to dst
+#[derive(Debug, Clone, Copy)]
+pub(crate) struct ExpectImplicitConversion {
+    pub(crate) destination: LocalTerm,
+}
+
+pub(crate) struct ExpectImplicitConversionResult {}
+
+impl From<ExpectImplicitConversion> for LocalTermExpectationRuleVariant {
+    fn from(value: ExpectImplicitConversion) -> Self {
+        todo!()
+    }
+}
+
+impl From<ExpectImplicitConversionResult> for LocalTermExpectationResult {
+    fn from(value: ExpectImplicitConversionResult) -> Self {
+        todo!()
+    }
+}
+
+impl ExpectLocalTerm for ExpectImplicitConversion {
+    type Result = ExpectImplicitConversionResult;
+
+    fn destination(&self) -> Option<LocalTerm> {
+        Some(self.destination)
+    }
+}
+
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn implicit_conversion_expectation_rule_effect(
         &self,
@@ -20,7 +48,7 @@ impl<'a> ExprTypeEngine<'a> {
                                     implicit_symbol: dst,
                                     substitution: expectee.into(),
                                 }],
-                                expectation_resolved: LocalTermExpectationResolved {
+                                expectation_resolved: LocalTermExpectationResult {
                                     implicit_conversion: LocalTermImplicitConversion::None,
                                     local_term: expectee.into(),
                                 },
@@ -49,7 +77,7 @@ impl<'a> ExprTypeEngine<'a> {
                         implicit_symbol: expectee,
                         substitution: dst,
                     }],
-                    expectation_resolved: LocalTermExpectationResolved {
+                    expectation_resolved: LocalTermExpectationResult {
                         implicit_conversion: LocalTermImplicitConversion::None,
                         local_term: dst,
                     },
