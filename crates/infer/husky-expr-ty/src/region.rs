@@ -96,13 +96,13 @@ impl ExprTypeInfo {
                 .duplicate(expectation_rule_idx),
             None => match ty {
                 LocalTerm::Resolved(term) => {
-                    LocalTermExpectationResolveProgress::ResolvedOk(LocalTermExpectationResolved {
+                    LocalTermExpectationResolveProgress::ResolvedOk(LocalTermExpectationResult {
                         implicit_conversion: LocalTermImplicitConversion::None,
                         local_term: term.into(),
                     })
                 }
                 LocalTerm::Unresolved(ty) => LocalTermExpectationResolveProgress::ResolvedErr(
-                    DerivedLocalTermExpectationResolveError::UnresolvedLocalTerm.into(),
+                    DerivedLocalTermExpectationError::UnresolvedLocalTerm.into(),
                 ),
             },
         }

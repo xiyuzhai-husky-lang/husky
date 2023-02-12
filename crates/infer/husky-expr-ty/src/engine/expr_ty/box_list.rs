@@ -10,7 +10,9 @@ impl<'a> ExprTypeEngine<'a> {
         for item in items {
             self.infer_new_expr_ty(
                 item,
-                LocalTermExpectation::ImplicitlyConvertibleTo { ty: element_ty },
+                ExpectImplicitConversion {
+                    destination: element_ty,
+                },
             );
         }
         Ok(self
