@@ -140,8 +140,8 @@ impl<'a> ExprTypeEngine<'a> {
         lopd: ExprIdx,
         ropd: ExprIdx,
     ) -> Result<LocalTerm, ExprTypeError> {
-        self.infer_new_expr_ty_resolved(lopd, self.expect_bool());
-        self.infer_new_expr_ty_resolved(ropd, self.expect_bool());
+        self.infer_new_expr_ty_resolved(lopd, self.expect_implicitly_convertible_to_boolbool());
+        self.infer_new_expr_ty_resolved(ropd, self.expect_implicitly_convertible_to_boolbool());
         Ok(self.reduced_term_menu.bool().into())
     }
 
@@ -182,7 +182,7 @@ impl<'a> ExprTypeEngine<'a> {
             else {
                 return Err(DerivedExprTypeError::AsOperationRightOperandTermNotInferred.into())
             };
-        let Some(lopd_ty) = self.infer_new_expr_ty_resolved(lopd, ExpectImplicitConvertible{
+        let Some(lopd_ty) = self.infer_new_expr_ty_resolved(lopd, ExpectImplicitlyConvertible{
             destination: todo!()
         })
             else {

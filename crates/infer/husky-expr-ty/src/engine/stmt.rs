@@ -44,7 +44,7 @@ impl<'a> ExprTypeEngine<'a> {
                         Some(return_ty) => {
                             self.infer_new_expr_ty(
                                 *result,
-                                ExpectImplicitConvertible {
+                                ExpectImplicitlyConvertible {
                                     destination: return_ty.into(),
                                 },
                             );
@@ -58,13 +58,19 @@ impl<'a> ExprTypeEngine<'a> {
             }
             Stmt::Require { ref condition, .. } => {
                 if let Ok(condition) = condition {
-                    self.infer_new_expr_ty(*condition, self.expect_bool());
+                    self.infer_new_expr_ty(
+                        *condition,
+                        self.expect_implicitly_convertible_to_boolbool(),
+                    );
                 };
                 Some(self.reduced_term_menu.unit().into())
             }
             Stmt::Assert { ref condition, .. } => {
                 if let Ok(condition) = condition {
-                    self.infer_new_expr_ty(*condition, self.expect_bool());
+                    self.infer_new_expr_ty(
+                        *condition,
+                        self.expect_implicitly_convertible_to_boolbool(),
+                    );
                 };
                 Some(self.reduced_term_menu.unit().into())
             }
@@ -88,7 +94,7 @@ impl<'a> ExprTypeEngine<'a> {
                         Some(expected_frame_var_ty) => {
                             self.infer_new_expr_ty(
                                 bound_expr,
-                                ExpectImplicitConvertible {
+                                ExpectImplicitlyConvertible {
                                     destination: expected_frame_var_ty,
                                 },
                             );
@@ -134,10 +140,12 @@ impl<'a> ExprTypeEngine<'a> {
                 ref block,
                 ..
             } => {
-                condition
-                    .as_ref()
-                    .copied()
-                    .map(|condition| self.infer_new_expr_ty(condition, self.expect_bool()));
+                condition.as_ref().copied().map(|condition| {
+                    self.infer_new_expr_ty(
+                        condition,
+                        self.expect_implicitly_convertible_to_boolbool(),
+                    )
+                });
                 block.as_ref().copied().map(|block| {
                     let expect_unit = self.expect_unit();
                     self.infer_new_block(block, expect_unit)
@@ -302,18 +310,14 @@ impl<'a> ExprTypeEngine<'a> {
         expr_expectation: impl ExpectLocalTerm,
     ) -> Option<LocalTerm> {
         let mut branch_tys = BranchTypes::new(expr_expectation);
-        if_branch
-            .condition
-            .as_ref()
-            .copied()
-            .map(|condition| self.infer_new_expr_ty(condition, self.expect_bool()));
+        if_branch.condition.as_ref().copied().map(|condition| {
+            self.infer_new_expr_ty(condition, self.expect_implicitly_convertible_to_boolbool())
+        });
         branch_tys.visit_branch(self, &if_branch.block);
         for elif_branch in elif_branches {
-            elif_branch
-                .condition
-                .as_ref()
-                .copied()
-                .map(|condition| self.infer_new_expr_ty(condition, self.expect_bool()));
+            elif_branch.condition.as_ref().copied().map(|condition| {
+                self.infer_new_expr_ty(condition, self.expect_implicitly_convertible_to_boolbool())
+            });
             branch_tys.visit_branch(self, &elif_branch.block);
         }
         if let Some(else_branch) = else_branch {

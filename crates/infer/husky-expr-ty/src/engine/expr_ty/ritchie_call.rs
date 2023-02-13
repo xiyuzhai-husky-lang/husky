@@ -83,7 +83,7 @@ impl<'a> ExprTypeEngine<'a> {
                         Some(parameter_ty) => {
                             self.infer_new_expr_ty(
                                 argument,
-                                ExpectImplicitConvertible {
+                                ExpectImplicitlyConvertible {
                                     destination: parameter_ty,
                                 },
                             );

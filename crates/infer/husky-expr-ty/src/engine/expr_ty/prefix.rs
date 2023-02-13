@@ -31,13 +31,14 @@ impl<'a> ExprTypeEngine<'a> {
                 }
             }
             PrefixOpr::Not => {
-                let _opd_ty = self.infer_new_expr_ty(opd, self.expect_bool());
+                let _opd_ty =
+                    self.infer_new_expr_ty(opd, self.expect_implicitly_convertible_to_boolbool());
                 // here we differs from Rust, but agrees with C
                 Ok(self.reduced_term_menu.bool().into())
             }
             PrefixOpr::BitNot => todo!(),
             PrefixOpr::Ref => {
-                let opd_ty = self.infer_new_expr_ty(opd, ExpectInsSort::default());
+                let opd_ty = self.infer_new_expr_ty(opd, self.expect_eqs_exactly_ty());
                 // Should consider more cases, could also be taking references
                 opd_ty.ok_or(DerivedExprTypeError::PrefixOperandTypeNotInferred.into())
             }
@@ -46,7 +47,7 @@ impl<'a> ExprTypeEngine<'a> {
             PrefixOpr::CyclicSlice => todo!(),
             PrefixOpr::Array(_) => todo!(),
             PrefixOpr::Option => {
-                let opd_ty = self.infer_new_expr_ty(opd, self.expect_bool());
+                let opd_ty = self.infer_new_expr_ty(opd, ExpectInsSort::default());
                 opd_ty.ok_or(DerivedExprTypeError::PrefixOperandTypeNotInferred.into())
             }
         }
