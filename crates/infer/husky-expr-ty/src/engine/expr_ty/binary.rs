@@ -34,8 +34,8 @@ impl<'a> ExprTypeEngine<'a> {
         opr: BinaryPureClosedOpr,
         menu: ReducedTermMenu,
     ) -> Result<LocalTerm, ExprTypeError> {
-        let lopd_ty = self.infer_new_expr_ty_resolved(lopd, ExpectType);
-        let ropd_ty = self.infer_new_expr_ty_resolved(ropd, ExpectType);
+        let lopd_ty = self.infer_new_expr_ty_resolved(lopd, ExpectInsSort::default());
+        let ropd_ty = self.infer_new_expr_ty_resolved(ropd, ExpectInsSort::default());
         let Some(lopd_ty) = lopd_ty
             else {
                 return Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into())
@@ -126,10 +126,10 @@ impl<'a> ExprTypeEngine<'a> {
         lopd: ExprIdx,
         ropd: ExprIdx,
     ) -> Result<LocalTerm, ExprTypeError> {
-        let lopd_ty = self.infer_new_expr_ty_resolved(lopd, ExpectType);
+        let lopd_ty = self.infer_new_expr_ty_resolved(lopd, ExpectInsSort::default());
         let ropd_ty_expectation = match lopd_ty {
             Some(_) => todo!(),
-            None => ExpectType,
+            None => ExpectInsSort::default(),
         };
         let ropd_ty = self.infer_new_expr_ty_resolved(ropd, ropd_ty_expectation);
         Ok(self.reduced_term_menu.bool().into())
@@ -146,7 +146,7 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     fn calc_is_expr_ty(&mut self, ropd: ExprIdx) -> Result<LocalTerm, ExprTypeError> {
-        let Some(ropd_ty) = self.infer_new_expr_ty_resolved(ropd, ExpectType)
+        let Some(ropd_ty) = self.infer_new_expr_ty_resolved(ropd, ExpectInsSort::default())
             else {
                 return Err(DerivedExprTypeError::BinaryOperationRightOperandTypeNotInferred.into())
             };
@@ -172,12 +172,17 @@ impl<'a> ExprTypeEngine<'a> {
         ropd: ExprIdx,
         lopd: ExprIdx,
     ) -> Result<LocalTerm, ExprTypeError> {
-        self.infer_new_expr_ty_resolved(ropd, ExpectSort);
+        self.infer_new_expr_ty_resolved(
+            ropd,
+            ExpectSort {
+                smallest_universe: 0.into(),
+            },
+        );
         let Some(ropd_term) = self.infer_new_expr_term(ropd)
             else {
                 return Err(DerivedExprTypeError::AsOperationRightOperandTermNotInferred.into())
             };
-        let Some(lopd_ty) = self.infer_new_expr_ty_resolved(lopd, ExpectImplicitConversion{
+        let Some(lopd_ty) = self.infer_new_expr_ty_resolved(lopd, ExpectImplicitConvertible{
             destination: todo!()
         })
             else {
@@ -191,11 +196,14 @@ impl<'a> ExprTypeEngine<'a> {
         lopd: ExprIdx,
         ropd: ExprIdx,
     ) -> Result<LocalTerm, ExprTypeError> {
-        let Some(lopd_ty) = self.infer_new_expr_ty_resolved(lopd, ExpectSort)
+        let expect_any_sort = ExpectSort {
+            smallest_universe: 0.into(),
+        };
+        let Some(lopd_ty) = self.infer_new_expr_ty_resolved(lopd, expect_any_sort)
             else {
                 return Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into())
             };
-        let Some(ropd_ty) = self.infer_new_expr_ty_resolved(ropd, ExpectSort)
+        let Some(ropd_ty) = self.infer_new_expr_ty_resolved(ropd, expect_any_sort)
             else {
                 return Err(DerivedExprTypeError::BinaryOperationRightOperandTypeNotInferred.into())
             };
@@ -253,7 +261,7 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     fn infer_basic_assign_ropd_ty(&mut self, lopd_ty: LocalTerm, ropd: ExprIdx) {
-        let ropd_ty = self.infer_new_expr_ty(ropd, ExpectType);
+        let ropd_ty = self.infer_new_expr_ty(ropd, ExpectInsSort::default());
         let Some(ropd_ty) = ropd_ty else { return };
         let lopd_ty = match lopd_ty {
             LocalTerm::Resolved(lopd_ty) => match lopd_ty.term() {

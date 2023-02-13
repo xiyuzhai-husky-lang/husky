@@ -107,7 +107,7 @@ pub(crate) fn feature_entity_ty(
     signature: FeatureSignature,
     term_menu: &TermMenu,
 ) -> TypeResult<ReducedTerm> {
-    Ok(reduced_term(db, signature.return_ty(db)))
+    Ok(calc_reduced_term(db, signature.return_ty(db)))
 }
 
 fn curry_from_implicit_parameter_tys(
@@ -122,5 +122,5 @@ fn curry_from_implicit_parameter_tys(
     {
         term = TermCurry::new(db, *variance, implicit_parameter.ty(), term).into()
     }
-    reduced_term(db, term)
+    calc_reduced_term(db, term)
 }

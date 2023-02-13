@@ -28,6 +28,6 @@ impl From<ExpectRitchieCallResult> for LocalTermExpectationResult {
 
 impl From<ExpectRitchieCall> for LocalTermExpectation {
     fn from(value: ExpectRitchieCall) -> Self {
-        LocalTermExpectation::RitchieCall
+        LocalTermExpectation::EqsRitchieCallTy
     }
 }

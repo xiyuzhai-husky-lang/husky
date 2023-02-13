@@ -1,14 +1,14 @@
 use super::*;
 
-pub(crate) fn term_ty(db: &dyn TypeDb, term: Term) -> TypeResult<ReducedTerm> {
-    match term {
+pub(crate) fn term_ty(db: &dyn TypeDb, reduced_term: ReducedTerm) -> TypeResult<ReducedTerm> {
+    match reduced_term.term() {
         Term::Literal(_) => todo!(),
         Term::Symbol(_) => todo!(),
         Term::Entity(_) => todo!(),
         Term::Category(cat) => cat
             .ty()
             .map(Into::into)
-            .map(|term| reduced_term(db, term))
+            .map(|term| calc_reduced_term(db, term))
             .map_err(|e| OriginalTypeError::Term(e).into()),
         Term::Universe(_) => todo!(),
         Term::Curry(_) => todo!(),

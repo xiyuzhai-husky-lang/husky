@@ -34,7 +34,7 @@ impl From<ExpectRefMutResult> for LocalTermExpectationResult {
 
 impl From<ExpectRefMut> for LocalTermExpectation {
     fn from(value: ExpectRefMut) -> Self {
-        LocalTermExpectation::RefMut { lifetime: todo!() }
+        LocalTermExpectation::EqsRefMutApplication { lifetime: todo!() }
     }
 }
 // LocalTermExpectationRuleVariant::RefMut { lifetime } => {
