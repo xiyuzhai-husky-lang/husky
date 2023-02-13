@@ -1,6 +1,6 @@
 use super::*;
 
-pub(crate) fn reduced_term(db: &dyn TypeDb, term: Term) -> ReducedTerm {
+pub(crate) fn calc_reduced_term(db: &dyn TypeDb, term: Term) -> ReducedTerm {
     // ad hoc
     ReducedTerm(term)
 }

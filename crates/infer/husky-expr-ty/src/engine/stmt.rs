@@ -44,13 +44,13 @@ impl<'a> ExprTypeEngine<'a> {
                         Some(return_ty) => {
                             self.infer_new_expr_ty(
                                 *result,
-                                ExpectImplicitConversion {
+                                ExpectImplicitConvertible {
                                     destination: return_ty.into(),
                                 },
                             );
                         }
                         None => {
-                            self.infer_new_expr_ty(*result, ExpectType);
+                            self.infer_new_expr_ty(*result, ExpectInsSort::default());
                         }
                     }
                 };
@@ -78,7 +78,7 @@ impl<'a> ExprTypeEngine<'a> {
             } => {
                 let mut expected_frame_var_ty: Option<LocalTerm> = None;
                 if let Some(bound_expr) = particulars.range.initial_boundary.bound_expr {
-                    match self.infer_new_expr_ty(bound_expr, ExpectType) {
+                    match self.infer_new_expr_ty(bound_expr, ExpectInsSort::default()) {
                         Some(bound_expr_ty) => expected_frame_var_ty = Some(bound_expr_ty),
                         None => (),
                     }
@@ -88,15 +88,17 @@ impl<'a> ExprTypeEngine<'a> {
                         Some(expected_frame_var_ty) => {
                             self.infer_new_expr_ty(
                                 bound_expr,
-                                ExpectImplicitConversion {
+                                ExpectImplicitConvertible {
                                     destination: expected_frame_var_ty,
                                 },
                             );
                         }
-                        None => match self.infer_new_expr_ty(bound_expr, ExpectType) {
-                            Some(ty) => expected_frame_var_ty = Some(ty),
-                            None => todo!(),
-                        },
+                        None => {
+                            match self.infer_new_expr_ty(bound_expr, ExpectInsSort::default()) {
+                                Some(ty) => expected_frame_var_ty = Some(ty),
+                                None => todo!(),
+                            }
+                        }
                     }
                 }
                 if let Some(expected_frame_var_ty) = expected_frame_var_ty {
@@ -173,7 +175,7 @@ impl<'a> ExprTypeEngine<'a> {
                             self.infer_new_expr_ty(
                                 *initial_value,
                                 // ad hoc
-                                ExpectType,
+                                ExpectInsSort::default(),
                             )
                         })
                         .flatten()

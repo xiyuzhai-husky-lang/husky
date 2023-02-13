@@ -1,6 +1,6 @@
 use crate::*;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct TermUniverse(u8);
 
 impl From<TermUniverse> for Term {
@@ -9,10 +9,16 @@ impl From<TermUniverse> for Term {
     }
 }
 
+impl From<u8> for TermUniverse {
+    fn from(value: u8) -> Self {
+        TermUniverse::new(value)
+    }
+}
+
 const UNIVERSE_MAX: u8 = 100;
 
 impl TermUniverse {
-    pub(crate) fn new(i: u8) -> Self {
+    pub fn new(i: u8) -> Self {
         assert!(i < UNIVERSE_MAX);
         TermUniverse(i)
     }

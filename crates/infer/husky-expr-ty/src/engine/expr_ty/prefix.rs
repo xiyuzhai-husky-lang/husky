@@ -8,7 +8,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> ExprTypeResult<LocalTerm> {
         match opr {
             PrefixOpr::Minus => {
-                let opd_ty = self.infer_new_expr_ty(opd, ExpectType);
+                let opd_ty = self.infer_new_expr_ty(opd, ExpectInsSort::default());
                 match opd_ty {
                     Some(opd_ty) => match opd_ty {
                         LocalTerm::Resolved(_) => todo!(),
@@ -37,7 +37,7 @@ impl<'a> ExprTypeEngine<'a> {
             }
             PrefixOpr::BitNot => todo!(),
             PrefixOpr::Ref => {
-                let opd_ty = self.infer_new_expr_ty(opd, ExpectType);
+                let opd_ty = self.infer_new_expr_ty(opd, ExpectInsSort::default());
                 // Should consider more cases, could also be taking references
                 opd_ty.ok_or(DerivedExprTypeError::PrefixOperandTypeNotInferred.into())
             }

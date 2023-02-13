@@ -3,7 +3,7 @@ mod expr_term;
 mod expr_ty;
 mod stmt;
 mod symbol;
-mod util;
+mod utils;
 
 use husky_opn_syntax::PrefixOpr;
 use husky_print_utils::p;
@@ -97,7 +97,7 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn infer_all_exprs(&mut self) {
         for root in self.expr_region_data.roots() {
-            let ty = self.infer_new_expr_ty(root.expr(), ExpectType);
+            let ty = self.infer_new_expr_ty(root.expr(), ExpectInsSort::default());
             // todo: check coherence
         }
     }

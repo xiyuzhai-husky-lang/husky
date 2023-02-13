@@ -5,7 +5,7 @@ pub trait TypeDb: salsa::DbWithJar<TypeJar> + SignatureDb {
     fn entity_ty(&self, path: EntityPath) -> TypeResult<ReducedTerm>;
     fn ty_method_ty(&self, ty: ReducedTerm, ident: Identifier) -> TypeResult<Option<ReducedTerm>>;
     fn field_ty(&self, ty: ReducedTerm, ident: Identifier) -> TypeResult<Option<ReducedTerm>>;
-    fn term_ty(&self, term: Term) -> TypeResult<ReducedTerm>;
+    fn term_ty(&self, term: ReducedTerm) -> TypeResult<ReducedTerm>;
     fn reduced_term(&self, term: Term) -> ReducedTerm;
     fn intrinsic_ty(&self, ty: ReducedTerm) -> IntrinsicType;
     fn reduced_term_menu<'a>(
@@ -27,12 +27,12 @@ where
         ty_method_ty(self, ty, ident)
     }
 
-    fn term_ty(&self, term: Term) -> TypeResult<ReducedTerm> {
+    fn term_ty(&self, term: ReducedTerm) -> TypeResult<ReducedTerm> {
         term_ty(self, term)
     }
 
     fn reduced_term(&self, term: Term) -> ReducedTerm {
-        reduced_term(self, term)
+        calc_reduced_term(self, term)
     }
 
     fn reduced_term_menu<'a>(

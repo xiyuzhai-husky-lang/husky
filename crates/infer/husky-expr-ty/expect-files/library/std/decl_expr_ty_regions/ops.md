@@ -23,7 +23,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectationRules {
+            expectation_rules: LocalTermExpectations {
                 arena: Arena {
                     data: [],
                 },

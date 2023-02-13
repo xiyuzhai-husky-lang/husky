@@ -2,28 +2,28 @@ use super::*;
 
 /// expect a type that is implicitly convertible to dst
 #[derive(Debug, Clone, Copy)]
-pub(crate) struct ExpectImplicitConversion {
+pub(crate) struct ExpectImplicitConvertible {
     pub(crate) destination: LocalTerm,
 }
 
-pub(crate) struct ExpectImplicitConversionResult {}
+pub(crate) struct ExpectImplicitConvertibleResult {}
 
-impl From<ExpectImplicitConversion> for LocalTermExpectation {
-    fn from(value: ExpectImplicitConversion) -> Self {
+impl From<ExpectImplicitConvertible> for LocalTermExpectation {
+    fn from(value: ExpectImplicitConvertible) -> Self {
         LocalTermExpectation::ImplicitlyConversion {
             destination: value.destination,
         }
     }
 }
 
-impl From<ExpectImplicitConversionResult> for LocalTermExpectationResult {
-    fn from(value: ExpectImplicitConversionResult) -> Self {
+impl From<ExpectImplicitConvertibleResult> for LocalTermExpectationResult {
+    fn from(value: ExpectImplicitConvertibleResult) -> Self {
         todo!()
     }
 }
 
-impl ExpectLocalTerm for ExpectImplicitConversion {
-    type Result = ExpectImplicitConversionResult;
+impl ExpectLocalTerm for ExpectImplicitConvertible {
+    type Result = ExpectImplicitConvertibleResult;
 
     fn destination(&self) -> Option<LocalTerm> {
         Some(self.destination)
@@ -31,15 +31,15 @@ impl ExpectLocalTerm for ExpectImplicitConversion {
 }
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn resolve_implicit_conversion(
+    pub(super) fn resolve_implicit_conversion_expectation(
         &self,
-        rule: &LocalTermExpectationEntry,
-        dst: LocalTerm,
-        table: &LocalTermTable,
+        expectee: LocalTerm,
+        destination: LocalTerm,
         level: LocalTermResolveLevel,
     ) -> Option<LocalTermExpectationResultM> {
-        match rule.expectee {
-            LocalTerm::Resolved(expectee) => match dst {
+        let table = self.local_term_table();
+        match expectee {
+            LocalTerm::Resolved(expectee) => match destination {
                 LocalTerm::Resolved(_) => todo!(),
                 LocalTerm::Unresolved(dst) => match table[dst].unresolved_term() {
                     UnresolvedTerm::ImplicitSymbol(_) => match level {
@@ -58,33 +58,33 @@ impl<'a> ExprTypeEngine<'a> {
                     UnresolvedTerm::TypeApplication { ty, arguments } => todo!(),
                 },
             },
-            LocalTerm::Unresolved(expectee) => self.to_unres(table, expectee, level, dst),
+            LocalTerm::Unresolved(expectee) => self.to_unres(expectee, destination, level),
         }
     }
 
     fn to_unres(
         &self,
-        table: &LocalTermTable,
         expectee: UnresolvedTermIdx,
+        destination: LocalTerm,
         level: LocalTermResolveLevel,
-        dst: LocalTerm,
     ) -> Option<LocalTermExpectationResultM> {
+        let table = self.local_term_table();
         match table[expectee].unresolved_term() {
             UnresolvedTerm::ImplicitSymbol(_) => match level {
                 LocalTermResolveLevel::Weak => None,
                 LocalTermResolveLevel::Strong => Some(LocalTermExpectationResultM {
                     actions: vec![TermResolveAction::SubstituteImplicitSymbol {
                         implicit_symbol: expectee,
-                        substitution: dst,
+                        substitution: destination,
                     }],
                     result: LocalTermExpectationResult::OkImplicitConversion {
                         implicit_conversion: LocalTermImplicitConversion::None,
-                        local_term: dst,
+                        local_term: destination,
                     },
                 }),
             },
             UnresolvedTerm::TypeApplication { ty, arguments } => {
-                self.from_unres_ty_app_to_unres(*ty, dst)
+                self.from_unres_ty_app_to_unres(*ty, destination)
             }
         }
     }

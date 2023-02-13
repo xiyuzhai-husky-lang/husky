@@ -2,26 +2,26 @@ use super::*;
 
 /// expect a type that is explicitly convertible to dst
 #[derive(Debug, Clone)]
-pub(crate) struct ExpectExplicitConversion {
+pub(crate) struct ExpectExplicitConvertible {
     destination: LocalTerm,
 }
 
-pub(crate) struct ExpectExplicitConversionResult {}
+pub(crate) struct ExpectExplicitConvertibleResult {}
 
-impl From<ExpectExplicitConversion> for LocalTermExpectation {
-    fn from(value: ExpectExplicitConversion) -> Self {
+impl From<ExpectExplicitConvertible> for LocalTermExpectation {
+    fn from(value: ExpectExplicitConvertible) -> Self {
         todo!()
     }
 }
 
-impl From<ExpectExplicitConversionResult> for LocalTermExpectationResult {
-    fn from(value: ExpectExplicitConversionResult) -> Self {
+impl From<ExpectExplicitConvertibleResult> for LocalTermExpectationResult {
+    fn from(value: ExpectExplicitConvertibleResult) -> Self {
         todo!()
     }
 }
 
-impl ExpectLocalTerm for ExpectExplicitConversion {
-    type Result = ExpectExplicitConversionResult;
+impl ExpectLocalTerm for ExpectExplicitConvertible {
+    type Result = ExpectExplicitConvertibleResult;
 
     fn destination(&self) -> Option<LocalTerm> {
         Some(self.destination)

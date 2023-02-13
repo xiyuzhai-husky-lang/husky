@@ -27,7 +27,10 @@ impl std::fmt::Display for TermCategory {
         match self.universe.raw() {
             0 => f.write_str("Prop"),
             1 => f.write_str("Type"),
-            _ => todo!(),
+            u => {
+                f.write_str("Type ");
+                std::fmt::Display::fmt(&(u - 1), f)
+            }
         }
     }
 }

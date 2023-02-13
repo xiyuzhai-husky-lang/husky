@@ -16,13 +16,15 @@ impl<'a> ExprTypeEngine<'a> {
             } => {
                 match items.len() {
                     0 => {
-                        let argument_ty = self.infer_new_expr_ty(argument, ExpectType);
+                        let argument_ty =
+                            self.infer_new_expr_ty(argument, ExpectInsSort::default());
                         // check this is type
                         argument_ty
                             .ok_or(DerivedExprTypeError::ApplicationArgumentTypeNotInferred.into())
                     }
                     1 => {
-                        let arg0_ty = self.infer_new_expr_ty(items.start(), ExpectType);
+                        let arg0_ty =
+                            self.infer_new_expr_ty(items.start(), ExpectInsSort::default());
                         match arg0_ty {
                             Some(_) => todo!(),
                             None => {
@@ -43,7 +45,7 @@ impl<'a> ExprTypeEngine<'a> {
                 rbox_token,
             } => todo!(),
             _ => {
-                let function_ty = self.infer_new_expr_ty(function, ExpectType);
+                let function_ty = self.infer_new_expr_ty(function, ExpectInsSort::default());
                 todo!()
             }
         }

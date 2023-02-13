@@ -1,16 +1,16 @@
-mod explicit_conversion;
-mod implicit_conversion;
-mod ref_mut;
-mod ritchie_call;
-mod sort;
-mod ty;
+mod eqs_ref_mut_application;
+mod eqs_ritchie_call_ty;
+mod eqs_sort;
+mod explicit_convertible;
+mod implicit_convertible;
+mod ins_sort;
 
-pub(crate) use explicit_conversion::*;
-pub(crate) use implicit_conversion::*;
-pub(crate) use ref_mut::*;
-pub(crate) use ritchie_call::*;
-pub(crate) use sort::*;
-pub(crate) use ty::*;
+pub(crate) use eqs_ref_mut_application::*;
+pub(crate) use eqs_ritchie_call_ty::*;
+pub(crate) use eqs_sort::*;
+pub(crate) use explicit_convertible::*;
+pub(crate) use implicit_convertible::*;
+pub(crate) use ins_sort::*;
 
 use super::*;
 use husky_print_utils::p;
@@ -45,7 +45,8 @@ pub(crate) enum LocalTermExpectationResult {
         implicit_conversion: LocalTermImplicitConversion,
         local_term: LocalTerm,
     },
-    OkSort {
+    OkInsSort(ExpectInsSortResult),
+    OkEqsSort {
         implicit_conversion: LocalTermImplicitConversion,
         local_term: LocalTerm,
     },
@@ -61,7 +62,8 @@ impl LocalTermExpectationResult {
                 local_term,
             } => todo!(),
             LocalTermExpectationResult::Err(_) => todo!(),
-            LocalTermExpectationResult::OkSort {
+            LocalTermExpectationResult::OkInsSort(result) => result.reduced_term(),
+            LocalTermExpectationResult::OkEqsSort {
                 implicit_conversion,
                 local_term,
             } => todo!(),
@@ -88,13 +90,11 @@ impl LocalTermExpectationResult {
                 implicit_conversion: *implicit_conversion,
                 local_term: *local_term,
             },
-            LocalTermExpectationResult::OkSort {
+            LocalTermExpectationResult::OkInsSort(result) => result.clone().into(),
+            LocalTermExpectationResult::OkEqsSort {
                 implicit_conversion,
                 local_term,
-            } => LocalTermExpectationResult::OkSort {
-                implicit_conversion: *implicit_conversion,
-                local_term: *local_term,
-            },
+            } => todo!(),
         }
     }
 }
@@ -256,41 +256,21 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Option<LocalTermExpectationResultM> {
         let table = self.local_term_table();
         match rule.expectation {
-            LocalTermExpectation::AsBool => match rule.expectee {
-                LocalTerm::Resolved(_) => todo!(),
-                LocalTerm::Unresolved(expectee) => match level {
-                    LocalTermResolveLevel::Weak => None,
-                    LocalTermResolveLevel::Strong => match table[expectee].unresolved_term() {
-                        UnresolvedTerm::ImplicitSymbol(_) => {
-                            match table[expectee].unresolved_term() {
-                                UnresolvedTerm::ImplicitSymbol(implicit_symbol) => {
-                                    let src_expr_idx = rule.src_expr_idx();
-                                    p!(self.expr_region_data()[src_expr_idx]);
-                                    todo!()
-                                }
-                                _ => unreachable!(),
-                            };
-                            todo!()
-                        }
-                        UnresolvedTerm::TypeApplication { ty, arguments } => {
-                            Some(LocalTermExpectationResultM {
-                                result: LocalTermExpectationResult::Err(
-                                    OriginalLocalTermExpectationError::Todo.into(),
-                                ),
-                                actions: vec![],
-                            })
-                        }
-                    },
-                },
-            },
-            LocalTermExpectation::ImplicitlyConversion { destination: dst } => {
-                self.resolve_implicit_conversion(rule, dst, table, level)
+            LocalTermExpectation::ImplicitlyConversion { destination } => {
+                self.resolve_implicit_conversion_expectation(rule.expectee, destination, level)
             }
-            LocalTermExpectation::Sort => todo!(),
+            LocalTermExpectation::EqsSort { smallest_universe } => {
+                todo!()
+            }
             LocalTermExpectation::FrameVariableType => todo!(),
-            LocalTermExpectation::RefMut { lifetime } => todo!(),
-            LocalTermExpectation::RitchieCall => todo!(),
-            LocalTermExpectation::Type => todo!(),
+            LocalTermExpectation::EqsRefMutApplication { lifetime } => todo!(),
+            LocalTermExpectation::EqsRitchieCallTy => todo!(),
+            LocalTermExpectation::InsSort { smallest_universe } => {
+                self.resolve_ins_sort_expectation(smallest_universe, rule.expectee)
+            }
+            LocalTermExpectation::EqsSort { smallest_universe } => {
+                self.resolve_eq_sort_expectation(smallest_universe, rule.expectee)
+            }
         }
     }
 }
@@ -298,11 +278,19 @@ impl<'a> ExprTypeEngine<'a> {
 #[derive(Debug, PartialEq, Eq)]
 #[non_exhaustive]
 pub(crate) enum LocalTermExpectation {
-    AsBool,
-    ImplicitlyConversion { destination: LocalTerm },
-    Type,
-    Sort,
+    ImplicitlyConversion {
+        destination: LocalTerm,
+    },
+    /// expect term to be an instance of Type u for some universe
+    InsSort {
+        smallest_universe: TermUniverse,
+    },
+    EqsSort {
+        smallest_universe: TermUniverse,
+    },
     FrameVariableType,
-    RefMut { lifetime: LocalTerm },
-    RitchieCall,
+    EqsRefMutApplication {
+        lifetime: LocalTerm,
+    },
+    EqsRitchieCallTy,
 }
