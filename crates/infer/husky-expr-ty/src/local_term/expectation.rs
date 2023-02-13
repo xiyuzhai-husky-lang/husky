@@ -1,3 +1,4 @@
+mod eqs_exactly;
 mod eqs_ref_mut_application;
 mod eqs_ritchie_call_ty;
 mod eqs_sort;
@@ -5,6 +6,7 @@ mod explicit_convertible;
 mod implicit_convertible;
 mod ins_sort;
 
+pub(crate) use eqs_exactly::*;
 pub(crate) use eqs_ref_mut_application::*;
 pub(crate) use eqs_ritchie_call_ty::*;
 pub(crate) use eqs_sort::*;
@@ -24,6 +26,7 @@ pub(crate) trait ExpectLocalTerm: Clone + Into<LocalTermExpectation> {
 }
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub struct LocalTermExpectationEntry {
     src_expr_idx: ExprIdx,
     expectee: LocalTerm,
@@ -32,6 +35,7 @@ pub struct LocalTermExpectationEntry {
 }
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) enum LocalTermExpectationResult {
     OkNoExpectation {
         implicit_conversion: LocalTermImplicitConversion,
@@ -50,10 +54,13 @@ pub(crate) enum LocalTermExpectationResult {
         implicit_conversion: LocalTermImplicitConversion,
         local_term: LocalTerm,
     },
+    OkEqsExactly {
+        local_term: LocalTerm,
+    },
     Err(LocalTermExpectationError),
 }
 impl LocalTermExpectationResult {
-    fn reduced_term(&self) -> Option<ReducedTerm> {
+    fn resolved(&self) -> Option<ReducedTerm> {
         match self {
             LocalTermExpectationResult::OkNoExpectation { .. } => todo!(),
             LocalTermExpectationResult::OkExplicitConversion { .. } => todo!(),
@@ -67,6 +74,7 @@ impl LocalTermExpectationResult {
                 implicit_conversion,
                 local_term,
             } => todo!(),
+            LocalTermExpectationResult::OkEqsExactly { local_term } => local_term.resolved(),
         }
     }
 
@@ -95,17 +103,20 @@ impl LocalTermExpectationResult {
                 implicit_conversion,
                 local_term,
             } => todo!(),
+            LocalTermExpectationResult::OkEqsExactly { local_term } => todo!(),
         }
     }
 }
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) enum LocalTermExpectationResolveProgress {
     Unresolved,
     Resolved(LocalTermExpectationResult),
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub enum LocalTermExpectationError {
     #[error("original {0}")]
     Original(#[from] OriginalLocalTermExpectationError),
@@ -114,12 +125,14 @@ pub enum LocalTermExpectationError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub enum OriginalLocalTermExpectationError {
     #[error("todo")]
     Todo,
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub enum DerivedLocalTermExpectationError {
     #[error("target substitution failure")]
     TargetSubstitutionFailure,
@@ -145,7 +158,7 @@ impl LocalTermExpectationResolveProgress {
     pub(crate) fn reduced_term(&self) -> Option<ReducedTerm> {
         match self {
             LocalTermExpectationResolveProgress::Unresolved => None,
-            LocalTermExpectationResolveProgress::Resolved(result) => result.reduced_term(),
+            LocalTermExpectationResolveProgress::Resolved(result) => result.resolved(),
         }
     }
 }
@@ -264,12 +277,22 @@ impl<'a> ExprTypeEngine<'a> {
             }
             LocalTermExpectation::FrameVariableType => todo!(),
             LocalTermExpectation::EqsRefMutApplication { lifetime } => todo!(),
-            LocalTermExpectation::EqsRitchieCallTy => todo!(),
+            LocalTermExpectation::EqsRitchieCallTy => {
+                p!(
+                    self.path(),
+                    self.expr_region_data()[rule.src_expr_idx].debug(self.db()),
+                    rule.debug(self.db())
+                );
+                self.resolve_eqs_richie_call_ty(rule.expectee)
+            }
             LocalTermExpectation::InsSort { smallest_universe } => {
                 self.resolve_ins_sort_expectation(smallest_universe, rule.expectee)
             }
             LocalTermExpectation::EqsSort { smallest_universe } => {
                 self.resolve_eq_sort_expectation(smallest_universe, rule.expectee)
+            }
+            LocalTermExpectation::EqsExactly { destination } => {
+                self.resolve_eqs_exactly(rule.expectee, destination)
             }
         }
     }
@@ -277,6 +300,7 @@ impl<'a> ExprTypeEngine<'a> {
 
 #[derive(Debug, PartialEq, Eq)]
 #[non_exhaustive]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) enum LocalTermExpectation {
     ImplicitlyConversion {
         destination: LocalTerm,
@@ -291,6 +315,9 @@ pub(crate) enum LocalTermExpectation {
     FrameVariableType,
     EqsRefMutApplication {
         lifetime: LocalTerm,
+    },
+    EqsExactly {
+        destination: LocalTerm,
     },
     EqsRitchieCallTy,
 }

@@ -2,10 +2,13 @@ use super::*;
 
 /// expect a type that is explicitly convertible to dst
 #[derive(Debug, Clone)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) struct ExpectExplicitConvertible {
     destination: LocalTerm,
 }
 
+#[derive(Debug, Clone)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) struct ExpectExplicitConvertibleResult {}
 
 impl From<ExpectExplicitConvertible> for LocalTermExpectation {

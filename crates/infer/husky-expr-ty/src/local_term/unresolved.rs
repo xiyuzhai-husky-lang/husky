@@ -214,6 +214,7 @@ impl UnresolvedTerms {
             LocalTermExpectation::EqsRefMutApplication { lifetime } => todo!(),
             LocalTermExpectation::EqsRitchieCallTy => todo!(),
             LocalTermExpectation::InsSort { .. } => todo!(),
+            LocalTermExpectation::EqsExactly { destination } => todo!(),
         }
     }
 }

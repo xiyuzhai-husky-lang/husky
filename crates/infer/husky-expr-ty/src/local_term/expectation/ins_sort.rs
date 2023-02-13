@@ -1,6 +1,7 @@
 use super::*;
 
 #[derive(Debug, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) struct ExpectInsSort {
     smallest_universe: TermUniverse,
 }
@@ -34,6 +35,7 @@ impl ExpectLocalTerm for ExpectInsSort {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) struct ExpectInsSortResult {}
 impl ExpectInsSortResult {
     pub(crate) fn reduced_term(&self) -> Option<ReducedTerm> {
