@@ -10,7 +10,7 @@ pub(crate) struct ExpectEqsRefMutApplication {
 }
 
 impl ExpectLocalTerm for ExpectEqsRefMutApplication {
-    type Result = ExpectEqsRefMutApplicationResult;
+    type ResolvedOk = ExpectEqsRefMutApplicationResolvedOk;
 
     fn destination(&self) -> Option<LocalTerm> {
         None
@@ -18,15 +18,25 @@ impl ExpectLocalTerm for ExpectEqsRefMutApplication {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub(crate) struct ExpectEqsRefMutApplicationResult {
-    term: LocalTerm,
+pub(crate) struct ExpectEqsRefMutApplicationResolvedOk {
+    destination: LocalTerm,
     /// T
     inner_ty: LocalTerm,
 }
 
-impl From<ExpectEqsRefMutApplicationResult> for LocalTermExpectationResult {
-    fn from(value: ExpectEqsRefMutApplicationResult) -> Self {
-        LocalTermExpectationResult::OkEqsRefMutApplication(value)
+impl ExpectLocalTermResolvedOk for ExpectEqsRefMutApplicationResolvedOk {
+    fn destination(&self) -> LocalTerm {
+        self.destination
+    }
+
+    fn downcast(resolved_ok: &LocalTermExpectationResolvedOk) -> Self {
+        todo!()
+    }
+}
+
+impl From<ExpectEqsRefMutApplicationResolvedOk> for LocalTermExpectationResolvedOk {
+    fn from(value: ExpectEqsRefMutApplicationResolvedOk) -> Self {
+        LocalTermExpectationResolvedOk::OkEqsRefMutApplication(value)
     }
 }
 
@@ -37,7 +47,7 @@ impl From<ExpectEqsRefMutApplication> for LocalTermExpectation {
 }
 // LocalTermExpectationRuleVariant::RefMut { lifetime } => {
 //     // ad hoc
-//     LocalTermExpectationResolveProgress::Resolved(LocalTermExpectationResult::Err(
+//     LocalTermExpectationResolveProgress::Resolved(LocalTermExpectationResolvedOk::Err(
 //         OriginalLocalTermExpectationError::Todo.into(),
 //     ))
 // }
@@ -52,7 +62,7 @@ impl From<ExpectEqsRefMutApplication> for LocalTermExpectation {
 //         }
 //         UnresolvedTerm::TypeApplication { ty, arguments } => {
 //             LocalTermExpectationResolveProgress::Resolved(
-//                 LocalTermExpectationResult::Err(
+//                 LocalTermExpectationResolvedOk::Err(
 //                     OriginalLocalTermExpectationError::Todo.into(),
 //                 ),
 //             )

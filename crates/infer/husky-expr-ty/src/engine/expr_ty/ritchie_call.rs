@@ -7,7 +7,7 @@ impl<'a> ExprTypeEngine<'a> {
         implicit_arguments: Option<&ImplicitArgumentList>,
         nonself_arguments: ExprIdxRange,
     ) -> ExprTypeResult<LocalTerm> {
-        let Some(mut callable_ty) = callable_ty
+        let Some(callable_ty) = callable_ty
             else {
                 return self.infer_err_ritchie_call_ty(implicit_arguments, nonself_arguments)
             };

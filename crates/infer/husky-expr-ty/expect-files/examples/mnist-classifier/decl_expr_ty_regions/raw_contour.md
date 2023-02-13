@@ -43,36 +43,34 @@
                 ),
                 resolve_progress: Expected(
                     Resolved(
-                        OkInsSort(
-                            ExpectInsSortResult,
-                        ),
-                    ),
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Resolved(
-                        ReducedTerm(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
+                        Ok(
+                            OkInsSort(
+                                ExpectInsSortResolvedOk {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 },
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: Some(
-                    1,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        OkInsSort(
-                            ExpectInsSortResult,
-                        ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        ApplicationArgumentTypeNotInferred,
                     ),
                 ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
             },
         ],
         expr_local_terms: ArenaMap {
@@ -116,32 +114,22 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                OkInsSort(
-                                    ExpectInsSortResult,
-                                ),
-                            ),
-                        },
-                        LocalTermExpectationEntry {
-                            src_expr_idx: 4,
-                            expectee: Resolved(
-                                ReducedTerm(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
+                                Ok(
+                                    OkInsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         },
                                     ),
-                                ),
-                            ),
-                            expectation: InsSort {
-                                smallest_universe: TermUniverse(
-                                    0,
-                                ),
-                            },
-                            resolve_progress: Resolved(
-                                OkInsSort(
-                                    ExpectInsSortResult,
                                 ),
                             ),
                         },
@@ -209,8 +197,22 @@
                 ),
                 resolve_progress: Expected(
                     Resolved(
-                        OkInsSort(
-                            ExpectInsSortResult,
+                        Ok(
+                            OkInsSort(
+                                ExpectInsSortResolvedOk {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -262,8 +264,22 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                OkInsSort(
-                                    ExpectInsSortResult,
+                                Ok(
+                                    OkInsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                 ),
                             ),
                         },
@@ -301,8 +317,22 @@
                 ),
                 resolve_progress: Expected(
                     Resolved(
-                        OkInsSort(
-                            ExpectInsSortResult,
+                        Ok(
+                            OkInsSort(
+                                ExpectInsSortResolvedOk {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -354,8 +384,22 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                OkInsSort(
-                                    ExpectInsSortResult,
+                                Ok(
+                                    OkInsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                 ),
                             ),
                         },
@@ -393,8 +437,22 @@
                 ),
                 resolve_progress: Expected(
                     Resolved(
-                        OkInsSort(
-                            ExpectInsSortResult,
+                        Ok(
+                            OkInsSort(
+                                ExpectInsSortResolvedOk {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -446,8 +504,22 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                OkInsSort(
-                                    ExpectInsSortResult,
+                                Ok(
+                                    OkInsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                 ),
                             ),
                         },
@@ -485,8 +557,22 @@
                 ),
                 resolve_progress: Expected(
                     Resolved(
-                        OkInsSort(
-                            ExpectInsSortResult,
+                        Ok(
+                            OkInsSort(
+                                ExpectInsSortResolvedOk {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -542,8 +628,22 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                OkInsSort(
-                                    ExpectInsSortResult,
+                                Ok(
+                                    OkInsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                 ),
                             ),
                         },
@@ -581,8 +681,22 @@
                 ),
                 resolve_progress: Expected(
                     Resolved(
-                        OkInsSort(
-                            ExpectInsSortResult,
+                        Ok(
+                            OkInsSort(
+                                ExpectInsSortResolvedOk {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -634,8 +748,22 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                OkInsSort(
-                                    ExpectInsSortResult,
+                                Ok(
+                                    OkInsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                 ),
                             ),
                         },
@@ -673,8 +801,22 @@
                 ),
                 resolve_progress: Expected(
                     Resolved(
-                        OkInsSort(
-                            ExpectInsSortResult,
+                        Ok(
+                            OkInsSort(
+                                ExpectInsSortResolvedOk {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -734,8 +876,22 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                OkInsSort(
-                                    ExpectInsSortResult,
+                                Ok(
+                                    OkInsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                 ),
                             ),
                         },
@@ -773,8 +929,22 @@
                 ),
                 resolve_progress: Expected(
                     Resolved(
-                        OkInsSort(
-                            ExpectInsSortResult,
+                        Ok(
+                            OkInsSort(
+                                ExpectInsSortResolvedOk {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -798,8 +968,22 @@
                 ),
                 resolve_progress: Expected(
                     Resolved(
-                        OkInsSort(
-                            ExpectInsSortResult,
+                        Ok(
+                            OkInsSort(
+                                ExpectInsSortResolvedOk {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -843,8 +1027,22 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                OkInsSort(
-                                    ExpectInsSortResult,
+                                Ok(
+                                    OkInsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                 ),
                             ),
                         },
@@ -867,8 +1065,22 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                OkInsSort(
-                                    ExpectInsSortResult,
+                                Ok(
+                                    OkInsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                 ),
                             ),
                         },
@@ -906,8 +1118,22 @@
                 ),
                 resolve_progress: Expected(
                     Resolved(
-                        OkInsSort(
-                            ExpectInsSortResult,
+                        Ok(
+                            OkInsSort(
+                                ExpectInsSortResolvedOk {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -957,8 +1183,22 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                OkInsSort(
-                                    ExpectInsSortResult,
+                                Ok(
+                                    OkInsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                 ),
                             ),
                         },
@@ -996,36 +1236,34 @@
                 ),
                 resolve_progress: Expected(
                     Resolved(
-                        OkInsSort(
-                            ExpectInsSortResult,
-                        ),
-                    ),
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Resolved(
-                        ReducedTerm(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
+                        Ok(
+                            OkInsSort(
+                                ExpectInsSortResolvedOk {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 },
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: Some(
-                    1,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        OkInsSort(
-                            ExpectInsSortResult,
-                        ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        ApplicationArgumentTypeNotInferred,
                     ),
                 ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
             },
         ],
         expr_local_terms: ArenaMap {
@@ -1073,32 +1311,22 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                OkInsSort(
-                                    ExpectInsSortResult,
-                                ),
-                            ),
-                        },
-                        LocalTermExpectationEntry {
-                            src_expr_idx: 4,
-                            expectee: Resolved(
-                                ReducedTerm(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
+                                Ok(
+                                    OkInsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         },
                                     ),
-                                ),
-                            ),
-                            expectation: InsSort {
-                                smallest_universe: TermUniverse(
-                                    0,
-                                ),
-                            },
-                            resolve_progress: Resolved(
-                                OkInsSort(
-                                    ExpectInsSortResult,
                                 ),
                             ),
                         },
@@ -1141,8 +1369,22 @@
                 ),
                 resolve_progress: Expected(
                     Resolved(
-                        OkInsSort(
-                            ExpectInsSortResult,
+                        Ok(
+                            OkInsSort(
+                                ExpectInsSortResolvedOk {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1185,8 +1427,22 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                OkInsSort(
-                                    ExpectInsSortResult,
+                                Ok(
+                                    OkInsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                 ),
                             ),
                         },
@@ -1232,8 +1488,22 @@
                 ),
                 resolve_progress: Expected(
                     Resolved(
-                        OkInsSort(
-                            ExpectInsSortResult,
+                        Ok(
+                            OkInsSort(
+                                ExpectInsSortResolvedOk {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1276,8 +1546,22 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                OkInsSort(
-                                    ExpectInsSortResult,
+                                Ok(
+                                    OkInsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                 ),
                             ),
                         },
@@ -1377,8 +1661,22 @@
                 ),
                 resolve_progress: Expected(
                     Resolved(
-                        OkInsSort(
-                            ExpectInsSortResult,
+                        Ok(
+                            OkInsSort(
+                                ExpectInsSortResolvedOk {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1421,8 +1719,22 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                OkInsSort(
-                                    ExpectInsSortResult,
+                                Ok(
+                                    OkInsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                 ),
                             ),
                         },
@@ -1470,8 +1782,22 @@
                 ),
                 resolve_progress: Expected(
                     Resolved(
-                        OkInsSort(
-                            ExpectInsSortResult,
+                        Ok(
+                            OkInsSort(
+                                ExpectInsSortResolvedOk {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1514,8 +1840,22 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                OkInsSort(
-                                    ExpectInsSortResult,
+                                Ok(
+                                    OkInsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                 ),
                             ),
                         },
@@ -1563,8 +1903,22 @@
                 ),
                 resolve_progress: Expected(
                     Resolved(
-                        OkInsSort(
-                            ExpectInsSortResult,
+                        Ok(
+                            OkInsSort(
+                                ExpectInsSortResolvedOk {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1616,8 +1970,22 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                OkInsSort(
-                                    ExpectInsSortResult,
+                                Ok(
+                                    OkInsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                 ),
                             ),
                         },

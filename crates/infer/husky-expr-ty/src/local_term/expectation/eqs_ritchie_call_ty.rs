@@ -4,7 +4,7 @@ use super::*;
 pub(crate) struct ExpectEqsRitchieCallType;
 
 impl ExpectLocalTerm for ExpectEqsRitchieCallType {
-    type Result = ExpectEqsRitchieCallTypeResult;
+    type ResolvedOk = ExpectEqsRitchieCallTypeResolvedOk;
 
     fn destination(&self) -> Option<LocalTerm> {
         None
@@ -13,15 +13,31 @@ impl ExpectLocalTerm for ExpectEqsRitchieCallType {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
-pub(crate) struct ExpectEqsRitchieCallTypeResult {
-    term: LocalTerm,
+pub(crate) struct ExpectEqsRitchieCallTypeResolvedOk {
+    destination: LocalTerm,
     parameter_liasoned_tys: (),
     return_ty: (),
 }
 
-impl From<ExpectEqsRitchieCallTypeResult> for LocalTermExpectationResult {
-    fn from(value: ExpectEqsRitchieCallTypeResult) -> Self {
-        LocalTermExpectationResult::OkEqsRitchieCallType(value)
+impl ExpectLocalTermResolvedOk for ExpectEqsRitchieCallTypeResolvedOk {
+    fn destination(&self) -> LocalTerm {
+        self.destination
+    }
+
+    fn downcast(resolved_ok: &LocalTermExpectationResolvedOk) -> Self {
+        todo!()
+    }
+}
+
+impl ExpectEqsRitchieCallTypeResolvedOk {
+    pub(crate) fn expectee(&self) -> LocalTerm {
+        self.destination
+    }
+}
+
+impl From<ExpectEqsRitchieCallTypeResolvedOk> for LocalTermExpectationResolvedOk {
+    fn from(value: ExpectEqsRitchieCallTypeResolvedOk) -> Self {
+        LocalTermExpectationResolvedOk::EqsRitchieCallType(value)
     }
 }
 
@@ -35,14 +51,14 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn resolve_eqs_richie_call_ty(
         &self,
         expectee: LocalTerm,
-    ) -> Option<LocalTermExpectationResultM> {
+    ) -> Option<LocalTermExpectationResolvedOkM> {
         match expectee {
             LocalTerm::Resolved(expectee) => self.res_to(expectee),
             LocalTerm::Unresolved(_) => todo!(),
         }
     }
 
-    fn res_to(&self, expectee: ReducedTerm) -> Option<LocalTermExpectationResultM> {
+    fn res_to(&self, expectee: ReducedTerm) -> Option<LocalTermExpectationResolvedOkM> {
         match expectee.term() {
             Term::Literal(_) => todo!(),
             Term::Symbol(_) => todo!(),

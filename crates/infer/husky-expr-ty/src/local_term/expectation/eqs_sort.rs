@@ -6,7 +6,7 @@ pub(crate) struct ExpectSort {
 }
 
 impl ExpectLocalTerm for ExpectSort {
-    type Result = ExpectEqsSortResult;
+    type ResolvedOk = ExpectEqsSortResolvedOk;
 
     fn destination(&self) -> Option<LocalTerm> {
         None
@@ -14,8 +14,18 @@ impl ExpectLocalTerm for ExpectSort {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub(crate) enum ExpectEqsSortResult {
-    ResolvedOk(LocalTerm),
+pub(crate) struct ExpectEqsSortResolvedOk {
+    destination: LocalTerm,
+}
+
+impl ExpectLocalTermResolvedOk for ExpectEqsSortResolvedOk {
+    fn destination(&self) -> LocalTerm {
+        self.destination
+    }
+
+    fn downcast(resolved_ok: &LocalTermExpectationResolvedOk) -> Self {
+        todo!()
+    }
 }
 
 impl From<ExpectSort> for LocalTermExpectation {
@@ -26,8 +36,8 @@ impl From<ExpectSort> for LocalTermExpectation {
     }
 }
 
-impl From<ExpectEqsSortResult> for LocalTermExpectationResult {
-    fn from(value: ExpectEqsSortResult) -> Self {
+impl From<ExpectEqsSortResolvedOk> for LocalTermExpectationResolvedOk {
+    fn from(value: ExpectEqsSortResolvedOk) -> Self {
         todo!()
     }
 }
@@ -37,7 +47,7 @@ impl<'a> ExprTypeEngine<'a> {
         &self,
         smallest_universe: TermUniverse,
         expectee: LocalTerm,
-    ) -> Option<LocalTermExpectationResultM> {
+    ) -> Option<LocalTermExpectationResolvedOkM> {
         todo!()
         // match expectee {
         //     LocalTerm::Resolved(expectee) => {
@@ -65,7 +75,7 @@ impl<'a> ExprTypeEngine<'a> {
 //         Term::Category(cat) => match cat.universe().raw() {
 //             0 => todo!(),
 //             _ => LocalTermExpectationResolveProgress::Resolved(
-//                 LocalTermExpectationResult::OkSort {
+//                 LocalTermExpectationResolvedOk::OkSort {
 //                     implicit_conversion: LocalTermImplicitConversion::None,
 //                     local_term: resolved_term.into(),
 //                 },

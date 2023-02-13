@@ -34,6 +34,7 @@ impl<'a> ExprTypeEngine<'a> {
         opr: BinaryPureClosedOpr,
         menu: ReducedTermMenu,
     ) -> Result<LocalTerm, ExprTypeError> {
+        // todo: don't use resolved
         let lopd_ty = self.infer_new_expr_ty_resolved(lopd, ExpectInsSort::default());
         let ropd_ty = self.infer_new_expr_ty_resolved(ropd, ExpectInsSort::default());
         let Some(lopd_ty) = lopd_ty
@@ -126,12 +127,12 @@ impl<'a> ExprTypeEngine<'a> {
         lopd: ExprIdx,
         ropd: ExprIdx,
     ) -> Result<LocalTerm, ExprTypeError> {
-        let lopd_ty = self.infer_new_expr_ty_resolved(lopd, ExpectInsSort::default());
+        let lopd_ty = self.infer_new_expr_ty(lopd, ExpectInsSort::default());
         let ropd_ty_expectation = match lopd_ty {
             Some(_) => todo!(),
             None => ExpectInsSort::default(),
         };
-        let ropd_ty = self.infer_new_expr_ty_resolved(ropd, ropd_ty_expectation);
+        let ropd_ty = self.infer_new_expr_ty(ropd, ropd_ty_expectation);
         Ok(self.reduced_term_menu.bool().into())
     }
 
@@ -140,8 +141,8 @@ impl<'a> ExprTypeEngine<'a> {
         lopd: ExprIdx,
         ropd: ExprIdx,
     ) -> Result<LocalTerm, ExprTypeError> {
-        self.infer_new_expr_ty_resolved(lopd, self.expect_implicitly_convertible_to_boolbool());
-        self.infer_new_expr_ty_resolved(ropd, self.expect_implicitly_convertible_to_boolbool());
+        self.infer_new_expr_ty(lopd, self.expect_implicitly_convertible_to_boolbool());
+        self.infer_new_expr_ty(ropd, self.expect_implicitly_convertible_to_boolbool());
         Ok(self.reduced_term_menu.bool().into())
     }
 
@@ -172,7 +173,7 @@ impl<'a> ExprTypeEngine<'a> {
         ropd: ExprIdx,
         lopd: ExprIdx,
     ) -> Result<LocalTerm, ExprTypeError> {
-        self.infer_new_expr_ty_resolved(
+        self.infer_new_expr_ty(
             ropd,
             ExpectSort {
                 smallest_universe: 0.into(),
@@ -182,7 +183,7 @@ impl<'a> ExprTypeEngine<'a> {
             else {
                 return Err(DerivedExprTypeError::AsOperationRightOperandTermNotInferred.into())
             };
-        let Some(lopd_ty) = self.infer_new_expr_ty_resolved(lopd, ExpectImplicitlyConvertible{
+        let Some(lopd_ty) = self.infer_new_expr_ty(lopd, ExpectImplicitlyConvertible{
             destination: todo!()
         })
             else {
@@ -208,19 +209,16 @@ impl<'a> ExprTypeEngine<'a> {
                 return Err(DerivedExprTypeError::BinaryOperationRightOperandTypeNotInferred.into())
             };
         let x = lopd_ty.term();
-        match x {
-            Term::Category(_) => (),
+        let x_u = match x {
+            Term::Category(x_cat) => x_cat.universe(),
             _ => return Err(todo!()),
-        }
+        };
         let y = ropd_ty.term();
-        match y {
-            Term::Category(_) => (),
+        let y_u = match y {
+            Term::Category(y_cat) => y_cat.universe(),
             _ => return Err(todo!()),
-        }
-        Ok(self
-            .db
-            .reduced_term(TermCurry::new(self.db, /* ad hoc */ Variance::Invariant, x, y).into())
-            .into())
+        };
+        Ok(ReducedTerm::new_category(x_u.max(y_u)).into())
     }
 
     fn calc_assign_expr_ty(
@@ -232,7 +230,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Result<LocalTerm, ExprTypeError> {
         let expr_eval_lifetime =
             self.new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
-        let (_, lopd_expectation_rule_idx) = self.infer_new_expr_ty_with_expectation_rule(
+        let (lopd_expectation_rule_idx, _) = self.infer_new_expr_ty_with_expectation_rule(
             lopd,
             ExpectEqsRefMutApplication {
                 lifetime: expr_eval_lifetime,

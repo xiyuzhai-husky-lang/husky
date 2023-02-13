@@ -7,7 +7,7 @@ pub(crate) struct ExpectEqsExactly {
 }
 
 impl ExpectLocalTerm for ExpectEqsExactly {
-    type Result = ExpectEqsExactlyResult;
+    type ResolvedOk = ExpectEqsExactlyResolvedOk;
 
     fn destination(&self) -> Option<LocalTerm> {
         None
@@ -15,18 +15,29 @@ impl ExpectLocalTerm for ExpectEqsExactly {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub(crate) struct ExpectEqsExactlyResult {
-    local_term: LocalTerm,
+pub(crate) struct ExpectEqsExactlyResolvedOk {
+    destination: LocalTerm,
 }
-impl ExpectEqsExactlyResult {
+
+impl ExpectLocalTermResolvedOk for ExpectEqsExactlyResolvedOk {
+    fn destination(&self) -> LocalTerm {
+        self.destination
+    }
+
+    fn downcast(resolved_ok: &LocalTermExpectationResolvedOk) -> Self {
+        todo!()
+    }
+}
+
+impl ExpectEqsExactlyResolvedOk {
     pub(crate) fn resolved(&self) -> Option<ReducedTerm> {
         todo!()
     }
 }
 
-impl From<ExpectEqsExactlyResult> for LocalTermExpectationResult {
-    fn from(value: ExpectEqsExactlyResult) -> Self {
-        LocalTermExpectationResult::OkEqsExactly(value)
+impl From<ExpectEqsExactlyResolvedOk> for LocalTermExpectationResolvedOk {
+    fn from(value: ExpectEqsExactlyResolvedOk) -> Self {
+        LocalTermExpectationResolvedOk::OkEqsExactly(value)
     }
 }
 
@@ -43,7 +54,7 @@ impl<'a> ExprTypeEngine<'a> {
         &self,
         expectee: LocalTerm,
         destination: LocalTerm,
-    ) -> Option<LocalTermExpectationResultM> {
+    ) -> Option<LocalTermExpectationResolvedOkM> {
         match expectee {
             LocalTerm::Resolved(expectee) => self.eqs_exactly_res_to(expectee, destination),
             LocalTerm::Unresolved(_) => todo!(),
@@ -55,7 +66,7 @@ impl<'a> ExprTypeEngine<'a> {
         &self,
         expectee: ReducedTerm,
         destination: LocalTerm,
-    ) -> Option<LocalTermExpectationResultM> {
+    ) -> Option<LocalTermExpectationResolvedOkM> {
         match destination {
             LocalTerm::Resolved(destination) => {
                 Some(self.eqs_exactly_res_to_res(expectee, destination))
@@ -69,12 +80,14 @@ impl<'a> ExprTypeEngine<'a> {
         &self,
         expectee: ReducedTerm,
         destination: ReducedTerm,
-    ) -> LocalTermExpectationResultM {
+    ) -> LocalTermExpectationResolvedOkM {
         match expectee == destination {
-            true => LocalTermExpectationResultM {
-                result: LocalTermExpectationResult::OkEqsExactly(ExpectEqsExactlyResult {
-                    local_term: expectee.into(),
-                }),
+            true => LocalTermExpectationResolvedOkM {
+                result: Ok(LocalTermExpectationResolvedOk::OkEqsExactly(
+                    ExpectEqsExactlyResolvedOk {
+                        destination: destination.into(),
+                    },
+                )),
                 actions: vec![],
             },
             false => todo!(),

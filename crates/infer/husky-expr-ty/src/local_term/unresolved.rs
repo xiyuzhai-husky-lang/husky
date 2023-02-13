@@ -283,11 +283,11 @@ impl<'a> ExprTypeEngine<'a> {
         {
             let target_substitution = match table
                 .unresolved_terms
-                .try_substitute_local_term(rule.target())
+                .try_substitute_local_term(rule.expectee())
             {
                 Ok(target_substitution) => target_substitution,
                 Err(_) => {
-                    rule.set_resolved(LocalTermExpectationResult::Err(
+                    rule.set_resolved(Err(
                         DerivedLocalTermExpectationError::TargetSubstitutionFailure.into(),
                     ));
                     continue;
