@@ -22,7 +22,7 @@ impl<'a> ExprTypeEngine<'a> {
             BinaryOpr::ScopeResolution => todo!(),
             BinaryOpr::Curry => self.calc_curry_expr_ty(lopd, ropd),
             BinaryOpr::As => self.calc_as_expr_ty(ropd, lopd),
-            BinaryOpr::Is => self.calc_is_expr_ty(ropd),
+            BinaryOpr::Ins => self.calc_ins_expr_ty(ropd),
             BinaryOpr::In => todo!(),
         }
     }
@@ -145,7 +145,7 @@ impl<'a> ExprTypeEngine<'a> {
         Ok(self.reduced_term_menu.bool().into())
     }
 
-    fn calc_is_expr_ty(&mut self, ropd: ExprIdx) -> Result<LocalTerm, ExprTypeError> {
+    fn calc_ins_expr_ty(&mut self, ropd: ExprIdx) -> Result<LocalTerm, ExprTypeError> {
         let Some(ropd_ty) = self.infer_new_expr_ty_resolved(ropd, ExpectInsSort::default())
             else {
                 return Err(DerivedExprTypeError::BinaryOperationRightOperandTypeNotInferred.into())
@@ -234,7 +234,7 @@ impl<'a> ExprTypeEngine<'a> {
             self.new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
         let (_, lopd_expectation_rule_idx) = self.infer_new_expr_ty_with_expectation_rule(
             lopd,
-            ExpectRefMut {
+            ExpectEqsRefMutApplication {
                 lifetime: expr_eval_lifetime,
             },
         );

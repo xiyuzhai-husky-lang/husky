@@ -223,7 +223,7 @@ impl<'a> SignatureTermEngine<'a> {
                     )
                     .into()),
                     BinaryOpr::As => todo!(),
-                    BinaryOpr::Is => todo!(),
+                    BinaryOpr::Ins => todo!(),
                     BinaryOpr::In => todo!(),
                 }
             }

@@ -99,7 +99,7 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: LocalTermExpectationResolveProgress::Unresolved,
+                resolve_progress: Unresolved,
             },
         ],
         expr_local_terms: ArenaMap {

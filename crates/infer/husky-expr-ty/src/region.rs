@@ -42,26 +42,6 @@ impl ExprTypeRegion {
             self_ty,
         }
     }
-
-    // pub fn expr_local_term(
-    //     &self,
-    //     expr_idx: ExprIdx,
-    // ) -> Option<Result<Result<ReducedTerm, &LocalTermResolveError>, &ExprTermError>> {
-    //     self.expr_local_terms.get(expr_idx).map(|expr_term| {
-    //         expr_term
-    //             .as_ref()
-    //             .map(|local_term| self.resolved_term(*local_term))
-    //     })
-    // }
-
-    // fn resolved_term(&self, local_term: LocalTerm) -> Result<ReducedTerm, &LocalTermResolveError> {
-    //     match local_term {
-    //         LocalTerm::Resolved(term) => Ok(term),
-    //         LocalTerm::Unresolved(term) => {
-    //             todo!()
-    //         }
-    //     }
-    // }
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -69,7 +49,20 @@ impl ExprTypeRegion {
 pub struct ExprTypeInfo {
     ty_result: ExprTypeResult<LocalTerm>,
     expectation_rule_idx: OptionLocalTermExpectationIdx,
-    resolve_progress: LocalTermExpectationResolveProgress,
+    resolve_progress: ExprTypeResolveProgress,
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub(crate) enum ExprTypeResolveProgress {
+    Unresolved,
+    Expected(LocalTermExpectationResolveProgress),
+    Unexpected(ExprTypeResult<LocalTerm>),
+}
+
+impl From<LocalTermExpectationResolveProgress> for ExprTypeResolveProgress {
+    fn from(v: LocalTermExpectationResolveProgress) -> Self {
+        Self::Expected(v)
+    }
 }
 
 impl ExprTypeInfo {
@@ -80,7 +73,7 @@ impl ExprTypeInfo {
         Self {
             ty_result,
             expectation_rule_idx,
-            resolve_progress: LocalTermExpectationResolveProgress::Unresolved,
+            resolve_progress: ExprTypeResolveProgress::Unresolved,
         }
     }
 
@@ -93,24 +86,18 @@ impl ExprTypeInfo {
         self.resolve_progress = match self.expectation_rule_idx.into_option() {
             Some(expectation_rule_idx) => unresolved_term_table[expectation_rule_idx]
                 .resolve_progress()
-                .duplicate(expectation_rule_idx),
+                .duplicate(expectation_rule_idx)
+                .into(),
             None => match ty {
-                LocalTerm::Resolved(term) => LocalTermExpectationResolveProgress::Resolved(
-                    LocalTermExpectationResult::OkNoExpectation {
-                        local_term: term.into(),
-                        implicit_conversion: LocalTermImplicitConversion::None,
-                    },
-                ),
-                LocalTerm::Unresolved(ty) => {
-                    LocalTermExpectationResolveProgress::Resolved(LocalTermExpectationResult::Err(
-                        DerivedLocalTermExpectationError::UnresolvedLocalTerm.into(),
-                    ))
-                }
+                LocalTerm::Resolved(term) => ExprTypeResolveProgress::Unexpected(Ok(term.into())),
+                LocalTerm::Unresolved(ty) => ExprTypeResolveProgress::Unexpected(Err(
+                    DerivedExprTypeError::UnresolvedLocalTerm.into(),
+                )),
             },
         }
     }
 
-    pub(crate) fn resolve_progress(&self) -> &LocalTermExpectationResolveProgress {
+    pub(crate) fn resolve_progress(&self) -> &ExprTypeResolveProgress {
         &self.resolve_progress
     }
 }

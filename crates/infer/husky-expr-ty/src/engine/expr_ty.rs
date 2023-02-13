@@ -151,7 +151,7 @@ impl<'a> ExprTypeEngine<'a> {
                 arguments,
                 ..
             } => {
-                let function_ty = self.infer_new_expr_ty(function, ExpectRitchieCall);
+                let function_ty = self.infer_new_expr_ty(function, ExpectEqsRitchieCallType);
                 self.calc_ritchie_call_ty(function_ty, implicit_arguments.as_ref(), arguments)
             }
             Expr::Field {

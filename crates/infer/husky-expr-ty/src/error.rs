@@ -81,6 +81,8 @@ pub enum DerivedExprTypeError {
     ReturnTypeNotGivenInRitchieCall,
     #[error("SelfTypeNotInferredForSelfValue")]
     SelfTypeNotInferredForSelfValue,
+    #[error("UnresolvedLocalTerm")]
+    UnresolvedLocalTerm,
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;

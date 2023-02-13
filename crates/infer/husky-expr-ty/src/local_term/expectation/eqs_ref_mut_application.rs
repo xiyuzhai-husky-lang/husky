@@ -5,35 +5,33 @@ use super::*;
 ///
 /// T is referred to as the inner type
 #[derive(Debug, Clone)]
-pub(crate) struct ExpectRefMut {
+pub(crate) struct ExpectEqsRefMutApplication {
     pub(crate) lifetime: LocalTerm,
 }
 
-impl ExpectLocalTerm for ExpectRefMut {
-    type Result = ExpectRefMutResult;
+impl ExpectLocalTerm for ExpectEqsRefMutApplication {
+    type Result = ExpectEqsRefMutApplicationResult;
 
     fn destination(&self) -> Option<LocalTerm> {
         None
     }
 }
 
-pub(crate) enum ExpectRefMutResult {
-    ResolvedOk {
-        term: LocalTerm,
-        /// T
-        inner_ty: LocalTerm,
-    },
-    ResolvedErr(LocalTermExpectationError),
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub(crate) struct ExpectEqsRefMutApplicationResult {
+    term: LocalTerm,
+    /// T
+    inner_ty: LocalTerm,
 }
 
-impl From<ExpectRefMutResult> for LocalTermExpectationResult {
-    fn from(value: ExpectRefMutResult) -> Self {
-        todo!()
+impl From<ExpectEqsRefMutApplicationResult> for LocalTermExpectationResult {
+    fn from(value: ExpectEqsRefMutApplicationResult) -> Self {
+        LocalTermExpectationResult::OkEqsRefMutApplication(value)
     }
 }
 
-impl From<ExpectRefMut> for LocalTermExpectation {
-    fn from(value: ExpectRefMut) -> Self {
+impl From<ExpectEqsRefMutApplication> for LocalTermExpectation {
+    fn from(value: ExpectEqsRefMutApplication) -> Self {
         LocalTermExpectation::EqsRefMutApplication { lifetime: todo!() }
     }
 }

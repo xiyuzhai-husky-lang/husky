@@ -7,9 +7,9 @@ pub(crate) struct ExpectExplicitConvertible {
     destination: LocalTerm,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
-pub(crate) struct ExpectExplicitConvertibleResult {}
+pub(crate) struct ExpectExplicitlyConvertibleResult {}
 
 impl From<ExpectExplicitConvertible> for LocalTermExpectation {
     fn from(value: ExpectExplicitConvertible) -> Self {
@@ -17,14 +17,14 @@ impl From<ExpectExplicitConvertible> for LocalTermExpectation {
     }
 }
 
-impl From<ExpectExplicitConvertibleResult> for LocalTermExpectationResult {
-    fn from(value: ExpectExplicitConvertibleResult) -> Self {
+impl From<ExpectExplicitlyConvertibleResult> for LocalTermExpectationResult {
+    fn from(value: ExpectExplicitlyConvertibleResult) -> Self {
         todo!()
     }
 }
 
 impl ExpectLocalTerm for ExpectExplicitConvertible {
-    type Result = ExpectExplicitConvertibleResult;
+    type Result = ExpectExplicitlyConvertibleResult;
 
     fn destination(&self) -> Option<LocalTerm> {
         Some(self.destination)

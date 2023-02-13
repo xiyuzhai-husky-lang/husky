@@ -38,7 +38,7 @@ impl ExpectLocalTerm for ExpectInsSort {
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) struct ExpectInsSortResult {}
 impl ExpectInsSortResult {
-    pub(crate) fn reduced_term(&self) -> Option<ReducedTerm> {
+    pub(crate) fn resolved(&self) -> Option<ReducedTerm> {
         todo!()
     }
 }

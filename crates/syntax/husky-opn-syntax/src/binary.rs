@@ -15,7 +15,7 @@ pub enum BinaryOpr {
     ScopeResolution,
     Curry, // ->
     As,    // as
-    Is,    // :
+    Ins,   // :
     In,    // in
 }
 
@@ -65,7 +65,7 @@ impl BinaryOpr {
             BinaryOpr::ShortCircuitLogic(logic_opr) => logic_opr.husky_code(),
             BinaryOpr::Curry => "->",
             BinaryOpr::As => todo!(),
-            BinaryOpr::Is => todo!(),
+            BinaryOpr::Ins => todo!(),
             BinaryOpr::ScopeResolution => todo!(),
             BinaryOpr::In => "in",
         }
@@ -97,7 +97,7 @@ impl BinaryOpr {
             }
             BinaryOpr::Curry => " -> ",
             BinaryOpr::As => " as ",
-            BinaryOpr::Is => " : ",
+            BinaryOpr::Ins => " : ",
             BinaryOpr::ScopeResolution => " :: ",
             BinaryOpr::In => " in ",
         }

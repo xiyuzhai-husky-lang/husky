@@ -268,9 +268,11 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: LocalTermExpectationResolveProgress::Resolved(
-                    LocalTermExpectationResult::OkInsSort(
-                        ExpectInsSortResult,
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
+                        ),
                     ),
                 ),
             },
@@ -357,9 +359,11 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: LocalTermExpectationResolveProgress::Resolved(
-                    LocalTermExpectationResult::OkInsSort(
-                        ExpectInsSortResult,
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
+                        ),
                     ),
                 ),
             },
@@ -445,9 +449,11 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: LocalTermExpectationResolveProgress::Resolved(
-                    LocalTermExpectationResult::OkInsSort(
-                        ExpectInsSortResult,
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
+                        ),
                     ),
                 ),
             },
@@ -534,9 +540,11 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: LocalTermExpectationResolveProgress::Resolved(
-                    LocalTermExpectationResult::OkInsSort(
-                        ExpectInsSortResult,
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
+                        ),
                     ),
                 ),
             },
@@ -622,9 +630,11 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: LocalTermExpectationResolveProgress::Resolved(
-                    LocalTermExpectationResult::OkInsSort(
-                        ExpectInsSortResult,
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
+                        ),
                     ),
                 ),
             },
@@ -711,9 +721,11 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: LocalTermExpectationResolveProgress::Resolved(
-                    LocalTermExpectationResult::OkInsSort(
-                        ExpectInsSortResult,
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
+                        ),
                     ),
                 ),
             },
@@ -799,9 +811,11 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: LocalTermExpectationResolveProgress::Resolved(
-                    LocalTermExpectationResult::OkInsSort(
-                        ExpectInsSortResult,
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
+                        ),
                     ),
                 ),
             },
@@ -888,9 +902,11 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: LocalTermExpectationResolveProgress::Resolved(
-                    LocalTermExpectationResult::OkInsSort(
-                        ExpectInsSortResult,
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
+                        ),
                     ),
                 ),
             },
@@ -976,9 +992,11 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: LocalTermExpectationResolveProgress::Resolved(
-                    LocalTermExpectationResult::OkInsSort(
-                        ExpectInsSortResult,
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
+                        ),
                     ),
                 ),
             },
@@ -1065,9 +1083,11 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: LocalTermExpectationResolveProgress::Resolved(
-                    LocalTermExpectationResult::OkInsSort(
-                        ExpectInsSortResult,
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
+                        ),
                     ),
                 ),
             },
@@ -1153,9 +1173,11 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: LocalTermExpectationResolveProgress::Resolved(
-                    LocalTermExpectationResult::OkInsSort(
-                        ExpectInsSortResult,
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
+                        ),
                     ),
                 ),
             },
@@ -1242,9 +1264,11 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: LocalTermExpectationResolveProgress::Resolved(
-                    LocalTermExpectationResult::OkInsSort(
-                        ExpectInsSortResult,
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
+                        ),
                     ),
                 ),
             },
@@ -1330,9 +1354,11 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: LocalTermExpectationResolveProgress::Resolved(
-                    LocalTermExpectationResult::OkInsSort(
-                        ExpectInsSortResult,
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
+                        ),
                     ),
                 ),
             },
@@ -1419,9 +1445,11 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: LocalTermExpectationResolveProgress::Resolved(
-                    LocalTermExpectationResult::OkInsSort(
-                        ExpectInsSortResult,
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
+                        ),
                     ),
                 ),
             },
@@ -1507,9 +1535,11 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: LocalTermExpectationResolveProgress::Resolved(
-                    LocalTermExpectationResult::OkInsSort(
-                        ExpectInsSortResult,
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
+                        ),
                     ),
                 ),
             },
@@ -1596,9 +1626,11 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: LocalTermExpectationResolveProgress::Resolved(
-                    LocalTermExpectationResult::OkInsSort(
-                        ExpectInsSortResult,
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
+                        ),
                     ),
                 ),
             },

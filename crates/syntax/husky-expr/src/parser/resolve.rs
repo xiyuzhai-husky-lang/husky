@@ -135,7 +135,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     }
                     _ => match self.peek() {
                         // not end of token group
-                        Some(_) => ResolvedToken::BinaryOpr(token_idx, BinaryOpr::Is),
+                        Some(_) => ResolvedToken::BinaryOpr(token_idx, BinaryOpr::Ins),
                         // end of token group
                         None => return TokenResolveResult::Break(()),
                     },
