@@ -20,22 +20,27 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        OkEqsExactly(
+                            ExpectEqsExactlyResult {
+                                local_term: Resolved(
+                                    ReducedTerm(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
                                         ),
-                                    },
+                                    ),
                                 ),
-                            ),
+                            },
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -52,22 +57,15 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                            ),
+                expectation_rule_idx: Some(
+                    1,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -110,9 +108,78 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectationRules {
+            expectation_rules: LocalTermExpectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 0,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: EqsExactly {
+                                destination: Resolved(
+                                    ReducedTerm(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                OkEqsExactly(
+                                    ExpectEqsExactlyResult {
+                                        local_term: Resolved(
+                                            ReducedTerm(
+                                                Category(
+                                                    TermCategory {
+                                                        universe: TermUniverse(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 1,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                OkInsSort(
+                                    ExpectInsSortResult,
+                                ),
+                            ),
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -169,7 +236,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectationRules {
+            expectation_rules: LocalTermExpectations {
                 arena: Arena {
                     data: [],
                 },
@@ -216,7 +283,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectationRules {
+            expectation_rules: LocalTermExpectations {
                 arena: Arena {
                     data: [],
                 },
@@ -255,22 +322,15 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                            ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
                         ),
-                    },
+                    ),
                 ),
             },
         ],
@@ -289,9 +349,34 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectationRules {
+            expectation_rules: LocalTermExpectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 0,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                OkInsSort(
+                                    ExpectInsSortResult,
+                                ),
+                            ),
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -330,22 +415,15 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                            ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
                         ),
-                    },
+                    ),
                 ),
             },
         ],
@@ -364,9 +442,34 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectationRules {
+            expectation_rules: LocalTermExpectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 0,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                OkInsSort(
+                                    ExpectInsSortResult,
+                                ),
+                            ),
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -405,22 +508,15 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                            ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
                         ),
-                    },
+                    ),
                 ),
             },
         ],
@@ -439,9 +535,34 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectationRules {
+            expectation_rules: LocalTermExpectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 0,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                OkInsSort(
+                                    ExpectInsSortResult,
+                                ),
+                            ),
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -480,22 +601,15 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                            ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
                         ),
-                    },
+                    ),
                 ),
             },
         ],
@@ -514,9 +628,34 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectationRules {
+            expectation_rules: LocalTermExpectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 0,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                OkInsSort(
+                                    ExpectInsSortResult,
+                                ),
+                            ),
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -566,7 +705,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectationRules {
+            expectation_rules: LocalTermExpectations {
                 arena: Arena {
                     data: [],
                 },
@@ -607,22 +746,15 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                            ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
                         ),
-                    },
+                    ),
                 ),
             },
         ],
@@ -641,9 +773,34 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectationRules {
+            expectation_rules: LocalTermExpectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 0,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                OkInsSort(
+                                    ExpectInsSortResult,
+                                ),
+                            ),
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -682,22 +839,15 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                            ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
                         ),
-                    },
+                    ),
                 ),
             },
         ],
@@ -716,9 +866,34 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectationRules {
+            expectation_rules: LocalTermExpectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 0,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                OkInsSort(
+                                    ExpectInsSortResult,
+                                ),
+                            ),
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -757,22 +932,15 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                            ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
                         ),
-                    },
+                    ),
                 ),
             },
         ],
@@ -791,9 +959,34 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectationRules {
+            expectation_rules: LocalTermExpectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 0,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                OkInsSort(
+                                    ExpectInsSortResult,
+                                ),
+                            ),
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -832,22 +1025,15 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                            ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
                         ),
-                    },
+                    ),
                 ),
             },
         ],
@@ -866,9 +1052,34 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectationRules {
+            expectation_rules: LocalTermExpectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 0,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                OkInsSort(
+                                    ExpectInsSortResult,
+                                ),
+                            ),
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -907,22 +1118,15 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                            ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
                         ),
-                    },
+                    ),
                 ),
             },
         ],
@@ -941,9 +1145,34 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectationRules {
+            expectation_rules: LocalTermExpectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 0,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                OkInsSort(
+                                    ExpectInsSortResult,
+                                ),
+                            ),
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -982,22 +1211,15 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                            ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
                         ),
-                    },
+                    ),
                 ),
             },
         ],
@@ -1016,9 +1238,34 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectationRules {
+            expectation_rules: LocalTermExpectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 0,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                OkInsSort(
+                                    ExpectInsSortResult,
+                                ),
+                            ),
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -1057,22 +1304,15 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                            ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        OkInsSort(
+                            ExpectInsSortResult,
                         ),
-                    },
+                    ),
                 ),
             },
         ],
@@ -1091,9 +1331,34 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectationRules {
+            expectation_rules: LocalTermExpectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 0,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                OkInsSort(
+                                    ExpectInsSortResult,
+                                ),
+                            ),
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },

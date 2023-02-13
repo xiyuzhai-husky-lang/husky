@@ -1,12 +1,10 @@
 mod expectation;
-mod implicit_conversion;
 mod progress;
 mod table;
 mod unresolved;
 
-pub use implicit_conversion::*;
+pub use expectation::*;
 
-pub(crate) use expectation::*;
 pub(crate) use progress::*;
 pub(crate) use table::*;
 pub(crate) use unresolved::*;

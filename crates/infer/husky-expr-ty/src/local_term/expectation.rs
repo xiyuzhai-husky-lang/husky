@@ -2,16 +2,16 @@ mod eqs_exactly;
 mod eqs_ref_mut_application;
 mod eqs_ritchie_call_ty;
 mod eqs_sort;
-mod explicit_convertible;
-mod implicit_convertible;
+mod explicitly_convertible;
+mod implicitly_convertible;
 mod ins_sort;
 
 pub(crate) use eqs_exactly::*;
 pub(crate) use eqs_ref_mut_application::*;
 pub(crate) use eqs_ritchie_call_ty::*;
 pub(crate) use eqs_sort::*;
-pub(crate) use explicit_convertible::*;
-pub(crate) use implicit_convertible::*;
+pub(crate) use explicitly_convertible::*;
+pub(crate) use implicitly_convertible::*;
 pub(crate) use ins_sort::*;
 
 use super::*;
@@ -37,73 +37,42 @@ pub struct LocalTermExpectationEntry {
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) enum LocalTermExpectationResult {
-    OkNoExpectation {
-        implicit_conversion: LocalTermImplicitConversion,
-        local_term: LocalTerm,
-    },
-    OkExplicitConversion {
-        implicit_conversion: LocalTermImplicitConversion,
-        local_term: LocalTerm,
-    },
-    OkImplicitConversion {
-        implicit_conversion: LocalTermImplicitConversion,
-        local_term: LocalTerm,
-    },
+    OkExplicitConversion(ExpectExplicitlyConvertibleResult),
+    OkImplicitlyConvertible(ExpectImplicitlyConvertibleResult),
     OkInsSort(ExpectInsSortResult),
-    OkEqsSort {
-        implicit_conversion: LocalTermImplicitConversion,
-        local_term: LocalTerm,
-    },
-    OkEqsExactly {
-        local_term: LocalTerm,
-    },
+    OkEqsSort(ExpectEqsSortResult),
+    OkEqsExactly(ExpectEqsExactlyResult),
+    OkEqsRefMutApplication(ExpectEqsRefMutApplicationResult),
+    OkEqsRitchieCallType(ExpectEqsRitchieCallTypeResult),
     Err(LocalTermExpectationError),
 }
 impl LocalTermExpectationResult {
     fn resolved(&self) -> Option<ReducedTerm> {
         match self {
-            LocalTermExpectationResult::OkNoExpectation { .. } => todo!(),
-            LocalTermExpectationResult::OkExplicitConversion { .. } => todo!(),
-            LocalTermExpectationResult::OkImplicitConversion {
-                implicit_conversion,
-                local_term,
-            } => todo!(),
+            LocalTermExpectationResult::OkExplicitConversion(_) => todo!(),
+            LocalTermExpectationResult::OkImplicitlyConvertible(_) => todo!(),
             LocalTermExpectationResult::Err(_) => todo!(),
-            LocalTermExpectationResult::OkInsSort(result) => result.reduced_term(),
-            LocalTermExpectationResult::OkEqsSort {
-                implicit_conversion,
-                local_term,
-            } => todo!(),
-            LocalTermExpectationResult::OkEqsExactly { local_term } => local_term.resolved(),
+            LocalTermExpectationResult::OkInsSort(result) => result.resolved(),
+            LocalTermExpectationResult::OkEqsSort(_) => todo!(),
+            LocalTermExpectationResult::OkEqsExactly(result) => result.resolved(),
+            LocalTermExpectationResult::OkEqsRefMutApplication(_) => todo!(),
+            LocalTermExpectationResult::OkEqsRitchieCallType(_) => todo!(),
         }
     }
 
     fn duplicate(&self, src: LocalTermExpectationRuleIdx) -> LocalTermExpectationResult {
         match self {
-            LocalTermExpectationResult::OkNoExpectation { .. } => todo!(),
-            LocalTermExpectationResult::OkImplicitConversion {
-                implicit_conversion,
-                local_term,
-            } => LocalTermExpectationResult::OkImplicitConversion {
-                implicit_conversion: *implicit_conversion,
-                local_term: *local_term,
-            },
+            LocalTermExpectationResult::OkImplicitlyConvertible(result) => result.clone().into(),
+            LocalTermExpectationResult::OkExplicitConversion(result) => result.clone().into(),
+            LocalTermExpectationResult::OkExplicitConversion(result) => result.clone().into(),
+            LocalTermExpectationResult::OkInsSort(result) => result.clone().into(),
+            LocalTermExpectationResult::OkEqsSort(result) => result.clone().into(),
+            LocalTermExpectationResult::OkEqsExactly(result) => result.clone().into(),
+            LocalTermExpectationResult::OkEqsRefMutApplication(result) => result.clone().into(),
             LocalTermExpectationResult::Err(_) => LocalTermExpectationResult::Err(
                 DerivedLocalTermExpectationError::Duplication(src).into(),
             ),
-            LocalTermExpectationResult::OkExplicitConversion {
-                implicit_conversion,
-                local_term,
-            } => LocalTermExpectationResult::OkExplicitConversion {
-                implicit_conversion: *implicit_conversion,
-                local_term: *local_term,
-            },
-            LocalTermExpectationResult::OkInsSort(result) => result.clone().into(),
-            LocalTermExpectationResult::OkEqsSort {
-                implicit_conversion,
-                local_term,
-            } => todo!(),
-            LocalTermExpectationResult::OkEqsExactly { local_term } => todo!(),
+            LocalTermExpectationResult::OkEqsRitchieCallType(result) => result.clone().into(),
         }
     }
 }

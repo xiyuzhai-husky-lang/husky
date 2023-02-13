@@ -63,7 +63,7 @@ impl From<BinaryOpr> for Precedence {
             BinaryOpr::ScopeResolution => Precedence::ScopeResolution,
             BinaryOpr::Curry => Precedence::Curry,
             BinaryOpr::As => Precedence::As,
-            BinaryOpr::Is => Precedence::Is,
+            BinaryOpr::Ins => Precedence::Is,
             BinaryOpr::In => todo!(),
         }
     }

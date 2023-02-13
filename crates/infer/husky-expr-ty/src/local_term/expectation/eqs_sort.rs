@@ -6,16 +6,16 @@ pub(crate) struct ExpectSort {
 }
 
 impl ExpectLocalTerm for ExpectSort {
-    type Result = ExpectSortResult;
+    type Result = ExpectEqsSortResult;
 
     fn destination(&self) -> Option<LocalTerm> {
         None
     }
 }
 
-pub(crate) enum ExpectSortResult {
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub(crate) enum ExpectEqsSortResult {
     ResolvedOk(LocalTerm),
-    ResolvedErr(LocalTermExpectationError),
 }
 
 impl From<ExpectSort> for LocalTermExpectation {
@@ -26,8 +26,8 @@ impl From<ExpectSort> for LocalTermExpectation {
     }
 }
 
-impl From<ExpectSortResult> for LocalTermExpectationResult {
-    fn from(value: ExpectSortResult) -> Self {
+impl From<ExpectEqsSortResult> for LocalTermExpectationResult {
+    fn from(value: ExpectEqsSortResult) -> Self {
         todo!()
     }
 }

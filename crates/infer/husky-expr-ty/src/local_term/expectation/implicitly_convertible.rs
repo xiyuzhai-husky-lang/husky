@@ -1,5 +1,11 @@
 use super::*;
 
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum ImplicitConversion {
+    None,
+    Other,
+}
+
 /// expect a type that is implicitly convertible to dst
 #[derive(Debug, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
@@ -7,9 +13,12 @@ pub(crate) struct ExpectImplicitlyConvertible {
     pub(crate) destination: LocalTerm,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
-pub(crate) struct ExpectImplicitConvertibleResult {}
+pub(crate) struct ExpectImplicitlyConvertibleResult {
+    implicit_conversion: ImplicitConversion,
+    local_term: LocalTerm,
+}
 
 impl From<ExpectImplicitlyConvertible> for LocalTermExpectation {
     fn from(value: ExpectImplicitlyConvertible) -> Self {
@@ -19,14 +28,14 @@ impl From<ExpectImplicitlyConvertible> for LocalTermExpectation {
     }
 }
 
-impl From<ExpectImplicitConvertibleResult> for LocalTermExpectationResult {
-    fn from(value: ExpectImplicitConvertibleResult) -> Self {
+impl From<ExpectImplicitlyConvertibleResult> for LocalTermExpectationResult {
+    fn from(value: ExpectImplicitlyConvertibleResult) -> Self {
         todo!()
     }
 }
 
 impl ExpectLocalTerm for ExpectImplicitlyConvertible {
-    type Result = ExpectImplicitConvertibleResult;
+    type Result = ExpectImplicitlyConvertibleResult;
 
     fn destination(&self) -> Option<LocalTerm> {
         Some(self.destination)
@@ -52,10 +61,12 @@ impl<'a> ExprTypeEngine<'a> {
                                 implicit_symbol: dst,
                                 substitution: expectee.into(),
                             }],
-                            result: LocalTermExpectationResult::OkImplicitConversion {
-                                implicit_conversion: LocalTermImplicitConversion::None,
-                                local_term: expectee.into(),
-                            },
+                            result: LocalTermExpectationResult::OkImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResult {
+                                    implicit_conversion: ImplicitConversion::None,
+                                    local_term: expectee.into(),
+                                },
+                            ),
                         }),
                     },
                     UnresolvedTerm::TypeApplication { ty, arguments } => todo!(),
@@ -89,10 +100,12 @@ impl<'a> ExprTypeEngine<'a> {
                         implicit_symbol: expectee,
                         substitution: destination,
                     }],
-                    result: LocalTermExpectationResult::OkImplicitConversion {
-                        implicit_conversion: LocalTermImplicitConversion::None,
-                        local_term: destination,
-                    },
+                    result: LocalTermExpectationResult::OkImplicitlyConvertible(
+                        ExpectImplicitlyConvertibleResult {
+                            implicit_conversion: ImplicitConversion::None,
+                            local_term: destination,
+                        },
+                    ),
                 }),
             },
             UnresolvedTerm::TypeApplication { ty, arguments } => {

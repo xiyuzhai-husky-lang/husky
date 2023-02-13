@@ -14,12 +14,19 @@ impl ExpectLocalTerm for ExpectEqsExactly {
     }
 }
 
-#[derive(Debug)]
-pub(crate) struct ExpectEqsExactlyResult {}
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub(crate) struct ExpectEqsExactlyResult {
+    local_term: LocalTerm,
+}
+impl ExpectEqsExactlyResult {
+    pub(crate) fn resolved(&self) -> Option<ReducedTerm> {
+        todo!()
+    }
+}
 
 impl From<ExpectEqsExactlyResult> for LocalTermExpectationResult {
     fn from(value: ExpectEqsExactlyResult) -> Self {
-        todo!()
+        LocalTermExpectationResult::OkEqsExactly(value)
     }
 }
 
@@ -65,9 +72,9 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> LocalTermExpectationResultM {
         match expectee == destination {
             true => LocalTermExpectationResultM {
-                result: LocalTermExpectationResult::OkEqsExactly {
+                result: LocalTermExpectationResult::OkEqsExactly(ExpectEqsExactlyResult {
                     local_term: expectee.into(),
-                },
+                }),
                 actions: vec![],
             },
             false => todo!(),

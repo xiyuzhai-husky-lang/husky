@@ -1,35 +1,32 @@
 use super::*;
 
 #[derive(Debug, Clone)]
-pub(crate) struct ExpectRitchieCall;
+pub(crate) struct ExpectEqsRitchieCallType;
 
-impl ExpectLocalTerm for ExpectRitchieCall {
-    type Result = ExpectRitchieCallResult;
+impl ExpectLocalTerm for ExpectEqsRitchieCallType {
+    type Result = ExpectEqsRitchieCallTypeResult;
 
     fn destination(&self) -> Option<LocalTerm> {
         None
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
-pub(crate) enum ExpectRitchieCallResult {
-    ResolvedOk {
-        term: LocalTerm,
-        parameter_liasoned_tys: (),
-        return_ty: (),
-    },
-    ResolvedErr(LocalTermExpectationError),
+pub(crate) struct ExpectEqsRitchieCallTypeResult {
+    term: LocalTerm,
+    parameter_liasoned_tys: (),
+    return_ty: (),
 }
 
-impl From<ExpectRitchieCallResult> for LocalTermExpectationResult {
-    fn from(value: ExpectRitchieCallResult) -> Self {
-        todo!()
+impl From<ExpectEqsRitchieCallTypeResult> for LocalTermExpectationResult {
+    fn from(value: ExpectEqsRitchieCallTypeResult) -> Self {
+        LocalTermExpectationResult::OkEqsRitchieCallType(value)
     }
 }
 
-impl From<ExpectRitchieCall> for LocalTermExpectation {
-    fn from(value: ExpectRitchieCall) -> Self {
+impl From<ExpectEqsRitchieCallType> for LocalTermExpectation {
+    fn from(value: ExpectEqsRitchieCallType) -> Self {
         LocalTermExpectation::EqsRitchieCallTy
     }
 }
