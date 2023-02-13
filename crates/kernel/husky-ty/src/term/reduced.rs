@@ -12,6 +12,10 @@ impl ReducedTerm {
     pub fn term(&self) -> Term {
         self.0
     }
+
+    pub fn new_category(u: impl Into<TermUniverse>) -> Self {
+        ReducedTerm(TermCategory::new(u.into()).into())
+    }
 }
 
 impl<Db: TypeDb + ?Sized> salsa::DebugWithDb<Db> for ReducedTerm {

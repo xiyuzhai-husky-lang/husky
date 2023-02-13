@@ -9,7 +9,19 @@ pub(crate) struct ExpectExplicitConvertible {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
-pub(crate) struct ExpectExplicitlyConvertibleResult {}
+pub(crate) struct ExpectExplicitlyConvertibleResolvedOk {
+    destination: LocalTerm,
+}
+
+impl ExpectLocalTermResolvedOk for ExpectExplicitlyConvertibleResolvedOk {
+    fn destination(&self) -> LocalTerm {
+        self.destination
+    }
+
+    fn downcast(resolved_ok: &LocalTermExpectationResolvedOk) -> Self {
+        todo!()
+    }
+}
 
 impl From<ExpectExplicitConvertible> for LocalTermExpectation {
     fn from(value: ExpectExplicitConvertible) -> Self {
@@ -17,14 +29,14 @@ impl From<ExpectExplicitConvertible> for LocalTermExpectation {
     }
 }
 
-impl From<ExpectExplicitlyConvertibleResult> for LocalTermExpectationResult {
-    fn from(value: ExpectExplicitlyConvertibleResult) -> Self {
+impl From<ExpectExplicitlyConvertibleResolvedOk> for LocalTermExpectationResolvedOk {
+    fn from(value: ExpectExplicitlyConvertibleResolvedOk) -> Self {
         todo!()
     }
 }
 
 impl ExpectLocalTerm for ExpectExplicitConvertible {
-    type Result = ExpectExplicitlyConvertibleResult;
+    type ResolvedOk = ExpectExplicitlyConvertibleResolvedOk;
 
     fn destination(&self) -> Option<LocalTerm> {
         Some(self.destination)
@@ -35,7 +47,7 @@ impl ExpectLocalTerm for ExpectExplicitConvertible {
 //     match resolved_term {
 //         term if term == reduced_term_menu.bool() => {
 //             LocalTermExpectationResolveProgress::Resolved(
-//                 LocalTermExpectationResult::OkExplicitConversion {
+//                 LocalTermExpectationResolvedOk::OkExplicitConversion {
 //                     local_term: term.into(),
 //                     implicit_conversion: LocalTermImplicitConversion::None,
 //                 },

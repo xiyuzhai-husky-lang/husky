@@ -8,43 +8,54 @@ mod ritchie_call;
 use super::*;
 use husky_opn_syntax::*;
 
+pub(crate) enum ExprTypeResolveProgress<E: ExpectLocalTerm> {
+    Unresolved,
+    ResolvedOk(E::ResolvedOk),
+    ResolvedErr,
+}
+
 impl<'a> ExprTypeEngine<'a> {
+    pub(super) fn infer_new_expr_ty_resolved(
+        &mut self,
+        expr_idx: ExprIdx,
+        expr_ty_expectation: impl ExpectLocalTerm,
+    ) -> Option<ReducedTerm> {
+        let ty = self.infer_new_expr_ty(expr_idx, expr_ty_expectation)?;
+        match ty {
+            LocalTerm::Resolved(ty) => Some(ty),
+            LocalTerm::Unresolved(ty) => self.resolve_term(ty),
+        }
+    }
+
     pub(super) fn infer_new_expr_ty(
         &mut self,
         expr_idx: ExprIdx,
         expr_ty_expectation: impl ExpectLocalTerm,
     ) -> Option<LocalTerm> {
         self.infer_new_expr_ty_with_expectation_rule(expr_idx, expr_ty_expectation)
-            .0
+            .1
+            .map(|resolved_ok| resolved_ok.destination())
     }
 
     #[inline(always)]
-    pub(super) fn infer_new_expr_ty_with_expectation_rule(
+    pub(super) fn infer_new_expr_ty_with_expectation_rule<E: ExpectLocalTerm>(
         &mut self,
         expr_idx: ExprIdx,
-        expr_ty_expectation: impl ExpectLocalTerm,
-    ) -> (Option<LocalTerm>, OptionLocalTermExpectationIdx) {
+        expr_ty_expectation: E,
+    ) -> (OptionLocalTermExpectationIdx, Option<E::ResolvedOk>) {
         let ty_result = self.calc_expr_ty(expr_idx, &expr_ty_expectation);
-        let (ty, opt_expectation) = match ty_result {
-            Ok(ty) => (
-                Some(ty),
-                self.add_expectation_rule(expr_idx, ty, expr_ty_expectation),
-            ),
-            Err(_) => (None, Default::default()),
+        let expectation_idx = match ty_result {
+            Ok(ty) => self.add_expectation_rule(expr_idx, ty, expr_ty_expectation),
+            Err(_) => Default::default(),
         };
-        self.save_new_expr_ty(expr_idx, ExprTypeInfo::new(ty_result, opt_expectation));
-        (ty, opt_expectation)
-    }
-
-    fn infer_new_expr_ty_resolved(
-        &mut self,
-        expr_idx: ExprIdx,
-        expr_ty_expectation: impl ExpectLocalTerm,
-    ) -> Option<ReducedTerm> {
-        match self.infer_new_expr_ty(expr_idx, expr_ty_expectation)? {
-            LocalTerm::Resolved(lopd_ty) => Some(lopd_ty),
-            LocalTerm::Unresolved(lopd_ty) => self.resolve_term(lopd_ty),
-        }
+        self.save_new_expr_ty(expr_idx, ExprTypeInfo::new(ty_result, expectation_idx));
+        let resolved_ok = match expectation_idx.into_option() {
+            Some(expectation_idx) => self.local_term_table[expectation_idx]
+                .resolve_progress()
+                .resolved_ok(),
+            None => None,
+        };
+        (expectation_idx, resolved_ok)
     }
 
     fn save_new_expr_ty(&mut self, expr_idx: ExprIdx, info: ExprTypeInfo) {
@@ -116,8 +127,9 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::ApplicationOrFunctionCall {
                 function, argument, ..
             } => {
-                let function_ty = self.infer_new_expr_ty(function, ExpectInsSort::default());
-                match function_ty {
+                let function_ty_resolved_ok =
+                    self.infer_new_expr_ty(function, ExpectInsSort::default());
+                match function_ty_resolved_ok {
                     Some(function_ty) => match function_ty {
                         LocalTerm::Resolved(function_ty) => match function_ty.term() {
                             Term::Literal(_) => todo!(),
@@ -157,13 +169,16 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::Field {
                 owner, ident_token, ..
             } => {
-                if let Some(owner_ty) =
-                    self.infer_new_expr_ty_resolved(owner, ExpectInsSort::default())
-                {
-                    let field_ty = self.db.field_ty(owner_ty, ident_token.ident());
-                    match field_ty {
-                        Ok(_) => todo!(),
-                        Err(e) => Err(e.into()),
+                if let Some(owner_ty) = self.infer_new_expr_ty(owner, ExpectInsSort::default()) {
+                    match owner_ty {
+                        LocalTerm::Resolved(owner_ty) => {
+                            let field_ty = self.db.field_ty(owner_ty, ident_token.ident());
+                            match field_ty {
+                                Ok(_) => todo!(),
+                                Err(e) => Err(e.into()),
+                            }
+                        }
+                        LocalTerm::Unresolved(_) => todo!(),
                     }
                 } else {
                     Err(DerivedExprTypeError::FieldOwnerTypeNotInferred.into())

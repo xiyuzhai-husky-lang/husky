@@ -426,7 +426,7 @@ Ok(
                                                 },
                                                 Expr::BinaryOpn {
                                                     lopd: 0,
-                                                    opr: Is,
+                                                    opr: Ins,
                                                     opr_token_idx: TokenIdx(
                                                         14,
                                                     ),
@@ -621,7 +621,7 @@ Ok(
                                                         },
                                                         Expr::BinaryOpn {
                                                             lopd: 0,
-                                                            opr: Is,
+                                                            opr: Ins,
                                                             opr_token_idx: TokenIdx(
                                                                 14,
                                                             ),

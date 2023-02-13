@@ -32,7 +32,7 @@ impl<'a> ExprTypeEngine<'a> {
     fn next_expectation_effect(
         &self,
         level: LocalTermResolveLevel,
-    ) -> Option<(LocalTermExpectationRuleIdx, LocalTermExpectationResultM)> {
+    ) -> Option<(LocalTermExpectationRuleIdx, LocalTermExpectationResolvedOkM)> {
         for (idx, rule) in self
             .local_term_table()
             .expectation_rules

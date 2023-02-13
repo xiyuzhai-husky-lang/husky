@@ -27,7 +27,7 @@ impl Default for ExpectInsSort {
 }
 
 impl ExpectLocalTerm for ExpectInsSort {
-    type Result = ExpectInsSortResult;
+    type ResolvedOk = ExpectInsSortResolvedOk;
 
     fn destination(&self) -> Option<LocalTerm> {
         None
@@ -36,9 +36,22 @@ impl ExpectLocalTerm for ExpectInsSort {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
-pub(crate) struct ExpectInsSortResult {}
-impl ExpectInsSortResult {
+pub(crate) struct ExpectInsSortResolvedOk {
+    destination: LocalTerm,
+}
+
+impl ExpectInsSortResolvedOk {
     pub(crate) fn resolved(&self) -> Option<ReducedTerm> {
+        todo!()
+    }
+}
+
+impl ExpectLocalTermResolvedOk for ExpectInsSortResolvedOk {
+    fn destination(&self) -> LocalTerm {
+        self.destination
+    }
+
+    fn downcast(resolved_ok: &LocalTermExpectationResolvedOk) -> Self {
         todo!()
     }
 }
@@ -51,9 +64,9 @@ impl From<ExpectInsSort> for LocalTermExpectation {
     }
 }
 
-impl From<ExpectInsSortResult> for LocalTermExpectationResult {
-    fn from(value: ExpectInsSortResult) -> Self {
-        LocalTermExpectationResult::OkInsSort(value)
+impl From<ExpectInsSortResolvedOk> for LocalTermExpectationResolvedOk {
+    fn from(value: ExpectInsSortResolvedOk) -> Self {
+        LocalTermExpectationResolvedOk::OkInsSort(value)
     }
 }
 
@@ -63,31 +76,33 @@ impl<'a> ExprTypeEngine<'a> {
         &self,
         smallest_universe: TermUniverse,
         expectee: LocalTerm,
-    ) -> Option<LocalTermExpectationResultM> {
+    ) -> Option<LocalTermExpectationResolvedOkM> {
         match expectee {
-            LocalTerm::Resolved(expectee) => {
-                let expectee_ty = self.db().term_ty(expectee);
+            LocalTerm::Resolved(resolved_expectee) => {
+                let expectee_ty = self.db().term_ty(resolved_expectee);
                 Some(match expectee_ty {
                     Ok(expectee_ty) => match expectee_ty.term() {
                         Term::Category(cat) => match cat.universe() >= smallest_universe {
-                            true => LocalTermExpectationResultM {
-                                result: LocalTermExpectationResult::OkInsSort(
-                                    ExpectInsSortResult {},
-                                ),
+                            true => LocalTermExpectationResolvedOkM {
+                                result: Ok(LocalTermExpectationResolvedOk::OkInsSort(
+                                    ExpectInsSortResolvedOk {
+                                        destination: expectee,
+                                    },
+                                )),
                                 actions: vec![],
                             },
-                            false => LocalTermExpectationResultM {
-                                result: LocalTermExpectationResult::Err(todo!()),
+                            false => LocalTermExpectationResolvedOkM {
+                                result: Err(todo!()),
                                 actions: vec![],
                             },
                         },
-                        _ => LocalTermExpectationResultM {
-                            result: LocalTermExpectationResult::Err(todo!()),
+                        _ => LocalTermExpectationResolvedOkM {
+                            result: Err(todo!()),
                             actions: vec![],
                         },
                     },
-                    Err(_) => LocalTermExpectationResultM {
-                        result: LocalTermExpectationResult::Err(todo!()),
+                    Err(_) => LocalTermExpectationResolvedOkM {
+                        result: Err(todo!()),
                         actions: vec![],
                     },
                 })
