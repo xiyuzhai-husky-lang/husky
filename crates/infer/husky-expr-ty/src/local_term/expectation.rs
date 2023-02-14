@@ -44,24 +44,24 @@ pub struct LocalTermExpectationEntry {
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) enum LocalTermExpectationResolvedOk {
-    OkExplicitConversion(ExpectExplicitlyConvertibleResolvedOk),
+    ExplicitConversion(ExpectExplicitlyConvertibleResolvedOk),
     ImplicitlyConvertible(ExpectImplicitlyConvertibleResolvedOk),
-    OkInsSort(ExpectInsSortResolvedOk),
-    OkEqsSort(ExpectEqsSortResolvedOk),
-    OkEqsExactly(ExpectEqsExactlyResolvedOk),
-    OkEqsRefMutApplication(ExpectEqsRefMutApplicationResolvedOk),
+    InsSort(ExpectInsSortResolvedOk),
+    EqsSort(ExpectEqsSortResolvedOk),
+    EqsExactly(ExpectEqsExactlyResolvedOk),
+    EqsRefMutApplication(ExpectEqsRefMutApplicationResolvedOk),
     EqsRitchieCallType(ExpectEqsRitchieCallTypeResolvedOk),
 }
 
 impl LocalTermExpectationResolvedOk {
     fn resolved(&self) -> Option<ReducedTerm> {
         match self {
-            LocalTermExpectationResolvedOk::OkExplicitConversion(_) => todo!(),
+            LocalTermExpectationResolvedOk::ExplicitConversion(_) => todo!(),
             LocalTermExpectationResolvedOk::ImplicitlyConvertible(_) => todo!(),
-            LocalTermExpectationResolvedOk::OkInsSort(result) => result.resolved(),
-            LocalTermExpectationResolvedOk::OkEqsSort(_) => todo!(),
-            LocalTermExpectationResolvedOk::OkEqsExactly(result) => result.resolved(),
-            LocalTermExpectationResolvedOk::OkEqsRefMutApplication(_) => todo!(),
+            LocalTermExpectationResolvedOk::InsSort(result) => result.resolved(),
+            LocalTermExpectationResolvedOk::EqsSort(_) => todo!(),
+            LocalTermExpectationResolvedOk::EqsExactly(result) => result.resolved(),
+            LocalTermExpectationResolvedOk::EqsRefMutApplication(_) => todo!(),
             LocalTermExpectationResolvedOk::EqsRitchieCallType(_) => todo!(),
         }
     }
@@ -95,11 +95,22 @@ pub enum LocalTermExpectationError {
     Derived(#[from] DerivedLocalTermExpectationError),
 }
 
+impl From<TypeError> for LocalTermExpectationError {
+    fn from(error: TypeError) -> Self {
+        match error {
+            TypeError::Original(error) => LocalTermExpectationError::Original(error.into()),
+            TypeError::Derived(error) => LocalTermExpectationError::Derived(error.into()),
+        }
+    }
+}
+
 pub type LocalTermExpectationResult<T> = Result<T, LocalTermExpectationError>;
 
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub enum OriginalLocalTermExpectationError {
+    #[error("{0}")]
+    Type(#[from] OriginalTypeError),
     #[error("todo")]
     Todo,
 }
@@ -107,6 +118,8 @@ pub enum OriginalLocalTermExpectationError {
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub enum DerivedLocalTermExpectationError {
+    #[error("{0}")]
+    Type(#[from] DerivedTypeError),
     #[error("target substitution failure")]
     TargetSubstitutionFailure,
     #[error("duplication")]
@@ -127,7 +140,9 @@ impl LocalTermExpectationResolveProgress {
                     Ok(expectation_ok) => {
                         LocalTermExpectationResolveProgress::Resolved(Ok(expectation_ok.clone()))
                     }
-                    Err(_) => LocalTermExpectationResolveProgress::Resolved(Err(todo!())),
+                    Err(_) => LocalTermExpectationResolveProgress::Resolved(Err(
+                        DerivedLocalTermExpectationError::Duplication(src).into(),
+                    )),
                 }
             }
         }

@@ -41,7 +41,7 @@ impl From<ExpectImplicitlyConvertible> for LocalTermExpectation {
 
 impl From<ExpectImplicitlyConvertibleResolvedOk> for LocalTermExpectationResolvedOk {
     fn from(value: ExpectImplicitlyConvertibleResolvedOk) -> Self {
-        todo!()
+        LocalTermExpectationResolvedOk::ImplicitlyConvertible(value)
     }
 }
 
@@ -93,6 +93,17 @@ impl<'a> ExprTypeEngine<'a> {
         expectee: ReducedTerm,
         destination: ReducedTerm,
     ) -> Option<LocalTermExpectationResolvedOkM> {
+        if expectee == destination {
+            return Some(LocalTermExpectationResolvedOkM {
+                result: Ok(ExpectImplicitlyConvertibleResolvedOk {
+                    implicit_conversion: ImplicitConversion::None,
+                    expectee: expectee.into(),
+                    destination: destination.into(),
+                }
+                .into()),
+                actions: vec![],
+            });
+        }
         p!(expectee.debug(self.db()), destination.debug(self.db()));
         todo!()
     }

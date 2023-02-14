@@ -36,7 +36,7 @@ impl ExpectLocalTermResolvedOk for ExpectEqsRefMutApplicationResolvedOk {
 
 impl From<ExpectEqsRefMutApplicationResolvedOk> for LocalTermExpectationResolvedOk {
     fn from(value: ExpectEqsRefMutApplicationResolvedOk) -> Self {
-        LocalTermExpectationResolvedOk::OkEqsRefMutApplication(value)
+        LocalTermExpectationResolvedOk::EqsRefMutApplication(value)
     }
 }
 

@@ -120,7 +120,7 @@
                 resolve_progress: Expected(
                     Resolved(
                         Ok(
-                            OkInsSort(
+                            InsSort(
                                 ExpectInsSortResolvedOk {
                                     destination: Resolved(
                                         ReducedTerm(
@@ -194,7 +194,7 @@
                             },
                             resolve_progress: Resolved(
                                 Ok(
-                                    OkInsSort(
+                                    InsSort(
                                         ExpectInsSortResolvedOk {
                                             destination: Resolved(
                                                 ReducedTerm(
