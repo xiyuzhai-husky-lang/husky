@@ -66,7 +66,7 @@ impl From<ExpectInsSort> for LocalTermExpectation {
 
 impl From<ExpectInsSortResolvedOk> for LocalTermExpectationResolvedOk {
     fn from(value: ExpectInsSortResolvedOk) -> Self {
-        LocalTermExpectationResolvedOk::OkInsSort(value)
+        LocalTermExpectationResolvedOk::InsSort(value)
     }
 }
 
@@ -84,7 +84,7 @@ impl<'a> ExprTypeEngine<'a> {
                     Ok(expectee_ty) => match expectee_ty.term() {
                         Term::Category(cat) => match cat.universe() >= smallest_universe {
                             true => LocalTermExpectationResolvedOkM {
-                                result: Ok(LocalTermExpectationResolvedOk::OkInsSort(
+                                result: Ok(LocalTermExpectationResolvedOk::InsSort(
                                     ExpectInsSortResolvedOk {
                                         destination: expectee,
                                     },
@@ -101,13 +101,13 @@ impl<'a> ExprTypeEngine<'a> {
                             actions: vec![],
                         },
                     },
-                    Err(_) => LocalTermExpectationResolvedOkM {
-                        result: Err(todo!()),
+                    Err(error) => LocalTermExpectationResolvedOkM {
+                        result: Err(error.into()),
                         actions: vec![],
                     },
                 })
             }
-            LocalTerm::Unresolved(_) => todo!(),
+            LocalTerm::Unresolved(_) => None,
         }
     }
 }

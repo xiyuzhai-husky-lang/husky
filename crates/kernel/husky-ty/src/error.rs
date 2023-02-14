@@ -27,6 +27,8 @@ impl From<DerivedTypeError> for TypeError {
 pub enum OriginalTypeError {
     #[error("term error")]
     Term(#[from] TermError),
+    #[error("todo")]
+    Todo,
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]

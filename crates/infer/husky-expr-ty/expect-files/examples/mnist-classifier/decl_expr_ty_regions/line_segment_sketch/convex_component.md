@@ -26,7 +26,7 @@
                 resolve_progress: Expected(
                     Resolved(
                         Ok(
-                            OkEqsExactly(
+                            EqsExactly(
                                 ExpectEqsExactlyResolvedOk {
                                     destination: Resolved(
                                         ReducedTerm(
@@ -125,7 +125,7 @@
                             },
                             resolve_progress: Resolved(
                                 Ok(
-                                    OkEqsExactly(
+                                    EqsExactly(
                                         ExpectEqsExactlyResolvedOk {
                                             destination: Resolved(
                                                 ReducedTerm(

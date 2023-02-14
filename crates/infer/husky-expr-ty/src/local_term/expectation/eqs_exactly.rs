@@ -37,7 +37,7 @@ impl ExpectEqsExactlyResolvedOk {
 
 impl From<ExpectEqsExactlyResolvedOk> for LocalTermExpectationResolvedOk {
     fn from(value: ExpectEqsExactlyResolvedOk) -> Self {
-        LocalTermExpectationResolvedOk::OkEqsExactly(value)
+        LocalTermExpectationResolvedOk::EqsExactly(value)
     }
 }
 
@@ -83,7 +83,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> LocalTermExpectationResolvedOkM {
         match expectee == destination {
             true => LocalTermExpectationResolvedOkM {
-                result: Ok(LocalTermExpectationResolvedOk::OkEqsExactly(
+                result: Ok(LocalTermExpectationResolvedOk::EqsExactly(
                     ExpectEqsExactlyResolvedOk {
                         destination: destination.into(),
                     },
