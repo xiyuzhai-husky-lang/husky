@@ -151,20 +151,21 @@ impl<'a> ExprTypeEngine<'a> {
             else {
                 return Err(DerivedExprTypeError::BinaryOperationRightOperandTypeNotInferred.into())
             };
-        match ropd_ty.term() {
-            Term::Entity(path) if path == self.entity_path_menu.trai_ty().into() => {
-                todo!()
-            }
-            Term::Category(_) => {
-                todo!()
-                // if let Some(ropd_term) = self.infer_new_expr_term(ropd) {
-                //     ropd_expectation = ExpectImplicitConversion {
-                //         destination: ropd_term,
-                //     }
-                // }
-            }
-            _ => todo!(),
-        }
+        // todo
+        // match ropd_ty.term() {
+        //     Term::Entity(path) if path == self.entity_path_menu.trai_ty().into() => {
+        //         todo!()
+        //     }
+        //     Term::Category(_) => {
+        //         todo!()
+        //         // if let Some(ropd_term) = self.infer_new_expr_term(ropd) {
+        //         //     ropd_expectation = ExpectImplicitConversion {
+        //         //         destination: ropd_term,
+        //         //     }
+        //         // }
+        //     }
+        //     _ => todo!(),
+        // }
         Ok(self.reduced_term_menu.prop().into())
     }
 
@@ -238,7 +239,7 @@ impl<'a> ExprTypeEngine<'a> {
         );
         if let Some(lopd_expectation_rule_idx) = lopd_expectation_rule_idx.into_option() {
             match self.local_term_table[lopd_expectation_rule_idx].resolve_progress() {
-                LocalTermExpectationResolveProgress::Unresolved => unreachable!(),
+                LocalTermExpectationResolveProgress::Unresolved => todo!(),
                 LocalTermExpectationResolveProgress::Resolved(resolved_expectation) => {
                     todo!()
                 }

@@ -23,8 +23,11 @@ impl ExpectLocalTermResolvedOk for ExpectEqsSortResolvedOk {
         self.destination
     }
 
-    fn downcast(resolved_ok: &LocalTermExpectationResolvedOk) -> Self {
-        todo!()
+    fn downcast_ref(resolved_ok: &LocalTermExpectationResolvedOk) -> &Self {
+        match resolved_ok {
+            LocalTermExpectationResolvedOk::EqsSort(resolved_ok) => resolved_ok,
+            _ => unreachable!(),
+        }
     }
 }
 
@@ -43,30 +46,46 @@ impl From<ExpectEqsSortResolvedOk> for LocalTermExpectationResolvedOk {
 }
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn resolve_eq_sort_expectation(
+    pub(super) fn resolve_eqs_sort_expectation(
         &self,
-        smallest_universe: TermUniverse,
         expectee: LocalTerm,
+        smallest_universe: TermUniverse,
     ) -> Option<LocalTermExpectationResolvedOkM> {
-        todo!()
-        // match expectee {
-        //     LocalTerm::Resolved(expectee) => {
-        //         let expectee_ty = self.db().term_ty(expectee);
-        //         match expectee_ty {
-        //             Ok(expectee_ty) if expectee_ty == self.reduced_term_menu().ty0() => todo!(),
-        //             Ok(expectee_ty) => {
-        //                 p!(
-        //                     self.path(),
-        //                     expectee.debug(self.db()),
-        //                     expectee_ty.debug(self.db())
-        //                 );
-        //                 todo!()
-        //             }
-        //             Err(_) => todo!(),
-        //         }
-        //     }
-        //     LocalTerm::Unresolved(_) => todo!(),
-        // }
+        match expectee {
+            LocalTerm::Resolved(resolved_expectee) => {
+                match resolved_expectee.term() {
+                    Term::Category(cat) => Some(match cat.universe() >= smallest_universe {
+                        true => LocalTermExpectationResolvedOkM {
+                            result: Ok(LocalTermExpectationResolvedOk::EqsSort(
+                                ExpectEqsSortResolvedOk {
+                                    destination: expectee,
+                                },
+                            )),
+                            actions: vec![],
+                        },
+                        false => LocalTermExpectationResolvedOkM {
+                            result: Err(todo!()),
+                            actions: vec![],
+                        },
+                    }),
+                    _ => todo!(),
+                }
+                // let expectee_ty = self.db().term_ty(expectee);
+                // match expectee_ty {
+                //     Ok(expectee_ty) if expectee_ty == self.reduced_term_menu().ty0() => todo!(),
+                //     Ok(expectee_ty) => {
+                //         p!(
+                //             self.path(),
+                //             expectee.debug(self.db()),
+                //             expectee_ty.debug(self.db())
+                //         );
+                //         todo!()
+                //     }
+                //     Err(_) => todo!(),
+                // }
+            }
+            LocalTerm::Unresolved(_) => None,
+        }
     }
 }
 

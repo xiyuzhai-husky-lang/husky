@@ -20,30 +20,25 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 4,
-                                        },
-                                    ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    0,
                                 ),
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        TypeError(
-                            DeclError,
-                        ),
+                        MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -81,22 +76,19 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 4,
-                                        },
-                                    ),
+                expectation_rule_idx: Some(
+                    1,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    1,
                                 ),
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -107,11 +99,11 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedErr(
-                    Derived(
-                        UnresolvedLocalTerm,
-                    ),
+                expectation_rule_idx: Some(
+                    2,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -194,9 +186,80 @@
                 ],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectationRules {
+            expectation_rules: LocalTermExpectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 0,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Application(
+                                        TermApplication(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 8,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Application(
+                                        TermApplication(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 9,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    0,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -250,25 +313,46 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 1,
-                                                },
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                     ),
-                                ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -294,22 +378,19 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 4,
-                                        },
-                                    ),
+                expectation_rule_idx: Some(
+                    1,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    1,
                                 ),
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -365,11 +446,11 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedErr(
-                    Derived(
-                        UnresolvedLocalTerm,
-                    ),
+                expectation_rule_idx: Some(
+                    3,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -386,22 +467,19 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 4,
-                                        },
-                                    ),
+                expectation_rule_idx: Some(
+                    2,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    2,
                                 ),
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -457,11 +535,11 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedErr(
-                    Derived(
-                        UnresolvedLocalTerm,
-                    ),
+                expectation_rule_idx: Some(
+                    5,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -478,22 +556,19 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 4,
-                                        },
-                                    ),
+                expectation_rule_idx: Some(
+                    4,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    4,
                                 ),
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -584,11 +659,7 @@
                         implicit_symbol_dependencies: VecSet {
                             data: [],
                         },
-                        resolve_progress: Err(
-                            Original(
-                                UnresolvedTerm,
-                            ),
-                        ),
+                        resolve_progress: Unresolved,
                     },
                     UnresolvedTermEntry {
                         unresolved_term: ImplicitSymbol(
@@ -603,19 +674,15 @@
                         implicit_symbol_dependencies: VecSet {
                             data: [],
                         },
-                        resolve_progress: Err(
-                            Original(
-                                UnresolvedTerm,
-                            ),
-                        ),
+                        resolve_progress: Unresolved,
                     },
                 ],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectationRules {
+            expectation_rules: LocalTermExpectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 2,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -632,27 +699,174 @@
                                     ),
                                 ),
                             ),
-                            variant: AsBool,
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Resolved(
-                                        ReducedTerm(
-                                            Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
+                            expectation: ImplicitlyConversion {
+                                destination: Resolved(
+                                    ReducedTerm(
+                                        Entity(
+                                            ModuleItem(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 1,
+                                                        },
                                                     ),
                                                 ),
                                             ),
                                         ),
                                     ),
-                                },
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
                             ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 4,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Application(
+                                        TermApplication(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 11,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Application(
+                                        TermApplication(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 10,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    0,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 18,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Application(
+                                        TermApplication(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 17,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    1,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
                         },
                     ],
                 },
@@ -704,11 +918,11 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedErr(
-                    Derived(
-                        UnresolvedLocalTerm,
-                    ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -748,27 +962,48 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    0,
+                    1,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 1,
-                                                },
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                     ),
-                                ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -799,27 +1034,48 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    1,
+                    2,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 22,
-                                                },
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 22,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                     ),
-                                ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 22,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -857,11 +1113,11 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedErr(
-                    Derived(
-                        UnresolvedLocalTerm,
-                    ),
+                expectation_rule_idx: Some(
+                    3,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -872,11 +1128,11 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedErr(
-                    Derived(
-                        UnresolvedLocalTerm,
-                    ),
+                expectation_rule_idx: Some(
+                    4,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -898,27 +1154,48 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    2,
+                    5,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 1,
-                                                },
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                     ),
-                                ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -949,27 +1226,48 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    3,
+                    6,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 22,
-                                                },
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 22,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                     ),
-                                ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 22,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -1000,27 +1298,48 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    4,
+                    7,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 22,
-                                                },
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 22,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                     ),
-                                ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 22,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -1040,11 +1359,11 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedErr(
-                    Derived(
-                        UnresolvedLocalTerm,
-                    ),
+                expectation_rule_idx: Some(
+                    8,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -1082,11 +1401,11 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedErr(
-                    Derived(
-                        UnresolvedLocalTerm,
-                    ),
+                expectation_rule_idx: Some(
+                    10,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -1097,10 +1416,73 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedErr(
-                    Derived(
-                        UnresolvedLocalTerm,
+                expectation_rule_idx: Some(
+                    11,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    9,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
                     ),
                 ),
             },
@@ -1123,27 +1505,48 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    5,
+                    12,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 1,
-                                                },
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                     ),
-                                ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -1165,69 +1568,48 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    6,
+                    13,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 1,
-                                                },
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                     ),
-                                ),
-                            ),
-                        ),
-                    },
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Resolved(
-                        ReducedTerm(
-                            Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 1,
-                                            },
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
                                         ),
                                     ),
-                                ),
+                                },
                             ),
                         ),
                     ),
-                ),
-                expectation_rule_idx: Some(
-                    7,
-                ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 1,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                    },
                 ),
             },
             ExprTypeInfo {
@@ -1258,27 +1640,48 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    8,
+                    14,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 22,
-                                                },
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 22,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                     ),
-                                ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 22,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -1318,27 +1721,48 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    9,
+                    15,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 1,
-                                                },
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                     ),
-                                ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -1355,30 +1779,61 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 4,
-                                        },
-                                    ),
+                expectation_rule_idx: Some(
+                    16,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    16,
                                 ),
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        TypeError(
-                            DeclError,
-                        ),
+                        ExprError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        ExprError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        AsOperationRightOperandTermNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        AsOperationRightOperandTermNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -1398,30 +1853,61 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 4,
-                                        },
-                                    ),
+                expectation_rule_idx: Some(
+                    17,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    17,
                                 ),
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        TypeError(
-                            DeclError,
-                        ),
+                        ExprError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        ExprError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        AsOperationRightOperandTermNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        AsOperationRightOperandTermNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -1513,17 +1999,41 @@
                 None,
                 None,
                 None,
+                Some(
+                    Err(
+                        Derived(
+                            ExprError,
+                        ),
+                    ),
+                ),
+                None,
+                Some(
+                    Err(
+                        Derived(
+                            ExprError,
+                        ),
+                    ),
+                ),
                 None,
                 None,
                 None,
                 None,
                 None,
+                Some(
+                    Err(
+                        Derived(
+                            ExprError,
+                        ),
+                    ),
+                ),
                 None,
-                None,
-                None,
-                None,
-                None,
-                None,
+                Some(
+                    Err(
+                        Derived(
+                            ExprError,
+                        ),
+                    ),
+                ),
                 None,
                 None,
                 None,
@@ -1555,11 +2065,7 @@
                         implicit_symbol_dependencies: VecSet {
                             data: [],
                         },
-                        resolve_progress: Err(
-                            Original(
-                                UnresolvedTerm,
-                            ),
-                        ),
+                        resolve_progress: Unresolved,
                     },
                     UnresolvedTermEntry {
                         unresolved_term: ImplicitSymbol(
@@ -1613,11 +2119,7 @@
                                 ),
                             ],
                         },
-                        resolve_progress: Err(
-                            Original(
-                                UnresolvedTerm,
-                            ),
-                        ),
+                        resolve_progress: Unresolved,
                     },
                     UnresolvedTermEntry {
                         unresolved_term: ImplicitSymbol(
@@ -1656,11 +2158,7 @@
                                 ),
                             ],
                         },
-                        resolve_progress: Err(
-                            Original(
-                                UnresolvedTerm,
-                            ),
-                        ),
+                        resolve_progress: Unresolved,
                     },
                     UnresolvedTermEntry {
                         unresolved_term: ImplicitSymbol(
@@ -1705,11 +2203,7 @@
                         implicit_symbol_dependencies: VecSet {
                             data: [],
                         },
-                        resolve_progress: Err(
-                            Original(
-                                UnresolvedTerm,
-                            ),
-                        ),
+                        resolve_progress: Unresolved,
                     },
                     UnresolvedTermEntry {
                         unresolved_term: ImplicitSymbol(
@@ -1748,11 +2242,7 @@
                                 ),
                             ],
                         },
-                        resolve_progress: Err(
-                            Original(
-                                UnresolvedTerm,
-                            ),
-                        ),
+                        resolve_progress: Unresolved,
                     },
                     UnresolvedTermEntry {
                         unresolved_term: ImplicitSymbol(
@@ -1791,11 +2281,7 @@
                                 ),
                             ],
                         },
-                        resolve_progress: Err(
-                            Original(
-                                UnresolvedTerm,
-                            ),
-                        ),
+                        resolve_progress: Unresolved,
                     },
                     UnresolvedTermEntry {
                         unresolved_term: ImplicitSymbol(
@@ -1815,10 +2301,24 @@
                 ],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectationRules {
+            expectation_rules: LocalTermExpectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 4,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    0,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
                             src_expr_idx: 7,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -1835,29 +2335,64 @@
                                     ),
                                 ),
                             ),
-                            variant: AsBool,
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Resolved(
-                                        ReducedTerm(
-                                            Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
+                            expectation: ImplicitlyConversion {
+                                destination: Resolved(
+                                    ReducedTerm(
+                                        Entity(
+                                            ModuleItem(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 1,
+                                                        },
                                                     ),
                                                 ),
                                             ),
                                         ),
                                     ),
-                                },
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 10,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -1874,8 +2409,8 @@
                                     ),
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Resolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Resolved(
                                     ReducedTerm(
                                         Entity(
                                             ModuleItem(
@@ -1891,28 +2426,75 @@
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Resolved(
-                                        ReducedTerm(
-                                            Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 22,
-                                                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 22,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
                                             ),
-                                        ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 22,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 17,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    3,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 18,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    5,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
                             src_expr_idx: 19,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -1929,29 +2511,64 @@
                                     ),
                                 ),
                             ),
-                            variant: AsBool,
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Resolved(
-                                        ReducedTerm(
-                                            Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
+                            expectation: ImplicitlyConversion {
+                                destination: Resolved(
+                                    ReducedTerm(
+                                        Entity(
+                                            ModuleItem(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 1,
+                                                        },
                                                     ),
                                                 ),
                                             ),
                                         ),
                                     ),
-                                },
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 22,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -1968,8 +2585,8 @@
                                     ),
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Resolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Resolved(
                                     ReducedTerm(
                                         Entity(
                                             ModuleItem(
@@ -1985,28 +2602,47 @@
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Resolved(
-                                        ReducedTerm(
-                                            Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 22,
-                                                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 22,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
                                             ),
-                                        ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 22,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 25,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -2023,8 +2659,8 @@
                                     ),
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Resolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Resolved(
                                     ReducedTerm(
                                         Entity(
                                             ModuleItem(
@@ -2040,28 +2676,61 @@
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Resolved(
-                                        ReducedTerm(
-                                            Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 22,
-                                                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 22,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
                                             ),
-                                        ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 22,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 27,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    8,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
                             src_expr_idx: 36,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -2078,8 +2747,8 @@
                                     ),
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Resolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Resolved(
                                     ReducedTerm(
                                         Entity(
                                             ModuleItem(
@@ -2095,28 +2764,75 @@
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Resolved(
-                                        ReducedTerm(
-                                            Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
                                             ),
-                                        ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 34,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    10,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 35,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    12,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
                             src_expr_idx: 37,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -2133,8 +2849,8 @@
                                     ),
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Resolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Resolved(
                                     ReducedTerm(
                                         Entity(
                                             ModuleItem(
@@ -2150,28 +2866,47 @@
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Resolved(
-                                        ReducedTerm(
-                                            Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
                                             ),
-                                        ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 38,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -2188,29 +2923,64 @@
                                     ),
                                 ),
                             ),
-                            variant: AsBool,
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Resolved(
-                                        ReducedTerm(
-                                            Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
+                            expectation: ImplicitlyConversion {
+                                destination: Resolved(
+                                    ReducedTerm(
+                                        Entity(
+                                            ModuleItem(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 1,
+                                                        },
                                                     ),
                                                 ),
                                             ),
                                         ),
                                     ),
-                                },
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 41,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -2227,8 +2997,8 @@
                                     ),
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Resolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Resolved(
                                     ReducedTerm(
                                         Entity(
                                             ModuleItem(
@@ -2244,28 +3014,47 @@
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Resolved(
-                                        ReducedTerm(
-                                            Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 22,
-                                                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 22,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
                                             ),
-                                        ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 22,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 44,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -2282,26 +3071,117 @@
                                     ),
                                 ),
                             ),
-                            variant: AsBool,
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Resolved(
-                                        ReducedTerm(
-                                            Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
+                            expectation: ImplicitlyConversion {
+                                destination: Resolved(
+                                    ReducedTerm(
+                                        Entity(
+                                            ModuleItem(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 1,
+                                                        },
                                                     ),
                                                 ),
                                             ),
                                         ),
                                     ),
-                                },
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 45,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Application(
+                                        TermApplication(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 53,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Application(
+                                        TermApplication(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
                             ),
                         },
                     ],
@@ -2327,11 +3207,11 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedErr(
-                    Derived(
-                        UnresolvedLocalTerm,
-                    ),
+                expectation_rule_idx: Some(
+                    3,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -2345,15 +3225,26 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Unresolved(
-                            UnresolvedTermIdx(
-                                0,
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
+                                    ),
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -2367,15 +3258,26 @@
                 expectation_rule_idx: Some(
                     1,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Unresolved(
-                            UnresolvedTermIdx(
-                                0,
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
+                                    ),
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -2389,38 +3291,36 @@
                 expectation_rule_idx: Some(
                     2,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Unresolved(
-                            UnresolvedTermIdx(
-                                0,
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
+                                    ),
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
                             ),
-                        ),
-                    },
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Unresolved(
-                        UnresolvedTermIdx(
-                            4,
                         ),
                     ),
                 ),
-                expectation_rule_idx: Some(
-                    3,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        PrefixOperandTypeNotInferred,
+                    ),
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Unresolved(
-                            UnresolvedTermIdx(
-                                0,
-                            ),
-                        ),
-                    },
-                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
                 ty_result: Ok(
@@ -2433,15 +3333,26 @@
                 expectation_rule_idx: Some(
                     4,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Unresolved(
-                            UnresolvedTermIdx(
-                                0,
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
+                                    ),
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -2455,15 +3366,26 @@
                 expectation_rule_idx: Some(
                     5,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Unresolved(
-                            UnresolvedTermIdx(
-                                0,
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
+                                    ),
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -2477,15 +3399,26 @@
                 expectation_rule_idx: Some(
                     6,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Unresolved(
-                            UnresolvedTermIdx(
-                                0,
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
+                                    ),
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -2499,15 +3432,26 @@
                 expectation_rule_idx: Some(
                     7,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Unresolved(
-                            UnresolvedTermIdx(
-                                0,
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
+                                    ),
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -2521,15 +3465,26 @@
                 expectation_rule_idx: Some(
                     8,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Unresolved(
-                            UnresolvedTermIdx(
-                                0,
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
+                                    ),
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -2543,15 +3498,26 @@
                 expectation_rule_idx: Some(
                     9,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Unresolved(
-                            UnresolvedTermIdx(
-                                0,
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
+                                    ),
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -2562,11 +3528,11 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedErr(
-                    Derived(
-                        UnresolvedLocalTerm,
-                    ),
+                expectation_rule_idx: Some(
+                    10,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -2579,19 +3545,13 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    Unresolved(
-                        UnresolvedTermIdx(
-                            11,
-                        ),
+                ty_result: Err(
+                    Derived(
+                        CurrentSymbolTypeError,
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: ResolvedErr(
-                    Derived(
-                        UnresolvedLocalTerm,
-                    ),
-                ),
+                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
                 ty_result: Err(
@@ -2610,34 +3570,21 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedErr(
-                    Derived(
-                        UnresolvedLocalTerm,
-                    ),
+                expectation_rule_idx: Some(
+                    11,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    Unresolved(
-                        UnresolvedTermIdx(
-                            13,
-                        ),
+                ty_result: Err(
+                    Derived(
+                        PrefixOperandTypeNotInferred,
                     ),
                 ),
-                expectation_rule_idx: Some(
-                    10,
-                ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Unresolved(
-                            UnresolvedTermIdx(
-                                12,
-                            ),
-                        ),
-                    },
-                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
                 ty_result: Ok(
@@ -2648,17 +3595,28 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    11,
+                    12,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Unresolved(
-                            UnresolvedTermIdx(
-                                12,
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
+                                    ),
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -2670,17 +3628,28 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    12,
+                    13,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Unresolved(
-                            UnresolvedTermIdx(
-                                12,
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
+                                    ),
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -2692,17 +3661,28 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    13,
+                    14,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Unresolved(
-                            UnresolvedTermIdx(
-                                12,
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
+                                    ),
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -2714,17 +3694,28 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    14,
+                    15,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Unresolved(
-                            UnresolvedTermIdx(
-                                12,
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
+                                    ),
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -2736,17 +3727,28 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    15,
+                    16,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Unresolved(
-                            UnresolvedTermIdx(
-                                12,
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
+                                    ),
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -2758,17 +3760,28 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    16,
+                    17,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Unresolved(
-                            UnresolvedTermIdx(
-                                12,
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
+                                    ),
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -2780,17 +3793,28 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    17,
+                    18,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Unresolved(
-                            UnresolvedTermIdx(
-                                12,
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
+                                    ),
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -2802,17 +3826,28 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    18,
+                    19,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Unresolved(
-                            UnresolvedTermIdx(
-                                12,
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
+                                    ),
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -2824,33 +3859,38 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    19,
+                    20,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Unresolved(
-                            UnresolvedTermIdx(
-                                12,
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
+                                    ),
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    Unresolved(
-                        UnresolvedTermIdx(
-                            11,
-                        ),
+                ty_result: Err(
+                    Derived(
+                        CurrentSymbolTypeError,
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: ResolvedErr(
-                    Derived(
-                        UnresolvedLocalTerm,
-                    ),
-                ),
+                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
                 ty_result: Ok(
@@ -2860,11 +3900,11 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedErr(
-                    Derived(
-                        UnresolvedLocalTerm,
-                    ),
+                expectation_rule_idx: Some(
+                    21,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -2886,27 +3926,48 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    20,
+                    22,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 1,
-                                                },
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                     ),
-                                ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -2927,26 +3988,19 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                        ),
-                                    ),
+                expectation_rule_idx: Some(
+                    23,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    23,
                                 ),
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
         ],
@@ -2985,13 +4039,7 @@
             ],
         },
         inherited_symbol_tys: [],
-        current_symbol_tys: [
-            LocalTerm::Unresolved(
-                UnresolvedTermIdx(
-                    11,
-                ),
-            ),
-        ],
+        current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 22,
@@ -3093,17 +4141,9 @@
                             },
                         ),
                         implicit_symbol_dependencies: VecSet {
-                            data: [
-                                UnresolvedTermIdx(
-                                    0,
-                                ),
-                            ],
+                            data: [],
                         },
-                        resolve_progress: PartiallyResolved(
-                            UnresolvedTermIdx(
-                                0,
-                            ),
-                        ),
+                        resolve_progress: Unresolved,
                     },
                     UnresolvedTermEntry {
                         unresolved_term: ImplicitSymbol(
@@ -3265,11 +4305,7 @@
                                 ),
                             ],
                         },
-                        resolve_progress: Err(
-                            Original(
-                                UnresolvedTerm,
-                            ),
-                        ),
+                        resolve_progress: Unresolved,
                     },
                     UnresolvedTermEntry {
                         unresolved_term: ImplicitSymbol(
@@ -3297,17 +4333,9 @@
                             },
                         ),
                         implicit_symbol_dependencies: VecSet {
-                            data: [
-                                UnresolvedTermIdx(
-                                    12,
-                                ),
-                            ],
+                            data: [],
                         },
-                        resolve_progress: PartiallyResolved(
-                            UnresolvedTermIdx(
-                                12,
-                            ),
-                        ),
+                        resolve_progress: Unresolved,
                     },
                     UnresolvedTermEntry {
                         unresolved_term: ImplicitSymbol(
@@ -3538,519 +4566,683 @@
                                 ),
                             ],
                         },
-                        resolve_progress: Err(
-                            Original(
-                                UnresolvedTerm,
-                            ),
-                        ),
+                        resolve_progress: Unresolved,
                     },
                 ],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectationRules {
+            expectation_rules: LocalTermExpectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 1,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
                                     1,
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         0,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Unresolved(
-                                        UnresolvedTermIdx(
-                                            0,
-                                        ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    0,
+                                                ),
+                                            ),
+                                            destination: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    0,
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 2,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
                                     2,
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         0,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Unresolved(
-                                        UnresolvedTermIdx(
-                                            0,
-                                        ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    0,
+                                                ),
+                                            ),
+                                            destination: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    0,
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 3,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
                                     3,
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         0,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Unresolved(
-                                        UnresolvedTermIdx(
-                                            0,
-                                        ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    0,
+                                                ),
+                                            ),
+                                            destination: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    0,
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
-                            src_expr_idx: 4,
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 0,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
                                     4,
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
-                                    UnresolvedTermIdx(
-                                        0,
-                                    ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Unresolved(
-                                        UnresolvedTermIdx(
-                                            0,
-                                        ),
-                                    ),
-                                },
-                            ),
+                            resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 5,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
                                     5,
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         0,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Unresolved(
-                                        UnresolvedTermIdx(
-                                            0,
-                                        ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    0,
+                                                ),
+                                            ),
+                                            destination: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    0,
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 6,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
                                     6,
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         0,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Unresolved(
-                                        UnresolvedTermIdx(
-                                            0,
-                                        ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    0,
+                                                ),
+                                            ),
+                                            destination: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    0,
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 7,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
                                     7,
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         0,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Unresolved(
-                                        UnresolvedTermIdx(
-                                            0,
-                                        ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    0,
+                                                ),
+                                            ),
+                                            destination: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    0,
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 8,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
                                     8,
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         0,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Unresolved(
-                                        UnresolvedTermIdx(
-                                            0,
-                                        ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    0,
+                                                ),
+                                            ),
+                                            destination: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    0,
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 9,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
                                     9,
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         0,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Unresolved(
-                                        UnresolvedTermIdx(
-                                            0,
-                                        ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    0,
+                                                ),
+                                            ),
+                                            destination: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    0,
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 10,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
                                     10,
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         0,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Unresolved(
-                                        UnresolvedTermIdx(
-                                            0,
-                                        ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    0,
+                                                ),
+                                            ),
+                                            destination: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    0,
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
-                            src_expr_idx: 16,
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 11,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    11,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 15,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
                                     13,
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
-                                    UnresolvedTermIdx(
-                                        12,
-                                    ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Unresolved(
-                                        UnresolvedTermIdx(
-                                            12,
-                                        ),
-                                    ),
-                                },
-                            ),
+                            resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 17,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
                                     14,
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         12,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Unresolved(
-                                        UnresolvedTermIdx(
-                                            12,
-                                        ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    12,
+                                                ),
+                                            ),
+                                            destination: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    12,
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 18,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
                                     15,
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         12,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Unresolved(
-                                        UnresolvedTermIdx(
-                                            12,
-                                        ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    12,
+                                                ),
+                                            ),
+                                            destination: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    12,
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 19,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
                                     16,
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         12,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Unresolved(
-                                        UnresolvedTermIdx(
-                                            12,
-                                        ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    12,
+                                                ),
+                                            ),
+                                            destination: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    12,
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 20,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
                                     17,
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         12,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Unresolved(
-                                        UnresolvedTermIdx(
-                                            12,
-                                        ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    12,
+                                                ),
+                                            ),
+                                            destination: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    12,
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 21,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
                                     18,
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         12,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Unresolved(
-                                        UnresolvedTermIdx(
-                                            12,
-                                        ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    12,
+                                                ),
+                                            ),
+                                            destination: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    12,
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 22,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
                                     19,
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         12,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Unresolved(
-                                        UnresolvedTermIdx(
-                                            12,
-                                        ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    12,
+                                                ),
+                                            ),
+                                            destination: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    12,
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 23,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
                                     20,
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         12,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Unresolved(
-                                        UnresolvedTermIdx(
-                                            12,
-                                        ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    12,
+                                                ),
+                                            ),
+                                            destination: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    12,
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 24,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
                                     21,
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         12,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Unresolved(
-                                        UnresolvedTermIdx(
-                                            12,
-                                        ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    12,
+                                                ),
+                                            ),
+                                            destination: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    12,
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 25,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
                                     22,
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         12,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Unresolved(
-                                        UnresolvedTermIdx(
-                                            12,
-                                        ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    12,
+                                                ),
+                                            ),
+                                            destination: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    12,
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 27,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    23,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
                             src_expr_idx: 28,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -4067,26 +5259,93 @@
                                     ),
                                 ),
                             ),
-                            variant: AsBool,
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Resolved(
-                                        ReducedTerm(
-                                            Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
+                            expectation: ImplicitlyConversion {
+                                destination: Resolved(
+                                    ReducedTerm(
+                                        Entity(
+                                            ModuleItem(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 1,
+                                                        },
                                                     ),
                                                 ),
                                             ),
                                         ),
                                     ),
-                                },
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 29,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 22,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
                             ),
                         },
                     ],
@@ -4121,21 +5380,38 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 3,
-                                        },
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Application(
+                                                TermApplication(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
                                     ),
-                                ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Application(
+                                                TermApplication(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -4155,21 +5431,38 @@
                 expectation_rule_idx: Some(
                     1,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 3,
-                                        },
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Application(
+                                                TermApplication(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
                                     ),
-                                ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Application(
+                                                TermApplication(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -4189,21 +5482,38 @@
                 expectation_rule_idx: Some(
                     2,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 3,
-                                        },
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Application(
+                                                TermApplication(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
                                     ),
-                                ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Application(
+                                                TermApplication(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -4223,21 +5533,38 @@
                 expectation_rule_idx: Some(
                     3,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 3,
-                                        },
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Application(
+                                                TermApplication(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
                                     ),
-                                ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Application(
+                                                TermApplication(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -4257,21 +5584,38 @@
                 expectation_rule_idx: Some(
                     4,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 3,
-                                        },
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Application(
+                                                TermApplication(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
                                     ),
-                                ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Application(
+                                                TermApplication(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -4291,21 +5635,38 @@
                 expectation_rule_idx: Some(
                     5,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 3,
-                                        },
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Application(
+                                                TermApplication(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
                                     ),
-                                ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Application(
+                                                TermApplication(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -4316,11 +5677,11 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedErr(
-                    Derived(
-                        UnresolvedLocalTerm,
-                    ),
+                expectation_rule_idx: Some(
+                    6,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -4333,19 +5694,13 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    Unresolved(
-                        UnresolvedTermIdx(
-                            1,
-                        ),
+                ty_result: Err(
+                    Derived(
+                        CurrentSymbolTypeError,
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: ResolvedErr(
-                    Derived(
-                        UnresolvedLocalTerm,
-                    ),
-                ),
+                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
                 ty_result: Err(
@@ -4371,57 +5726,40 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    6,
+                    7,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 3,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    },
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
+                resolve_progress: Expected(
                     Resolved(
-                        ReducedTerm(
-                            Application(
-                                TermApplication(
-                                    Id {
-                                        value: 3,
-                                    },
-                                ),
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Application(
+                                                TermApplication(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Application(
+                                                TermApplication(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
                     ),
-                ),
-                expectation_rule_idx: Some(
-                    7,
-                ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 3,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    },
                 ),
             },
             ExprTypeInfo {
@@ -4441,21 +5779,38 @@
                 expectation_rule_idx: Some(
                     8,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 3,
-                                        },
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Application(
+                                                TermApplication(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
                                     ),
-                                ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Application(
+                                                TermApplication(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -4475,21 +5830,38 @@
                 expectation_rule_idx: Some(
                     9,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 3,
-                                        },
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Application(
+                                                TermApplication(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
                                     ),
-                                ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Application(
+                                                TermApplication(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -4509,21 +5881,38 @@
                 expectation_rule_idx: Some(
                     10,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 3,
-                                        },
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Application(
+                                                TermApplication(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
                                     ),
-                                ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Application(
+                                                TermApplication(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -4543,37 +5932,99 @@
                 expectation_rule_idx: Some(
                     11,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 3,
-                                        },
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Application(
+                                                TermApplication(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
                                     ),
-                                ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Application(
+                                                TermApplication(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
                 ty_result: Ok(
-                    Unresolved(
-                        UnresolvedTermIdx(
-                            1,
+                    Resolved(
+                        ReducedTerm(
+                            Application(
+                                TermApplication(
+                                    Id {
+                                        value: 3,
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedErr(
-                    Derived(
-                        UnresolvedLocalTerm,
+                expectation_rule_idx: Some(
+                    12,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Application(
+                                                TermApplication(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Application(
+                                                TermApplication(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
                     ),
                 ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        CurrentSymbolTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
                 ty_result: Ok(
@@ -4583,11 +6034,11 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedErr(
-                    Derived(
-                        UnresolvedLocalTerm,
-                    ),
+                expectation_rule_idx: Some(
+                    13,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -4609,27 +6060,48 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    12,
+                    14,
                 ),
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 1,
-                                                },
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                     ),
-                                ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
             ExprTypeInfo {
@@ -4650,26 +6122,19 @@
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: ResolvedOk(
-                    LocalTermExpectationResolved {
-                        implicit_conversion: None,
-                        local_term: Resolved(
-                            ReducedTerm(
-                                Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                        ),
-                                    ),
+                expectation_rule_idx: Some(
+                    15,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    15,
                                 ),
                             ),
                         ),
-                    },
+                    ),
                 ),
             },
         ],
@@ -4698,13 +6163,7 @@
             ],
         },
         inherited_symbol_tys: [],
-        current_symbol_tys: [
-            LocalTerm::Unresolved(
-                UnresolvedTermIdx(
-                    1,
-                ),
-            ),
-        ],
+        current_symbol_tys: [],
         unresolved_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 2,
@@ -4758,11 +6217,7 @@
                                 ),
                             ],
                         },
-                        resolve_progress: Err(
-                            Original(
-                                UnresolvedTerm,
-                            ),
-                        ),
+                        resolve_progress: Unresolved,
                     },
                     UnresolvedTermEntry {
                         unresolved_term: ImplicitSymbol(
@@ -4811,19 +6266,15 @@
                                 ),
                             ],
                         },
-                        resolve_progress: Err(
-                            Original(
-                                UnresolvedTerm,
-                            ),
-                        ),
+                        resolve_progress: Unresolved,
                     },
                 ],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectationRules {
+            expectation_rules: LocalTermExpectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 0,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -4836,31 +6287,46 @@
                                     ),
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         0,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Resolved(
-                                        ReducedTerm(
-                                            Application(
-                                                TermApplication(
-                                                    Id {
-                                                        value: 3,
-                                                    },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Application(
+                                                        TermApplication(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                             ),
-                                        ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Application(
+                                                        TermApplication(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 1,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -4873,31 +6339,46 @@
                                     ),
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         0,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Resolved(
-                                        ReducedTerm(
-                                            Application(
-                                                TermApplication(
-                                                    Id {
-                                                        value: 3,
-                                                    },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Application(
+                                                        TermApplication(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                             ),
-                                        ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Application(
+                                                        TermApplication(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 2,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -4910,31 +6391,46 @@
                                     ),
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         0,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Resolved(
-                                        ReducedTerm(
-                                            Application(
-                                                TermApplication(
-                                                    Id {
-                                                        value: 3,
-                                                    },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Application(
+                                                        TermApplication(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                             ),
-                                        ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Application(
+                                                        TermApplication(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 3,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -4947,31 +6443,46 @@
                                     ),
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         0,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Resolved(
-                                        ReducedTerm(
-                                            Application(
-                                                TermApplication(
-                                                    Id {
-                                                        value: 3,
-                                                    },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Application(
+                                                        TermApplication(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                             ),
-                                        ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Application(
+                                                        TermApplication(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 4,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -4984,31 +6495,46 @@
                                     ),
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         0,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Resolved(
-                                        ReducedTerm(
-                                            Application(
-                                                TermApplication(
-                                                    Id {
-                                                        value: 3,
-                                                    },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Application(
+                                                        TermApplication(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                             ),
-                                        ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Application(
+                                                        TermApplication(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 5,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -5021,31 +6547,60 @@
                                     ),
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         0,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Resolved(
-                                        ReducedTerm(
-                                            Application(
-                                                TermApplication(
-                                                    Id {
-                                                        value: 3,
-                                                    },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Application(
+                                                        TermApplication(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                             ),
-                                        ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Application(
+                                                        TermApplication(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 6,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    1,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
                             src_expr_idx: 10,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -5058,31 +6613,46 @@
                                     ),
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         2,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Resolved(
-                                        ReducedTerm(
-                                            Application(
-                                                TermApplication(
-                                                    Id {
-                                                        value: 3,
-                                                    },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Application(
+                                                        TermApplication(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                             ),
-                                        ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Application(
+                                                        TermApplication(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 11,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -5095,31 +6665,46 @@
                                     ),
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         2,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Resolved(
-                                        ReducedTerm(
-                                            Application(
-                                                TermApplication(
-                                                    Id {
-                                                        value: 3,
-                                                    },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Application(
+                                                        TermApplication(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                             ),
-                                        ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Application(
+                                                        TermApplication(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 12,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -5132,31 +6717,46 @@
                                     ),
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         2,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Resolved(
-                                        ReducedTerm(
-                                            Application(
-                                                TermApplication(
-                                                    Id {
-                                                        value: 3,
-                                                    },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Application(
+                                                        TermApplication(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                             ),
-                                        ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Application(
+                                                        TermApplication(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 13,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -5169,31 +6769,46 @@
                                     ),
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         2,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Resolved(
-                                        ReducedTerm(
-                                            Application(
-                                                TermApplication(
-                                                    Id {
-                                                        value: 3,
-                                                    },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Application(
+                                                        TermApplication(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                             ),
-                                        ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Application(
+                                                        TermApplication(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 14,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -5206,31 +6821,46 @@
                                     ),
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         2,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Resolved(
-                                        ReducedTerm(
-                                            Application(
-                                                TermApplication(
-                                                    Id {
-                                                        value: 3,
-                                                    },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Application(
+                                                        TermApplication(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                             ),
-                                        ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Application(
+                                                        TermApplication(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
                             src_expr_idx: 15,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -5243,31 +6873,60 @@
                                     ),
                                 ),
                             ),
-                            variant: ImplicitlyConvertibleTo {
-                                dst: Unresolved(
+                            expectation: ImplicitlyConversion {
+                                destination: Unresolved(
                                     UnresolvedTermIdx(
                                         2,
                                     ),
                                 ),
                             },
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Resolved(
-                                        ReducedTerm(
-                                            Application(
-                                                TermApplication(
-                                                    Id {
-                                                        value: 3,
-                                                    },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Application(
+                                                        TermApplication(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                             ),
-                                        ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Application(
+                                                        TermApplication(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
-                        LocalTermExpectationRule {
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 17,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    3,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
                             src_expr_idx: 18,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -5284,26 +6943,93 @@
                                     ),
                                 ),
                             ),
-                            variant: AsBool,
-                            resolve_progress: ResolvedOk(
-                                LocalTermExpectationResolved {
-                                    implicit_conversion: None,
-                                    local_term: Resolved(
-                                        ReducedTerm(
-                                            Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
+                            expectation: ImplicitlyConversion {
+                                destination: Resolved(
+                                    ReducedTerm(
+                                        Entity(
+                                            ModuleItem(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 1,
+                                                        },
                                                     ),
                                                 ),
                                             ),
                                         ),
                                     ),
-                                },
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 19,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 22,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
                             ),
                         },
                     ],

@@ -29,8 +29,11 @@ impl ExpectLocalTermResolvedOk for ExpectEqsRefMutApplicationResolvedOk {
         self.destination
     }
 
-    fn downcast(resolved_ok: &LocalTermExpectationResolvedOk) -> Self {
-        todo!()
+    fn downcast_ref(resolved_ok: &LocalTermExpectationResolvedOk) -> &Self {
+        match resolved_ok {
+            LocalTermExpectationResolvedOk::EqsRefMutApplication(resolved_ok) => resolved_ok,
+            _ => unreachable!(),
+        }
     }
 }
 
@@ -42,9 +45,29 @@ impl From<ExpectEqsRefMutApplicationResolvedOk> for LocalTermExpectationResolved
 
 impl From<ExpectEqsRefMutApplication> for LocalTermExpectation {
     fn from(value: ExpectEqsRefMutApplication) -> Self {
-        LocalTermExpectation::EqsRefMutApplication { lifetime: todo!() }
+        LocalTermExpectation::EqsRefMutApplication {
+            lifetime: value.lifetime,
+        }
     }
 }
+
+impl<'a> ExprTypeEngine<'a> {
+    pub(super) fn resolve_eqs_ref_mut_application_expectation(
+        &self,
+        expectee: LocalTerm,
+        lifetime: LocalTerm,
+    ) -> Option<LocalTermExpectationResolvedOkM> {
+        match expectee {
+            LocalTerm::Resolved(expectee) => {
+                todo!()
+            }
+            LocalTerm::Unresolved(_) => {
+                todo!()
+            }
+        }
+    }
+}
+
 // LocalTermExpectationRuleVariant::RefMut { lifetime } => {
 //     // ad hoc
 //     LocalTermExpectationResolveProgress::Resolved(LocalTermExpectationResolvedOk::Err(

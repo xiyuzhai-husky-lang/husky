@@ -100,9 +100,10 @@ impl<'a> ExprTypeEngine<'a> {
                             );
                         }
                         None => {
-                            match self.infer_new_expr_ty(bound_expr, ExpectInsSort::default()) {
-                                Some(ty) => expected_frame_var_ty = Some(ty),
-                                None => todo!(),
+                            if let Some(ty) =
+                                self.infer_new_expr_ty(bound_expr, ExpectInsSort::default())
+                            {
+                                expected_frame_var_ty = Some(ty)
                             }
                         }
                     }
