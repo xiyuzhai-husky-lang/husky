@@ -120,7 +120,9 @@ impl<'a> ExprTypeEngine<'a> {
             } => self.calc_binary_expr_ty(expr_idx, lopd, opr, ropd),
             Expr::Be {
                 src, ref target, ..
-            } => todo!(),
+            } => {
+                todo!()
+            }
             Expr::PrefixOpn { opr, opd, .. } => self.calc_prefix_ty(opd, opr),
             Expr::SuffixOpn {
                 opd, punctuation, ..
