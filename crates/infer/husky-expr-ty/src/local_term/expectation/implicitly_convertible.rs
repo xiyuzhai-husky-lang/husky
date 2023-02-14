@@ -107,8 +107,11 @@ impl<'a> ExprTypeEngine<'a> {
                 actions: vec![],
             });
         }
-        p!(expectee.debug(self.db()), destination.debug(self.db()));
-        todo!()
+        // ad hoc
+        Some(LocalTermExpectationResolvedOkM {
+            result: Err(OriginalLocalTermExpectationError::Todo.into()),
+            actions: vec![],
+        })
     }
 
     fn unres_to(
@@ -122,10 +125,6 @@ impl<'a> ExprTypeEngine<'a> {
             UnresolvedTerm::ImplicitSymbol(_) => match level {
                 LocalTermResolveLevel::Weak => None,
                 LocalTermResolveLevel::Strong => Some(LocalTermExpectationResolvedOkM {
-                    actions: vec![TermResolveAction::SubstituteImplicitSymbol {
-                        implicit_symbol: expectee,
-                        substitution: destination,
-                    }],
                     result: Ok(LocalTermExpectationResolvedOk::ImplicitlyConvertible(
                         ExpectImplicitlyConvertibleResolvedOk {
                             implicit_conversion: ImplicitConversion::None,
@@ -133,6 +132,10 @@ impl<'a> ExprTypeEngine<'a> {
                             destination: destination.into(),
                         },
                     )),
+                    actions: vec![TermResolveAction::SubstituteImplicitSymbol {
+                        implicit_symbol: expectee,
+                        substitution: destination,
+                    }],
                 }),
             },
             UnresolvedTerm::TypeApplication { ty, arguments } => {
@@ -161,7 +164,7 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn generic_unres_ty_app_to(
         &self,
-        ty: TypePath,
+        ty_path: TypePath,
         arguments: &[LocalTerm],
         destination: LocalTerm,
     ) -> Option<LocalTermExpectationResolvedOkM> {
@@ -171,33 +174,41 @@ impl<'a> ExprTypeEngine<'a> {
                 match destination_expansion.f() {
                     Term::Literal(_) => todo!(),
                     Term::Symbol(_) => todo!(),
-                    Term::Entity(dst_f) => {
-                        match dst_f {
-                            EntityPath::Module(_) => todo!(),
-                            EntityPath::ModuleItem(destination_f) => match destination_f {
-                                ModuleItemPath::Type(destination_f) => {
-                                    if destination_f != ty {
-                                        return Some(LocalTermExpectationResolvedOkM {
-                                            result: Err(
-                                                OriginalLocalTermExpectationError::Todo.into()
-                                            ),
-                                            actions: vec![],
-                                        });
-                                    }
-                                    todo!()
-                                }
-                                ModuleItemPath::Trait(_) => todo!(),
-                                ModuleItemPath::Form(_) => todo!(),
+                    Term::Entity(destination_ty_path) => {
+                        match destination_ty_path.ty_path() {
+                            Some(destination_ty_path) if destination_ty_path==ty_path =>(),
+                            Some(destination_ty_path) /* if destination_ty_path!=ty_path */ => {
+                                return Some(LocalTermExpectationResolvedOkM {
+                                    result: Err(OriginalLocalTermExpectationError::Todo.into()),
+                                    actions: vec![],
+                                })
                             },
-                            EntityPath::AssociatedItem(_) => todo!(),
-                            EntityPath::Variant(_) => todo!(),
-                        }
-                        // let dst_arguments = &dst_expansion.arguments(self.db());
-                        // if dst_arguments.len() != arguments.len() {
-                        //     return Err(todo!());
-                        // }
-                        // p!(dst.debug(self.db()));
-                        todo!()
+                            None => todo!(),
+                        };
+                        let destination_arguments = &destination_expansion.arguments(self.db());
+                        if arguments.len() != destination_arguments.len() {
+                            return Some(LocalTermExpectationResolvedOkM {
+                                result: Err(OriginalLocalTermExpectationError::Todo.into()),
+                                actions: vec![],
+                            });
+                        };
+                        p!(ty_path.debug(self.db()));
+                        // ad hoc
+                        return Some(LocalTermExpectationResolvedOkM {
+                            result: Err(OriginalLocalTermExpectationError::Todo.into()),
+                            actions: vec![],
+                        });
+                        let ty_path_variances = todo!();
+                        let actions = std::iter::zip(
+                            arguments.iter().copied(),
+                            destination_arguments.iter().copied(),
+                        )
+                        .map(|(argument, destination)| todo!())
+                        .collect();
+                        Some(LocalTermExpectationResolvedOkM {
+                            result: Err(OriginalLocalTermExpectationError::Todo.into()),
+                            actions,
+                        })
                     }
                     Term::Category(_) => todo!(),
                     Term::Universe(_) => todo!(),
