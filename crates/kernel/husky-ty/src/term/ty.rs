@@ -1,6 +1,12 @@
 use super::*;
+use husky_vfs::Toolchain;
 
-pub(crate) fn term_ty(db: &dyn TypeDb, reduced_term: ReducedTerm) -> TypeResult<ReducedTerm> {
+pub(crate) fn term_ty(
+    db: &dyn TypeDb,
+    reduced_term: ReducedTerm,
+    toolchain: Toolchain,
+    reduced_term_menu: ReducedTermMenu,
+) -> TypeResult<ReducedTerm> {
     match reduced_term.term() {
         Term::Literal(_) => todo!(),
         Term::Symbol(_) => todo!(),
@@ -12,7 +18,10 @@ pub(crate) fn term_ty(db: &dyn TypeDb, reduced_term: ReducedTerm) -> TypeResult<
             .map_err(|e| OriginalTypeError::Term(e).into()),
         Term::Universe(_) => todo!(),
         Term::Curry(_) => todo!(),
-        Term::Ritchie(_) => todo!(),
+        Term::Ritchie(term) => Ok(match term.ritchie_kind(db) {
+            TermRitchieKind::Fp => reduced_term_menu.ty0(),
+            TermRitchieKind::Fn | TermRitchieKind::FnMut => reduced_term_menu.trai(),
+        }),
         Term::Abstraction(_) => todo!(),
         Term::Application(term) => application_term_ty(db, term),
         Term::Subentity(_) => todo!(),

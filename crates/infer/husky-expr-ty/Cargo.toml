@@ -10,6 +10,8 @@ thiserror = "1.0.37"
 salsa = { path = "../../abstraction/salsa" }
 idx-arena = { path = "../../abstraction/idx-arena" }
 vec-like = { path = "../../abstraction/vec-like" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
 # infer
 husky-signature = { path = "../../infer/husky-signature" }
 # kernel
@@ -28,8 +30,6 @@ husky-defn = { path = "../../syntax/husky-defn" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
-# fs
-husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
 # kernel
 # infer
 husky-manifest = { path = "../../infer/husky-manifest" }

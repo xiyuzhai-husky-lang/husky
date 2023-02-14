@@ -8,12 +8,14 @@ mod utils;
 use husky_opn_syntax::PrefixOpr;
 use husky_print_utils::p;
 use husky_token::{IntegerLikeLiteral, Literal, Token, TokenIdx, TokenSheetData};
+use husky_vfs::Toolchain;
 use symbol::*;
 
 use crate::*;
 
 pub(crate) struct ExprTypeEngine<'a> {
     db: &'a dyn ExprTypeDb,
+    toolchain: Toolchain,
     entity_path_menu: &'a EntityPathMenu,
     term_menu: &'a TermMenu,
     reduced_term_menu: ReducedTermMenu<'a>,
@@ -68,6 +70,7 @@ impl<'a> ExprTypeEngine<'a> {
         let reduced_term_menu = db.reduced_term_menu(toolchain).unwrap();
         Self {
             db,
+            toolchain,
             entity_path_menu: db.entity_path_menu(toolchain).unwrap(),
             term_menu: reduced_term_menu.term_menu(),
             reduced_term_menu,
@@ -140,5 +143,9 @@ impl<'a> ExprTypeEngine<'a> {
 
     pub(crate) fn entity_path_menu(&self) -> &EntityPathMenu {
         self.entity_path_menu
+    }
+
+    pub(crate) fn toolchain(&self) -> Toolchain {
+        self.toolchain
     }
 }

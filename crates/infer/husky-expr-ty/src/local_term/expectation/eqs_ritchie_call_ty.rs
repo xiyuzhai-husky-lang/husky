@@ -66,7 +66,11 @@ impl<'a> ExprTypeEngine<'a> {
             Term::Literal(_) => todo!(),
             Term::Symbol(_) => todo!(),
             Term::Entity(_) => todo!(),
-            Term::Category(_) => todo!(),
+            Term::Category(_) => Some(LocalTermExpectationResolvedOkM {
+                // ad hoc
+                result: Err(OriginalLocalTermExpectationError::Todo.into()),
+                actions: vec![],
+            }),
             Term::Universe(_) => todo!(),
             Term::Curry(_) => todo!(),
             Term::Ritchie(term) => {
