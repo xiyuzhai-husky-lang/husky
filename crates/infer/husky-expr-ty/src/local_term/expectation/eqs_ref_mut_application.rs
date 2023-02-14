@@ -61,8 +61,21 @@ impl<'a> ExprTypeEngine<'a> {
             LocalTerm::Resolved(expectee) => {
                 todo!()
             }
-            LocalTerm::Unresolved(_) => {
-                todo!()
+            LocalTerm::Unresolved(unresolved_expectee) => {
+                match self.local_term_table()[unresolved_expectee].unresolved_term() {
+                    UnresolvedTerm::ImplicitSymbol(_) => todo!(),
+                    UnresolvedTerm::TypeApplication { ty, arguments }
+                        if *ty == self.entity_path_menu().ref_mut_ty_path() =>
+                    {
+                        todo!()
+                    }
+                    UnresolvedTerm::TypeApplication { ty, arguments } => {
+                        Some(LocalTermExpectationResolvedOkM {
+                            result: Err(OriginalLocalTermExpectationError::Todo.into()),
+                            actions: vec![],
+                        })
+                    }
+                }
             }
         }
     }

@@ -176,7 +176,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Result<LocalTerm, ExprTypeError> {
         self.infer_new_expr_ty(
             ropd,
-            ExpectSort {
+            ExpectEqsSort {
                 smallest_universe: 0.into(),
             },
         );
@@ -198,7 +198,7 @@ impl<'a> ExprTypeEngine<'a> {
         lopd: ExprIdx,
         ropd: ExprIdx,
     ) -> Result<LocalTerm, ExprTypeError> {
-        let expect_any_sort = ExpectSort {
+        let expect_any_sort = ExpectEqsSort {
             smallest_universe: 0.into(),
         };
         let Some(lopd_ty) = self.infer_new_expr_ty_resolved(lopd, expect_any_sort)
@@ -239,11 +239,16 @@ impl<'a> ExprTypeEngine<'a> {
         );
         if let Some(lopd_expectation_rule_idx) = lopd_expectation_rule_idx.into_option() {
             match self.local_term_table[lopd_expectation_rule_idx].resolve_progress() {
-                LocalTermExpectationResolveProgress::Unresolved => todo!(),
-                LocalTermExpectationResolveProgress::Resolved(resolved_expectation) => {
+                LocalTermExpectationResolveProgress::Unresolved => unreachable!("think hard"),
+                LocalTermExpectationResolveProgress::Resolved(Ok(resolved_ok)) => {
                     todo!()
                 }
+                LocalTermExpectationResolveProgress::Resolved(Err(_)) => {
+                    self.infer_new_expr_ty(ropd, ExpectInsSort::new_expect_ty());
+                }
             }
+        } else {
+            self.infer_new_expr_ty(ropd, ExpectInsSort::new_expect_ty());
         }
         // match lopd_ty {
         //     Some(lopd_ty) => match opr {
