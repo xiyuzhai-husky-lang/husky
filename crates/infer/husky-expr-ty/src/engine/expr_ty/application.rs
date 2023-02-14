@@ -46,7 +46,7 @@ impl<'a> ExprTypeEngine<'a> {
             } => todo!(),
             _ => {
                 let function_ty = self.infer_new_expr_ty(function, ExpectInsSort::default());
-                todo!()
+                Err(OriginalExprTypeError::TodoBoxColon.into())
             }
         }
     }

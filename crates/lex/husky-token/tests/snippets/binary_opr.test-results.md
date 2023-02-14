@@ -209,7 +209,7 @@ TokenSheetData {
     tokens: [
         Punctuation(
             Binary(
-                ShortcuitLogic(
+                ShortCircuitLogic(
                     And,
                 ),
             ),

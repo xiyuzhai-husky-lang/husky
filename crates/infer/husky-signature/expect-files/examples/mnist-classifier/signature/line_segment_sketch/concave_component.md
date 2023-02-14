@@ -5,241 +5,206 @@
         ),
     ),
     Ok(
-        Form(
-            Function(
+        Signature::Form(
+            FormSignature::Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    parameters: ParameterSignatures {
+                    parameters: RegularParameterSignatures {
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: Application(
                                     TermApplication(
                                         Id {
-                                            value: 17,
+                                            value: 18,
                                         },
                                     ),
                                 ),
                             },
                         ],
                     },
-                    output_ty: Application(
-                        TermApplication {
-                            function: Entity(
-                                TypePath(`core::vec::Vec`, `Alien`),
-                            ),
-                            argument: Entity(
-                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                            ),
-                        },
-                    ),
+                    return_ty: Term(`List ConcaveComponent`),
                 },
             ),
         ),
     ),
     Ok(
-        ImplBlock(
-            TypeImplBlock(
+        Signature::ImplBlock(
+            ImplBlockSignature::TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Entity(
-                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                    ),
+                    ty: Term(`ConcaveComponent`),
                 },
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        output_ty: Entity(
-                            TypePath(`core::num::f32`, `Alien`),
-                        ),
+                        return_ty: Term(`f32`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        output_ty: Entity(
-                            TypePath(`core::num::f32`, `Alien`),
-                        ),
+                        return_ty: Term(`f32`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        output_ty: Entity(
-                            TypePath(`core::num::f32`, `Alien`),
-                        ),
+                        return_ty: Term(`f32`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        output_ty: Entity(
-                            TypePath(`core::num::f32`, `Alien`),
-                        ),
+                        return_ty: Term(`f32`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        output_ty: Entity(
-                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                        ),
+                        return_ty: Term(`BoundingBox`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        output_ty: Entity(
-                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                        ),
+                        return_ty: Term(`RelativeBoundingBox`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                        ),
+                        return_ty: Term(`LineSegment`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                        ),
+                        return_ty: Term(`Point2d`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                        ),
+                        return_ty: Term(`Point2d`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
+                        return_ty: Term(`Vector2d`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
+                        return_ty: Term(`Vector2d`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
+                        return_ty: Term(`Vector2d`),
                     },
                 ),
             ),

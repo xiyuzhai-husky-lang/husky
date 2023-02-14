@@ -11,42 +11,6 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 16,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Semicolon,
-            ),
-            Attr(
-                Pub,
-            ),
-            Keyword(
-                Trait,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 17,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Semicolon,
-            ),
-            Attr(
-                Pub,
-            ),
-            Keyword(
-                Trait,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
                             value: 18,
                         },
                     ),
@@ -66,6 +30,42 @@ Ok(
                     Word(
                         Id {
                             value: 19,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Semicolon,
+            ),
+            Attr(
+                Pub,
+            ),
+            Keyword(
+                Trait,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 20,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Semicolon,
+            ),
+            Attr(
+                Pub,
+            ),
+            Keyword(
+                Trait,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 21,
                         },
                     ),
                 ),

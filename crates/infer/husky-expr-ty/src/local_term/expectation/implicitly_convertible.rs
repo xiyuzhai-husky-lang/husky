@@ -57,7 +57,7 @@ impl ExpectLocalTerm for ExpectImplicitlyConvertible {
 }
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn resolve_implicit_conversion_expectation(
+    pub(super) fn resolve_implicitly_convertible(
         &self,
         expectee: LocalTerm,
         destination: LocalTerm,
@@ -192,7 +192,6 @@ impl<'a> ExprTypeEngine<'a> {
                                 actions: vec![],
                             });
                         };
-                        p!(ty_path.debug(self.db()));
                         // ad hoc
                         return Some(LocalTermExpectationResolvedOkM {
                             result: Err(OriginalLocalTermExpectationError::Todo.into()),

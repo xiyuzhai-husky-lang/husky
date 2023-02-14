@@ -1,6 +1,6 @@
 [
     Ok(
-        Type(
+        Signature::Type(
             TypeSignature::Inductive(
                 InductiveTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
@@ -11,7 +11,7 @@
         ),
     ),
     Ok(
-        Type(
+        Signature::Type(
             TypeSignature::Structure(
                 StructureTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
@@ -22,7 +22,7 @@
         ),
     ),
     Ok(
-        Type(
+        Signature::Type(
             TypeSignature::Structure(
                 StructureTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
@@ -33,15 +33,13 @@
         ),
     ),
     Ok(
-        ImplBlock(
-            TypeImplBlock(
+        Signature::ImplBlock(
+            ImplBlockSignature::TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Entity(
-                        TypePath(`natural_number_game::Nat`, `Inductive`),
-                    ),
+                    ty: Term(`Nat`),
                 },
             ),
         ),

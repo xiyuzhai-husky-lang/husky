@@ -30,6 +30,7 @@ impl ImplicitParameterSignature {
                     annotated_variance: pattern.annotated_variance_token().map(|t| match t {
                         VarianceToken::Covariant(_) => Variance::Covariant,
                         VarianceToken::Contravariant(_) => Variance::Contravariant,
+                        VarianceToken::Invariant(_) => Variance::Invariant,
                     }),
                 }
             }

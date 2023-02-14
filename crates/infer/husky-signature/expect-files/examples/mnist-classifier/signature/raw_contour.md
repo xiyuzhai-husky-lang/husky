@@ -1,6 +1,6 @@
 [
     Ok(
-        Type(
+        Signature::Type(
             TypeSignature::RegularStruct(
                 RegularStructTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
@@ -11,23 +11,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 195,
-                                    },
-                                ),
-                            ),
-                            ty: Application(
-                                TermApplication(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                            ),
-                        },
-                        RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 163,
+                                        value: 211,
                                     },
                                 ),
                             ),
@@ -39,13 +23,29 @@
                                 ),
                             ),
                         },
+                        RegularStructFieldSignature {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 180,
+                                    },
+                                ),
+                            ),
+                            ty: Application(
+                                TermApplication(
+                                    Id {
+                                        value: 21,
+                                    },
+                                ),
+                            ),
+                        },
                     ],
                 },
             ),
         ),
     ),
     Ok(
-        Type(
+        Signature::Type(
             TypeSignature::Enum(
                 EnumTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
@@ -56,13 +56,13 @@
         ),
     ),
     Ok(
-        Form(
-            Function(
+        Signature::Form(
+            FormSignature::Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    parameters: ParameterSignatures {
+                    parameters: RegularParameterSignatures {
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
@@ -71,7 +71,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 15,
+                                                    value: 17,
                                                 },
                                             ),
                                         ),
@@ -85,7 +85,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 9,
+                                                    value: 11,
                                                 },
                                             ),
                                         ),
@@ -94,21 +94,19 @@
                             },
                         ],
                     },
-                    output_ty: Entity(
-                        TypePath(`core::raw_bits::r32`, `Alien`),
-                    ),
+                    return_ty: Term(`r32`),
                 },
             ),
         ),
     ),
     Ok(
-        Form(
-            Function(
+        Signature::Form(
+            FormSignature::Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    parameters: ParameterSignatures {
+                    parameters: RegularParameterSignatures {
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
@@ -117,7 +115,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 15,
+                                                    value: 17,
                                                 },
                                             ),
                                         ),
@@ -131,7 +129,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 9,
+                                                    value: 11,
                                                 },
                                             ),
                                         ),
@@ -140,21 +138,19 @@
                             },
                         ],
                     },
-                    output_ty: Entity(
-                        TypePath(`core::raw_bits::r32`, `Alien`),
-                    ),
+                    return_ty: Term(`r32`),
                 },
             ),
         ),
     ),
     Ok(
-        Form(
-            Function(
+        Signature::Form(
+            FormSignature::Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    parameters: ParameterSignatures {
+                    parameters: RegularParameterSignatures {
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
@@ -163,7 +159,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 15,
+                                                    value: 17,
                                                 },
                                             ),
                                         ),
@@ -177,7 +173,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 9,
+                                                    value: 11,
                                                 },
                                             ),
                                         ),
@@ -186,21 +182,19 @@
                             },
                         ],
                     },
-                    output_ty: Entity(
-                        TypePath(`core::raw_bits::r32`, `Alien`),
-                    ),
+                    return_ty: Term(`r32`),
                 },
             ),
         ),
     ),
     Ok(
-        Form(
-            Function(
+        Signature::Form(
+            FormSignature::Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    parameters: ParameterSignatures {
+                    parameters: RegularParameterSignatures {
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
@@ -209,7 +203,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 15,
+                                                    value: 17,
                                                 },
                                             ),
                                         ),
@@ -223,7 +217,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 15,
+                                                    value: 17,
                                                 },
                                             ),
                                         ),
@@ -237,7 +231,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 9,
+                                                    value: 11,
                                                 },
                                             ),
                                         ),
@@ -246,21 +240,19 @@
                             },
                         ],
                     },
-                    output_ty: Entity(
-                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                    ),
+                    return_ty: Term(`Direction`),
                 },
             ),
         ),
     ),
     Ok(
-        Form(
-            Function(
+        Signature::Form(
+            FormSignature::Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    parameters: ParameterSignatures {
+                    parameters: RegularParameterSignatures {
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
@@ -269,7 +261,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 29,
+                                                    value: 35,
                                                 },
                                             ),
                                         ),
@@ -283,7 +275,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 29,
+                                                    value: 35,
                                                 },
                                             ),
                                         ),
@@ -292,21 +284,19 @@
                             },
                         ],
                     },
-                    output_ty: Entity(
-                        TypePath(`core::num::i32`, `Alien`),
-                    ),
+                    return_ty: Term(`i32`),
                 },
             ),
         ),
     ),
     Ok(
-        Form(
-            Function(
+        Signature::Form(
+            FormSignature::Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    parameters: ParameterSignatures {
+                    parameters: RegularParameterSignatures {
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
@@ -315,7 +305,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 15,
+                                                    value: 17,
                                                 },
                                             ),
                                         ),
@@ -329,7 +319,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 15,
+                                                    value: 17,
                                                 },
                                             ),
                                         ),
@@ -343,7 +333,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 9,
+                                                    value: 11,
                                                 },
                                             ),
                                         ),
@@ -357,7 +347,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 29,
+                                                    value: 35,
                                                 },
                                             ),
                                         ),
@@ -366,15 +356,13 @@
                             },
                         ],
                     },
-                    output_ty: Entity(
-                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                    ),
+                    return_ty: Term(`Direction`),
                 },
             ),
         ),
     ),
     Ok(
-        Type(
+        Signature::Type(
             TypeSignature::RegularStruct(
                 RegularStructTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
@@ -385,7 +373,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 246,
+                                        value: 262,
                                     },
                                 ),
                             ),
@@ -394,7 +382,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 9,
+                                                value: 11,
                                             },
                                         ),
                                     ),
@@ -405,7 +393,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 247,
+                                        value: 263,
                                     },
                                 ),
                             ),
@@ -414,7 +402,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 9,
+                                                value: 11,
                                             },
                                         ),
                                     ),
@@ -427,13 +415,39 @@
         ),
     ),
     Ok(
-        Form(
-            Function(
+        Signature::Form(
+            FormSignature::Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    parameters: ParameterSignatures {
+                    parameters: RegularParameterSignatures {
+                        parameters: [
+                            ParameterSignature {
+                                pattern: ParameterSignaturePattern,
+                                ty: Application(
+                                    TermApplication(
+                                        Id {
+                                            value: 21,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                    return_ty: Term(`Point2d`),
+                },
+            ),
+        ),
+    ),
+    Ok(
+        Signature::Form(
+            FormSignature::Function(
+                FunctionSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        data: [],
+                    },
+                    parameters: RegularParameterSignatures {
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
@@ -447,123 +461,76 @@
                             },
                         ],
                     },
-                    output_ty: Entity(
-                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                    ),
+                    return_ty: Term(`List RawContour`),
                 },
             ),
         ),
     ),
     Ok(
-        Form(
-            Function(
-                FunctionSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        data: [],
-                    },
-                    parameters: ParameterSignatures {
-                        parameters: [
-                            ParameterSignature {
-                                pattern: ParameterSignaturePattern,
-                                ty: Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ],
-                    },
-                    output_ty: Application(
-                        TermApplication {
-                            function: Entity(
-                                TypePath(`core::vec::Vec`, `Alien`),
-                            ),
-                            argument: Entity(
-                                TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                            ),
-                        },
-                    ),
-                },
-            ),
-        ),
-    ),
-    Ok(
-        ImplBlock(
-            TypeImplBlock(
+        Signature::ImplBlock(
+            ImplBlockSignature::TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Entity(
-                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                    ),
+                    ty: Term(`RawContour`),
                 },
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        output_ty: Entity(
-                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                        ),
+                        return_ty: Term(`LineSegmentSketch`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        output_ty: Entity(
-                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                        ),
+                        return_ty: Term(`BoundingBox`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        output_ty: Entity(
-                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                        ),
+                        return_ty: Term(`RelativeBoundingBox`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        output_ty: Entity(
-                            TypePath(`core::num::f32`, `Alien`),
-                        ),
+                        return_ty: Term(`f32`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
@@ -572,7 +539,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 9,
+                                                        value: 11,
                                                     },
                                                 ),
                                             ),
@@ -586,7 +553,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 9,
+                                                        value: 11,
                                                     },
                                                 ),
                                             ),
@@ -595,9 +562,7 @@
                                 },
                             ],
                         },
-                        output_ty: Entity(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
+                        return_ty: Term(`Vector2d`),
                     },
                 ),
             ),

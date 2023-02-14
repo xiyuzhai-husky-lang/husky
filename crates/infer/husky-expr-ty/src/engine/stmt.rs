@@ -160,7 +160,10 @@ impl<'a> ExprTypeEngine<'a> {
                 else_branch.as_ref(),
                 expr_expectation,
             ),
-            Stmt::Match {} => todo!(),
+            Stmt::Match {} => {
+                // todo: match
+                None
+            }
             Stmt::Err(_) => todo!(),
         }
     }
@@ -346,10 +349,15 @@ impl<Expectation: ExpectLocalTerm> BranchTypes<Expectation> {
     fn visit_branch(&mut self, engine: &mut ExprTypeEngine, block: &ExprResult<StmtIdxRange>) {
         match block {
             Ok(stmts) => match engine.infer_new_block(*stmts, self.expr_expectation.clone()) {
-                Some(LocalTerm::Resolved(term)) if term == engine.reduced_term_menu.never() => (),
-                Some(term) => match self.ever_ty {
-                    Some(_) => todo!(),
-                    None => self.ever_ty = Some(term),
+                Some(LocalTerm::Resolved(new_block_ty))
+                    if new_block_ty == engine.reduced_term_menu.never() =>
+                {
+                    ()
+                }
+                Some(new_block_ty) => match self.ever_ty {
+                    Some(ever_ty) if new_block_ty == ever_ty => (),
+                    Some(new_block_ty) => todo!(),
+                    None => self.ever_ty = Some(new_block_ty),
                 },
                 None => self.has_error = true,
             },

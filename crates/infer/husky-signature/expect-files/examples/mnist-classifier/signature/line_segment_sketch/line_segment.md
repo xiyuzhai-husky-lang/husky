@@ -1,6 +1,6 @@
 [
     Ok(
-        Type(
+        Signature::Type(
             TypeSignature::RegularStruct(
                 RegularStructTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
@@ -11,7 +11,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 213,
+                                        value: 229,
                                     },
                                 ),
                             ),
@@ -20,7 +20,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 31,
+                                                value: 37,
                                             },
                                         ),
                                     ),
@@ -31,7 +31,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 214,
+                                        value: 230,
                                     },
                                 ),
                             ),
@@ -40,7 +40,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 31,
+                                                value: 37,
                                             },
                                         ),
                                     ),
@@ -53,47 +53,43 @@
         ),
     ),
     Ok(
-        ImplBlock(
-            TypeImplBlock(
+        Signature::ImplBlock(
+            ImplBlockSignature::TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Entity(
-                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                    ),
+                    ty: Term(`LineSegment`),
                 },
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
+                        return_ty: Term(`Vector2d`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
@@ -102,7 +98,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 31,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -111,9 +107,7 @@
                                 },
                             ],
                         },
-                        output_ty: Entity(
-                            TypePath(`core::num::f32`, `Alien`),
-                        ),
+                        return_ty: Term(`f32`),
                     },
                 ),
             ),

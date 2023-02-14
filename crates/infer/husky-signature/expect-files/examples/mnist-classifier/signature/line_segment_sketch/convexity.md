@@ -1,12 +1,12 @@
 [
     Ok(
-        Form(
-            Function(
+        Signature::Form(
+            FormSignature::Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    parameters: ParameterSignatures {
+                    parameters: RegularParameterSignatures {
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
@@ -15,7 +15,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 38,
+                                                    value: 44,
                                                 },
                                             ),
                                         ),
@@ -29,7 +29,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 9,
+                                                    value: 11,
                                                 },
                                             ),
                                         ),
@@ -38,9 +38,7 @@
                             },
                         ],
                     },
-                    output_ty: Entity(
-                        TypePath(`core::basic::bool`, `Alien`),
-                    ),
+                    return_ty: Term(`bool`),
                 },
             ),
         ),

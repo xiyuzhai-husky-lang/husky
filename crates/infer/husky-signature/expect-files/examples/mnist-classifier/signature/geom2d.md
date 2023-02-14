@@ -1,6 +1,6 @@
 [
     Ok(
-        Type(
+        Signature::Type(
             TypeSignature::RegularStruct(
                 RegularStructTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
@@ -11,7 +11,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 182,
+                                        value: 198,
                                     },
                                 ),
                             ),
@@ -20,7 +20,166 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 13,
+                                                value: 15,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        RegularStructFieldSignature {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 199,
+                                    },
+                                ),
+                            ),
+                            ty: Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+            ),
+        ),
+    ),
+    Ok(
+        Signature::Type(
+            TypeSignature::RegularStruct(
+                RegularStructTypeSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        data: [],
+                    },
+                    fields: [
+                        RegularStructFieldSignature {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 198,
+                                    },
+                                ),
+                            ),
+                            ty: Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        RegularStructFieldSignature {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 199,
+                                    },
+                                ),
+                            ),
+                            ty: Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+            ),
+        ),
+    ),
+    Ok(
+        Signature::Type(
+            TypeSignature::RegularStruct(
+                RegularStructTypeSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        data: [],
+                    },
+                    fields: [
+                        RegularStructFieldSignature {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 198,
+                                    },
+                                ),
+                            ),
+                            ty: Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        RegularStructFieldSignature {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 199,
+                                    },
+                                ),
+                            ),
+                            ty: Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+            ),
+        ),
+    ),
+    Ok(
+        Signature::Type(
+            TypeSignature::RegularStruct(
+                RegularStructTypeSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        data: [],
+                    },
+                    fields: [
+                        RegularStructFieldSignature {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 223,
+                                    },
+                                ),
+                            ),
+                            ty: Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 15,
                                             },
                                         ),
                                     ),
@@ -40,7 +199,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 13,
+                                                value: 15,
                                             },
                                         ),
                                     ),
@@ -53,7 +212,7 @@
         ),
     ),
     Ok(
-        Type(
+        Signature::Type(
             TypeSignature::RegularStruct(
                 RegularStructTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
@@ -64,7 +223,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 182,
+                                        value: 309,
                                     },
                                 ),
                             ),
@@ -73,7 +232,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 13,
+                                                value: 40,
                                             },
                                         ),
                                     ),
@@ -84,7 +243,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 183,
+                                        value: 310,
                                     },
                                 ),
                             ),
@@ -93,7 +252,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 13,
+                                                value: 40,
                                             },
                                         ),
                                     ),
@@ -106,187 +265,26 @@
         ),
     ),
     Ok(
-        Type(
-            TypeSignature::RegularStruct(
-                RegularStructTypeSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        data: [],
-                    },
-                    fields: [
-                        RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 182,
-                                    },
-                                ),
-                            ),
-                            ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                        RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 183,
-                                    },
-                                ),
-                            ),
-                            ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-            ),
-        ),
-    ),
-    Ok(
-        Type(
-            TypeSignature::RegularStruct(
-                RegularStructTypeSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        data: [],
-                    },
-                    fields: [
-                        RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 207,
-                                    },
-                                ),
-                            ),
-                            ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                        RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 166,
-                                    },
-                                ),
-                            ),
-                            ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-            ),
-        ),
-    ),
-    Ok(
-        Type(
-            TypeSignature::RegularStruct(
-                RegularStructTypeSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        data: [],
-                    },
-                    fields: [
-                        RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 293,
-                                    },
-                                ),
-                            ),
-                            ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 34,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                        RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 294,
-                                    },
-                                ),
-                            ),
-                            ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 34,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-            ),
-        ),
-    ),
-    Ok(
-        ImplBlock(
-            TypeImplBlock(
+        Signature::ImplBlock(
+            ImplBlockSignature::TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Entity(
-                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                    ),
+                    ty: Term(`Point2d`),
                 },
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
@@ -295,7 +293,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 9,
+                                                        value: 11,
                                                     },
                                                 ),
                                             ),
@@ -309,7 +307,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 9,
+                                                        value: 11,
                                                     },
                                                 ),
                                             ),
@@ -318,42 +316,38 @@
                                 },
                             ],
                         },
-                        output_ty: Entity(
-                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                        ),
+                        return_ty: Term(`Point2d`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
+                        return_ty: Term(`Vector2d`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
@@ -362,7 +356,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 31,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -371,42 +365,38 @@
                                 },
                             ],
                         },
-                        output_ty: Entity(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
+                        return_ty: Term(`Vector2d`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`core::num::f32`, `Alien`),
-                        ),
+                        return_ty: Term(`f32`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
@@ -415,7 +405,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 31,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -424,56 +414,50 @@
                                 },
                             ],
                         },
-                        output_ty: Entity(
-                            TypePath(`core::num::f32`, `Alien`),
-                        ),
+                        return_ty: Term(`f32`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        ImplBlock(
-            TypeImplBlock(
+        Signature::ImplBlock(
+            ImplBlockSignature::TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Entity(
-                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                    ),
+                    ty: Term(`Vector2d`),
                 },
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                        ),
+                        return_ty: Term(`Point2d`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
@@ -482,7 +466,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 33,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -491,42 +475,38 @@
                                 },
                             ],
                         },
-                        output_ty: Entity(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
+                        return_ty: Term(`Vector2d`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`core::num::f32`, `Alien`),
-                        ),
+                        return_ty: Term(`f32`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
@@ -535,7 +515,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 33,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -544,23 +524,21 @@
                                 },
                             ],
                         },
-                        output_ty: Entity(
-                            TypePath(`core::num::f32`, `Alien`),
-                        ),
+                        return_ty: Term(`f32`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
@@ -569,7 +547,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 33,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -578,23 +556,21 @@
                                 },
                             ],
                         },
-                        output_ty: Entity(
-                            TypePath(`core::num::f32`, `Alien`),
-                        ),
+                        return_ty: Term(`f32`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
@@ -612,23 +588,21 @@
                                 },
                             ],
                         },
-                        output_ty: Entity(
-                            TypePath(`core::num::f32`, `Alien`),
-                        ),
+                        return_ty: Term(`f32`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
@@ -637,7 +611,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 33,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -646,23 +620,21 @@
                                 },
                             ],
                         },
-                        output_ty: Entity(
-                            TypePath(`core::num::i32`, `Alien`),
-                        ),
+                        return_ty: Term(`i32`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
@@ -671,7 +643,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 33,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -694,37 +666,33 @@
                                 },
                             ],
                         },
-                        output_ty: Entity(
-                            TypePath(`core::num::f32`, `Alien`),
-                        ),
+                        return_ty: Term(`f32`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        ImplBlock(
-            TypeImplBlock(
+        Signature::ImplBlock(
+            ImplBlockSignature::TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Entity(
-                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                    ),
+                    ty: Term(`BoundingBox`),
                 },
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
@@ -733,7 +701,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 35,
+                                                        value: 41,
                                                     },
                                                 ),
                                             ),
@@ -742,23 +710,21 @@
                                 },
                             ],
                         },
-                        output_ty: Entity(
-                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                        ),
+                        return_ty: Term(`RelativeBoundingBox`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
@@ -767,7 +733,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 31,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -776,175 +742,155 @@
                                 },
                             ],
                         },
-                        output_ty: Entity(
-                            TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
-                        ),
+                        return_ty: Term(`RelativePoint2d`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`core::num::f32`, `Alien`),
-                        ),
+                        return_ty: Term(`f32`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`core::num::f32`, `Alien`),
-                        ),
+                        return_ty: Term(`f32`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`core::num::f32`, `Alien`),
-                        ),
+                        return_ty: Term(`f32`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`core::num::f32`, `Alien`),
-                        ),
+                        return_ty: Term(`f32`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        ImplBlock(
-            TypeImplBlock(
+        Signature::ImplBlock(
+            ImplBlockSignature::TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Entity(
-                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                    ),
+                    ty: Term(`RelativeBoundingBox`),
                 },
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`core::num::f32`, `Alien`),
-                        ),
+                        return_ty: Term(`f32`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`core::num::f32`, `Alien`),
-                        ),
+                        return_ty: Term(`f32`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`core::num::f32`, `Alien`),
-                        ),
+                        return_ty: Term(`f32`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`core::num::f32`, `Alien`),
-                        ),
+                        return_ty: Term(`f32`),
                     },
                 ),
             ),

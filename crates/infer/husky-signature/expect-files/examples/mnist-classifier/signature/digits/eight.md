@@ -6,36 +6,27 @@
         OutputTypeTermError,
     ),
     Ok(
-        Form(
-            Function(
+        Signature::Form(
+            FormSignature::Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    parameters: ParameterSignatures {
+                    parameters: RegularParameterSignatures {
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: Application(
                                     TermApplication(
                                         Id {
-                                            value: 10,
+                                            value: 11,
                                         },
                                     ),
                                 ),
                             },
                         ],
                     },
-                    output_ty: Application(
-                        TermApplication {
-                            function: Entity(
-                                TypePath(`core::option::Option`, `Enum`),
-                            ),
-                            argument: Entity(
-                                TypePath(`core::num::f32`, `Alien`),
-                            ),
-                        },
-                    ),
+                    return_ty: Term(`Option f32`),
                 },
             ),
         ),

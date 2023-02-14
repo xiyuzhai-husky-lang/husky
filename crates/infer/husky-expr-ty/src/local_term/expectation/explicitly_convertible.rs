@@ -1,7 +1,7 @@
 use super::*;
 
 /// expect a type that is explicitly convertible to dst
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) struct ExpectExplicitlyConvertible {
     pub(crate) destination: LocalTerm,
@@ -28,7 +28,7 @@ impl ExpectLocalTermResolvedOk for ExpectExplicitlyConvertibleResolvedOk {
 
 impl From<ExpectExplicitlyConvertible> for LocalTermExpectation {
     fn from(value: ExpectExplicitlyConvertible) -> Self {
-        todo!()
+        LocalTermExpectation::ExplicitlyConvertible(value)
     }
 }
 
@@ -62,3 +62,15 @@ impl ExpectLocalTerm for ExpectExplicitlyConvertible {
 //         term => todo!(),
 //     }
 // }
+
+impl<'a> ExprTypeEngine<'a> {
+    pub(super) fn resolve_explicitly_convertible(
+        &self,
+        expectee: LocalTerm,
+        destination: LocalTerm,
+        level: LocalTermResolveLevel,
+    ) -> Option<LocalTermExpectationResolvedOkM> {
+        // todo
+        None
+    }
+}

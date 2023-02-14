@@ -13,7 +13,584 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Unresolved(
+                        UnresolvedTermIdx(
+                            0,
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    2,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 11,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    3,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    3,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BracketedItemTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    1,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            EqsSort(
+                                ExpectEqsSortResolvedOk {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Unresolved(
+                        UnresolvedTermIdx(
+                            1,
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    5,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 11,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    6,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    6,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BracketedItemTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    4,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            EqsSort(
+                                ExpectEqsSortResolvedOk {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        CallableTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BlockTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+        ],
+        expr_local_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+                None,
+                Some(
+                    Ok(
+                        Resolved(
+                            ReducedTerm(
+                                Entity(
+                                    ModuleItem(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 15,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+                None,
+                None,
+                None,
+                Some(
+                    Ok(
+                        Resolved(
+                            ReducedTerm(
+                                Entity(
+                                    ModuleItem(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 15,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [
+            Term(`i32`),
+            Term(`i32`),
+        ],
+        current_symbol_tys: [],
+        unresolved_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 2,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [
+                    UnresolvedTermEntry {
+                        unresolved_term: ImplicitSymbol(
+                            ImplicitSymbol {
+                                idx: ImplicitSymbolIdx(
+                                    0,
+                                ),
+                                src_expr_idx: 1,
+                                variant: UnspecifiedIntegerType,
+                            },
+                        ),
+                        implicit_symbol_dependencies: VecSet {
+                            data: [],
+                        },
+                        resolve_progress: Unresolved,
+                    },
+                    UnresolvedTermEntry {
+                        unresolved_term: ImplicitSymbol(
+                            ImplicitSymbol {
+                                idx: ImplicitSymbolIdx(
+                                    1,
+                                ),
+                                src_expr_idx: 6,
+                                variant: UnspecifiedIntegerType,
+                            },
+                        ),
+                        implicit_symbol_dependencies: VecSet {
+                            data: [],
+                        },
+                        resolve_progress: Unresolved,
+                    },
+                ],
+                first_unresolved_term: 0,
+            },
+            expectation_rules: LocalTermExpectations {
+                arena: Arena {
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 0,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: EqsRitchieCallTy,
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Todo,
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 5,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: EqsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsSort(
+                                        ExpectEqsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 1,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    0,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 2,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 11,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 10,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: EqsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsSort(
+                                        ExpectEqsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 6,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    1,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 7,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 11,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`Point2d`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -29,7 +606,146 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        CallableTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BlockTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+        ],
+        expr_local_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
+        unresolved_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
+            },
+            expectation_rules: LocalTermExpectations {
+                arena: Arena {
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 0,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: EqsRitchieCallTy,
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Todo,
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`Vector2d`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -45,7 +761,320 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 37,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    1,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    1,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 37,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    2,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    2,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        CallableTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BlockTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+        ],
+        expr_local_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [
+            Term(`Point2d`),
+        ],
+        current_symbol_tys: [],
+        unresolved_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
+            },
+            expectation_rules: LocalTermExpectations {
+                arena: Arena {
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 0,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: EqsRitchieCallTy,
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Todo,
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 1,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 37,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 5,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 37,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`Vector2d`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -61,7 +1090,173 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BracketedItemTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BlockTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+        ],
+        expr_local_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
+        unresolved_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
+            },
+            expectation_rules: LocalTermExpectations {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`f32`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -77,7 +1272,142 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 37,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BlockTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+        ],
+        expr_local_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [
+            Term(`Point2d`),
+        ],
+        current_symbol_tys: [],
+        unresolved_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
+            },
+            expectation_rules: LocalTermExpectations {
+                arena: Arena {
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 1,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 37,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`f32`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -93,7 +1423,146 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        CallableTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BlockTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+        ],
+        expr_local_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
+        unresolved_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
+            },
+            expectation_rules: LocalTermExpectations {
+                arena: Arena {
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 0,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: EqsRitchieCallTy,
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Todo,
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`Point2d`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -109,7 +1578,320 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 39,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    1,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    1,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 39,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    2,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    2,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        CallableTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BlockTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+        ],
+        expr_local_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [
+            Term(`Vector2d`),
+        ],
+        current_symbol_tys: [],
+        unresolved_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
+            },
+            expectation_rules: LocalTermExpectations {
+                arena: Arena {
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 0,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: EqsRitchieCallTy,
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Todo,
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 1,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 5,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`Vector2d`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -125,7 +1907,173 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BracketedItemTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BlockTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+        ],
+        expr_local_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
+        unresolved_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
+            },
+            expectation_rules: LocalTermExpectations {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`f32`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -141,7 +2089,268 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 39,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 39,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    1,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    1,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BlockTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+        ],
+        expr_local_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [
+            Term(`Vector2d`),
+        ],
+        current_symbol_tys: [],
+        unresolved_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
+            },
+            expectation_rules: LocalTermExpectations {
+                arena: Arena {
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 1,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 5,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`f32`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -157,7 +2366,268 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 39,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 39,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    1,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    1,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BlockTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+        ],
+        expr_local_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [
+            Term(`Vector2d`),
+        ],
+        current_symbol_tys: [],
+        unresolved_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
+            },
+            expectation_rules: LocalTermExpectations {
+                arena: Arena {
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 1,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 5,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`f32`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -173,7 +2643,944 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BracketedItemTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Unresolved(
+                        UnresolvedTermIdx(
+                            0,
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        CurrentSymbolTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Unresolved(
+                        UnresolvedTermIdx(
+                            1,
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    1,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Unresolved(
+                        UnresolvedTermIdx(
+                            2,
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    2,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    3,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    4,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Unresolved(
+                        UnresolvedTermIdx(
+                            3,
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    5,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Unresolved(
+                        UnresolvedTermIdx(
+                            4,
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    6,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        PrefixOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    7,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            EqsSort(
+                                ExpectEqsSortResolvedOk {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BracketedItemTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Unresolved(
+                        UnresolvedTermIdx(
+                            5,
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    8,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Unresolved(
+                        UnresolvedTermIdx(
+                            6,
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    9,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BlockTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+        ],
+        expr_local_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                Some(
+                    Ok(
+                        Resolved(
+                            ReducedTerm(
+                                Entity(
+                                    ModuleItem(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 15,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [
+            Term(`bool`),
+        ],
+        current_symbol_tys: [],
+        unresolved_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 7,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [
+                    UnresolvedTermEntry {
+                        unresolved_term: ImplicitSymbol(
+                            ImplicitSymbol {
+                                idx: ImplicitSymbolIdx(
+                                    0,
+                                ),
+                                src_expr_idx: 6,
+                                variant: UnspecifiedFloatType,
+                            },
+                        ),
+                        implicit_symbol_dependencies: VecSet {
+                            data: [],
+                        },
+                        resolve_progress: Unresolved,
+                    },
+                    UnresolvedTermEntry {
+                        unresolved_term: ImplicitSymbol(
+                            ImplicitSymbol {
+                                idx: ImplicitSymbolIdx(
+                                    1,
+                                ),
+                                src_expr_idx: 9,
+                                variant: UnspecifiedFloatType,
+                            },
+                        ),
+                        implicit_symbol_dependencies: VecSet {
+                            data: [],
+                        },
+                        resolve_progress: Unresolved,
+                    },
+                    UnresolvedTermEntry {
+                        unresolved_term: ImplicitSymbol(
+                            ImplicitSymbol {
+                                idx: ImplicitSymbolIdx(
+                                    2,
+                                ),
+                                src_expr_idx: 11,
+                                variant: UnspecifiedFloatType,
+                            },
+                        ),
+                        implicit_symbol_dependencies: VecSet {
+                            data: [],
+                        },
+                        resolve_progress: Unresolved,
+                    },
+                    UnresolvedTermEntry {
+                        unresolved_term: ImplicitSymbol(
+                            ImplicitSymbol {
+                                idx: ImplicitSymbolIdx(
+                                    3,
+                                ),
+                                src_expr_idx: 14,
+                                variant: UnspecifiedFloatType,
+                            },
+                        ),
+                        implicit_symbol_dependencies: VecSet {
+                            data: [],
+                        },
+                        resolve_progress: Unresolved,
+                    },
+                    UnresolvedTermEntry {
+                        unresolved_term: ImplicitSymbol(
+                            ImplicitSymbol {
+                                idx: ImplicitSymbolIdx(
+                                    4,
+                                ),
+                                src_expr_idx: 15,
+                                variant: UnspecifiedFloatType,
+                            },
+                        ),
+                        implicit_symbol_dependencies: VecSet {
+                            data: [],
+                        },
+                        resolve_progress: Unresolved,
+                    },
+                    UnresolvedTermEntry {
+                        unresolved_term: ImplicitSymbol(
+                            ImplicitSymbol {
+                                idx: ImplicitSymbolIdx(
+                                    5,
+                                ),
+                                src_expr_idx: 27,
+                                variant: UnspecifiedFloatType,
+                            },
+                        ),
+                        implicit_symbol_dependencies: VecSet {
+                            data: [],
+                        },
+                        resolve_progress: Unresolved,
+                    },
+                    UnresolvedTermEntry {
+                        unresolved_term: ImplicitSymbol(
+                            ImplicitSymbol {
+                                idx: ImplicitSymbolIdx(
+                                    6,
+                                ),
+                                src_expr_idx: 29,
+                                variant: UnspecifiedFloatType,
+                            },
+                        ),
+                        implicit_symbol_dependencies: VecSet {
+                            data: [],
+                        },
+                        resolve_progress: Unresolved,
+                    },
+                ],
+                first_unresolved_term: 0,
+            },
+            expectation_rules: LocalTermExpectations {
+                arena: Arena {
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 6,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    0,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 9,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    1,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 11,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    2,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 12,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: ImplicitlyConversion {
+                                destination: Resolved(
+                                    ReducedTerm(
+                                        Entity(
+                                            ModuleItem(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 1,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 13,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: ImplicitlyConversion {
+                                destination: Resolved(
+                                    ReducedTerm(
+                                        Entity(
+                                            ModuleItem(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 1,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 14,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    3,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 15,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    4,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 20,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: EqsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsSort(
+                                        ExpectEqsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 27,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    5,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 29,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    6,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                    ],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`f32`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -189,7 +3596,142 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 39,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BlockTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+        ],
+        expr_local_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [
+            Term(`Vector2d`),
+        ],
+        current_symbol_tys: [],
+        unresolved_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
+            },
+            expectation_rules: LocalTermExpectations {
+                arena: Arena {
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 1,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`i32`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -205,7 +3747,1569 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        CurrentSymbolTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Unresolved(
+                        UnresolvedTermIdx(
+                            0,
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    1,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 39,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    2,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    2,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        CurrentSymbolTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Unresolved(
+                        UnresolvedTermIdx(
+                            1,
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    3,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    4,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 39,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    5,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    5,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        CurrentSymbolTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        CurrentSymbolTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BracketedItemTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BracketedItemTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Unresolved(
+                        UnresolvedTermIdx(
+                            2,
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    6,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        CurrentSymbolTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Unresolved(
+                        UnresolvedTermIdx(
+                            3,
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    7,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Unresolved(
+                        UnresolvedTermIdx(
+                            4,
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    8,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    9,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    10,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleResolvedOk {
+                                    implicit_conversion: None,
+                                    expectee: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Unresolved(
+                        UnresolvedTermIdx(
+                            5,
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    11,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Unresolved(
+                        UnresolvedTermIdx(
+                            6,
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    12,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        PrefixOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 39,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    14,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    14,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    13,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            EqsSort(
+                                ExpectEqsSortResolvedOk {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        CurrentSymbolTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BracketedItemTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        CurrentSymbolTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Unresolved(
+                        UnresolvedTermIdx(
+                            7,
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    15,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Unresolved(
+                        UnresolvedTermIdx(
+                            8,
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    16,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BinaryOperationLeftOperandTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BlockTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+        ],
+        expr_local_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                Some(
+                    Ok(
+                        Resolved(
+                            ReducedTerm(
+                                Entity(
+                                    ModuleItem(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 15,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [
+            Term(`Vector2d`),
+            Term(`bool`),
+        ],
+        current_symbol_tys: [],
+        unresolved_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 9,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [
+                    UnresolvedTermEntry {
+                        unresolved_term: ImplicitSymbol(
+                            ImplicitSymbol {
+                                idx: ImplicitSymbolIdx(
+                                    0,
+                                ),
+                                src_expr_idx: 3,
+                                variant: UnspecifiedFloatType,
+                            },
+                        ),
+                        implicit_symbol_dependencies: VecSet {
+                            data: [],
+                        },
+                        resolve_progress: Unresolved,
+                    },
+                    UnresolvedTermEntry {
+                        unresolved_term: ImplicitSymbol(
+                            ImplicitSymbol {
+                                idx: ImplicitSymbolIdx(
+                                    1,
+                                ),
+                                src_expr_idx: 8,
+                                variant: UnspecifiedFloatType,
+                            },
+                        ),
+                        implicit_symbol_dependencies: VecSet {
+                            data: [],
+                        },
+                        resolve_progress: Unresolved,
+                    },
+                    UnresolvedTermEntry {
+                        unresolved_term: ImplicitSymbol(
+                            ImplicitSymbol {
+                                idx: ImplicitSymbolIdx(
+                                    2,
+                                ),
+                                src_expr_idx: 19,
+                                variant: UnspecifiedFloatType,
+                            },
+                        ),
+                        implicit_symbol_dependencies: VecSet {
+                            data: [],
+                        },
+                        resolve_progress: Unresolved,
+                    },
+                    UnresolvedTermEntry {
+                        unresolved_term: ImplicitSymbol(
+                            ImplicitSymbol {
+                                idx: ImplicitSymbolIdx(
+                                    3,
+                                ),
+                                src_expr_idx: 22,
+                                variant: UnspecifiedFloatType,
+                            },
+                        ),
+                        implicit_symbol_dependencies: VecSet {
+                            data: [],
+                        },
+                        resolve_progress: Unresolved,
+                    },
+                    UnresolvedTermEntry {
+                        unresolved_term: ImplicitSymbol(
+                            ImplicitSymbol {
+                                idx: ImplicitSymbolIdx(
+                                    4,
+                                ),
+                                src_expr_idx: 24,
+                                variant: UnspecifiedFloatType,
+                            },
+                        ),
+                        implicit_symbol_dependencies: VecSet {
+                            data: [],
+                        },
+                        resolve_progress: Unresolved,
+                    },
+                    UnresolvedTermEntry {
+                        unresolved_term: ImplicitSymbol(
+                            ImplicitSymbol {
+                                idx: ImplicitSymbolIdx(
+                                    5,
+                                ),
+                                src_expr_idx: 27,
+                                variant: UnspecifiedFloatType,
+                            },
+                        ),
+                        implicit_symbol_dependencies: VecSet {
+                            data: [],
+                        },
+                        resolve_progress: Unresolved,
+                    },
+                    UnresolvedTermEntry {
+                        unresolved_term: ImplicitSymbol(
+                            ImplicitSymbol {
+                                idx: ImplicitSymbolIdx(
+                                    6,
+                                ),
+                                src_expr_idx: 28,
+                                variant: UnspecifiedFloatType,
+                            },
+                        ),
+                        implicit_symbol_dependencies: VecSet {
+                            data: [],
+                        },
+                        resolve_progress: Unresolved,
+                    },
+                    UnresolvedTermEntry {
+                        unresolved_term: ImplicitSymbol(
+                            ImplicitSymbol {
+                                idx: ImplicitSymbolIdx(
+                                    7,
+                                ),
+                                src_expr_idx: 40,
+                                variant: UnspecifiedFloatType,
+                            },
+                        ),
+                        implicit_symbol_dependencies: VecSet {
+                            data: [],
+                        },
+                        resolve_progress: Unresolved,
+                    },
+                    UnresolvedTermEntry {
+                        unresolved_term: ImplicitSymbol(
+                            ImplicitSymbol {
+                                idx: ImplicitSymbolIdx(
+                                    8,
+                                ),
+                                src_expr_idx: 42,
+                                variant: UnspecifiedFloatType,
+                            },
+                        ),
+                        implicit_symbol_dependencies: VecSet {
+                            data: [],
+                        },
+                        resolve_progress: Unresolved,
+                    },
+                ],
+                first_unresolved_term: 0,
+            },
+            expectation_rules: LocalTermExpectations {
+                arena: Arena {
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 3,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    0,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 4,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: ImplicitlyConversion {
+                                destination: Resolved(
+                                    ReducedTerm(
+                                        Entity(
+                                            ModuleItem(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 1,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 5,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 8,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    1,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 9,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: ImplicitlyConversion {
+                                destination: Resolved(
+                                    ReducedTerm(
+                                        Entity(
+                                            ModuleItem(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 1,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 11,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 19,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    2,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 22,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    3,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 24,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    4,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 25,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: ImplicitlyConversion {
+                                destination: Resolved(
+                                    ReducedTerm(
+                                        Entity(
+                                            ModuleItem(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 1,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 26,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: ImplicitlyConversion {
+                                destination: Resolved(
+                                    ReducedTerm(
+                                        Entity(
+                                            ModuleItem(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 1,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 27,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    5,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 28,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    6,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 33,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: EqsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsSort(
+                                        ExpectEqsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 31,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 40,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    7,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 42,
+                            expectee: Unresolved(
+                                UnresolvedTermIdx(
+                                    8,
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                    ],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`f32`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -221,7 +5325,320 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 41,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    1,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    1,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 41,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    2,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    2,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        CallableTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BlockTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+        ],
+        expr_local_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [
+            Term(`BoundingBox`),
+        ],
+        current_symbol_tys: [],
+        unresolved_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
+            },
+            expectation_rules: LocalTermExpectations {
+                arena: Arena {
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 0,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: EqsRitchieCallTy,
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Todo,
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 3,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 41,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 7,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 41,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`RelativeBoundingBox`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -237,7 +5654,320 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 37,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    1,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    1,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        ReducedTerm(
+                            Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 37,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    2,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Err(
+                            Derived(
+                                Duplication(
+                                    2,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        CallableTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BlockTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+        ],
+        expr_local_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [
+            Term(`Point2d`),
+        ],
+        current_symbol_tys: [],
+        unresolved_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
+            },
+            expectation_rules: LocalTermExpectations {
+                arena: Arena {
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 0,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: EqsRitchieCallTy,
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Todo,
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 3,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 37,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 7,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 37,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Type(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`RelativePoint2d`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -253,7 +5983,73 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BlockTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+        ],
+        expr_local_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
+        unresolved_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
+            },
+            expectation_rules: LocalTermExpectations {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`f32`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -269,7 +6065,73 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BlockTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+        ],
+        expr_local_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
+        unresolved_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
+            },
+            expectation_rules: LocalTermExpectations {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`f32`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -285,7 +6147,73 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BlockTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+        ],
+        expr_local_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
+        unresolved_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
+            },
+            expectation_rules: LocalTermExpectations {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`f32`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -301,7 +6229,73 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BlockTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+        ],
+        expr_local_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
+        unresolved_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
+            },
+            expectation_rules: LocalTermExpectations {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`f32`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -317,7 +6311,73 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BlockTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+        ],
+        expr_local_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
+        unresolved_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
+            },
+            expectation_rules: LocalTermExpectations {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`f32`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -333,7 +6393,73 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BlockTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+        ],
+        expr_local_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
+        unresolved_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
+            },
+            expectation_rules: LocalTermExpectations {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`f32`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -349,7 +6475,73 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BlockTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+        ],
+        expr_local_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
+        unresolved_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
+            },
+            expectation_rules: LocalTermExpectations {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`f32`),
+        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -365,6 +6557,72 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        SelfTypeNotInferredForSelfValue,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        BlockTypeError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+        ],
+        expr_local_terms: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                None,
+            ],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
+        unresolved_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
+            },
+            expectation_rules: LocalTermExpectations {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`f32`),
+        ),
+        self_ty: None,
     },
 ]

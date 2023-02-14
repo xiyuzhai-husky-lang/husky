@@ -20,19 +20,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 5,
-                        },
-                    ),
-                ),
-            ),
-            Keyword(
-                Mod,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 7,
+                            value: 6,
                         },
                     ),
                 ),
@@ -80,6 +68,30 @@ Ok(
                 Identifier(
                     Word(
                         Id {
+                            value: 11,
+                        },
+                    ),
+                ),
+            ),
+            Keyword(
+                Mod,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 12,
+                        },
+                    ),
+                ),
+            ),
+            Keyword(
+                Mod,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
                             value: 4,
                         },
                     ),
@@ -104,7 +116,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 6,
+                            value: 7,
                         },
                     ),
                 ),
@@ -116,7 +128,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 11,
+                            value: 13,
                         },
                     ),
                 ),
@@ -146,8 +158,10 @@ Ok(
             16,
             18,
             20,
+            22,
         ],
         indents: [
+            0,
             0,
             0,
             0,

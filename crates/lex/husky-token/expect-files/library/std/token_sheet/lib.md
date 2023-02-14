@@ -8,7 +8,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 9,
+                            value: 11,
                         },
                     ),
                 ),
@@ -20,7 +20,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 5,
+                            value: 6,
                         },
                     ),
                 ),
@@ -32,7 +32,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 8,
+                            value: 10,
                         },
                     ),
                 ),

@@ -10,207 +10,37 @@
     (
         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
         Ok(
-            Application(
-                TermApplication {
-                    function: Category(
-                        Sort,
-                    ),
-                    argument: Universe(
-                        TermUniverse(
-                            1,
-                        ),
-                    ),
-                },
-            ),
+            Term(`Type`),
         ),
     ),
     (
         FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
         Ok(
-            Durant(
-                TermDurant {
-                    kind: Fp,
-                    params: [
-                        TermDurantParameter {
-                            ty: Entity(
-                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                            ),
-                        },
-                        TermDurantParameter {
-                            ty: Entity(
-                                TypePath(`core::num::f32`, `Alien`),
-                            ),
-                        },
-                    ],
-                    y: Entity(
-                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                    ),
-                },
-            ),
+            Term(`Fp(Vector2d, f32) -> Vector2d`),
         ),
     ),
     (
         FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
         Ok(
-            Durant(
-                TermDurant {
-                    kind: Fp,
-                    params: [
-                        TermDurantParameter {
-                            ty: Entity(
-                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                            ),
-                        },
-                        TermDurantParameter {
-                            ty: Entity(
-                                TypePath(`core::num::f32`, `Alien`),
-                            ),
-                        },
-                    ],
-                    y: Entity(
-                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                    ),
-                },
-            ),
+            Term(`Fp(Vector2d, f32) -> Vector2d`),
         ),
     ),
     (
         FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
         Ok(
-            Durant(
-                TermDurant {
-                    kind: Fp,
-                    params: [
-                        TermDurantParameter {
-                            ty: Application(
-                                TermApplication {
-                                    function: Application(
-                                        TermApplication {
-                                            function: Entity(
-                                                TypePath(`core::num::Ref`, `Alien`),
-                                            ),
-                                            argument: Literal(
-                                                EvalLifetime,
-                                            ),
-                                        },
-                                    ),
-                                    argument: Entity(
-                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                    ),
-                                },
-                            ),
-                        },
-                        TermDurantParameter {
-                            ty: Entity(
-                                TypePath(`core::num::i32`, `Alien`),
-                            ),
-                        },
-                        TermDurantParameter {
-                            ty: Entity(
-                                TypePath(`core::num::f32`, `Alien`),
-                            ),
-                        },
-                    ],
-                    y: Entity(
-                        TypePath(`core::num::i32`, `Alien`),
-                    ),
-                },
-            ),
+            Term(`Fp(Ref TermLiteral::EvalLifetime RawContour, i32, f32) -> i32`),
         ),
     ),
     (
         FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
         Ok(
-            Durant(
-                TermDurant {
-                    kind: Fp,
-                    params: [
-                        TermDurantParameter {
-                            ty: Application(
-                                TermApplication {
-                                    function: Application(
-                                        TermApplication {
-                                            function: Entity(
-                                                TypePath(`core::num::Ref`, `Alien`),
-                                            ),
-                                            argument: Literal(
-                                                EvalLifetime,
-                                            ),
-                                        },
-                                    ),
-                                    argument: Entity(
-                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                    ),
-                                },
-                            ),
-                        },
-                        TermDurantParameter {
-                            ty: Entity(
-                                TypePath(`core::num::i32`, `Alien`),
-                            ),
-                        },
-                        TermDurantParameter {
-                            ty: Entity(
-                                TypePath(`core::num::i32`, `Alien`),
-                            ),
-                        },
-                        TermDurantParameter {
-                            ty: Entity(
-                                TypePath(`core::num::f32`, `Alien`),
-                            ),
-                        },
-                    ],
-                    y: Entity(
-                        TypePath(`core::num::i32`, `Alien`),
-                    ),
-                },
-            ),
+            Term(`Fp(Ref TermLiteral::EvalLifetime RawContour, i32, i32, f32) -> i32`),
         ),
     ),
     (
         FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
         Ok(
-            Durant(
-                TermDurant {
-                    kind: Fp,
-                    params: [
-                        TermDurantParameter {
-                            ty: Application(
-                                TermApplication {
-                                    function: Application(
-                                        TermApplication {
-                                            function: Entity(
-                                                TypePath(`core::num::Ref`, `Alien`),
-                                            ),
-                                            argument: Literal(
-                                                EvalLifetime,
-                                            ),
-                                        },
-                                    ),
-                                    argument: Entity(
-                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                    ),
-                                },
-                            ),
-                        },
-                        TermDurantParameter {
-                            ty: Entity(
-                                TypePath(`core::num::f32`, `Alien`),
-                            ),
-                        },
-                    ],
-                    y: Application(
-                        TermApplication {
-                            function: Entity(
-                                TypePath(`core::vec::Vec`, `Alien`),
-                            ),
-                            argument: Entity(
-                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                            ),
-                        },
-                    ),
-                },
-            ),
+            Term(`Fp(Ref TermLiteral::EvalLifetime RawContour, f32) -> List LineSegmentStroke`),
         ),
     ),
 ]

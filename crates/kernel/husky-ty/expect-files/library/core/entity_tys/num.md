@@ -2,137 +2,49 @@
     (
         TypePath(`core::num::i8`, `Alien`),
         Ok(
-            Application(
-                TermApplication {
-                    function: Category(
-                        Sort,
-                    ),
-                    argument: Universe(
-                        TermUniverse(
-                            1,
-                        ),
-                    ),
-                },
-            ),
+            Term(`Type`),
         ),
     ),
     (
         TypePath(`core::num::i16`, `Alien`),
         Ok(
-            Application(
-                TermApplication {
-                    function: Category(
-                        Sort,
-                    ),
-                    argument: Universe(
-                        TermUniverse(
-                            1,
-                        ),
-                    ),
-                },
-            ),
+            Term(`Type`),
         ),
     ),
     (
         TypePath(`core::num::i32`, `Alien`),
         Ok(
-            Application(
-                TermApplication {
-                    function: Category(
-                        Sort,
-                    ),
-                    argument: Universe(
-                        TermUniverse(
-                            1,
-                        ),
-                    ),
-                },
-            ),
+            Term(`Type`),
         ),
     ),
     (
         TypePath(`core::num::i64`, `Alien`),
         Ok(
-            Application(
-                TermApplication {
-                    function: Category(
-                        Sort,
-                    ),
-                    argument: Universe(
-                        TermUniverse(
-                            1,
-                        ),
-                    ),
-                },
-            ),
+            Term(`Type`),
         ),
     ),
     (
         TypePath(`core::num::f8`, `Alien`),
         Ok(
-            Application(
-                TermApplication {
-                    function: Category(
-                        Sort,
-                    ),
-                    argument: Universe(
-                        TermUniverse(
-                            1,
-                        ),
-                    ),
-                },
-            ),
+            Term(`Type`),
         ),
     ),
     (
         TypePath(`core::num::f16`, `Alien`),
         Ok(
-            Application(
-                TermApplication {
-                    function: Category(
-                        Sort,
-                    ),
-                    argument: Universe(
-                        TermUniverse(
-                            1,
-                        ),
-                    ),
-                },
-            ),
+            Term(`Type`),
         ),
     ),
     (
         TypePath(`core::num::f32`, `Alien`),
         Ok(
-            Application(
-                TermApplication {
-                    function: Category(
-                        Sort,
-                    ),
-                    argument: Universe(
-                        TermUniverse(
-                            1,
-                        ),
-                    ),
-                },
-            ),
+            Term(`Type`),
         ),
     ),
     (
         TypePath(`core::num::f64`, `Alien`),
         Ok(
-            Application(
-                TermApplication {
-                    function: Category(
-                        Sort,
-                    ),
-                    argument: Universe(
-                        TermUniverse(
-                            1,
-                        ),
-                    ),
-                },
-            ),
+            Term(`Type`),
         ),
     ),
 ]

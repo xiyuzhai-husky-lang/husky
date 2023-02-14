@@ -1,6 +1,6 @@
 [
     Ok(
-        Type(
+        Signature::Type(
             TypeSignature::Foreign(
                 AlienTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
@@ -11,7 +11,7 @@
         ),
     ),
     Ok(
-        Type(
+        Signature::Type(
             TypeSignature::Structure(
                 StructureTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
@@ -23,12 +23,12 @@
                                         value: 1,
                                     },
                                 ),
-                                ty: Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 1,
-                                        },
-                                    ),
+                                ty: Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
                                 ),
                                 traits: [],
                             },
@@ -39,12 +39,12 @@
                                         value: 2,
                                     },
                                 ),
-                                ty: Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 1,
-                                        },
-                                    ),
+                                ty: Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
                                 ),
                                 traits: [],
                             },
@@ -55,7 +55,7 @@
         ),
     ),
     Ok(
-        Type(
+        Signature::Type(
             TypeSignature::Inductive(
                 InductiveTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
@@ -67,12 +67,12 @@
                                         value: 1,
                                     },
                                 ),
-                                ty: Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 1,
-                                        },
-                                    ),
+                                ty: Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
                                 ),
                                 traits: [],
                             },
@@ -83,12 +83,12 @@
                                         value: 2,
                                     },
                                 ),
-                                ty: Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 1,
-                                        },
-                                    ),
+                                ty: Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
                                 ),
                                 traits: [],
                             },

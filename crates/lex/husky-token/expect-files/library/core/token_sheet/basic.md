@@ -13,47 +13,47 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 12,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Semicolon,
-            ),
-            Attr(
-                Pub,
-            ),
-            Keyword(
-                Type(
-                    Structure,
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 13,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Semicolon,
-            ),
-            Attr(
-                Pub,
-            ),
-            Keyword(
-                Type(
-                    Structure,
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
                             value: 14,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Semicolon,
+            ),
+            Attr(
+                Pub,
+            ),
+            Keyword(
+                Type(
+                    Structure,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 15,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Semicolon,
+            ),
+            Attr(
+                Pub,
+            ),
+            Keyword(
+                Type(
+                    Structure,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 16,
                         },
                     ),
                 ),

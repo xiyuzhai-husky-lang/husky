@@ -2,69 +2,25 @@
     (
         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
         Ok(
-            Application(
-                TermApplication {
-                    function: Category(
-                        Sort,
-                    ),
-                    argument: Universe(
-                        TermUniverse(
-                            1,
-                        ),
-                    ),
-                },
-            ),
+            Term(`Type`),
         ),
     ),
     (
         TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
         Ok(
-            Application(
-                TermApplication {
-                    function: Category(
-                        Sort,
-                    ),
-                    argument: Universe(
-                        TermUniverse(
-                            1,
-                        ),
-                    ),
-                },
-            ),
+            Term(`Type`),
         ),
     ),
     (
         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
         Ok(
-            Application(
-                TermApplication {
-                    function: Category(
-                        Sort,
-                    ),
-                    argument: Universe(
-                        TermUniverse(
-                            1,
-                        ),
-                    ),
-                },
-            ),
+            Term(`Type`),
         ),
     ),
     (
         TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
         Ok(
-            Application(
-                TermApplication {
-                    function: Category(
-                        Sort,
-                    ),
-                    argument: Universe(
-                        TermUniverse(
-                            1,
-                        ),
-                    ),
-                },
-            ),
+            Term(`Type`),
         ),
     ),
     (
@@ -78,18 +34,7 @@
     (
         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
         Ok(
-            Application(
-                TermApplication {
-                    function: Category(
-                        Sort,
-                    ),
-                    argument: Universe(
-                        TermUniverse(
-                            1,
-                        ),
-                    ),
-                },
-            ),
+            Term(`Type`),
         ),
     ),
 ]

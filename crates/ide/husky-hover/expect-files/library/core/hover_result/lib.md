@@ -100,7 +100,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 3;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 5,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 3;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 6,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -160,7 +160,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 5;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 7,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 5;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 8,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -220,7 +220,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 7;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 8,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 7;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 9,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -280,7 +280,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 9;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 9,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 9;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 10,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -291,7 +291,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 4,
-                                    character: 11,
+                                    character: 7,
                                 },
                             },
                         ),
@@ -340,7 +340,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 11;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 10,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 11;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 11,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -351,7 +351,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 5,
-                                    character: 12,
+                                    character: 11,
                                 },
                             },
                         ),
@@ -400,7 +400,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 13;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 4,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 13;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 12,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -411,7 +411,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 6,
-                                    character: 7,
+                                    character: 12,
                                 },
                             },
                         ),
@@ -460,7 +460,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 15;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 2,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 15;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 4,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -471,7 +471,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 7,
-                                    character: 9,
+                                    character: 7,
                                 },
                             },
                         ),
@@ -520,7 +520,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 17;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 6,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 17;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 2,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -531,7 +531,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 8,
-                                    character: 10,
+                                    character: 9,
                                 },
                             },
                         ),
@@ -580,7 +580,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 19;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 11,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 19;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 7,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -591,7 +591,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 9,
-                                    character: 7,
+                                    character: 10,
                                 },
                             },
                         ),
@@ -640,7 +640,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 21;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 3,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 21;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 13,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -651,6 +651,66 @@ Ok(
                                 },
                                 end: Position {
                                     line: 10,
+                                    character: 7,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                22,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "Other\ntoken_idx = 22;\n\ntoken = Keyword(\n    Mod,\n);\n\ntoken_info = None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 11,
+                                    character: 0,
+                                },
+                                end: Position {
+                                    line: 11,
+                                    character: 3,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                23,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 23;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 3,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 11,
+                                    character: 4,
+                                },
+                                end: Position {
+                                    line: 11,
                                     character: 7,
                                 },
                             },

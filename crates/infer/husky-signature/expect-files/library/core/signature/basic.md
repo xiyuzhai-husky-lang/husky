@@ -1,6 +1,6 @@
 [
     Ok(
-        Type(
+        Signature::Type(
             TypeSignature::Foreign(
                 AlienTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
@@ -11,7 +11,7 @@
         ),
     ),
     Ok(
-        Type(
+        Signature::Type(
             TypeSignature::Structure(
                 StructureTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
@@ -22,7 +22,7 @@
         ),
     ),
     Ok(
-        Type(
+        Signature::Type(
             TypeSignature::Structure(
                 StructureTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
