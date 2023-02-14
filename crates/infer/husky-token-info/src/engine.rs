@@ -297,7 +297,7 @@ impl<'a> AuxInferEngine<'a> {
             | Expr::RitchieCall { .. }
             | Expr::Be { .. } => (),
             Expr::BoxColon { .. } => (),
-            Expr::ApplicationOrFunctionCall { function, .. }
+            Expr::ApplicationOrRitchieCall { function, .. }
             | Expr::Application { function, .. } => match self.symbol_context[*function] {
                 Expr::NewBoxList {
                     caller: None,

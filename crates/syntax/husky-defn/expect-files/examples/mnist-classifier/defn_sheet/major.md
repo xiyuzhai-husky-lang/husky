@@ -135,7 +135,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        Expr::ApplicationOrFunctionCall {
+                                        Expr::ApplicationOrRitchieCall {
                                             function: 0,
                                             lpar_token_idx: TokenIdx(
                                                 39,

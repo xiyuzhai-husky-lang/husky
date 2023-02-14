@@ -3616,7 +3616,7 @@ Ok(
                                                 pattern_symbol_idx: 4,
                                             },
                                         },
-                                        Expr::ApplicationOrFunctionCall {
+                                        Expr::ApplicationOrRitchieCall {
                                             function: 109,
                                             lpar_token_idx: TokenIdx(
                                                 862,
@@ -5380,7 +5380,7 @@ Ok(
                                                     97,
                                                 ),
                                             ),
-                                            Expr::ApplicationOrFunctionCall {
+                                            Expr::ApplicationOrRitchieCall {
                                                 function: 0,
                                                 lpar_token_idx: TokenIdx(
                                                     96,
@@ -6106,7 +6106,7 @@ Ok(
                                                     pattern_symbol_idx: 1,
                                                 },
                                             },
-                                            Expr::ApplicationOrFunctionCall {
+                                            Expr::ApplicationOrRitchieCall {
                                                 function: 22,
                                                 lpar_token_idx: TokenIdx(
                                                     157,

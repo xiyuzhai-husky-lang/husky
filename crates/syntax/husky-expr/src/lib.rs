@@ -116,7 +116,7 @@ pub enum Expr {
         punctuation: SuffixOpr,
         punctuation_token_idx: TokenIdx,
     },
-    ApplicationOrFunctionCall {
+    ApplicationOrRitchieCall {
         function: ExprIdx,
         lpar_token_idx: TokenIdx,
         argument: ExprIdx,

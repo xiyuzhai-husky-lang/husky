@@ -70,7 +70,7 @@ impl Expr {
             Expr::Field { .. } => BaseEntityPath::None,
             Expr::MethodCall { .. } => BaseEntityPath::None,
             Expr::Application { function, argument } => todo!(),
-            Expr::ApplicationOrFunctionCall { .. } => todo!(),
+            Expr::ApplicationOrRitchieCall { .. } => todo!(),
             Expr::RitchieCall { .. } => todo!(),
             Expr::NewTuple {
                 lpar_token_idx,
