@@ -1,98 +1,63 @@
 [
     Ok(
-        Form(
-            Feature(
+        Signature::Form(
+            FormSignature::Feature(
                 FeatureSignature {
-                    output_ty: Application(
-                        TermApplication {
-                            function: Entity(
-                                TypePath(`core::vec::Vec`, `Alien`),
-                            ),
-                            argument: Entity(
-                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                            ),
-                        },
-                    ),
+                    return_ty: Term(`List ConnectedComponent`),
                 },
             ),
         ),
     ),
     Ok(
-        Form(
-            Feature(
+        Signature::Form(
+            FormSignature::Feature(
                 FeatureSignature {
-                    output_ty: Entity(
-                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                    ),
+                    return_ty: Term(`ConnectedComponent`),
                 },
             ),
         ),
     ),
     Ok(
-        Form(
-            Feature(
+        Signature::Form(
+            FormSignature::Feature(
                 FeatureSignature {
-                    output_ty: Entity(
-                        TypePath(`core::num::f32`, `Alien`),
-                    ),
+                    return_ty: Term(`f32`),
                 },
             ),
         ),
     ),
     Ok(
-        Form(
-            Feature(
+        Signature::Form(
+            FormSignature::Feature(
                 FeatureSignature {
-                    output_ty: Application(
-                        TermApplication {
-                            function: Entity(
-                                TypePath(`core::vec::Vec`, `Alien`),
-                            ),
-                            argument: Entity(
-                                TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                            ),
-                        },
-                    ),
+                    return_ty: Term(`List RawContour`),
                 },
             ),
         ),
     ),
     Ok(
-        Form(
-            Feature(
+        Signature::Form(
+            FormSignature::Feature(
                 FeatureSignature {
-                    output_ty: Entity(
-                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                    ),
+                    return_ty: Term(`RawContour`),
                 },
             ),
         ),
     ),
     Ok(
-        Form(
-            Feature(
+        Signature::Form(
+            FormSignature::Feature(
                 FeatureSignature {
-                    output_ty: Entity(
-                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                    ),
+                    return_ty: Term(`LineSegmentSketch`),
                 },
             ),
         ),
     ),
     Ok(
-        Form(
-            Feature(
+        Signature::Form(
+            FormSignature::Feature(
                 FeatureSignature {
-                    output_ty: Application(
-                        TermApplication {
-                            function: Entity(
-                                TypePath(`core::vec::Vec`, `Alien`),
-                            ),
-                            argument: Entity(
-                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                            ),
-                        },
-                    ),
+                    return_ty: Term(`List ConcaveComponent`),
                 },
             ),
         ),

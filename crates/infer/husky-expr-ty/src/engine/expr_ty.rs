@@ -81,7 +81,7 @@ impl<'a> ExprTypeEngine<'a> {
                     Ok(ty) => Ok(ty.into()),
                     Err(_) => Err(DerivedExprTypeError::EntityTypeError.into()),
                 },
-                None => todo!(),
+                None => Err(DerivedExprTypeError::EntityPathError.into()),
             },
             Expr::InheritedSymbol {
                 ident,

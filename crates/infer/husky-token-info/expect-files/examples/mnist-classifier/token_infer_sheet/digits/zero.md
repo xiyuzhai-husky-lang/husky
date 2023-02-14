@@ -73,7 +73,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 21,
+                                value: 24,
                             },
                         ),
                     ),
@@ -89,7 +89,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 21,
+                                value: 22,
                             },
                         ),
                     ),
@@ -107,7 +107,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 21,
+                                value: 24,
                             },
                         ),
                     ),
@@ -123,7 +123,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 19,
+                                value: 20,
                             },
                         ),
                     ),
@@ -141,7 +141,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 21,
+                                value: 24,
                             },
                         ),
                     ),
@@ -157,7 +157,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 18,
+                                value: 19,
                             },
                         ),
                     ),
@@ -173,7 +173,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 22,
+                                value: 23,
                             },
                         ),
                     ),
@@ -191,7 +191,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 21,
+                                value: 24,
                             },
                         ),
                     ),
@@ -305,7 +305,7 @@ Ok(
             CurrentSymbol {
                 current_symbol_idx: 0,
                 current_symbol_kind: Parameter {
-                    pattern_symbol: 0,
+                    pattern_symbol_idx: 0,
                 },
                 expr_region: ExprRegion(
                     Id {
@@ -321,7 +321,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 31,
+                                    value: 32,
                                 },
                             ),
                         ),
@@ -338,7 +338,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 13,
+                                    value: 15,
                                 },
                             ),
                         ),
@@ -350,7 +350,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
                         value: 166,
@@ -367,7 +367,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
                         value: 166,

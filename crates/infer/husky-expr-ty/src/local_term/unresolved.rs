@@ -215,6 +215,7 @@ impl UnresolvedTerms {
             LocalTermExpectation::EqsRitchieCallTy => todo!(),
             LocalTermExpectation::InsSort { .. } => Ok(None),
             LocalTermExpectation::EqsExactly { destination } => todo!(),
+            LocalTermExpectation::ExplicitlyConvertible(_) => todo!(),
         }
     }
 }

@@ -9,7 +9,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -33,7 +33,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 13,
+                                    value: 15,
                                 },
                             ),
                         ),
@@ -50,7 +50,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 13,
+                                    value: 15,
                                 },
                             ),
                         ),
@@ -67,7 +67,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -102,7 +102,7 @@ Ok(
             CurrentSymbol {
                 current_symbol_idx: 0,
                 current_symbol_kind: Parameter {
-                    pattern_symbol: 0,
+                    pattern_symbol_idx: 0,
                 },
                 expr_region: ExprRegion(
                     Id {
@@ -117,7 +117,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 9,
+                                    value: 11,
                                 },
                             ),
                         ),
@@ -129,7 +129,7 @@ Ok(
             CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: Parameter {
-                    pattern_symbol: 1,
+                    pattern_symbol_idx: 1,
                 },
                 expr_region: ExprRegion(
                     Id {
@@ -144,7 +144,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 9,
+                                    value: 11,
                                 },
                             ),
                         ),
@@ -160,7 +160,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -175,36 +175,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 23,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
-                expr_region: ExprRegion(
-                    Id {
-                        value: 210,
-                    },
-                ),
-            },
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 13,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -218,7 +189,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
                         value: 210,
@@ -233,7 +204,36 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 13,
+                                    value: 15,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            None,
+            InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: RegularParameter,
+                expr_region: ExprRegion(
+                    Id {
+                        value: 210,
+                    },
+                ),
+            },
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 15,
                                 },
                             ),
                         ),
@@ -272,7 +272,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 25,
+                                    value: 26,
                                 },
                             ),
                         ),
@@ -287,7 +287,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 25,
+                                    value: 26,
                                 },
                             ),
                         ),
@@ -329,7 +329,7 @@ Ok(
             CurrentSymbol {
                 current_symbol_idx: 0,
                 current_symbol_kind: Parameter {
-                    pattern_symbol: 0,
+                    pattern_symbol_idx: 0,
                 },
                 expr_region: ExprRegion(
                     Id {
@@ -344,7 +344,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -360,7 +360,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 25,
+                                    value: 26,
                                 },
                             ),
                         ),
@@ -375,7 +375,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 25,
+                                    value: 26,
                                 },
                             ),
                         ),
@@ -386,7 +386,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
                         value: 212,
@@ -402,7 +402,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
                         value: 212,
@@ -446,7 +446,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 13,
+                                    value: 15,
                                 },
                             ),
                         ),
@@ -501,7 +501,7 @@ Ok(
             CurrentSymbol {
                 current_symbol_idx: 0,
                 current_symbol_kind: Parameter {
-                    pattern_symbol: 0,
+                    pattern_symbol_idx: 0,
                 },
                 expr_region: ExprRegion(
                     Id {
@@ -516,7 +516,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -532,7 +532,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 13,
+                                    value: 15,
                                 },
                             ),
                         ),
@@ -547,7 +547,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
                         value: 214,
@@ -567,65 +567,6 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 24,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Type(
-                            Struct,
-                        ),
-                        connection: Connected,
-                    },
-                ),
-            ),
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
                                     value: 25,
                                 },
                             ),
@@ -650,7 +591,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 13,
+                                    value: 15,
                                 },
                             ),
                         ),
@@ -667,7 +608,49 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 13,
+                                    value: 15,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 26,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Type(
+                            Struct,
+                        ),
+                        connection: Connected,
+                    },
+                ),
+            ),
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 15,
                                 },
                             ),
                         ),
@@ -684,7 +667,24 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 25,
+                                    value: 15,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 26,
                                 },
                             ),
                         ),
@@ -724,7 +724,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -739,7 +739,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -782,7 +782,7 @@ Ok(
             CurrentSymbol {
                 current_symbol_idx: 0,
                 current_symbol_kind: Parameter {
-                    pattern_symbol: 0,
+                    pattern_symbol_idx: 0,
                 },
                 expr_region: ExprRegion(
                     Id {
@@ -797,7 +797,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 25,
+                                    value: 26,
                                 },
                             ),
                         ),
@@ -813,7 +813,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 25,
+                                    value: 26,
                                 },
                             ),
                         ),
@@ -828,7 +828,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 25,
+                                    value: 26,
                                 },
                             ),
                         ),
@@ -839,7 +839,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
                         value: 216,
@@ -855,7 +855,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
                         value: 216,
@@ -899,7 +899,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 13,
+                                    value: 15,
                                 },
                             ),
                         ),
@@ -954,7 +954,7 @@ Ok(
             CurrentSymbol {
                 current_symbol_idx: 0,
                 current_symbol_kind: Parameter {
-                    pattern_symbol: 0,
+                    pattern_symbol_idx: 0,
                 },
                 expr_region: ExprRegion(
                     Id {
@@ -969,7 +969,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 25,
+                                    value: 26,
                                 },
                             ),
                         ),
@@ -985,7 +985,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 13,
+                                    value: 15,
                                 },
                             ),
                         ),
@@ -1000,7 +1000,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
                         value: 218,
@@ -1016,7 +1016,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
                         value: 218,
@@ -1050,7 +1050,7 @@ Ok(
             CurrentSymbol {
                 current_symbol_idx: 0,
                 current_symbol_kind: Parameter {
-                    pattern_symbol: 0,
+                    pattern_symbol_idx: 0,
                 },
                 expr_region: ExprRegion(
                     Id {
@@ -1065,7 +1065,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 25,
+                                    value: 26,
                                 },
                             ),
                         ),
@@ -1081,7 +1081,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 13,
+                                    value: 15,
                                 },
                             ),
                         ),
@@ -1096,7 +1096,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
                         value: 219,
@@ -1112,7 +1112,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
                         value: 219,
@@ -1146,7 +1146,7 @@ Ok(
             CurrentSymbol {
                 current_symbol_idx: 0,
                 current_symbol_kind: Parameter {
-                    pattern_symbol: 0,
+                    pattern_symbol_idx: 0,
                 },
                 expr_region: ExprRegion(
                     Id {
@@ -1177,7 +1177,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 13,
+                                    value: 15,
                                 },
                             ),
                         ),
@@ -1190,7 +1190,7 @@ Ok(
             CurrentSymbol {
                 current_symbol_idx: 0,
                 current_symbol_kind: LetVariable {
-                    pattern_symbol: 0,
+                    pattern_symbol_idx: 0,
                 },
                 expr_region: ExprRegion(
                     Id {
@@ -1219,7 +1219,7 @@ Ok(
             CurrentSymbol {
                 current_symbol_idx: 0,
                 current_symbol_kind: LetVariable {
-                    pattern_symbol: 0,
+                    pattern_symbol_idx: 0,
                 },
                 expr_region: ExprRegion(
                     Id {
@@ -1235,7 +1235,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
                         value: 220,
@@ -1265,7 +1265,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 13,
+                                    value: 15,
                                 },
                             ),
                         ),
@@ -1311,7 +1311,7 @@ Ok(
             CurrentSymbol {
                 current_symbol_idx: 0,
                 current_symbol_kind: Parameter {
-                    pattern_symbol: 0,
+                    pattern_symbol_idx: 0,
                 },
                 expr_region: ExprRegion(
                     Id {
@@ -1326,7 +1326,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 25,
+                                    value: 26,
                                 },
                             ),
                         ),
@@ -1342,7 +1342,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 9,
+                                    value: 11,
                                 },
                             ),
                         ),
@@ -1357,7 +1357,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
                         value: 221,
@@ -1394,7 +1394,7 @@ Ok(
             CurrentSymbol {
                 current_symbol_idx: 0,
                 current_symbol_kind: Parameter {
-                    pattern_symbol: 0,
+                    pattern_symbol_idx: 0,
                 },
                 expr_region: ExprRegion(
                     Id {
@@ -1409,7 +1409,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 25,
+                                    value: 26,
                                 },
                             ),
                         ),
@@ -1421,7 +1421,7 @@ Ok(
             CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: Parameter {
-                    pattern_symbol: 1,
+                    pattern_symbol_idx: 1,
                 },
                 expr_region: ExprRegion(
                     Id {
@@ -1452,7 +1452,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 13,
+                                    value: 15,
                                 },
                             ),
                         ),
@@ -1465,7 +1465,7 @@ Ok(
             CurrentSymbol {
                 current_symbol_idx: 0,
                 current_symbol_kind: LetVariable {
-                    pattern_symbol: 0,
+                    pattern_symbol_idx: 0,
                 },
                 expr_region: ExprRegion(
                     Id {
@@ -1483,7 +1483,7 @@ Ok(
             CurrentSymbol {
                 current_symbol_idx: 0,
                 current_symbol_kind: LetVariable {
-                    pattern_symbol: 0,
+                    pattern_symbol_idx: 0,
                 },
                 expr_region: ExprRegion(
                     Id {
@@ -1497,7 +1497,7 @@ Ok(
             CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: LetVariable {
-                    pattern_symbol: 1,
+                    pattern_symbol_idx: 1,
                 },
                 expr_region: ExprRegion(
                     Id {
@@ -1505,115 +1505,115 @@ Ok(
                     },
                 ),
             },
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 1,
-                inherited_symbol_kind: Parameter,
-                expr_region: ExprRegion(
-                    Id {
-                        value: 222,
-                    },
-                ),
-            },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 222,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol: 2,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 222,
-                    },
-                ),
-            },
-            None,
-            None,
-            SelfValue,
-            None,
-            Method,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 1,
-                inherited_symbol_kind: Parameter,
-                expr_region: ExprRegion(
-                    Id {
-                        value: 222,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol: 2,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 222,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol: 1,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 222,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 222,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            None,
-            None,
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_kind: RegularParameter,
+                expr_region: ExprRegion(
+                    Id {
+                        value: 222,
+                    },
+                ),
+            },
+            None,
+            Method,
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 222,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 2,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 222,
+                    },
+                ),
+            },
+            None,
+            None,
+            SelfValue,
+            None,
+            Method,
+            None,
+            InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: RegularParameter,
+                expr_region: ExprRegion(
+                    Id {
+                        value: 222,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 222,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 222,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 2,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 222,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            InheritedSymbol {
+                inherited_symbol_idx: 1,
+                inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
                         value: 222,
@@ -1632,7 +1632,7 @@ Ok(
             CurrentSymbol {
                 current_symbol_idx: 3,
                 current_symbol_kind: LetVariable {
-                    pattern_symbol: 3,
+                    pattern_symbol_idx: 3,
                 },
                 expr_region: ExprRegion(
                     Id {
@@ -1647,8 +1647,8 @@ Ok(
             Method,
             None,
             InheritedSymbol {
-                inherited_symbol_idx: 1,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
                         value: 222,
@@ -1663,7 +1663,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 13,
+                                    value: 15,
                                 },
                             ),
                         ),
@@ -1674,9 +1674,9 @@ Ok(
             None,
             None,
             CurrentSymbol {
-                current_symbol_idx: 1,
+                current_symbol_idx: 2,
                 current_symbol_kind: LetVariable {
-                    pattern_symbol: 1,
+                    pattern_symbol_idx: 2,
                 },
                 expr_region: ExprRegion(
                     Id {
@@ -1689,9 +1689,9 @@ Ok(
             None,
             None,
             CurrentSymbol {
-                current_symbol_idx: 0,
+                current_symbol_idx: 3,
                 current_symbol_kind: LetVariable {
-                    pattern_symbol: 0,
+                    pattern_symbol_idx: 3,
                 },
                 expr_region: ExprRegion(
                     Id {
@@ -1711,7 +1711,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 26,
+                                    value: 27,
                                 },
                             ),
                         ),
@@ -1735,7 +1735,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 13,
+                                    value: 15,
                                 },
                             ),
                         ),
@@ -1752,7 +1752,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 13,
+                                    value: 15,
                                 },
                             ),
                         ),
@@ -1879,7 +1879,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 27,
+                                    value: 28,
                                 },
                             ),
                         ),
@@ -1913,7 +1913,7 @@ Ok(
             CurrentSymbol {
                 current_symbol_idx: 0,
                 current_symbol_kind: Parameter {
-                    pattern_symbol: 0,
+                    pattern_symbol_idx: 0,
                 },
                 expr_region: ExprRegion(
                     Id {
@@ -1928,7 +1928,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 27,
+                                    value: 28,
                                 },
                             ),
                         ),
@@ -1944,7 +1944,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 29,
                                 },
                             ),
                         ),
@@ -1959,7 +1959,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 29,
                                 },
                             ),
                         ),
@@ -1976,7 +1976,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
                         value: 223,
@@ -1995,7 +1995,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
                         value: 223,
@@ -2032,7 +2032,7 @@ Ok(
             CurrentSymbol {
                 current_symbol_idx: 0,
                 current_symbol_kind: Parameter {
-                    pattern_symbol: 0,
+                    pattern_symbol_idx: 0,
                 },
                 expr_region: ExprRegion(
                     Id {
@@ -2047,7 +2047,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -2063,7 +2063,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 24,
+                                    value: 25,
                                 },
                             ),
                         ),
@@ -2078,7 +2078,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 24,
+                                    value: 25,
                                 },
                             ),
                         ),
@@ -2095,7 +2095,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
                         value: 224,
@@ -2114,7 +2114,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
                         value: 224,
@@ -2156,7 +2156,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 13,
+                                    value: 15,
                                 },
                             ),
                         ),
@@ -2200,7 +2200,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 13,
+                                    value: 15,
                                 },
                             ),
                         ),
@@ -2244,7 +2244,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 13,
+                                    value: 15,
                                 },
                             ),
                         ),
@@ -2288,7 +2288,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 13,
+                                    value: 15,
                                 },
                             ),
                         ),
@@ -2310,7 +2310,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 29,
                                 },
                             ),
                         ),
@@ -2334,7 +2334,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 26,
+                                    value: 27,
                                 },
                             ),
                         ),
@@ -2351,7 +2351,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 26,
+                                    value: 27,
                                 },
                             ),
                         ),
@@ -2368,7 +2368,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 29,
                                 },
                             ),
                         ),
@@ -2407,7 +2407,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 13,
+                                    value: 15,
                                 },
                             ),
                         ),
@@ -2451,7 +2451,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 13,
+                                    value: 15,
                                 },
                             ),
                         ),
@@ -2495,7 +2495,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 13,
+                                    value: 15,
                                 },
                             ),
                         ),
@@ -2539,7 +2539,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 13,
+                                    value: 15,
                                 },
                             ),
                         ),

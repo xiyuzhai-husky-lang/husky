@@ -36,6 +36,10 @@ pub enum OriginalExprTypeError {
     TypeError(#[from] OriginalTypeError),
     #[error("TodoScopeResolution")]
     TodoScopeResolution,
+    #[error("TodoSuffix")]
+    TodoSuffix,
+    #[error("TodoBoxColon")]
+    TodoBoxColon,
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -85,6 +89,8 @@ pub enum DerivedExprTypeError {
     SelfTypeNotInferredForSelfValue,
     #[error("UnresolvedLocalTerm")]
     UnresolvedLocalTerm,
+    #[error("EntityPathError")]
+    EntityPathError,
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;

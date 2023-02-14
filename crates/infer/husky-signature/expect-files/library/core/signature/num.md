@@ -1,6 +1,6 @@
 [
     Ok(
-        Type(
+        Signature::Type(
             TypeSignature::Foreign(
                 AlienTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
@@ -11,7 +11,7 @@
         ),
     ),
     Ok(
-        Type(
+        Signature::Type(
             TypeSignature::Foreign(
                 AlienTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
@@ -22,7 +22,7 @@
         ),
     ),
     Ok(
-        Type(
+        Signature::Type(
             TypeSignature::Foreign(
                 AlienTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
@@ -33,7 +33,7 @@
         ),
     ),
     Ok(
-        Type(
+        Signature::Type(
             TypeSignature::Foreign(
                 AlienTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
@@ -44,7 +44,7 @@
         ),
     ),
     Ok(
-        Type(
+        Signature::Type(
             TypeSignature::Foreign(
                 AlienTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
@@ -55,7 +55,7 @@
         ),
     ),
     Ok(
-        Type(
+        Signature::Type(
             TypeSignature::Foreign(
                 AlienTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
@@ -66,7 +66,7 @@
         ),
     ),
     Ok(
-        Type(
+        Signature::Type(
             TypeSignature::Foreign(
                 AlienTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
@@ -77,7 +77,7 @@
         ),
     ),
     Ok(
-        Type(
+        Signature::Type(
             TypeSignature::Foreign(
                 AlienTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
@@ -88,264 +88,232 @@
         ),
     ),
     Ok(
-        ImplBlock(
-            TypeImplBlock(
+        Signature::ImplBlock(
+            ImplBlockSignature::TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Entity(
-                        TypePath(`core::num::i8`, `Alien`),
-                    ),
+                    ty: Term(`i8`),
                 },
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`core::num::i8`, `Alien`),
-                        ),
+                        return_ty: Term(`i8`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        ImplBlock(
-            TypeImplBlock(
+        Signature::ImplBlock(
+            ImplBlockSignature::TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Entity(
-                        TypePath(`core::num::i16`, `Alien`),
-                    ),
+                    ty: Term(`i16`),
                 },
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`core::num::i16`, `Alien`),
-                        ),
+                        return_ty: Term(`i16`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        ImplBlock(
-            TypeImplBlock(
+        Signature::ImplBlock(
+            ImplBlockSignature::TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Entity(
-                        TypePath(`core::num::i32`, `Alien`),
-                    ),
+                    ty: Term(`i32`),
                 },
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`core::num::i32`, `Alien`),
-                        ),
+                        return_ty: Term(`i32`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        ImplBlock(
-            TypeImplBlock(
+        Signature::ImplBlock(
+            ImplBlockSignature::TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Entity(
-                        TypePath(`core::num::i64`, `Alien`),
-                    ),
+                    ty: Term(`i64`),
                 },
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`core::num::i64`, `Alien`),
-                        ),
+                        return_ty: Term(`i64`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        ImplBlock(
-            TypeImplBlock(
+        Signature::ImplBlock(
+            ImplBlockSignature::TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Entity(
-                        TypePath(`core::num::f8`, `Alien`),
-                    ),
+                    ty: Term(`f8`),
                 },
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`core::num::f8`, `Alien`),
-                        ),
+                        return_ty: Term(`f8`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        ImplBlock(
-            TypeImplBlock(
+        Signature::ImplBlock(
+            ImplBlockSignature::TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Entity(
-                        TypePath(`core::num::f16`, `Alien`),
-                    ),
+                    ty: Term(`f16`),
                 },
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`core::num::f16`, `Alien`),
-                        ),
+                        return_ty: Term(`f16`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        ImplBlock(
-            TypeImplBlock(
+        Signature::ImplBlock(
+            ImplBlockSignature::TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Entity(
-                        TypePath(`core::num::f32`, `Alien`),
-                    ),
+                    ty: Term(`f32`),
                 },
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`core::num::f32`, `Alien`),
-                        ),
+                        return_ty: Term(`f32`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        ImplBlock(
-            TypeImplBlock(
+        Signature::ImplBlock(
+            ImplBlockSignature::TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Entity(
-                        TypePath(`core::num::f64`, `Alien`),
-                    ),
+                    ty: Term(`f64`),
                 },
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: ParameterSignatures {
+                        parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        output_ty: Entity(
-                            TypePath(`core::num::f64`, `Alien`),
-                        ),
+                        return_ty: Term(`f64`),
                     },
                 ),
             ),

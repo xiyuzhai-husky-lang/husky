@@ -1,6 +1,6 @@
 [
     Ok(
-        Trait(
+        Signature::Trait(
             TraitSignature {
                 implicit_parameters: ImplicitParameterSignatures {
                     data: [],
@@ -9,7 +9,7 @@
         ),
     ),
     Ok(
-        Trait(
+        Signature::Trait(
             TraitSignature {
                 implicit_parameters: ImplicitParameterSignatures {
                     data: [],

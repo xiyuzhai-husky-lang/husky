@@ -680,6 +680,13 @@ fn super_token_works() {
 pub enum VarianceToken {
     Covariant(CovariantToken),
     Contravariant(ContravariantToken),
+    Invariant(InvariantToken),
+}
+
+impl From<CovariantToken> for VarianceToken {
+    fn from(v: CovariantToken) -> Self {
+        Self::Covariant(v)
+    }
 }
 
 impl From<ContravariantToken> for VarianceToken {
@@ -688,9 +695,9 @@ impl From<ContravariantToken> for VarianceToken {
     }
 }
 
-impl From<CovariantToken> for VarianceToken {
-    fn from(v: CovariantToken) -> Self {
-        Self::Covariant(v)
+impl From<InvariantToken> for VarianceToken {
+    fn from(v: InvariantToken) -> Self {
+        Self::Invariant(v)
     }
 }
 
@@ -708,6 +715,9 @@ where
                 }
                 Token::Keyword(Keyword::Pattern(PatternKeyword::Contravariant)) => {
                     Ok(Some(ContravariantToken { token_idx }.into()))
+                }
+                Token::Keyword(Keyword::Pattern(PatternKeyword::Invariant)) => {
+                    Ok(Some(InvariantToken { token_idx }.into()))
                 }
                 Token::Err(_)
                 | Token::Punctuation(_)
@@ -759,6 +769,17 @@ pub struct ContravariantToken {
 }
 
 impl ContravariantToken {
+    pub fn token_idx(self) -> TokenIdx {
+        self.token_idx
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct InvariantToken {
+    token_idx: TokenIdx,
+}
+
+impl InvariantToken {
     pub fn token_idx(self) -> TokenIdx {
         self.token_idx
     }

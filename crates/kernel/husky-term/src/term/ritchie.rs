@@ -29,7 +29,10 @@ where
             TermRitchieKind::FnMut => f.write_str("FnMut(")?,
         }
         for (i, parameter_ty) in self.parameter_tys(db).iter().enumerate() {
-            todo!()
+            if i > 0 {
+                f.write_str(", ")?
+            }
+            parameter_ty.display_with_db_fmt(f, db, include_all_fields)?
         }
         f.write_str(") -> ")?;
         self.return_ty(db)
@@ -40,6 +43,20 @@ where
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct TermRitchieParameter {
     ty: Term,
+}
+
+impl<Db> salsa::DisplayWithDb<Db> for TermRitchieParameter
+where
+    Db: TermDb + ?Sized,
+{
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        self.ty.display_with_db_fmt(f, db, include_all_fields)
+    }
 }
 
 impl TermRitchieParameter {

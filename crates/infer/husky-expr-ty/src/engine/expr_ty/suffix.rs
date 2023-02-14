@@ -6,10 +6,12 @@ impl<'a> ExprTypeEngine<'a> {
         opd: ExprIdx,
         opr: SuffixOpr,
     ) -> ExprTypeResult<LocalTerm> {
-        match opr {
-            SuffixOpr::Incr => todo!(),
-            SuffixOpr::Decr => todo!(),
-            SuffixOpr::Unveil => todo!(),
-        }
+        // match opr {
+        //     SuffixOpr::Incr => todo!(),
+        //     SuffixOpr::Decr => todo!(),
+        //     SuffixOpr::Unveil => todo!(),
+        // }
+
+        Err(OriginalExprTypeError::TodoSuffix.into())
     }
 }

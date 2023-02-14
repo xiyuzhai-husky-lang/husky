@@ -2,120 +2,19 @@
     (
         TypePath(`core::logic::Prop`, `Alien`),
         Ok(
-            Application(
-                TermApplication {
-                    function: Category(
-                        Sort,
-                    ),
-                    argument: Universe(
-                        TermUniverse(
-                            1,
-                        ),
-                    ),
-                },
-            ),
+            Term(`Type`),
         ),
     ),
     (
         TypePath(`core::logic::LogicAnd`, `Structure`),
         Ok(
-            Curry(
-                TermCurry {
-                    variance: Independent,
-                    x: Application(
-                        TermApplication {
-                            function: Category(
-                                Sort,
-                            ),
-                            argument: Universe(
-                                TermUniverse(
-                                    1,
-                                ),
-                            ),
-                        },
-                    ),
-                    y: Curry(
-                        TermCurry {
-                            variance: Independent,
-                            x: Application(
-                                TermApplication {
-                                    function: Category(
-                                        Sort,
-                                    ),
-                                    argument: Universe(
-                                        TermUniverse(
-                                            1,
-                                        ),
-                                    ),
-                                },
-                            ),
-                            y: Application(
-                                TermApplication {
-                                    function: Category(
-                                        Sort,
-                                    ),
-                                    argument: Universe(
-                                        TermUniverse(
-                                            1,
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                    ),
-                },
-            ),
+            Term(`TermCurry { variance: Independent, x: Term(`Type`), y: Term(`TermCurry { variance: Independent, x: Term(`Type`), y: Term(`Type`) }`) }`),
         ),
     ),
     (
         TypePath(`core::logic::LogicOr`, `Inductive`),
         Ok(
-            Curry(
-                TermCurry {
-                    variance: Independent,
-                    x: Application(
-                        TermApplication {
-                            function: Category(
-                                Sort,
-                            ),
-                            argument: Universe(
-                                TermUniverse(
-                                    1,
-                                ),
-                            ),
-                        },
-                    ),
-                    y: Curry(
-                        TermCurry {
-                            variance: Independent,
-                            x: Application(
-                                TermApplication {
-                                    function: Category(
-                                        Sort,
-                                    ),
-                                    argument: Universe(
-                                        TermUniverse(
-                                            1,
-                                        ),
-                                    ),
-                                },
-                            ),
-                            y: Application(
-                                TermApplication {
-                                    function: Category(
-                                        Sort,
-                                    ),
-                                    argument: Universe(
-                                        TermUniverse(
-                                            1,
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                    ),
-                },
-            ),
+            Term(`TermCurry { variance: Independent, x: Term(`Type`), y: Term(`TermCurry { variance: Independent, x: Term(`Type`), y: Term(`Type`) }`) }`),
         ),
     ),
 ]

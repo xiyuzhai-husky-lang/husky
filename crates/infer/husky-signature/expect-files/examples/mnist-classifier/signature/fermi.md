@@ -1,6 +1,6 @@
 [
     Ok(
-        Type(
+        Signature::Type(
             TypeSignature::RegularStruct(
                 RegularStructTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
@@ -11,23 +11,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 147,
-                                    },
-                                ),
-                            ),
-                            ty: Application(
-                                TermApplication(
-                                    Id {
-                                        value: 12,
-                                    },
-                                ),
-                            ),
-                        },
-                        RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 363,
+                                        value: 164,
                                     },
                                 ),
                             ),
@@ -39,30 +23,36 @@
                                 ),
                             ),
                         },
+                        RegularStructFieldSignature {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 379,
+                                    },
+                                ),
+                            ),
+                            ty: Application(
+                                TermApplication(
+                                    Id {
+                                        value: 14,
+                                    },
+                                ),
+                            ),
+                        },
                     ],
                 },
             ),
         ),
     ),
     Ok(
-        Form(
-            Function(
+        Signature::Form(
+            FormSignature::Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    parameters: ParameterSignatures {
+                    parameters: RegularParameterSignatures {
                         parameters: [
-                            ParameterSignature {
-                                pattern: ParameterSignaturePattern,
-                                ty: Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 15,
-                                        },
-                                    ),
-                                ),
-                            },
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: Application(
@@ -73,63 +63,63 @@
                                     ),
                                 ),
                             },
+                            ParameterSignature {
+                                pattern: ParameterSignaturePattern,
+                                ty: Application(
+                                    TermApplication(
+                                        Id {
+                                            value: 17,
+                                        },
+                                    ),
+                                ),
+                            },
                         ],
                     },
-                    output_ty: Entity(
-                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                    ),
+                    return_ty: Term(`FermiMatchResult`),
                 },
             ),
         ),
     ),
     Ok(
-        ImplBlock(
-            TypeImplBlock(
+        Signature::ImplBlock(
+            ImplBlockSignature::TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Entity(
-                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                    ),
+                    ty: Term(`FermiMatchResult`),
                 },
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        output_ty: Entity(
-                            TypePath(`core::num::f32`, `Alien`),
-                        ),
+                        return_ty: Term(`f32`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        output_ty: Entity(
-                            TypePath(`core::num::f32`, `Alien`),
-                        ),
+                        return_ty: Term(`f32`),
                     },
                 ),
             ),
         ),
     ),
     Ok(
-        AssociatedItem(
-            TypeItem(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        output_ty: Entity(
-                            TypePath(`core::num::f32`, `Alien`),
-                        ),
+                        return_ty: Term(`f32`),
                     },
                 ),
             ),

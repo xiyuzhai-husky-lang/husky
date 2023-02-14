@@ -1,7 +1,7 @@
 TomlTokenSheet {
     tokens: [
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 0,
                 end: 1,
             },
@@ -11,7 +11,7 @@ TomlTokenSheet {
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 1,
                 end: 8,
             },
@@ -19,13 +19,13 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 21,
+                        value: 39,
                     },
                 ),
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 8,
                 end: 9,
             },
@@ -35,7 +35,7 @@ TomlTokenSheet {
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 10,
                 end: 14,
             },
@@ -43,13 +43,13 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 22,
+                        value: 40,
                     },
                 ),
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 15,
                 end: 16,
             },
@@ -59,7 +59,7 @@ TomlTokenSheet {
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 17,
                 end: 22,
             },
@@ -70,7 +70,7 @@ TomlTokenSheet {
             },
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 23,
                 end: 30,
             },
@@ -78,13 +78,13 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 23,
+                        value: 41,
                     },
                 ),
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 31,
                 end: 32,
             },
@@ -94,7 +94,7 @@ TomlTokenSheet {
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 33,
                 end: 40,
             },
@@ -105,7 +105,7 @@ TomlTokenSheet {
             },
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 41,
                 end: 48,
             },
@@ -113,13 +113,13 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 24,
+                        value: 42,
                     },
                 ),
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 49,
                 end: 50,
             },
@@ -129,7 +129,7 @@ TomlTokenSheet {
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 51,
                 end: 70,
             },
@@ -140,7 +140,7 @@ TomlTokenSheet {
             },
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 71,
                 end: 81,
             },
@@ -148,13 +148,13 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 25,
+                        value: 43,
                     },
                 ),
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 82,
                 end: 83,
             },
@@ -164,7 +164,7 @@ TomlTokenSheet {
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 84,
                 end: 134,
             },
@@ -175,7 +175,7 @@ TomlTokenSheet {
             },
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 135,
                 end: 146,
             },
@@ -183,13 +183,13 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 26,
+                        value: 44,
                     },
                 ),
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 147,
                 end: 148,
             },
@@ -199,7 +199,7 @@ TomlTokenSheet {
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 149,
                 end: 177,
             },
@@ -210,7 +210,7 @@ TomlTokenSheet {
             },
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 178,
                 end: 187,
             },
@@ -218,13 +218,13 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 27,
+                        value: 45,
                     },
                 ),
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 188,
                 end: 189,
             },
@@ -234,7 +234,7 @@ TomlTokenSheet {
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 190,
                 end: 195,
             },
@@ -242,13 +242,13 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 28,
+                        value: 46,
                     },
                 ),
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 196,
                 end: 207,
             },
@@ -256,13 +256,13 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 29,
+                        value: 47,
                     },
                 ),
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 208,
                 end: 209,
             },
@@ -272,7 +272,7 @@ TomlTokenSheet {
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 210,
                 end: 215,
             },
@@ -280,13 +280,13 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 28,
+                        value: 46,
                     },
                 ),
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 216,
                 end: 290,
             },
@@ -294,7 +294,7 @@ TomlTokenSheet {
             variant: Comment,
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 291,
                 end: 367,
             },
@@ -302,7 +302,7 @@ TomlTokenSheet {
             variant: Comment,
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 368,
                 end: 375,
             },
@@ -310,13 +310,13 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 30,
+                        value: 48,
                     },
                 ),
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 376,
                 end: 377,
             },
@@ -326,7 +326,7 @@ TomlTokenSheet {
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 378,
                 end: 384,
             },
@@ -337,7 +337,7 @@ TomlTokenSheet {
             },
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 386,
                 end: 387,
             },
@@ -347,7 +347,7 @@ TomlTokenSheet {
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 387,
                 end: 390,
             },
@@ -355,13 +355,13 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 31,
+                        value: 49,
                     },
                 ),
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 390,
                 end: 391,
             },
@@ -371,7 +371,7 @@ TomlTokenSheet {
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 392,
                 end: 396,
             },
@@ -379,13 +379,13 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 32,
+                        value: 50,
                     },
                 ),
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 397,
                 end: 398,
             },
@@ -395,7 +395,7 @@ TomlTokenSheet {
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 399,
                 end: 404,
             },
@@ -403,13 +403,13 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 28,
+                        value: 46,
                     },
                 ),
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 405,
                 end: 410,
             },
@@ -417,13 +417,13 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 33,
+                        value: 51,
                     },
                 ),
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 411,
                 end: 412,
             },
@@ -433,7 +433,7 @@ TomlTokenSheet {
             ),
         },
         TomlToken {
-            span: TextSpan {
+            span: DocumentSpan {
                 start: 413,
                 end: 418,
             },
@@ -441,7 +441,7 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 28,
+                        value: 46,
                     },
                 ),
             ),

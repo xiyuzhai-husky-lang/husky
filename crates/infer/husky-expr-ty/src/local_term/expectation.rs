@@ -266,8 +266,11 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Option<LocalTermExpectationResolvedOkM> {
         let table = self.local_term_table();
         match rule.expectation {
+            LocalTermExpectation::ExplicitlyConvertible(ref expect) => {
+                self.resolve_explicitly_convertible(rule.expectee, expect.destination, level)
+            }
             LocalTermExpectation::ImplicitlyConversion { destination } => {
-                self.resolve_implicit_conversion_expectation(rule.expectee, destination, level)
+                self.resolve_implicitly_convertible(rule.expectee, destination, level)
             }
             LocalTermExpectation::EqsSort { smallest_universe } => {
                 self.resolve_eqs_sort_expectation(rule.expectee, smallest_universe)
@@ -293,6 +296,7 @@ impl<'a> ExprTypeEngine<'a> {
 #[non_exhaustive]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) enum LocalTermExpectation {
+    ExplicitlyConvertible(ExpectExplicitlyConvertible),
     ImplicitlyConversion {
         destination: LocalTerm,
     },
