@@ -4,6 +4,7 @@ mod box_list;
 mod literal;
 mod prefix;
 mod ritchie_call;
+mod suffix;
 
 use super::*;
 use husky_opn_syntax::*;
@@ -121,12 +122,17 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::Be {
                 src, ref target, ..
             } => {
-                todo!()
+                match self.infer_new_expr_ty(src, ExpectInsSort::default()) {
+                    Some(src_ty) => match target {
+                        Ok(target) => todo!(),
+                        Err(_) => (),
+                    },
+                    None => (),
+                };
+                Ok(self.reduced_term_menu.bool().into())
             }
-            Expr::PrefixOpn { opr, opd, .. } => self.calc_prefix_ty(opd, opr),
-            Expr::SuffixOpn {
-                opd, punctuation, ..
-            } => todo!(),
+            Expr::PrefixOpn { opr, opd, .. } => self.calc_prefix_ty(opr, opd),
+            Expr::SuffixOpn { opd, opr, .. } => self.calc_suffix_ty(opd, opr),
             Expr::ApplicationOrRitchieCall {
                 function, argument, ..
             } => {

@@ -136,7 +136,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         self.replace_top_expr(|this, top_expr| match top_expr {
             Some(expr) => Expr::SuffixOpn {
                 opd: this.alloc_expr(expr),
-                punctuation,
+                opr: punctuation,
                 punctuation_token_idx,
             }
             .into(),

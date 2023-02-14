@@ -3,8 +3,8 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_prefix_ty(
         &mut self,
-        opd: ExprIdx,
         opr: PrefixOpr,
+        opd: ExprIdx,
     ) -> ExprTypeResult<LocalTerm> {
         match opr {
             PrefixOpr::Minus => {

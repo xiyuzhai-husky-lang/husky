@@ -7695,7 +7695,7 @@ Ok(
                                         },
                                         Expr::SuffixOpn {
                                             opd: 191,
-                                            punctuation: Incr,
+                                            opr: Incr,
                                             punctuation_token_idx: TokenIdx(
                                                 1504,
                                             ),

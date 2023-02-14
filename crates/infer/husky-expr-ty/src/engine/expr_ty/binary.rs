@@ -19,7 +19,7 @@ impl<'a> ExprTypeEngine<'a> {
             BinaryOpr::Comparison(_) => self.calc_comparison_expr_ty(lopd, ropd),
             BinaryOpr::ShortCircuitLogic(_) => self.calc_short_circuit_logic_expr_ty(lopd, ropd),
             BinaryOpr::Assign(opr) => self.calc_assign_expr_ty(expr_idx, lopd, opr, ropd),
-            BinaryOpr::ScopeResolution => todo!(),
+            BinaryOpr::ScopeResolution => Err(OriginalExprTypeError::TodoScopeResolution.into()),
             BinaryOpr::Curry => self.calc_curry_expr_ty(lopd, ropd),
             BinaryOpr::As => self.calc_as_expr_ty(ropd, lopd),
             BinaryOpr::Ins => self.calc_ins_expr_ty(ropd),

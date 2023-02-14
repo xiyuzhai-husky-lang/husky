@@ -64,7 +64,7 @@ impl Expr {
             } => todo!(),
             Expr::SuffixOpn {
                 opd,
-                punctuation,
+                opr: punctuation,
                 punctuation_token_idx,
             } => todo!(),
             Expr::Field { .. } => BaseEntityPath::None,

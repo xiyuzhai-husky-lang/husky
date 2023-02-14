@@ -3634,7 +3634,7 @@ Ok(
                                         },
                                         Expr::SuffixOpn {
                                             opd: 21,
-                                            punctuation: Incr,
+                                            opr: Incr,
                                             punctuation_token_idx: TokenIdx(
                                                 607,
                                             ),
@@ -4393,7 +4393,7 @@ Ok(
                                         },
                                         Expr::SuffixOpn {
                                             opd: 94,
-                                            punctuation: Incr,
+                                            opr: Incr,
                                             punctuation_token_idx: TokenIdx(
                                                 753,
                                             ),
@@ -6468,7 +6468,7 @@ Ok(
                                         },
                                         Expr::SuffixOpn {
                                             opd: 20,
-                                            punctuation: Decr,
+                                            opr: Decr,
                                             punctuation_token_idx: TokenIdx(
                                                 840,
                                             ),
@@ -7421,7 +7421,7 @@ Ok(
                                         },
                                         Expr::SuffixOpn {
                                             opd: 111,
-                                            punctuation: Decr,
+                                            opr: Decr,
                                             punctuation_token_idx: TokenIdx(
                                                 1023,
                                             ),
