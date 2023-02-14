@@ -59,7 +59,7 @@ impl<'a> ExprTypeEngine<'a> {
                 punctuation,
                 punctuation_token_idx,
             } => todo!(),
-            Expr::ApplicationOrFunctionCall { .. } => todo!(),
+            Expr::ApplicationOrRitchieCall { .. } => todo!(),
             Expr::RitchieCall { .. } => todo!(),
             Expr::Field {
                 owner,

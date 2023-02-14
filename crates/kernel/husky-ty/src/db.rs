@@ -1,5 +1,4 @@
 use crate::*;
-use husky_vfs::Toolchain;
 
 pub trait TypeDb: salsa::DbWithJar<TypeJar> + SignatureDb {
     fn entity_ty(&self, path: EntityPath) -> TypeResult<ReducedTerm>;
@@ -18,6 +17,12 @@ pub trait TypeDb: salsa::DbWithJar<TypeJar> + SignatureDb {
         toolchain: Toolchain,
     ) -> Result<ReducedTermMenu<'a>, &'a TermError>;
     fn application_expansion(&self, reduced_term: ReducedTerm) -> ApplicationExpansion;
+    fn ty_call_ty(
+        &self,
+        term: ReducedTerm,
+        toolchain: Toolchain,
+        reduced_term_menu: ReducedTermMenu,
+    ) -> TypeResult<ReducedTerm>;
 }
 
 impl<Db> TypeDb for Db
@@ -63,5 +68,14 @@ where
 
     fn application_expansion(&self, reduced_term: ReducedTerm) -> ApplicationExpansion {
         application_expansion(self, reduced_term)
+    }
+
+    fn ty_call_ty(
+        &self,
+        ty_term: ReducedTerm,
+        toolchain: Toolchain,
+        reduced_term_menu: ReducedTermMenu,
+    ) -> TypeResult<ReducedTerm> {
+        ty_call_ty(self, ty_term, toolchain, reduced_term_menu)
     }
 }

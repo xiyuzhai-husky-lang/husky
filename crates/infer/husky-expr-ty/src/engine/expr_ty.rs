@@ -125,30 +125,46 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::SuffixOpn {
                 opd, punctuation, ..
             } => todo!(),
-            Expr::ApplicationOrFunctionCall {
+            Expr::ApplicationOrRitchieCall {
                 function, argument, ..
             } => {
-                let function_ty_resolved_ok =
-                    self.infer_new_expr_ty(function, ExpectInsSort::default());
-                match function_ty_resolved_ok {
+                let function_ty = self.infer_new_expr_ty(function, ExpectInsSort::default());
+                match function_ty {
                     Some(function_ty) => match function_ty {
                         LocalTerm::Resolved(function_ty) => match function_ty.term() {
-                            Term::Literal(_) => todo!(),
-                            Term::Symbol(_) => todo!(),
-                            Term::Entity(_) => todo!(),
-                            Term::Category(_) => todo!(),
-                            Term::Universe(_) => todo!(),
-                            Term::Curry(_) => todo!(),
+                            Term::Category(_) => {
+                                let Some(ty_term) = self.infer_new_expr_term(function)
+                                    else {
+                                        self.infer_new_expr_ty(argument, ExpectInsSort::default());
+                                        return Err(todo!())
+                                    };
+                                match ty_term {
+                                    LocalTerm::Resolved(ty_term) => {
+                                        let ty_call_ty = match self.db.ty_call_ty(
+                                            ty_term,
+                                            self.toolchain,
+                                            self.reduced_term_menu,
+                                        ) {
+                                            Ok(ty_call_ty) => ty_call_ty,
+                                            Err(error) => {
+                                                self.infer_new_expr_ty(
+                                                    argument,
+                                                    ExpectInsSort::default(),
+                                                );
+                                                return Err(error.into());
+                                            }
+                                        };
+                                        todo!()
+                                    }
+                                    LocalTerm::Unresolved(_) => todo!(),
+                                }
+                            }
                             Term::Ritchie(_) => self.calc_ritchie_call_ty(
                                 Some(function_ty.into()),
                                 None,
                                 ExprIdxRange::new_single(argument),
                             ),
-                            Term::Abstraction(_) => todo!(),
-                            Term::Application(_) => todo!(),
-                            Term::Subentity(_) => todo!(),
-                            Term::AsTraitSubentity(_) => todo!(),
-                            Term::TraitConstraint(_) => todo!(),
+                            _ => todo!(),
                         },
                         LocalTerm::Unresolved(_) => todo!(),
                     },

@@ -307,7 +307,7 @@ Ok(
                                                 ),
                                                 ropd: 9,
                                             },
-                                            Expr::ApplicationOrFunctionCall {
+                                            Expr::ApplicationOrRitchieCall {
                                                 function: 4,
                                                 lpar_token_idx: TokenIdx(
                                                     159,

@@ -3694,7 +3694,7 @@ Ok(
                                                 pattern_symbol_idx: 0,
                                             },
                                         },
-                                        Expr::ApplicationOrFunctionCall {
+                                        Expr::ApplicationOrRitchieCall {
                                             function: 12,
                                             lpar_token_idx: TokenIdx(
                                                 256,
@@ -4076,7 +4076,7 @@ Ok(
                                                 pattern_symbol_idx: 0,
                                             },
                                         },
-                                        Expr::ApplicationOrFunctionCall {
+                                        Expr::ApplicationOrRitchieCall {
                                             function: 7,
                                             lpar_token_idx: TokenIdx(
                                                 307,

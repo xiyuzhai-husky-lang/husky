@@ -14083,7 +14083,7 @@ Ok(
                                                     121,
                                                 ),
                                             },
-                                            Expr::ApplicationOrFunctionCall {
+                                            Expr::ApplicationOrRitchieCall {
                                                 function: 3,
                                                 lpar_token_idx: TokenIdx(
                                                     109,
@@ -15203,7 +15203,7 @@ Ok(
                                                     187,
                                                 ),
                                             ),
-                                            Expr::ApplicationOrFunctionCall {
+                                            Expr::ApplicationOrRitchieCall {
                                                 function: 0,
                                                 lpar_token_idx: TokenIdx(
                                                     186,

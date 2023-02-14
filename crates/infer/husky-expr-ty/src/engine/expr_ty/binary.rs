@@ -184,8 +184,8 @@ impl<'a> ExprTypeEngine<'a> {
             else {
                 return Err(DerivedExprTypeError::AsOperationRightOperandTermNotInferred.into())
             };
-        let Some(lopd_ty) = self.infer_new_expr_ty(lopd, ExpectImplicitlyConvertible{
-            destination: todo!()
+        let Some(lopd_ty) = self.infer_new_expr_ty(lopd, ExpectExplicitlyConvertible {
+            destination: ropd_term
         })
             else {
                 return Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into())

@@ -67,7 +67,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             // ad hoc
                             let implicit_arguments: Option<ImplicitArgumentList> = None;
                             match (items.len(), implicit_arguments) {
-                                (1, None) => Expr::ApplicationOrFunctionCall {
+                                (1, None) => Expr::ApplicationOrRitchieCall {
                                     function,
                                     lpar_token_idx: bra_token_idx,
                                     argument: items.start(),

@@ -264,7 +264,7 @@ impl<'a> SignatureTermEngine<'a> {
             } => todo!(),
             Expr::MethodCall { .. } => todo!(),
             Expr::TemplateInstantiation { .. } => todo!(),
-            Expr::ApplicationOrFunctionCall {
+            Expr::ApplicationOrRitchieCall {
                 function, argument, ..
             }
             | Expr::Application { function, argument } => {
@@ -338,7 +338,7 @@ impl<'a> SignatureTermEngine<'a> {
                                 punctuation,
                                 punctuation_token_idx,
                             } => todo!(),
-                            Expr::ApplicationOrFunctionCall {
+                            Expr::ApplicationOrRitchieCall {
                                 function,
                                 lpar_token_idx,
                                 argument,
