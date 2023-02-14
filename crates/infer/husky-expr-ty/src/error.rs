@@ -34,6 +34,8 @@ pub enum OriginalExprTypeError {
     UnresolvedTerm,
     #[error("type error {0}")]
     TypeError(#[from] OriginalTypeError),
+    #[error("TodoScopeResolution")]
+    TodoScopeResolution,
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]

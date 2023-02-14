@@ -1443,7 +1443,7 @@ Ok(
                                         },
                                         Expr::SuffixOpn {
                                             opd: 54,
-                                            punctuation: Unveil,
+                                            opr: Unveil,
                                             punctuation_token_idx: TokenIdx(
                                                 204,
                                             ),
