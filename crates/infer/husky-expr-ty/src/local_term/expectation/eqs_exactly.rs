@@ -24,8 +24,11 @@ impl ExpectLocalTermResolvedOk for ExpectEqsExactlyResolvedOk {
         self.destination
     }
 
-    fn downcast(resolved_ok: &LocalTermExpectationResolvedOk) -> Self {
-        todo!()
+    fn downcast_ref(resolved_ok: &LocalTermExpectationResolvedOk) -> &Self {
+        match resolved_ok {
+            LocalTermExpectationResolvedOk::EqsExactly(resolved_ok) => resolved_ok,
+            _ => unreachable!(),
+        }
     }
 }
 

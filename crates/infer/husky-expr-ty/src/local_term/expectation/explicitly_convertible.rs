@@ -18,8 +18,11 @@ impl ExpectLocalTermResolvedOk for ExpectExplicitlyConvertibleResolvedOk {
         self.destination
     }
 
-    fn downcast(resolved_ok: &LocalTermExpectationResolvedOk) -> Self {
-        todo!()
+    fn downcast_ref(resolved_ok: &LocalTermExpectationResolvedOk) -> &Self {
+        match resolved_ok {
+            LocalTermExpectationResolvedOk::ExplicitlyConvertible(resolved_ok) => resolved_ok,
+            _ => unreachable!(),
+        }
     }
 }
 

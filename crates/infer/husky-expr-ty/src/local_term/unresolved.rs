@@ -269,7 +269,7 @@ impl<'a> ExprTypeEngine<'a> {
         for entry in table.unresolved_terms.iter_mut() {
             if entry.implicit_symbol_dependencies.has(implicit_symbol) {
                 match entry.resolve_progress {
-                    LocalTermResolveProgress::Unresolved => todo!(),
+                    LocalTermResolveProgress::Unresolved => (),
                     LocalTermResolveProgress::PartiallyResolved(_) => todo!(),
                     LocalTermResolveProgress::FullyResolved(_)
                     | LocalTermResolveProgress::Err(_) => unreachable!(),

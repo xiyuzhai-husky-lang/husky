@@ -29,7 +29,7 @@ pub(crate) trait ExpectLocalTermResolvedOk: Into<LocalTermExpectationResolvedOk>
     fn destination(&self) -> LocalTerm;
 
     /// will panic if not right
-    fn downcast(resolved_ok: &LocalTermExpectationResolvedOk) -> Self;
+    fn downcast_ref(resolved_ok: &LocalTermExpectationResolvedOk) -> &Self;
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -44,7 +44,7 @@ pub struct LocalTermExpectationEntry {
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) enum LocalTermExpectationResolvedOk {
-    ExplicitConversion(ExpectExplicitlyConvertibleResolvedOk),
+    ExplicitlyConvertible(ExpectExplicitlyConvertibleResolvedOk),
     ImplicitlyConvertible(ExpectImplicitlyConvertibleResolvedOk),
     InsSort(ExpectInsSortResolvedOk),
     EqsSort(ExpectEqsSortResolvedOk),
@@ -56,7 +56,7 @@ pub(crate) enum LocalTermExpectationResolvedOk {
 impl LocalTermExpectationResolvedOk {
     fn resolved(&self) -> Option<ReducedTerm> {
         match self {
-            LocalTermExpectationResolvedOk::ExplicitConversion(_) => todo!(),
+            LocalTermExpectationResolvedOk::ExplicitlyConvertible(_) => todo!(),
             LocalTermExpectationResolvedOk::ImplicitlyConvertible(_) => todo!(),
             LocalTermExpectationResolvedOk::InsSort(result) => result.resolved(),
             LocalTermExpectationResolvedOk::EqsSort(_) => todo!(),
@@ -75,11 +75,11 @@ pub(crate) enum LocalTermExpectationResolveProgress {
 }
 
 impl LocalTermExpectationResolveProgress {
-    pub(crate) fn resolved_ok<R: ExpectLocalTermResolvedOk>(&self) -> Option<R> {
+    pub(crate) fn resolved_ok<R: ExpectLocalTermResolvedOk>(&self) -> Option<&R> {
         match self {
             LocalTermExpectationResolveProgress::Unresolved => None,
             LocalTermExpectationResolveProgress::Resolved(Ok(resolved_ok)) => {
-                Some(R::downcast(resolved_ok))
+                Some(R::downcast_ref(resolved_ok))
             }
             LocalTermExpectationResolveProgress::Resolved(Err(_)) => None,
         }
@@ -270,23 +270,17 @@ impl<'a> ExprTypeEngine<'a> {
                 self.resolve_implicit_conversion_expectation(rule.expectee, destination, level)
             }
             LocalTermExpectation::EqsSort { smallest_universe } => {
-                todo!()
+                self.resolve_eqs_sort_expectation(rule.expectee, smallest_universe)
             }
             LocalTermExpectation::FrameVariableType => todo!(),
-            LocalTermExpectation::EqsRefMutApplication { lifetime } => todo!(),
+            LocalTermExpectation::EqsRefMutApplication { lifetime } => {
+                self.resolve_eqs_ref_mut_application_expectation(rule.expectee, lifetime)
+            }
             LocalTermExpectation::EqsRitchieCallTy => {
-                p!(
-                    self.path(),
-                    self.expr_region_data()[rule.src_expr_idx].debug(self.db()),
-                    rule.debug(self.db())
-                );
                 self.resolve_eqs_richie_call_ty(rule.expectee)
             }
             LocalTermExpectation::InsSort { smallest_universe } => {
                 self.resolve_ins_sort_expectation(smallest_universe, rule.expectee)
-            }
-            LocalTermExpectation::EqsSort { smallest_universe } => {
-                self.resolve_eq_sort_expectation(smallest_universe, rule.expectee)
             }
             LocalTermExpectation::EqsExactly { destination } => {
                 self.resolve_eqs_exactly(rule.expectee, destination)

@@ -42,13 +42,14 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: ExprIdx,
         expr_ty_expectation: E,
-    ) -> (OptionLocalTermExpectationIdx, Option<E::ResolvedOk>) {
+    ) -> (OptionLocalTermExpectationIdx, Option<&E::ResolvedOk>) {
         let ty_result = self.calc_expr_ty(expr_idx, &expr_ty_expectation);
         let expectation_idx = match ty_result {
             Ok(ty) => self.add_expectation_rule(expr_idx, ty, expr_ty_expectation),
             Err(_) => Default::default(),
         };
         self.save_new_expr_ty(expr_idx, ExprTypeInfo::new(ty_result, expectation_idx));
+        self.resolve_as_much_as_possible(LocalTermResolveLevel::Weak);
         let resolved_ok = match expectation_idx.into_option() {
             Some(expectation_idx) => self.local_term_table[expectation_idx]
                 .resolve_progress()

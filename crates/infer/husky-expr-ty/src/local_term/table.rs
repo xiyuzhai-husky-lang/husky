@@ -57,7 +57,7 @@ impl<'a> ExprTypeEngine<'a> {
             .resolve_term(unresolved_term_idx)
     }
 
-    fn resolve_as_much_as_possible(&mut self, level: LocalTermResolveLevel) {
+    pub(crate) fn resolve_as_much_as_possible(&mut self, level: LocalTermResolveLevel) {
         while let Some((rule_idx, effect)) = self.next_expectation_effect(level) {
             if let Some(actions) = self
                 .local_term_table_mut()
