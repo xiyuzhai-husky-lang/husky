@@ -86,7 +86,11 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Option<LocalTermExpectationResolvedOkM> {
         match expectee {
             LocalTerm::Resolved(resolved_expectee) => {
-                let expectee_ty = self.db().term_ty(resolved_expectee);
+                let expectee_ty = self.db().term_ty(
+                    resolved_expectee,
+                    self.toolchain(),
+                    self.reduced_term_menu(),
+                );
                 Some(match expectee_ty {
                     Ok(expectee_ty) => match expectee_ty.term() {
                         Term::Category(cat) => match cat.universe() >= smallest_universe {
