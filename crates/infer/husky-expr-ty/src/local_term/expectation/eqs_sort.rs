@@ -1,11 +1,11 @@
 use super::*;
 
 #[derive(Debug, Clone, Copy)]
-pub(crate) struct ExpectSort {
+pub(crate) struct ExpectEqsSort {
     pub(crate) smallest_universe: TermUniverse,
 }
 
-impl ExpectLocalTerm for ExpectSort {
+impl ExpectLocalTerm for ExpectEqsSort {
     type ResolvedOk = ExpectEqsSortResolvedOk;
 
     fn destination(&self) -> Option<LocalTerm> {
@@ -31,8 +31,8 @@ impl ExpectLocalTermResolvedOk for ExpectEqsSortResolvedOk {
     }
 }
 
-impl From<ExpectSort> for LocalTermExpectation {
-    fn from(value: ExpectSort) -> Self {
+impl From<ExpectEqsSort> for LocalTermExpectation {
+    fn from(value: ExpectEqsSort) -> Self {
         LocalTermExpectation::EqsSort {
             smallest_universe: value.smallest_universe,
         }
@@ -68,7 +68,11 @@ impl<'a> ExprTypeEngine<'a> {
                             actions: vec![],
                         },
                     }),
-                    _ => todo!(),
+                    _ => {
+                        p!(self.path());
+                        p!(resolved_expectee.debug(self.db()));
+                        todo!()
+                    }
                 }
                 // let expectee_ty = self.db().term_ty(expectee);
                 // match expectee_ty {

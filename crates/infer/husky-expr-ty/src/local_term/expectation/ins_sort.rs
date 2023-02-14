@@ -13,6 +13,10 @@ impl ExpectInsSort {
         }
     }
 
+    pub(crate) fn new_expect_ty() -> Self {
+        Self::new(1)
+    }
+
     pub(crate) fn smallest_universe(&self) -> TermUniverse {
         self.smallest_universe
     }

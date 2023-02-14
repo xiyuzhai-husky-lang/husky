@@ -270,6 +270,7 @@ impl<'a> ExprTypeEngine<'a> {
                 self.resolve_implicit_conversion_expectation(rule.expectee, destination, level)
             }
             LocalTermExpectation::EqsSort { smallest_universe } => {
+                p!(self.expr_region_data()[rule.src_expr_idx].debug(self.db()));
                 self.resolve_eqs_sort_expectation(rule.expectee, smallest_universe)
             }
             LocalTermExpectation::FrameVariableType => todo!(),

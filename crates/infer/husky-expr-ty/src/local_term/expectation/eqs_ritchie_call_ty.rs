@@ -69,7 +69,22 @@ impl<'a> ExprTypeEngine<'a> {
             Term::Category(_) => todo!(),
             Term::Universe(_) => todo!(),
             Term::Curry(_) => todo!(),
-            Term::Ritchie(_) => todo!(),
+            Term::Ritchie(term) => {
+                let result = match term.ritchie_kind(self.db()) {
+                    TermRitchieKind::Fp => Ok(ExpectEqsRitchieCallTypeResolvedOk {
+                        destination: expectee.into(),
+                        parameter_liasoned_tys: (),
+                        return_ty: (),
+                    }
+                    .into()),
+                    TermRitchieKind::Fn => todo!(),
+                    TermRitchieKind::FnMut => todo!(),
+                };
+                Some(LocalTermExpectationResolvedOkM {
+                    result,
+                    actions: vec![],
+                })
+            }
             Term::Abstraction(_) => todo!(),
             Term::Application(_) => todo!(),
             Term::Subentity(_) => todo!(),
