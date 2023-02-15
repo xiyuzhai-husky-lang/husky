@@ -473,3 +473,51 @@ impl EntityPathMenu {
         self.never
     }
 }
+
+#[test]
+fn menu_works() {
+    let db = DB::default();
+    let toolchain = db.dev_toolchain().unwrap();
+    let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
+    assert_eq!(entity_path_menu.core_ops_add().show(&db), "core::ops::Add");
+    assert_eq!(
+        entity_path_menu.core_ops_add_assign().show(&db),
+        "core::ops::AddAssign"
+    );
+    assert_eq!(
+        entity_path_menu.core_ops_bit_and().show(&db),
+        "core::ops::BitAnd"
+    );
+    assert_eq!(
+        entity_path_menu.core_ops_bit_and_assign().show(&db),
+        "core::ops::BitAndAssign"
+    );
+    assert_eq!(
+        entity_path_menu.core_ops_bit_or().show(&db),
+        "core::ops::BitOr"
+    );
+    assert_eq!(
+        entity_path_menu.core_ops_bit_or_assign().show(&db),
+        "core::ops::BitOrAssign"
+    );
+    assert_eq!(
+        entity_path_menu.core_ops_bit_xor().show(&db),
+        "core::ops::BitXor"
+    );
+    assert_eq!(
+        entity_path_menu.core_ops_bit_xor_assign().show(&db),
+        "core::ops::BitXorAssign"
+    );
+    assert_eq!(entity_path_menu.core_ops_div().show(&db), "core::ops::Add");
+    assert_eq!(
+        entity_path_menu.core_ops_div_assign().show(&db),
+        "core::ops::DivAssign"
+    );
+    assert_eq!(entity_path_menu.core_ops_mul().show(&db), "core::ops::Add");
+    assert_eq!(
+        entity_path_menu.core_ops_mul_assign().show(&db),
+        "core::ops::MulAssign"
+    );
+    assert_eq!(entity_path_menu.core_ops_neg().show(&db), "core::ops::Neg");
+    assert_eq!(entity_path_menu.core_ops_not().show(&db), "core::ops::Not");
+}
