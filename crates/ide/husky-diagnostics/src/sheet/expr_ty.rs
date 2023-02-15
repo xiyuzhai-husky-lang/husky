@@ -93,7 +93,9 @@ fn collect_expr_ty_diagnostics(
 
 impl Diagnose for OriginalExprTermError {
     fn message(&self, db: &dyn DiagnosticsDb) -> String {
-        todo!()
+        match self {
+            _ => todo!(),
+        }
     }
 
     fn severity(&self) -> DiagnosticSeverity {
@@ -111,7 +113,9 @@ impl Diagnose for OriginalExprTermError {
 
 impl Diagnose for OriginalLocalTermResolveError {
     fn message(&self, db: &dyn DiagnosticsDb) -> String {
-        todo!()
+        match self {
+            OriginalLocalTermResolveError::UnresolvedTerm => todo!(),
+        }
     }
 
     fn severity(&self) -> DiagnosticSeverity {
@@ -129,7 +133,10 @@ impl Diagnose for OriginalLocalTermResolveError {
 
 impl Diagnose for OriginalLocalTermExpectationError {
     fn message(&self, db: &dyn DiagnosticsDb) -> String {
-        todo!()
+        match self {
+            OriginalLocalTermExpectationError::Type(_) => todo!(),
+            OriginalLocalTermExpectationError::Todo => todo!(),
+        }
     }
 
     fn severity(&self) -> DiagnosticSeverity {
