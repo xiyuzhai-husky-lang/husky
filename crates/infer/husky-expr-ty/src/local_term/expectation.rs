@@ -123,14 +123,14 @@ pub enum DerivedLocalTermExpectationError {
     #[error("target substitution failure")]
     TargetSubstitutionFailure,
     #[error("duplication")]
-    Duplication(LocalTermExpectationRuleIdx),
+    Duplication(LocalTermExpectationIdx),
     #[error("unresolved local term")]
     UnresolvedLocalTerm,
 }
 
 impl LocalTermExpectationResolveProgress {
     // it will use derived type error
-    pub(crate) fn duplicate(&self, src: LocalTermExpectationRuleIdx) -> Self {
+    pub(crate) fn duplicate(&self, src: LocalTermExpectationIdx) -> Self {
         match self {
             LocalTermExpectationResolveProgress::Unresolved => {
                 LocalTermExpectationResolveProgress::Unresolved
@@ -166,6 +166,15 @@ impl LocalTermExpectationEntry {
         &self.resolve_progress
     }
 
+    pub fn original_error(&self) -> Option<&OriginalLocalTermExpectationError> {
+        match self.resolve_progress {
+            LocalTermExpectationResolveProgress::Resolved(Err(
+                LocalTermExpectationError::Original(ref e),
+            )) => Some(e),
+            _ => None,
+        }
+    }
+
     pub(crate) fn expectee(&self) -> LocalTerm {
         self.expectee
     }
@@ -188,15 +197,15 @@ pub(super) struct LocalTermExpectationResolvedOkM {
 }
 
 #[derive(Default, Debug, PartialEq, Eq)]
-pub(crate) struct LocalTermExpectations {
+pub struct LocalTermExpectations {
     arena: Arena<LocalTermExpectationEntry>,
     first_unresolved_expectation: usize,
 }
 
-impl std::ops::Index<LocalTermExpectationRuleIdx> for LocalTermExpectations {
+impl std::ops::Index<LocalTermExpectationIdx> for LocalTermExpectations {
     type Output = LocalTermExpectationEntry;
 
-    fn index(&self, index: LocalTermExpectationRuleIdx) -> &Self::Output {
+    fn index(&self, index: LocalTermExpectationIdx) -> &Self::Output {
         &self.arena[index]
     }
 }
@@ -204,7 +213,7 @@ impl std::ops::Index<LocalTermExpectationRuleIdx> for LocalTermExpectations {
 impl LocalTermExpectations {
     pub(super) fn unresolved_rule_iter(
         &self,
-    ) -> impl Iterator<Item = (LocalTermExpectationRuleIdx, &LocalTermExpectationEntry)> {
+    ) -> impl Iterator<Item = (LocalTermExpectationIdx, &LocalTermExpectationEntry)> {
         self.arena
             .indexed_iter_with_start(self.first_unresolved_expectation)
             .filter(|(_, rule)| match rule.resolve_progress() {
@@ -213,9 +222,13 @@ impl LocalTermExpectations {
             })
     }
 
-    pub(super) fn unresolved_expectation_rule_iter_mut(
+    pub fn iter(&self) -> impl Iterator<Item = &LocalTermExpectationEntry> {
+        self.arena.iter()
+    }
+
+    pub(super) fn unresolved_indexed_iter_mut(
         &mut self,
-    ) -> impl Iterator<Item = (LocalTermExpectationRuleIdx, &mut LocalTermExpectationEntry)> {
+    ) -> impl Iterator<Item = (LocalTermExpectationIdx, &mut LocalTermExpectationEntry)> {
         self.arena
             .indexed_iter_mut_with_start(self.first_unresolved_expectation)
             .filter(|(_, rule)| match rule.resolve_progress() {
@@ -227,13 +240,13 @@ impl LocalTermExpectations {
     pub(super) fn alloc_rule(
         &mut self,
         rule: LocalTermExpectationEntry,
-    ) -> LocalTermExpectationRuleIdx {
+    ) -> LocalTermExpectationIdx {
         self.arena.alloc_one(rule)
     }
 
     pub(super) fn take_effect(
         &mut self,
-        rule_idx: LocalTermExpectationRuleIdx,
+        rule_idx: LocalTermExpectationIdx,
         effect: LocalTermExpectationResolvedOkM,
     ) -> Option<Vec<TermResolveAction>> {
         self.arena
@@ -250,7 +263,7 @@ impl<'a> ExprTypeEngine<'a> {
         expectation: impl ExpectLocalTerm,
     ) -> OptionLocalTermExpectationIdx {
         self.local_term_table_mut()
-            .expectation_rules
+            .expectations
             .alloc_rule(LocalTermExpectationEntry {
                 src_expr_idx,
                 expectee: target.into(),

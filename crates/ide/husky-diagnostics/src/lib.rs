@@ -33,6 +33,8 @@ pub struct DiagnosticsJar(
     token_diagnostic_sheet,
     ExprDiagnosticSheet,
     expr_diagnostic_sheet,
+    ExprTypeDiagnosticSheet,
+    expr_ty_diagnostic_sheet,
 );
 
 #[derive(Debug, PartialEq, Eq, Clone)]

@@ -49,6 +49,9 @@ DiagnosticSheet {
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [],
     },
+    expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
+        diagnostics: [],
+    },
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [],
     },

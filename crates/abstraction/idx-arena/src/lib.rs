@@ -69,6 +69,10 @@ impl<T> Arena<T> {
         f(&mut self.data[idx.raw])
     }
 
+    pub fn iter<'a>(&'a self) -> impl Iterator<Item = &'a T> + 'a {
+        self.data.iter()
+    }
+
     pub fn iter_mut<'a>(&'a mut self) -> impl Iterator<Item = &'a mut T> + 'a {
         self.data.iter_mut()
     }
