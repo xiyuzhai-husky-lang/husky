@@ -8,10 +8,11 @@ mod region;
 mod tests;
 
 pub use db::*;
+pub use error::*;
+pub use local_term::*;
 pub use region::*;
 
 use engine::*;
-use error::*;
 use husky_defn::*;
 use husky_entity_path::*;
 use husky_entity_taxonomy::*;
@@ -19,7 +20,6 @@ use husky_expr::*;
 use husky_signature::*;
 use husky_term::*;
 use husky_ty::*;
-use local_term::*;
 use salsa::DebugWithDb;
 
 #[cfg(test)]

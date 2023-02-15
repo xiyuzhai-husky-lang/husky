@@ -1,11 +1,13 @@
 mod ast;
 mod entity_tree;
 mod expr;
+mod expr_ty;
 mod token;
 
 pub use ast::*;
 pub use entity_tree::*;
 pub use expr::*;
+pub use expr_ty::*;
 pub use token::*;
 
 use crate::*;
@@ -15,6 +17,7 @@ pub struct DiagnosticSheet {
     pub token_diagnostic_sheet: TokenDiagnosticSheet,
     pub ast_diagnostic_sheet: AstDiagnosticSheet,
     pub expr_diagnostic_sheet: ExprDiagnosticSheet,
+    pub expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet,
     pub entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet,
 }
 
@@ -23,11 +26,13 @@ pub(crate) fn diagnostic_sheet(db: &dyn DiagnosticsDb, module_path: ModulePath) 
     let token_diagnostic_sheet = token_diagnostic_sheet(db, module_path);
     let ast_diagnostic_sheet = ast_diagnostic_sheet(db, module_path);
     let expr_diagnostic_sheet = expr_diagnostic_sheet(db, module_path);
+    let expr_ty_diagnostic_sheet = expr_ty_diagnostic_sheet(db, module_path);
     DiagnosticSheet::new(
         db,
         token_diagnostic_sheet,
         ast_diagnostic_sheet,
         expr_diagnostic_sheet,
+        expr_ty_diagnostic_sheet,
         entity_tree_diagnostic_sheet(db, module_path),
     )
 }
@@ -42,6 +47,7 @@ impl DiagnosticSheet {
             .iter()
             .chain(self.ast_diagnostic_sheet(db).diagnostics(db).iter())
             .chain(self.expr_diagnostic_sheet(db).diagnostics(db).iter())
+            .chain(self.expr_ty_diagnostic_sheet(db).diagnostics(db).iter())
             .chain(self.entity_tree_diagnostic_sheet(db).diagnostics(db).iter())
     }
 }

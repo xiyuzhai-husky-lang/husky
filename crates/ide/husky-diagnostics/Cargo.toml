@@ -13,6 +13,7 @@ reserve = { path = "../../abstraction/reserve" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # infer
+husky-expr-ty = { path = "../../infer/husky-expr-ty" }
 # kernel
 husky-term = { path = "../../kernel/husky-term" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
@@ -34,8 +35,10 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-ty = { path = "../../kernel/husky-ty" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-expr = { path = "../../syntax/husky-expr" }
 # infer
 husky-manifest = { path = "../../infer/husky-manifest" }
+husky-signature = { path = "../../infer/husky-signature" }

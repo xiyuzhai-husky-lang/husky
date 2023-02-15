@@ -78,7 +78,7 @@ impl UnresolvedTermRitchieParameterBookType {
 }
 
 #[derive(Default, Debug, PartialEq, Eq)]
-pub(crate) struct UnresolvedTerms {
+pub struct UnresolvedTerms {
     arena: Vec<UnresolvedTermEntry>,
     first_unresolved_term: usize,
 }
@@ -102,7 +102,11 @@ impl UnresolvedTerms {
         }
     }
 
-    pub(super) fn iter_mut(&mut self) -> impl Iterator<Item = &mut UnresolvedTermEntry> {
+    pub fn iter(&self) -> impl Iterator<Item = &UnresolvedTermEntry> {
+        self.arena[self.first_unresolved_term..].iter()
+    }
+
+    pub(super) fn unresolved_iter_mut(&mut self) -> impl Iterator<Item = &mut UnresolvedTermEntry> {
         self.arena[self.first_unresolved_term..]
             .iter_mut()
             .filter(|entry| !entry.resolve_progress.is_done())
@@ -120,7 +124,7 @@ impl LocalTermResolveProgress {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub(crate) struct UnresolvedTermEntry {
+pub struct UnresolvedTermEntry {
     unresolved_term: UnresolvedTerm,
     implicit_symbol_dependencies: VecSet<UnresolvedTermIdx>,
     resolve_progress: LocalTermResolveProgress,
@@ -129,6 +133,13 @@ pub(crate) struct UnresolvedTermEntry {
 impl UnresolvedTermEntry {
     pub(crate) fn unresolved_term(&self) -> &UnresolvedTerm {
         &self.unresolved_term
+    }
+
+    pub fn original_error(&self) -> Option<&OriginalLocalTermResolveError> {
+        match self.resolve_progress {
+            LocalTermResolveProgress::Err(LocalTermResolveError::Original(ref e)) => Some(e),
+            _ => None,
+        }
     }
 }
 
@@ -267,7 +278,7 @@ impl<'a> ExprTypeEngine<'a> {
             todo!("report error of cyclic substitution")
         }
         let table = &mut self.local_term_table_mut();
-        for entry in table.unresolved_terms.iter_mut() {
+        for entry in table.unresolved_terms.unresolved_iter_mut() {
             if entry.implicit_symbol_dependencies.has(implicit_symbol) {
                 match entry.resolve_progress {
                     LocalTermResolveProgress::Unresolved => (),
@@ -278,10 +289,7 @@ impl<'a> ExprTypeEngine<'a> {
             }
         }
         let new_expectation_rules: Vec<LocalTermExpectationEntry> = Default::default();
-        for (idx, rule) in table
-            .expectation_rules
-            .unresolved_expectation_rule_iter_mut()
-        {
+        for (idx, rule) in table.expectations.unresolved_indexed_iter_mut() {
             let target_substitution = match table
                 .unresolved_terms
                 .try_substitute_local_term(rule.expectee())
@@ -319,7 +327,7 @@ impl<'a> ExprTypeEngine<'a> {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub(crate) struct UnresolvedTermIdx(usize);
+pub struct UnresolvedTermIdx(usize);
 
 impl std::ops::Index<UnresolvedTermIdx> for UnresolvedTerms {
     type Output = UnresolvedTermEntry;

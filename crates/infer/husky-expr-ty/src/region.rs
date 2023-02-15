@@ -10,7 +10,7 @@ pub struct ExprTypeRegion {
     expr_local_terms: ExprMap<ExprTermResult<LocalTerm>>,
     inherited_symbol_tys: InheritedSymbolMap<ReducedTerm>,
     current_symbol_tys: CurrentSymbolMap<LocalTerm>,
-    unresolved_term_table: LocalTermTable,
+    local_term_table: LocalTermTable,
     return_ty: Option<ReducedTerm>,
     self_ty: Option<ReducedTerm>,
 }
@@ -37,15 +37,47 @@ impl ExprTypeRegion {
             expr_local_terms: expr_terms,
             inherited_symbol_tys,
             current_symbol_tys,
-            unresolved_term_table,
+            local_term_table: unresolved_term_table,
             return_ty,
             self_ty,
         }
     }
+
+    pub fn path(&self) -> RegionPath {
+        self.path
+    }
+
+    pub fn expr_ty_infos(&self) -> &ExprMap<ExprTypeInfo> {
+        &self.expr_ty_infos
+    }
+
+    pub fn expr_local_terms(&self) -> &ExprMap<ExprTermResult<LocalTerm>> {
+        &self.expr_local_terms
+    }
+
+    pub fn inherited_symbol_tys(&self) -> &InheritedSymbolMap<ReducedTerm> {
+        &self.inherited_symbol_tys
+    }
+
+    pub fn current_symbol_tys(&self) -> &CurrentSymbolMap<LocalTerm> {
+        &self.current_symbol_tys
+    }
+
+    pub fn local_term_table(&self) -> &LocalTermTable {
+        &self.local_term_table
+    }
+
+    pub fn return_ty(&self) -> Option<ReducedTerm> {
+        self.return_ty
+    }
+
+    pub fn self_ty(&self) -> Option<ReducedTerm> {
+        self.self_ty
+    }
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprTypeDb)]
+// #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub struct ExprTypeInfo {
     ty_result: ExprTypeResult<LocalTerm>,
     expectation_rule_idx: OptionLocalTermExpectationIdx,
@@ -99,6 +131,10 @@ impl ExprTypeInfo {
 
     pub(crate) fn resolve_progress(&self) -> &ExprTypeResolveProgress {
         &self.resolve_progress
+    }
+
+    pub fn ty_result(&self) -> Result<&LocalTerm, &ExprTypeError> {
+        self.ty_result.as_ref()
     }
 }
 

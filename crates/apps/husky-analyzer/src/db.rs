@@ -8,16 +8,19 @@ use husky_diagnostics::DiagnosticsJar;
 use husky_entity_path::EntityPathJar;
 use husky_entity_tree::EntityTreeJar;
 use husky_expr::ExprJar;
+use husky_expr_ty::ExprTypeJar;
 use husky_folding_range::FoldingRangeJar;
 use husky_hover::HoverJar;
 use husky_layout::LayoutJar;
 use husky_manifest::ManifestJar;
 use husky_rust_code_gen::RustTranspileJar;
 use husky_semantic_token::SemanticTokenJar;
+use husky_signature::SignatureJar;
 use husky_syntax_fmt::SyntaxFormatJar;
 use husky_term::TermJar;
 use husky_token::TokenJar;
 use husky_token_info::TokenInfoJar;
+use husky_ty::TypeJar;
 use husky_vfs::*;
 use husky_word::WordJar;
 
@@ -28,18 +31,22 @@ use husky_word::WordJar;
     AstJar,
     WordJar,
     EntityPathJar,
-    TermJar,
     SyntaxFormatJar,
     DiagnosticsJar,
     RustTranspileJar,
     LayoutJar,
     ManifestJar,
+    // kernel
+    TermJar,
+    TypeJar,
     // syntax
     ExprJar,
     DeclJar,
     DefnJar,
     // infer
     TokenInfoJar,
+    SignatureJar,
+    ExprTypeJar,
     // ide
     FoldingRangeJar,
     SemanticTokenJar,

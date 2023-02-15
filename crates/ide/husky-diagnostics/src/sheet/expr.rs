@@ -88,12 +88,11 @@ fn collect_expr_diagnostics(
             } => {
                 match ident_token {
                     Ok(_) => (),
-                    Err(e) => todo!(),
+                    Err(error) => todo!(),
                 }
                 match entity_path {
-                    Err(EntityPathExprError::Original(e)) => {
-                        diagnostics.push(e.to_diagnostic(db, ranged_token_sheet, token_sheet_data))
-                    }
+                    Err(EntityPathExprError::Original(error)) => diagnostics
+                        .push(error.to_diagnostic(db, ranged_token_sheet, token_sheet_data)),
                     _ => (),
                 }
             }

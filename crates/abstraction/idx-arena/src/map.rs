@@ -72,6 +72,10 @@ impl<T, V> ArenaMap<T, V> {
         })
     }
 
+    pub fn value_iter(&self) -> impl Iterator<Item = &V> {
+        self.data.iter().filter_map(Option::as_ref)
+    }
+
     pub fn iter_mut(&mut self) -> impl Iterator<Item = &mut V> {
         self.data.iter_mut().filter_map(|v| match v {
             Some(v) => Some(v),
