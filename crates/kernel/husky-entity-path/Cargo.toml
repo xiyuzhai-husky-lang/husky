@@ -21,3 +21,4 @@ husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 
 [dev-dependencies]
 expect-test = "1.4.0"
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }

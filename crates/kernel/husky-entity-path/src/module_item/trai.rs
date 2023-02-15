@@ -1,3 +1,5 @@
+use salsa::DisplayWithDb;
+
 use super::*;
 
 #[salsa::interned(jar = EntityPathJar, override_debug)]
@@ -8,6 +10,10 @@ pub struct TraitPath {
 }
 
 impl TraitPath {
+    pub fn show(self, db: &dyn EntityPathDb) -> String {
+        self.display(db).to_string()
+    }
+
     pub fn show_aux(
         self,
         f: &mut std::fmt::Formatter<'_>,
