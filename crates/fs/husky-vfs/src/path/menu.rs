@@ -123,3 +123,21 @@ impl VfsPathMenu {
         self.core_str
     }
 }
+
+#[test]
+fn vfs_path_menu_works() {
+    let db = DB::default();
+    let toolchain = db.dev_toolchain().unwrap();
+    let menu = db.vfs_path_menu(toolchain).unwrap();
+    assert_eq!(menu.core().to_string_with_db(&db), "core");
+    assert_eq!(menu.std().to_string_with_db(&db), "std");
+    assert_eq!(menu.core_basic().to_string_with_db(&db), "core::basic");
+    assert_eq!(menu.core_mem().to_string_with_db(&db), "core::mem");
+    assert_eq!(menu.core_num().to_string_with_db(&db), "core::num");
+    assert_eq!(menu.core_slice().to_string_with_db(&db), "core::slice");
+    assert_eq!(menu.core_str().to_string_with_db(&db), "core::str");
+    assert_eq!(menu.core_ops().to_string_with_db(&db), "core::ops");
+    assert_eq!(menu.core_option().to_string_with_db(&db), "core::option");
+    assert_eq!(menu.core_prelude().to_string_with_db(&db), "core::prelude");
+    assert_eq!(menu.core_vec().to_string_with_db(&db), "core::vec");
+}
