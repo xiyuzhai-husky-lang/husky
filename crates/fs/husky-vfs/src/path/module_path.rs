@@ -2,7 +2,7 @@ mod ancestry;
 
 use super::*;
 pub use ancestry::*;
-use salsa::{DbWithJar, DebugWithDb};
+use salsa::{DbWithJar, DebugWithDb, DisplayWithDb};
 use with_db::{PartialOrdWithDb, WithDb};
 
 #[salsa::interned(jar = VfsJar, override_debug)]
@@ -117,7 +117,7 @@ impl ModulePathData {
 
 impl ModulePath {
     pub fn to_string_with_db(&self, db: &dyn VfsDb) -> String {
-        todo!()
+        self.display(db).to_string()
     }
 
     pub fn show(
