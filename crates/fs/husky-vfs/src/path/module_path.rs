@@ -116,6 +116,10 @@ impl ModulePathData {
 }
 
 impl ModulePath {
+    pub fn to_string_with_db(&self, db: &dyn VfsDb) -> String {
+        todo!()
+    }
+
     pub fn show(
         &self,
         f: &mut ::std::fmt::Formatter<'_>,
