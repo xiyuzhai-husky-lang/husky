@@ -1,3 +1,5 @@
+pub(crate) use husky_vfs::*;
+
 use crate::*;
 use husky_ast::AstJar;
 use husky_entity_path::EntityPathJar;
