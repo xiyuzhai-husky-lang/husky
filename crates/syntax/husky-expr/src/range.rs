@@ -5,22 +5,12 @@ use husky_vfs::ModulePath;
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprDb, jar = ExprJar)]
 pub struct ExprRangeRegion {
-    expr_token_idx_ranges: Vec<TokenIdxRange>,
+    expr_ranges: Vec<TokenIdxRange>,
 }
 
 #[salsa::tracked(jar = ExprJar, return_ref)]
-pub(crate) fn expr_range_sheet(db: &dyn ExprDb, expr_region: ExprRegion) -> ExprRangeRegion {
-    let expr_region_data = expr_region.data(db);
-    let path = expr_region_data.path();
-    let token_sheet_data = db.token_sheet_data(path.module_path(db)).unwrap();
-    ExprRangeRegion {
-        expr_token_idx_ranges: ExprRangeCalculator {
-            token_sheet_data,
-            expr_region_data,
-            expr_ranges: Default::default(),
-        }
-        .calc_all(),
-    }
+pub(crate) fn expr_range_region(db: &dyn ExprDb, expr_region: ExprRegion) -> ExprRangeRegion {
+    ExprRangeCalculator::new(db, expr_region).calc_all()
 }
 
 // #[test]
@@ -33,22 +23,40 @@ impl std::ops::Index<ExprIdx> for ExprRangeRegion {
     type Output = TokenIdxRange;
 
     fn index(&self, index: ExprIdx) -> &Self::Output {
-        &self.expr_token_idx_ranges[index.raw()]
+        &self.expr_ranges[index.raw()]
     }
 }
 
 struct ExprRangeCalculator<'a> {
     token_sheet_data: &'a TokenSheetData,
     expr_region_data: &'a ExprRegionData,
+    entity_path_expr_ranges: Vec<TokenIdxRange>,
     expr_ranges: Vec<TokenIdxRange>,
 }
 
 impl<'a> ExprRangeCalculator<'a> {
-    fn calc_all(mut self) -> Vec<TokenIdxRange> {
+    fn new(db: &'a dyn ExprDb, expr_region: ExprRegion) -> Self {
+        let expr_region_data = expr_region.data(db);
+        let path = expr_region_data.path();
+        let token_sheet_data = db.token_sheet_data(path.module_path(db)).unwrap();
+        ExprRangeCalculator {
+            token_sheet_data,
+            expr_region_data,
+            entity_path_expr_ranges: Default::default(),
+            expr_ranges: Default::default(),
+        }
+    }
+
+    fn calc_all(mut self) -> ExprRangeRegion {
+        for entity_path_expr in self.expr_region_data.entity_path_expr_arena().iter() {
+            todo!()
+        }
         for expr in self.expr_region_data.expr_arena().iter() {
             self.expr_ranges.push(self.calc_expr_range(expr))
         }
-        self.expr_ranges
+        ExprRangeRegion {
+            expr_ranges: self.expr_ranges,
+        }
     }
 
     fn calc_expr_range(&self, expr: &Expr) -> TokenIdxRange {

@@ -1,5 +1,5 @@
 use husky_expr::{
-    EntityPathExpr, EntityPathExprError, Expr, ExprRegion, OriginalEntityPathExprError,
+    EntityPathExpr, EntityPathExprError, Expr, ExprIdx, ExprRegion, OriginalEntityPathExprError,
     OriginalExprError, Stmt, StmtError,
 };
 use husky_expr_ty::{
@@ -47,15 +47,19 @@ fn collect_expr_ty_diagnostics(
 ) {
     let ctx: DiagnosticsRegionContext = DiagnosticsRegionContext::new(db, expr_region);
     let expr_ty_region = ctx.expr_ty_region();
-    for local_term_result in expr_ty_region.expr_local_terms().value_iter() {
+    for (expr_idx, local_term_result) in expr_ty_region.expr_local_terms().key_value_iter() {
         match local_term_result {
-            Err(ExprTermError::Original(error)) => diagnostics.push(error.to_diagnostic(&ctx)),
+            Err(ExprTermError::Original(error)) => {
+                diagnostics.push((expr_idx, error).to_diagnostic(&ctx))
+            }
             _ => (),
         }
     }
-    for ty_info in expr_ty_region.expr_ty_infos().value_iter() {
+    for (expr_idx, ty_info) in expr_ty_region.expr_ty_infos().key_value_iter() {
         match ty_info.ty_result() {
-            Err(ExprTypeError::Original(error)) => diagnostics.push(error.to_diagnostic(&ctx)),
+            Err(ExprTypeError::Original(error)) => {
+                diagnostics.push((expr_idx, error).to_diagnostic(&ctx))
+            }
             _ => (),
         }
     }
@@ -67,16 +71,16 @@ fn collect_expr_ty_diagnostics(
     {
         diagnostics.push(error.to_diagnostic(&ctx))
     }
-    for error in local_term_table
+    for (expr_idx, error) in local_term_table
         .expectations()
         .iter()
-        .filter_map(|entry| entry.original_error())
+        .filter_map(|entry| Some((entry.src_expr_idx(), entry.original_error()?)))
     {
-        diagnostics.push(error.to_diagnostic(&ctx))
+        diagnostics.push((expr_idx, error).to_diagnostic(&ctx))
     }
 }
 
-impl Diagnose for OriginalExprTermError {
+impl Diagnose for (ExprIdx, &'_ OriginalExprTermError) {
     type Context<'a> = DiagnosticsRegionContext<'a>;
 
     fn message(&self, db: &DiagnosticsRegionContext) -> String {
@@ -94,7 +98,7 @@ impl Diagnose for OriginalExprTermError {
     }
 }
 
-impl Diagnose for OriginalExprTypeError {
+impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
     type Context<'a> = DiagnosticsRegionContext<'a>;
 
     fn message(&self, ctx: &DiagnosticsRegionContext) -> String {
@@ -130,11 +134,11 @@ impl Diagnose for OriginalLocalTermResolveError {
     }
 }
 
-impl Diagnose for OriginalLocalTermExpectationError {
+impl Diagnose for (ExprIdx, &'_ OriginalLocalTermExpectationError) {
     type Context<'a> = DiagnosticsRegionContext<'a>;
 
     fn message(&self, db: &DiagnosticsRegionContext) -> String {
-        match self {
+        match self.1 {
             OriginalLocalTermExpectationError::Type(_) => {
                 format!("OriginalLocalTermExpectationError type error: todo")
             }
@@ -149,6 +153,6 @@ impl Diagnose for OriginalLocalTermExpectationError {
     }
 
     fn range(&self, ctx: &DiagnosticsRegionContext) -> TextRange {
-        todo!()
+        ctx.expr_range(self.0)
     }
 }

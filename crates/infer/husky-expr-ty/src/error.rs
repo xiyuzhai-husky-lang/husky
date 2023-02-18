@@ -1,3 +1,4 @@
+use husky_expr::ExprIdx;
 use husky_ty::*;
 use thiserror::Error;
 

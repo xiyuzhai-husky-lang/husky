@@ -1,5 +1,5 @@
 use crate::*;
-use husky_expr::{ExprRegion, ExprRegionData};
+use husky_expr::{ExprIdx, ExprRangeRegion, ExprRegion, ExprRegionData};
 use husky_expr_ty::*;
 
 pub(crate) struct DiagnosticsSheetContext<'a> {
@@ -38,6 +38,7 @@ pub(crate) struct DiagnosticsRegionContext<'a> {
     ranged_token_sheet: &'a RangedTokenSheet,
     expr_region_data: &'a ExprRegionData,
     expr_ty_region: &'a ExprTypeRegion,
+    expr_range_region: &'a ExprRangeRegion,
 }
 
 impl<'a> DiagnosticsRegionContext<'a> {
@@ -52,6 +53,7 @@ impl<'a> DiagnosticsRegionContext<'a> {
             ranged_token_sheet,
             expr_region_data,
             expr_ty_region: db.expr_ty_region(expr_region),
+            expr_range_region: db.expr_range_region(expr_region),
         }
     }
 
@@ -69,5 +71,9 @@ impl<'a> DiagnosticsRegionContext<'a> {
 
     pub(crate) fn expr_ty_region(&self) -> &ExprTypeRegion {
         self.expr_ty_region
+    }
+
+    pub(crate) fn expr_range(&self, expr_idx: ExprIdx) -> TextRange {
+        todo!()
     }
 }
