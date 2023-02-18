@@ -125,6 +125,7 @@ impl LocalTermResolveProgress {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct UnresolvedTermEntry {
+    src_expr_idx: ExprIdx,
     unresolved_term: UnresolvedTerm,
     implicit_symbol_dependencies: VecSet<UnresolvedTermIdx>,
     resolve_progress: LocalTermResolveProgress,
@@ -234,6 +235,7 @@ impl UnresolvedTerms {
 impl<'a> ExprTypeEngine<'a> {
     pub(crate) fn intern_unresolved_term(
         &mut self,
+        src_expr_idx: ExprIdx,
         unresolved_term: UnresolvedTerm,
     ) -> UnresolvedTermIdx {
         let position = self
@@ -244,11 +246,15 @@ impl<'a> ExprTypeEngine<'a> {
             .position(|entry| entry.unresolved_term == unresolved_term);
         match position {
             Some(idx) => UnresolvedTermIdx(idx),
-            None => self.alloc_unresolved_term(unresolved_term),
+            None => self.alloc_unresolved_term(src_expr_idx, unresolved_term),
         }
     }
 
-    fn alloc_unresolved_term(&mut self, unresolved_term: UnresolvedTerm) -> UnresolvedTermIdx {
+    fn alloc_unresolved_term(
+        &mut self,
+        src_expr_idx: ExprIdx,
+        unresolved_term: UnresolvedTerm,
+    ) -> UnresolvedTermIdx {
         let idx = self.local_term_table().unresolved_terms.arena.len();
         let implicit_symbol_dependencies = self
             .local_term_table()
@@ -258,6 +264,7 @@ impl<'a> ExprTypeEngine<'a> {
             .unresolved_terms
             .arena
             .push(UnresolvedTermEntry {
+                src_expr_idx,
                 unresolved_term,
                 implicit_symbol_dependencies,
                 resolve_progress: LocalTermResolveProgress::Unresolved,
@@ -314,15 +321,18 @@ impl<'a> ExprTypeEngine<'a> {
 
     pub(crate) fn new_implicit_symbol(
         &mut self,
-        expr_idx: ExprIdx,
+        src_expr_idx: ExprIdx,
         variant: ImplicitSymbolVariant,
     ) -> LocalTerm {
         let new_implicit_symbol = self
             .local_term_table_mut()
             .implicit_symbol_registry
-            .new_implicit_symbol(expr_idx, variant);
-        self.alloc_unresolved_term(UnresolvedTerm::ImplicitSymbol(new_implicit_symbol))
-            .into()
+            .new_implicit_symbol(src_expr_idx, variant);
+        self.alloc_unresolved_term(
+            src_expr_idx,
+            UnresolvedTerm::ImplicitSymbol(new_implicit_symbol),
+        )
+        .into()
     }
 }
 

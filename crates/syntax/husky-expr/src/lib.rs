@@ -21,6 +21,7 @@ pub use entity_path_expr::*;
 pub use error::*;
 pub use parser::*;
 pub use pattern::*;
+pub use range::*;
 pub use region::*;
 pub use stmt::*;
 pub use symbol::*;
@@ -39,7 +40,7 @@ use snippet::*;
 use tests::*;
 
 #[salsa::jar(db = ExprDb)]
-pub struct ExprJar(ExprRegion, parse_expr_from_snippet, expr_range_sheet);
+pub struct ExprJar(ExprRegion, parse_expr_from_snippet, expr_range_region);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum BaseEntityPath {

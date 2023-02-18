@@ -16,10 +16,13 @@ impl<'a> ExprTypeEngine<'a> {
             );
         }
         Ok(self
-            .intern_unresolved_term(UnresolvedTerm::TypeApplication {
-                ty: self.entity_path_menu.list_ty(),
-                arguments: vec![element_ty],
-            })
+            .intern_unresolved_term(
+                expr_idx,
+                UnresolvedTerm::TypeApplication {
+                    ty: self.entity_path_menu.list_ty(),
+                    arguments: vec![element_ty],
+                },
+            )
             .into())
     }
 }
