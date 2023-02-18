@@ -24,12 +24,15 @@ impl RegularStructFieldPattern {
 impl<'a, 'b> parsec::ParseFrom<ExprParseContext<'a, 'b>> for RegularStructFieldPattern {
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> Result<Option<Self>, ExprError> {
+    ) -> Result<Option<Self>, OriginalExprError> {
         let Some(ident_token) = ctx.parse::<IdentifierToken>()? else {
                 return Ok(None)
             };
         let colon: ColonToken = ctx.parse_expected()?;
-        let ty = ctx.parse_expr_expected2(ExprParseEnvironment::None, ExprError::MissingFieldType);
+        let ty = ctx.parse_expr_expected2(
+            ExprParseEnvironment::None,
+            OriginalExprError::MissingFieldType,
+        );
         let variables = ctx.add_expr_root(ExprRoot::new(ExprRootKind::FieldType, ty));
         Ok(Some(RegularStructFieldPattern {
             ident_token,

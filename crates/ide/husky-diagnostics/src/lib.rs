@@ -1,5 +1,6 @@
 #![feature(trait_upcasting)]
 mod collect;
+mod context;
 mod db;
 mod severity;
 mod sheet;
@@ -14,6 +15,7 @@ pub use sheet::*;
 pub use tests::*;
 
 use collect::collect_module_diagnostics;
+use context::*;
 use husky_dev_utils::DevSource;
 use husky_doc::TextRange;
 use husky_vfs::*;
@@ -61,23 +63,16 @@ impl Into<lsp_types::Diagnostic> for &Diagnostic {
 }
 
 trait Diagnose {
-    fn message(&self, db: &dyn DiagnosticsDb) -> String;
+    type Context<'a>;
+
+    fn message(&self, db: &Self::Context<'_>) -> String;
     fn severity(&self) -> DiagnosticSeverity;
-    fn range(
-        &self,
-        ranged_token_sheet: &RangedTokenSheet,
-        token_sheet_data: &TokenSheetData,
-    ) -> TextRange;
-    fn to_diagnostic(
-        &self,
-        db: &dyn DiagnosticsDb,
-        ranged_token_sheet: &RangedTokenSheet,
-        token_sheet_data: &TokenSheetData,
-    ) -> Diagnostic {
+    fn range(&self, ctx: &Self::Context<'_>) -> TextRange;
+    fn to_diagnostic(&self, ctx: &Self::Context<'_>) -> Diagnostic {
         Diagnostic {
-            message: self.message(db),
+            message: self.message(ctx),
             severity: self.severity(),
-            range: self.range(ranged_token_sheet, token_sheet_data),
+            range: self.range(ctx),
         }
     }
 }

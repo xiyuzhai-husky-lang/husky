@@ -257,7 +257,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub fn parse_expr_expected2(
         &mut self,
         env: ExprParseEnvironment,
-        err: impl FnOnce(TokenIdx) -> ExprError,
+        err: impl FnOnce(TokenIdx) -> OriginalExprError,
     ) -> ExprIdx {
         let state = self.state();
         self.env.set(env);
@@ -299,8 +299,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         env: PatternExprInfo,
     ) -> ExprResult<Option<PatternExprIdx>> {
         if let Some(mut_token) = self.parse::<MutToken>()? {
-            let ident_token =
-                self.parse_expected2::<IdentifierToken, _>(ExprError::ExpectIdentifierAfterMut)?;
+            let ident_token = self.parse_expected2::<IdentifierToken, _>(
+                OriginalExprError::ExpectIdentifierAfterMut,
+            )?;
             Ok(Some(self.alloc_pattern_expr(
                 PatternExpr::Identifier {
                     ident_token,
@@ -404,7 +405,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 }
 
 impl<'a, 'b> parsec::HasParseError for ExprParseContext<'a, 'b> {
-    type Error = ExprError;
+    type Error = OriginalExprError;
 }
 
 impl<'a, 'b> std::ops::Deref for ExprParseContext<'a, 'b> {

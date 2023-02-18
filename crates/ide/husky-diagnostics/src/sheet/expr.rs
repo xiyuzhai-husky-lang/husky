@@ -1,6 +1,6 @@
 use husky_expr::{
     EntityPathExpr, EntityPathExprError, Expr, ExprError, ExprRegion, OriginalEntityPathExprError,
-    Stmt, StmtError,
+    OriginalExprError, Stmt, StmtError,
 };
 use husky_token::RangedTokenSheet;
 use salsa::DebugWithDb;
@@ -26,21 +26,9 @@ pub(crate) fn expr_diagnostic_sheet(
         let token_sheet_data = ranged_token_sheet.token_sheet_data(db);
         for defn in defn_sheet.defns() {
             let decl = defn.decl(db);
-            collect_expr_diagnostics(
-                db,
-                ranged_token_sheet,
-                token_sheet_data,
-                decl.expr_region(db),
-                &mut diagnostics,
-            );
+            collect_expr_diagnostics(db, decl.expr_region(db), &mut diagnostics);
             if let Some(expr_region) = defn.expr_region(db) {
-                collect_expr_diagnostics(
-                    db,
-                    ranged_token_sheet,
-                    token_sheet_data,
-                    expr_region,
-                    &mut diagnostics,
-                );
+                collect_expr_diagnostics(db, expr_region, &mut diagnostics);
             }
         }
     }
@@ -50,31 +38,20 @@ pub(crate) fn expr_diagnostic_sheet(
 
 fn collect_expr_diagnostics(
     db: &dyn DiagnosticsDb,
-    ranged_token_sheet: &RangedTokenSheet,
-    token_sheet_data: &TokenSheetData,
     expr_region: ExprRegion,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
     let expr_region_data = expr_region.data(db);
+    let ctx: DiagnosticsRegionContext = DiagnosticsRegionContext::new(db, expr_region);
     for expr in expr_region_data.expr_arena().data() {
         match expr {
-            Expr::Err(error) => {
-                if let Some(message) = expr_error_message(error) {
-                    diagnostics.push(Diagnostic {
-                        message,
-                        severity: expr_error_severity(error),
-                        range: expr_error_range(error, ranged_token_sheet),
-                    })
-                }
-            }
+            Expr::Err(ExprError::Original(error)) => diagnostics.push(error.to_diagnostic(&ctx)),
             _ => (),
         }
     }
     for stmt in expr_region_data.stmt_arena().data() {
         match stmt {
-            Stmt::Err(e) => {
-                diagnostics.push(e.to_diagnostic(db, ranged_token_sheet, token_sheet_data))
-            }
+            Stmt::Err(error) => diagnostics.push(error.to_diagnostic(&ctx)),
             _ => (),
         }
     }
@@ -82,17 +59,18 @@ fn collect_expr_diagnostics(
         match entity_path_expr {
             EntityPathExpr::Root { .. } => (),
             EntityPathExpr::Subentity {
-                ident_token,
-                path: entity_path,
-                ..
+                ident_token, path, ..
             } => {
                 match ident_token {
-                    Ok(_) => (),
-                    Err(error) => todo!(),
+                    Err(EntityPathExprError::Original(error)) => {
+                        diagnostics.push(error.to_diagnostic(&ctx))
+                    }
+                    _ => (),
                 }
-                match entity_path {
-                    Err(EntityPathExprError::Original(error)) => diagnostics
-                        .push(error.to_diagnostic(db, ranged_token_sheet, token_sheet_data)),
+                match path {
+                    Err(EntityPathExprError::Original(error)) => {
+                        diagnostics.push(error.to_diagnostic(&ctx))
+                    }
                     _ => (),
                 }
             }
@@ -100,129 +78,149 @@ fn collect_expr_diagnostics(
     }
 }
 
-fn expr_error_message(error: &ExprError) -> Option<String> {
-    Some(match error {
-        ExprError::MismatchingBracket { .. } => format!("Syntax Error: mismatching bracket"),
-        ExprError::MissingRightAngleBracket { .. } => format!("Syntax Error: missing `>`"),
-        ExprError::ExpectRightCurlyBrace(_) => format!("Syntax Error: expect `}}`"),
-        ExprError::ExpectIdentifier(_) => format!("Syntax Error: expect identifier"),
-        ExprError::ExpectColon(_) => format!("Syntax Error: expect `:`"),
-        ExprError::ExpectRightParenthesis(_) => format!("Syntax Error: expect `)`"),
-        ExprError::NoMatchingBra { .. } => format!("Syntax Error: no matching bracket"),
-        ExprError::ExpectIdentifierAfterDot { .. } => {
-            format!("Syntax Error: expect identifier after dot")
-        }
-        ExprError::Token(_) => return None,
-        ExprError::NoLeftOperandForBinaryOperator { .. } => {
-            format!("Syntax Error: no left operand for binary operator")
-        }
-        ExprError::NoRightOperandForBinaryOperator { .. } => {
-            format!("Syntax Error: no right operand for binary operator")
-        }
-        ExprError::NoOperandForPrefixOperator { .. } => {
-            format!("Syntax Error:no operand for prefix operator")
-        }
-        ExprError::MissingItemBeforeComma { .. } => {
-            format!("Syntax Error: missing item before `,`")
-        }
-        ExprError::MissingItemBeforeBe { .. } => format!("Syntax Error: missing item before `be`"),
-        ExprError::ExpectLetVariablePattern(_) => format!("Syntax Error: expect variable pattern"),
-        ExprError::ExpectAssignToken(_) => format!("Syntax Error: expect `=`"),
-        ExprError::MissingInitialValue(_) => format!("Syntax Error: missing initial value"),
-        ExprError::UnexpectedKeyword(_) => format!("Syntax Error: unexpected keyword"),
-        ExprError::MissingResult(_) => format!("Syntax Error: missing result"),
-        ExprError::MissingCondition(_) => format!("Syntax Error: missing condition"),
-        ExprError::MissingForExpr(_) => format!("Syntax Error: expect for expr"),
-        ExprError::ExpectBePattern(_) => format!("Syntax Error: expect be pattern"),
-        ExprError::ExpectParameterPattern(_) => format!("Syntax Error: expect paramter pattern"),
-        ExprError::UnterminatedList { .. } => format!("Syntax Error: unterminated list"),
-        ExprError::ExpectEolColon(_) => format!("Syntax Error: expect `:` at end of line"),
-        ExprError::ExpectIdentifierAfterMut(_) => {
-            format!("Syntax Error: expect identifier after `mut`")
-        }
-        ExprError::MissingBlock(_) => format!("Syntax Error: missing block"),
-        ExprError::UnexpectedSheba(_) => format!("Syntax Error: unexpected `$`"),
-        ExprError::UnrecognizedIdentifier { token_idx, ident } => {
-            format!("Syntax Error: unrecognized identifier")
-        }
-        ExprError::UnresolvedSubentity { token_idx, ident } => {
-            format!("Syntax Error: unresolved subentity")
-        }
-        ExprError::MissingLetVariablesType(_) => todo!(),
-        ExprError::MissingFieldType(_) => todo!(),
-    })
-}
+impl Diagnose for OriginalExprError {
+    type Context<'a> = DiagnosticsRegionContext<'a>;
 
-fn expr_error_severity(error: &ExprError) -> DiagnosticSeverity {
-    DiagnosticSeverity::Error
-}
+    fn message(&self, db: &Self::Context<'_>) -> String {
+        match self {
+            OriginalExprError::MismatchingBracket { .. } => {
+                format!("Syntax Error: mismatching bracket")
+            }
+            OriginalExprError::MissingRightAngleBracket { .. } => {
+                format!("Syntax Error: missing `>`")
+            }
+            OriginalExprError::ExpectRightCurlyBrace(_) => format!("Syntax Error: expect `}}`"),
+            OriginalExprError::ExpectIdentifier(_) => format!("Syntax Error: expect identifier"),
+            OriginalExprError::ExpectColon(_) => format!("Syntax Error: expect `:`"),
+            OriginalExprError::ExpectRightParenthesis(_) => format!("Syntax Error: expect `)`"),
+            OriginalExprError::NoMatchingBra { .. } => format!("Syntax Error: no matching bracket"),
+            OriginalExprError::ExpectIdentifierAfterDot { .. } => {
+                format!("Syntax Error: expect identifier after dot")
+            }
+            OriginalExprError::NoLeftOperandForBinaryOperator { .. } => {
+                format!("Syntax Error: no left operand for binary operator")
+            }
+            OriginalExprError::NoRightOperandForBinaryOperator { .. } => {
+                format!("Syntax Error: no right operand for binary operator")
+            }
+            OriginalExprError::NoOperandForPrefixOperator { .. } => {
+                format!("Syntax Error:no operand for prefix operator")
+            }
+            OriginalExprError::MissingItemBeforeComma { .. } => {
+                format!("Syntax Error: missing item before `,`")
+            }
+            OriginalExprError::MissingItemBeforeBe { .. } => {
+                format!("Syntax Error: missing item before `be`")
+            }
+            OriginalExprError::ExpectLetVariablePattern(_) => {
+                format!("Syntax Error: expect variable pattern")
+            }
+            OriginalExprError::ExpectAssignToken(_) => format!("Syntax Error: expect `=`"),
+            OriginalExprError::MissingInitialValue(_) => {
+                format!("Syntax Error: missing initial value")
+            }
+            OriginalExprError::UnexpectedKeyword(_) => format!("Syntax Error: unexpected keyword"),
+            OriginalExprError::MissingResult(_) => format!("Syntax Error: missing result"),
+            OriginalExprError::MissingCondition(_) => format!("Syntax Error: missing condition"),
+            OriginalExprError::MissingForExpr(_) => format!("Syntax Error: expect for expr"),
+            OriginalExprError::ExpectBePattern(_) => format!("Syntax Error: expect be pattern"),
+            OriginalExprError::ExpectParameterPattern(_) => {
+                format!("Syntax Error: expect paramter pattern")
+            }
+            OriginalExprError::UnterminatedList { .. } => {
+                format!("Syntax Error: unterminated list")
+            }
+            OriginalExprError::ExpectEolColon(_) => {
+                format!("Syntax Error: expect `:` at end of line")
+            }
+            OriginalExprError::ExpectIdentifierAfterMut(_) => {
+                format!("Syntax Error: expect identifier after `mut`")
+            }
+            OriginalExprError::MissingBlock(_) => format!("Syntax Error: missing block"),
+            OriginalExprError::UnexpectedSheba(_) => format!("Syntax Error: unexpected `$`"),
+            OriginalExprError::UnrecognizedIdentifier { token_idx, ident } => {
+                format!("Syntax Error: unrecognized identifier")
+            }
+            OriginalExprError::UnresolvedSubentity { token_idx, ident } => {
+                format!("Syntax Error: unresolved subentity")
+            }
+            OriginalExprError::MissingLetVariablesType(_) => todo!(),
+            OriginalExprError::MissingFieldType(_) => todo!(),
+        }
+    }
 
-fn expr_error_range(error: &ExprError, ranged_token_sheet: &RangedTokenSheet) -> TextRange {
-    match error {
-        ExprError::MismatchingBracket {
-            ket_token_idx: token_idx,
-            ..
+    fn severity(&self) -> DiagnosticSeverity {
+        DiagnosticSeverity::Error
+    }
+
+    fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
+        match self {
+            OriginalExprError::MismatchingBracket {
+                ket_token_idx: token_idx,
+                ..
+            }
+            | OriginalExprError::MissingRightAngleBracket {
+                langle_token_idx: token_idx,
+            }
+            | OriginalExprError::ExpectRightCurlyBrace(token_idx)
+            | OriginalExprError::ExpectIdentifier(token_idx)
+            | OriginalExprError::ExpectColon(token_idx)
+            | OriginalExprError::ExpectRightParenthesis(token_idx)
+            | OriginalExprError::NoMatchingBra {
+                ket_token_idx: token_idx,
+                ..
+            }
+            | OriginalExprError::ExpectIdentifierAfterDot(token_idx)
+            | OriginalExprError::NoLeftOperandForBinaryOperator {
+                binary_token_idx: token_idx,
+            }
+            | OriginalExprError::NoRightOperandForBinaryOperator {
+                punctuation_token_idx: token_idx,
+                ..
+            }
+            | OriginalExprError::NoOperandForPrefixOperator {
+                prefix_token_idx: token_idx,
+                ..
+            }
+            | OriginalExprError::MissingItemBeforeComma {
+                comma_token_idx: token_idx,
+            }
+            | OriginalExprError::MissingItemBeforeBe {
+                be_token_idx: token_idx,
+            }
+            | OriginalExprError::ExpectLetVariablePattern(token_idx)
+            | OriginalExprError::ExpectAssignToken(token_idx)
+            | OriginalExprError::MissingInitialValue(token_idx)
+            | OriginalExprError::UnexpectedKeyword(token_idx)
+            | OriginalExprError::MissingResult(token_idx)
+            | OriginalExprError::MissingCondition(token_idx)
+            | OriginalExprError::MissingForExpr(token_idx)
+            | OriginalExprError::ExpectBePattern(token_idx)
+            | OriginalExprError::ExpectParameterPattern(token_idx)
+            | OriginalExprError::UnterminatedList {
+                bra_token_idx: token_idx,
+            }
+            | OriginalExprError::ExpectEolColon(token_idx)
+            | OriginalExprError::ExpectIdentifierAfterMut(token_idx)
+            | OriginalExprError::UnexpectedSheba(token_idx)
+            | OriginalExprError::UnrecognizedIdentifier { token_idx, .. }
+            | OriginalExprError::UnresolvedSubentity { token_idx, .. } => {
+                ctx.ranged_token_sheet().token_text_range(*token_idx)
+            }
+            OriginalExprError::MissingBlock(_) => todo!(),
+            OriginalExprError::MissingLetVariablesType(_) => todo!(),
+            OriginalExprError::MissingFieldType(_) => todo!(),
         }
-        | ExprError::MissingRightAngleBracket {
-            langle_token_idx: token_idx,
-        }
-        | ExprError::ExpectRightCurlyBrace(token_idx)
-        | ExprError::ExpectIdentifier(token_idx)
-        | ExprError::ExpectColon(token_idx)
-        | ExprError::ExpectRightParenthesis(token_idx)
-        | ExprError::NoMatchingBra {
-            ket_token_idx: token_idx,
-            ..
-        }
-        | ExprError::ExpectIdentifierAfterDot(token_idx)
-        | ExprError::NoLeftOperandForBinaryOperator {
-            binary_token_idx: token_idx,
-        }
-        | ExprError::NoRightOperandForBinaryOperator {
-            punctuation_token_idx: token_idx,
-            ..
-        }
-        | ExprError::NoOperandForPrefixOperator {
-            prefix_token_idx: token_idx,
-            ..
-        }
-        | ExprError::MissingItemBeforeComma {
-            comma_token_idx: token_idx,
-        }
-        | ExprError::MissingItemBeforeBe {
-            be_token_idx: token_idx,
-        }
-        | ExprError::ExpectLetVariablePattern(token_idx)
-        | ExprError::ExpectAssignToken(token_idx)
-        | ExprError::MissingInitialValue(token_idx)
-        | ExprError::UnexpectedKeyword(token_idx)
-        | ExprError::MissingResult(token_idx)
-        | ExprError::MissingCondition(token_idx)
-        | ExprError::MissingForExpr(token_idx)
-        | ExprError::ExpectBePattern(token_idx)
-        | ExprError::ExpectParameterPattern(token_idx)
-        | ExprError::UnterminatedList {
-            bra_token_idx: token_idx,
-        }
-        | ExprError::ExpectEolColon(token_idx)
-        | ExprError::ExpectIdentifierAfterMut(token_idx)
-        | ExprError::UnexpectedSheba(token_idx)
-        | ExprError::UnrecognizedIdentifier { token_idx, .. }
-        | ExprError::UnresolvedSubentity { token_idx, .. } => {
-            ranged_token_sheet.token_text_range(*token_idx)
-        }
-        ExprError::Token(_) => todo!(),
-        ExprError::MissingBlock(_) => todo!(),
-        ExprError::MissingLetVariablesType(_) => todo!(),
-        ExprError::MissingFieldType(_) => todo!(),
     }
 }
 
 impl Diagnose for OriginalEntityPathExprError {
-    fn message(&self, db: &dyn DiagnosticsDb) -> String {
+    type Context<'a> = DiagnosticsRegionContext<'a>;
+
+    fn message(&self, ctx: &DiagnosticsRegionContext) -> String {
         match self {
             OriginalEntityPathExprError::EntityTree { token_idx, error } => {
-                format!("entity tree error {:?}", error.debug(db))
+                format!("entity tree error {:?}", error.debug(ctx.db()))
             }
             OriginalEntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => todo!(),
         }
@@ -239,14 +237,10 @@ impl Diagnose for OriginalEntityPathExprError {
         }
     }
 
-    fn range(
-        &self,
-        ranged_token_sheet: &RangedTokenSheet,
-        token_sheet_data: &TokenSheetData,
-    ) -> TextRange {
+    fn range(&self, ctx: &DiagnosticsRegionContext) -> TextRange {
         match self {
             OriginalEntityPathExprError::EntityTree { token_idx, error } => {
-                ranged_token_sheet.token_text_range(*token_idx)
+                ctx.ranged_token_sheet().token_text_range(*token_idx)
             }
             OriginalEntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => todo!(),
         }
@@ -254,7 +248,9 @@ impl Diagnose for OriginalEntityPathExprError {
 }
 
 impl Diagnose for StmtError {
-    fn message(&self, db: &dyn DiagnosticsDb) -> String {
+    type Context<'a> = DiagnosticsRegionContext<'a>;
+
+    fn message(&self, ctx: &DiagnosticsRegionContext) -> String {
         todo!()
     }
 
@@ -262,11 +258,7 @@ impl Diagnose for StmtError {
         todo!()
     }
 
-    fn range(
-        &self,
-        ranged_token_sheet: &RangedTokenSheet,
-        token_sheet_data: &TokenSheetData,
-    ) -> TextRange {
+    fn range(&self, ctx: &DiagnosticsRegionContext) -> TextRange {
         todo!()
     }
 }

@@ -32,7 +32,7 @@ pub enum ImplicitParameterDeclPatternVariant {
 impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDeclPattern {
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> Result<Option<Self>, ExprError> {
+    ) -> Result<Option<Self>, OriginalExprError> {
         if let Some(ident_token) = ctx.parse::<IdentifierToken>()? {
             let annotated_variance_token = ctx.try_parse();
             let access_start = ctx.state();

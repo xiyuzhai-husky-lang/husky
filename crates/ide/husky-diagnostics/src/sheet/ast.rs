@@ -15,6 +15,7 @@ pub(crate) fn ast_diagnostic_sheet(
     module_path: ModulePath,
 ) -> AstDiagnosticSheet {
     let mut diagnostics = vec![];
+    let ctx = DiagnosticsSheetContext::new(db, module_path);
     if let (Ok(ranged_token_sheet), Ok(ast_sheet)) = (
         db.ranged_token_sheet(module_path),
         db.ast_sheet(module_path),
@@ -25,11 +26,7 @@ pub(crate) fn ast_diagnostic_sheet(
                 Ast::Err {
                     token_group_idx,
                     error,
-                } => diagnostics.push((*token_group_idx, error).to_diagnostic(
-                    db,
-                    ranged_token_sheet,
-                    token_sheet_data,
-                )),
+                } => diagnostics.push((*token_group_idx, error).to_diagnostic(&ctx)),
                 _ => (),
             }
         }
@@ -38,7 +35,9 @@ pub(crate) fn ast_diagnostic_sheet(
     AstDiagnosticSheet::new(db, diagnostics)
 }
 impl Diagnose for (TokenGroupIdx, &AstError) {
-    fn message(&self, db: &dyn DiagnosticsDb) -> String {
+    type Context<'a> = DiagnosticsSheetContext<'a>;
+
+    fn message(&self, db: &DiagnosticsSheetContext) -> String {
         match self.1 {
             AstError::ExcessiveIndent => format!("Syntax Error: excessive indent"),
             AstError::StandaloneElif => format!("Syntax Error: standalone elif"),
@@ -77,11 +76,7 @@ impl Diagnose for (TokenGroupIdx, &AstError) {
         DiagnosticSeverity::Error
     }
 
-    fn range(
-        &self,
-        ranged_token_sheet: &RangedTokenSheet,
-        token_sheet_data: &TokenSheetData,
-    ) -> TextRange {
+    fn range(&self, ctx: &DiagnosticsSheetContext) -> TextRange {
         // merge branches
         match self.1 {
             AstError::ExcessiveIndent
@@ -92,8 +87,8 @@ impl Diagnose for (TokenGroupIdx, &AstError) {
             | AstError::ExpectNothing
             | AstError::UnexpectedStmtInsideModule
             | AstError::UnexpectedStmtInsideImpl => {
-                let token_idx_range = token_sheet_data.token_group_token_idx_range(self.0);
-                ranged_token_sheet.tokens_text_range(token_idx_range)
+                let token_idx_range = ctx.token_sheet_data().token_group_token_idx_range(self.0);
+                ctx.ranged_token_sheet().tokens_text_range(token_idx_range)
             }
             AstError::ExpectIdentifier(token_idx)
             | AstError::UnexpectedEndOfTokenGroupAfterPubKeyword(token_idx)
@@ -101,7 +96,7 @@ impl Diagnose for (TokenGroupIdx, &AstError) {
             | AstError::UnexpectedTokenForTypeImplItem(token_idx)
             | AstError::UnexpectedTokenForTraitImplItem(token_idx)
             | AstError::UnexpectedTokenForModuleItem(token_idx) => {
-                ranged_token_sheet.token_text_range(*token_idx)
+                ctx.ranged_token_sheet().token_text_range(*token_idx)
             }
         }
     }

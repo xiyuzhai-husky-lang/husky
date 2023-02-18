@@ -52,8 +52,8 @@ pub enum OriginalEntityPathExprError {
     ExpectIdentifierAfterScopeResolution(TokenIdx),
 }
 
-impl From<ExprError> for OriginalEntityPathExprError {
-    fn from(value: ExprError) -> Self {
+impl From<OriginalExprError> for OriginalEntityPathExprError {
+    fn from(value: OriginalExprError) -> Self {
         todo!()
     }
 }
@@ -61,7 +61,7 @@ impl From<ExprError> for OriginalEntityPathExprError {
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum DerivedEntityPathExprError {
     #[error("derived from expr error {0}")]
-    AbortFromExprError(#[from] ExprError),
+    AbortFromExprError(#[from] OriginalExprError),
 }
 
 pub type EntityPathExprResult<T> = Result<T, EntityPathExprError>;

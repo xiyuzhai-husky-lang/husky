@@ -11,7 +11,7 @@ pub struct RegularParameterDeclPattern {
 impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for RegularParameterDeclPattern {
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> Result<Option<Self>, ExprError> {
+    ) -> Result<Option<Self>, OriginalExprError> {
         if let Some(pattern) = ctx.parse_pattern_expr(PatternExprInfo::Parameter)? {
             let symbols = ctx.pattern_expr_region().pattern_symbol_map(pattern);
             let access_start = ctx.state();

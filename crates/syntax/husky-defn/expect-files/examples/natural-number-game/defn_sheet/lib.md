@@ -412,11 +412,13 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 Expr::Err(
-                                                    NoLeftOperandForBinaryOperator {
-                                                        binary_token_idx: TokenIdx(
-                                                            14,
-                                                        ),
-                                                    },
+                                                    Original(
+                                                        NoLeftOperandForBinaryOperator {
+                                                            binary_token_idx: TokenIdx(
+                                                                14,
+                                                            ),
+                                                        },
+                                                    ),
                                                 ),
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
@@ -607,11 +609,13 @@ Ok(
                                                 expr_arena: Arena {
                                                     data: [
                                                         Expr::Err(
-                                                            NoLeftOperandForBinaryOperator {
-                                                                binary_token_idx: TokenIdx(
-                                                                    14,
-                                                                ),
-                                                            },
+                                                            Original(
+                                                                NoLeftOperandForBinaryOperator {
+                                                                    binary_token_idx: TokenIdx(
+                                                                        14,
+                                                                    ),
+                                                                },
+                                                            ),
                                                         ),
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
