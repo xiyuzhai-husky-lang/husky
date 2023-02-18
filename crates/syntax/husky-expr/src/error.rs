@@ -7,6 +7,14 @@ use thiserror::Error;
 
 #[derive(Error, Debug, PartialEq, Eq)]
 pub enum ExprError {
+    #[error("original {0}")]
+    Original(#[from] OriginalExprError),
+    #[error("derived {0}")]
+    Derived(#[from] DerivedExprError),
+}
+
+#[derive(Error, Debug, PartialEq, Eq)]
+pub enum OriginalExprError {
     #[error("mismatching bracket")]
     MismatchingBracket {
         bra: Bracket,
@@ -31,8 +39,6 @@ pub enum ExprError {
     },
     #[error("expect identifier after dot")]
     ExpectIdentifierAfterDot(TokenIdx),
-    #[error("token error {0}")]
-    Token(#[from] TokenError),
     #[error("no left operand for binary operator")]
     NoLeftOperandForBinaryOperator { binary_token_idx: TokenIdx },
     #[error("no right operand for binary operator")]
@@ -94,11 +100,17 @@ pub enum ExprError {
     MissingFieldType(TokenIdx),
 }
 
-pub type ExprResult<T> = Result<T, ExprError>;
+#[derive(Error, Debug, PartialEq, Eq)]
+pub enum DerivedExprError {
+    #[error("token error")]
+    Token,
+}
 
-impl<'a, 'b> FromAbsent<RightCurlyBraceToken, ExprParseContext<'a, 'b>> for ExprError {
+pub type ExprResult<T> = Result<T, OriginalExprError>;
+
+impl<'a, 'b> FromAbsent<RightCurlyBraceToken, ExprParseContext<'a, 'b>> for OriginalExprError {
     fn new_absent_error(state: <ExprParseContext<'a, 'b> as HasParseState>::State) -> Self {
-        ExprError::ExpectRightCurlyBrace(state)
+        OriginalExprError::ExpectRightCurlyBrace(state)
     }
 }
 
@@ -112,56 +124,56 @@ impl<'a, 'b> FromAbsent<RightCurlyBraceToken, ExprParseContext<'a, 'b>> for Expr
 //     }
 // }
 
-impl<'a, Context> FromAbsent<ColonToken, Context> for ExprError
+impl<'a, Context> FromAbsent<ColonToken, Context> for OriginalExprError
 where
     Context: TokenParseContext<'a>,
 {
     fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
-        ExprError::ExpectColon(state)
+        OriginalExprError::ExpectColon(state)
     }
 }
 
-impl<'a, Context> FromAbsent<RightParenthesisToken, Context> for ExprError
+impl<'a, Context> FromAbsent<RightParenthesisToken, Context> for OriginalExprError
 where
     Context: TokenParseContext<'a>,
 {
     fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
-        ExprError::ExpectRightParenthesis(state)
+        OriginalExprError::ExpectRightParenthesis(state)
     }
 }
 
-impl<'a, Context> FromAbsent<LetVariablesPattern, Context> for ExprError
+impl<'a, Context> FromAbsent<LetVariablesPattern, Context> for OriginalExprError
 where
     Context: TokenParseContext<'a>,
 {
     fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
-        ExprError::ExpectLetVariablePattern(state)
+        OriginalExprError::ExpectLetVariablePattern(state)
     }
 }
 
-impl<'a, Context> FromAbsent<AssignToken, Context> for ExprError
+impl<'a, Context> FromAbsent<AssignToken, Context> for OriginalExprError
 where
     Context: TokenParseContext<'a>,
 {
     fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
-        ExprError::ExpectAssignToken(state)
+        OriginalExprError::ExpectAssignToken(state)
     }
 }
 
-impl<'a, Context> FromAbsent<BeVariableDeclPattern, Context> for ExprError
+impl<'a, Context> FromAbsent<BeVariableDeclPattern, Context> for OriginalExprError
 where
     Context: TokenParseContext<'a>,
 {
     fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
-        ExprError::ExpectBePattern(state)
+        OriginalExprError::ExpectBePattern(state)
     }
 }
 
-impl<'a, Context> FromAbsent<EolColonToken, Context> for ExprError
+impl<'a, Context> FromAbsent<EolColonToken, Context> for OriginalExprError
 where
     Context: TokenParseContext<'a>,
 {
     fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
-        ExprError::ExpectEolColon(state)
+        OriginalExprError::ExpectEolColon(state)
     }
 }

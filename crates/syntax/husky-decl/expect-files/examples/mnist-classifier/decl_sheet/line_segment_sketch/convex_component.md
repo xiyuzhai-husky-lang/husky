@@ -31,22 +31,26 @@ Ok(
                                                 opd: 0,
                                             },
                                             Expr::Err(
-                                                NoLeftOperandForBinaryOperator {
-                                                    binary_token_idx: TokenIdx(
-                                                        17,
-                                                    ),
-                                                },
+                                                Original(
+                                                    NoLeftOperandForBinaryOperator {
+                                                        binary_token_idx: TokenIdx(
+                                                            17,
+                                                        ),
+                                                    },
+                                                ),
                                             ),
                                             Expr::Err(
-                                                NoRightOperandForBinaryOperator {
-                                                    lopd: 2,
-                                                    punctuation: PureClosed(
-                                                        RemEuclid,
-                                                    ),
-                                                    punctuation_token_idx: TokenIdx(
-                                                        17,
-                                                    ),
-                                                },
+                                                Original(
+                                                    NoRightOperandForBinaryOperator {
+                                                        lopd: 2,
+                                                        punctuation: PureClosed(
+                                                            RemEuclid,
+                                                        ),
+                                                        punctuation_token_idx: TokenIdx(
+                                                            17,
+                                                        ),
+                                                    },
+                                                ),
                                             ),
                                             Expr::NewBoxList {
                                                 caller: None,

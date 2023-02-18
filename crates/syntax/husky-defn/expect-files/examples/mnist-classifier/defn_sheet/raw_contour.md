@@ -5921,18 +5921,20 @@ Ok(
                                             argument: 2,
                                         },
                                         Expr::Err(
-                                            UnrecognizedIdentifier {
-                                                token_idx: TokenIdx(
-                                                    1014,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 194,
-                                                        },
+                                            Original(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        1014,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 194,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::RitchieCall {
                                             function: 4,

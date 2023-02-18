@@ -38,18 +38,20 @@ Ok(
                                     expr_arena: Arena {
                                         data: [
                                             Expr::Err(
-                                                UnrecognizedIdentifier {
-                                                    token_idx: TokenIdx(
-                                                        61,
-                                                    ),
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 362,
-                                                            },
+                                                Original(
+                                                    UnrecognizedIdentifier {
+                                                        token_idx: TokenIdx(
+                                                            61,
                                                         ),
-                                                    ),
-                                                },
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 362,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
                                             ),
                                         ],
                                     },
@@ -279,18 +281,20 @@ Ok(
                                     expr_arena: Arena {
                                         data: [
                                             Expr::Err(
-                                                UnrecognizedIdentifier {
-                                                    token_idx: TokenIdx(
-                                                        80,
-                                                    ),
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 123,
-                                                            },
+                                                Original(
+                                                    UnrecognizedIdentifier {
+                                                        token_idx: TokenIdx(
+                                                            80,
                                                         ),
-                                                    ),
-                                                },
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 123,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
                                             ),
                                             Expr::PrefixOpn {
                                                 opr: Option,
@@ -348,46 +352,52 @@ Ok(
                                 expr_arena: Arena {
                                     data: [
                                         Expr::Err(
-                                            UnrecognizedIdentifier {
-                                                token_idx: TokenIdx(
-                                                    82,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 373,
-                                                        },
+                                            Original(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        82,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 373,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::Err(
-                                            UnrecognizedIdentifier {
-                                                token_idx: TokenIdx(
-                                                    84,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 123,
-                                                        },
+                                            Original(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        84,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 123,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::Err(
-                                            UnresolvedSubentity {
-                                                token_idx: TokenIdx(
-                                                    86,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 392,
-                                                        },
+                                            Original(
+                                                UnresolvedSubentity {
+                                                    token_idx: TokenIdx(
+                                                        86,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 392,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::EntityPath {
                                             entity_path_expr: 0,
@@ -521,46 +531,52 @@ Ok(
                                             ropd: 16,
                                         },
                                         Expr::Err(
-                                            UnrecognizedIdentifier {
-                                                token_idx: TokenIdx(
-                                                    114,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 373,
-                                                        },
+                                            Original(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        114,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 373,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::Err(
-                                            UnrecognizedIdentifier {
-                                                token_idx: TokenIdx(
-                                                    116,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 123,
-                                                        },
+                                            Original(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        116,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 123,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::Err(
-                                            UnresolvedSubentity {
-                                                token_idx: TokenIdx(
-                                                    118,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 392,
-                                                        },
+                                            Original(
+                                                UnresolvedSubentity {
+                                                    token_idx: TokenIdx(
+                                                        118,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 392,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::EntityPath {
                                             entity_path_expr: 4,
@@ -680,32 +696,36 @@ Ok(
                                             ropd: 33,
                                         },
                                         Expr::Err(
-                                            UnrecognizedIdentifier {
-                                                token_idx: TokenIdx(
-                                                    140,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 123,
-                                                        },
+                                            Original(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        140,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 123,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::Err(
-                                            UnresolvedSubentity {
-                                                token_idx: TokenIdx(
-                                                    142,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 392,
-                                                        },
+                                            Original(
+                                                UnresolvedSubentity {
+                                                    token_idx: TokenIdx(
+                                                        142,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 392,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::BinaryOpn {
                                             lopd: 35,
@@ -939,46 +959,52 @@ Ok(
                                             ropd: 61,
                                         },
                                         Expr::Err(
-                                            UnrecognizedIdentifier {
-                                                token_idx: TokenIdx(
-                                                    193,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 373,
-                                                        },
+                                            Original(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        193,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 373,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::Err(
-                                            UnrecognizedIdentifier {
-                                                token_idx: TokenIdx(
-                                                    195,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 123,
-                                                        },
+                                            Original(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        195,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 123,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::Err(
-                                            UnresolvedSubentity {
-                                                token_idx: TokenIdx(
-                                                    197,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 392,
-                                                        },
+                                            Original(
+                                                UnresolvedSubentity {
+                                                    token_idx: TokenIdx(
+                                                        197,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 392,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::CurrentSymbol {
                                             ident: `simp_one_match`,
@@ -1134,32 +1160,36 @@ Ok(
                                             ropd: 80,
                                         },
                                         Expr::Err(
-                                            UnrecognizedIdentifier {
-                                                token_idx: TokenIdx(
-                                                    222,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 123,
-                                                        },
+                                            Original(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        222,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 123,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::Err(
-                                            UnresolvedSubentity {
-                                                token_idx: TokenIdx(
-                                                    224,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 392,
-                                                        },
+                                            Original(
+                                                UnresolvedSubentity {
+                                                    token_idx: TokenIdx(
+                                                        224,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 392,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::BinaryOpn {
                                             lopd: 82,
@@ -1281,46 +1311,52 @@ Ok(
                                             ropd: 94,
                                         },
                                         Expr::Err(
-                                            UnrecognizedIdentifier {
-                                                token_idx: TokenIdx(
-                                                    245,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 373,
-                                                        },
+                                            Original(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        245,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 373,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::Err(
-                                            UnrecognizedIdentifier {
-                                                token_idx: TokenIdx(
-                                                    247,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 123,
-                                                        },
+                                            Original(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        247,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 123,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::Err(
-                                            UnresolvedSubentity {
-                                                token_idx: TokenIdx(
-                                                    249,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 392,
-                                                        },
+                                            Original(
+                                                UnresolvedSubentity {
+                                                    token_idx: TokenIdx(
+                                                        249,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 392,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::EntityPath {
                                             entity_path_expr: 15,
@@ -1443,46 +1479,52 @@ Ok(
                                             ),
                                         },
                                         Expr::Err(
-                                            UnrecognizedIdentifier {
-                                                token_idx: TokenIdx(
-                                                    274,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 373,
-                                                        },
+                                            Original(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        274,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 373,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::Err(
-                                            UnrecognizedIdentifier {
-                                                token_idx: TokenIdx(
-                                                    276,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 123,
-                                                        },
+                                            Original(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        276,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 123,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::Err(
-                                            UnresolvedSubentity {
-                                                token_idx: TokenIdx(
-                                                    278,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 392,
-                                                        },
+                                            Original(
+                                                UnresolvedSubentity {
+                                                    token_idx: TokenIdx(
+                                                        278,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 392,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::EntityPath {
                                             entity_path_expr: 19,
@@ -1906,46 +1948,52 @@ Ok(
                                             ropd: 153,
                                         },
                                         Expr::Err(
-                                            UnrecognizedIdentifier {
-                                                token_idx: TokenIdx(
-                                                    354,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 373,
-                                                        },
+                                            Original(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        354,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 373,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::Err(
-                                            UnrecognizedIdentifier {
-                                                token_idx: TokenIdx(
-                                                    356,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 123,
-                                                        },
+                                            Original(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        356,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 123,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::Err(
-                                            UnresolvedSubentity {
-                                                token_idx: TokenIdx(
-                                                    358,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 392,
-                                                        },
+                                            Original(
+                                                UnresolvedSubentity {
+                                                    token_idx: TokenIdx(
+                                                        358,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 392,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::CurrentSymbol {
                                             ident: `upmost`,
@@ -2069,46 +2117,52 @@ Ok(
                                             ),
                                         },
                                         Expr::Err(
-                                            UnrecognizedIdentifier {
-                                                token_idx: TokenIdx(
-                                                    379,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 373,
-                                                        },
+                                            Original(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        379,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 373,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::Err(
-                                            UnrecognizedIdentifier {
-                                                token_idx: TokenIdx(
-                                                    381,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 123,
-                                                        },
+                                            Original(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        381,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 123,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::Err(
-                                            UnresolvedSubentity {
-                                                token_idx: TokenIdx(
-                                                    383,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 392,
-                                                        },
+                                            Original(
+                                                UnresolvedSubentity {
+                                                    token_idx: TokenIdx(
+                                                        383,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 392,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::CurrentSymbol {
                                             ident: `long_vertical_dp`,
@@ -2251,46 +2305,52 @@ Ok(
                                             ),
                                         },
                                         Expr::Err(
-                                            UnrecognizedIdentifier {
-                                                token_idx: TokenIdx(
-                                                    407,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 373,
-                                                        },
+                                            Original(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        407,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 373,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::Err(
-                                            UnrecognizedIdentifier {
-                                                token_idx: TokenIdx(
-                                                    409,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 123,
-                                                        },
+                                            Original(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        409,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 123,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::Err(
-                                            UnresolvedSubentity {
-                                                token_idx: TokenIdx(
-                                                    411,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 392,
-                                                        },
+                                            Original(
+                                                UnresolvedSubentity {
+                                                    token_idx: TokenIdx(
+                                                        411,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 392,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::EntityPath {
                                             entity_path_expr: 21,
@@ -2739,46 +2799,52 @@ Ok(
                                             ),
                                         },
                                         Expr::Err(
-                                            UnrecognizedIdentifier {
-                                                token_idx: TokenIdx(
-                                                    496,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 373,
-                                                        },
+                                            Original(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        496,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 373,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::Err(
-                                            UnrecognizedIdentifier {
-                                                token_idx: TokenIdx(
-                                                    498,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 123,
-                                                        },
+                                            Original(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        498,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 123,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::Err(
-                                            UnresolvedSubentity {
-                                                token_idx: TokenIdx(
-                                                    500,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 392,
-                                                        },
+                                            Original(
+                                                UnresolvedSubentity {
+                                                    token_idx: TokenIdx(
+                                                        500,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 392,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::CurrentSymbol {
                                             ident: `downmost_hat_dp`,
@@ -3036,32 +3102,36 @@ Ok(
                                             ropd: 258,
                                         },
                                         Expr::Err(
-                                            UnrecognizedIdentifier {
-                                                token_idx: TokenIdx(
-                                                    550,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 123,
-                                                        },
+                                            Original(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        550,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 123,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::Err(
-                                            UnresolvedSubentity {
-                                                token_idx: TokenIdx(
-                                                    552,
-                                                ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 392,
-                                                        },
+                                            Original(
+                                                UnresolvedSubentity {
+                                                    token_idx: TokenIdx(
+                                                        552,
                                                     ),
-                                                ),
-                                            },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 392,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                         ),
                                         Expr::BinaryOpn {
                                             lopd: 260,

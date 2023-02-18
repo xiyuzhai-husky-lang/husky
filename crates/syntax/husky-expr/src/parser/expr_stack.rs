@@ -82,9 +82,10 @@ impl Expr {
             Expr::Bracketed { item, .. } => arena[item].base_entity_path(db, arena),
             Expr::Err(e) => BaseEntityPath::Uncertain {
                 inclination: match e {
-                    ExprError::UnrecognizedIdentifier { ident, .. } => {
-                        BaseEntityPathInclination::from_case(ident.case(db))
-                    }
+                    ExprError::Original(OriginalExprError::UnrecognizedIdentifier {
+                        ident,
+                        ..
+                    }) => BaseEntityPathInclination::from_case(ident.case(db)),
                     // ad hoc
                     _ => BaseEntityPathInclination::FunctionOrLocalValue,
                 },
@@ -183,11 +184,14 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             opr_token_idx: punctuation_token_idx,
                             ropd: self.alloc_expr(ropd),
                         },
-                        None => Expr::Err(ExprError::NoRightOperandForBinaryOperator {
-                            lopd,
-                            punctuation,
-                            punctuation_token_idx,
-                        }),
+                        None => Expr::Err(
+                            OriginalExprError::NoRightOperandForBinaryOperator {
+                                lopd,
+                                punctuation,
+                                punctuation_token_idx,
+                            }
+                            .into(),
+                        ),
                     })
                 }
                 UnfinishedExpr::Application { function } => {
@@ -207,18 +211,22 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             opr_token_idx: punctuation_token_idx,
                             opd: self.alloc_expr(opd),
                         },
-                        None => Expr::Err(ExprError::NoOperandForPrefixOperator {
-                            prefix: punctuation,
-                            prefix_token_idx: punctuation_token_idx,
-                        }),
+                        None => Expr::Err(
+                            OriginalExprError::NoOperandForPrefixOperator {
+                                prefix: punctuation,
+                                prefix_token_idx: punctuation_token_idx,
+                            }
+                            .into(),
+                        ),
                     })
                 }
                 UnfinishedExpr::ListItem {
                     separator_token_idx,
                 } => todo!(),
                 UnfinishedExpr::List { bra_token_idx, .. } => {
-                    self.stack.finished_expr =
-                        Some(Expr::Err(ExprError::UnterminatedList { bra_token_idx }))
+                    self.stack.finished_expr = Some(Expr::Err(
+                        OriginalExprError::UnterminatedList { bra_token_idx }.into(),
+                    ))
                 }
                 UnfinishedExpr::LambdaHead { inputs, start } => todo!(),
             }

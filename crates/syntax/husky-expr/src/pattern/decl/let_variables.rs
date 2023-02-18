@@ -34,7 +34,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             let ty = match colon_token {
                 Ok(Some(_)) => Some(self.parse_expr_expected2(
                     ExprParseEnvironment::None,
-                    ExprError::MissingLetVariablesType,
+                    OriginalExprError::MissingLetVariablesType,
                 )),
                 _ => None,
             };
@@ -47,7 +47,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 ty,
             })
         } else {
-            Err(ExprError::ExpectLetVariablePattern(state))
+            Err(OriginalExprError::ExpectLetVariablePattern(state))
         }
     }
 }

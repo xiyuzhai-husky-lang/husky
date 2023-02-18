@@ -24,7 +24,7 @@ impl ImplicitParameterDecl {
 impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDecl {
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> Result<Option<Self>, ExprError> {
+    ) -> Result<Option<Self>, OriginalExprError> {
         let Some(pattern) = ctx.parse::<ImplicitParameterDeclPattern>()? else {
             return Ok(None)
         };
@@ -80,7 +80,7 @@ impl ImplicitParameterDeclList {
 impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDeclList {
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> Result<Option<Self>, ExprError> {
+    ) -> Result<Option<Self>, OriginalExprError> {
         let Some(langle) = ctx.parse::< LeftAngleBracketOrLessThanToken>()? else {
             return Ok(None)
         };
@@ -89,9 +89,11 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDeclList {
             langle,
             implicit_parameters: decls,
             commas,
-            rangle: ctx.parse()?.ok_or(ExprError::MissingRightAngleBracket {
-                langle_token_idx: langle.token_idx(),
-            })?,
+            rangle: ctx
+                .parse()?
+                .ok_or(OriginalExprError::MissingRightAngleBracket {
+                    langle_token_idx: langle.token_idx(),
+                })?,
         }))
     }
 }
@@ -113,7 +115,7 @@ impl ParameterDeclList {
 impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ParameterDeclList {
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> Result<Option<Self>, ExprError> {
+    ) -> Result<Option<Self>, OriginalExprError> {
         let Some(lpar) = ctx.parse::<LeftParenthesisToken>()? else {
             return Ok(None)
         };

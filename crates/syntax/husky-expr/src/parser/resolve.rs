@@ -35,9 +35,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
                 PronounKeyword::Super => todo!(),
             },
-            Token::Keyword(keyword) => {
-                ResolvedToken::AtomicExpr(Expr::Err(ExprError::UnexpectedKeyword(token_idx)))
-            }
+            Token::Keyword(keyword) => ResolvedToken::AtomicExpr(Expr::Err(
+                OriginalExprError::UnexpectedKeyword(token_idx).into(),
+            )),
             Token::Identifier(ident) => self.resolve_ident(token_idx, ident),
             Token::Punctuation(punc) => match punc {
                 Punctuation::Binary(binary) => ResolvedToken::BinaryOpr(token_idx, binary),
@@ -102,9 +102,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     }
                     _ => ResolvedToken::BinaryOpr(token_idx, BinaryComparisonOpr::Greater.into()),
                 },
-                Punctuation::Sheba => {
-                    ResolvedToken::AtomicExpr(Expr::Err(ExprError::UnexpectedSheba(token_idx)))
-                }
+                Punctuation::Sheba => ResolvedToken::AtomicExpr(Expr::Err(
+                    OriginalExprError::UnexpectedSheba(token_idx).into(),
+                )),
                 Punctuation::Shr => {
                     ResolvedToken::BinaryOpr(token_idx, BinaryPureClosedOpr::Shr.into())
                 }
@@ -205,7 +205,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 WordOpr::Be => ResolvedToken::Be(token_idx),
             },
             Token::Literal(_) => ResolvedToken::AtomicExpr(Expr::Literal(token_idx)),
-            Token::Err(ref error) => ResolvedToken::AtomicExpr(Expr::Err(error.clone().into())),
+            Token::Err(ref error) => {
+                ResolvedToken::AtomicExpr(Expr::Err(DerivedExprError::Token.into()))
+            }
         })
     }
 }
@@ -230,7 +232,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     }
                     BaseEntityPath::Uncertain { .. } => {
                         return ResolvedToken::AtomicExpr(Expr::Err(
-                            ExprError::UnresolvedSubentity { token_idx, ident },
+                            OriginalExprError::UnresolvedSubentity { token_idx, ident }.into(),
                         ))
                     }
                     BaseEntityPath::Err => todo!(),
@@ -273,7 +275,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     },
                     //  Expr::EntityPath(entity_path),
                 },
-                None => Expr::Err(ExprError::UnrecognizedIdentifier { token_idx, ident }),
+                None => {
+                    Expr::Err(OriginalExprError::UnrecognizedIdentifier { token_idx, ident }.into())
+                }
             },
         )
     }

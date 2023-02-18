@@ -41,7 +41,7 @@ impl<'a> BlockExprParser<'a> {
     ) -> ExprResult<StmtIdxRange> {
         match self.parse_block_stmts(body) {
             Some(stmt_idx_range) => Ok(stmt_idx_range),
-            None => Err(ExprError::MissingBlock(token_group_idx)),
+            None => Err(OriginalExprError::MissingBlock(token_group_idx)),
         }
     }
 
@@ -121,33 +121,35 @@ impl<'a> BlockExprParser<'a> {
                     assign_token: ctx.parse_expected(),
                     initial_value: ctx.parse_expr_expected(
                         ExprParseEnvironment::None,
-                        ExprError::MissingInitialValue,
+                        OriginalExprError::MissingInitialValue,
                     ),
                 },
                 BasicStmtKeywordToken::Return(return_token) => Stmt::Return {
                     return_token,
-                    result: ctx
-                        .parse_expr_expected(ExprParseEnvironment::None, ExprError::MissingResult),
+                    result: ctx.parse_expr_expected(
+                        ExprParseEnvironment::None,
+                        OriginalExprError::MissingResult,
+                    ),
                 },
                 BasicStmtKeywordToken::Require(require_token) => Stmt::Require {
                     require_token,
                     condition: ctx.parse_expr_expected(
                         ExprParseEnvironment::None,
-                        ExprError::MissingCondition,
+                        OriginalExprError::MissingCondition,
                     ),
                 },
                 BasicStmtKeywordToken::Assert(assert_token) => Stmt::Assert {
                     assert_token,
                     condition: ctx.parse_expr_expected(
                         ExprParseEnvironment::None,
-                        ExprError::MissingCondition,
+                        OriginalExprError::MissingCondition,
                     ),
                 },
                 BasicStmtKeywordToken::Break(break_token) => Stmt::Break { break_token },
                 BasicStmtKeywordToken::For(for_token) => {
                     let expr = match ctx.parse_expr_expected(
                         ExprParseEnvironment::None,
-                        ExprError::MissingCondition,
+                        OriginalExprError::MissingCondition,
                     ) {
                         Ok(expr) => expr,
                         Err(_) => todo!(),
@@ -168,7 +170,7 @@ impl<'a> BlockExprParser<'a> {
                     while_token,
                     condition: ctx.parse_expr_expected(
                         ExprParseEnvironment::None,
-                        ExprError::MissingCondition,
+                        OriginalExprError::MissingCondition,
                     ),
                     eol_colon: ctx.parse_expected(),
                     block: self.parse_block_stmts_expected(body, token_group_idx),
@@ -179,7 +181,7 @@ impl<'a> BlockExprParser<'a> {
                         while_token,
                         condition: ctx.parse_expr_expected(
                             ExprParseEnvironment::None,
-                            ExprError::MissingCondition,
+                            OriginalExprError::MissingCondition,
                         ),
                         eol_colon: ctx.parse_expected(),
                         block: self.parse_block_stmts_expected(body, token_group_idx),
@@ -268,18 +270,22 @@ impl<'a> BlockExprParser<'a> {
         ropd: ExprIdx,
         comparison_opr: BinaryComparisonOpr,
     ) -> Result<ForBetweenParticulars, StmtError> {
-        use ExprError::UnrecognizedIdentifier;
+        use OriginalExprError::UnrecognizedIdentifier;
         let lopd_expr = &self.expr_arena[lopd];
         let ropd_expr = &self.expr_arena[ropd];
         // todo: parse with
-        if let Expr::Err(UnrecognizedIdentifier { token_idx, ident }) = lopd_expr {
+        if let Expr::Err(ExprError::Original(UnrecognizedIdentifier { token_idx, ident })) =
+            lopd_expr
+        {
             Ok(ForBetweenParticulars {
                 frame_var_token_idx: *token_idx,
                 frame_var_expr_idx: lopd,
                 frame_var_ident: *ident,
                 range: ForBetweenRange::new_with_default_initial(comparison_opr, ropd)?,
             })
-        } else if let Expr::Err(UnrecognizedIdentifier { token_idx, ident }) = ropd_expr {
+        } else if let Expr::Err(ExprError::Original(UnrecognizedIdentifier { token_idx, ident })) =
+            ropd_expr
+        {
             Ok(ForBetweenParticulars {
                 frame_var_token_idx: *token_idx,
                 frame_var_expr_idx: ropd,
@@ -297,19 +303,20 @@ impl<'a> BlockExprParser<'a> {
                 } => {
                     let lropd_expr = &self.expr_arena[lropd];
                     match lropd_expr {
-                        Expr::Err(UnrecognizedIdentifier { token_idx, ident }) => {
-                            Ok(ForBetweenParticulars {
-                                frame_var_token_idx: *token_idx,
-                                frame_var_expr_idx: *lropd,
-                                frame_var_ident: *ident,
-                                range: ForBetweenRange::new_without_defaults(
-                                    *llopd,
-                                    *initial_comparison,
-                                    final_comparison,
-                                    ropd,
-                                )?,
-                            })
-                        }
+                        Expr::Err(ExprError::Original(UnrecognizedIdentifier {
+                            token_idx,
+                            ident,
+                        })) => Ok(ForBetweenParticulars {
+                            frame_var_token_idx: *token_idx,
+                            frame_var_expr_idx: *lropd,
+                            frame_var_ident: *ident,
+                            range: ForBetweenRange::new_without_defaults(
+                                *llopd,
+                                *initial_comparison,
+                                final_comparison,
+                                ropd,
+                            )?,
+                        }),
                         _ => todo!(),
                     }
                 }
@@ -332,7 +339,7 @@ impl<'a> BlockExprParser<'a> {
                     if_token: ctx.parse().unwrap().unwrap(),
                     condition: ctx.parse_expr_expected(
                         ExprParseEnvironment::None,
-                        ExprError::MissingCondition,
+                        OriginalExprError::MissingCondition,
                     ),
                     eol_colon: ctx.parse_expected(),
                     block: self.parse_block_stmts_expected(*body, token_group_idx),
@@ -363,7 +370,7 @@ impl<'a> BlockExprParser<'a> {
                     elif_token: ctx.parse().unwrap().unwrap(),
                     condition: ctx.parse_expr_expected(
                         ExprParseEnvironment::None,
-                        ExprError::MissingCondition,
+                        OriginalExprError::MissingCondition,
                     ),
                     eol_colon: ctx.parse_expected(),
                     block: self.parse_block_stmts_expected(*body, token_group_idx),

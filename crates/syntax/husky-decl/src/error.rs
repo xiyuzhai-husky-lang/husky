@@ -1,6 +1,6 @@
 use crate::*;
 use husky_entity_tree::EntityTreeError;
-use husky_expr::ExprError;
+use husky_expr::OriginalExprError;
 use husky_token::*;
 use husky_vfs::VfsError;
 use parsec::*;
@@ -17,7 +17,7 @@ pub enum DeclError {
     #[error("derived {0}")]
     Vfs(#[from] VfsError),
     #[error("derived {0}")]
-    Expr(#[from] ExprError),
+    Expr(#[from] OriginalExprError),
     #[error("impl block error")]
     ImplBlockErr,
     #[error("missing output type")]

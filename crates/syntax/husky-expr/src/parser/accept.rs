@@ -197,11 +197,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     }
 
     fn accept_list_item(&mut self, comma_token_idx: TokenIdx) {
-        let item =
-            self.take_finished_expr()
-                .unwrap_or(Expr::Err(ExprError::MissingItemBeforeComma {
-                    comma_token_idx,
-                }));
+        let item = self.take_finished_expr().unwrap_or(Expr::Err(
+            OriginalExprError::MissingItemBeforeComma { comma_token_idx }.into(),
+        ));
         match self.last_unfinished_expr_mut() {
             Some(expr) => match expr {
                 UnfinishedExpr::List {
@@ -222,9 +220,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
     fn accept_be_pattern(&mut self, be_token_idx: TokenIdx) {
         self.reduce(Precedence::Be);
-        let src = self
-            .take_finished_expr()
-            .unwrap_or(Expr::Err(ExprError::MissingItemBeforeBe { be_token_idx }));
+        let src = self.take_finished_expr().unwrap_or(Expr::Err(
+            OriginalExprError::MissingItemBeforeBe { be_token_idx }.into(),
+        ));
         let src = self.alloc_expr(src);
         let expr = Expr::Be {
             src,
@@ -237,7 +235,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub(crate) fn accept_binary_opr(&mut self, binary: BinaryOpr, binary_token_idx: TokenIdx) {
         self.reduce(binary.into());
         let lopd = self.take_finished_expr().unwrap_or(Expr::Err(
-            ExprError::NoLeftOperandForBinaryOperator { binary_token_idx },
+            OriginalExprError::NoLeftOperandForBinaryOperator { binary_token_idx }.into(),
         ));
         let unfinished_expr = UnfinishedExpr::Binary {
             lopd,

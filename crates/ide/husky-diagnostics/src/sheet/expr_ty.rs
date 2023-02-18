@@ -1,10 +1,10 @@
 use husky_expr::{
-    EntityPathExpr, EntityPathExprError, Expr, ExprError, ExprRegion, OriginalEntityPathExprError,
-    Stmt, StmtError,
+    EntityPathExpr, EntityPathExprError, Expr, ExprRegion, OriginalEntityPathExprError,
+    OriginalExprError, Stmt, StmtError,
 };
 use husky_expr_ty::{
-    ExprTermError, ExprTypeError, OriginalExprTermError, OriginalLocalTermExpectationError,
-    OriginalLocalTermResolveError,
+    ExprTermError, ExprTypeError, OriginalExprTermError, OriginalExprTypeError,
+    OriginalLocalTermExpectationError, OriginalLocalTermResolveError,
 };
 use husky_token::RangedTokenSheet;
 use salsa::DebugWithDb;
@@ -30,21 +30,9 @@ pub(crate) fn expr_ty_diagnostic_sheet(
         let token_sheet_data = ranged_token_sheet.token_sheet_data(db);
         for defn in defn_sheet.defns() {
             let decl = defn.decl(db);
-            collect_expr_ty_diagnostics(
-                db,
-                ranged_token_sheet,
-                token_sheet_data,
-                decl.expr_region(db),
-                &mut diagnostics,
-            );
+            collect_expr_ty_diagnostics(db, decl.expr_region(db), &mut diagnostics);
             if let Some(expr_region) = defn.expr_region(db) {
-                collect_expr_ty_diagnostics(
-                    db,
-                    ranged_token_sheet,
-                    token_sheet_data,
-                    expr_region,
-                    &mut diagnostics,
-                );
+                collect_expr_ty_diagnostics(db, expr_region, &mut diagnostics);
             }
         }
     }
@@ -54,23 +42,20 @@ pub(crate) fn expr_ty_diagnostic_sheet(
 
 fn collect_expr_ty_diagnostics(
     db: &dyn DiagnosticsDb,
-    ranged_token_sheet: &RangedTokenSheet,
-    token_sheet_data: &TokenSheetData,
     expr_region: ExprRegion,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
-    let expr_ty_region = db.expr_ty_region(expr_region);
+    let ctx: DiagnosticsRegionContext = DiagnosticsRegionContext::new(db, expr_region);
+    let expr_ty_region = ctx.expr_ty_region();
     for local_term_result in expr_ty_region.expr_local_terms().value_iter() {
         match local_term_result {
-            Err(ExprTermError::Original(error)) => {
-                diagnostics.push(error.to_diagnostic(db, ranged_token_sheet, token_sheet_data))
-            }
+            Err(ExprTermError::Original(error)) => diagnostics.push(error.to_diagnostic(&ctx)),
             _ => (),
         }
     }
     for ty_info in expr_ty_region.expr_ty_infos().value_iter() {
         match ty_info.ty_result() {
-            Err(ExprTypeError::Original(error)) => todo!(),
+            Err(ExprTypeError::Original(error)) => diagnostics.push(error.to_diagnostic(&ctx)),
             _ => (),
         }
     }
@@ -80,19 +65,21 @@ fn collect_expr_ty_diagnostics(
         .iter()
         .filter_map(|entry| entry.original_error())
     {
-        diagnostics.push(error.to_diagnostic(db, ranged_token_sheet, token_sheet_data))
+        diagnostics.push(error.to_diagnostic(&ctx))
     }
     for error in local_term_table
         .expectations()
         .iter()
         .filter_map(|entry| entry.original_error())
     {
-        diagnostics.push(error.to_diagnostic(db, ranged_token_sheet, token_sheet_data))
+        diagnostics.push(error.to_diagnostic(&ctx))
     }
 }
 
 impl Diagnose for OriginalExprTermError {
-    fn message(&self, db: &dyn DiagnosticsDb) -> String {
+    type Context<'a> = DiagnosticsRegionContext<'a>;
+
+    fn message(&self, db: &DiagnosticsRegionContext) -> String {
         match self {
             _ => todo!(),
         }
@@ -102,17 +89,33 @@ impl Diagnose for OriginalExprTermError {
         todo!()
     }
 
-    fn range(
-        &self,
-        ranged_token_sheet: &RangedTokenSheet,
-        token_sheet_data: &TokenSheetData,
-    ) -> TextRange {
+    fn range(&self, ctx: &DiagnosticsRegionContext) -> TextRange {
+        todo!()
+    }
+}
+
+impl Diagnose for OriginalExprTypeError {
+    type Context<'a> = DiagnosticsRegionContext<'a>;
+
+    fn message(&self, ctx: &DiagnosticsRegionContext) -> String {
+        match self {
+            _ => todo!(),
+        }
+    }
+
+    fn severity(&self) -> DiagnosticSeverity {
+        todo!()
+    }
+
+    fn range(&self, ctx: &DiagnosticsRegionContext) -> TextRange {
         todo!()
     }
 }
 
 impl Diagnose for OriginalLocalTermResolveError {
-    fn message(&self, db: &dyn DiagnosticsDb) -> String {
+    type Context<'a> = DiagnosticsRegionContext<'a>;
+
+    fn message(&self, db: &DiagnosticsRegionContext) -> String {
         match self {
             OriginalLocalTermResolveError::UnresolvedTerm => todo!(),
         }
@@ -122,32 +125,30 @@ impl Diagnose for OriginalLocalTermResolveError {
         todo!()
     }
 
-    fn range(
-        &self,
-        ranged_token_sheet: &RangedTokenSheet,
-        token_sheet_data: &TokenSheetData,
-    ) -> TextRange {
+    fn range(&self, ctx: &DiagnosticsRegionContext) -> TextRange {
         todo!()
     }
 }
 
 impl Diagnose for OriginalLocalTermExpectationError {
-    fn message(&self, db: &dyn DiagnosticsDb) -> String {
+    type Context<'a> = DiagnosticsRegionContext<'a>;
+
+    fn message(&self, db: &DiagnosticsRegionContext) -> String {
         match self {
-            OriginalLocalTermExpectationError::Type(_) => todo!(),
-            OriginalLocalTermExpectationError::Todo => todo!(),
+            OriginalLocalTermExpectationError::Type(_) => {
+                format!("OriginalLocalTermExpectationError type error: todo")
+            }
+            OriginalLocalTermExpectationError::Todo => {
+                format!("OriginalLocalTermExpectationError::Todo: todo")
+            }
         }
     }
 
     fn severity(&self) -> DiagnosticSeverity {
-        todo!()
+        DiagnosticSeverity::Error
     }
 
-    fn range(
-        &self,
-        ranged_token_sheet: &RangedTokenSheet,
-        token_sheet_data: &TokenSheetData,
-    ) -> TextRange {
+    fn range(&self, ctx: &DiagnosticsRegionContext) -> TextRange {
         todo!()
     }
 }
