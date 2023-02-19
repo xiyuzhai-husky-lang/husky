@@ -252,7 +252,7 @@ impl<'a> SignatureTermEngine<'a> {
             Expr::SuffixOpn {
                 opd,
                 opr: punctuation,
-                punctuation_token_idx,
+                opr_token_idx: punctuation_token_idx,
             } => todo!(),
             Expr::RitchieCall { function, .. } => {
                 todo!()
@@ -336,7 +336,7 @@ impl<'a> SignatureTermEngine<'a> {
                             Expr::SuffixOpn {
                                 opd,
                                 opr: punctuation,
-                                punctuation_token_idx,
+                                opr_token_idx: punctuation_token_idx,
                             } => todo!(),
                             Expr::ApplicationOrRitchieCall {
                                 function,

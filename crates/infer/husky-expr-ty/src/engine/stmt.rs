@@ -160,7 +160,7 @@ impl<'a> ExprTypeEngine<'a> {
                 else_branch.as_ref(),
                 expr_expectation,
             ),
-            Stmt::Match {} => {
+            Stmt::Match { .. } => {
                 // todo: match
                 None
             }

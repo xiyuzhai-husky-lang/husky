@@ -89,9 +89,18 @@ impl<'a> BlockExprParser<'a> {
                 else_branch: self.parse_else_branch(*else_branch),
             }),
             Ast::MatchStmts {
+                token_group_idx,
                 pattern_stmt,
                 case_stmts,
-            } => Some(Stmt::Match {}),
+                ..
+            } => {
+                let mut token_stream = self
+                    .token_sheet_data
+                    .token_group_token_stream(*token_group_idx, None);
+                Some(Stmt::Match {
+                    match_token: token_stream.parse().unwrap().unwrap(),
+                })
+            }
             Ast::Err { .. }
             | Ast::Use { .. }
             | Ast::Decor { .. }

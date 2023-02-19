@@ -5,287 +5,335 @@
                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
             ),
         ),
-        expr_ty_infos: [
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Resolved(
-                        ReducedTerm(
-                            Application(
-                                TermApplication(
-                                    Id {
-                                        value: 14,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Err(
-                            Derived(
-                                Duplication(
-                                    0,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        EntityTypeError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        CallableTypeError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        PrefixOperandTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        PrefixOperandTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        ApplicationArgumentTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Resolved(
-                        ReducedTerm(
-                            Application(
-                                TermApplication(
-                                    Id {
-                                        value: 16,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    1,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Err(
-                            Derived(
-                                Duplication(
-                                    1,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        CurrentSymbolTypeError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Unresolved(
-                        UnresolvedTermIdx(
-                            1,
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    2,
-                ),
-                resolve_progress: Expected(
-                    Unresolved,
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        CurrentSymbolTypeError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        CurrentSymbolTypeError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        CurrentSymbolTypeError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Resolved(
-                        ReducedTerm(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    3,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Err(
-                            Derived(
-                                Duplication(
-                                    3,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        CurrentSymbolTypeError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        CurrentSymbolTypeError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        CallableTypeError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Resolved(
-                        ReducedTerm(
-                            Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
+        expr_ty_infos: ArenaMap {
+            data: [
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Application(
+                                        TermApplication(
                                             Id {
-                                                value: 23,
+                                                value: 14,
                                             },
                                         ),
                                     ),
                                 ),
                             ),
                         ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    4,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Err(
-                            Derived(
-                                Duplication(
-                                    4,
+                        expectation_rule_idx: Some(
+                            0,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Err(
+                                    Derived(
+                                        Duplication(
+                                            0,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
-                    ),
+                    },
                 ),
-            },
-        ],
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                MethodOwnerTypeNotInferred,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                EntityTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                CallableTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                PrefixOperandTypeNotInferred,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                None,
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                PrefixOperandTypeNotInferred,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                ApplicationArgumentTypeNotInferred,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Application(
+                                        TermApplication(
+                                            Id {
+                                                value: 16,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
+                            1,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Err(
+                                    Derived(
+                                        Duplication(
+                                            1,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+                None,
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                MethodOwnerTypeNotInferred,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                None,
+                None,
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    1,
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
+                            2,
+                        ),
+                        resolve_progress: Expected(
+                            Unresolved,
+                        ),
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                MethodOwnerTypeNotInferred,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                MethodOwnerTypeNotInferred,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
+                            3,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Err(
+                                    Derived(
+                                        Duplication(
+                                            3,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                CallableTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 23,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
+                            4,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Err(
+                                    Derived(
+                                        Duplication(
+                                            4,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+            ],
+        },
         expr_local_terms: ArenaMap {
             data: [
                 None,
@@ -320,13 +368,14 @@
             Term(`List TermCurry { variance: Invariant, x: Term(`Ref TermLiteral::EvalLifetime ConcaveComponent`), y: Term(`Option f32`) }`),
         ],
         current_symbol_tys: [],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 1,
             },
             unresolved_terms: UnresolvedTerms {
                 arena: [
                     UnresolvedTermEntry {
+                        src_expr_idx: 14,
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
@@ -342,6 +391,7 @@
                         resolve_progress: Unresolved,
                     },
                     UnresolvedTermEntry {
+                        src_expr_idx: 14,
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
@@ -368,7 +418,7 @@
                 ],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
                         LocalTermExpectationEntry {
@@ -519,215 +569,247 @@
                 },
             ),
         ),
-        expr_ty_infos: [
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Unresolved(
-                        UnresolvedTermIdx(
+        expr_ty_infos: ArenaMap {
+            data: [
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    0,
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
                             0,
                         ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
-                resolve_progress: Expected(
-                    Unresolved,
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        SelfTypeNotInferredForSelfValue,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        CurrentSymbolTypeError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        CurrentSymbolTypeError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Unresolved(
-                        UnresolvedTermIdx(
-                            3,
+                        resolve_progress: Expected(
+                            Unresolved,
                         ),
-                    ),
+                    },
                 ),
-                expectation_rule_idx: Some(
-                    1,
-                ),
-                resolve_progress: Expected(
-                    Unresolved,
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        CurrentSymbolTypeError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Resolved(
-                        ReducedTerm(
-                            Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 22,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    2,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            ImplicitlyConvertible(
-                                ExpectImplicitlyConvertibleResolvedOk {
-                                    implicit_conversion: None,
-                                    expectee: Resolved(
-                                        ReducedTerm(
-                                            Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 22,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    destination: Resolved(
-                                        ReducedTerm(
-                                            Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 22,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        CurrentSymbolTypeError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Resolved(
-                        ReducedTerm(
-                            Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 23,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    3,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Err(
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
                             Derived(
-                                Duplication(
+                                SelfTypeNotInferredForSelfValue,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                FieldOwnerTypeNotInferred,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                None,
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                MethodOwnerTypeNotInferred,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                None,
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                None,
+                None,
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
                                     3,
                                 ),
                             ),
                         ),
-                    ),
+                        expectation_rule_idx: Some(
+                            1,
+                        ),
+                        resolve_progress: Expected(
+                            Unresolved,
+                        ),
+                    },
                 ),
-            },
-        ],
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                FieldOwnerTypeNotInferred,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                MethodOwnerTypeNotInferred,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 22,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
+                            2,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 22,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 22,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 23,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
+                            3,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Err(
+                                    Derived(
+                                        Duplication(
+                                            3,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+            ],
+        },
         expr_local_terms: ArenaMap {
             data: [
                 None,
@@ -751,13 +833,14 @@
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 3,
             },
             unresolved_terms: UnresolvedTerms {
                 arena: [
                     UnresolvedTermEntry {
+                        src_expr_idx: 0,
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
@@ -773,6 +856,7 @@
                         resolve_progress: Unresolved,
                     },
                     UnresolvedTermEntry {
+                        src_expr_idx: 14,
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
@@ -788,6 +872,7 @@
                         resolve_progress: Unresolved,
                     },
                     UnresolvedTermEntry {
+                        src_expr_idx: 10,
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
@@ -803,6 +888,7 @@
                         resolve_progress: Unresolved,
                     },
                     UnresolvedTermEntry {
+                        src_expr_idx: 10,
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
@@ -829,7 +915,7 @@
                 ],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
                         LocalTermExpectationEntry {
@@ -990,215 +1076,247 @@
                 },
             ),
         ),
-        expr_ty_infos: [
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Unresolved(
-                        UnresolvedTermIdx(
+        expr_ty_infos: ArenaMap {
+            data: [
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    0,
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
                             0,
                         ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
-                resolve_progress: Expected(
-                    Unresolved,
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        SelfTypeNotInferredForSelfValue,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        CurrentSymbolTypeError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        CurrentSymbolTypeError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Unresolved(
-                        UnresolvedTermIdx(
-                            3,
+                        resolve_progress: Expected(
+                            Unresolved,
                         ),
-                    ),
+                    },
                 ),
-                expectation_rule_idx: Some(
-                    1,
-                ),
-                resolve_progress: Expected(
-                    Unresolved,
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        CurrentSymbolTypeError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Resolved(
-                        ReducedTerm(
-                            Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 22,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    2,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            ImplicitlyConvertible(
-                                ExpectImplicitlyConvertibleResolvedOk {
-                                    implicit_conversion: None,
-                                    expectee: Resolved(
-                                        ReducedTerm(
-                                            Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 22,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    destination: Resolved(
-                                        ReducedTerm(
-                                            Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 22,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        CurrentSymbolTypeError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Resolved(
-                        ReducedTerm(
-                            Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 23,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    3,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Err(
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
                             Derived(
-                                Duplication(
+                                SelfTypeNotInferredForSelfValue,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                FieldOwnerTypeNotInferred,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                None,
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                MethodOwnerTypeNotInferred,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                None,
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                None,
+                None,
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
                                     3,
                                 ),
                             ),
                         ),
-                    ),
+                        expectation_rule_idx: Some(
+                            1,
+                        ),
+                        resolve_progress: Expected(
+                            Unresolved,
+                        ),
+                    },
                 ),
-            },
-        ],
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                FieldOwnerTypeNotInferred,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                MethodOwnerTypeNotInferred,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 22,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
+                            2,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 22,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 22,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 23,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
+                            3,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Err(
+                                    Derived(
+                                        Duplication(
+                                            3,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+            ],
+        },
         expr_local_terms: ArenaMap {
             data: [
                 None,
@@ -1222,13 +1340,14 @@
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 3,
             },
             unresolved_terms: UnresolvedTerms {
                 arena: [
                     UnresolvedTermEntry {
+                        src_expr_idx: 0,
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
@@ -1244,6 +1363,7 @@
                         resolve_progress: Unresolved,
                     },
                     UnresolvedTermEntry {
+                        src_expr_idx: 14,
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
@@ -1259,6 +1379,7 @@
                         resolve_progress: Unresolved,
                     },
                     UnresolvedTermEntry {
+                        src_expr_idx: 10,
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
@@ -1274,6 +1395,7 @@
                         resolve_progress: Unresolved,
                     },
                     UnresolvedTermEntry {
+                        src_expr_idx: 10,
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
@@ -1300,7 +1422,7 @@
                 ],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
                         LocalTermExpectationEntry {
@@ -1461,224 +1583,258 @@
                 },
             ),
         ),
-        expr_ty_infos: [
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Unresolved(
-                        UnresolvedTermIdx(
+        expr_ty_infos: ArenaMap {
+            data: [
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    0,
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
                             0,
                         ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
-                resolve_progress: Expected(
-                    Unresolved,
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        SelfTypeNotInferredForSelfValue,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        CurrentSymbolTypeError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        CurrentSymbolTypeError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Unresolved(
-                        UnresolvedTermIdx(
-                            3,
+                        resolve_progress: Expected(
+                            Unresolved,
                         ),
-                    ),
+                    },
                 ),
-                expectation_rule_idx: Some(
-                    1,
-                ),
-                resolve_progress: Expected(
-                    Unresolved,
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        CurrentSymbolTypeError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Resolved(
-                        ReducedTerm(
-                            Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 22,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    2,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            ImplicitlyConvertible(
-                                ExpectImplicitlyConvertibleResolvedOk {
-                                    implicit_conversion: None,
-                                    expectee: Resolved(
-                                        ReducedTerm(
-                                            Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 22,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    destination: Resolved(
-                                        ReducedTerm(
-                                            Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 22,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        CurrentSymbolTypeError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Resolved(
-                        ReducedTerm(
-                            Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 23,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    3,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Err(
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
                             Derived(
-                                Duplication(
+                                SelfTypeNotInferredForSelfValue,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                FieldOwnerTypeNotInferred,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                None,
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                MethodOwnerTypeNotInferred,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                None,
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                None,
+                None,
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
                                     3,
                                 ),
                             ),
                         ),
-                    ),
+                        expectation_rule_idx: Some(
+                            1,
+                        ),
+                        resolve_progress: Expected(
+                            Unresolved,
+                        ),
+                    },
                 ),
-            },
-        ],
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                FieldOwnerTypeNotInferred,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                MethodOwnerTypeNotInferred,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                MethodOwnerTypeNotInferred,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 22,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
+                            2,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 22,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 22,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 23,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
+                            3,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Err(
+                                    Derived(
+                                        Duplication(
+                                            3,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+            ],
+        },
         expr_local_terms: ArenaMap {
             data: [
                 None,
@@ -1703,13 +1859,14 @@
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 3,
             },
             unresolved_terms: UnresolvedTerms {
                 arena: [
                     UnresolvedTermEntry {
+                        src_expr_idx: 0,
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
@@ -1725,6 +1882,7 @@
                         resolve_progress: Unresolved,
                     },
                     UnresolvedTermEntry {
+                        src_expr_idx: 15,
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
@@ -1740,6 +1898,7 @@
                         resolve_progress: Unresolved,
                     },
                     UnresolvedTermEntry {
+                        src_expr_idx: 10,
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
@@ -1755,6 +1914,7 @@
                         resolve_progress: Unresolved,
                     },
                     UnresolvedTermEntry {
+                        src_expr_idx: 10,
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
@@ -1781,7 +1941,7 @@
                 ],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
                         LocalTermExpectationEntry {

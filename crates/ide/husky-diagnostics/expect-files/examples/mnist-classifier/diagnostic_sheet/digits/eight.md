@@ -49,6 +49,60 @@ DiagnosticSheet {
             },
         ],
     },
+    expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
+        diagnostics: [
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError::Todo: todo",
+                severity: Error,
+                range: [14:17, 14:41),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError::Todo: todo",
+                severity: Error,
+                range: [14:43, 14:54),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError type error: todo",
+                severity: Error,
+                range: [14:5, 14:55),
+            },
+            Diagnostic {
+                message: "Type Error: TodoScopeResolution",
+                severity: Error,
+                range: [35:5, 35:22),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError type error: todo",
+                severity: Error,
+                range: [24:24, 24:49),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError type error: todo",
+                severity: Error,
+                range: [24:63, 24:88),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError type error: todo",
+                severity: Error,
+                range: [38:8, 38:10),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError type error: todo",
+                severity: Error,
+                range: [39:17, 39:19),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError type error: todo",
+                severity: Error,
+                range: [39:47, 39:49),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError type error: todo",
+                severity: Error,
+                range: [40:5, 40:7),
+            },
+        ],
+    },
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [],
     },

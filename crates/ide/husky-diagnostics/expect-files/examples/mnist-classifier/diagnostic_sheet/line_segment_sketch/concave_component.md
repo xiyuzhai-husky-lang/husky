@@ -30,6 +30,85 @@ DiagnosticSheet {
             },
         ],
     },
+    expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
+        diagnostics: [
+            Diagnostic {
+                message: "Type Error: TodoSuffix",
+                severity: Error,
+                range: [93:9, 93:16),
+            },
+            Diagnostic {
+                message: "Type Error: TodoSuffix",
+                severity: Error,
+                range: [97:13, 97:18),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError type error: todo",
+                severity: Error,
+                range: [89:13, 89:32),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError::Todo: todo",
+                severity: Error,
+                range: [92:37, 92:56),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError::Todo: todo",
+                severity: Error,
+                range: [96:45, 96:64),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError type error: todo",
+                severity: Error,
+                range: [100:17, 100:36),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError type error: todo",
+                severity: Error,
+                range: [101:17, 101:36),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError type error: todo",
+                severity: Error,
+                range: [88:5, 105:30),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError type error: todo",
+                severity: Error,
+                range: [21:9, 31:30),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError type error: todo",
+                severity: Error,
+                range: [39:46, 39:50),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError type error: todo",
+                severity: Error,
+                range: [34:9, 41:28),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError::Todo: todo",
+                severity: Error,
+                range: [56:13, 56:24),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError::Todo: todo",
+                severity: Error,
+                range: [57:13, 57:24),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError type error: todo",
+                severity: Error,
+                range: [44:9, 58:10),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError::Todo: todo",
+                severity: Error,
+                range: [64:9, 64:20),
+            },
+        ],
+    },
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [],
     },

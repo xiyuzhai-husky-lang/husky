@@ -57,7 +57,7 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::SuffixOpn {
                 opd,
                 opr: punctuation,
-                punctuation_token_idx,
+                opr_token_idx: punctuation_token_idx,
             } => todo!(),
             Expr::ApplicationOrRitchieCall { .. } => todo!(),
             Expr::RitchieCall { .. } => todo!(),

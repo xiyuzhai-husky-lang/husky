@@ -136,6 +136,7 @@ impl<'a> AstRangeCalculator<'a> {
             Ast::MatchStmts {
                 pattern_stmt,
                 case_stmts,
+                ..
             } => {
                 let pattern_stmt_token_idx_range =
                     self.ast_ranges[pattern_stmt.raw()].token_idx_range();

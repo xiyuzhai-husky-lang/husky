@@ -244,6 +244,37 @@ where
     }
 }
 
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct MatchToken {
+    token_idx: TokenIdx,
+}
+
+impl MatchToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
+}
+
+impl<'a, Context> parsec::ParseFrom<Context> for MatchToken
+where
+    Context: TokenParseContext<'a>,
+{
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+            match token {
+                Token::Keyword(Keyword::Stmt(StmtKeyword::Match)) => {
+                    Ok(Some(MatchToken { token_idx }))
+                }
+                _ => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}
+
 pub struct MutToken {
     token_idx: TokenIdx,
 }

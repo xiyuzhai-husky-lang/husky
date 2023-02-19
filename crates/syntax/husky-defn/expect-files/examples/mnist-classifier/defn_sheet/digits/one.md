@@ -452,7 +452,7 @@ Ok(
                                         Expr::SuffixOpn {
                                             opd: 8,
                                             opr: Unveil,
-                                            punctuation_token_idx: TokenIdx(
+                                            opr_token_idx: TokenIdx(
                                                 96,
                                             ),
                                         },
@@ -625,7 +625,7 @@ Ok(
                                         Expr::SuffixOpn {
                                             opd: 25,
                                             opr: Unveil,
-                                            punctuation_token_idx: TokenIdx(
+                                            opr_token_idx: TokenIdx(
                                                 126,
                                             ),
                                         },
@@ -1079,7 +1079,7 @@ Ok(
                                         Expr::SuffixOpn {
                                             opd: 71,
                                             opr: Unveil,
-                                            punctuation_token_idx: TokenIdx(
+                                            opr_token_idx: TokenIdx(
                                                 209,
                                             ),
                                         },
@@ -1474,7 +1474,7 @@ Ok(
                                         Expr::SuffixOpn {
                                             opd: 110,
                                             opr: Unveil,
-                                            punctuation_token_idx: TokenIdx(
+                                            opr_token_idx: TokenIdx(
                                                 273,
                                             ),
                                         },
@@ -1675,7 +1675,7 @@ Ok(
                                         Expr::SuffixOpn {
                                             opd: 128,
                                             opr: Unveil,
-                                            punctuation_token_idx: TokenIdx(
+                                            opr_token_idx: TokenIdx(
                                                 305,
                                             ),
                                         },
@@ -2112,7 +2112,7 @@ Ok(
                                         Expr::SuffixOpn {
                                             opd: 167,
                                             opr: Unveil,
-                                            punctuation_token_idx: TokenIdx(
+                                            opr_token_idx: TokenIdx(
                                                 378,
                                             ),
                                         },
@@ -2279,7 +2279,7 @@ Ok(
                                         Expr::SuffixOpn {
                                             opd: 181,
                                             opr: Unveil,
-                                            punctuation_token_idx: TokenIdx(
+                                            opr_token_idx: TokenIdx(
                                                 401,
                                             ),
                                         },
@@ -2550,7 +2550,7 @@ Ok(
                                         Expr::SuffixOpn {
                                             opd: 206,
                                             opr: Unveil,
-                                            punctuation_token_idx: TokenIdx(
+                                            opr_token_idx: TokenIdx(
                                                 447,
                                             ),
                                         },
@@ -2919,7 +2919,7 @@ Ok(
                                         Expr::SuffixOpn {
                                             opd: 238,
                                             opr: Unveil,
-                                            punctuation_token_idx: TokenIdx(
+                                            opr_token_idx: TokenIdx(
                                                 512,
                                             ),
                                         },

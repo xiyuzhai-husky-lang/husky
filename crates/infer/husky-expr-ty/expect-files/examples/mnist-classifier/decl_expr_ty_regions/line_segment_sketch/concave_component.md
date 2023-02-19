@@ -5,104 +5,117 @@
                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
             ),
         ),
-        expr_ty_infos: [
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Resolved(
-                        ReducedTerm(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            EqsExactly(
-                                ExpectEqsExactlyResolvedOk {
-                                    destination: Resolved(
-                                        ReducedTerm(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
+        expr_ty_infos: ArenaMap {
+            data: [
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
                                             ),
-                                        ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         ),
-                    ),
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Resolved(
-                        ReducedTerm(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
+                        expectation_rule_idx: Some(
+                            0,
                         ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    1,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            InsSort(
-                                ExpectInsSortResolvedOk {
-                                    destination: Resolved(
-                                        ReducedTerm(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    EqsExactly(
+                                        ExpectEqsExactlyResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
                                                     ),
-                                                },
+                                                ),
                                             ),
-                                        ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         ),
-                    ),
+                    },
                 ),
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        ExprError,
-                    ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
+                            1,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        BoxListApplicationFirstArgumentError,
-                    ),
+                None,
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                ExprError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-        ],
+                None,
+                None,
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                BoxListApplicationFirstArgumentError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+            ],
+        },
         expr_local_terms: ArenaMap {
             data: [
                 None,
@@ -116,7 +129,7 @@
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
@@ -124,7 +137,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
                         LocalTermExpectationEntry {
@@ -225,26 +238,35 @@
                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
             ),
         ),
-        expr_ty_infos: [
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        EntityTypeError,
-                    ),
+        expr_ty_infos: ArenaMap {
+            data: [
+                None,
+                None,
+                None,
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                EntityTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        ApplicationArgumentTypeNotInferred,
-                    ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                ApplicationArgumentTypeNotInferred,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-        ],
+            ],
+        },
         expr_local_terms: ArenaMap {
             data: [
                 None,
@@ -260,7 +282,7 @@
                 Term(`Ref TermLiteral::EvalLifetime LineSegmentSketch`),
             ),
         ],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
@@ -268,7 +290,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [],
                 },
@@ -289,17 +311,21 @@
                 },
             ),
         ),
-        expr_ty_infos: [
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        EntityTypeError,
-                    ),
+        expr_ty_infos: ArenaMap {
+            data: [
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                EntityTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-        ],
+            ],
+        },
         expr_local_terms: ArenaMap {
             data: [
                 None,
@@ -307,7 +333,7 @@
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
@@ -315,7 +341,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [],
                 },
@@ -339,47 +365,51 @@
                 },
             ),
         ),
-        expr_ty_infos: [
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Resolved(
-                        ReducedTerm(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            InsSort(
-                                ExpectInsSortResolvedOk {
-                                    destination: Resolved(
-                                        ReducedTerm(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
+        expr_ty_infos: ArenaMap {
+            data: [
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
                                             ),
-                                        ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         ),
-                    ),
+                        expectation_rule_idx: Some(
+                            0,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
                 ),
-            },
-        ],
+            ],
+        },
         expr_local_terms: ArenaMap {
             data: [
                 None,
@@ -387,7 +417,7 @@
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
@@ -395,7 +425,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
                         LocalTermExpectationEntry {
@@ -460,47 +490,51 @@
                 },
             ),
         ),
-        expr_ty_infos: [
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Resolved(
-                        ReducedTerm(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            InsSort(
-                                ExpectInsSortResolvedOk {
-                                    destination: Resolved(
-                                        ReducedTerm(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
+        expr_ty_infos: ArenaMap {
+            data: [
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
                                             ),
-                                        ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         ),
-                    ),
+                        expectation_rule_idx: Some(
+                            0,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
                 ),
-            },
-        ],
+            ],
+        },
         expr_local_terms: ArenaMap {
             data: [
                 None,
@@ -508,7 +542,7 @@
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
@@ -516,7 +550,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
                         LocalTermExpectationEntry {
@@ -581,47 +615,51 @@
                 },
             ),
         ),
-        expr_ty_infos: [
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Resolved(
-                        ReducedTerm(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            InsSort(
-                                ExpectInsSortResolvedOk {
-                                    destination: Resolved(
-                                        ReducedTerm(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
+        expr_ty_infos: ArenaMap {
+            data: [
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
                                             ),
-                                        ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         ),
-                    ),
+                        expectation_rule_idx: Some(
+                            0,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
                 ),
-            },
-        ],
+            ],
+        },
         expr_local_terms: ArenaMap {
             data: [
                 None,
@@ -629,7 +667,7 @@
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
@@ -637,7 +675,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
                         LocalTermExpectationEntry {
@@ -702,47 +740,51 @@
                 },
             ),
         ),
-        expr_ty_infos: [
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Resolved(
-                        ReducedTerm(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            InsSort(
-                                ExpectInsSortResolvedOk {
-                                    destination: Resolved(
-                                        ReducedTerm(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
+        expr_ty_infos: ArenaMap {
+            data: [
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
                                             ),
-                                        ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         ),
-                    ),
+                        expectation_rule_idx: Some(
+                            0,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
                 ),
-            },
-        ],
+            ],
+        },
         expr_local_terms: ArenaMap {
             data: [
                 None,
@@ -750,7 +792,7 @@
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
@@ -758,7 +800,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
                         LocalTermExpectationEntry {
@@ -823,17 +865,21 @@
                 },
             ),
         ),
-        expr_ty_infos: [
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        EntityTypeError,
-                    ),
+        expr_ty_infos: ArenaMap {
+            data: [
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                EntityTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-        ],
+            ],
+        },
         expr_local_terms: ArenaMap {
             data: [
                 None,
@@ -841,7 +887,7 @@
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
@@ -849,7 +895,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [],
                 },
@@ -875,47 +921,51 @@
                 },
             ),
         ),
-        expr_ty_infos: [
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Resolved(
-                        ReducedTerm(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            InsSort(
-                                ExpectInsSortResolvedOk {
-                                    destination: Resolved(
-                                        ReducedTerm(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
+        expr_ty_infos: ArenaMap {
+            data: [
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
                                             ),
-                                        ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         ),
-                    ),
+                        expectation_rule_idx: Some(
+                            0,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
                 ),
-            },
-        ],
+            ],
+        },
         expr_local_terms: ArenaMap {
             data: [
                 None,
@@ -923,7 +973,7 @@
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
@@ -931,7 +981,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
                         LocalTermExpectationEntry {
@@ -996,47 +1046,51 @@
                 },
             ),
         ),
-        expr_ty_infos: [
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Resolved(
-                        ReducedTerm(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            InsSort(
-                                ExpectInsSortResolvedOk {
-                                    destination: Resolved(
-                                        ReducedTerm(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
+        expr_ty_infos: ArenaMap {
+            data: [
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
                                             ),
-                                        ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         ),
-                    ),
+                        expectation_rule_idx: Some(
+                            0,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
                 ),
-            },
-        ],
+            ],
+        },
         expr_local_terms: ArenaMap {
             data: [
                 None,
@@ -1044,7 +1098,7 @@
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
@@ -1052,7 +1106,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
                         LocalTermExpectationEntry {
@@ -1117,47 +1171,51 @@
                 },
             ),
         ),
-        expr_ty_infos: [
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Resolved(
-                        ReducedTerm(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            InsSort(
-                                ExpectInsSortResolvedOk {
-                                    destination: Resolved(
-                                        ReducedTerm(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
+        expr_ty_infos: ArenaMap {
+            data: [
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
                                             ),
-                                        ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         ),
-                    ),
+                        expectation_rule_idx: Some(
+                            0,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
                 ),
-            },
-        ],
+            ],
+        },
         expr_local_terms: ArenaMap {
             data: [
                 None,
@@ -1165,7 +1223,7 @@
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
@@ -1173,7 +1231,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
                         LocalTermExpectationEntry {
@@ -1238,47 +1296,51 @@
                 },
             ),
         ),
-        expr_ty_infos: [
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Resolved(
-                        ReducedTerm(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            InsSort(
-                                ExpectInsSortResolvedOk {
-                                    destination: Resolved(
-                                        ReducedTerm(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
+        expr_ty_infos: ArenaMap {
+            data: [
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
                                             ),
-                                        ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         ),
-                    ),
+                        expectation_rule_idx: Some(
+                            0,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
                 ),
-            },
-        ],
+            ],
+        },
         expr_local_terms: ArenaMap {
             data: [
                 None,
@@ -1286,7 +1348,7 @@
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
@@ -1294,7 +1356,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
                         LocalTermExpectationEntry {
@@ -1359,47 +1421,51 @@
                 },
             ),
         ),
-        expr_ty_infos: [
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Resolved(
-                        ReducedTerm(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            InsSort(
-                                ExpectInsSortResolvedOk {
-                                    destination: Resolved(
-                                        ReducedTerm(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
+        expr_ty_infos: ArenaMap {
+            data: [
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
                                             ),
-                                        ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         ),
-                    ),
+                        expectation_rule_idx: Some(
+                            0,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
                 ),
-            },
-        ],
+            ],
+        },
         expr_local_terms: ArenaMap {
             data: [
                 None,
@@ -1407,7 +1473,7 @@
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
@@ -1415,7 +1481,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
                         LocalTermExpectationEntry {
@@ -1480,47 +1546,51 @@
                 },
             ),
         ),
-        expr_ty_infos: [
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Resolved(
-                        ReducedTerm(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            InsSort(
-                                ExpectInsSortResolvedOk {
-                                    destination: Resolved(
-                                        ReducedTerm(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
+        expr_ty_infos: ArenaMap {
+            data: [
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
                                             ),
-                                        ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         ),
-                    ),
+                        expectation_rule_idx: Some(
+                            0,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
                 ),
-            },
-        ],
+            ],
+        },
         expr_local_terms: ArenaMap {
             data: [
                 None,
@@ -1528,7 +1598,7 @@
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
@@ -1536,7 +1606,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
                         LocalTermExpectationEntry {
@@ -1601,47 +1671,51 @@
                 },
             ),
         ),
-        expr_ty_infos: [
-            ExprTypeInfo {
-                ty_result: Ok(
-                    Resolved(
-                        ReducedTerm(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            InsSort(
-                                ExpectInsSortResolvedOk {
-                                    destination: Resolved(
-                                        ReducedTerm(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
+        expr_ty_infos: ArenaMap {
+            data: [
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
                                             ),
-                                        ),
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         ),
-                    ),
+                        expectation_rule_idx: Some(
+                            0,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
                 ),
-            },
-        ],
+            ],
+        },
         expr_local_terms: ArenaMap {
             data: [
                 None,
@@ -1649,7 +1723,7 @@
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
@@ -1657,7 +1731,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
                         LocalTermExpectationEntry {

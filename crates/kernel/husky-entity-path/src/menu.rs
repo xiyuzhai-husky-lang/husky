@@ -508,12 +508,12 @@ fn menu_works() {
         entity_path_menu.core_ops_bit_xor_assign().show(&db),
         "core::ops::BitXorAssign"
     );
-    assert_eq!(entity_path_menu.core_ops_div().show(&db), "core::ops::Add");
+    assert_eq!(entity_path_menu.core_ops_div().show(&db), "core::ops::Div");
     assert_eq!(
         entity_path_menu.core_ops_div_assign().show(&db),
         "core::ops::DivAssign"
     );
-    assert_eq!(entity_path_menu.core_ops_mul().show(&db), "core::ops::Add");
+    assert_eq!(entity_path_menu.core_ops_mul().show(&db), "core::ops::Mul");
     assert_eq!(
         entity_path_menu.core_ops_mul_assign().show(&db),
         "core::ops::MulAssign"

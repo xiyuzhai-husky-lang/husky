@@ -869,7 +869,7 @@ Ok(
                                         Expr::SuffixOpn {
                                             opd: 29,
                                             opr: Unveil,
-                                            punctuation_token_idx: TokenIdx(
+                                            opr_token_idx: TokenIdx(
                                                 157,
                                             ),
                                         },
@@ -1214,7 +1214,7 @@ Ok(
                                         Expr::SuffixOpn {
                                             opd: 62,
                                             opr: Unveil,
-                                            punctuation_token_idx: TokenIdx(
+                                            opr_token_idx: TokenIdx(
                                                 227,
                                             ),
                                         },
@@ -1466,7 +1466,7 @@ Ok(
                                         Expr::SuffixOpn {
                                             opd: 83,
                                             opr: Unveil,
-                                            punctuation_token_idx: TokenIdx(
+                                            opr_token_idx: TokenIdx(
                                                 268,
                                             ),
                                         },
@@ -1682,7 +1682,7 @@ Ok(
                                         Expr::SuffixOpn {
                                             opd: 102,
                                             opr: Unveil,
-                                            punctuation_token_idx: TokenIdx(
+                                            opr_token_idx: TokenIdx(
                                                 294,
                                             ),
                                         },

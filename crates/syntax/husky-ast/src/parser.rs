@@ -176,6 +176,7 @@ impl<'a> AstParser<'a> {
 
     fn parse_match_stmts(&mut self, token_group_idx: TokenGroupIdx, context: &Context) -> Ast {
         Ast::MatchStmts {
+            token_group_idx,
             pattern_stmt: self.alloc_stmt(token_group_idx, &context),
             case_stmts: self.parse_case_stmts(context.subcontext(AstContextKind::InsideMatchStmt)),
         }

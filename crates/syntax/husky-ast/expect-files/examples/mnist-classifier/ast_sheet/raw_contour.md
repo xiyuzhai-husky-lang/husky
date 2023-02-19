@@ -447,6 +447,9 @@ Ok(
                     ),
                 },
                 Ast::MatchStmts {
+                    token_group_idx: TokenGroupIdx(
+                        56,
+                    ),
                     pattern_stmt: 38,
                     case_stmts: ArenaIdxRange(
                         39..43,
@@ -501,6 +504,9 @@ Ok(
                     ),
                 },
                 Ast::MatchStmts {
+                    token_group_idx: TokenGroupIdx(
+                        63,
+                    ),
                     pattern_stmt: 44,
                     case_stmts: ArenaIdxRange(
                         45..50,
@@ -547,6 +553,9 @@ Ok(
                     ),
                 },
                 Ast::MatchStmts {
+                    token_group_idx: TokenGroupIdx(
+                        70,
+                    ),
                     pattern_stmt: 51,
                     case_stmts: ArenaIdxRange(
                         52..56,
@@ -609,6 +618,9 @@ Ok(
                     ),
                 },
                 Ast::MatchStmts {
+                    token_group_idx: TokenGroupIdx(
+                        54,
+                    ),
                     pattern_stmt: 37,
                     case_stmts: ArenaIdxRange(
                         57..62,
@@ -671,6 +683,9 @@ Ok(
                     ),
                 },
                 Ast::MatchStmts {
+                    token_group_idx: TokenGroupIdx(
+                        78,
+                    ),
                     pattern_stmt: 65,
                     case_stmts: ArenaIdxRange(
                         66..71,
@@ -725,6 +740,9 @@ Ok(
                     ),
                 },
                 Ast::MatchStmts {
+                    token_group_idx: TokenGroupIdx(
+                        89,
+                    ),
                     pattern_stmt: 74,
                     case_stmts: ArenaIdxRange(
                         75..79,
@@ -771,6 +789,9 @@ Ok(
                     ),
                 },
                 Ast::MatchStmts {
+                    token_group_idx: TokenGroupIdx(
+                        99,
+                    ),
                     pattern_stmt: 81,
                     case_stmts: ArenaIdxRange(
                         82..85,
@@ -817,6 +838,9 @@ Ok(
                     ),
                 },
                 Ast::MatchStmts {
+                    token_group_idx: TokenGroupIdx(
+                        95,
+                    ),
                     pattern_stmt: 80,
                     case_stmts: ArenaIdxRange(
                         86..91,
@@ -863,6 +887,9 @@ Ok(
                     ),
                 },
                 Ast::MatchStmts {
+                    token_group_idx: TokenGroupIdx(
+                        111,
+                    ),
                     pattern_stmt: 93,
                     case_stmts: ArenaIdxRange(
                         94..97,
@@ -909,6 +936,9 @@ Ok(
                     ),
                 },
                 Ast::MatchStmts {
+                    token_group_idx: TokenGroupIdx(
+                        106,
+                    ),
                     pattern_stmt: 92,
                     case_stmts: ArenaIdxRange(
                         98..103,
@@ -955,6 +985,9 @@ Ok(
                     ),
                 },
                 Ast::MatchStmts {
+                    token_group_idx: TokenGroupIdx(
+                        117,
+                    ),
                     pattern_stmt: 104,
                     case_stmts: ArenaIdxRange(
                         105..109,
@@ -1017,6 +1050,9 @@ Ok(
                     ),
                 },
                 Ast::MatchStmts {
+                    token_group_idx: TokenGroupIdx(
+                        87,
+                    ),
                     pattern_stmt: 73,
                     case_stmts: ArenaIdxRange(
                         110..115,
@@ -1381,6 +1417,9 @@ Ok(
                     else_branch: None,
                 },
                 Ast::MatchStmts {
+                    token_group_idx: TokenGroupIdx(
+                        180,
+                    ),
                     pattern_stmt: 149,
                     case_stmts: ArenaIdxRange(
                         156..160,

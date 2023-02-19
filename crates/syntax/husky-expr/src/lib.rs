@@ -119,7 +119,7 @@ pub enum Expr {
     SuffixOpn {
         opd: ExprIdx,
         opr: SuffixOpr,
-        punctuation_token_idx: TokenIdx,
+        opr_token_idx: TokenIdx,
     },
     ApplicationOrRitchieCall {
         function: ExprIdx,
