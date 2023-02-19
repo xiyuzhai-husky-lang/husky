@@ -234,31 +234,30 @@ impl<'a> ExprRangeCalculator<'a> {
                 opr,
                 opr_token_idx,
                 opd,
-            } => todo!(),
+            } => TokenIdxRange::new(*opr_token_idx, self[opd].end()),
             Expr::SuffixOpn {
                 opd,
                 opr,
                 punctuation_token_idx,
             } => todo!(),
             Expr::ApplicationOrRitchieCall {
-                function,
-                lpar_token_idx,
-                argument,
-                rpar_token_idx,
-            } => todo!(),
-            Expr::RitchieCall {
-                function,
+                function: first_expr,
                 rpar_token_idx,
                 ..
-            } => self[function].to(TokenIdxRangeEnd::new_after(*rpar_token_idx)),
+            }
+            | Expr::RitchieCall {
+                function: first_expr,
+                rpar_token_idx,
+                ..
+            }
+            | Expr::MethodCall {
+                self_argument: first_expr,
+                rpar_token_idx,
+                ..
+            } => self[first_expr].to(TokenIdxRangeEnd::new_after(*rpar_token_idx)),
             Expr::Field {
                 owner, ident_token, ..
             } => self[owner].to(TokenIdxRangeEnd::new_after(ident_token.token_idx())),
-            Expr::MethodCall {
-                self_argument,
-                rpar_token_idx,
-                ..
-            } => self[self_argument].to(TokenIdxRangeEnd::new_after(*rpar_token_idx)),
             Expr::TemplateInstantiation {
                 template,
                 implicit_arguments,
@@ -406,22 +405,60 @@ impl<'a> ExprRangeCalculator<'a> {
             Stmt::Return {
                 return_token,
                 ref result,
-            } => todo!(),
+            } => {
+                let start = return_token.token_idx();
+                let end = if let Ok(result) = result {
+                    self[result].end()
+                } else {
+                    TokenIdxRangeEnd::new_after(start)
+                };
+                TokenIdxRange::new(start, end)
+            }
             Stmt::Require {
                 require_token,
                 ref condition,
-            } => todo!(),
+            } => {
+                let start = require_token.token_idx();
+                let end = if let Ok(condition) = condition {
+                    self[condition].end()
+                } else {
+                    TokenIdxRangeEnd::new_after(start)
+                };
+                TokenIdxRange::new(start, end)
+            }
             Stmt::Assert {
                 assert_token,
                 ref condition,
-            } => todo!(),
-            Stmt::Break { break_token } => todo!(),
+            } => {
+                let start = assert_token.token_idx();
+                let end = if let Ok(condition) = condition {
+                    self[condition].end()
+                } else {
+                    TokenIdxRangeEnd::new_after(start)
+                };
+                TokenIdxRange::new(start, end)
+            }
+            Stmt::Break { break_token } => TokenIdxRange::new_single(break_token.token_idx()),
             Stmt::Eval { expr_idx } => self[expr_idx],
             Stmt::ForBetween {
                 for_token,
+                ref particulars,
+                ref eol_colon,
                 ref block,
                 ..
-            } => todo!(),
+            } => {
+                let start = for_token.token_idx();
+                let end = if let Ok(block) = block {
+                    self.calc_block_range(*block).end()
+                } else if let Ok(eol_colon) = eol_colon {
+                    TokenIdxRangeEnd::new_after(eol_colon.token_idx())
+                } else if let Some(bound_expr) = particulars.range.final_boundary.bound_expr {
+                    self[bound_expr].end()
+                } else {
+                    TokenIdxRangeEnd::new_after(particulars.frame_var_token_idx)
+                };
+                TokenIdxRange::new(start, end)
+            }
             Stmt::ForIn {
                 for_token,
                 ref block,
@@ -429,15 +466,41 @@ impl<'a> ExprRangeCalculator<'a> {
             } => todo!(),
             Stmt::ForExt {
                 forext_token,
-                ref block,
-                ..
-            } => todo!(),
-            Stmt::While {
-                while_token,
+                /* todo: particulars */
+                ref eol_colon,
                 ref block,
                 ..
             } => {
-                todo!()
+                let start = forext_token.token_idx();
+                let end = if let Ok(block) = block {
+                    self.calc_block_range(*block).end()
+                } else if let Ok(eol_colon) = eol_colon {
+                    TokenIdxRangeEnd::new_after(eol_colon.token_idx())
+                }
+                /* todo: particulars */
+                else {
+                    TokenIdxRangeEnd::new_after(start)
+                };
+                TokenIdxRange::new(start, end)
+            }
+            Stmt::While {
+                while_token,
+                ref condition,
+                ref eol_colon,
+                ref block,
+                ..
+            } => {
+                let start = while_token.token_idx();
+                let end = if let Ok(block) = block {
+                    self.calc_block_range(*block).end()
+                } else if let Ok(eol_colon) = eol_colon {
+                    TokenIdxRangeEnd::new_after(eol_colon.token_idx())
+                } else if let Ok(condition) = condition {
+                    self[condition].end()
+                } else {
+                    TokenIdxRangeEnd::new_after(start)
+                };
+                TokenIdxRange::new(start, end)
             }
             Stmt::DoWhile {
                 do_token,

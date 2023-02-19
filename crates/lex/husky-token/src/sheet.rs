@@ -21,6 +21,14 @@ impl std::ops::Add<usize> for TokenIdx {
     }
 }
 
+impl std::ops::Sub<usize> for TokenIdx {
+    type Output = Self;
+
+    fn sub(self, rhs: usize) -> Self::Output {
+        Self(self.0 - rhs)
+    }
+}
+
 impl std::ops::Index<TokenIdx> for TokenSheetData {
     type Output = Token;
 

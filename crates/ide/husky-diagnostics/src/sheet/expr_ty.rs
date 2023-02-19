@@ -102,8 +102,12 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
     type Context<'a> = DiagnosticsRegionContext<'a>;
 
     fn message(&self, ctx: &DiagnosticsRegionContext) -> String {
-        match self {
-            _ => todo!(),
+        match self.1 {
+            OriginalExprTypeError::UnresolvedTerm => todo!(),
+            OriginalExprTypeError::TypeError(_) => todo!(),
+            OriginalExprTypeError::TodoScopeResolution => todo!(),
+            OriginalExprTypeError::TodoSuffix => todo!(),
+            OriginalExprTypeError::TodoBoxColon => todo!(),
         }
     }
 
@@ -153,6 +157,6 @@ impl Diagnose for (ExprIdx, &'_ OriginalLocalTermExpectationError) {
     }
 
     fn range(&self, ctx: &DiagnosticsRegionContext) -> TextRange {
-        ctx.expr_range(self.0)
+        ctx.expr_text_range(self.0)
     }
 }

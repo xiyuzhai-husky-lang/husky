@@ -20,6 +20,15 @@ pub struct TextRange {
     pub end: TextPosition,
 }
 
+impl TextRange {
+    pub fn join(self, other: Self) -> Self {
+        Self {
+            start: self.start,
+            end: other.end,
+        }
+    }
+}
+
 #[cfg(feature = "lsp_support")]
 impl From<lsp_types::Range> for TextRange {
     fn from(range: lsp_types::Range) -> Self {

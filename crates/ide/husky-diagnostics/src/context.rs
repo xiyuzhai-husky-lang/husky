@@ -1,6 +1,7 @@
 use crate::*;
 use husky_expr::{ExprIdx, ExprRangeRegion, ExprRegion, ExprRegionData};
 use husky_expr_ty::*;
+use husky_token::TokenIdxRange;
 
 pub(crate) struct DiagnosticsSheetContext<'a> {
     db: &'a dyn DiagnosticsDb,
@@ -73,7 +74,18 @@ impl<'a> DiagnosticsRegionContext<'a> {
         self.expr_ty_region
     }
 
-    pub(crate) fn expr_range(&self, expr_idx: ExprIdx) -> TextRange {
-        todo!()
+    pub(crate) fn expr_text_range(&self, expr_idx: ExprIdx) -> TextRange {
+        self.text_range(self.expr_range_region[expr_idx])
+    }
+
+    fn text_range(&self, token_idx_range: TokenIdxRange) -> TextRange {
+        assert!(token_idx_range.start().token_idx() < token_idx_range.end().token_idx());
+        let first = self
+            .ranged_token_sheet
+            .token_text_range(token_idx_range.start().token_idx());
+        let last = self
+            .ranged_token_sheet
+            .token_text_range(token_idx_range.end().token_idx() - 1);
+        first.join(last)
     }
 }
