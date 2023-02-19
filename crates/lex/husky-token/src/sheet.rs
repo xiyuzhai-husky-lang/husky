@@ -35,6 +35,28 @@ pub struct TokenIdxRange {
     end: TokenIdxRangeEnd,
 }
 
+impl TokenIdxRange {
+    pub fn new_single(token_idx: TokenIdx) -> Self {
+        Self {
+            start: TokenIdxRangeStart(token_idx),
+            end: TokenIdxRangeEnd(token_idx + 1),
+        }
+    }
+
+    #[inline(always)]
+    pub fn to(self, end: TokenIdx) -> Self {
+        Self {
+            start: self.start,
+            end: TokenIdxRangeEnd(end),
+        }
+    }
+
+    #[inline(always)]
+    pub fn join(self, other: TokenIdxRange) -> Self {
+        self.to(other.end().0)
+    }
+}
+
 impl std::fmt::Debug for TokenIdxRange {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         (self.start.0 .0..self.end.0 .0).fmt(f)
@@ -94,7 +116,14 @@ impl From<(TokenIdxRangeStart, TokenIdxRangeEnd)> for TokenIdxRange {
 }
 
 impl TokenIdxRange {
-    fn new(start: usize, end: usize) -> Self {
+    pub fn new(start: TokenIdx, end: TokenIdx) -> Self {
+        Self {
+            start: TokenIdxRangeStart(start),
+            end: TokenIdxRangeEnd(end),
+        }
+    }
+
+    fn new_from_raw(start: usize, end: usize) -> Self {
         Self {
             start: TokenIdxRangeStart(TokenIdx(start)),
             end: TokenIdxRangeEnd(TokenIdx(end)),
@@ -485,7 +514,7 @@ impl TokenSheetData {
             .get(token_group_idx.0 + 1)
             .copied()
             .unwrap_or(self.tokens.len());
-        TokenIdxRange::new(start, end)
+        TokenIdxRange::new_from_raw(start, end)
     }
 
     pub fn tokens(&self) -> &[Token] {

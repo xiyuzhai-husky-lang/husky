@@ -129,6 +129,12 @@ pub struct AssignToken {
     token_idx: TokenIdx,
 }
 
+impl AssignToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
+}
+
 impl<'a, Context> parsec::ParseFrom<Context> for AssignToken
 where
     Context: TokenParseContext<'a>,
@@ -622,6 +628,12 @@ fn eol_colon_token_works() {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct ScopeResolutionToken {
     token_idx: TokenIdx,
+}
+
+impl ScopeResolutionToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
 }
 
 impl<'a, Context> parsec::ParseFrom<Context> for ScopeResolutionToken

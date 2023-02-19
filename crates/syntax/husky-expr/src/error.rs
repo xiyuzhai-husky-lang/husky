@@ -103,7 +103,7 @@ pub enum OriginalExprError {
 #[derive(Error, Debug, PartialEq, Eq)]
 pub enum DerivedExprError {
     #[error("token error")]
-    Token,
+    Token(TokenIdx),
 }
 
 pub type ExprResult<T> = Result<T, OriginalExprError>;
