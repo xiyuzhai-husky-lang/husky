@@ -92,6 +92,10 @@ impl ExprRegionData {
         &self.entity_path_expr_arena
     }
 
+    pub fn pattern_expr_arena(&self) -> &PatternExprArena {
+        self.pattern_expr_region.pattern_expr_arena()
+    }
+
     pub fn stmt_arena(&self) -> &StmtArena {
         &self.stmt_arena
     }

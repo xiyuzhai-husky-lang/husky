@@ -8,9 +8,21 @@ pub struct LetToken {
     token_idx: TokenIdx,
 }
 
+impl LetToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct ReturnToken {
     token_idx: TokenIdx,
+}
+
+impl ReturnToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -18,9 +30,21 @@ pub struct RequireToken {
     token_idx: TokenIdx,
 }
 
+impl RequireToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct AssertToken {
     token_idx: TokenIdx,
+}
+
+impl AssertToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -28,9 +52,21 @@ pub struct BreakToken {
     token_idx: TokenIdx,
 }
 
+impl BreakToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct ForToken {
     token_idx: TokenIdx,
+}
+
+impl ForToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -38,14 +74,32 @@ pub struct ForextToken {
     token_idx: TokenIdx,
 }
 
+impl ForextToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct WhileToken {
     token_idx: TokenIdx,
 }
 
+impl WhileToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct DoToken {
     token_idx: TokenIdx,
+}
+
+impl DoToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
 }
 
 pub enum BasicStmtKeywordToken {
