@@ -100,3 +100,11 @@ impl<T, V> std::ops::Index<ArenaIdx<T>> for ArenaMap<T, V> {
         self.get(index).unwrap()
     }
 }
+
+impl<T, V> std::ops::Index<&ArenaIdx<T>> for ArenaMap<T, V> {
+    type Output = V;
+
+    fn index(&self, index: &ArenaIdx<T>) -> &Self::Output {
+        self.get(*index).unwrap()
+    }
+}

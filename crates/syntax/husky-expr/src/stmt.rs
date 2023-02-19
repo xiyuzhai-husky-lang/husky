@@ -102,12 +102,12 @@ impl IfBranch {
         self.condition.as_ref()
     }
 
-    pub fn eol_colon(&self) -> Result<&EolColonToken, &OriginalExprError> {
+    pub fn eol_colon_token(&self) -> Result<&EolColonToken, &OriginalExprError> {
         self.eol_colon.as_ref()
     }
 
-    pub fn block(&self) -> Result<&ArenaIdxRange<Stmt>, &OriginalExprError> {
-        self.block.as_ref()
+    pub fn block(&self) -> Result<StmtIdxRange, &OriginalExprError> {
+        self.block.as_ref().copied()
     }
 }
 
@@ -128,8 +128,8 @@ impl ElifBranch {
         self.eol_colon.as_ref()
     }
 
-    pub fn block(&self) -> Result<&ArenaIdxRange<Stmt>, &OriginalExprError> {
-        self.block.as_ref()
+    pub fn block(&self) -> Result<StmtIdxRange, &OriginalExprError> {
+        self.block.as_ref().copied()
     }
 }
 
@@ -138,4 +138,10 @@ pub struct ElseBranch {
     pub else_token: ElseToken,
     pub eol_colon: ExprResult<EolColonToken>,
     pub block: ExprResult<StmtIdxRange>,
+}
+
+impl ElseBranch {
+    pub fn block(&self) -> Result<StmtIdxRange, &OriginalExprError> {
+        self.block.as_ref().copied()
+    }
 }

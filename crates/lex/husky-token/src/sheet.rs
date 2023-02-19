@@ -35,6 +35,11 @@ pub struct TokenIdxRange {
     end: TokenIdxRangeEnd,
 }
 
+pub enum TokenIdxRangeConfig {
+    IncludeBoundary,
+    ExcludeBoundary,
+}
+
 impl TokenIdxRange {
     pub fn new_single(token_idx: TokenIdx) -> Self {
         Self {
@@ -44,16 +49,16 @@ impl TokenIdxRange {
     }
 
     #[inline(always)]
-    pub fn to(self, end: TokenIdx) -> Self {
+    pub fn to(self, end: TokenIdxRangeEnd) -> Self {
         Self {
             start: self.start,
-            end: TokenIdxRangeEnd(end),
+            end,
         }
     }
 
     #[inline(always)]
     pub fn join(self, other: TokenIdxRange) -> Self {
-        self.to(other.end().0)
+        self.to(other.end())
     }
 }
 
@@ -76,6 +81,10 @@ impl TokenIdxRangeStart {
 pub struct TokenIdxRangeEnd(TokenIdx);
 
 impl TokenIdxRangeEnd {
+    pub fn new_after(token_idx: TokenIdx) -> Self {
+        Self(token_idx + 1)
+    }
+
     pub fn token_idx(self) -> TokenIdx {
         self.0
     }
@@ -116,10 +125,11 @@ impl From<(TokenIdxRangeStart, TokenIdxRangeEnd)> for TokenIdxRange {
 }
 
 impl TokenIdxRange {
-    pub fn new(start: TokenIdx, end: TokenIdx) -> Self {
+    #[inline(always)]
+    pub fn new(start: TokenIdx, end: TokenIdxRangeEnd) -> Self {
         Self {
             start: TokenIdxRangeStart(start),
-            end: TokenIdxRangeEnd(end),
+            end,
         }
     }
 
