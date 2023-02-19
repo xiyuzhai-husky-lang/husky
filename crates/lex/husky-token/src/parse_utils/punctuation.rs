@@ -582,6 +582,12 @@ pub struct EolColonToken {
     token_idx: TokenIdx,
 }
 
+impl EolColonToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
+}
+
 impl<'a, Context> parsec::ParseFrom<Context> for EolColonToken
 where
     Context: TokenParseContext<'a>,

@@ -9,6 +9,7 @@ pub struct ExprRangeRegion {
     entity_path_expr_ranges: Vec<TokenIdxRange>,
     pattern_expr_ranges: Vec<TokenIdxRange>,
     expr_ranges: Vec<TokenIdxRange>,
+    stmt_ranges: StmtMap<TokenIdxRange>,
 }
 
 #[salsa::tracked(jar = ExprJar, return_ref)]
@@ -52,7 +53,7 @@ struct ExprRangeCalculator<'a> {
     entity_path_expr_ranges: Vec<TokenIdxRange>,
     pattern_expr_ranges: Vec<TokenIdxRange>,
     expr_ranges: Vec<TokenIdxRange>,
-    stmt_ranges: Vec<TokenIdxRange>,
+    stmt_ranges: StmtMap<TokenIdxRange>,
 }
 
 impl<'a> std::ops::Index<EntityPathExprIdx> for ExprRangeCalculator<'a> {
@@ -99,7 +100,7 @@ impl<'a> std::ops::Index<StmtIdx> for ExprRangeCalculator<'a> {
     type Output = TokenIdxRange;
 
     fn index(&self, index: StmtIdx) -> &Self::Output {
-        &self.stmt_ranges[index.raw()]
+        &self.stmt_ranges[index]
     }
 }
 
@@ -107,7 +108,7 @@ impl<'a> std::ops::Index<&StmtIdx> for ExprRangeCalculator<'a> {
     type Output = TokenIdxRange;
 
     fn index(&self, index: &StmtIdx) -> &Self::Output {
-        &self.stmt_ranges[index.raw()]
+        &self.stmt_ranges[index]
     }
 }
 
@@ -122,7 +123,7 @@ impl<'a> ExprRangeCalculator<'a> {
             entity_path_expr_ranges: Default::default(),
             pattern_expr_ranges: Default::default(),
             expr_ranges: Default::default(),
-            stmt_ranges: Default::default(),
+            stmt_ranges: StmtMap::new(expr_region_data.stmt_arena()),
         }
     }
 
@@ -142,16 +143,19 @@ impl<'a> ExprRangeCalculator<'a> {
         }
         self.expr_ranges
             .reserve(self.expr_region_data.expr_arena().len());
-        self.stmt_ranges
-            .reserve(self.expr_region_data.stmt_arena().len());
         for expr in self.expr_region_data.expr_arena().iter() {
             let expr_range = self.calc_expr_range(expr);
             self.expr_ranges.push(expr_range)
         }
+        assert_eq!(
+            self.expr_region_data.expr_arena().len(),
+            self.expr_ranges.len()
+        );
         ExprRangeRegion {
             entity_path_expr_ranges: self.entity_path_expr_ranges,
             pattern_expr_ranges: self.pattern_expr_ranges,
             expr_ranges: self.expr_ranges,
+            stmt_ranges: self.stmt_ranges,
         }
     }
 
@@ -168,8 +172,12 @@ impl<'a> ExprRangeCalculator<'a> {
                 ident_token,
                 path,
             } => match ident_token {
-                Ok(ident_token) => self[parent].to(ident_token.token_idx()),
-                Err(_) => self[parent].to(scope_resolution_token.token_idx()),
+                Ok(ident_token) => {
+                    self[parent].to(TokenIdxRangeEnd::new_after(ident_token.token_idx()))
+                }
+                Err(_) => self[parent].to(TokenIdxRangeEnd::new_after(
+                    scope_resolution_token.token_idx(),
+                )),
             },
         }
     }
@@ -242,15 +250,15 @@ impl<'a> ExprRangeCalculator<'a> {
                 function,
                 rpar_token_idx,
                 ..
-            } => self[function].to(*rpar_token_idx),
+            } => self[function].to(TokenIdxRangeEnd::new_after(*rpar_token_idx)),
             Expr::Field {
                 owner, ident_token, ..
-            } => self[owner].to(ident_token.token_idx()),
+            } => self[owner].to(TokenIdxRangeEnd::new_after(ident_token.token_idx())),
             Expr::MethodCall {
                 self_argument,
                 rpar_token_idx,
                 ..
-            } => self[self_argument].to(*rpar_token_idx),
+            } => self[self_argument].to(TokenIdxRangeEnd::new_after(*rpar_token_idx)),
             Expr::TemplateInstantiation {
                 template,
                 implicit_arguments,
@@ -260,20 +268,29 @@ impl<'a> ExprRangeCalculator<'a> {
                 lpar_token_idx,
                 rpar_token_idx,
                 ..
-            } => TokenIdxRange::new(*lpar_token_idx, *rpar_token_idx),
+            } => TokenIdxRange::new(
+                *lpar_token_idx,
+                TokenIdxRangeEnd::new_after(*rpar_token_idx),
+            ),
             Expr::NewTuple {
                 lpar_token_idx,
                 rpar_token_idx,
                 ..
-            } => TokenIdxRange::new(*lpar_token_idx, *rpar_token_idx),
+            } => TokenIdxRange::new(
+                *lpar_token_idx,
+                TokenIdxRangeEnd::new_after(*rpar_token_idx),
+            ),
             Expr::NewBoxList {
                 caller,
                 lbox_token_idx,
                 rbox_token_idx,
                 ..
             } => match caller {
-                Some(_) => todo!(),
-                None => TokenIdxRange::new(*lbox_token_idx, *rbox_token_idx),
+                Some(caller) => self[caller].to(TokenIdxRangeEnd::new_after(*rbox_token_idx)),
+                None => TokenIdxRange::new(
+                    *lbox_token_idx,
+                    TokenIdxRangeEnd::new_after(*rbox_token_idx),
+                ),
             },
             Expr::BoxColon {
                 caller,
@@ -282,9 +299,12 @@ impl<'a> ExprRangeCalculator<'a> {
                 ..
             } => match caller {
                 Some(_) => todo!(),
-                None => TokenIdxRange::new(*lbox_token_idx, rbox_token.token_idx()),
+                None => TokenIdxRange::new(
+                    *lbox_token_idx,
+                    TokenIdxRangeEnd::new_after(rbox_token.token_idx()),
+                ),
             },
-            Expr::Block { stmts } => self.calc_stmts_range(*stmts),
+            Expr::Block { stmts } => self.calc_block_range(*stmts),
             Expr::Err(error) => match error {
                 ExprError::Original(error) => match error {
                     OriginalExprError::MismatchingBracket {
@@ -348,7 +368,7 @@ impl<'a> ExprRangeCalculator<'a> {
         }
     }
 
-    fn calc_stmts_range(&mut self, stmts: StmtIdxRange) -> TokenIdxRange {
+    fn calc_block_range(&mut self, stmts: StmtIdxRange) -> TokenIdxRange {
         for stmt in stmts {
             self.save_stmt_range(stmt);
         }
@@ -359,8 +379,7 @@ impl<'a> ExprRangeCalculator<'a> {
         let range = self.calc_stmt_range(stmt_idx);
         // after calculation, all the child statements must have already been computed and cached
         // so that self.stmt_ranges.len() is equal to stmt_idx.raw()
-        assert_eq!(self.stmt_ranges.len(), stmt_idx.raw());
-        self.stmt_ranges.push(range)
+        self.stmt_ranges.insert_new(stmt_idx, range)
     }
 
     fn calc_stmt_range(&mut self, stmt_idx: StmtIdx) -> TokenIdxRange {
@@ -374,13 +393,13 @@ impl<'a> ExprRangeCalculator<'a> {
             } => {
                 let start = let_token.token_idx();
                 let end = if let Ok(initial_value) = initial_value {
-                    self[initial_value].end().token_idx()
+                    self[initial_value].end()
                 } else if let Ok(assign_token) = assign_token {
-                    assign_token.token_idx()
+                    TokenIdxRangeEnd::new_after(assign_token.token_idx())
                 } else if let Ok(let_variable_pattern) = let_variable_pattern {
                     todo!()
                 } else {
-                    let_token.token_idx() + 1
+                    TokenIdxRangeEnd::new_after(let_token.token_idx())
                 };
                 TokenIdxRange::new(start, end)
             }
@@ -417,7 +436,9 @@ impl<'a> ExprRangeCalculator<'a> {
                 while_token,
                 ref block,
                 ..
-            } => todo!(),
+            } => {
+                todo!()
+            }
             Stmt::DoWhile {
                 do_token,
                 ref condition,
@@ -428,7 +449,50 @@ impl<'a> ExprRangeCalculator<'a> {
                 ref if_branch,
                 ref elif_branches,
                 ref else_branch,
-            } => todo!(),
+            } => {
+                let start = if_branch.if_token.token_idx();
+                // it's important that every branch is computed
+                let if_branch_end: TokenIdxRangeEnd = if let Ok(block) = if_branch.block() {
+                    self.calc_block_range(block).end()
+                } else if let Ok(eol_colon_token) = if_branch.eol_colon_token() {
+                    TokenIdxRangeEnd::new_after(eol_colon_token.token_idx())
+                } else if let Ok(condition) = if_branch.condition {
+                    self[condition].end()
+                } else {
+                    TokenIdxRangeEnd::new_after(if_branch.if_token.token_idx())
+                };
+                let mut elif_branch_rev_iter = elif_branches.iter().rev();
+                let elif_branches_end: Option<TokenIdxRangeEnd> = {
+                    if let Some(last_elif_branch) = elif_branch_rev_iter.next() {
+                        if let Ok(block) = last_elif_branch.block() {
+                            Some(self.calc_block_range(block).end())
+                        } else {
+                            None
+                        }
+                    } else {
+                        None
+                    }
+                };
+                for elif_branch in elif_branch_rev_iter {
+                    if let Ok(block) = elif_branch.block() {
+                        self.calc_block_range(block);
+                    }
+                }
+                let else_block_end: Option<TokenIdxRangeEnd> =
+                    if let Some(else_branch) = else_branch {
+                        if let Ok(block) = else_branch.block() {
+                            Some(self.calc_block_range(block).end())
+                        } else {
+                            None
+                        }
+                    } else {
+                        None
+                    };
+                let end = else_block_end
+                    .or(elif_branches_end)
+                    .unwrap_or(if_branch_end);
+                TokenIdxRange::new(start, end)
+            }
             Stmt::Match {} => todo!(),
             Stmt::Err(_) => todo!(),
         }
