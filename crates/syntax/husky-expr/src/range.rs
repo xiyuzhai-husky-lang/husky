@@ -226,10 +226,15 @@ impl<'a> ExprRangeCalculator<'a> {
                 src,
                 be_token_idx,
                 target,
-            } => match target {
-                Ok(_) => todo!(),
-                Err(_) => todo!(),
-            },
+            } => {
+                let start = self[src].start().token_idx();
+                let end = if let Ok(target) = target {
+                    self[target.pattern_expr_idx()].end()
+                } else {
+                    TokenIdxRangeEnd::new_after(*be_token_idx)
+                };
+                TokenIdxRange::new(start, end)
+            }
             Expr::PrefixOpn {
                 opr,
                 opr_token_idx,
@@ -238,8 +243,8 @@ impl<'a> ExprRangeCalculator<'a> {
             Expr::SuffixOpn {
                 opd,
                 opr,
-                punctuation_token_idx,
-            } => todo!(),
+                opr_token_idx,
+            } => self[opd].to(TokenIdxRangeEnd::new_after(*opr_token_idx)),
             Expr::ApplicationOrRitchieCall {
                 function: first_expr,
                 rpar_token_idx,
@@ -505,9 +510,22 @@ impl<'a> ExprRangeCalculator<'a> {
             Stmt::DoWhile {
                 do_token,
                 ref condition,
+                ref eol_colon,
                 ref block,
                 ..
-            } => todo!(),
+            } => {
+                let start = do_token.token_idx();
+                let end = if let Ok(block) = block {
+                    self.calc_block_range(*block).end()
+                } else if let Ok(eol_colon) = eol_colon {
+                    TokenIdxRangeEnd::new_after(eol_colon.token_idx())
+                } else if let Ok(condition) = condition {
+                    self[condition].end()
+                } else {
+                    TokenIdxRangeEnd::new_after(start)
+                };
+                TokenIdxRange::new(start, end)
+            }
             Stmt::IfElse {
                 ref if_branch,
                 ref elif_branches,
@@ -556,7 +574,10 @@ impl<'a> ExprRangeCalculator<'a> {
                     .unwrap_or(if_branch_end);
                 TokenIdxRange::new(start, end)
             }
-            Stmt::Match {} => todo!(),
+            Stmt::Match { match_token } => {
+                // ad hoc
+                TokenIdxRange::new_single(match_token.token_idx())
+            }
             Stmt::Err(_) => todo!(),
         }
     }

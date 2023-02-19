@@ -2615,7 +2615,13 @@ Ok(
                                                 7,
                                             ),
                                         },
-                                        Stmt::Match,
+                                        Stmt::Match {
+                                            match_token: MatchToken {
+                                                token_idx: TokenIdx(
+                                                    511,
+                                                ),
+                                            },
+                                        },
                                     ],
                                 },
                                 pattern_expr_region: PatternExprRegion {
@@ -3382,7 +3388,13 @@ Ok(
                                                 14,
                                             ),
                                         },
-                                        Stmt::Match,
+                                        Stmt::Match {
+                                            match_token: MatchToken {
+                                                token_idx: TokenIdx(
+                                                    659,
+                                                ),
+                                            },
+                                        },
                                     ],
                                 },
                                 pattern_expr_region: PatternExprRegion {
@@ -4309,7 +4321,13 @@ Ok(
                                                 7,
                                             ),
                                         },
-                                        Stmt::Match,
+                                        Stmt::Match {
+                                            match_token: MatchToken {
+                                                token_idx: TokenIdx(
+                                                    725,
+                                                ),
+                                            },
+                                        },
                                     ],
                                 },
                                 pattern_expr_region: PatternExprRegion {
@@ -7698,7 +7716,7 @@ Ok(
                                         Expr::SuffixOpn {
                                             opd: 191,
                                             opr: Incr,
-                                            punctuation_token_idx: TokenIdx(
+                                            opr_token_idx: TokenIdx(
                                                 1504,
                                             ),
                                         },
@@ -8272,7 +8290,13 @@ Ok(
                                             elif_branches: [],
                                             else_branch: None,
                                         },
-                                        Stmt::Match,
+                                        Stmt::Match {
+                                            match_token: MatchToken {
+                                                token_idx: TokenIdx(
+                                                    1420,
+                                                ),
+                                            },
+                                        },
                                         Stmt::Eval {
                                             expr_idx: 186,
                                         },

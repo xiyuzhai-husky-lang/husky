@@ -52,6 +52,7 @@ pub enum Ast {
         else_branch: Option<AstIdx>,
     },
     MatchStmts {
+        token_group_idx: TokenGroupIdx,
         pattern_stmt: AstIdx,
         case_stmts: AstIdxRange,
     },

@@ -13,13 +13,15 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: ArenaMap {
+            data: [],
+        },
         expr_local_terms: ArenaMap {
             data: [],
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
@@ -27,7 +29,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [],
                 },
@@ -53,13 +55,15 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: ArenaMap {
+            data: [],
+        },
         expr_local_terms: ArenaMap {
             data: [],
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
@@ -67,7 +71,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [],
                 },
@@ -93,13 +97,15 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: ArenaMap {
+            data: [],
+        },
         expr_local_terms: ArenaMap {
             data: [],
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
@@ -107,7 +113,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [],
                 },
@@ -133,13 +139,15 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: ArenaMap {
+            data: [],
+        },
         expr_local_terms: ArenaMap {
             data: [],
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
@@ -147,7 +155,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [],
                 },
@@ -173,13 +181,15 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: ArenaMap {
+            data: [],
+        },
         expr_local_terms: ArenaMap {
             data: [],
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
@@ -187,7 +197,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [],
                 },
@@ -213,13 +223,15 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: ArenaMap {
+            data: [],
+        },
         expr_local_terms: ArenaMap {
             data: [],
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
@@ -227,7 +239,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [],
                 },
@@ -253,13 +265,15 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: ArenaMap {
+            data: [],
+        },
         expr_local_terms: ArenaMap {
             data: [],
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
@@ -267,7 +281,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [],
                 },
@@ -293,13 +307,15 @@
                 },
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: ArenaMap {
+            data: [],
+        },
         expr_local_terms: ArenaMap {
             data: [],
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        unresolved_term_table: LocalTermTable {
+        local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
             },
@@ -307,7 +323,7 @@
                 arena: [],
                 first_unresolved_term: 0,
             },
-            expectation_rules: LocalTermExpectations {
+            expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [],
                 },

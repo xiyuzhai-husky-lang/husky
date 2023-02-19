@@ -132,6 +132,10 @@ pub struct UnresolvedTermEntry {
 }
 
 impl UnresolvedTermEntry {
+    pub fn src_expr_idx(&self) -> ExprIdx {
+        self.src_expr_idx
+    }
+
     pub(crate) fn unresolved_term(&self) -> &UnresolvedTerm {
         &self.unresolved_term
     }

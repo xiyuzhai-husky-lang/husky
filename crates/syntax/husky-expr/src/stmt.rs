@@ -76,7 +76,9 @@ pub enum Stmt {
         elif_branches: Vec<ElifBranch>,
         else_branch: Option<ElseBranch>,
     },
-    Match {},
+    Match {
+        match_token: MatchToken,
+    },
     Err(StmtError),
 }
 

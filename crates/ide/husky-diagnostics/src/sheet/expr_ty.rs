@@ -64,12 +64,12 @@ fn collect_expr_ty_diagnostics(
         }
     }
     let local_term_table = expr_ty_region.local_term_table();
-    for error in local_term_table
+    for (expr_idx, error) in local_term_table
         .unresolved_terms()
         .iter()
-        .filter_map(|entry| entry.original_error())
+        .filter_map(|entry| Some((entry.src_expr_idx(), entry.original_error()?)))
     {
-        diagnostics.push(error.to_diagnostic(&ctx))
+        diagnostics.push((expr_idx, error).to_diagnostic(&ctx))
     }
     for (expr_idx, error) in local_term_table
         .expectations()
@@ -103,38 +103,46 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
 
     fn message(&self, ctx: &DiagnosticsRegionContext) -> String {
         match self.1 {
-            OriginalExprTypeError::UnresolvedTerm => todo!(),
-            OriginalExprTypeError::TypeError(_) => todo!(),
-            OriginalExprTypeError::TodoScopeResolution => todo!(),
-            OriginalExprTypeError::TodoSuffix => todo!(),
-            OriginalExprTypeError::TodoBoxColon => todo!(),
+            OriginalExprTypeError::UnresolvedTerm => {
+                format!("Type Error: UnresolvedTerm")
+            }
+            OriginalExprTypeError::TypeError(error) => format!("Type Error: {error}"),
+            OriginalExprTypeError::TodoScopeResolution => {
+                format!("Type Error: TodoScopeResolution")
+            }
+            OriginalExprTypeError::TodoSuffix => {
+                format!("Type Error: TodoSuffix")
+            }
+            OriginalExprTypeError::TodoBoxColon => {
+                format!("Type Error: TodoBoxColon")
+            }
         }
     }
 
     fn severity(&self) -> DiagnosticSeverity {
-        todo!()
+        DiagnosticSeverity::Error
     }
 
     fn range(&self, ctx: &DiagnosticsRegionContext) -> TextRange {
-        todo!()
+        ctx.expr_text_range(self.0)
     }
 }
 
-impl Diagnose for OriginalLocalTermResolveError {
+impl Diagnose for (ExprIdx, &'_ OriginalLocalTermResolveError) {
     type Context<'a> = DiagnosticsRegionContext<'a>;
 
     fn message(&self, db: &DiagnosticsRegionContext) -> String {
-        match self {
+        match self.1 {
             OriginalLocalTermResolveError::UnresolvedTerm => todo!(),
         }
     }
 
     fn severity(&self) -> DiagnosticSeverity {
-        todo!()
+        DiagnosticSeverity::Error
     }
 
     fn range(&self, ctx: &DiagnosticsRegionContext) -> TextRange {
-        todo!()
+        ctx.expr_text_range(self.0)
     }
 }
 

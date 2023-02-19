@@ -137,7 +137,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             Some(expr) => Expr::SuffixOpn {
                 opd: this.alloc_expr(expr),
                 opr: punctuation,
-                punctuation_token_idx,
+                opr_token_idx: punctuation_token_idx,
             }
             .into(),
             None => todo!(),
