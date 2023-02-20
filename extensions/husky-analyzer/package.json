@@ -5,7 +5,7 @@
     "private": true,
     "icon": "icon.png",
     "version": "0.1.0",
-    "publisher": "XiyuZhai",
+    "publisher": "husky-lang",
     "repository": {
         "url": "https://github.com/xiyuzhai-husky-lang/husky.git",
         "type": "git"
@@ -55,11 +55,14 @@
         "vsce": "^2.9.2",
         "vscode-test": "^1.6.1"
     },
-    "activationEvents": [
-        "onLanguage:husky"
-    ],
+    "activationEvents": [],
     "main": "./out/main",
     "contributes": {
+        "configurationDefaults": {
+            "[languageId]": {
+                "editor.semanticHighlighting.enabled": true
+            }
+        },
         "commands": [
             {
                 "command": "husky-analyzer.analyzerStatus",
