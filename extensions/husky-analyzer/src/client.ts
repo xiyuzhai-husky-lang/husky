@@ -103,6 +103,7 @@ class ExperimentalFeatures implements lc.StaticFeature {
                 "editor.action.triggerParameterHints",
             ],
         };
+        console.log("capabilities = ", caps);
         capabilities.experimental = caps;
     }
     initialize(

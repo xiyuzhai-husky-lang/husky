@@ -3,25 +3,62 @@
     "displayName": "husky-analyzer",
     "description": "Husky language support for Visual Studio Code",
     "private": true,
-    "version": "0.1.0-dev",
-    "publisher": "husky-lang",
+    "icon": "icon.png",
+    "version": "0.1.0",
+    "publisher": "XiyuZhai",
     "repository": {
-        "url": "https://github.com/xiyuzhai/husky",
+        "url": "https://github.com/xiyuzhai-husky-lang/husky.git",
         "type": "git"
     },
     "author": "Xiyu Zhai",
     "license": "MIT",
+    "keywords": [
+        "husky"
+    ],
+    "categories": [
+        "Programming Languages"
+    ],
+    "capabilities": {
+        "untrustedWorkspaces": {
+            "supported": false,
+            "description": "husky-analyzer invokes binaries set up by its configuration as well as the Husky toolchain's binaries. A malicious actor could exploit this to run arbitrary code on your machine."
+        }
+    },
+    "engines": {
+        "vscode": "^1.66.0"
+    },
+    "enabledApiProposals": [],
     "scripts": {
         "vscode:prepublish": "npm run build-base -- --minify",
-        "build-base": "esbuild ./src/main.ts  --sourcemap --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node --target=node14",
+        "package": "vsce package -o husky-analyzer.vsix",
+        "build-base": "esbuild ./src/main.ts  --sourcemap --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node --target=node16",
         "build": "npm run build-base -- --sourcemap",
         "watch": "concurrently \"rollup -c -w\" \"npm run build-base -- --sourcemap --watch\"",
-        "test": "jest"
+        "pretest": "tsc && npm run build",
+        "test": "cross-env TEST_VARIABLE=test node ./out/tests/runTests.js"
     },
-    "main": "./out/main",
+    "dependencies": {
+        "@babel/plugin-transform-modules-commonjs": "^7.16.7",
+        "vscode-languageclient": "^8.0.2"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.16.7",
+        "@babel/preset-env": "^7.16.7",
+        "@testing-library/svelte": "^3.0.3",
+        "@tsconfig/svelte": "^3.0.0",
+        "@types/vscode": "^1.63.1",
+        "babel-jest": "^27.4.5",
+        "concurrently": "^6.5.1",
+        "esbuild": "^0.14.10",
+        "jest": "^27.4.5",
+        "ts-todo": "^1.0.0",
+        "vsce": "^2.9.2",
+        "vscode-test": "^1.6.1"
+    },
     "activationEvents": [
         "onLanguage:husky"
     ],
+    "main": "./out/main",
     "contributes": {
         "commands": [
             {
@@ -541,28 +578,5 @@
                 }
             ]
         }
-    },
-    "engines": {
-        "vscode": "^1.57.0"
-    },
-    "dependencies": {
-        "@babel/plugin-transform-modules-commonjs": "^7.16.7",
-        "node": "^17.3.0",
-        "svelte-preprocess": "^4.10.1",
-        "vscode-languageclient": "^7.0.0"
-    },
-    "devDependencies": {
-        "@babel/core": "^7.16.7",
-        "@babel/preset-env": "^7.16.7",
-        "@testing-library/svelte": "^3.0.3",
-        "@tsconfig/svelte": "^3.0.0",
-        "@types/vscode": "^1.63.1",
-        "babel-jest": "^27.4.5",
-        "concurrently": "^6.5.1",
-        "esbuild": "^0.14.10",
-        "jest": "^27.4.5",
-        "ts-todo": "^1.0.0",
-        "vsce": "^2.9.2",
-        "vscode-test": "^1.6.1"
     }
 }

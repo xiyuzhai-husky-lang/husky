@@ -8,7 +8,11 @@ pub(crate) fn handle_semantic_tokens_full(
     snapshot: AnalyzerDBSnapshot,
     params: SemanticTokensParams,
 ) -> Result<Option<SemanticTokensResult>> {
-    eprintln!("start handle_semantic_tokens_full");
+    todo!();
+    eprintln!(
+        "start handle_semantic_tokens_full for {:?}",
+        params.text_document.uri
+    );
     let _p = husky_profile_utils::span("handle_semantic_tokens_full");
     let semantic_tokens = semantic_tokens(&snapshot, &params.text_document.uri, None)?;
     // Unconditionally cache the tokens
@@ -20,6 +24,7 @@ pub(crate) fn handle_semantic_tokens_full_delta(
     snapshot: AnalyzerDBSnapshot,
     params: SemanticTokensDeltaParams,
 ) -> Result<Option<SemanticTokensFullDeltaResult>> {
+    todo!();
     const DEBUG_HANDLE_SEMANTIC_TOKENS_FULL_DELTA: bool = true;
     let current = semantic_tokens(&snapshot, &params.text_document.uri, None)?;
     if DEBUG_HANDLE_SEMANTIC_TOKENS_FULL_DELTA {
@@ -59,6 +64,7 @@ pub(crate) fn handle_semantic_tokens_range(
     snapshot: AnalyzerDBSnapshot,
     params: SemanticTokensRangeParams,
 ) -> Result<Option<SemanticTokensRangeResult>> {
+    todo!();
     // ad hoc
     let path = from_lsp_types::path_from_url(&params.text_document.uri)?;
     let module_path = snapshot.resolve_module_path(snapshot.current_toolchain()?, &path)?;
