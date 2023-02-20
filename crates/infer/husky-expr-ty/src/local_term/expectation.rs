@@ -95,22 +95,13 @@ pub enum LocalTermExpectationError {
     Derived(#[from] DerivedLocalTermExpectationError),
 }
 
-impl From<TypeError> for LocalTermExpectationError {
-    fn from(error: TypeError) -> Self {
-        match error {
-            TypeError::Original(error) => LocalTermExpectationError::Original(error.into()),
-            TypeError::Derived(error) => LocalTermExpectationError::Derived(error.into()),
-        }
-    }
-}
-
 pub type LocalTermExpectationResult<T> = Result<T, LocalTermExpectationError>;
 
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub enum OriginalLocalTermExpectationError {
-    #[error("{0}")]
-    Type(#[from] OriginalTypeError),
+    #[error("{term:?} {error}")]
+    TermTypeError { term: Term, error: TypeError },
     #[error("todo")]
     Todo,
 }

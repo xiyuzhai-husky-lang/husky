@@ -43,7 +43,7 @@ DiagnosticSheet {
                 range: [97:13, 97:18),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError type error: todo",
+                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime LineSegmentSketch",
                 severity: Error,
                 range: [89:13, 89:32),
             },
@@ -58,32 +58,32 @@ DiagnosticSheet {
                 range: [96:45, 96:64),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError type error: todo",
+                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime LineSegmentSketch",
                 severity: Error,
                 range: [100:17, 100:36),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError type error: todo",
+                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime LineSegmentSketch",
                 severity: Error,
                 range: [101:17, 101:36),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError type error: todo",
+                message: "Type Error: original `todo` in term never",
                 severity: Error,
                 range: [88:5, 105:30),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError type error: todo",
+                message: "Type Error: original `todo` in term never",
                 severity: Error,
                 range: [21:9, 31:30),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError type error: todo",
+                message: "Type Error: original `todo` in term bool",
                 severity: Error,
                 range: [39:46, 39:50),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError type error: todo",
+                message: "Type Error: original `todo` in term never",
                 severity: Error,
                 range: [34:9, 41:28),
             },
@@ -98,7 +98,7 @@ DiagnosticSheet {
                 range: [57:13, 57:24),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError type error: todo",
+                message: "Type Error: original `todo` in term never",
                 severity: Error,
                 range: [44:9, 58:10),
             },

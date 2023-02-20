@@ -7,7 +7,7 @@ use husky_expr_ty::{
     OriginalLocalTermExpectationError, OriginalLocalTermResolveError,
 };
 use husky_token::RangedTokenSheet;
-use salsa::DebugWithDb;
+use salsa::{DebugWithDb, DisplayWithDb};
 
 use super::*;
 
@@ -106,7 +106,9 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
             OriginalExprTypeError::UnresolvedTerm => {
                 format!("Type Error: UnresolvedTerm")
             }
-            OriginalExprTypeError::TypeError(error) => format!("Type Error: {error}"),
+            OriginalExprTypeError::FieldTypeError(error) => format!("TypeError: {error}"),
+            OriginalExprTypeError::TypeMethodTypeError(error) => format!("TypeError: {error}"),
+            OriginalExprTypeError::TypeCallTypeError(error) => format!("TypeError: {error}"),
             OriginalExprTypeError::TodoScopeResolution => {
                 format!("Type Error: TodoScopeResolution")
             }
@@ -149,10 +151,10 @@ impl Diagnose for (ExprIdx, &'_ OriginalLocalTermResolveError) {
 impl Diagnose for (ExprIdx, &'_ OriginalLocalTermExpectationError) {
     type Context<'a> = DiagnosticsRegionContext<'a>;
 
-    fn message(&self, db: &DiagnosticsRegionContext) -> String {
+    fn message(&self, ctx: &DiagnosticsRegionContext) -> String {
         match self.1 {
-            OriginalLocalTermExpectationError::Type(_) => {
-                format!("OriginalLocalTermExpectationError type error: todo")
+            OriginalLocalTermExpectationError::TermTypeError { term, error } => {
+                format!("Type Error: {error} in term {}", term.display(ctx.db()))
             }
             OriginalLocalTermExpectationError::Todo => {
                 format!("OriginalLocalTermExpectationError::Todo: todo")

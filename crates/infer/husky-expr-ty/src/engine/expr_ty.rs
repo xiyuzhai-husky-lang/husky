@@ -138,44 +138,49 @@ impl<'a> ExprTypeEngine<'a> {
             } => {
                 let function_ty = self.infer_new_expr_ty(function, ExpectInsSort::default());
                 match function_ty {
-                    Some(function_ty) => match function_ty {
-                        LocalTerm::Resolved(function_ty) => match function_ty.term() {
-                            Term::Category(_) => {
-                                let Some(ty_term) = self.infer_new_expr_term(function)
+                    Some(function_ty) => {
+                        match function_ty {
+                            LocalTerm::Resolved(function_ty) => match function_ty.term() {
+                                Term::Category(_) => {
+                                    let Some(ty_term) = self.infer_new_expr_term(function)
                                     else {
                                         self.infer_new_expr_ty(argument, ExpectInsSort::default());
                                         return Err(todo!())
                                     };
-                                match ty_term {
-                                    LocalTerm::Resolved(ty_term) => {
-                                        let ty_call_ty = match self.db.ty_call_ty(
-                                            ty_term,
-                                            self.toolchain,
-                                            self.reduced_term_menu,
-                                        ) {
-                                            Ok(ty_call_ty) => ty_call_ty,
-                                            Err(error) => {
-                                                self.infer_new_expr_ty(
-                                                    argument,
-                                                    ExpectInsSort::default(),
-                                                );
-                                                return Err(error.into());
-                                            }
-                                        };
-                                        todo!()
+                                    match ty_term {
+                                        LocalTerm::Resolved(ty_term) => {
+                                            let ty_call_ty = match self.db.ty_call_ty(
+                                                ty_term,
+                                                self.toolchain,
+                                                self.reduced_term_menu,
+                                            ) {
+                                                Ok(ty_call_ty) => ty_call_ty,
+                                                Err(error) => {
+                                                    self.infer_new_expr_ty(
+                                                        argument,
+                                                        ExpectInsSort::default(),
+                                                    );
+                                                    return Err(match error {
+                                                        TypeError::Original(error) => OriginalExprTypeError::TypeCallTypeError(error).into(),
+                                                        TypeError::Derived(error) => DerivedExprTypeError::TypeCallTypeError(error).into(),
+                                                    });
+                                                }
+                                            };
+                                            todo!()
+                                        }
+                                        LocalTerm::Unresolved(_) => todo!(),
                                     }
-                                    LocalTerm::Unresolved(_) => todo!(),
                                 }
-                            }
-                            Term::Ritchie(_) => self.calc_ritchie_call_ty(
-                                Some(function_ty.into()),
-                                None,
-                                ExprIdxRange::new_single(argument),
-                            ),
-                            _ => todo!(),
-                        },
-                        LocalTerm::Unresolved(_) => todo!(),
-                    },
+                                Term::Ritchie(_) => self.calc_ritchie_call_ty(
+                                    Some(function_ty.into()),
+                                    None,
+                                    ExprIdxRange::new_single(argument),
+                                ),
+                                _ => todo!(),
+                            },
+                            LocalTerm::Unresolved(_) => todo!(),
+                        }
+                    }
                     None => {
                         self.infer_new_expr_ty(argument, ExpectInsSort::default());
                         Err(DerivedExprTypeError::FunctionTypeNotInferredInApplicationOrFunctionCall.into())
@@ -200,7 +205,14 @@ impl<'a> ExprTypeEngine<'a> {
                             let field_ty = self.db.field_ty(owner_ty, ident_token.ident());
                             match field_ty {
                                 Ok(_) => todo!(),
-                                Err(e) => Err(e.into()),
+                                Err(e) => Err(match e {
+                                    TypeError::Original(error) => {
+                                        OriginalExprTypeError::FieldTypeError(error).into()
+                                    }
+                                    TypeError::Derived(error) => {
+                                        DerivedExprTypeError::FieldTypeError(error).into()
+                                    }
+                                }),
                             }
                         }
                         LocalTerm::Unresolved(_) => todo!(),
@@ -229,7 +241,16 @@ impl<'a> ExprTypeEngine<'a> {
                     };
                 let method_ty = match self.db.ty_method_ty(self_expr_ty, ident_token.ident()) {
                     Ok(_) => todo!(),
-                    Err(e) => return Err(e.into()),
+                    Err(error) => {
+                        return Err(match error {
+                            TypeError::Original(error) => {
+                                OriginalExprTypeError::TypeMethodTypeError(error).into()
+                            }
+                            TypeError::Derived(error) => {
+                                DerivedExprTypeError::TypeMethodTypeError(error).into()
+                            }
+                        })
+                    }
                 };
                 self.calc_ritchie_call_ty(method_ty, implicit_arguments.as_ref(), nonself_arguments)
             }

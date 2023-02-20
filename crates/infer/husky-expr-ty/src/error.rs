@@ -9,32 +9,36 @@ pub enum ExprTypeError {
 }
 
 impl From<DerivedExprTypeError> for ExprTypeError {
-    fn from(v: DerivedExprTypeError) -> Self {
-        Self::Derived(v)
+    fn from(error: DerivedExprTypeError) -> Self {
+        Self::Derived(error)
     }
 }
 
 impl From<OriginalExprTypeError> for ExprTypeError {
-    fn from(v: OriginalExprTypeError) -> Self {
-        Self::Original(v)
+    fn from(error: OriginalExprTypeError) -> Self {
+        Self::Original(error)
     }
 }
 
-impl From<TypeError> for ExprTypeError {
-    fn from(value: TypeError) -> Self {
-        match value {
-            TypeError::Original(e) => ExprTypeError::Original(e.into()),
-            TypeError::Derived(e) => ExprTypeError::Derived(e.into()),
-        }
-    }
-}
+// impl From<TypeError> for ExprTypeError {
+//     fn from(value: TypeError) -> Self {
+//         match value {
+//             TypeError::Original(e) => ExprTypeError::Original(e.into()),
+//             TypeError::Derived(e) => ExprTypeError::Derived(e.into()),
+//         }
+//     }
+// }
 
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalExprTypeError {
     #[error("unresolved term")]
     UnresolvedTerm,
-    #[error("type error {0}")]
-    TypeError(#[from] OriginalTypeError),
+    #[error("field type error {0}")]
+    FieldTypeError(OriginalTypeError),
+    #[error("type method type error {0}")]
+    TypeMethodTypeError(OriginalTypeError),
+    #[error("type call type error {0}")]
+    TypeCallTypeError(OriginalTypeError),
     #[error("TodoScopeResolution")]
     TodoScopeResolution,
     #[error("TodoSuffix")]
@@ -45,6 +49,12 @@ pub enum OriginalExprTypeError {
 
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum DerivedExprTypeError {
+    #[error("field type error {0}")]
+    FieldTypeError(DerivedTypeError),
+    #[error("type method type error {0}")]
+    TypeMethodTypeError(DerivedTypeError),
+    #[error("type call type error {0}")]
+    TypeCallTypeError(DerivedTypeError),
     #[error("type info error")]
     TypeInfoError,
     #[error("expr error")]

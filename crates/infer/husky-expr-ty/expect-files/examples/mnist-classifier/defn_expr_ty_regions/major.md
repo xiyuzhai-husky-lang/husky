@@ -770,9 +770,18 @@
                             resolve_progress: Resolved(
                                 Err(
                                     Original(
-                                        Type(
-                                            Todo,
-                                        ),
+                                        TermTypeError {
+                                            term: Application(
+                                                TermApplication(
+                                                    Id {
+                                                        value: 7,
+                                                    },
+                                                ),
+                                            ),
+                                            error: Original(
+                                                Todo,
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -1052,9 +1061,22 @@
                             resolve_progress: Resolved(
                                 Err(
                                     Original(
-                                        Type(
-                                            Todo,
-                                        ),
+                                        TermTypeError {
+                                            term: Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 23,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            error: Original(
+                                                Todo,
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -1499,9 +1521,18 @@
                             resolve_progress: Resolved(
                                 Err(
                                     Original(
-                                        Type(
-                                            Todo,
-                                        ),
+                                        TermTypeError {
+                                            term: Application(
+                                                TermApplication(
+                                                    Id {
+                                                        value: 7,
+                                                    },
+                                                ),
+                                            ),
+                                            error: Original(
+                                                Todo,
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -1619,9 +1650,22 @@
                             resolve_progress: Resolved(
                                 Err(
                                     Original(
-                                        Type(
-                                            Todo,
-                                        ),
+                                        TermTypeError {
+                                            term: Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 33,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            error: Original(
+                                                Todo,
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -1651,9 +1695,22 @@
                             resolve_progress: Resolved(
                                 Err(
                                     Original(
-                                        Type(
-                                            Todo,
-                                        ),
+                                        TermTypeError {
+                                            term: Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 23,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            error: Original(
+                                                Todo,
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -1778,9 +1835,22 @@
                             resolve_progress: Resolved(
                                 Err(
                                     Original(
-                                        Type(
-                                            Todo,
-                                        ),
+                                        TermTypeError {
+                                            term: Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 33,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            error: Original(
+                                                Todo,
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -2124,9 +2194,22 @@
                             resolve_progress: Resolved(
                                 Err(
                                     Original(
-                                        Type(
-                                            Todo,
-                                        ),
+                                        TermTypeError {
+                                            term: Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 34,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            error: Original(
+                                                Todo,
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -2251,9 +2334,22 @@
                             resolve_progress: Resolved(
                                 Err(
                                     Original(
-                                        Type(
-                                            Todo,
-                                        ),
+                                        TermTypeError {
+                                            term: Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 44,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            error: Original(
+                                                Todo,
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),

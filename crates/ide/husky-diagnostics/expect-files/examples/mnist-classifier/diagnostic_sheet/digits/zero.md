@@ -172,17 +172,17 @@ DiagnosticSheet {
                 range: [11:43, 11:58),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError type error: todo",
+                message: "Type Error: original `todo` in term FermiMatchResult",
                 severity: Error,
                 range: [11:5, 11:59),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError type error: todo",
+                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime ConcaveComponent",
                 severity: Error,
                 range: [14:13, 14:15),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError type error: todo",
+                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime ConcaveComponent",
                 severity: Error,
                 range: [15:6, 15:8),
             },
@@ -202,12 +202,12 @@ DiagnosticSheet {
                 range: [46:5, 46:21),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError type error: todo",
+                message: "Type Error: original `todo` in term ConnectedComponent",
                 severity: Error,
                 range: [19:8, 19:33),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError type error: todo",
+                message: "Type Error: original `todo` in term List ConnectedComponent",
                 severity: Error,
                 range: [23:17, 23:37),
             },
@@ -222,17 +222,17 @@ DiagnosticSheet {
                 range: [27:61, 27:63),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError type error: todo",
+                message: "Type Error: original `todo` in term FermiMatchResult",
                 severity: Error,
                 range: [27:23, 27:64),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError type error: todo",
+                message: "Type Error: original `todo` in term LineSegmentSketch",
                 severity: Error,
                 range: [41:9, 41:34),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError type error: todo",
+                message: "Type Error: original `todo` in term LineSegmentSketch",
                 severity: Error,
                 range: [41:57, 41:82),
             },
