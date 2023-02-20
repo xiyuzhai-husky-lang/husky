@@ -30,7 +30,7 @@ pub proc fermi_match(
     templates: []((&ConcaveComponent) -> ?f32)
 ) -> FermiMatchResult:
     let mut others = concave_components.collect_refs()
-    let mut matches = []?&ConcaveComponent()
+    let mut matches = []?&ConcaveComponen4t()
     // todo: change this to `for template in templates` after introducing `for ... in` loop
     for i < templates.ilen():
         let template = templates[i]
