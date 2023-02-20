@@ -10,7 +10,7 @@ pub(crate) fn term_ty(
     match reduced_term.term() {
         Term::Literal(_) => todo!(),
         Term::Symbol(_) => todo!(),
-        Term::Entity(path) => entity_path_path_term_ty(db, path),
+        Term::Entity(path) => entity_path_term_ty(db, path),
         Term::Category(cat) => cat
             .ty()
             .map(Into::into)
@@ -30,11 +30,76 @@ pub(crate) fn term_ty(
     }
 }
 
-pub(crate) fn entity_path_path_term_ty(
-    db: &dyn TypeDb,
-    path: EntityPath,
-) -> TypeResult<ReducedTerm> {
+pub(crate) fn entity_path_term_ty(db: &dyn TypeDb, path: EntityPath) -> TypeResult<ReducedTerm> {
     Err(OriginalTypeError::Todo.into())
+}
+
+#[test]
+fn entity_path_path_term_ty_works() {
+    let db = DB::default();
+    let toolchain = db.dev_toolchain().unwrap();
+    let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
+    let reduced_term_menu = db.reduced_term_menu(toolchain).unwrap();
+    assert_eq!(
+        entity_path_term_ty(&db, entity_path_menu.bool().into()),
+        Ok(reduced_term_menu.ty0())
+    );
+    assert_eq!(
+        entity_path_term_ty(&db, entity_path_menu.core_ops_add().into()),
+        Ok(reduced_term_menu.trai())
+    );
+    assert_eq!(
+        entity_path_term_ty(&db, entity_path_menu.core_ops_add_assign().into()),
+        Ok(reduced_term_menu.trai())
+    );
+    assert_eq!(
+        entity_path_term_ty(&db, entity_path_menu.core_ops_bit_and().into()),
+        Ok(reduced_term_menu.trai())
+    );
+    assert_eq!(
+        entity_path_term_ty(&db, entity_path_menu.core_ops_bit_and_assign().into()),
+        Ok(reduced_term_menu.trai())
+    );
+    assert_eq!(
+        entity_path_term_ty(&db, entity_path_menu.core_ops_bit_or().into()),
+        Ok(reduced_term_menu.trai())
+    );
+    assert_eq!(
+        entity_path_term_ty(&db, entity_path_menu.core_ops_bit_or_assign().into()),
+        Ok(reduced_term_menu.trai())
+    );
+    assert_eq!(
+        entity_path_term_ty(&db, entity_path_menu.core_ops_bit_xor().into()),
+        Ok(reduced_term_menu.trai())
+    );
+    assert_eq!(
+        entity_path_term_ty(&db, entity_path_menu.core_ops_bit_xor_assign().into()),
+        Ok(reduced_term_menu.trai())
+    );
+    assert_eq!(
+        entity_path_term_ty(&db, entity_path_menu.core_ops_div().into()),
+        Ok(reduced_term_menu.trai())
+    );
+    assert_eq!(
+        entity_path_term_ty(&db, entity_path_menu.core_ops_div_assign().into()),
+        Ok(reduced_term_menu.trai())
+    );
+    assert_eq!(
+        entity_path_term_ty(&db, entity_path_menu.core_ops_mul().into()),
+        Ok(reduced_term_menu.trai())
+    );
+    assert_eq!(
+        entity_path_term_ty(&db, entity_path_menu.core_ops_mul_assign().into()),
+        Ok(reduced_term_menu.trai())
+    );
+    assert_eq!(
+        entity_path_term_ty(&db, entity_path_menu.core_ops_neg().into()),
+        Ok(reduced_term_menu.trai())
+    );
+    assert_eq!(
+        entity_path_term_ty(&db, entity_path_menu.core_ops_not().into()),
+        Ok(reduced_term_menu.trai())
+    );
 }
 
 #[salsa::tracked(jar = TypeJar)]
