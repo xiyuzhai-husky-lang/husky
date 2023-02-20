@@ -25,6 +25,8 @@ use husky_term::*;
 use husky_vfs::Toolchain;
 use husky_word::*;
 use method::*;
+#[cfg(test)]
+use tests::*;
 use ty_call::*;
 use variance::*;
 
