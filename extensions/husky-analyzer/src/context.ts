@@ -4,6 +4,7 @@ import * as vscode from "vscode";
 import { createClient } from "./client";
 import * as lsp_ext from "./lsp_ext";
 import { NAMED_COMMAND_FACTORIES, type Cmd } from "./commands";
+import { log } from "./util";
 
 export type Workspace =
     | {
@@ -57,13 +58,15 @@ export class Context {
     }
 
     async init(client: lc.LanguageClient) {
+        log.info("Starting language client");
         this.initCommands();
         await this.initClient(client);
     }
 
     private async initClient(client: lc.LanguageClient) {
-        this.pushCleanup(client.start());
-        await client.onReady();
+        await client.start();
+        // this.pushCleanup();
+        // await client.onReady();
         client.onNotification(lsp_ext.serverStatus, (params) =>
             this.setServerStatus(params)
         );
