@@ -113,7 +113,16 @@ impl<'a> ExprTypeEngine<'a> {
                         },
                     },
                     Err(error) => LocalTermExpectationResolvedOkM {
-                        result: Err(error.into()),
+                        result: Err(match error {
+                            TypeError::Original(_) => {
+                                OriginalLocalTermExpectationError::TermTypeError {
+                                    term: resolved_expectee.term(),
+                                    error,
+                                }
+                                .into()
+                            }
+                            TypeError::Derived(_) => todo!(),
+                        }),
                         actions: vec![],
                     },
                 })

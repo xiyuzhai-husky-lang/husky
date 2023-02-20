@@ -62,7 +62,7 @@ DiagnosticSheet {
                 range: [14:43, 14:54),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError type error: todo",
+                message: "Type Error: original `todo` in term FermiMatchResult",
                 severity: Error,
                 range: [14:5, 14:55),
             },
@@ -72,32 +72,32 @@ DiagnosticSheet {
                 range: [35:5, 35:22),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError type error: todo",
+                message: "Type Error: original `todo` in term ConnectedComponent",
                 severity: Error,
                 range: [24:24, 24:49),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError type error: todo",
+                message: "Type Error: original `todo` in term ConnectedComponent",
                 severity: Error,
                 range: [24:63, 24:88),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError type error: todo",
+                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime ConcaveComponent",
                 severity: Error,
                 range: [38:8, 38:10),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError type error: todo",
+                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime ConcaveComponent",
                 severity: Error,
                 range: [39:17, 39:19),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError type error: todo",
+                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime ConcaveComponent",
                 severity: Error,
                 range: [39:47, 39:49),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError type error: todo",
+                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime ConcaveComponent",
                 severity: Error,
                 range: [40:5, 40:7),
             },

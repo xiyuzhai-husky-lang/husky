@@ -11,12 +11,12 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "OriginalLocalTermExpectationError type error: todo",
+                message: "Type Error: original `todo` in term Point2d",
                 severity: Error,
                 range: [14:32, 14:34),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError type error: todo",
+                message: "Type Error: original `todo` in term Point2d",
                 severity: Error,
                 range: [18:34, 18:36),
             },

@@ -659,20 +659,7 @@ Ok(
             BoxPrefix,
             None,
             None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 32,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
+            None,
             None,
             None,
             None,

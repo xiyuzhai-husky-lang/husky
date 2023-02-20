@@ -842,12 +842,22 @@ Ok(
                                                 180,
                                             ),
                                         },
-                                        Expr::EntityPath {
-                                            entity_path_expr: 0,
-                                            entity_path: Some(
-                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        Expr::Err(
+                                            Original(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        189,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 367,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
                                             ),
-                                        },
+                                        ),
                                         Expr::RitchieCall {
                                             function: 2,
                                             implicit_arguments: None,
@@ -1048,7 +1058,7 @@ Ok(
                                             ),
                                         },
                                         Expr::EntityPath {
-                                            entity_path_expr: 1,
+                                            entity_path_expr: 0,
                                             entity_path: Some(
                                                 TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                             ),
@@ -1095,13 +1105,6 @@ Ok(
                                 },
                                 entity_path_expr_arena: Arena {
                                     data: [
-                                        EntityPathExpr::Root {
-                                            token_idx: TokenIdx(
-                                                189,
-                                            ),
-                                            ident: `ConcaveComponent`,
-                                            entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                        },
                                         EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 220,
@@ -1330,7 +1333,7 @@ Ok(
                                                 Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 367,
+                                                            value: 368,
                                                         },
                                                     ),
                                                 ),
