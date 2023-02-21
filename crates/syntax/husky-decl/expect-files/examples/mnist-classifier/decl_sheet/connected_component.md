@@ -2,7 +2,7 @@ Ok(
     DeclSheet {
         decls: [
             Ok(
-                Type(
+                Decl::Type(
                     TypeDecl::RegularStruct(
                         RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
@@ -12,7 +12,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -20,25 +24,41 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::i32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::i32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 2,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::i32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 3,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::i32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -50,28 +70,44 @@ Ok(
                                                     24,
                                                 ),
                                                 ident: `i32`,
-                                                entity_path: TypePath(`core::num::i32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::i32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     28,
                                                 ),
                                                 ident: `i32`,
-                                                entity_path: TypePath(`core::num::i32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::i32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     32,
                                                 ),
                                                 ident: `i32`,
-                                                entity_path: TypePath(`core::num::i32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::i32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     36,
                                                 ),
                                                 ident: `i32`,
-                                                entity_path: TypePath(`core::num::i32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::i32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -239,7 +275,7 @@ Ok(
                 ),
             ),
             Ok(
-                Type(
+                Decl::Type(
                     TypeDecl::RegularStruct(
                         RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
@@ -249,7 +285,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -257,7 +297,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::PrefixOpn {
@@ -299,7 +343,11 @@ Ok(
                                                     49,
                                                 ),
                                                 ident: `RawContour`,
-                                                entity_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -380,7 +428,7 @@ Ok(
                 ),
             ),
             Ok(
-                Form(
+                Decl::Form(
                     FormDecl::Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
@@ -390,7 +438,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -398,7 +450,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::PrefixOpn {
@@ -411,7 +467,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::f32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::PrefixOpn {
@@ -430,14 +490,22 @@ Ok(
                                                     58,
                                                 ),
                                                 ident: `RawContour`,
-                                                entity_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     62,
                                                 ),
                                                 ident: `f32`,
-                                                entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::f32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -570,7 +638,7 @@ Ok(
                 ),
             ),
             Ok(
-                Type(
+                Decl::Type(
                     TypeDecl::RegularStruct(
                         RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -580,7 +648,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -671,7 +743,7 @@ Ok(
                 ),
             ),
             Ok(
-                Form(
+                Decl::Form(
                     FormDecl::Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
@@ -681,7 +753,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -689,19 +765,31 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 2,
                                                 entity_path: Some(
-                                                    TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -713,21 +801,33 @@ Ok(
                                                     563,
                                                 ),
                                                 ident: `r32`,
-                                                entity_path: TypePath(`core::raw_bits::r32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     567,
                                                 ),
                                                 ident: `r32`,
-                                                entity_path: TypePath(`core::raw_bits::r32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     570,
                                                 ),
                                                 ident: `r32`,
-                                                entity_path: TypePath(`core::raw_bits::r32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -917,7 +1017,7 @@ Ok(
                 ),
             ),
             Ok(
-                Form(
+                Decl::Form(
                     FormDecl::Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
@@ -927,7 +1027,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -957,7 +1061,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::Application {
@@ -973,7 +1081,11 @@ Ok(
                                                     654,
                                                 ),
                                                 ident: `ConnectedComponent`,
-                                                entity_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -1106,7 +1218,7 @@ Ok(
                 ),
             ),
             Ok(
-                ImplBlock(
+                Decl::ImplBlock(
                     ImplBlockDecl::TypeImplBlock(
                         TypeImplBlockDecl {
                             ast_idx: 125,
@@ -1159,7 +1271,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -1171,7 +1287,11 @@ Ok(
                                                     86,
                                                 ),
                                                 ident: `ConnectedComponent`,
-                                                entity_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -1212,7 +1332,7 @@ Ok(
                 ),
             ),
             Ok(
-                AssociatedItem(
+                Decl::AssociatedItem(
                     AssociatedItemDecl::TypeItem(
                         TypeItemDecl::Memo(
                             TypeMemoDecl {
@@ -1234,11 +1354,13 @@ Ok(
                                         ident: `raw_contours`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                            ident: `raw_contours`,
-                                            ty_item_kind: Memo,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ident: `raw_contours`,
+                                                ty_item_kind: Memo,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -1260,7 +1382,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Memo,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::connected_component`,
                                     ),
                                     is_generic: false,
@@ -1287,7 +1409,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -1299,7 +1425,11 @@ Ok(
                                                                     86,
                                                                 ),
                                                                 ident: `ConnectedComponent`,
-                                                                entity_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -1366,7 +1496,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                                 Expr::Application {
@@ -1382,7 +1516,11 @@ Ok(
                                                         93,
                                                     ),
                                                     ident: `RawContour`,
-                                                    entity_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -1443,7 +1581,7 @@ Ok(
                 ),
             ),
             Ok(
-                AssociatedItem(
+                Decl::AssociatedItem(
                     AssociatedItemDecl::TypeItem(
                         TypeItemDecl::Memo(
                             TypeMemoDecl {
@@ -1465,11 +1603,13 @@ Ok(
                                         ident: `eff_holes`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                            ident: `eff_holes`,
-                                            ty_item_kind: Memo,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ident: `eff_holes`,
+                                                ty_item_kind: Memo,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -1491,7 +1631,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Memo,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::connected_component`,
                                     ),
                                     is_generic: false,
@@ -1518,7 +1658,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -1530,7 +1674,11 @@ Ok(
                                                                     86,
                                                                 ),
                                                                 ident: `ConnectedComponent`,
-                                                                entity_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -1585,7 +1733,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -1597,7 +1749,11 @@ Ok(
                                                         102,
                                                     ),
                                                     ident: `EffHoles`,
-                                                    entity_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -1658,7 +1814,7 @@ Ok(
                 ),
             ),
             Ok(
-                AssociatedItem(
+                Decl::AssociatedItem(
                     AssociatedItemDecl::TypeItem(
                         TypeItemDecl::Memo(
                             TypeMemoDecl {
@@ -1680,11 +1836,13 @@ Ok(
                                         ident: `max_hole_ilen`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                            ident: `max_hole_ilen`,
-                                            ty_item_kind: Memo,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ident: `max_hole_ilen`,
+                                                ty_item_kind: Memo,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -1706,7 +1864,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Memo,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::connected_component`,
                                     ),
                                     is_generic: false,
@@ -1733,7 +1891,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -1745,7 +1907,11 @@ Ok(
                                                                     86,
                                                                 ),
                                                                 ident: `ConnectedComponent`,
-                                                                entity_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -1800,7 +1966,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -1812,7 +1982,11 @@ Ok(
                                                         163,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -1873,7 +2047,7 @@ Ok(
                 ),
             ),
             Ok(
-                AssociatedItem(
+                Decl::AssociatedItem(
                     AssociatedItemDecl::TypeItem(
                         TypeItemDecl::Memo(
                             TypeMemoDecl {
@@ -1895,11 +2069,13 @@ Ok(
                                         ident: `max_row_span`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                            ident: `max_row_span`,
-                                            ty_item_kind: Memo,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ident: `max_row_span`,
+                                                ty_item_kind: Memo,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -1921,7 +2097,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Memo,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::connected_component`,
                                     ),
                                     is_generic: false,
@@ -1948,7 +2124,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -1960,7 +2140,11 @@ Ok(
                                                                     86,
                                                                 ),
                                                                 ident: `ConnectedComponent`,
-                                                                entity_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -2015,7 +2199,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -2027,7 +2215,11 @@ Ok(
                                                         215,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -2088,7 +2280,7 @@ Ok(
                 ),
             ),
             Ok(
-                AssociatedItem(
+                Decl::AssociatedItem(
                     AssociatedItemDecl::TypeItem(
                         TypeItemDecl::Memo(
                             TypeMemoDecl {
@@ -2110,11 +2302,13 @@ Ok(
                                         ident: `row_span_sum`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                            ident: `row_span_sum`,
-                                            ty_item_kind: Memo,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ident: `row_span_sum`,
+                                                ty_item_kind: Memo,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -2136,7 +2330,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Memo,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::connected_component`,
                                     ),
                                     is_generic: false,
@@ -2163,7 +2357,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -2175,7 +2373,11 @@ Ok(
                                                                     86,
                                                                 ),
                                                                 ident: `ConnectedComponent`,
-                                                                entity_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -2230,7 +2432,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -2242,7 +2448,11 @@ Ok(
                                                         253,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -2303,7 +2513,7 @@ Ok(
                 ),
             ),
             Ok(
-                AssociatedItem(
+                Decl::AssociatedItem(
                     AssociatedItemDecl::TypeItem(
                         TypeItemDecl::Memo(
                             TypeMemoDecl {
@@ -2325,11 +2535,13 @@ Ok(
                                         ident: `distribution`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                            ident: `distribution`,
-                                            ty_item_kind: Memo,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ident: `distribution`,
+                                                ty_item_kind: Memo,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -2351,7 +2563,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Memo,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::connected_component`,
                                     ),
                                     is_generic: false,
@@ -2378,7 +2590,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -2390,7 +2606,11 @@ Ok(
                                                                     86,
                                                                 ),
                                                                 ident: `ConnectedComponent`,
-                                                                entity_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -2445,7 +2665,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -2457,7 +2681,11 @@ Ok(
                                                         286,
                                                     ),
                                                     ident: `ConnectedComponentDistribution`,
-                                                    entity_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -2518,7 +2746,7 @@ Ok(
                 ),
             ),
             Ok(
-                AssociatedItem(
+                Decl::AssociatedItem(
                     AssociatedItemDecl::TypeItem(
                         TypeItemDecl::Memo(
                             TypeMemoDecl {
@@ -2540,11 +2768,13 @@ Ok(
                                         ident: `upper_mass`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                            ident: `upper_mass`,
-                                            ty_item_kind: Memo,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ident: `upper_mass`,
+                                                ty_item_kind: Memo,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -2566,7 +2796,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Memo,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::connected_component`,
                                     ),
                                     is_generic: false,
@@ -2593,7 +2823,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -2605,7 +2839,11 @@ Ok(
                                                                     86,
                                                                 ),
                                                                 ident: `ConnectedComponent`,
-                                                                entity_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -2660,7 +2898,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -2672,7 +2914,11 @@ Ok(
                                                         408,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -2733,7 +2979,7 @@ Ok(
                 ),
             ),
             Ok(
-                AssociatedItem(
+                Decl::AssociatedItem(
                     AssociatedItemDecl::TypeItem(
                         TypeItemDecl::Memo(
                             TypeMemoDecl {
@@ -2755,11 +3001,13 @@ Ok(
                                         ident: `lower_mass`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                            ident: `lower_mass`,
-                                            ty_item_kind: Memo,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ident: `lower_mass`,
+                                                ty_item_kind: Memo,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -2781,7 +3029,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Memo,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::connected_component`,
                                     ),
                                     is_generic: false,
@@ -2808,7 +3056,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -2820,7 +3072,11 @@ Ok(
                                                                     86,
                                                                 ),
                                                                 ident: `ConnectedComponent`,
-                                                                entity_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -2875,7 +3131,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -2887,7 +3147,11 @@ Ok(
                                                         420,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -2948,7 +3212,7 @@ Ok(
                 ),
             ),
             Ok(
-                AssociatedItem(
+                Decl::AssociatedItem(
                     AssociatedItemDecl::TypeItem(
                         TypeItemDecl::Method(
                             TypeMethodDecl {
@@ -2963,11 +3227,13 @@ Ok(
                                         ident: `top_k_row_span_sum`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                            ident: `top_k_row_span_sum`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ident: `top_k_row_span_sum`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -2989,7 +3255,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::connected_component`,
                                     ),
                                     is_generic: false,
@@ -3023,7 +3289,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -3035,7 +3305,11 @@ Ok(
                                                                     86,
                                                                 ),
                                                                 ident: `ConnectedComponent`,
-                                                                entity_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -3090,13 +3364,21 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::i32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 1,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -3108,14 +3390,22 @@ Ok(
                                                         434,
                                                     ),
                                                     ident: `i32`,
-                                                    entity_path: TypePath(`core::num::i32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         437,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -3249,7 +3539,7 @@ Ok(
                 ),
             ),
             Ok(
-                AssociatedItem(
+                Decl::AssociatedItem(
                     AssociatedItemDecl::TypeItem(
                         TypeItemDecl::Method(
                             TypeMethodDecl {
@@ -3264,11 +3554,13 @@ Ok(
                                         ident: `top_k_row_right_mass_sum`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                            ident: `top_k_row_right_mass_sum`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ident: `top_k_row_right_mass_sum`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -3290,7 +3582,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::connected_component`,
                                     ),
                                     is_generic: false,
@@ -3324,7 +3616,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -3336,7 +3632,11 @@ Ok(
                                                                     86,
                                                                 ),
                                                                 ident: `ConnectedComponent`,
-                                                                entity_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -3391,13 +3691,21 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::i32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 1,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -3409,14 +3717,22 @@ Ok(
                                                         497,
                                                     ),
                                                     ident: `i32`,
-                                                    entity_path: TypePath(`core::num::i32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         500,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },

@@ -1,6 +1,6 @@
 Ok(
     AstSheet {
-        arena: Arena {
+        ast_arena: Arena {
             data: [
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
@@ -320,7 +320,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -348,7 +348,7 @@ Ok(
                     body: ArenaIdxRange(
                         1..2,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -376,7 +376,7 @@ Ok(
                     body: ArenaIdxRange(
                         7..13,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -404,7 +404,7 @@ Ok(
                     body: ArenaIdxRange(
                         16..20,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -432,7 +432,7 @@ Ok(
                     body: ArenaIdxRange(
                         25..32,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -460,7 +460,7 @@ Ok(
                     body: ArenaIdxRange(
                         32..33,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -488,7 +488,7 @@ Ok(
                     body: ArenaIdxRange(
                         33..34,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -516,7 +516,7 @@ Ok(
                     body: ArenaIdxRange(
                         34..35,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -544,7 +544,7 @@ Ok(
                     body: ArenaIdxRange(
                         35..36,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -572,7 +572,7 @@ Ok(
                     body: ArenaIdxRange(
                         36..37,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -600,7 +600,7 @@ Ok(
                     body: ArenaIdxRange(
                         37..38,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -628,7 +628,7 @@ Ok(
                     body: ArenaIdxRange(
                         38..39,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -824,7 +824,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -832,7 +832,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `ConcaveComponent`,
@@ -861,7 +865,7 @@ Ok(
                     body: ArenaIdxRange(
                         61..69,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Function,
@@ -869,7 +873,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `find_concave_components`,

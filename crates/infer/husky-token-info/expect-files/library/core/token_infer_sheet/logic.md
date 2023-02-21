@@ -9,7 +9,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 4,
+                                    value: 6,
                                 },
                             ),
                         ),
@@ -33,7 +33,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 5,
+                                    value: 7,
                                 },
                             ),
                         ),
@@ -57,7 +57,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 19,
+                                        value: 21,
                                     },
                                 ),
                             ),
@@ -69,7 +69,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 11,
+                        value: 13,
                     },
                 ),
             },
@@ -80,7 +80,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 4,
+                                    value: 6,
                                 },
                             ),
                         ),
@@ -97,7 +97,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 20,
+                                        value: 22,
                                     },
                                 ),
                             ),
@@ -109,7 +109,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 11,
+                        value: 13,
                     },
                 ),
             },
@@ -120,7 +120,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 4,
+                                    value: 6,
                                 },
                             ),
                         ),
@@ -147,7 +147,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 6,
+                                    value: 8,
                                 },
                             ),
                         ),
@@ -171,7 +171,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 19,
+                                        value: 21,
                                     },
                                 ),
                             ),
@@ -183,7 +183,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 12,
+                        value: 14,
                     },
                 ),
             },
@@ -194,7 +194,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 4,
+                                    value: 6,
                                 },
                             ),
                         ),
@@ -211,7 +211,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 20,
+                                        value: 22,
                                     },
                                 ),
                             ),
@@ -223,7 +223,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 12,
+                        value: 14,
                     },
                 ),
             },
@@ -234,7 +234,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 4,
+                                    value: 6,
                                 },
                             ),
                         ),

@@ -15,6 +15,7 @@ pub use variant::*;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = DeclDb)]
 pub enum Decl {
     Type(TypeDecl),
     Form(FormDecl),
@@ -109,42 +110,5 @@ impl From<TraitItemDecl> for Decl {
 impl From<TypeItemDecl> for Decl {
     fn from(v: TypeItemDecl) -> Self {
         Self::AssociatedItem(v.into())
-    }
-}
-
-impl<Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for Decl {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<DeclJar>>::as_jar_db(db);
-        match self {
-            Decl::Type(decl) => f
-                .debug_tuple("Type")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            Decl::Trait(decl) => f
-                .debug_tuple("Trait")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            Decl::Form(decl) => f
-                .debug_tuple("Form")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            Decl::Variant(decl) => f
-                .debug_tuple("Variant")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            Decl::ImplBlock(decl) => f
-                .debug_tuple("ImplBlock")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            Decl::AssociatedItem(decl) => f
-                .debug_tuple("AssociatedItem")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-        }
     }
 }

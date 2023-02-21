@@ -68,26 +68,6 @@ DiagnosticSheet {
                 range: [101:17, 101:36),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term never",
-                severity: Error,
-                range: [88:5, 105:30),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term never",
-                severity: Error,
-                range: [21:9, 31:30),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term bool",
-                severity: Error,
-                range: [39:46, 39:50),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term never",
-                severity: Error,
-                range: [34:9, 41:28),
-            },
-            Diagnostic {
                 message: "OriginalLocalTermExpectationError::Todo: todo",
                 severity: Error,
                 range: [56:13, 56:24),
@@ -96,11 +76,6 @@ DiagnosticSheet {
                 message: "OriginalLocalTermExpectationError::Todo: todo",
                 severity: Error,
                 range: [57:13, 57:24),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term never",
-                severity: Error,
-                range: [44:9, 58:10),
             },
             Diagnostic {
                 message: "OriginalLocalTermExpectationError::Todo: todo",

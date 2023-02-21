@@ -156,7 +156,7 @@ impl ::salsa::DebugWithDb<<VfsJar as salsa::jar::Jar<'_>>::DynDb> for File {
         &self,
         f: &mut ::std::fmt::Formatter<'_>,
         _db: &<VfsJar as salsa::jar::Jar<'_>>::DynDb,
-        _include_all_fields: bool,
+        _level: salsa::DebugFormatLevel,
     ) -> ::std::fmt::Result {
         #[allow(unused_imports)]
         use ::salsa::debug::helper::Fallback;
@@ -171,10 +171,10 @@ impl ::salsa::DebugWithDb<<VfsJar as salsa::jar::Jar<'_>>::DynDb> for File {
                     #[allow(clippy::needless_borrow)]
                     &self.path(_db),
                     _db,
-                    _include_all_fields,
+                    _level.next(),
                 ),
             );
-        if _include_all_fields {
+        if _level.is_root() {
             debug_struct = debug_struct.field(
                 "content",
                 &::salsa::debug::helper::SalsaDebug::<
@@ -184,7 +184,7 @@ impl ::salsa::DebugWithDb<<VfsJar as salsa::jar::Jar<'_>>::DynDb> for File {
                     #[allow(clippy::needless_borrow)]
                     &self.content(_db),
                     _db,
-                    _include_all_fields,
+                    _level.next(),
                 ),
             );
         }

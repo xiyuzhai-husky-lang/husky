@@ -2,7 +2,7 @@ Ok(
     DeclSheet {
         decls: [
             Ok(
-                Type(
+                Decl::Type(
                     TypeDecl::Foreign(
                         AlienTypeDecl {
                             path: TypePath(`core::num::i8`, `Alien`),
@@ -12,7 +12,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`core::num::i8`, `Alien`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`core::num::i8`, `Alien`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -54,7 +58,7 @@ Ok(
                 ),
             ),
             Ok(
-                Type(
+                Decl::Type(
                     TypeDecl::Foreign(
                         AlienTypeDecl {
                             path: TypePath(`core::num::i16`, `Alien`),
@@ -64,7 +68,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`core::num::i16`, `Alien`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`core::num::i16`, `Alien`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -106,7 +114,7 @@ Ok(
                 ),
             ),
             Ok(
-                Type(
+                Decl::Type(
                     TypeDecl::Foreign(
                         AlienTypeDecl {
                             path: TypePath(`core::num::i32`, `Alien`),
@@ -116,7 +124,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`core::num::i32`, `Alien`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`core::num::i32`, `Alien`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -158,7 +170,7 @@ Ok(
                 ),
             ),
             Ok(
-                Type(
+                Decl::Type(
                     TypeDecl::Foreign(
                         AlienTypeDecl {
                             path: TypePath(`core::num::i64`, `Alien`),
@@ -168,7 +180,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`core::num::i64`, `Alien`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`core::num::i64`, `Alien`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -210,7 +226,7 @@ Ok(
                 ),
             ),
             Ok(
-                Type(
+                Decl::Type(
                     TypeDecl::Foreign(
                         AlienTypeDecl {
                             path: TypePath(`core::num::f8`, `Alien`),
@@ -220,7 +236,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`core::num::f8`, `Alien`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`core::num::f8`, `Alien`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -262,7 +282,7 @@ Ok(
                 ),
             ),
             Ok(
-                Type(
+                Decl::Type(
                     TypeDecl::Foreign(
                         AlienTypeDecl {
                             path: TypePath(`core::num::f16`, `Alien`),
@@ -272,7 +292,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`core::num::f16`, `Alien`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`core::num::f16`, `Alien`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -314,7 +338,7 @@ Ok(
                 ),
             ),
             Ok(
-                Type(
+                Decl::Type(
                     TypeDecl::Foreign(
                         AlienTypeDecl {
                             path: TypePath(`core::num::f32`, `Alien`),
@@ -324,7 +348,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`core::num::f32`, `Alien`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`core::num::f32`, `Alien`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -366,7 +394,7 @@ Ok(
                 ),
             ),
             Ok(
-                Type(
+                Decl::Type(
                     TypeDecl::Foreign(
                         AlienTypeDecl {
                             path: TypePath(`core::num::f64`, `Alien`),
@@ -376,7 +404,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`core::num::f64`, `Alien`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`core::num::f64`, `Alien`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -418,7 +450,7 @@ Ok(
                 ),
             ),
             Ok(
-                ImplBlock(
+                Decl::ImplBlock(
                     ImplBlockDecl::TypeImplBlock(
                         TypeImplBlockDecl {
                             ast_idx: 19,
@@ -471,7 +503,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::i8`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i8`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -483,7 +519,11 @@ Ok(
                                                     25,
                                                 ),
                                                 ident: `i8`,
-                                                entity_path: TypePath(`core::num::i8`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::i8`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -524,7 +564,7 @@ Ok(
                 ),
             ),
             Ok(
-                AssociatedItem(
+                Decl::AssociatedItem(
                     AssociatedItemDecl::TypeItem(
                         TypeItemDecl::Method(
                             TypeMethodDecl {
@@ -539,11 +579,13 @@ Ok(
                                         ident: `abs`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`core::num::i8`, `Alien`),
-                                            ident: `abs`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`core::num::i8`, `Alien`),
+                                                ident: `abs`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -565,7 +607,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: Public,
+                                    accessibility: Accessibility::Public,
                                     is_generic: false,
                                 },
                                 path: Some(
@@ -597,7 +639,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`core::num::i8`, `Alien`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::i8`, `Alien`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -609,7 +655,11 @@ Ok(
                                                                     25,
                                                                 ),
                                                                 ident: `i8`,
-                                                                entity_path: TypePath(`core::num::i8`, `Alien`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::i8`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -664,7 +714,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::i8`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i8`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -676,7 +730,11 @@ Ok(
                                                         33,
                                                     ),
                                                     ident: `i8`,
-                                                    entity_path: TypePath(`core::num::i8`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i8`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -758,7 +816,7 @@ Ok(
                 UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
             ),
             Ok(
-                ImplBlock(
+                Decl::ImplBlock(
                     ImplBlockDecl::TypeImplBlock(
                         TypeImplBlockDecl {
                             ast_idx: 24,
@@ -811,7 +869,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::i16`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i16`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -823,7 +885,11 @@ Ok(
                                                     83,
                                                 ),
                                                 ident: `i16`,
-                                                entity_path: TypePath(`core::num::i16`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::i16`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -864,7 +930,7 @@ Ok(
                 ),
             ),
             Ok(
-                AssociatedItem(
+                Decl::AssociatedItem(
                     AssociatedItemDecl::TypeItem(
                         TypeItemDecl::Method(
                             TypeMethodDecl {
@@ -879,11 +945,13 @@ Ok(
                                         ident: `abs`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`core::num::i16`, `Alien`),
-                                            ident: `abs`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`core::num::i16`, `Alien`),
+                                                ident: `abs`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -905,7 +973,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: Public,
+                                    accessibility: Accessibility::Public,
                                     is_generic: false,
                                 },
                                 path: Some(
@@ -937,7 +1005,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`core::num::i16`, `Alien`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::i16`, `Alien`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -949,7 +1021,11 @@ Ok(
                                                                     83,
                                                                 ),
                                                                 ident: `i16`,
-                                                                entity_path: TypePath(`core::num::i16`, `Alien`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::i16`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -1004,7 +1080,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::i16`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i16`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -1016,7 +1096,11 @@ Ok(
                                                         91,
                                                     ),
                                                     ident: `i16`,
-                                                    entity_path: TypePath(`core::num::i16`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i16`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -1098,7 +1182,7 @@ Ok(
                 UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
             ),
             Ok(
-                ImplBlock(
+                Decl::ImplBlock(
                     ImplBlockDecl::TypeImplBlock(
                         TypeImplBlockDecl {
                             ast_idx: 29,
@@ -1151,7 +1235,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::i32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -1163,7 +1251,11 @@ Ok(
                                                     141,
                                                 ),
                                                 ident: `i32`,
-                                                entity_path: TypePath(`core::num::i32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::i32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -1204,7 +1296,7 @@ Ok(
                 ),
             ),
             Ok(
-                AssociatedItem(
+                Decl::AssociatedItem(
                     AssociatedItemDecl::TypeItem(
                         TypeItemDecl::Method(
                             TypeMethodDecl {
@@ -1219,11 +1311,13 @@ Ok(
                                         ident: `abs`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`core::num::i32`, `Alien`),
-                                            ident: `abs`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`core::num::i32`, `Alien`),
+                                                ident: `abs`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -1245,7 +1339,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: Public,
+                                    accessibility: Accessibility::Public,
                                     is_generic: false,
                                 },
                                 path: Some(
@@ -1277,7 +1371,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`core::num::i32`, `Alien`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::i32`, `Alien`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -1289,7 +1387,11 @@ Ok(
                                                                     141,
                                                                 ),
                                                                 ident: `i32`,
-                                                                entity_path: TypePath(`core::num::i32`, `Alien`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::i32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -1344,7 +1446,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::i32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -1356,7 +1462,11 @@ Ok(
                                                         149,
                                                     ),
                                                     ident: `i32`,
-                                                    entity_path: TypePath(`core::num::i32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -1438,7 +1548,7 @@ Ok(
                 UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
             ),
             Ok(
-                ImplBlock(
+                Decl::ImplBlock(
                     ImplBlockDecl::TypeImplBlock(
                         TypeImplBlockDecl {
                             ast_idx: 34,
@@ -1491,7 +1601,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::i64`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i64`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -1503,7 +1617,11 @@ Ok(
                                                     198,
                                                 ),
                                                 ident: `i64`,
-                                                entity_path: TypePath(`core::num::i64`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::i64`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -1544,7 +1662,7 @@ Ok(
                 ),
             ),
             Ok(
-                AssociatedItem(
+                Decl::AssociatedItem(
                     AssociatedItemDecl::TypeItem(
                         TypeItemDecl::Method(
                             TypeMethodDecl {
@@ -1559,11 +1677,13 @@ Ok(
                                         ident: `abs`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`core::num::i64`, `Alien`),
-                                            ident: `abs`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`core::num::i64`, `Alien`),
+                                                ident: `abs`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -1585,7 +1705,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: Public,
+                                    accessibility: Accessibility::Public,
                                     is_generic: false,
                                 },
                                 path: Some(
@@ -1617,7 +1737,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`core::num::i64`, `Alien`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::i64`, `Alien`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -1629,7 +1753,11 @@ Ok(
                                                                     198,
                                                                 ),
                                                                 ident: `i64`,
-                                                                entity_path: TypePath(`core::num::i64`, `Alien`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::i64`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -1684,7 +1812,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::i64`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i64`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -1696,7 +1828,11 @@ Ok(
                                                         206,
                                                     ),
                                                     ident: `i64`,
-                                                    entity_path: TypePath(`core::num::i64`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i64`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -1778,7 +1914,7 @@ Ok(
                 UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
             ),
             Ok(
-                ImplBlock(
+                Decl::ImplBlock(
                     ImplBlockDecl::TypeImplBlock(
                         TypeImplBlockDecl {
                             ast_idx: 39,
@@ -1831,7 +1967,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::f8`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f8`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -1843,7 +1983,11 @@ Ok(
                                                     256,
                                                 ),
                                                 ident: `f8`,
-                                                entity_path: TypePath(`core::num::f8`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::f8`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -1884,7 +2028,7 @@ Ok(
                 ),
             ),
             Ok(
-                AssociatedItem(
+                Decl::AssociatedItem(
                     AssociatedItemDecl::TypeItem(
                         TypeItemDecl::Method(
                             TypeMethodDecl {
@@ -1899,11 +2043,13 @@ Ok(
                                         ident: `abs`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`core::num::f8`, `Alien`),
-                                            ident: `abs`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`core::num::f8`, `Alien`),
+                                                ident: `abs`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -1925,7 +2071,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: Public,
+                                    accessibility: Accessibility::Public,
                                     is_generic: false,
                                 },
                                 path: Some(
@@ -1957,7 +2103,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`core::num::f8`, `Alien`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::f8`, `Alien`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -1969,7 +2119,11 @@ Ok(
                                                                     256,
                                                                 ),
                                                                 ident: `f8`,
-                                                                entity_path: TypePath(`core::num::f8`, `Alien`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f8`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -2024,7 +2178,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f8`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f8`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -2036,7 +2194,11 @@ Ok(
                                                         264,
                                                     ),
                                                     ident: `f8`,
-                                                    entity_path: TypePath(`core::num::f8`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f8`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -2118,7 +2280,7 @@ Ok(
                 UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
             ),
             Ok(
-                ImplBlock(
+                Decl::ImplBlock(
                     ImplBlockDecl::TypeImplBlock(
                         TypeImplBlockDecl {
                             ast_idx: 44,
@@ -2171,7 +2333,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::f16`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f16`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -2183,7 +2349,11 @@ Ok(
                                                     314,
                                                 ),
                                                 ident: `f16`,
-                                                entity_path: TypePath(`core::num::f16`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::f16`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -2224,7 +2394,7 @@ Ok(
                 ),
             ),
             Ok(
-                AssociatedItem(
+                Decl::AssociatedItem(
                     AssociatedItemDecl::TypeItem(
                         TypeItemDecl::Method(
                             TypeMethodDecl {
@@ -2239,11 +2409,13 @@ Ok(
                                         ident: `abs`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`core::num::f16`, `Alien`),
-                                            ident: `abs`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`core::num::f16`, `Alien`),
+                                                ident: `abs`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -2265,7 +2437,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: Public,
+                                    accessibility: Accessibility::Public,
                                     is_generic: false,
                                 },
                                 path: Some(
@@ -2297,7 +2469,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`core::num::f16`, `Alien`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::f16`, `Alien`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -2309,7 +2485,11 @@ Ok(
                                                                     314,
                                                                 ),
                                                                 ident: `f16`,
-                                                                entity_path: TypePath(`core::num::f16`, `Alien`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f16`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -2364,7 +2544,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f16`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f16`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -2376,7 +2560,11 @@ Ok(
                                                         322,
                                                     ),
                                                     ident: `f16`,
-                                                    entity_path: TypePath(`core::num::f16`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f16`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -2458,7 +2646,7 @@ Ok(
                 UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
             ),
             Ok(
-                ImplBlock(
+                Decl::ImplBlock(
                     ImplBlockDecl::TypeImplBlock(
                         TypeImplBlockDecl {
                             ast_idx: 49,
@@ -2511,7 +2699,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::f32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -2523,7 +2715,11 @@ Ok(
                                                     372,
                                                 ),
                                                 ident: `f32`,
-                                                entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::f32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -2564,7 +2760,7 @@ Ok(
                 ),
             ),
             Ok(
-                AssociatedItem(
+                Decl::AssociatedItem(
                     AssociatedItemDecl::TypeItem(
                         TypeItemDecl::Method(
                             TypeMethodDecl {
@@ -2579,11 +2775,13 @@ Ok(
                                         ident: `abs`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`core::num::f32`, `Alien`),
-                                            ident: `abs`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`core::num::f32`, `Alien`),
+                                                ident: `abs`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -2605,7 +2803,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: Public,
+                                    accessibility: Accessibility::Public,
                                     is_generic: false,
                                 },
                                 path: Some(
@@ -2637,7 +2835,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::f32`, `Alien`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -2649,7 +2851,11 @@ Ok(
                                                                     372,
                                                                 ),
                                                                 ident: `f32`,
-                                                                entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -2704,7 +2910,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -2716,7 +2926,11 @@ Ok(
                                                         380,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -2798,7 +3012,7 @@ Ok(
                 UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
             ),
             Ok(
-                ImplBlock(
+                Decl::ImplBlock(
                     ImplBlockDecl::TypeImplBlock(
                         TypeImplBlockDecl {
                             ast_idx: 54,
@@ -2851,7 +3065,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::f64`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f64`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -2863,7 +3081,11 @@ Ok(
                                                     429,
                                                 ),
                                                 ident: `f64`,
-                                                entity_path: TypePath(`core::num::f64`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::f64`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -2904,7 +3126,7 @@ Ok(
                 ),
             ),
             Ok(
-                AssociatedItem(
+                Decl::AssociatedItem(
                     AssociatedItemDecl::TypeItem(
                         TypeItemDecl::Method(
                             TypeMethodDecl {
@@ -2919,11 +3141,13 @@ Ok(
                                         ident: `abs`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`core::num::f64`, `Alien`),
-                                            ident: `abs`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`core::num::f64`, `Alien`),
+                                                ident: `abs`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -2945,7 +3169,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: Public,
+                                    accessibility: Accessibility::Public,
                                     is_generic: false,
                                 },
                                 path: Some(
@@ -2977,7 +3201,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`core::num::f64`, `Alien`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::f64`, `Alien`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -2989,7 +3217,11 @@ Ok(
                                                                     429,
                                                                 ),
                                                                 ident: `f64`,
-                                                                entity_path: TypePath(`core::num::f64`, `Alien`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f64`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -3044,7 +3276,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f64`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f64`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -3056,7 +3292,11 @@ Ok(
                                                         437,
                                                     ),
                                                     ident: `f64`,
-                                                    entity_path: TypePath(`core::num::f64`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f64`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },

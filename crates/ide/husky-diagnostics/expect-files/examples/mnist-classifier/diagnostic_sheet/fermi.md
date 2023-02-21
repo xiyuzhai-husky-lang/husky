@@ -31,26 +31,6 @@ DiagnosticSheet {
                 severity: Error,
                 range: [38:12, 38:28),
             },
-            Diagnostic {
-                message: "Type Error: original `todo` in term never",
-                severity: Error,
-                range: [32:5, 38:45),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term never",
-                severity: Error,
-                range: [11:9, 14:20),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term never",
-                severity: Error,
-                range: [17:9, 20:20),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term never",
-                severity: Error,
-                range: [23:9, 26:20),
-            },
         ],
     },
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {

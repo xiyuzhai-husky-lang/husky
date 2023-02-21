@@ -21,17 +21,11 @@ impl<Db: VfsDb> salsa::DebugWithDb<Db> for ModuleAncestry {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         f.debug_struct("ModuleAncestry")
-            .field(
-                "crate_path",
-                &self.crate_path.debug_with(db, include_all_fields),
-            )
-            .field(
-                "modules",
-                &self.module_paths.debug_with(db, include_all_fields),
-            )
+            .field("crate_path", &self.crate_path.debug_with(db, level.next()))
+            .field("modules", &self.module_paths.debug_with(db, level.next()))
             .finish()
     }
 }

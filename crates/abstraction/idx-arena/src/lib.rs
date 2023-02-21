@@ -23,10 +23,10 @@ where
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         f.debug_struct("Arena")
-            .field("data", &self.data.debug_with(db, include_all_fields))
+            .field("data", &self.data.debug_with(db, level.next()))
             .finish()
     }
 }

@@ -31,7 +31,7 @@ impl<Db: FoldingRangeDb> DebugWithDb<Db> for FoldingRangeError {
         &self,
         _f: &mut std::fmt::Formatter<'_>,
         _db: &Db,
-        _include_all_fields: bool,
+        _level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         todo!()
     }

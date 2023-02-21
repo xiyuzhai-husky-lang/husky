@@ -20,7 +20,7 @@ pub(super) fn enum_debug_with_db_impl(db_path: &Path, item: &ItemEnum) -> proc_m
 
     quote! {
         impl<_Db: #db_path + ?Sized> ::salsa::DebugWithDb<_Db> for #ident {
-            fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &_Db, _include_all_fields: bool) -> ::std::fmt::Result {
+            fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &_Db, _level: ::salsa::DebugFormatLevel) -> ::std::fmt::Result {
                 #[allow(unused_imports)]
                 use ::salsa::debug::helper::Fallback;
                 // let _db = <_Db as ::salsa::DbWithJar<#jar_ty>>::as_jar_db(_db);
@@ -62,7 +62,7 @@ fn enum_struct_variant_debug_with_db(
                         #[allow(clippy::needless_borrow)]
                         #field_ident,
                         _db,
-                        _include_all_fields
+                        _level.next()
                     )
                 );
             };
@@ -117,7 +117,7 @@ fn enum_tuple_variant_debug_with_db(
                         #[allow(clippy::needless_borrow)]
                         &#field_ident,
                         _db,
-                        _include_all_fields
+                        _level.next()
                     )
                 );
             };

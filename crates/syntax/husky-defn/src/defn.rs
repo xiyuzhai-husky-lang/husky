@@ -14,6 +14,7 @@ use crate::*;
 use husky_ast::AstIdx;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = DefnDb)]
 pub enum Defn {
     Type(TypeDefn),
     Trait(TraitDefn),
@@ -86,43 +87,6 @@ impl Defn {
             Defn::AssociatedItem(defn) => defn.path(db).map(|path| path.into()),
             Defn::Variant(defn) => Some(defn.path(db).into()),
             Defn::ImplBlock(_) => None,
-        }
-    }
-}
-
-impl<Db: DefnDb + ?Sized> salsa::DebugWithDb<Db> for Defn {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as DbWithJar<DefnJar>>::as_jar_db(db);
-        match self {
-            Defn::Type(decl) => f
-                .debug_tuple("Type")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            Defn::Trait(decl) => f
-                .debug_tuple("Trait")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            Defn::Form(decl) => f
-                .debug_tuple("Form")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            Defn::Variant(decl) => f
-                .debug_tuple("Variant")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            Defn::ImplBlock(decl) => f
-                .debug_tuple("ImplBlock")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            Defn::AssociatedItem(decl) => f
-                .debug_tuple("AssociatedItem")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
         }
     }
 }

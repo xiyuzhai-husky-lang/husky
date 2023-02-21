@@ -1,6 +1,6 @@
 Ok(
     AstSheet {
-        arena: Arena {
+        ast_arena: Arena {
             data: [
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -9,13 +9,17 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Trait,
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TraitPath(`core::cmp::PartialEq`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `PartialEq`,
@@ -36,13 +40,17 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Trait,
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TraitPath(`core::cmp::Eq`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `Eq`,
@@ -63,13 +71,17 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Trait,
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TraitPath(`core::cmp::PartialOrd`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Trait(
+                                TraitPath(`core::cmp::PartialOrd`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `PartialOrd`,
@@ -90,13 +102,17 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Trait,
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TraitPath(`core::cmp::Ord`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Trait(
+                                TraitPath(`core::cmp::Ord`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `Ord`,

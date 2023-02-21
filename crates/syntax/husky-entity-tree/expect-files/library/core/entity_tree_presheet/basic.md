@@ -15,13 +15,35 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
+                    ident: `never`,
+                    accessibility: Public,
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: TypePath(`core::basic::never`, `Alien`),
+                            accessibility: Public,
+                            ast_idx: 1,
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `unit`,
+                    accessibility: Public,
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: TypePath(`core::basic::unit`, `Alien`),
+                            accessibility: Public,
+                            ast_idx: 2,
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
                     ident: `Trait`,
                     accessibility: Public,
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`core::basic::Trait`, `Structure`),
                             accessibility: Public,
-                            ast_idx: 1,
+                            ast_idx: 3,
                         },
                     ),
                 },
@@ -32,7 +54,7 @@ Ok(
                         ModuleItemSymbol {
                             path: TypePath(`core::basic::Module`, `Structure`),
                             accessibility: Public,
-                            ast_idx: 2,
+                            ast_idx: 4,
                         },
                     ),
                 },

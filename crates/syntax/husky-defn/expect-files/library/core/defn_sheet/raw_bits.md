@@ -1,8 +1,8 @@
 Ok(
     DefnSheet {
         defns: [
-            Type(
-                Foreign(
+            Defn::Type(
+                TypeDefn::Foreign(
                     AlienTypeDefn {
                         path: TypePath(`core::raw_bits::r32`, `Alien`),
                         decl: AlienTypeDecl {
@@ -13,7 +13,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`core::raw_bits::r32`, `Alien`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {

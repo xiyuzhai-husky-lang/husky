@@ -75,6 +75,14 @@ impl WordMenu {
         self.std
     }
 
+    pub fn i8(&self) -> Identifier {
+        self.i8
+    }
+
+    pub fn i16(&self) -> Identifier {
+        self.i16
+    }
+
     pub fn i32(&self) -> Identifier {
         self.i32
     }

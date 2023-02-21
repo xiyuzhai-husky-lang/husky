@@ -8,6 +8,7 @@ use with_db::PartialOrdWithDb;
 
 /// Accessibility is greater if it can be accessed from more places
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = VfsDb)]
 pub enum Accessibility {
     Public,                  // everyone can access it
     PublicUnder(ModulePath), // everyone under a path can access it
@@ -56,35 +57,6 @@ impl Accessibility {
             Accessibility::PublicUnder(parent_module) => module_path.starts_with(db, parent_module),
             Accessibility::Private => todo!(),
             Accessibility::Disconnected { .. } => todo!(),
-        }
-    }
-}
-
-impl<Db: VfsDb + ?Sized> salsa::DebugWithDb<Db> for Accessibility {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        match self {
-            Accessibility::Public => f.write_str("Public"),
-            Accessibility::PublicUnder(module_path) => f
-                .debug_tuple("PubicUnder")
-                .field(&module_path.debug_with(db, include_all_fields))
-                .finish(),
-            Accessibility::Private => f.write_str("Private"),
-            Accessibility::Disconnected {
-                module_path,
-                file_accessibility,
-            } => f
-                .debug_struct("Disconnected")
-                .field(
-                    "module_path",
-                    &module_path.debug_with(db, include_all_fields),
-                )
-                .field("file_accessibility", &file_accessibility)
-                .finish(),
         }
     }
 }

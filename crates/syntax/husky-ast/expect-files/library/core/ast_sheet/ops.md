@@ -1,6 +1,6 @@
 Ok(
     AstSheet {
-        arena: Arena {
+        ast_arena: Arena {
             data: [
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -9,7 +9,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `core::ops`,
                     ),
                     entity_kind: AssociatedItem {
@@ -37,7 +37,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `core::ops`,
                     ),
                     entity_kind: AssociatedItem {
@@ -65,7 +65,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `core::ops`,
                     ),
                     entity_kind: AssociatedItem {
@@ -93,7 +93,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `core::ops`,
                     ),
                     entity_kind: AssociatedItem {
@@ -126,13 +126,17 @@ Ok(
                     body: ArenaIdxRange(
                         0..2,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Trait,
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TraitPath(`core::ops::Add`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Trait(
+                                TraitPath(`core::ops::Add`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `Add`,
@@ -158,13 +162,17 @@ Ok(
                     body: ArenaIdxRange(
                         2..4,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Trait,
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TraitPath(`core::ops::Sub`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Trait(
+                                TraitPath(`core::ops::Sub`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `Sub`,

@@ -1,8 +1,8 @@
 Ok(
     DefnSheet {
         defns: [
-            Form(
-                Function(
+            Defn::Form(
+                FormDefn::Function(
                     FunctionDefn {
                         path: FormPath(`quick_sort::quick_sort`, `Function`),
                         decl: FunctionDecl {
@@ -13,7 +13,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`quick_sort::quick_sort`, `Function`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`quick_sort::quick_sort`, `Function`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -21,7 +25,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TraitPath(`core::cmp::Ord`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Trait(
+                                                            TraitPath(`core::cmp::Ord`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::BoxColon {
@@ -68,7 +76,11 @@ Ok(
                                                     6,
                                                 ),
                                                 ident: `Ord`,
-                                                entity_path: TraitPath(`core::cmp::Ord`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Trait(
+                                                        TraitPath(`core::cmp::Ord`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -268,7 +280,11 @@ Ok(
                                             parent: None,
                                             path: RegionPath::Decl(
                                                 DeclExprPath::Entity(
-                                                    FormPath(`quick_sort::quick_sort`, `Function`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`quick_sort::quick_sort`, `Function`),
+                                                        ),
+                                                    ),
                                                 ),
                                             ),
                                             expr_arena: Arena {
@@ -276,7 +292,11 @@ Ok(
                                                     Expr::EntityPath {
                                                         entity_path_expr: 0,
                                                         entity_path: Some(
-                                                            TraitPath(`core::cmp::Ord`),
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Trait(
+                                                                    TraitPath(`core::cmp::Ord`),
+                                                                ),
+                                                            ),
                                                         ),
                                                     },
                                                     Expr::BoxColon {
@@ -323,7 +343,11 @@ Ok(
                                                             6,
                                                         ),
                                                         ident: `Ord`,
-                                                        entity_path: TraitPath(`core::cmp::Ord`),
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Trait(
+                                                                TraitPath(`core::cmp::Ord`),
+                                                            ),
+                                                        ),
                                                     },
                                                 ],
                                             },
@@ -420,7 +444,11 @@ Ok(
                                 ),
                                 path: RegionPath::Defn(
                                     DefnExprPath::Entity(
-                                        FormPath(`quick_sort::quick_sort`, `Function`),
+                                        EntityPath::ModuleItem(
+                                            ModuleItemPath::Form(
+                                                FormPath(`quick_sort::quick_sort`, `Function`),
+                                            ),
+                                        ),
                                     ),
                                 ),
                                 expr_arena: Arena {
@@ -458,7 +486,11 @@ Ok(
                                         Expr::EntityPath {
                                             entity_path_expr: 0,
                                             entity_path: Some(
-                                                FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Form(
+                                                        FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                                                    ),
+                                                ),
                                             ),
                                         },
                                         Expr::CurrentSymbol {
@@ -553,7 +585,11 @@ Ok(
                                                 26,
                                             ),
                                             ident: `quick_sort_aux`,
-                                            entity_path: FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                                            entity_path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                                                ),
+                                            ),
                                         },
                                     ],
                                 },
@@ -689,8 +725,8 @@ Ok(
                     },
                 ),
             ),
-            Form(
-                Function(
+            Defn::Form(
+                FormDefn::Function(
                     FunctionDefn {
                         path: FormPath(`quick_sort::quick_sort_aux`, `Function`),
                         decl: FunctionDecl {
@@ -701,7 +737,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -709,7 +749,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TraitPath(`core::cmp::Ord`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Trait(
+                                                            TraitPath(`core::cmp::Ord`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::BoxColon {
@@ -776,7 +820,11 @@ Ok(
                                                     45,
                                                 ),
                                                 ident: `Ord`,
-                                                entity_path: TraitPath(`core::cmp::Ord`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Trait(
+                                                        TraitPath(`core::cmp::Ord`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -1089,7 +1137,11 @@ Ok(
                                             parent: None,
                                             path: RegionPath::Decl(
                                                 DeclExprPath::Entity(
-                                                    FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                                                        ),
+                                                    ),
                                                 ),
                                             ),
                                             expr_arena: Arena {
@@ -1097,7 +1149,11 @@ Ok(
                                                     Expr::EntityPath {
                                                         entity_path_expr: 0,
                                                         entity_path: Some(
-                                                            TraitPath(`core::cmp::Ord`),
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Trait(
+                                                                    TraitPath(`core::cmp::Ord`),
+                                                                ),
+                                                            ),
                                                         ),
                                                     },
                                                     Expr::BoxColon {
@@ -1164,7 +1220,11 @@ Ok(
                                                             45,
                                                         ),
                                                         ident: `Ord`,
-                                                        entity_path: TraitPath(`core::cmp::Ord`),
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Trait(
+                                                                TraitPath(`core::cmp::Ord`),
+                                                            ),
+                                                        ),
                                                     },
                                                 ],
                                             },
@@ -1339,7 +1399,11 @@ Ok(
                                 ),
                                 path: RegionPath::Defn(
                                     DefnExprPath::Entity(
-                                        FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                                        EntityPath::ModuleItem(
+                                            ModuleItemPath::Form(
+                                                FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                                            ),
+                                        ),
                                     ),
                                 ),
                                 expr_arena: Arena {
@@ -1373,7 +1437,11 @@ Ok(
                                         Expr::EntityPath {
                                             entity_path_expr: 0,
                                             entity_path: Some(
-                                                FormPath(`quick_sort::partition`, `Function`),
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Form(
+                                                        FormPath(`quick_sort::partition`, `Function`),
+                                                    ),
+                                                ),
                                             ),
                                         },
                                         Expr::InheritedSymbol {
@@ -1416,7 +1484,11 @@ Ok(
                                         Expr::EntityPath {
                                             entity_path_expr: 1,
                                             entity_path: Some(
-                                                FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Form(
+                                                        FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                                                    ),
+                                                ),
                                             ),
                                         },
                                         Expr::CurrentSymbol {
@@ -1476,7 +1548,11 @@ Ok(
                                         Expr::EntityPath {
                                             entity_path_expr: 2,
                                             entity_path: Some(
-                                                FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Form(
+                                                        FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                                                    ),
+                                                ),
                                             ),
                                         },
                                         Expr::CurrentSymbol {
@@ -1547,21 +1623,33 @@ Ok(
                                                 73,
                                             ),
                                             ident: `partition`,
-                                            entity_path: FormPath(`quick_sort::partition`, `Function`),
+                                            entity_path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`quick_sort::partition`, `Function`),
+                                                ),
+                                            ),
                                         },
                                         EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 81,
                                             ),
                                             ident: `quick_sort_aux`,
-                                            entity_path: FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                                            entity_path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                                                ),
+                                            ),
                                         },
                                         EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 91,
                                             ),
                                             ident: `quick_sort_aux`,
-                                            entity_path: FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                                            entity_path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                                                ),
+                                            ),
                                         },
                                     ],
                                 },
@@ -1740,8 +1828,8 @@ Ok(
                     },
                 ),
             ),
-            Form(
-                Function(
+            Defn::Form(
+                FormDefn::Function(
                     FunctionDefn {
                         path: FormPath(`quick_sort::partition`, `Function`),
                         decl: FunctionDecl {
@@ -1752,7 +1840,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`quick_sort::partition`, `Function`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`quick_sort::partition`, `Function`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -1760,7 +1852,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TraitPath(`core::cmp::Ord`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Trait(
+                                                            TraitPath(`core::cmp::Ord`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::BoxColon {
@@ -1837,7 +1933,11 @@ Ok(
                                                     106,
                                                 ),
                                                 ident: `Ord`,
-                                                entity_path: TraitPath(`core::cmp::Ord`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Trait(
+                                                        TraitPath(`core::cmp::Ord`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -2153,7 +2253,11 @@ Ok(
                                             parent: None,
                                             path: RegionPath::Decl(
                                                 DeclExprPath::Entity(
-                                                    FormPath(`quick_sort::partition`, `Function`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`quick_sort::partition`, `Function`),
+                                                        ),
+                                                    ),
                                                 ),
                                             ),
                                             expr_arena: Arena {
@@ -2161,7 +2265,11 @@ Ok(
                                                     Expr::EntityPath {
                                                         entity_path_expr: 0,
                                                         entity_path: Some(
-                                                            TraitPath(`core::cmp::Ord`),
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Trait(
+                                                                    TraitPath(`core::cmp::Ord`),
+                                                                ),
+                                                            ),
                                                         ),
                                                     },
                                                     Expr::BoxColon {
@@ -2238,7 +2346,11 @@ Ok(
                                                             106,
                                                         ),
                                                         ident: `Ord`,
-                                                        entity_path: TraitPath(`core::cmp::Ord`),
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Trait(
+                                                                TraitPath(`core::cmp::Ord`),
+                                                            ),
+                                                        ),
                                                     },
                                                 ],
                                             },
@@ -2418,7 +2530,11 @@ Ok(
                                 ),
                                 path: RegionPath::Defn(
                                     DefnExprPath::Entity(
-                                        FormPath(`quick_sort::partition`, `Function`),
+                                        EntityPath::ModuleItem(
+                                            ModuleItemPath::Form(
+                                                FormPath(`quick_sort::partition`, `Function`),
+                                            ),
+                                        ),
                                     ),
                                 ),
                                 expr_arena: Arena {
@@ -3457,8 +3573,8 @@ Ok(
                     },
                 ),
             ),
-            Form(
-                Feature(
+            Defn::Form(
+                FormDefn::Feature(
                     FeatureDefn {
                         path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
                         decl: FeatureDecl {
@@ -3490,7 +3606,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -3532,7 +3652,11 @@ Ok(
                                 parent: None,
                                 path: RegionPath::Defn(
                                     DefnExprPath::Entity(
-                                        FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
+                                        EntityPath::ModuleItem(
+                                            ModuleItemPath::Form(
+                                                FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
+                                            ),
+                                        ),
                                     ),
                                 ),
                                 expr_arena: Arena {
@@ -3609,7 +3733,11 @@ Ok(
                                         Expr::EntityPath {
                                             entity_path_expr: 0,
                                             entity_path: Some(
-                                                FormPath(`quick_sort::quick_sort`, `Function`),
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Form(
+                                                        FormPath(`quick_sort::quick_sort`, `Function`),
+                                                    ),
+                                                ),
                                             ),
                                         },
                                         Expr::CurrentSymbol {
@@ -3735,7 +3863,11 @@ Ok(
                                                 255,
                                             ),
                                             ident: `quick_sort`,
-                                            entity_path: FormPath(`quick_sort::quick_sort`, `Function`),
+                                            entity_path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`quick_sort::quick_sort`, `Function`),
+                                                ),
+                                            ),
                                         },
                                     ],
                                 },
@@ -3866,8 +3998,8 @@ Ok(
                     },
                 ),
             ),
-            Form(
-                Feature(
+            Defn::Form(
+                FormDefn::Feature(
                     FeatureDefn {
                         path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
                         decl: FeatureDecl {
@@ -3899,7 +4031,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -3941,7 +4077,11 @@ Ok(
                                 parent: None,
                                 path: RegionPath::Defn(
                                     DefnExprPath::Entity(
-                                        FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
+                                        EntityPath::ModuleItem(
+                                            ModuleItemPath::Form(
+                                                FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
+                                            ),
+                                        ),
                                     ),
                                 ),
                                 expr_arena: Arena {
@@ -3991,7 +4131,11 @@ Ok(
                                         Expr::EntityPath {
                                             entity_path_expr: 0,
                                             entity_path: Some(
-                                                FormPath(`quick_sort::quick_sort`, `Function`),
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Form(
+                                                        FormPath(`quick_sort::quick_sort`, `Function`),
+                                                    ),
+                                                ),
                                             ),
                                         },
                                         Expr::CurrentSymbol {
@@ -4090,7 +4234,11 @@ Ok(
                                                 306,
                                             ),
                                             ident: `quick_sort`,
-                                            entity_path: FormPath(`quick_sort::quick_sort`, `Function`),
+                                            entity_path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`quick_sort::quick_sort`, `Function`),
+                                                ),
+                                            ),
                                         },
                                     ],
                                 },

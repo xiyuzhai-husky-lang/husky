@@ -1,6 +1,6 @@
 Ok(
     AstSheet {
-        arena: Arena {
+        ast_arena: Arena {
             data: [
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -9,7 +9,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `natural_number_game`,
                     ),
                     entity_kind: AssociatedItem {
@@ -49,7 +49,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `natural_number_game`,
                     ),
                     entity_kind: ModuleItem {
@@ -59,7 +59,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`natural_number_game::Nat`, `Inductive`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`natural_number_game::Nat`, `Inductive`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `Nat`,
@@ -116,7 +120,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `natural_number_game`,
                     ),
                     entity_kind: ModuleItem {
@@ -126,7 +130,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`natural_number_game::OddNat`, `Structure`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`natural_number_game::OddNat`, `Structure`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `OddNat`,
@@ -147,7 +155,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `natural_number_game`,
                     ),
                     entity_kind: ModuleItem {
@@ -157,7 +165,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`natural_number_game::EvenNat`, `Structure`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`natural_number_game::EvenNat`, `Structure`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `EvenNat`,

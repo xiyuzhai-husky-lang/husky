@@ -2,7 +2,7 @@ Ok(
     DeclSheet {
         decls: [
             Ok(
-                Trait(
+                Decl::Trait(
                     TraitDecl {
                         path: TraitPath(`core::ops::Add`),
                         ast_idx: 5,
@@ -11,7 +11,11 @@ Ok(
                                 parent: None,
                                 path: RegionPath::Decl(
                                     DeclExprPath::Entity(
-                                        TraitPath(`core::ops::Add`),
+                                        EntityPath::ModuleItem(
+                                            ModuleItemPath::Trait(
+                                                TraitPath(`core::ops::Add`),
+                                            ),
+                                        ),
                                     ),
                                 ),
                                 expr_arena: Arena {
@@ -109,7 +113,7 @@ Ok(
                 ),
             ),
             Ok(
-                Trait(
+                Decl::Trait(
                     TraitDecl {
                         path: TraitPath(`core::ops::Sub`),
                         ast_idx: 7,
@@ -118,7 +122,11 @@ Ok(
                                 parent: None,
                                 path: RegionPath::Decl(
                                     DeclExprPath::Entity(
-                                        TraitPath(`core::ops::Sub`),
+                                        EntityPath::ModuleItem(
+                                            ModuleItemPath::Trait(
+                                                TraitPath(`core::ops::Sub`),
+                                            ),
+                                        ),
                                     ),
                                 ),
                                 expr_arena: Arena {

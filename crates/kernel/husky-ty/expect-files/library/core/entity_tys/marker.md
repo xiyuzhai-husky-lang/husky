@@ -2,13 +2,13 @@
     (
         TraitPath(`core::marker::Copy`),
         Ok(
-            Term(`Type`),
+            Term(`Trait`),
         ),
     ),
     (
         TraitPath(`core::marker::Sized`),
         Ok(
-            Term(`Type`),
+            Term(`Trait`),
         ),
     ),
 ]

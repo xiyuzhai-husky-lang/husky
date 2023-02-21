@@ -39,6 +39,7 @@ pub struct EntityPathJar(
 );
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = EntityPathDb)]
 pub enum EntityPath {
     Module(ModulePath),
     ModuleItem(ModuleItemPath),
@@ -106,49 +107,6 @@ impl EntityPath {
     }
 }
 
-impl<Db> salsa::DebugWithDb<Db> for EntityPath
-where
-    Db: EntityPathDb + ?Sized,
-{
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as DbWithJar<EntityPathJar>>::as_jar_db(db);
-        if include_all_fields {
-            match self {
-                EntityPath::Module(path) => f
-                    .debug_tuple("Module")
-                    .field(&path.debug_with(db, include_all_fields))
-                    .finish(),
-                EntityPath::ModuleItem(path) => f
-                    .debug_tuple(" ModuleItem")
-                    .field(&path.debug_with(db, include_all_fields))
-                    .finish(),
-                EntityPath::AssociatedItem(path) => f
-                    .debug_tuple("AssociatedItem")
-                    .field(&path.debug_with(db, include_all_fields))
-                    .finish(),
-                EntityPath::Variant(path) => f
-                    .debug_tuple("EnumVariant")
-                    .field(&path.debug_with(db, include_all_fields))
-                    .finish(),
-            }
-        } else {
-            match self {
-                EntityPath::Module(module_path) => module_path.fmt(f, db, false),
-                EntityPath::ModuleItem(module_item_path) => module_item_path.fmt(f, db, false),
-                EntityPath::AssociatedItem(associated_item_path) => {
-                    associated_item_path.fmt(f, db, false)
-                }
-                EntityPath::Variant(enum_variant_path) => enum_variant_path.fmt(f, db, false),
-            }
-        }
-    }
-}
-
 impl<Db> salsa::DisplayWithDb<Db> for EntityPath
 where
     Db: EntityPathDb + ?Sized,
@@ -157,14 +115,14 @@ where
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as DbWithJar<EntityPathJar>>::as_jar_db(db);
         match self {
-            EntityPath::Module(path) => path.display_with_db_fmt(f, db, include_all_fields),
-            EntityPath::ModuleItem(path) => path.display_with_db_fmt(f, db, include_all_fields),
-            EntityPath::AssociatedItem(path) => path.display_with_db_fmt(f, db, include_all_fields),
-            EntityPath::Variant(path) => path.display_with_db_fmt(f, db, include_all_fields),
+            EntityPath::Module(path) => path.display_with_db_fmt(f, db, level),
+            EntityPath::ModuleItem(path) => path.display_with_db_fmt(f, db, level),
+            EntityPath::AssociatedItem(path) => path.display_with_db_fmt(f, db, level),
+            EntityPath::Variant(path) => path.display_with_db_fmt(f, db, level),
         }
     }
 }

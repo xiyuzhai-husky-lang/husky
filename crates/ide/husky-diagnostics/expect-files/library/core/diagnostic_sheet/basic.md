@@ -1,4 +1,5 @@
 DiagnosticSheet {
+    [salsa id]: 1,
     token_diagnostic_sheet: TokenDiagnosticSheet {
         diagnostics: [],
     },

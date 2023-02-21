@@ -1,3 +1,4 @@
+use crate::*;
 use husky_entity_path::EntityPath;
 use husky_entity_taxonomy::EntityKind;
 use husky_entity_tree::{UseExprIdx, UseExprRuleIdx, UseExprRuleState};
@@ -6,6 +7,7 @@ use husky_expr::{
 };
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenInfoDb)]
 pub enum TokenInfo {
     None,
     Entity(Option<EntityPath>, Option<EntityKind>),

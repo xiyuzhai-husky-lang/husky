@@ -9,6 +9,7 @@ pub use ty_item::*;
 use crate::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::derive_debug_with_db(db = EntityPathDb)]
 pub enum AssociatedItemPath {
     TypeItem(TypeItemPath),
     TraitItem(TraitItemPath),
@@ -65,42 +66,6 @@ impl From<TypeItemPath> for EntityPath {
     }
 }
 
-impl<Db> salsa::DebugWithDb<Db> for AssociatedItemPath
-where
-    Db: salsa::DbWithJar<EntityPathJar> + ?Sized,
-{
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<EntityPathJar>>::as_jar_db(db);
-        if include_all_fields {
-            match self {
-                AssociatedItemPath::TypeItem(path) => f
-                    .debug_tuple("Type")
-                    .field(&path.debug_with(db, include_all_fields))
-                    .finish(),
-                AssociatedItemPath::TraitItem(path) => f
-                    .debug_tuple("Trait")
-                    .field(&path.debug_with(db, include_all_fields))
-                    .finish(),
-                AssociatedItemPath::TypeAsTraitItem(path) => f
-                    .debug_tuple("TypeAsTrait")
-                    .field(&path.debug_with(db, include_all_fields))
-                    .finish(),
-            }
-        } else {
-            match self {
-                AssociatedItemPath::TypeItem(path) => path.fmt(f, db, false),
-                AssociatedItemPath::TraitItem(path) => path.fmt(f, db, false),
-                AssociatedItemPath::TypeAsTraitItem(path) => path.fmt(f, db, false),
-            }
-        }
-    }
-}
-
 impl<Db> salsa::DisplayWithDb<Db> for AssociatedItemPath
 where
     Db: EntityPathDb + ?Sized,
@@ -109,12 +74,14 @@ where
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         match self {
-            AssociatedItemPath::TypeItem(path) => path.display_with_db_fmt(f, db, false),
-            AssociatedItemPath::TraitItem(path) => path.display_with_db_fmt(f, db, false),
-            AssociatedItemPath::TypeAsTraitItem(path) => path.display_with_db_fmt(f, db, false),
+            AssociatedItemPath::TypeItem(path) => path.display_with_db_fmt(f, db, level.next()),
+            AssociatedItemPath::TraitItem(path) => path.display_with_db_fmt(f, db, level.next()),
+            AssociatedItemPath::TypeAsTraitItem(path) => {
+                path.display_with_db_fmt(f, db, level.next())
+            }
         }
     }
 }

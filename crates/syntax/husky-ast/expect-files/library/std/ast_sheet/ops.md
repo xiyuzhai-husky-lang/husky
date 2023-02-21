@@ -1,6 +1,6 @@
 Ok(
     AstSheet {
-        arena: Arena {
+        ast_arena: Arena {
             data: [
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -9,7 +9,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `std::ops`,
                     ),
                     entity_kind: AssociatedItem {
@@ -37,7 +37,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `std::ops`,
                     ),
                     entity_kind: AssociatedItem {
@@ -70,7 +70,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..2,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `std::ops`,
                     ),
                     entity_kind: ModuleItem {
@@ -78,7 +78,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TraitPath(`std::ops::Add`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Trait(
+                                TraitPath(`std::ops::Add`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `Add`,

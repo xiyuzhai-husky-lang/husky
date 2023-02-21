@@ -11,6 +11,7 @@ use crate::*;
 use utils::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::derive_debug_with_db(db = EntityPathDb)]
 pub enum ModuleItemPath {
     Type(TypePath),
     Trait(TraitPath),
@@ -80,42 +81,6 @@ impl From<TypePath> for ModuleItemPath {
     }
 }
 
-impl<Db> salsa::DebugWithDb<Db> for ModuleItemPath
-where
-    Db: EntityPathDb + ?Sized,
-{
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as DbWithJar<EntityPathJar>>::as_jar_db(db);
-        if include_all_fields {
-            match self {
-                ModuleItemPath::Form(path) => f
-                    .debug_tuple("Form")
-                    .field(&path.debug_with(db, include_all_fields))
-                    .finish(),
-                ModuleItemPath::Trait(path) => f
-                    .debug_tuple("Trait")
-                    .field(&path.debug_with(db, include_all_fields))
-                    .finish(),
-                ModuleItemPath::Type(path) => f
-                    .debug_tuple("Type")
-                    .field(&path.debug_with(db, include_all_fields))
-                    .finish(),
-            }
-        } else {
-            match self {
-                ModuleItemPath::Form(path) => path.fmt(f, db, false),
-                ModuleItemPath::Type(path) => path.fmt(f, db, false),
-                ModuleItemPath::Trait(path) => path.fmt(f, db, false),
-            }
-        }
-    }
-}
-
 impl<Db> salsa::DisplayWithDb<Db> for ModuleItemPath
 where
     Db: EntityPathDb + ?Sized,
@@ -124,14 +89,14 @@ where
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<EntityPathJar>>::as_jar_db(db);
-        if include_all_fields {
+        if level.is_root() {
             match self {
-                ModuleItemPath::Form(path) => path.display_with_db_fmt(f, db, false),
-                ModuleItemPath::Type(path) => path.display_with_db_fmt(f, db, false),
-                ModuleItemPath::Trait(path) => path.display_with_db_fmt(f, db, false),
+                ModuleItemPath::Form(path) => path.display_with_db_fmt(f, db, level.next()),
+                ModuleItemPath::Type(path) => path.display_with_db_fmt(f, db, level.next()),
+                ModuleItemPath::Trait(path) => path.display_with_db_fmt(f, db, level.next()),
             }
         } else {
             f.write_str(self.ident(db).data(db))

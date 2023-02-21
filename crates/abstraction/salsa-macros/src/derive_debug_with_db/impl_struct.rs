@@ -16,7 +16,7 @@ pub(super) fn struct_debug_with_db_impl(
 
     quote! {
         impl<_Db:  #db_path + ?Sized> ::salsa::DebugWithDb<_Db> for #ident {
-            fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &_Db, _include_all_fields: bool) -> ::std::fmt::Result {
+            fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &_Db, _level: salsa::DebugFormatLevel) -> ::std::fmt::Result {
                 #[allow(unused_imports)]
                 use ::salsa::debug::helper::Fallback;
                 #body
@@ -43,7 +43,7 @@ fn struct_regular_fields_debug_with_db(ident: &Ident, fields: &Fields) -> proc_m
                         #[allow(clippy::needless_borrow)]
                         &self.#field_ident,
                         _db,
-                        _include_all_fields
+                        _level.next()
                     )
                 );
             };
@@ -82,7 +82,7 @@ fn struct_tuple_fields_debug_with_db(ident: &Ident, fields: &Fields) -> proc_mac
                         #[allow(clippy::needless_borrow)]
                         &self.#field_idx,
                         _db,
-                        _include_all_fields
+                        _level.next()
                     )
                 );
             };

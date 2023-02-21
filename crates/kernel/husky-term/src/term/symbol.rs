@@ -38,7 +38,7 @@ impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermSymbol {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
         f.write_fmt(format_args!("${}", self.idx(db)))

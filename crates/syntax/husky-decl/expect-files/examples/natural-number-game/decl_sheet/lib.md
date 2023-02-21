@@ -2,7 +2,7 @@ Ok(
     DeclSheet {
         decls: [
             Ok(
-                Type(
+                Decl::Type(
                     TypeDecl::Inductive(
                         InductiveTypeDecl {
                             path: TypePath(`natural_number_game::Nat`, `Inductive`),
@@ -12,7 +12,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`natural_number_game::Nat`, `Inductive`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`natural_number_game::Nat`, `Inductive`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -54,7 +58,7 @@ Ok(
                 ),
             ),
             Ok(
-                Type(
+                Decl::Type(
                     TypeDecl::Structure(
                         StructureTypeDecl {
                             path: TypePath(`natural_number_game::OddNat`, `Structure`),
@@ -64,7 +68,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`natural_number_game::OddNat`, `Structure`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`natural_number_game::OddNat`, `Structure`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -106,7 +114,7 @@ Ok(
                 ),
             ),
             Ok(
-                Type(
+                Decl::Type(
                     TypeDecl::Structure(
                         StructureTypeDecl {
                             path: TypePath(`natural_number_game::EvenNat`, `Structure`),
@@ -116,7 +124,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`natural_number_game::EvenNat`, `Structure`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`natural_number_game::EvenNat`, `Structure`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -158,7 +170,7 @@ Ok(
                 ),
             ),
             Ok(
-                ImplBlock(
+                Decl::ImplBlock(
                     ImplBlockDecl::TypeImplBlock(
                         TypeImplBlockDecl {
                             ast_idx: 6,
@@ -211,7 +223,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`natural_number_game::Nat`, `Inductive`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`natural_number_game::Nat`, `Inductive`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -223,7 +239,11 @@ Ok(
                                                     10,
                                                 ),
                                                 ident: `Nat`,
-                                                entity_path: TypePath(`natural_number_game::Nat`, `Inductive`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`natural_number_game::Nat`, `Inductive`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -264,7 +284,7 @@ Ok(
                 ),
             ),
             Ok(
-                AssociatedItem(
+                Decl::AssociatedItem(
                     AssociatedItemDecl::TypeItem(
                         TypeItemDecl::Memo(
                             TypeMemoDecl {
@@ -286,11 +306,13 @@ Ok(
                                         ident: `add`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`natural_number_game::Nat`, `Inductive`),
-                                            ident: `add`,
-                                            ty_item_kind: Memo,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`natural_number_game::Nat`, `Inductive`),
+                                                ident: `add`,
+                                                ty_item_kind: Memo,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -312,7 +334,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Memo,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `natural_number_game`,
                                     ),
                                     is_generic: false,
@@ -339,7 +361,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`natural_number_game::Nat`, `Inductive`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`natural_number_game::Nat`, `Inductive`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -351,7 +377,11 @@ Ok(
                                                                     10,
                                                                 ),
                                                                 ident: `Nat`,
-                                                                entity_path: TypePath(`natural_number_game::Nat`, `Inductive`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`natural_number_game::Nat`, `Inductive`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -415,7 +445,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`natural_number_game::Nat`, `Inductive`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`natural_number_game::Nat`, `Inductive`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                                 Expr::BinaryOpn {
@@ -429,7 +463,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 1,
                                                     entity_path: Some(
-                                                        TypePath(`natural_number_game::Nat`, `Inductive`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`natural_number_game::Nat`, `Inductive`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                                 Expr::BinaryOpn {
@@ -449,14 +487,22 @@ Ok(
                                                         15,
                                                     ),
                                                     ident: `Nat`,
-                                                    entity_path: TypePath(`natural_number_game::Nat`, `Inductive`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`natural_number_game::Nat`, `Inductive`),
+                                                        ),
+                                                    ),
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         17,
                                                     ),
                                                     ident: `Nat`,
-                                                    entity_path: TypePath(`natural_number_game::Nat`, `Inductive`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`natural_number_game::Nat`, `Inductive`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },

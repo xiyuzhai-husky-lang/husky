@@ -2,7 +2,7 @@ Ok(
     DeclSheet {
         decls: [
             Ok(
-                Type(
+                Decl::Type(
                     TypeDecl::Foreign(
                         AlienTypeDecl {
                             path: TypePath(`core::raw_bits::r32`, `Alien`),
@@ -12,7 +12,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`core::raw_bits::r32`, `Alien`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {

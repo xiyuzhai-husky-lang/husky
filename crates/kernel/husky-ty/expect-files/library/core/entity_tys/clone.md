@@ -2,7 +2,7 @@
     (
         TraitPath(`core::clone::Clone`),
         Ok(
-            Term(`Type`),
+            Term(`Trait`),
         ),
     ),
 ]

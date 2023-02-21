@@ -37,17 +37,17 @@
 //         &self,
 //         f: &mut std::fmt::Formatter<'_>,
 //         db: &Db,
-//         include_all_fields: bool,
+//         level: salsa::DebugFormatLevel,
 //     ) -> std::fmt::Result {
 //         match self {
 //             Self::All {} => f.debug_struct("All").finish(),
 //             Self::One { ident } => f
 //                 .debug_struct("One")
-//                 .field("ident", &ident.debug_with(db, include_all_fields))
+//                 .field("ident", &ident.debug_with(db, level))
 //                 .finish(),
 //             Self::Parent { ident, children } => f
 //                 .debug_struct("ScopeResolution")
-//                 .field("ident", &ident.debug_with(db, include_all_fields))
+//                 .field("ident", &ident.debug_with(db, level))
 //                 .field("children", children)
 //                 .finish(),
 //             Self::Err(arg0) => f.debug_tuple("Err").field(arg0).finish(),

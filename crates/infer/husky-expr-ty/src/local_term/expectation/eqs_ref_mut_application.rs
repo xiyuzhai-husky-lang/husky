@@ -58,9 +58,10 @@ impl<'a> ExprTypeEngine<'a> {
         lifetime: LocalTerm,
     ) -> Option<LocalTermExpectationResolvedOkM> {
         match expectee {
-            LocalTerm::Resolved(expectee) => {
-                todo!()
-            }
+            LocalTerm::Resolved(expectee) => Some(LocalTermExpectationResolvedOkM {
+                result: Err(OriginalLocalTermExpectationError::Todo.into()),
+                actions: vec![],
+            }),
             LocalTerm::Unresolved(unresolved_expectee) => {
                 match self.local_term_table()[unresolved_expectee].unresolved_term() {
                     UnresolvedTerm::ImplicitSymbol(_) => todo!(),

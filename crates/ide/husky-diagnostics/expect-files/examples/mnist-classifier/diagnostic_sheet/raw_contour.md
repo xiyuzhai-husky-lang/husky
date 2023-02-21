@@ -118,71 +118,6 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Type Error: original `todo` in term r32",
-                severity: Error,
-                range: [62:6, 62:9),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [62:14, 62:15),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term r32",
-                severity: Error,
-                range: [62:24, 62:28),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term r32",
-                severity: Error,
-                range: [65:6, 65:9),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [65:13, 65:14),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term r32",
-                severity: Error,
-                range: [65:18, 65:22),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term r32",
-                severity: Error,
-                range: [68:6, 68:9),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [68:14, 68:15),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term r32",
-                severity: Error,
-                range: [68:24, 68:28),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term r32",
-                severity: Error,
-                range: [75:28, 75:56),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term r32",
-                severity: Error,
-                range: [76:28, 76:56),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term r32",
-                severity: Error,
-                range: [115:28, 115:56),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term r32",
-                severity: Error,
-                range: [116:28, 116:56),
-            },
-            Diagnostic {
                 message: "Type Error: original `todo` in term List Point2d",
                 severity: Error,
                 range: [161:13, 161:19),
@@ -223,29 +158,19 @@ DiagnosticSheet {
                 range: [180:33, 180:40),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Direction",
-                severity: Error,
-                range: [187:40, 187:85),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Direction",
-                severity: Error,
-                range: [202:41, 207:18),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [208:36, 208:89),
-            },
-            Diagnostic {
                 message: "OriginalLocalTermExpectationError::Todo: todo",
                 severity: Error,
                 range: [210:17, 210:39),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Point2d",
+                message: "OriginalLocalTermExpectationError::Todo: todo",
                 severity: Error,
-                range: [218:43, 218:76),
+                range: [211:20, 211:32),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError::Todo: todo",
+                severity: Error,
+                range: [258:17, 258:33),
             },
             Diagnostic {
                 message: "OriginalLocalTermExpectationError::Todo: todo",
@@ -258,11 +183,6 @@ DiagnosticSheet {
                 range: [264:36, 264:38),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term never",
-                severity: Error,
-                range: [170:5, 265:18),
-            },
-            Diagnostic {
                 message: "OriginalLocalTermExpectationError::Todo: todo",
                 severity: Error,
                 range: [28:13, 28:24),
@@ -271,26 +191,6 @@ DiagnosticSheet {
                 message: "OriginalLocalTermExpectationError::Todo: todo",
                 severity: Error,
                 range: [29:13, 29:24),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term never",
-                severity: Error,
-                range: [16:9, 30:10),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term never",
-                severity: Error,
-                range: [36:9, 44:27),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [48:36, 48:41),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [49:34, 49:37),
             },
         ],
     },

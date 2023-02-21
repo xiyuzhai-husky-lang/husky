@@ -137,7 +137,7 @@ impl ModulePath {
         match self.data(db) {
             ModulePathData::Root(crate_path) => match crate_path.package_ident(db) {
                 Ok(ident) => f.write_str(ident.data(db)),
-                Err(e) => e.fmt(f, db, true),
+                Err(e) => e.fmt(f, db, salsa::DebugFormatLevel::root()),
             },
             ModulePathData::Child { parent, ident } => {
                 parent.show_aux(f, db)?;
@@ -156,7 +156,7 @@ where
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
         self.show_aux(f, db)
@@ -165,17 +165,32 @@ where
 
 #[test]
 fn module_path_debug_with_db_works() {
-    fn t(db: &DB, module_path: ModulePath, include_all_fields: bool, expect: &str) {
+    fn t(db: &DB, module_path: ModulePath, level: salsa::DebugFormatLevel, expect: &str) {
         assert_eq!(
-            format!("{:?}", module_path.debug_with(db, include_all_fields)),
+            format!("{:?}", module_path.debug_with(db, level.next())),
             expect
         )
     }
     let db = DB::default();
     let path_menu = db.dev_path_menu().unwrap();
-    t(&db, path_menu.core_num(), false, "`core::num`");
-    t(&db, path_menu.core(), false, "`core`");
-    t(&db, path_menu.std(), false, "`std`");
+    t(
+        &db,
+        path_menu.core_num(),
+        salsa::DebugFormatLevel::root(),
+        "`core::num`",
+    );
+    t(
+        &db,
+        path_menu.core(),
+        salsa::DebugFormatLevel::root(),
+        "`core`",
+    );
+    t(
+        &db,
+        path_menu.std(),
+        salsa::DebugFormatLevel::root(),
+        "`std`",
+    );
     expect_test::expect![[r#"
         `core`
     "#]]
@@ -195,12 +210,12 @@ impl<Db: VfsDb + ?Sized> salsa::DebugWithDb<Db> for ModulePath {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         #[allow(unused_imports)]
         use ::salsa::debug::helper::Fallback;
         let db = <Db as DbWithJar<VfsJar>>::as_jar_db(db);
-        if include_all_fields {
+        if level.is_root() {
             f.debug_struct("ModulePath")
                 .field(
                     "[display]",
@@ -211,13 +226,10 @@ impl<Db: VfsDb + ?Sized> salsa::DebugWithDb<Db> for ModulePath {
                         #[allow(clippy::needless_borrow)]
                         &self.data(db),
                         db,
-                        include_all_fields,
+                        level.next(),
                     ),
                 )
-                .field(
-                    "[crate]",
-                    &self.crate_path(db).debug_with(db, include_all_fields),
-                )
+                .field("[crate]", &self.crate_path(db).debug_with(db, level.next()))
                 .finish()
         } else {
             self.show(f, db)

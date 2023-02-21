@@ -2,7 +2,7 @@ Ok(
     DeclSheet {
         decls: [
             Ok(
-                Type(
+                Decl::Type(
                     TypeDecl::Foreign(
                         AlienTypeDecl {
                             path: TypePath(`core::basic::bool`, `Alien`),
@@ -12,7 +12,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`core::basic::bool`, `Alien`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`core::basic::bool`, `Alien`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -54,7 +58,7 @@ Ok(
                 ),
             ),
             Ok(
-                Type(
+                Decl::Type(
                     TypeDecl::Foreign(
                         AlienTypeDecl {
                             path: TypePath(`core::basic::never`, `Alien`),
@@ -64,7 +68,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`core::basic::never`, `Alien`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`core::basic::never`, `Alien`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -106,7 +114,7 @@ Ok(
                 ),
             ),
             Ok(
-                Type(
+                Decl::Type(
                     TypeDecl::Foreign(
                         AlienTypeDecl {
                             path: TypePath(`core::basic::unit`, `Alien`),
@@ -116,7 +124,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`core::basic::unit`, `Alien`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`core::basic::unit`, `Alien`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -158,7 +170,7 @@ Ok(
                 ),
             ),
             Ok(
-                Type(
+                Decl::Type(
                     TypeDecl::Structure(
                         StructureTypeDecl {
                             path: TypePath(`core::basic::Trait`, `Structure`),
@@ -168,7 +180,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`core::basic::Trait`, `Structure`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`core::basic::Trait`, `Structure`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -210,7 +226,7 @@ Ok(
                 ),
             ),
             Ok(
-                Type(
+                Decl::Type(
                     TypeDecl::Structure(
                         StructureTypeDecl {
                             path: TypePath(`core::basic::Module`, `Structure`),
@@ -220,7 +236,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`core::basic::Module`, `Structure`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`core::basic::Module`, `Structure`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {

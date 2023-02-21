@@ -1,8 +1,8 @@
 Ok(
     DefnSheet {
         defns: [
-            Type(
-                Foreign(
+            Defn::Type(
+                TypeDefn::Foreign(
                     AlienTypeDefn {
                         path: TypePath(`core::logic::Prop`, `Alien`),
                         decl: AlienTypeDecl {
@@ -13,7 +13,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`core::logic::Prop`, `Alien`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`core::logic::Prop`, `Alien`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -54,8 +58,8 @@ Ok(
                     },
                 ),
             ),
-            Type(
-                Structure(
+            Defn::Type(
+                TypeDefn::Structure(
                     StructureTypeDefn {
                         path: TypePath(`core::logic::LogicAnd`, `Structure`),
                         decl: StructureTypeDecl {
@@ -66,7 +70,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`core::logic::LogicAnd`, `Structure`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`core::logic::LogicAnd`, `Structure`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -74,13 +82,21 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`core::logic::Prop`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::logic::Prop`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`core::logic::Prop`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::logic::Prop`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -92,14 +108,22 @@ Ok(
                                                     10,
                                                 ),
                                                 ident: `Prop`,
-                                                entity_path: TypePath(`core::logic::Prop`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::logic::Prop`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     14,
                                                 ),
                                                 ident: `Prop`,
-                                                entity_path: TypePath(`core::logic::Prop`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::logic::Prop`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -259,8 +283,8 @@ Ok(
                     },
                 ),
             ),
-            Type(
-                Inductive(
+            Defn::Type(
+                TypeDefn::Inductive(
                     InductiveTypeDefn {
                         path: TypePath(`core::logic::LogicOr`, `Inductive`),
                         decl: InductiveTypeDecl {
@@ -271,7 +295,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`core::logic::LogicOr`, `Inductive`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`core::logic::LogicOr`, `Inductive`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -279,13 +307,21 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`core::logic::Prop`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::logic::Prop`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`core::logic::Prop`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::logic::Prop`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -297,14 +333,22 @@ Ok(
                                                     32,
                                                 ),
                                                 ident: `Prop`,
-                                                entity_path: TypePath(`core::logic::Prop`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::logic::Prop`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     36,
                                                 ),
                                                 ident: `Prop`,
-                                                entity_path: TypePath(`core::logic::Prop`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::logic::Prop`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },

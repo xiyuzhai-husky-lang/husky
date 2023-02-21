@@ -16,7 +16,7 @@ impl<DB: ?Sized + SignatureDb> salsa::DebugWithDb<DB> for SignatureError {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &DB,
-        include_all_fields: bool,
+        level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         <Self as std::fmt::Debug>::fmt(&self, f)
     }

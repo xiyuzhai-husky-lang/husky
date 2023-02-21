@@ -123,7 +123,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 50,
+                                value: 52,
                             },
                         ),
                     ),

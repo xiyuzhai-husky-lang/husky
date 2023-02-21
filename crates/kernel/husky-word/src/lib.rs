@@ -72,7 +72,7 @@ impl ::salsa::DebugWithDb<dyn WordDb + '_> for Word {
         &self,
         f: &mut ::std::fmt::Formatter<'_>,
         db: &dyn WordDb,
-        _include_all_fields: bool,
+        _level: salsa::DebugFormatLevel,
     ) -> ::std::fmt::Result {
         f.debug_tuple("Word").field(&self.data(db)).finish()
     }
@@ -83,9 +83,9 @@ impl<Db: WordDb> ::salsa::DebugWithDb<Db> for Word {
         &self,
         f: &mut ::std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DebugFormatLevel,
     ) -> ::std::fmt::Result {
-        self.fmt(f, db as &dyn WordDb, include_all_fields)
+        self.fmt(f, db as &dyn WordDb, level)
     }
 }
 
@@ -165,7 +165,7 @@ impl Word {
 //         &self,
 //         f: &mut ::std::fmt::Formatter<'_>,
 //         _db: &<WordJar as salsa::jar::Jar<'_>>::DynDb,
-//         _include_all_fields: bool,
+//         _level: salsa::DebugFormatLevel,
 //     ) -> ::std::fmt::Result {
 //         #[allow(unused_imports)]
 //         use ::salsa::debug::helper::Fallback;
@@ -181,7 +181,7 @@ impl Word {
 //                     #[allow(clippy::needless_borrow)]
 //                     &self.data(_db),
 //                     _db,
-//                     _include_all_fields,
+//                     _level,
 //                 ),
 //             );
 //         debug_struct.finish()

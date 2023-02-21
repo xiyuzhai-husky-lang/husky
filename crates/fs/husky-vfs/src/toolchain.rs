@@ -29,19 +29,16 @@ impl salsa::DebugWithDb<dyn VfsDb + '_> for ToolchainData {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &dyn VfsDb,
-        include_all_fields: bool,
+        level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         match self {
             Self::Published(published_toolchain) => f
                 .debug_tuple("Published")
-                .field(&published_toolchain.debug_with(db, include_all_fields))
+                .field(&published_toolchain.debug_with(db, level.next()))
                 .finish(),
             Self::Local { library_path } => f
                 .debug_struct("Local")
-                .field(
-                    "library_path",
-                    &library_path.debug_with(db, include_all_fields),
-                )
+                .field("library_path", &library_path.debug_with(db, level.next()))
                 .finish(),
         }
     }
@@ -52,9 +49,9 @@ impl<Db: VfsDb> salsa::DebugWithDb<Db> for ToolchainData {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
-        self.fmt(f, db as &dyn VfsDb, include_all_fields)
+        self.fmt(f, db as &dyn VfsDb, level)
     }
 }
 

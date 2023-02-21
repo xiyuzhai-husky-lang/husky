@@ -30,7 +30,7 @@ impl<Db: DefnDb + ?Sized> salsa::DebugWithDb<Db> for VariantDefn {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         todo!()
     }

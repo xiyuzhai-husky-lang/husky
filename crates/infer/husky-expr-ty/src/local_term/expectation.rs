@@ -109,6 +109,8 @@ pub enum OriginalLocalTermExpectationError {
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub enum DerivedLocalTermExpectationError {
+    #[error("{term:?} {error}")]
+    TermTypeError { term: Term, error: TypeError },
     #[error("{0}")]
     Type(#[from] DerivedTypeError),
     #[error("target substitution failure")]

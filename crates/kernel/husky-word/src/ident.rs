@@ -12,10 +12,10 @@ impl<Db: WordDb + ?Sized> DebugWithDb<Db> for Identifier {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<WordJar>>::as_jar_db(db);
-        if include_all_fields {
+        if level.is_root() {
             f.debug_tuple("Identifier").field(&self.data(db)).finish()
         } else {
             f.write_fmt(format_args!("`{}`", &self.data(db)))

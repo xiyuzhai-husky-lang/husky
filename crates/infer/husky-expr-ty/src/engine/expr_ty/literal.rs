@@ -17,7 +17,21 @@ impl<'a> ExprTypeEngine<'a> {
                 Literal::Integer(integer_literal) => match integer_literal {
                     IntegerLikeLiteral::Unspecified => match expectation.destination() {
                         // MOM
-                        Some(term) if term == self.reduced_term_menu.i32().into() => todo!(),
+                        Some(term) if term == self.reduced_term_menu.i32().into() => {
+                            Ok(self.reduced_term_menu.i32().into())
+                        }
+                        Some(term) if term == self.reduced_term_menu.i64().into() => todo!(),
+                        Some(term) if term == self.reduced_term_menu.i8().into() => todo!(),
+                        Some(term) if term == self.reduced_term_menu.i16().into() => todo!(),
+                        Some(term) if term == self.reduced_term_menu.i64().into() => todo!(),
+                        Some(term) if term == self.reduced_term_menu.i64().into() => todo!(),
+                        Some(term) if term == self.reduced_term_menu.i64().into() => todo!(),
+                        Some(term) if term == self.reduced_term_menu.i64().into() => todo!(),
+                        Some(term) if term == self.reduced_term_menu.i64().into() => todo!(),
+                        Some(term) if term == self.reduced_term_menu.i64().into() => todo!(),
+                        Some(term) if term == self.reduced_term_menu.i64().into() => todo!(),
+                        Some(term) if term == self.reduced_term_menu.i64().into() => todo!(),
+                        Some(term) if term == self.reduced_term_menu.i64().into() => todo!(),
                         _ => Ok(self
                             .new_implicit_symbol(
                                 expr_idx,
@@ -46,6 +60,12 @@ impl<'a> ExprTypeEngine<'a> {
                 },
                 Literal::Float(float_literal) => match float_literal {
                     FloatLiteral::Unspecified => match expectation.destination() {
+                        Some(term) if term == self.reduced_term_menu.f32().into() => {
+                            Ok(self.reduced_term_menu.f32().into())
+                        }
+                        Some(term) if term == self.reduced_term_menu.f64().into() => {
+                            Ok(self.reduced_term_menu.f64().into())
+                        }
                         Some(_) => todo!(),
                         None => Ok(self
                             .new_implicit_symbol(

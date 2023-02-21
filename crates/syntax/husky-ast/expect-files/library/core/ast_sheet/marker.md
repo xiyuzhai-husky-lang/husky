@@ -1,6 +1,6 @@
 Ok(
     AstSheet {
-        arena: Arena {
+        ast_arena: Arena {
             data: [
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -9,13 +9,17 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Trait,
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TraitPath(`core::marker::Copy`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `Copy`,
@@ -36,13 +40,17 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Trait,
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TraitPath(`core::marker::Sized`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Trait(
+                                TraitPath(`core::marker::Sized`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `Sized`,

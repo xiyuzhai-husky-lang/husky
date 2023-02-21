@@ -51,7 +51,7 @@ impl<Db: EntityPathDb + ?Sized> salsa::DebugWithDb<Db> for FormPath {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as DbWithJar<EntityPathJar>>::as_jar_db(db);
         f.write_str("FormPath(`")?;
@@ -70,7 +70,7 @@ where
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<EntityPathJar>>::as_jar_db(db);
         self.show_aux(f, db)
