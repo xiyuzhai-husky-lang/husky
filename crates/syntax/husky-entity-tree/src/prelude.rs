@@ -22,7 +22,7 @@ impl<'a, Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for PreludeError {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         todo!()
     }
@@ -90,10 +90,10 @@ fn crate_symbol_context_works() {
         let vfs_path_menu = db.vfs_path_menu(toolchain).unwrap();
         let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
         t(entity_path_menu.bool().into());
-        t(entity_path_menu.i32().into());
-        t(entity_path_menu.i64().into());
-        t(entity_path_menu.f32().into());
-        t(entity_path_menu.f64().into());
+        t(entity_path_menu.i32_ty_path().into());
+        t(entity_path_menu.i64_ty_path().into());
+        t(entity_path_menu.f32_ty_path().into());
+        t(entity_path_menu.f64_ty_path().into());
     })
 }
 
@@ -133,17 +133,17 @@ impl<'a, Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for CrateSymbolContex
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
         f.debug_struct("CrateSymbolContext")
             .field(
                 "universal_prelude",
-                &self.universal_prelude.debug_with(db, include_all_fields),
+                &self.universal_prelude.debug_with(db, level.next()),
             )
             .field(
                 "crate_specific_symbol_context",
-                &(&self.crate_specific_symbol_context).debug_with(db, include_all_fields),
+                &(&self.crate_specific_symbol_context).debug_with(db, level.next()),
             )
             .finish()
     }

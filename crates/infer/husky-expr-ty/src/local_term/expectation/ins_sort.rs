@@ -121,7 +121,13 @@ impl<'a> ExprTypeEngine<'a> {
                                 }
                                 .into()
                             }
-                            TypeError::Derived(_) => todo!(),
+                            TypeError::Derived(_) => {
+                                DerivedLocalTermExpectationError::TermTypeError {
+                                    term: resolved_expectee.term(),
+                                    error,
+                                }
+                                .into()
+                            }
                         }),
                         actions: vec![],
                     },

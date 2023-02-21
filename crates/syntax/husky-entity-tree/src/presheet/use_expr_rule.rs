@@ -4,21 +4,8 @@ use husky_word::Identifier;
 use crate::*;
 
 #[derive(Debug, Default, PartialEq, Eq, Clone)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub(crate) struct UseExprRules(Vec<UseExprRule>);
-
-impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseExprRules {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
-        f.debug_tuple("EntityUseExprTrackers")
-            .field(&self.0.debug_with(db, include_all_fields))
-            .finish()
-    }
-}
 
 impl std::ops::Index<UseExprRuleIdx> for UseExprRules {
     type Output = UseExprRule;
@@ -98,7 +85,7 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for AccessibilityProgress
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
         match self {
@@ -132,7 +119,7 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseExprRule {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
         f.debug_struct("UseTracker")

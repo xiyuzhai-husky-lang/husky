@@ -1,8 +1,8 @@
 Ok(
     DefnSheet {
         defns: [
-            Type(
-                RegularStruct(
+            Defn::Type(
+                TypeDefn::RegularStruct(
                     RegularStructTypeDefn {
                         path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                         decl: RegularStructTypeDecl {
@@ -13,7 +13,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -21,13 +25,21 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::f32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::f32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -39,14 +51,22 @@ Ok(
                                                     6,
                                                 ),
                                                 ident: `f32`,
-                                                entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::f32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     10,
                                                 ),
                                                 ident: `f32`,
-                                                entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::f32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -155,8 +175,8 @@ Ok(
                     },
                 ),
             ),
-            Type(
-                RegularStruct(
+            Defn::Type(
+                TypeDefn::RegularStruct(
                     RegularStructTypeDefn {
                         path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                         decl: RegularStructTypeDecl {
@@ -167,7 +187,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -175,13 +199,21 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::f32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::f32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -193,14 +225,22 @@ Ok(
                                                     148,
                                                 ),
                                                 ident: `f32`,
-                                                entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::f32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     152,
                                                 ),
                                                 ident: `f32`,
-                                                entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::f32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -309,8 +349,8 @@ Ok(
                     },
                 ),
             ),
-            Type(
-                RegularStruct(
+            Defn::Type(
+                TypeDefn::RegularStruct(
                     RegularStructTypeDefn {
                         path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                         decl: RegularStructTypeDecl {
@@ -321,7 +361,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -329,13 +373,21 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::f32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::f32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -347,14 +399,22 @@ Ok(
                                                     161,
                                                 ),
                                                 ident: `f32`,
-                                                entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::f32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     165,
                                                 ),
                                                 ident: `f32`,
-                                                entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::f32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -463,8 +523,8 @@ Ok(
                     },
                 ),
             ),
-            Type(
-                RegularStruct(
+            Defn::Type(
+                TypeDefn::RegularStruct(
                     RegularStructTypeDefn {
                         path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                         decl: RegularStructTypeDecl {
@@ -475,7 +535,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -483,13 +547,21 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::f32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::f32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -501,14 +573,22 @@ Ok(
                                                     492,
                                                 ),
                                                 ident: `f32`,
-                                                entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::f32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     496,
                                                 ),
                                                 ident: `f32`,
-                                                entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::f32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -617,8 +697,8 @@ Ok(
                     },
                 ),
             ),
-            Type(
-                RegularStruct(
+            Defn::Type(
+                TypeDefn::RegularStruct(
                     RegularStructTypeDefn {
                         path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                         decl: RegularStructTypeDecl {
@@ -629,7 +709,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -637,13 +721,21 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -655,14 +747,22 @@ Ok(
                                                     736,
                                                 ),
                                                 ident: `ClosedRange`,
-                                                entity_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     740,
                                                 ),
                                                 ident: `ClosedRange`,
-                                                entity_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -771,7 +871,7 @@ Ok(
                     },
                 ),
             ),
-            ImplBlock(
+            Defn::ImplBlock(
                 ImplBlockDecl::TypeImplBlock(
                     TypeImplBlockDecl {
                         ast_idx: 81,
@@ -824,7 +924,11 @@ Ok(
                                         Expr::EntityPath {
                                             entity_path_expr: 0,
                                             entity_path: Some(
-                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    ),
+                                                ),
                                             ),
                                         },
                                     ],
@@ -836,7 +940,11 @@ Ok(
                                                 14,
                                             ),
                                             ident: `Point2d`,
-                                            entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                            entity_path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                ),
+                                            ),
                                         },
                                     ],
                                 },
@@ -875,9 +983,9 @@ Ok(
                     },
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -898,11 +1006,13 @@ Ok(
                                         ident: `from_i_shift28`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                            ident: `from_i_shift28`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                ident: `from_i_shift28`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -924,7 +1034,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: Public,
+                                    accessibility: Accessibility::Public,
                                     is_generic: false,
                                 },
                                 path: Some(
@@ -956,7 +1066,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -968,7 +1082,11 @@ Ok(
                                                                     14,
                                                                 ),
                                                                 ident: `Point2d`,
-                                                                entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -1023,19 +1141,31 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::i32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 1,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::i32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 2,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -1047,21 +1177,33 @@ Ok(
                                                         22,
                                                     ),
                                                     ident: `i32`,
-                                                    entity_path: TypePath(`core::num::i32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         26,
                                                     ),
                                                     ident: `i32`,
-                                                    entity_path: TypePath(`core::num::i32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         29,
                                                     ),
                                                     ident: `Point2d`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -1271,7 +1413,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -1283,7 +1429,11 @@ Ok(
                                                                             14,
                                                                         ),
                                                                         ident: `Point2d`,
-                                                                        entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -1338,19 +1488,31 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`core::num::i32`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::i32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                         Expr::EntityPath {
                                                             entity_path_expr: 1,
                                                             entity_path: Some(
-                                                                TypePath(`core::num::i32`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::i32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                         Expr::EntityPath {
                                                             entity_path_expr: 2,
                                                             entity_path: Some(
-                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -1362,21 +1524,33 @@ Ok(
                                                                 22,
                                                             ),
                                                             ident: `i32`,
-                                                            entity_path: TypePath(`core::num::i32`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::i32`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                         EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 26,
                                                             ),
                                                             ident: `i32`,
-                                                            entity_path: TypePath(`core::num::i32`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::i32`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                         EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 29,
                                                             ),
                                                             ident: `Point2d`,
-                                                            entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -1515,7 +1689,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::Literal(
@@ -1553,7 +1731,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::f32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::Literal(
@@ -1591,7 +1773,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 2,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::f32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::BinaryOpn {
@@ -1637,21 +1823,33 @@ Ok(
                                                     31,
                                                 ),
                                                 ident: `Point2d`,
-                                                entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     39,
                                                 ),
                                                 ident: `f32`,
-                                                entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::f32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     47,
                                                 ),
                                                 ident: `f32`,
-                                                entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::f32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -1713,9 +1911,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -1736,11 +1934,13 @@ Ok(
                                         ident: `vector`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                            ident: `vector`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                ident: `vector`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -1762,7 +1962,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::geom2d`,
                                     ),
                                     is_generic: false,
@@ -1796,7 +1996,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -1808,7 +2012,11 @@ Ok(
                                                                     14,
                                                                 ),
                                                                 ident: `Point2d`,
-                                                                entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -1863,7 +2071,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -1875,7 +2087,11 @@ Ok(
                                                         54,
                                                     ),
                                                     ident: `Vector2d`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -1970,7 +2186,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -1982,7 +2202,11 @@ Ok(
                                                                             14,
                                                                         ),
                                                                         ident: `Point2d`,
-                                                                        entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -2037,7 +2261,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -2049,7 +2277,11 @@ Ok(
                                                                 54,
                                                             ),
                                                             ident: `Vector2d`,
-                                                            entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -2104,7 +2336,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::SelfValue(
@@ -2168,7 +2404,11 @@ Ok(
                                                     56,
                                                 ),
                                                 ident: `Vector2d`,
-                                                entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -2215,9 +2455,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -2238,11 +2478,13 @@ Ok(
                                         ident: `to`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                            ident: `to`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                ident: `to`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -2264,7 +2506,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::geom2d`,
                                     ),
                                     is_generic: false,
@@ -2298,7 +2540,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -2310,7 +2556,11 @@ Ok(
                                                                     14,
                                                                 ),
                                                                 ident: `Point2d`,
-                                                                entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -2365,13 +2615,21 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 1,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -2383,14 +2641,22 @@ Ok(
                                                         71,
                                                     ),
                                                     ident: `Point2d`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         74,
                                                     ),
                                                     ident: `Vector2d`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -2543,7 +2809,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -2555,7 +2825,11 @@ Ok(
                                                                             14,
                                                                         ),
                                                                         ident: `Point2d`,
-                                                                        entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -2610,13 +2884,21 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                         Expr::EntityPath {
                                                             entity_path_expr: 1,
                                                             entity_path: Some(
-                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -2628,14 +2910,22 @@ Ok(
                                                                 71,
                                                             ),
                                                             ident: `Point2d`,
-                                                            entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                ),
+                                                            ),
                                                         },
                                                         EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 74,
                                                             ),
                                                             ident: `Vector2d`,
-                                                            entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -2735,7 +3025,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::InheritedSymbol {
@@ -2859,7 +3153,11 @@ Ok(
                                                     76,
                                                 ),
                                                 ident: `Vector2d`,
-                                                entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -2914,9 +3212,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -2937,11 +3235,13 @@ Ok(
                                         ident: `norm`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                            ident: `norm`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                ident: `norm`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -2963,7 +3263,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::geom2d`,
                                     ),
                                     is_generic: false,
@@ -2997,7 +3297,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -3009,7 +3313,11 @@ Ok(
                                                                     14,
                                                                 ),
                                                                 ident: `Point2d`,
-                                                                entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -3064,7 +3372,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -3076,7 +3388,11 @@ Ok(
                                                         99,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -3171,7 +3487,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -3183,7 +3503,11 @@ Ok(
                                                                             14,
                                                                         ),
                                                                         ident: `Point2d`,
-                                                                        entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -3238,7 +3562,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -3250,7 +3578,11 @@ Ok(
                                                                 99,
                                                             ),
                                                             ident: `f32`,
-                                                            entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -3484,9 +3816,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -3507,11 +3839,13 @@ Ok(
                                         ident: `dist`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                            ident: `dist`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                ident: `dist`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -3533,7 +3867,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::geom2d`,
                                     ),
                                     is_generic: false,
@@ -3567,7 +3901,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -3579,7 +3917,11 @@ Ok(
                                                                     14,
                                                                 ),
                                                                 ident: `Point2d`,
-                                                                entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -3634,13 +3976,21 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 1,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -3652,14 +4002,22 @@ Ok(
                                                         127,
                                                     ),
                                                     ident: `Point2d`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         130,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -3812,7 +4170,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -3824,7 +4186,11 @@ Ok(
                                                                             14,
                                                                         ),
                                                                         ident: `Point2d`,
-                                                                        entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -3879,13 +4245,21 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                         Expr::EntityPath {
                                                             entity_path_expr: 1,
                                                             entity_path: Some(
-                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -3897,14 +4271,22 @@ Ok(
                                                                 127,
                                                             ),
                                                             ident: `Point2d`,
-                                                            entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                ),
+                                                            ),
                                                         },
                                                         EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 130,
                                                             ),
                                                             ident: `f32`,
-                                                            entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -4119,7 +4501,7 @@ Ok(
                     ),
                 ),
             ),
-            ImplBlock(
+            Defn::ImplBlock(
                 ImplBlockDecl::TypeImplBlock(
                     TypeImplBlockDecl {
                         ast_idx: 84,
@@ -4172,7 +4554,11 @@ Ok(
                                         Expr::EntityPath {
                                             entity_path_expr: 0,
                                             entity_path: Some(
-                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    ),
+                                                ),
                                             ),
                                         },
                                     ],
@@ -4184,7 +4570,11 @@ Ok(
                                                 169,
                                             ),
                                             ident: `Vector2d`,
-                                            entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                            entity_path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                ),
+                                            ),
                                         },
                                     ],
                                 },
@@ -4223,9 +4613,9 @@ Ok(
                     },
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -4246,11 +4636,13 @@ Ok(
                                         ident: `point`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                            ident: `point`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                ident: `point`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -4272,7 +4664,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: Public,
+                                    accessibility: Accessibility::Public,
                                     is_generic: false,
                                 },
                                 path: Some(
@@ -4304,7 +4696,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -4316,7 +4712,11 @@ Ok(
                                                                     169,
                                                                 ),
                                                                 ident: `Vector2d`,
-                                                                entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -4371,7 +4771,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -4383,7 +4787,11 @@ Ok(
                                                         177,
                                                     ),
                                                     ident: `Point2d`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -4478,7 +4886,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -4490,7 +4902,11 @@ Ok(
                                                                             169,
                                                                         ),
                                                                         ident: `Vector2d`,
-                                                                        entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -4545,7 +4961,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -4557,7 +4977,11 @@ Ok(
                                                                 177,
                                                             ),
                                                             ident: `Point2d`,
-                                                            entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -4612,7 +5036,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::SelfValue(
@@ -4676,7 +5104,11 @@ Ok(
                                                     179,
                                                 ),
                                                 ident: `Point2d`,
-                                                entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -4723,9 +5155,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -4746,11 +5178,13 @@ Ok(
                                         ident: `to`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                            ident: `to`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                ident: `to`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -4772,7 +5206,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: Public,
+                                    accessibility: Accessibility::Public,
                                     is_generic: false,
                                 },
                                 path: Some(
@@ -4804,7 +5238,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -4816,7 +5254,11 @@ Ok(
                                                                     169,
                                                                 ),
                                                                 ident: `Vector2d`,
-                                                                entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -4871,13 +5313,21 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 1,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -4889,14 +5339,22 @@ Ok(
                                                         195,
                                                     ),
                                                     ident: `Vector2d`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         198,
                                                     ),
                                                     ident: `Vector2d`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -5049,7 +5507,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -5061,7 +5523,11 @@ Ok(
                                                                             169,
                                                                         ),
                                                                         ident: `Vector2d`,
-                                                                        entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -5116,13 +5582,21 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                         Expr::EntityPath {
                                                             entity_path_expr: 1,
                                                             entity_path: Some(
-                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -5134,14 +5608,22 @@ Ok(
                                                                 195,
                                                             ),
                                                             ident: `Vector2d`,
-                                                            entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                ),
+                                                            ),
                                                         },
                                                         EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 198,
                                                             ),
                                                             ident: `Vector2d`,
-                                                            entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -5241,7 +5723,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::InheritedSymbol {
@@ -5365,7 +5851,11 @@ Ok(
                                                     200,
                                                 ),
                                                 ident: `Vector2d`,
-                                                entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -5420,9 +5910,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -5443,11 +5933,13 @@ Ok(
                                         ident: `norm`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                            ident: `norm`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                ident: `norm`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -5469,7 +5961,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::geom2d`,
                                     ),
                                     is_generic: false,
@@ -5503,7 +5995,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -5515,7 +6011,11 @@ Ok(
                                                                     169,
                                                                 ),
                                                                 ident: `Vector2d`,
-                                                                entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -5570,7 +6070,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -5582,7 +6086,11 @@ Ok(
                                                         223,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -5677,7 +6185,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -5689,7 +6201,11 @@ Ok(
                                                                             169,
                                                                         ),
                                                                         ident: `Vector2d`,
-                                                                        entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -5744,7 +6260,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -5756,7 +6276,11 @@ Ok(
                                                                 223,
                                                             ),
                                                             ident: `f32`,
-                                                            entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -5990,9 +6514,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -6013,11 +6537,13 @@ Ok(
                                         ident: `dot`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                            ident: `dot`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                ident: `dot`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -6039,7 +6565,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::geom2d`,
                                     ),
                                     is_generic: false,
@@ -6073,7 +6599,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -6085,7 +6615,11 @@ Ok(
                                                                     169,
                                                                 ),
                                                                 ident: `Vector2d`,
-                                                                entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -6140,13 +6674,21 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 1,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -6158,14 +6700,22 @@ Ok(
                                                         251,
                                                     ),
                                                     ident: `Vector2d`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         254,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -6318,7 +6868,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -6330,7 +6884,11 @@ Ok(
                                                                             169,
                                                                         ),
                                                                         ident: `Vector2d`,
-                                                                        entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -6385,13 +6943,21 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                         Expr::EntityPath {
                                                             entity_path_expr: 1,
                                                             entity_path: Some(
-                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -6403,14 +6969,22 @@ Ok(
                                                                 251,
                                                             ),
                                                             ident: `Vector2d`,
-                                                            entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                ),
+                                                            ),
                                                         },
                                                         EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 254,
                                                             ),
                                                             ident: `f32`,
-                                                            entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -6672,9 +7246,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -6695,11 +7269,13 @@ Ok(
                                         ident: `cross`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                            ident: `cross`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                ident: `cross`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -6721,7 +7297,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::geom2d`,
                                     ),
                                     is_generic: false,
@@ -6755,7 +7331,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -6767,7 +7347,11 @@ Ok(
                                                                     169,
                                                                 ),
                                                                 ident: `Vector2d`,
-                                                                entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -6822,13 +7406,21 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 1,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -6840,14 +7432,22 @@ Ok(
                                                         276,
                                                     ),
                                                     ident: `Vector2d`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         279,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -7000,7 +7600,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -7012,7 +7616,11 @@ Ok(
                                                                             169,
                                                                         ),
                                                                         ident: `Vector2d`,
-                                                                        entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -7067,13 +7675,21 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                         Expr::EntityPath {
                                                             entity_path_expr: 1,
                                                             entity_path: Some(
-                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -7085,14 +7701,22 @@ Ok(
                                                                 276,
                                                             ),
                                                             ident: `Vector2d`,
-                                                            entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                ),
+                                                            ),
                                                         },
                                                         EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 279,
                                                             ),
                                                             ident: `f32`,
-                                                            entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -7354,9 +7978,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -7377,11 +8001,13 @@ Ok(
                                         ident: `angle`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                            ident: `angle`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                ident: `angle`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -7403,7 +8029,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::geom2d`,
                                     ),
                                     is_generic: false,
@@ -7437,7 +8063,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -7449,7 +8079,11 @@ Ok(
                                                                     169,
                                                                 ),
                                                                 ident: `Vector2d`,
-                                                                entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -7504,13 +8138,21 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::basic::bool`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::basic::bool`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 1,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -7522,14 +8164,22 @@ Ok(
                                                         301,
                                                     ),
                                                     ident: `bool`,
-                                                    entity_path: TypePath(`core::basic::bool`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::basic::bool`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         304,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -7682,7 +8332,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -7694,7 +8348,11 @@ Ok(
                                                                             169,
                                                                         ),
                                                                         ident: `Vector2d`,
-                                                                        entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -7749,13 +8407,21 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`core::basic::bool`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::basic::bool`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                         Expr::EntityPath {
                                                             entity_path_expr: 1,
                                                             entity_path: Some(
-                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -7767,14 +8433,22 @@ Ok(
                                                                 301,
                                                             ),
                                                             ident: `bool`,
-                                                            entity_path: TypePath(`core::basic::bool`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::basic::bool`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                         EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 304,
                                                             ),
                                                             ident: `f32`,
-                                                            entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -8068,7 +8742,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::f32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::BinaryOpn {
@@ -8181,7 +8859,11 @@ Ok(
                                                     351,
                                                 ),
                                                 ident: `f32`,
-                                                entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::f32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -8409,9 +9091,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -8432,11 +9114,13 @@ Ok(
                                         ident: `rotation_direction_to`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                            ident: `rotation_direction_to`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                ident: `rotation_direction_to`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -8458,7 +9142,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::geom2d`,
                                     ),
                                     is_generic: false,
@@ -8492,7 +9176,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -8504,7 +9192,11 @@ Ok(
                                                                     169,
                                                                 ),
                                                                 ident: `Vector2d`,
-                                                                entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -8559,13 +9251,21 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 1,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::i32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -8577,14 +9277,22 @@ Ok(
                                                         370,
                                                     ),
                                                     ident: `Vector2d`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         373,
                                                     ),
                                                     ident: `i32`,
-                                                    entity_path: TypePath(`core::num::i32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -8737,7 +9445,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -8749,7 +9461,11 @@ Ok(
                                                                             169,
                                                                         ),
                                                                         ident: `Vector2d`,
-                                                                        entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -8804,13 +9520,21 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                         Expr::EntityPath {
                                                             entity_path_expr: 1,
                                                             entity_path: Some(
-                                                                TypePath(`core::num::i32`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::i32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -8822,14 +9546,22 @@ Ok(
                                                                 370,
                                                             ),
                                                             ident: `Vector2d`,
-                                                            entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                ),
+                                                            ),
                                                         },
                                                         EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 373,
                                                             ),
                                                             ident: `i32`,
-                                                            entity_path: TypePath(`core::num::i32`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::i32`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -9044,9 +9776,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -9067,11 +9799,13 @@ Ok(
                                         ident: `angle_to`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                            ident: `angle_to`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                ident: `angle_to`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -9093,7 +9827,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::geom2d`,
                                     ),
                                     is_generic: false,
@@ -9127,7 +9861,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -9139,7 +9877,11 @@ Ok(
                                                                     169,
                                                                 ),
                                                                 ident: `Vector2d`,
-                                                                entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -9194,19 +9936,31 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 1,
                                                     entity_path: Some(
-                                                        TypePath(`core::basic::bool`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::basic::bool`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 2,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -9218,21 +9972,33 @@ Ok(
                                                         390,
                                                     ),
                                                     ident: `Vector2d`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         394,
                                                     ),
                                                     ident: `bool`,
-                                                    entity_path: TypePath(`core::basic::bool`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::basic::bool`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         397,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -9442,7 +10208,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -9454,7 +10224,11 @@ Ok(
                                                                             169,
                                                                         ),
                                                                         ident: `Vector2d`,
-                                                                        entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -9509,19 +10283,31 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                         Expr::EntityPath {
                                                             entity_path_expr: 1,
                                                             entity_path: Some(
-                                                                TypePath(`core::basic::bool`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::basic::bool`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                         Expr::EntityPath {
                                                             entity_path_expr: 2,
                                                             entity_path: Some(
-                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -9533,21 +10319,33 @@ Ok(
                                                                 390,
                                                             ),
                                                             ident: `Vector2d`,
-                                                            entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                ),
+                                                            ),
                                                         },
                                                         EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 394,
                                                             ),
                                                             ident: `bool`,
-                                                            entity_path: TypePath(`core::basic::bool`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::basic::bool`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                         EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 397,
                                                             ),
                                                             ident: `f32`,
-                                                            entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -10013,7 +10811,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::f32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::BinaryOpn {
@@ -10129,7 +10931,11 @@ Ok(
                                                     473,
                                                 ),
                                                 ident: `f32`,
-                                                entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::f32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -10594,7 +11400,7 @@ Ok(
                     ),
                 ),
             ),
-            ImplBlock(
+            Defn::ImplBlock(
                 ImplBlockDecl::TypeImplBlock(
                     TypeImplBlockDecl {
                         ast_idx: 89,
@@ -10647,7 +11453,11 @@ Ok(
                                         Expr::EntityPath {
                                             entity_path_expr: 0,
                                             entity_path: Some(
-                                                TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                    ),
+                                                ),
                                             ),
                                         },
                                     ],
@@ -10659,7 +11469,11 @@ Ok(
                                                 610,
                                             ),
                                             ident: `BoundingBox`,
-                                            entity_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                            entity_path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                ),
+                                            ),
                                         },
                                     ],
                                 },
@@ -10698,9 +11512,9 @@ Ok(
                     },
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -10721,11 +11535,13 @@ Ok(
                                         ident: `relative_bounding_box`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                            ident: `relative_bounding_box`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                ident: `relative_bounding_box`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -10747,7 +11563,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::geom2d`,
                                     ),
                                     is_generic: false,
@@ -10781,7 +11597,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -10793,7 +11613,11 @@ Ok(
                                                                     610,
                                                                 ),
                                                                 ident: `BoundingBox`,
-                                                                entity_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -10848,13 +11672,21 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 1,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -10866,14 +11698,22 @@ Ok(
                                                         617,
                                                     ),
                                                     ident: `BoundingBox`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         620,
                                                     ),
                                                     ident: `RelativeBoundingBox`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -11026,7 +11866,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -11038,7 +11882,11 @@ Ok(
                                                                             610,
                                                                         ),
                                                                         ident: `BoundingBox`,
-                                                                        entity_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -11093,13 +11941,21 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                         Expr::EntityPath {
                                                             entity_path_expr: 1,
                                                             entity_path: Some(
-                                                                TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -11111,14 +11967,22 @@ Ok(
                                                                 617,
                                                             ),
                                                             ident: `BoundingBox`,
-                                                            entity_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                ),
+                                                            ),
                                                         },
                                                         EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 620,
                                                             ),
                                                             ident: `RelativeBoundingBox`,
-                                                            entity_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -11218,7 +12082,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::SelfValue(
@@ -11366,7 +12234,11 @@ Ok(
                                                     622,
                                                 ),
                                                 ident: `RelativeBoundingBox`,
-                                                entity_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -11421,9 +12293,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -11444,11 +12316,13 @@ Ok(
                                         ident: `relative_point`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                            ident: `relative_point`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                ident: `relative_point`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -11470,7 +12344,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::geom2d`,
                                     ),
                                     is_generic: false,
@@ -11504,7 +12378,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -11516,7 +12394,11 @@ Ok(
                                                                     610,
                                                                 ),
                                                                 ident: `BoundingBox`,
-                                                                entity_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -11571,13 +12453,21 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 1,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -11589,14 +12479,22 @@ Ok(
                                                         652,
                                                     ),
                                                     ident: `Point2d`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         655,
                                                     ),
                                                     ident: `RelativePoint2d`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -11749,7 +12647,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -11761,7 +12663,11 @@ Ok(
                                                                             610,
                                                                         ),
                                                                         ident: `BoundingBox`,
-                                                                        entity_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -11816,13 +12722,21 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                         Expr::EntityPath {
                                                             entity_path_expr: 1,
                                                             entity_path: Some(
-                                                                TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -11834,14 +12748,22 @@ Ok(
                                                                 652,
                                                             ),
                                                             ident: `Point2d`,
-                                                            entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                ),
+                                                            ),
                                                         },
                                                         EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
                                                                 655,
                                                             ),
                                                             ident: `RelativePoint2d`,
-                                                            entity_path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -11941,7 +12863,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::SelfValue(
@@ -12089,7 +13015,11 @@ Ok(
                                                     657,
                                                 ),
                                                 ident: `RelativePoint2d`,
-                                                entity_path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -12144,9 +13074,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -12167,11 +13097,13 @@ Ok(
                                         ident: `xmin`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                            ident: `xmin`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                ident: `xmin`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -12193,7 +13125,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::geom2d`,
                                     ),
                                     is_generic: false,
@@ -12227,7 +13159,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -12239,7 +13175,11 @@ Ok(
                                                                     610,
                                                                 ),
                                                                 ident: `BoundingBox`,
-                                                                entity_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -12294,7 +13234,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -12306,7 +13250,11 @@ Ok(
                                                         687,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -12401,7 +13349,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -12413,7 +13365,11 @@ Ok(
                                                                             610,
                                                                         ),
                                                                         ident: `BoundingBox`,
-                                                                        entity_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -12468,7 +13424,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -12480,7 +13440,11 @@ Ok(
                                                                 687,
                                                             ),
                                                             ident: `f32`,
-                                                            entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -12614,9 +13578,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -12637,11 +13601,13 @@ Ok(
                                         ident: `xmax`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                            ident: `xmax`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                ident: `xmax`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -12663,7 +13629,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::geom2d`,
                                     ),
                                     is_generic: false,
@@ -12697,7 +13663,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -12709,7 +13679,11 @@ Ok(
                                                                     610,
                                                                 ),
                                                                 ident: `BoundingBox`,
-                                                                entity_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -12764,7 +13738,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -12776,7 +13754,11 @@ Ok(
                                                         699,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -12871,7 +13853,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -12883,7 +13869,11 @@ Ok(
                                                                             610,
                                                                         ),
                                                                         ident: `BoundingBox`,
-                                                                        entity_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -12938,7 +13928,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -12950,7 +13944,11 @@ Ok(
                                                                 699,
                                                             ),
                                                             ident: `f32`,
-                                                            entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -13084,9 +14082,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -13107,11 +14105,13 @@ Ok(
                                         ident: `ymin`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                            ident: `ymin`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                ident: `ymin`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -13133,7 +14133,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::geom2d`,
                                     ),
                                     is_generic: false,
@@ -13167,7 +14167,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -13179,7 +14183,11 @@ Ok(
                                                                     610,
                                                                 ),
                                                                 ident: `BoundingBox`,
-                                                                entity_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -13234,7 +14242,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -13246,7 +14258,11 @@ Ok(
                                                         711,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -13341,7 +14357,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -13353,7 +14373,11 @@ Ok(
                                                                             610,
                                                                         ),
                                                                         ident: `BoundingBox`,
-                                                                        entity_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -13408,7 +14432,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -13420,7 +14448,11 @@ Ok(
                                                                 711,
                                                             ),
                                                             ident: `f32`,
-                                                            entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -13554,9 +14586,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -13577,11 +14609,13 @@ Ok(
                                         ident: `ymax`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                            ident: `ymax`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                ident: `ymax`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -13603,7 +14637,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::geom2d`,
                                     ),
                                     is_generic: false,
@@ -13637,7 +14671,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -13649,7 +14687,11 @@ Ok(
                                                                     610,
                                                                 ),
                                                                 ident: `BoundingBox`,
-                                                                entity_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -13704,7 +14746,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -13716,7 +14762,11 @@ Ok(
                                                         723,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -13811,7 +14861,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -13823,7 +14877,11 @@ Ok(
                                                                             610,
                                                                         ),
                                                                         ident: `BoundingBox`,
-                                                                        entity_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -13878,7 +14936,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -13890,7 +14952,11 @@ Ok(
                                                                 723,
                                                             ),
                                                             ident: `f32`,
-                                                            entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -14024,7 +15090,7 @@ Ok(
                     ),
                 ),
             ),
-            ImplBlock(
+            Defn::ImplBlock(
                 ImplBlockDecl::TypeImplBlock(
                     TypeImplBlockDecl {
                         ast_idx: 91,
@@ -14077,7 +15143,11 @@ Ok(
                                         Expr::EntityPath {
                                             entity_path_expr: 0,
                                             entity_path: Some(
-                                                TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                    ),
+                                                ),
                                             ),
                                         },
                                     ],
@@ -14089,7 +15159,11 @@ Ok(
                                                 744,
                                             ),
                                             ident: `RelativeBoundingBox`,
-                                            entity_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                            entity_path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                ),
+                                            ),
                                         },
                                     ],
                                 },
@@ -14128,9 +15202,9 @@ Ok(
                     },
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -14151,11 +15225,13 @@ Ok(
                                         ident: `xmin`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                            ident: `xmin`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                ident: `xmin`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -14177,7 +15253,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::geom2d`,
                                     ),
                                     is_generic: false,
@@ -14211,7 +15287,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -14223,7 +15303,11 @@ Ok(
                                                                     744,
                                                                 ),
                                                                 ident: `RelativeBoundingBox`,
-                                                                entity_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -14278,7 +15362,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -14290,7 +15378,11 @@ Ok(
                                                         751,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -14385,7 +15477,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -14397,7 +15493,11 @@ Ok(
                                                                             744,
                                                                         ),
                                                                         ident: `RelativeBoundingBox`,
-                                                                        entity_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -14452,7 +15552,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -14464,7 +15568,11 @@ Ok(
                                                                 751,
                                                             ),
                                                             ident: `f32`,
-                                                            entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -14598,9 +15706,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -14621,11 +15729,13 @@ Ok(
                                         ident: `xmax`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                            ident: `xmax`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                ident: `xmax`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -14647,7 +15757,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::geom2d`,
                                     ),
                                     is_generic: false,
@@ -14681,7 +15791,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -14693,7 +15807,11 @@ Ok(
                                                                     744,
                                                                 ),
                                                                 ident: `RelativeBoundingBox`,
-                                                                entity_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -14748,7 +15866,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -14760,7 +15882,11 @@ Ok(
                                                         763,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -14855,7 +15981,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -14867,7 +15997,11 @@ Ok(
                                                                             744,
                                                                         ),
                                                                         ident: `RelativeBoundingBox`,
-                                                                        entity_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -14922,7 +16056,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -14934,7 +16072,11 @@ Ok(
                                                                 763,
                                                             ),
                                                             ident: `f32`,
-                                                            entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -15068,9 +16210,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -15091,11 +16233,13 @@ Ok(
                                         ident: `ymin`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                            ident: `ymin`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                ident: `ymin`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -15117,7 +16261,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::geom2d`,
                                     ),
                                     is_generic: false,
@@ -15151,7 +16295,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -15163,7 +16311,11 @@ Ok(
                                                                     744,
                                                                 ),
                                                                 ident: `RelativeBoundingBox`,
-                                                                entity_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -15218,7 +16370,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -15230,7 +16386,11 @@ Ok(
                                                         775,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -15325,7 +16485,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -15337,7 +16501,11 @@ Ok(
                                                                             744,
                                                                         ),
                                                                         ident: `RelativeBoundingBox`,
-                                                                        entity_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -15392,7 +16560,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -15404,7 +16576,11 @@ Ok(
                                                                 775,
                                                             ),
                                                             ident: `f32`,
-                                                            entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -15538,9 +16714,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -15561,11 +16737,13 @@ Ok(
                                         ident: `ymax`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                            ident: `ymax`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                ident: `ymax`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -15587,7 +16765,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::geom2d`,
                                     ),
                                     is_generic: false,
@@ -15621,7 +16799,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -15633,7 +16815,11 @@ Ok(
                                                                     744,
                                                                 ),
                                                                 ident: `RelativeBoundingBox`,
-                                                                entity_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -15688,7 +16874,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -15700,7 +16890,11 @@ Ok(
                                                         787,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -15795,7 +16989,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -15807,7 +17005,11 @@ Ok(
                                                                             744,
                                                                         ),
                                                                         ident: `RelativeBoundingBox`,
-                                                                        entity_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -15862,7 +17064,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -15874,7 +17080,11 @@ Ok(
                                                                 787,
                                                             ),
                                                             ident: `f32`,
-                                                            entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },

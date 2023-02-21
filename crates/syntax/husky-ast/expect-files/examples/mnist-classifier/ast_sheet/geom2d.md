@@ -1,6 +1,6 @@
 Ok(
     AstSheet {
-        arena: Arena {
+        ast_arena: Arena {
             data: [
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
@@ -49,7 +49,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             Method,
@@ -75,7 +75,7 @@ Ok(
                     body: ArenaIdxRange(
                         1..2,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -103,7 +103,7 @@ Ok(
                     body: ArenaIdxRange(
                         2..3,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -131,7 +131,7 @@ Ok(
                     body: ArenaIdxRange(
                         3..4,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -159,7 +159,7 @@ Ok(
                     body: ArenaIdxRange(
                         4..5,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -439,7 +439,7 @@ Ok(
                     body: ArenaIdxRange(
                         10..11,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             Method,
@@ -465,7 +465,7 @@ Ok(
                     body: ArenaIdxRange(
                         11..12,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             Method,
@@ -491,7 +491,7 @@ Ok(
                     body: ArenaIdxRange(
                         12..13,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -519,7 +519,7 @@ Ok(
                     body: ArenaIdxRange(
                         13..14,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -547,7 +547,7 @@ Ok(
                     body: ArenaIdxRange(
                         14..15,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -575,7 +575,7 @@ Ok(
                     body: ArenaIdxRange(
                         23..25,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -603,7 +603,7 @@ Ok(
                     body: ArenaIdxRange(
                         25..26,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -631,7 +631,7 @@ Ok(
                     body: ArenaIdxRange(
                         35..41,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -715,7 +715,7 @@ Ok(
                     body: ArenaIdxRange(
                         49..54,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -743,7 +743,7 @@ Ok(
                     body: ArenaIdxRange(
                         54..56,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -831,7 +831,7 @@ Ok(
                     body: ArenaIdxRange(
                         60..61,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -859,7 +859,7 @@ Ok(
                     body: ArenaIdxRange(
                         61..62,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -887,7 +887,7 @@ Ok(
                     body: ArenaIdxRange(
                         62..63,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -915,7 +915,7 @@ Ok(
                     body: ArenaIdxRange(
                         63..64,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -943,7 +943,7 @@ Ok(
                     body: ArenaIdxRange(
                         64..65,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -971,7 +971,7 @@ Ok(
                     body: ArenaIdxRange(
                         65..66,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -1031,7 +1031,7 @@ Ok(
                     body: ArenaIdxRange(
                         72..73,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -1059,7 +1059,7 @@ Ok(
                     body: ArenaIdxRange(
                         73..74,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -1087,7 +1087,7 @@ Ok(
                     body: ArenaIdxRange(
                         74..75,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -1115,7 +1115,7 @@ Ok(
                     body: ArenaIdxRange(
                         75..76,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -1143,7 +1143,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1151,7 +1151,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `Point2d`,
@@ -1180,7 +1184,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1188,7 +1192,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `RelativePoint2d`,
@@ -1209,7 +1217,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1217,7 +1225,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `Vector2d`,
@@ -1246,7 +1258,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1254,7 +1266,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `ClosedRange`,
@@ -1283,7 +1299,7 @@ Ok(
                     body: ArenaIdxRange(
                         58..60,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1291,7 +1307,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `BoundingBox`,
@@ -1326,7 +1346,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1334,7 +1354,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `RelativeBoundingBox`,

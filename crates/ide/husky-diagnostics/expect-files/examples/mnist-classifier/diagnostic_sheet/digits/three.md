@@ -42,11 +42,6 @@ DiagnosticSheet {
                 range: [11:43, 11:65),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term FermiMatchResult",
-                severity: Error,
-                range: [11:5, 11:66),
-            },
-            Diagnostic {
                 message: "Type Error: TodoScopeResolution",
                 severity: Error,
                 range: [44:5, 44:22),
@@ -60,11 +55,6 @@ DiagnosticSheet {
                 message: "Type Error: original `todo` in term List ConcaveComponent",
                 severity: Error,
                 range: [25:13, 25:37),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term bool",
-                severity: Error,
-                range: [33:42, 33:46),
             },
             Diagnostic {
                 message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime ConcaveComponent",

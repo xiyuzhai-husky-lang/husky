@@ -2,7 +2,7 @@ Ok(
     DeclSheet {
         decls: [
             Ok(
-                Form(
+                Decl::Form(
                     FormDecl::Feature(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
@@ -31,7 +31,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -51,7 +55,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::Application {
@@ -67,7 +75,11 @@ Ok(
                                                     36,
                                                 ),
                                                 ident: `ConnectedComponent`,
-                                                entity_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -108,7 +120,7 @@ Ok(
                 ),
             ),
             Ok(
-                Form(
+                Decl::Form(
                     FormDecl::Feature(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
@@ -137,7 +149,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -145,7 +161,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -157,7 +177,11 @@ Ok(
                                                     46,
                                                 ),
                                                 ident: `ConnectedComponent`,
-                                                entity_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -198,7 +222,7 @@ Ok(
                 ),
             ),
             Ok(
-                Form(
+                Decl::Form(
                     FormDecl::Feature(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
@@ -227,7 +251,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -235,7 +263,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::f32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -247,7 +279,11 @@ Ok(
                                                     96,
                                                 ),
                                                 ident: `f32`,
-                                                entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::f32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -288,7 +324,7 @@ Ok(
                 ),
             ),
             Ok(
-                Form(
+                Decl::Form(
                     FormDecl::Feature(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
@@ -317,7 +353,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -337,7 +377,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::Application {
@@ -353,7 +397,11 @@ Ok(
                                                     132,
                                                 ),
                                                 ident: `RawContour`,
-                                                entity_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -394,7 +442,7 @@ Ok(
                 ),
             ),
             Ok(
-                Form(
+                Decl::Form(
                     FormDecl::Feature(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
@@ -423,7 +471,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -431,7 +483,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -443,7 +499,11 @@ Ok(
                                                     141,
                                                 ),
                                                 ident: `RawContour`,
-                                                entity_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -484,7 +544,7 @@ Ok(
                 ),
             ),
             Ok(
-                Form(
+                Decl::Form(
                     FormDecl::Feature(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
@@ -513,7 +573,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -521,7 +585,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -533,7 +601,11 @@ Ok(
                                                     153,
                                                 ),
                                                 ident: `LineSegmentSketch`,
-                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -574,7 +646,7 @@ Ok(
                 ),
             ),
             Ok(
-                Form(
+                Decl::Form(
                     FormDecl::Feature(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
@@ -603,7 +675,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -623,7 +699,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::Application {
@@ -639,7 +719,11 @@ Ok(
                                                     164,
                                                 ),
                                                 ident: `ConcaveComponent`,
-                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },

@@ -2,7 +2,7 @@ Ok(
     DeclSheet {
         decls: [
             Ok(
-                Type(
+                Decl::Type(
                     TypeDecl::RegularStruct(
                         RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -12,7 +12,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -20,7 +24,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::PrefixOpn {
@@ -45,7 +53,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::Application {
@@ -61,14 +73,22 @@ Ok(
                                                     33,
                                                 ),
                                                 ident: `ConnectedComponent`,
-                                                entity_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     39,
                                                 ),
                                                 ident: `Point2d`,
-                                                entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -178,7 +198,7 @@ Ok(
                 ),
             ),
             Ok(
-                Type(
+                Decl::Type(
                     TypeDecl::Enum(
                         EnumTypeDecl {
                             path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
@@ -188,7 +208,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -230,7 +254,7 @@ Ok(
                 ),
             ),
             Ok(
-                Form(
+                Decl::Form(
                     FormDecl::Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
@@ -240,7 +264,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -248,19 +276,31 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::i32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 2,
                                                 entity_path: Some(
-                                                    TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -272,21 +312,33 @@ Ok(
                                                     408,
                                                 ),
                                                 ident: `r32`,
-                                                entity_path: TypePath(`core::raw_bits::r32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     412,
                                                 ),
                                                 ident: `i32`,
-                                                entity_path: TypePath(`core::num::i32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::i32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     415,
                                                 ),
                                                 ident: `r32`,
-                                                entity_path: TypePath(`core::raw_bits::r32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -476,7 +528,7 @@ Ok(
                 ),
             ),
             Ok(
-                Form(
+                Decl::Form(
                     FormDecl::Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
@@ -486,7 +538,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -494,19 +550,31 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::i32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 2,
                                                 entity_path: Some(
-                                                    TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -518,21 +586,33 @@ Ok(
                                                     433,
                                                 ),
                                                 ident: `r32`,
-                                                entity_path: TypePath(`core::raw_bits::r32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     437,
                                                 ),
                                                 ident: `i32`,
-                                                entity_path: TypePath(`core::num::i32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::i32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     440,
                                                 ),
                                                 ident: `r32`,
-                                                entity_path: TypePath(`core::raw_bits::r32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -722,7 +802,7 @@ Ok(
                 ),
             ),
             Ok(
-                Form(
+                Decl::Form(
                     FormDecl::Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
@@ -732,7 +812,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -740,19 +824,31 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::i32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 2,
                                                 entity_path: Some(
-                                                    TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -764,21 +860,33 @@ Ok(
                                                     454,
                                                 ),
                                                 ident: `r32`,
-                                                entity_path: TypePath(`core::raw_bits::r32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     458,
                                                 ),
                                                 ident: `i32`,
-                                                entity_path: TypePath(`core::num::i32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::i32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     461,
                                                 ),
                                                 ident: `r32`,
-                                                entity_path: TypePath(`core::raw_bits::r32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -968,7 +1076,7 @@ Ok(
                 ),
             ),
             Ok(
-                Form(
+                Decl::Form(
                     FormDecl::Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
@@ -978,7 +1086,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -986,25 +1098,41 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 2,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::i32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 3,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -1016,28 +1144,44 @@ Ok(
                                                     479,
                                                 ),
                                                 ident: `r32`,
-                                                entity_path: TypePath(`core::raw_bits::r32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     483,
                                                 ),
                                                 ident: `r32`,
-                                                entity_path: TypePath(`core::raw_bits::r32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     487,
                                                 ),
                                                 ident: `i32`,
-                                                entity_path: TypePath(`core::num::i32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::i32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     491,
                                                 ),
                                                 ident: `Direction`,
-                                                entity_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -1288,7 +1432,7 @@ Ok(
                 ),
             ),
             Ok(
-                Form(
+                Decl::Form(
                     FormDecl::Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
@@ -1298,7 +1442,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -1306,19 +1454,31 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 2,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::i32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -1330,21 +1490,33 @@ Ok(
                                                     625,
                                                 ),
                                                 ident: `Direction`,
-                                                entity_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     629,
                                                 ),
                                                 ident: `Direction`,
-                                                entity_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     632,
                                                 ),
                                                 ident: `i32`,
-                                                entity_path: TypePath(`core::num::i32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::i32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -1534,7 +1706,7 @@ Ok(
                 ),
             ),
             Ok(
-                Form(
+                Decl::Form(
                     FormDecl::Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
@@ -1544,7 +1716,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -1552,31 +1728,51 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 2,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::i32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 3,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 4,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -1588,35 +1784,55 @@ Ok(
                                                     689,
                                                 ),
                                                 ident: `r32`,
-                                                entity_path: TypePath(`core::raw_bits::r32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     693,
                                                 ),
                                                 ident: `r32`,
-                                                entity_path: TypePath(`core::raw_bits::r32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     697,
                                                 ),
                                                 ident: `i32`,
-                                                entity_path: TypePath(`core::num::i32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::i32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     701,
                                                 ),
                                                 ident: `Direction`,
-                                                entity_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     705,
                                                 ),
                                                 ident: `Direction`,
-                                                entity_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -1923,7 +2139,7 @@ Ok(
                 ),
             ),
             Ok(
-                Type(
+                Decl::Type(
                     TypeDecl::RegularStruct(
                         RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
@@ -1933,7 +2149,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -1941,13 +2161,21 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::i32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::i32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -1959,14 +2187,22 @@ Ok(
                                                     916,
                                                 ),
                                                 ident: `i32`,
-                                                entity_path: TypePath(`core::num::i32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::i32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     920,
                                                 ),
                                                 ident: `i32`,
-                                                entity_path: TypePath(`core::num::i32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::i32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -2076,7 +2312,7 @@ Ok(
                 ),
             ),
             Ok(
-                Form(
+                Decl::Form(
                     FormDecl::Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
@@ -2086,7 +2322,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -2106,7 +2346,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::Application {
@@ -2116,7 +2360,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -2128,14 +2376,22 @@ Ok(
                                                     930,
                                                 ),
                                                 ident: `Point2d`,
-                                                entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     933,
                                                 ),
                                                 ident: `Point2d`,
-                                                entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -2268,7 +2524,7 @@ Ok(
                 ),
             ),
             Ok(
-                Form(
+                Decl::Form(
                     FormDecl::Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
@@ -2278,7 +2534,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -2286,7 +2546,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::PrefixOpn {
@@ -2311,7 +2575,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::Application {
@@ -2327,14 +2595,22 @@ Ok(
                                                     994,
                                                 ),
                                                 ident: `ConnectedComponent`,
-                                                entity_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     999,
                                                 ),
                                                 ident: `RawContour`,
-                                                entity_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -2467,7 +2743,7 @@ Ok(
                 ),
             ),
             Ok(
-                ImplBlock(
+                Decl::ImplBlock(
                     ImplBlockDecl::TypeImplBlock(
                         TypeImplBlockDecl {
                             ast_idx: 200,
@@ -2520,7 +2796,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -2532,7 +2812,11 @@ Ok(
                                                     43,
                                                 ),
                                                 ident: `RawContour`,
-                                                entity_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -2573,7 +2857,7 @@ Ok(
                 ),
             ),
             Ok(
-                AssociatedItem(
+                Decl::AssociatedItem(
                     AssociatedItemDecl::TypeItem(
                         TypeItemDecl::Memo(
                             TypeMemoDecl {
@@ -2595,11 +2879,13 @@ Ok(
                                         ident: `line_segment_sketch`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                            ident: `line_segment_sketch`,
-                                            ty_item_kind: Memo,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                ident: `line_segment_sketch`,
+                                                ty_item_kind: Memo,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -2621,7 +2907,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Memo,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::raw_contour`,
                                     ),
                                     is_generic: false,
@@ -2648,7 +2934,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -2660,7 +2950,11 @@ Ok(
                                                                     43,
                                                                 ),
                                                                 ident: `RawContour`,
-                                                                entity_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -2715,7 +3009,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -2727,7 +3025,11 @@ Ok(
                                                         48,
                                                     ),
                                                     ident: `LineSegmentSketch`,
-                                                    entity_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -2788,7 +3090,7 @@ Ok(
                 ),
             ),
             Ok(
-                AssociatedItem(
+                Decl::AssociatedItem(
                     AssociatedItemDecl::TypeItem(
                         TypeItemDecl::Memo(
                             TypeMemoDecl {
@@ -2810,11 +3112,13 @@ Ok(
                                         ident: `bounding_box`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                            ident: `bounding_box`,
-                                            ty_item_kind: Memo,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                ident: `bounding_box`,
+                                                ty_item_kind: Memo,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -2836,7 +3140,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Memo,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::raw_contour`,
                                     ),
                                     is_generic: false,
@@ -2863,7 +3167,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -2875,7 +3183,11 @@ Ok(
                                                                     43,
                                                                 ),
                                                                 ident: `RawContour`,
-                                                                entity_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -2930,7 +3242,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -2942,7 +3258,11 @@ Ok(
                                                         61,
                                                     ),
                                                     ident: `BoundingBox`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -3003,7 +3323,7 @@ Ok(
                 ),
             ),
             Ok(
-                AssociatedItem(
+                Decl::AssociatedItem(
                     AssociatedItemDecl::TypeItem(
                         TypeItemDecl::Memo(
                             TypeMemoDecl {
@@ -3025,11 +3345,13 @@ Ok(
                                         ident: `relative_bounding_box`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                            ident: `relative_bounding_box`,
-                                            ty_item_kind: Memo,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                ident: `relative_bounding_box`,
+                                                ty_item_kind: Memo,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -3051,7 +3373,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Memo,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::raw_contour`,
                                     ),
                                     is_generic: false,
@@ -3078,7 +3400,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -3090,7 +3416,11 @@ Ok(
                                                                     43,
                                                                 ),
                                                                 ident: `RawContour`,
-                                                                entity_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -3145,7 +3475,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -3157,7 +3491,11 @@ Ok(
                                                         181,
                                                     ),
                                                     ident: `RelativeBoundingBox`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -3218,7 +3556,7 @@ Ok(
                 ),
             ),
             Ok(
-                AssociatedItem(
+                Decl::AssociatedItem(
                     AssociatedItemDecl::TypeItem(
                         TypeItemDecl::Memo(
                             TypeMemoDecl {
@@ -3240,11 +3578,13 @@ Ok(
                                         ident: `contour_len`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                            ident: `contour_len`,
-                                            ty_item_kind: Memo,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                ident: `contour_len`,
+                                                ty_item_kind: Memo,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -3266,7 +3606,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Memo,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::raw_contour`,
                                     ),
                                     is_generic: false,
@@ -3293,7 +3633,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -3305,7 +3649,11 @@ Ok(
                                                                     43,
                                                                 ),
                                                                 ident: `RawContour`,
-                                                                entity_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -3360,7 +3708,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -3372,7 +3724,11 @@ Ok(
                                                         203,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -3433,7 +3789,7 @@ Ok(
                 ),
             ),
             Ok(
-                AssociatedItem(
+                Decl::AssociatedItem(
                     AssociatedItemDecl::TypeItem(
                         TypeItemDecl::Method(
                             TypeMethodDecl {
@@ -3448,11 +3804,13 @@ Ok(
                                         ident: `displacement`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                            ident: `displacement`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                ident: `displacement`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -3474,7 +3832,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::raw_contour`,
                                     ),
                                     is_generic: false,
@@ -3508,7 +3866,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -3520,7 +3882,11 @@ Ok(
                                                                     43,
                                                                 ),
                                                                 ident: `RawContour`,
-                                                                entity_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -3575,19 +3941,31 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::i32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 1,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::i32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 2,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -3599,21 +3977,33 @@ Ok(
                                                         334,
                                                     ),
                                                     ident: `i32`,
-                                                    entity_path: TypePath(`core::num::i32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         338,
                                                     ),
                                                     ident: `i32`,
-                                                    entity_path: TypePath(`core::num::i32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         341,
                                                     ),
                                                     ident: `Vector2d`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },

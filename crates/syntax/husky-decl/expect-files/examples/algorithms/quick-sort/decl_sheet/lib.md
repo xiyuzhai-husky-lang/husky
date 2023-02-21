@@ -2,7 +2,7 @@ Ok(
     DeclSheet {
         decls: [
             Ok(
-                Form(
+                Decl::Form(
                     FormDecl::Function(
                         FunctionDecl {
                             path: FormPath(`quick_sort::quick_sort`, `Function`),
@@ -12,7 +12,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`quick_sort::quick_sort`, `Function`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`quick_sort::quick_sort`, `Function`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -20,7 +24,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TraitPath(`core::cmp::Ord`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Trait(
+                                                            TraitPath(`core::cmp::Ord`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::BoxColon {
@@ -67,7 +75,11 @@ Ok(
                                                     6,
                                                 ),
                                                 ident: `Ord`,
-                                                entity_path: TraitPath(`core::cmp::Ord`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Trait(
+                                                        TraitPath(`core::cmp::Ord`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -263,7 +275,7 @@ Ok(
                 ),
             ),
             Ok(
-                Form(
+                Decl::Form(
                     FormDecl::Function(
                         FunctionDecl {
                             path: FormPath(`quick_sort::quick_sort_aux`, `Function`),
@@ -273,7 +285,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -281,7 +297,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TraitPath(`core::cmp::Ord`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Trait(
+                                                            TraitPath(`core::cmp::Ord`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::BoxColon {
@@ -348,7 +368,11 @@ Ok(
                                                     45,
                                                 ),
                                                 ident: `Ord`,
-                                                entity_path: TraitPath(`core::cmp::Ord`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Trait(
+                                                        TraitPath(`core::cmp::Ord`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -657,7 +681,7 @@ Ok(
                 ),
             ),
             Ok(
-                Form(
+                Decl::Form(
                     FormDecl::Function(
                         FunctionDecl {
                             path: FormPath(`quick_sort::partition`, `Function`),
@@ -667,7 +691,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`quick_sort::partition`, `Function`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`quick_sort::partition`, `Function`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -675,7 +703,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TraitPath(`core::cmp::Ord`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Trait(
+                                                            TraitPath(`core::cmp::Ord`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::BoxColon {
@@ -752,7 +784,11 @@ Ok(
                                                     106,
                                                 ),
                                                 ident: `Ord`,
-                                                entity_path: TraitPath(`core::cmp::Ord`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Trait(
+                                                        TraitPath(`core::cmp::Ord`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -1064,7 +1100,7 @@ Ok(
                 ),
             ),
             Ok(
-                Form(
+                Decl::Form(
                     FormDecl::Feature(
                         FeatureDecl {
                             path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
@@ -1095,7 +1131,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -1136,7 +1176,7 @@ Ok(
                 ),
             ),
             Ok(
-                Form(
+                Decl::Form(
                     FormDecl::Feature(
                         FeatureDecl {
                             path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
@@ -1167,7 +1207,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {

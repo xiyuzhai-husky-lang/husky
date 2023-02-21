@@ -1,6 +1,6 @@
 Ok(
     AstSheet {
-        arena: Arena {
+        ast_arena: Arena {
             data: [
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
@@ -540,7 +540,7 @@ Ok(
                     body: ArenaIdxRange(
                         3..4,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -568,7 +568,7 @@ Ok(
                     body: ArenaIdxRange(
                         4..10,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -596,7 +596,7 @@ Ok(
                     body: ArenaIdxRange(
                         14..18,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -624,7 +624,7 @@ Ok(
                     body: ArenaIdxRange(
                         19..22,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -652,7 +652,7 @@ Ok(
                     body: ArenaIdxRange(
                         23..26,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -680,7 +680,7 @@ Ok(
                     body: ArenaIdxRange(
                         34..45,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -708,7 +708,7 @@ Ok(
                     body: ArenaIdxRange(
                         45..46,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -736,7 +736,7 @@ Ok(
                     body: ArenaIdxRange(
                         46..47,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -764,7 +764,7 @@ Ok(
                     body: ArenaIdxRange(
                         51..57,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -792,7 +792,7 @@ Ok(
                     body: ArenaIdxRange(
                         61..67,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -1160,7 +1160,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1168,7 +1168,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `ConnectedComponentDistribution`,
@@ -1189,7 +1193,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1197,7 +1201,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `EffHoles`,
@@ -1218,7 +1226,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..3,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     entity_kind: ModuleItem {
@@ -1228,7 +1236,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `hole_tmpl`,
@@ -1249,7 +1261,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1257,7 +1269,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `ConnectedComponent`,
@@ -1286,7 +1302,7 @@ Ok(
                     body: ArenaIdxRange(
                         81..85,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     entity_kind: ModuleItem {
@@ -1296,7 +1312,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `horizontal_extend`,
@@ -1317,7 +1337,7 @@ Ok(
                     body: ArenaIdxRange(
                         114..118,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Function,
@@ -1325,7 +1345,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `find_connected_components`,

@@ -1,7 +1,7 @@
 Ok(
     DefnSheet {
         defns: [
-            Trait(
+            Defn::Trait(
                 TraitDefn {
                     path: TraitPath(`core::marker::Copy`),
                     decl: TraitDecl {
@@ -12,7 +12,11 @@ Ok(
                                 parent: None,
                                 path: RegionPath::Decl(
                                     DeclExprPath::Entity(
-                                        TraitPath(`core::marker::Copy`),
+                                        EntityPath::ModuleItem(
+                                            ModuleItemPath::Trait(
+                                                TraitPath(`core::marker::Copy`),
+                                            ),
+                                        ),
                                     ),
                                 ),
                                 expr_arena: Arena {
@@ -52,7 +56,7 @@ Ok(
                     },
                 },
             ),
-            Trait(
+            Defn::Trait(
                 TraitDefn {
                     path: TraitPath(`core::marker::Sized`),
                     decl: TraitDecl {
@@ -63,7 +67,11 @@ Ok(
                                 parent: None,
                                 path: RegionPath::Decl(
                                     DeclExprPath::Entity(
-                                        TraitPath(`core::marker::Sized`),
+                                        EntityPath::ModuleItem(
+                                            ModuleItemPath::Trait(
+                                                TraitPath(`core::marker::Sized`),
+                                            ),
+                                        ),
                                     ),
                                 ),
                                 expr_arena: Arena {

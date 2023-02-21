@@ -7,6 +7,7 @@ use vec_like::{AsVecMapEntry, VecPairMap};
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct EntityTreeSheet {
     module_path: ModulePath,
     symbols: EntitySymbolTable,
@@ -93,25 +94,4 @@ pub(crate) fn entity_tree_sheet(
     entity_tree_bundle
         .get_sheet(module_path)
         .ok_or_else(|| EntityTreeError::InvalidModulePath(module_path))
-}
-
-impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreeSheet {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
-        f.debug_struct("EntityTreeSheet")
-            .field(
-                "module_path",
-                &self.module_path.debug_with(db, include_all_fields),
-            )
-            .field(
-                "module_specific_symbols",
-                &self.symbols.debug_with(db, include_all_fields),
-            )
-            .finish()
-    }
 }

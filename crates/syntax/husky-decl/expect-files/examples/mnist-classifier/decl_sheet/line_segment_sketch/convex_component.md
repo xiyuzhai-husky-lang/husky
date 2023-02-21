@@ -2,7 +2,7 @@ Ok(
     DeclSheet {
         decls: [
             Ok(
-                Type(
+                Decl::Type(
                     TypeDecl::RegularStruct(
                         RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
@@ -12,7 +12,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -20,7 +24,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::PrefixOpn {
@@ -67,7 +75,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::Application {
@@ -83,14 +95,22 @@ Ok(
                                                     12,
                                                 ),
                                                 ident: `LineSegmentSketch`,
-                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     19,
                                                 ),
                                                 ident: `LineSegmentStroke`,
-                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -200,7 +220,7 @@ Ok(
                 ),
             ),
             Ok(
-                ImplBlock(
+                Decl::ImplBlock(
                     ImplBlockDecl::TypeImplBlock(
                         TypeImplBlockDecl {
                             ast_idx: 4,
@@ -253,7 +273,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -265,7 +289,11 @@ Ok(
                                                     23,
                                                 ),
                                                 ident: `ConvexComponent`,
-                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },

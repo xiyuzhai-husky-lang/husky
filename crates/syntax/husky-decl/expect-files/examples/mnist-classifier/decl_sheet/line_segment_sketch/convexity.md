@@ -2,7 +2,7 @@ Ok(
     DeclSheet {
         decls: [
             Ok(
-                Form(
+                Decl::Form(
                     FormDecl::Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
@@ -12,7 +12,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -20,19 +24,31 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::i32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 2,
                                                 entity_path: Some(
-                                                    TypePath(`core::basic::bool`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::basic::bool`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -44,21 +60,33 @@ Ok(
                                                     24,
                                                 ),
                                                 ident: `LineSegmentSketch`,
-                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     28,
                                                 ),
                                                 ident: `i32`,
-                                                entity_path: TypePath(`core::num::i32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::i32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     31,
                                                 ),
                                                 ident: `bool`,
-                                                entity_path: TypePath(`core::basic::bool`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::basic::bool`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },

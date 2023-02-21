@@ -11,7 +11,7 @@ impl salsa::DebugWithDb<dyn Db + '_> for Token {
         &self,
         _f: &mut std::fmt::Formatter<'_>,
         _db: &dyn Db,
-        _include_all_fields: bool,
+        _level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         unreachable!()
     }

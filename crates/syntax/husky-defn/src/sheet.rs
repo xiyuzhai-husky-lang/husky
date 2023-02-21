@@ -27,7 +27,7 @@ impl<Db: DefnDb + ?Sized> salsa::DebugWithDb<Db> for DefnSheet {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as DbWithJar<DefnJar>>::as_jar_db(db);
         f.debug_struct("DefnSheet")

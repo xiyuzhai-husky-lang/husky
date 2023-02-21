@@ -97,7 +97,7 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntitySymbol {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
         match self {

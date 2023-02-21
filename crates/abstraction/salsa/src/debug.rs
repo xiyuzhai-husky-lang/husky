@@ -16,71 +16,109 @@ pub trait DebugWithDb<Db: ?Sized> {
         DebugWith {
             value: BoxRef::Ref(self),
             db,
-            include_all_fields: false,
+            level: DebugFormatLevel::root(),
         }
     }
 
-    fn debug_with<'me, 'db>(&'me self, db: &'me Db, include_all_fields: bool) -> DebugWith<'me, Db>
+    fn debug_with<'me, 'db>(
+        &'me self,
+        db: &'me Db,
+        level: DebugFormatLevelExt,
+    ) -> DebugWith<'me, Db>
     where
         Self: Sized + 'me,
     {
         DebugWith {
             value: BoxRef::Ref(self),
             db,
-            include_all_fields,
+            level: level.unwrap(),
         }
     }
 
-    /// Be careful when using this method inside a tracked function,
-    /// because the default macro generated implementation will read all fields,
-    /// maybe introducing undesired dependencies.
-    fn debug_all<'me, 'db>(&'me self, db: &'me Db) -> DebugWith<'me, Db>
-    where
-        Self: Sized + 'me,
-    {
-        DebugWith {
-            value: BoxRef::Ref(self),
-            db,
-            include_all_fields: true,
-        }
-    }
+    // /// Be careful when using this method inside a tracked function,
+    // /// because the default macro generated implementation will read all fields,
+    // /// maybe introducing undesired dependencies.
+    // fn debug_all<'me, 'db>(&'me self, db: &'me Db) -> DebugWith<'me, Db>
+    // where
+    //     Self: Sized + 'me,
+    // {
+    //     DebugWith {
+    //         value: BoxRef::Ref(self),
+    //         db,
+    //         level: true,
+    //     }
+    // }
 
-    fn into_debug<'me, 'db>(self, db: &'me Db) -> DebugWith<'me, Db>
-    where
-        Self: Sized + 'me,
-    {
-        DebugWith {
-            value: BoxRef::Box(Box::new(self)),
-            db,
-            include_all_fields: false,
-        }
-    }
+    // fn into_debug<'me, 'db>(self, db: &'me Db) -> DebugWith<'me, Db>
+    // where
+    //     Self: Sized + 'me,
+    // {
+    //     DebugWith {
+    //         value: BoxRef::Box(Box::new(self)),
+    //         db,
+    //         level: false,
+    //     }
+    // }
 
-    /// Be careful when using this method inside a tracked function,
-    /// because the default macro generated implementation will read all fields,
-    /// maybe introducing undesired dependencies.
-    fn into_debug_all<'me, 'db>(self, db: &'me Db) -> DebugWith<'me, Db>
-    where
-        Self: Sized + 'me,
-    {
-        DebugWith {
-            value: BoxRef::Box(Box::new(self)),
-            db,
-            include_all_fields: true,
-        }
-    }
+    // /// Be careful when using this method inside a tracked function,
+    // /// because the default macro generated implementation will read all fields,
+    // /// maybe introducing undesired dependencies.
+    // fn into_debug_all<'me, 'db>(self, db: &'me Db) -> DebugWith<'me, Db>
+    // where
+    //     Self: Sized + 'me,
+    // {
+    //     DebugWith {
+    //         value: BoxRef::Box(Box::new(self)),
+    //         db,
+    //         level: true,
+    //     }
+    // }
 
-    /// if `include_all_fields` is `false` only identity fields should be read, which means:
+    /// if `level` is `false` only identity fields should be read, which means:
     ///     - for [#\[salsa::input\]](salsa_macros::input) no fields
     ///     - for [#\[salsa::tracked\]](salsa_macros::tracked) only fields with `#[id]` attribute
     ///     - for [#\[salsa::interned\]](salsa_macros::interned) any field
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result;
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result;
 }
 
 pub struct DebugWith<'me, Db: ?Sized> {
     value: BoxRef<'me, dyn DebugWithDb<Db> + 'me>,
     db: &'me Db,
-    include_all_fields: bool,
+    level: DebugFormatLevel,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct DebugFormatLevel(u8);
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct DebugFormatLevelExt(DebugFormatLevel);
+
+impl DebugFormatLevelExt {
+    fn unwrap(self) -> DebugFormatLevel {
+        self.0
+    }
+}
+
+impl DebugFormatLevel {
+    pub fn root() -> Self {
+        DebugFormatLevel(0)
+    }
+
+    pub fn next(self) -> DebugFormatLevelExt {
+        DebugFormatLevelExt(self.next_inner())
+    }
+
+    fn next_inner(self) -> Self {
+        Self(self.0 + 1)
+    }
+
+    fn parallel(self) -> DebugFormatLevelExt {
+        DebugFormatLevelExt(self)
+    }
+
+    pub fn is_root(self) -> bool {
+        self.0 == 0
+    }
 }
 
 enum BoxRef<'me, T: ?Sized> {
@@ -101,7 +139,7 @@ impl<T: ?Sized> std::ops::Deref for BoxRef<'_, T> {
 
 impl<D: ?Sized> fmt::Debug for DebugWith<'_, D> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        DebugWithDb::fmt(&*self.value, f, self.db, self.include_all_fields)
+        DebugWithDb::fmt(&*self.value, f, self.db, self.level)
     }
 }
 
@@ -109,8 +147,8 @@ impl<Db: ?Sized, T: ?Sized> DebugWithDb<Db> for &T
 where
     T: DebugWithDb<Db>,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
-        T::fmt(self, f, db, include_all_fields)
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
+        T::fmt(self, f, db, level)
     }
 }
 
@@ -118,8 +156,8 @@ impl<Db: ?Sized, T: ?Sized> DebugWithDb<Db> for Box<T>
 where
     T: DebugWithDb<Db>,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
-        T::fmt(self, f, db, include_all_fields)
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
+        T::fmt(self, f, db, level)
     }
 }
 
@@ -127,8 +165,8 @@ impl<Db: ?Sized, T> DebugWithDb<Db> for Rc<T>
 where
     T: DebugWithDb<Db>,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
-        T::fmt(self, f, db, include_all_fields)
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
+        T::fmt(self, f, db, level)
     }
 }
 
@@ -136,8 +174,8 @@ impl<Db: ?Sized, T: ?Sized> DebugWithDb<Db> for Arc<T>
 where
     T: DebugWithDb<Db>,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
-        T::fmt(self, f, db, include_all_fields)
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
+        T::fmt(self, f, db, level)
     }
 }
 
@@ -145,8 +183,8 @@ impl<Db: ?Sized, T> DebugWithDb<Db> for [T]
 where
     T: DebugWithDb<Db>,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
-        let elements = self.iter().map(|e| e.debug_with(db, include_all_fields));
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
+        let elements = self.iter().map(|e| e.debug_with(db, level.parallel()));
         f.debug_list().entries(elements).finish()
     }
 }
@@ -155,8 +193,8 @@ impl<Db: ?Sized, T> DebugWithDb<Db> for Vec<T>
 where
     T: DebugWithDb<Db>,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
-        let elements = self.iter().map(|e| e.debug_with(db, include_all_fields));
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
+        let elements = self.iter().map(|e| e.debug_with(db, level.parallel()));
         f.debug_list().entries(elements).finish()
     }
 }
@@ -165,8 +203,8 @@ impl<Db: ?Sized, T> DebugWithDb<Db> for Option<T>
 where
     T: DebugWithDb<Db>,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
-        let me = self.as_ref().map(|v| v.debug_with(db, include_all_fields));
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
+        let me = self.as_ref().map(|v| v.debug_with(db, level.parallel()));
         fmt::Debug::fmt(&me, f)
     }
 }
@@ -176,22 +214,22 @@ where
     T: DebugWithDb<Db>,
     E: DebugWithDb<Db>,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
         match self {
             Ok(t) => f
                 .debug_tuple("Ok")
-                .field(&t.debug_with(db, include_all_fields))
+                .field(&t.debug_with(db, level.parallel()))
                 .finish(),
             Err(e) => f
                 .debug_tuple("Err")
-                .field(&e.debug_with(db, include_all_fields))
+                .field(&e.debug_with(db, level.parallel()))
                 .finish(),
         }
     }
 }
 
 impl<Db: ?Sized> DebugWithDb<Db> for Infallible {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
         unreachable!()
     }
 }
@@ -201,11 +239,11 @@ where
     K: DebugWithDb<Db>,
     V: DebugWithDb<Db>,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
         let elements = self.iter().map(|(k, v)| {
             (
-                k.debug_with(db, include_all_fields),
-                v.debug_with(db, include_all_fields),
+                k.debug_with(db, level.parallel()),
+                v.debug_with(db, level.parallel()),
             )
         });
         f.debug_map().entries(elements).finish()
@@ -216,11 +254,11 @@ impl<Db: ?Sized, K> DebugWithDb<Db> for VecSet<K>
 where
     K: PartialEq + Eq + DebugWithDb<Db>,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
         let elements = self
             .data()
             .iter()
-            .map(|v| v.debug_with(db, include_all_fields));
+            .map(|v| v.debug_with(db, level.parallel()));
         f.debug_list().entries(elements).finish()
     }
 }
@@ -230,11 +268,11 @@ where
     K: PartialEq + Eq,
     V: AsVecMapEntry<K = K> + DebugWithDb<Db>,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
         let elements = self
             .data()
             .iter()
-            .map(|v| v.debug_with(db, include_all_fields));
+            .map(|v| v.debug_with(db, level.parallel()));
         f.debug_list().entries(elements).finish()
     }
 }
@@ -243,10 +281,10 @@ impl<Db: ?Sized, Entry> DebugWithDb<Db> for InsertEntryRepeatError<Entry>
 where
     Entry: DebugWithDb<Db>,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
         f.debug_struct("EntryRepeatError::Insert")
             .field("old", &self.old)
-            .field("new", &self.new.debug_with(db, include_all_fields))
+            .field("new", &self.new.debug_with(db, level.parallel()))
             .finish()
     }
 }
@@ -256,10 +294,10 @@ where
     A: DebugWithDb<Db>,
     B: DebugWithDb<Db>,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
         f.debug_tuple("")
-            .field(&self.0.debug_with(db, include_all_fields))
-            .field(&self.1.debug_with(db, include_all_fields))
+            .field(&self.0.debug_with(db, level.parallel()))
+            .field(&self.1.debug_with(db, level.parallel()))
             .finish()
     }
 }
@@ -270,11 +308,11 @@ where
     B: DebugWithDb<Db>,
     C: DebugWithDb<Db>,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
         f.debug_tuple("")
-            .field(&self.0.debug_with(db, include_all_fields))
-            .field(&self.1.debug_with(db, include_all_fields))
-            .field(&self.2.debug_with(db, include_all_fields))
+            .field(&self.0.debug_with(db, level.parallel()))
+            .field(&self.1.debug_with(db, level.parallel()))
+            .field(&self.2.debug_with(db, level.parallel()))
             .finish()
     }
 }
@@ -283,8 +321,8 @@ impl<Db: ?Sized, V, S> DebugWithDb<Db> for HashSet<V, S>
 where
     V: DebugWithDb<Db>,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
-        let elements = self.iter().map(|e| e.debug_with(db, include_all_fields));
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
+        let elements = self.iter().map(|e| e.debug_with(db, level.parallel()));
         f.debug_list().entries(elements).finish()
     }
 }
@@ -294,14 +332,14 @@ where
 /// That's the "has impl" trick (https://github.com/nvzqz/impls#how-it-works)
 #[doc(hidden)]
 pub mod helper {
-    use super::{DebugWith, DebugWithDb};
+    use super::{DebugFormatLevel, DebugFormatLevelExt, DebugWith, DebugWithDb};
     use std::{fmt, marker::PhantomData};
 
     pub trait Fallback<T: fmt::Debug, Db: ?Sized> {
         fn salsa_debug<'a, 'b>(
             a: &'a T,
             _db: &'b Db,
-            _include_all_fields: bool,
+            _level: DebugFormatLevelExt,
         ) -> &'a dyn fmt::Debug {
             a
         }
@@ -314,9 +352,9 @@ pub mod helper {
         pub fn salsa_debug<'a, 'b: 'a>(
             a: &'a T,
             db: &'b Db,
-            include_all_fields: bool,
+            level: DebugFormatLevelExt,
         ) -> DebugWith<'a, Db> {
-            a.debug_with(db, include_all_fields)
+            a.debug_with(db, level)
         }
     }
 

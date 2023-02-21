@@ -32,6 +32,7 @@ fn entity_tree_presheet_works() {
 }
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct EntityTreePresheet {
     module_path: ModulePath,
     native_symbol_entries: NativeEntitySymbolTable,
@@ -242,32 +243,5 @@ impl<'a> EntityTreePresheetBuilder<'a> {
             | Ast::Main { .. }
             | Ast::Config { .. } => (),
         }
-    }
-}
-
-impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreePresheet {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
-        f.debug_struct("EntityTreePresheet")
-            .field(
-                "module_path",
-                &self
-                    .module_path
-                    .debug_with(db as &dyn VfsDb, include_all_fields),
-            )
-            .field(
-                "module_specific_symbols",
-                &(&self.native_symbol_entries).debug_with(db, include_all_fields),
-            )
-            .field(
-                "entity_use_roots",
-                &self.use_one_trackers.debug_with(db, include_all_fields),
-            )
-            .finish()
     }
 }

@@ -1,8 +1,8 @@
 Ok(
     DefnSheet {
         defns: [
-            Type(
-                RegularStruct(
+            Defn::Type(
+                TypeDefn::RegularStruct(
                     RegularStructTypeDefn {
                         path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         decl: RegularStructTypeDecl {
@@ -13,7 +13,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -21,7 +25,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::PrefixOpn {
@@ -68,7 +76,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::Application {
@@ -84,14 +96,22 @@ Ok(
                                                     39,
                                                 ),
                                                 ident: `LineSegmentSketch`,
-                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     46,
                                                 ),
                                                 ident: `LineSegmentStroke`,
-                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -200,8 +220,8 @@ Ok(
                     },
                 ),
             ),
-            Form(
-                Function(
+            Defn::Form(
+                FormDefn::Function(
                     FunctionDefn {
                         path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                         decl: FunctionDecl {
@@ -212,7 +232,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -220,7 +244,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::PrefixOpn {
@@ -245,7 +273,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::Application {
@@ -261,14 +293,22 @@ Ok(
                                                     521,
                                                 ),
                                                 ident: `LineSegmentSketch`,
-                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     526,
                                                 ),
                                                 ident: `ConcaveComponent`,
-                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -405,7 +445,11 @@ Ok(
                                             parent: None,
                                             path: RegionPath::Decl(
                                                 DeclExprPath::Entity(
-                                                    FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                                                        ),
+                                                    ),
                                                 ),
                                             ),
                                             expr_arena: Arena {
@@ -413,7 +457,11 @@ Ok(
                                                     Expr::EntityPath {
                                                         entity_path_expr: 0,
                                                         entity_path: Some(
-                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                                ),
+                                                            ),
                                                         ),
                                                     },
                                                     Expr::PrefixOpn {
@@ -438,7 +486,11 @@ Ok(
                                                     Expr::EntityPath {
                                                         entity_path_expr: 1,
                                                         entity_path: Some(
-                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                ),
+                                                            ),
                                                         ),
                                                     },
                                                     Expr::Application {
@@ -454,14 +506,22 @@ Ok(
                                                             521,
                                                         ),
                                                         ident: `LineSegmentSketch`,
-                                                        entity_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                            ),
+                                                        ),
                                                     },
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
                                                             526,
                                                         ),
                                                         ident: `ConcaveComponent`,
-                                                        entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            ),
+                                                        ),
                                                     },
                                                 ],
                                             },
@@ -545,7 +605,11 @@ Ok(
                                 ),
                                 path: RegionPath::Defn(
                                     DefnExprPath::Entity(
-                                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                                        EntityPath::ModuleItem(
+                                            ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                                            ),
+                                        ),
                                     ),
                                 ),
                                 expr_arena: Arena {
@@ -553,7 +617,11 @@ Ok(
                                         Expr::EntityPath {
                                             entity_path_expr: 0,
                                             entity_path: Some(
-                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    ),
+                                                ),
                                             ),
                                         },
                                         Expr::NewBoxList {
@@ -667,7 +735,11 @@ Ok(
                                         Expr::EntityPath {
                                             entity_path_expr: 1,
                                             entity_path: Some(
-                                                FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                                                    ),
+                                                ),
                                             ),
                                         },
                                         Expr::InheritedSymbol {
@@ -848,7 +920,11 @@ Ok(
                                         Expr::EntityPath {
                                             entity_path_expr: 2,
                                             entity_path: Some(
-                                                FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                                                    ),
+                                                ),
                                             ),
                                         },
                                         Expr::InheritedSymbol {
@@ -984,7 +1060,11 @@ Ok(
                                         Expr::EntityPath {
                                             entity_path_expr: 3,
                                             entity_path: Some(
-                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    ),
+                                                ),
                                             ),
                                         },
                                         Expr::InheritedSymbol {
@@ -1191,28 +1271,44 @@ Ok(
                                                 534,
                                             ),
                                             ident: `ConcaveComponent`,
-                                            entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            entity_path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ),
+                                            ),
                                         },
                                         EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 564,
                                             ),
                                             ident: `is_convex`,
-                                            entity_path: FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                                            entity_path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                                                ),
+                                            ),
                                         },
                                         EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 592,
                                             ),
                                             ident: `is_convex`,
-                                            entity_path: FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                                            entity_path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                                                ),
+                                            ),
                                         },
                                         EntityPathExpr::Root {
                                             token_idx: TokenIdx(
                                                 612,
                                             ),
                                             ident: `ConcaveComponent`,
-                                            entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            entity_path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ),
+                                            ),
                                         },
                                     ],
                                 },
@@ -1735,7 +1831,7 @@ Ok(
                     },
                 ),
             ),
-            ImplBlock(
+            Defn::ImplBlock(
                 ImplBlockDecl::TypeImplBlock(
                     TypeImplBlockDecl {
                         ast_idx: 75,
@@ -1788,7 +1884,11 @@ Ok(
                                         Expr::EntityPath {
                                             entity_path_expr: 0,
                                             entity_path: Some(
-                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    ),
+                                                ),
                                             ),
                                         },
                                     ],
@@ -1800,7 +1900,11 @@ Ok(
                                                 50,
                                             ),
                                             ident: `ConcaveComponent`,
-                                            entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            entity_path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ),
+                                            ),
                                         },
                                     ],
                                 },
@@ -1839,9 +1943,9 @@ Ok(
                     },
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Memo(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Memo(
                         TypeMemoDefn {
                             path: Some(
                                 TypeItemPath {
@@ -1869,11 +1973,13 @@ Ok(
                                         ident: `norm`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            ident: `norm`,
-                                            ty_item_kind: Memo,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ident: `norm`,
+                                                ty_item_kind: Memo,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -1895,7 +2001,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Memo,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::line_segment_sketch::concave_component`,
                                     ),
                                     is_generic: false,
@@ -1922,7 +2028,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -1934,7 +2044,11 @@ Ok(
                                                                     50,
                                                                 ),
                                                                 ident: `ConcaveComponent`,
-                                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -1989,7 +2103,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -2001,7 +2119,11 @@ Ok(
                                                         55,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -2081,7 +2203,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -2093,7 +2219,11 @@ Ok(
                                                                             50,
                                                                         ),
                                                                         ident: `ConcaveComponent`,
-                                                                        entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -2148,7 +2278,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -2160,7 +2294,11 @@ Ok(
                                                                 55,
                                                             ),
                                                             ident: `f32`,
-                                                            entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -2282,9 +2420,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Memo(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Memo(
                         TypeMemoDefn {
                             path: Some(
                                 TypeItemPath {
@@ -2312,11 +2450,13 @@ Ok(
                                         ident: `rel_norm`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            ident: `rel_norm`,
-                                            ty_item_kind: Memo,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ident: `rel_norm`,
+                                                ty_item_kind: Memo,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -2338,7 +2478,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Memo,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::line_segment_sketch::concave_component`,
                                     ),
                                     is_generic: false,
@@ -2365,7 +2505,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -2377,7 +2521,11 @@ Ok(
                                                                     50,
                                                                 ),
                                                                 ident: `ConcaveComponent`,
-                                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -2432,7 +2580,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -2444,7 +2596,11 @@ Ok(
                                                         63,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -2524,7 +2680,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -2536,7 +2696,11 @@ Ok(
                                                                             50,
                                                                         ),
                                                                         ident: `ConcaveComponent`,
-                                                                        entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -2591,7 +2755,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -2603,7 +2771,11 @@ Ok(
                                                                 63,
                                                             ),
                                                             ident: `f32`,
-                                                            entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -2784,9 +2956,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Memo(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Memo(
                         TypeMemoDefn {
                             path: Some(
                                 TypeItemPath {
@@ -2814,11 +2986,13 @@ Ok(
                                         ident: `hausdorff_norm`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            ident: `hausdorff_norm`,
-                                            ty_item_kind: Memo,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ident: `hausdorff_norm`,
+                                                ty_item_kind: Memo,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -2840,7 +3014,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Memo,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::line_segment_sketch::concave_component`,
                                     ),
                                     is_generic: false,
@@ -2867,7 +3041,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -2879,7 +3057,11 @@ Ok(
                                                                     50,
                                                                 ),
                                                                 ident: `ConcaveComponent`,
-                                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -2934,7 +3116,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -2946,7 +3132,11 @@ Ok(
                                                         81,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -3026,7 +3216,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -3038,7 +3232,11 @@ Ok(
                                                                             50,
                                                                         ),
                                                                         ident: `ConcaveComponent`,
-                                                                        entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -3093,7 +3291,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -3105,7 +3307,11 @@ Ok(
                                                                 81,
                                                             ),
                                                             ident: `f32`,
-                                                            entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -4129,9 +4335,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Memo(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Memo(
                         TypeMemoDefn {
                             path: Some(
                                 TypeItemPath {
@@ -4159,11 +4365,13 @@ Ok(
                                         ident: `angle_change`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            ident: `angle_change`,
-                                            ty_item_kind: Memo,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ident: `angle_change`,
+                                                ty_item_kind: Memo,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -4185,7 +4393,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Memo,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::line_segment_sketch::concave_component`,
                                     ),
                                     is_generic: false,
@@ -4212,7 +4420,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -4224,7 +4436,11 @@ Ok(
                                                                     50,
                                                                 ),
                                                                 ident: `ConcaveComponent`,
-                                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -4279,7 +4495,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -4291,7 +4511,11 @@ Ok(
                                                         168,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -4371,7 +4595,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -4383,7 +4611,11 @@ Ok(
                                                                             50,
                                                                         ),
                                                                         ident: `ConcaveComponent`,
-                                                                        entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -4438,7 +4670,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -4450,7 +4686,11 @@ Ok(
                                                                 168,
                                                             ),
                                                             ident: `f32`,
-                                                            entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -5198,9 +5438,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Memo(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Memo(
                         TypeMemoDefn {
                             path: Some(
                                 TypeItemPath {
@@ -5228,11 +5468,13 @@ Ok(
                                         ident: `bounding_box`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            ident: `bounding_box`,
-                                            ty_item_kind: Memo,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ident: `bounding_box`,
+                                                ty_item_kind: Memo,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -5254,7 +5496,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Memo,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::line_segment_sketch::concave_component`,
                                     ),
                                     is_generic: false,
@@ -5281,7 +5523,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -5293,7 +5539,11 @@ Ok(
                                                                     50,
                                                                 ),
                                                                 ident: `ConcaveComponent`,
-                                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -5348,7 +5598,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -5360,7 +5614,11 @@ Ok(
                                                         239,
                                                     ),
                                                     ident: `BoundingBox`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -5440,7 +5698,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -5452,7 +5714,11 @@ Ok(
                                                                             50,
                                                                         ),
                                                                         ident: `ConcaveComponent`,
-                                                                        entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -5507,7 +5773,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -5519,7 +5789,11 @@ Ok(
                                                                 239,
                                                             ),
                                                             ident: `BoundingBox`,
-                                                            entity_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -6150,13 +6424,21 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::CurrentSymbol {
@@ -6182,7 +6464,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 2,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::CurrentSymbol {
@@ -6258,21 +6544,33 @@ Ok(
                                                     348,
                                                 ),
                                                 ident: `BoundingBox`,
-                                                entity_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     350,
                                                 ),
                                                 ident: `ClosedRange`,
-                                                entity_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     357,
                                                 ),
                                                 ident: `ClosedRange`,
-                                                entity_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -6831,9 +7129,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Memo(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Memo(
                         TypeMemoDefn {
                             path: Some(
                                 TypeItemPath {
@@ -6861,11 +7159,13 @@ Ok(
                                         ident: `relative_bounding_box`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            ident: `relative_bounding_box`,
-                                            ty_item_kind: Memo,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ident: `relative_bounding_box`,
+                                                ty_item_kind: Memo,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -6887,7 +7187,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Memo,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::line_segment_sketch::concave_component`,
                                     ),
                                     is_generic: false,
@@ -6914,7 +7214,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -6926,7 +7230,11 @@ Ok(
                                                                     50,
                                                                 ),
                                                                 ident: `ConcaveComponent`,
-                                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -6981,7 +7289,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -6993,7 +7305,11 @@ Ok(
                                                         368,
                                                     ),
                                                     ident: `RelativeBoundingBox`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -7073,7 +7389,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -7085,7 +7405,11 @@ Ok(
                                                                             50,
                                                                         ),
                                                                         ident: `ConcaveComponent`,
-                                                                        entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -7140,7 +7464,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -7152,7 +7480,11 @@ Ok(
                                                                 368,
                                                             ),
                                                             ident: `RelativeBoundingBox`,
-                                                            entity_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -7325,9 +7657,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -7348,11 +7680,13 @@ Ok(
                                         ident: `line_segment`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            ident: `line_segment`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ident: `line_segment`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -7374,7 +7708,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::line_segment_sketch::concave_component`,
                                     ),
                                     is_generic: false,
@@ -7408,7 +7742,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -7420,7 +7758,11 @@ Ok(
                                                                     50,
                                                                 ),
                                                                 ident: `ConcaveComponent`,
-                                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -7475,7 +7817,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -7487,7 +7833,11 @@ Ok(
                                                         387,
                                                     ),
                                                     ident: `LineSegment`,
-                                                    entity_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -7582,7 +7932,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -7594,7 +7948,11 @@ Ok(
                                                                             50,
                                                                         ),
                                                                         ident: `ConcaveComponent`,
-                                                                        entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -7649,7 +8007,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -7661,7 +8023,11 @@ Ok(
                                                                 387,
                                                             ),
                                                             ident: `LineSegment`,
-                                                            entity_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -7716,7 +8082,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::SelfValue(
@@ -7892,7 +8262,11 @@ Ok(
                                                     389,
                                                 ),
                                                 ident: `LineSegment`,
-                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -7939,9 +8313,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -7962,11 +8336,13 @@ Ok(
                                         ident: `start`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            ident: `start`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ident: `start`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -7988,7 +8364,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::line_segment_sketch::concave_component`,
                                     ),
                                     is_generic: false,
@@ -8022,7 +8398,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -8034,7 +8414,11 @@ Ok(
                                                                     50,
                                                                 ),
                                                                 ident: `ConcaveComponent`,
-                                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -8089,7 +8473,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -8101,7 +8489,11 @@ Ok(
                                                         424,
                                                     ),
                                                     ident: `Point2d`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -8196,7 +8588,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -8208,7 +8604,11 @@ Ok(
                                                                             50,
                                                                         ),
                                                                         ident: `ConcaveComponent`,
-                                                                        entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -8263,7 +8663,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -8275,7 +8679,11 @@ Ok(
                                                                 424,
                                                             ),
                                                             ident: `Point2d`,
-                                                            entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -8453,9 +8861,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -8476,11 +8884,13 @@ Ok(
                                         ident: `end`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            ident: `end`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ident: `end`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -8502,7 +8912,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::line_segment_sketch::concave_component`,
                                     ),
                                     is_generic: false,
@@ -8536,7 +8946,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -8548,7 +8962,11 @@ Ok(
                                                                     50,
                                                                 ),
                                                                 ident: `ConcaveComponent`,
-                                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -8603,7 +9021,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -8615,7 +9037,11 @@ Ok(
                                                         444,
                                                     ),
                                                     ident: `Point2d`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -8710,7 +9136,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -8722,7 +9152,11 @@ Ok(
                                                                             50,
                                                                         ),
                                                                         ident: `ConcaveComponent`,
-                                                                        entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -8777,7 +9211,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -8789,7 +9227,11 @@ Ok(
                                                                 444,
                                                             ),
                                                             ident: `Point2d`,
-                                                            entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -8967,9 +9409,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -8990,11 +9432,13 @@ Ok(
                                         ident: `displacement`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            ident: `displacement`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ident: `displacement`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -9016,7 +9460,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::line_segment_sketch::concave_component`,
                                     ),
                                     is_generic: false,
@@ -9050,7 +9494,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -9062,7 +9510,11 @@ Ok(
                                                                     50,
                                                                 ),
                                                                 ident: `ConcaveComponent`,
-                                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -9117,7 +9569,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -9129,7 +9585,11 @@ Ok(
                                                         464,
                                                     ),
                                                     ident: `Vector2d`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -9224,7 +9684,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -9236,7 +9700,11 @@ Ok(
                                                                             50,
                                                                         ),
                                                                         ident: `ConcaveComponent`,
-                                                                        entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -9291,7 +9759,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -9303,7 +9775,11 @@ Ok(
                                                                 464,
                                                             ),
                                                             ident: `Vector2d`,
-                                                            entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -9457,9 +9933,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -9480,11 +9956,13 @@ Ok(
                                         ident: `start_tangent`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            ident: `start_tangent`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ident: `start_tangent`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -9506,7 +9984,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::line_segment_sketch::concave_component`,
                                     ),
                                     is_generic: false,
@@ -9540,7 +10018,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -9552,7 +10034,11 @@ Ok(
                                                                     50,
                                                                 ),
                                                                 ident: `ConcaveComponent`,
-                                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -9607,7 +10093,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -9619,7 +10109,11 @@ Ok(
                                                         480,
                                                     ),
                                                     ident: `Vector2d`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -9714,7 +10208,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -9726,7 +10224,11 @@ Ok(
                                                                             50,
                                                                         ),
                                                                         ident: `ConcaveComponent`,
-                                                                        entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -9781,7 +10283,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -9793,7 +10299,11 @@ Ok(
                                                                 480,
                                                             ),
                                                             ident: `Vector2d`,
-                                                            entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -9959,9 +10469,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Method(
                         TypeMethodDefn {
                             path: Some(
                                 TypeItemPath {
@@ -9982,11 +10492,13 @@ Ok(
                                         ident: `end_tangent`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            ident: `end_tangent`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ident: `end_tangent`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -10008,7 +10520,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::line_segment_sketch::concave_component`,
                                     ),
                                     is_generic: false,
@@ -10042,7 +10554,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -10054,7 +10570,11 @@ Ok(
                                                                     50,
                                                                 ),
                                                                 ident: `ConcaveComponent`,
-                                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -10109,7 +10629,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -10121,7 +10645,11 @@ Ok(
                                                         498,
                                                     ),
                                                     ident: `Vector2d`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -10216,7 +10744,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -10228,7 +10760,11 @@ Ok(
                                                                             50,
                                                                         ),
                                                                         ident: `ConcaveComponent`,
-                                                                        entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -10283,7 +10819,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -10295,7 +10835,11 @@ Ok(
                                                                 498,
                                                             ),
                                                             ident: `Vector2d`,
-                                                            entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },

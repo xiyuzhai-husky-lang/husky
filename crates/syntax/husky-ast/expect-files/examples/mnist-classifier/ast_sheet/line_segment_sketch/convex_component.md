@@ -1,6 +1,6 @@
 Ok(
     AstSheet {
-        arena: Arena {
+        ast_arena: Arena {
             data: [
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
@@ -30,7 +30,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::convex_component`,
                     ),
                     entity_kind: ModuleItem {
@@ -40,7 +40,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `ConvexComponent`,

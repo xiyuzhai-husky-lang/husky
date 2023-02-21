@@ -1,6 +1,6 @@
 Ok(
     AstSheet {
-        arena: Arena {
+        ast_arena: Arena {
             data: [
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
@@ -225,7 +225,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: AssociatedItem {
@@ -253,7 +253,7 @@ Ok(
                     body: ArenaIdxRange(
                         6..13,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: AssociatedItem {
@@ -281,7 +281,7 @@ Ok(
                     body: ArenaIdxRange(
                         13..14,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: AssociatedItem {
@@ -309,7 +309,7 @@ Ok(
                     body: ArenaIdxRange(
                         17..23,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: AssociatedItem {
@@ -337,7 +337,7 @@ Ok(
                     body: ArenaIdxRange(
                         23..27,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: AssociatedItem {
@@ -1674,7 +1674,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1682,7 +1682,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `RawContour`,
@@ -1711,7 +1715,7 @@ Ok(
                     body: ArenaIdxRange(
                         34..34,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
@@ -1721,7 +1725,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `Direction`,
@@ -1766,7 +1774,7 @@ Ok(
                     body: ArenaIdxRange(
                         34..35,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
@@ -1776,7 +1784,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `get_pixel_pair`,
@@ -1797,7 +1809,7 @@ Ok(
                     body: ArenaIdxRange(
                         35..36,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
@@ -1807,7 +1819,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `get_pixel_to_the_left`,
@@ -1828,7 +1844,7 @@ Ok(
                     body: ArenaIdxRange(
                         36..37,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
@@ -1838,7 +1854,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `get_pixel_to_the_right`,
@@ -1859,7 +1879,7 @@ Ok(
                     body: ArenaIdxRange(
                         62..65,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
@@ -1869,7 +1889,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `get_inward_direction`,
@@ -1890,7 +1914,7 @@ Ok(
                     body: ArenaIdxRange(
                         71..73,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
@@ -1900,7 +1924,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `get_angle_change`,
@@ -1921,7 +1949,7 @@ Ok(
                     body: ArenaIdxRange(
                         115..118,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
@@ -1931,7 +1959,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `get_outward_direction`,
@@ -1952,7 +1984,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
@@ -1962,7 +1994,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `StreakCache`,
@@ -1983,7 +2019,7 @@ Ok(
                     body: ArenaIdxRange(
                         118..122,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
@@ -1993,7 +2029,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `get_concave_middle_point`,
@@ -2014,7 +2054,7 @@ Ok(
                     body: ArenaIdxRange(
                         190..195,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
@@ -2024,7 +2064,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `find_raw_contours`,

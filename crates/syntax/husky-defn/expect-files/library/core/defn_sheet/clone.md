@@ -1,7 +1,7 @@
 Ok(
     DefnSheet {
         defns: [
-            Trait(
+            Defn::Trait(
                 TraitDefn {
                     path: TraitPath(`core::clone::Clone`),
                     decl: TraitDecl {
@@ -12,7 +12,11 @@ Ok(
                                 parent: None,
                                 path: RegionPath::Decl(
                                     DeclExprPath::Entity(
-                                        TraitPath(`core::clone::Clone`),
+                                        EntityPath::ModuleItem(
+                                            ModuleItemPath::Trait(
+                                                TraitPath(`core::clone::Clone`),
+                                            ),
+                                        ),
                                     ),
                                 ),
                                 expr_arena: Arena {

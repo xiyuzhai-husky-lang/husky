@@ -2,7 +2,7 @@ Ok(
     DeclSheet {
         decls: [
             Ok(
-                Trait(
+                Decl::Trait(
                     TraitDecl {
                         path: TraitPath(`core::cmp::PartialEq`),
                         ast_idx: 0,
@@ -11,7 +11,11 @@ Ok(
                                 parent: None,
                                 path: RegionPath::Decl(
                                     DeclExprPath::Entity(
-                                        TraitPath(`core::cmp::PartialEq`),
+                                        EntityPath::ModuleItem(
+                                            ModuleItemPath::Trait(
+                                                TraitPath(`core::cmp::PartialEq`),
+                                            ),
+                                        ),
                                     ),
                                 ),
                                 expr_arena: Arena {
@@ -52,7 +56,7 @@ Ok(
                 ),
             ),
             Ok(
-                Trait(
+                Decl::Trait(
                     TraitDecl {
                         path: TraitPath(`core::cmp::Eq`),
                         ast_idx: 1,
@@ -61,7 +65,11 @@ Ok(
                                 parent: None,
                                 path: RegionPath::Decl(
                                     DeclExprPath::Entity(
-                                        TraitPath(`core::cmp::Eq`),
+                                        EntityPath::ModuleItem(
+                                            ModuleItemPath::Trait(
+                                                TraitPath(`core::cmp::Eq`),
+                                            ),
+                                        ),
                                     ),
                                 ),
                                 expr_arena: Arena {
@@ -102,7 +110,7 @@ Ok(
                 ),
             ),
             Ok(
-                Trait(
+                Decl::Trait(
                     TraitDecl {
                         path: TraitPath(`core::cmp::PartialOrd`),
                         ast_idx: 2,
@@ -111,7 +119,11 @@ Ok(
                                 parent: None,
                                 path: RegionPath::Decl(
                                     DeclExprPath::Entity(
-                                        TraitPath(`core::cmp::PartialOrd`),
+                                        EntityPath::ModuleItem(
+                                            ModuleItemPath::Trait(
+                                                TraitPath(`core::cmp::PartialOrd`),
+                                            ),
+                                        ),
                                     ),
                                 ),
                                 expr_arena: Arena {
@@ -152,7 +164,7 @@ Ok(
                 ),
             ),
             Ok(
-                Trait(
+                Decl::Trait(
                     TraitDecl {
                         path: TraitPath(`core::cmp::Ord`),
                         ast_idx: 3,
@@ -161,7 +173,11 @@ Ok(
                                 parent: None,
                                 path: RegionPath::Decl(
                                     DeclExprPath::Entity(
-                                        TraitPath(`core::cmp::Ord`),
+                                        EntityPath::ModuleItem(
+                                            ModuleItemPath::Trait(
+                                                TraitPath(`core::cmp::Ord`),
+                                            ),
+                                        ),
                                     ),
                                 ),
                                 expr_arena: Arena {

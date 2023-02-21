@@ -1,7 +1,7 @@
 Ok(
     DefnSheet {
         defns: [
-            Trait(
+            Defn::Trait(
                 TraitDefn {
                     path: TraitPath(`core::ops::Add`),
                     decl: TraitDecl {
@@ -12,7 +12,11 @@ Ok(
                                 parent: None,
                                 path: RegionPath::Decl(
                                     DeclExprPath::Entity(
-                                        TraitPath(`core::ops::Add`),
+                                        EntityPath::ModuleItem(
+                                            ModuleItemPath::Trait(
+                                                TraitPath(`core::ops::Add`),
+                                            ),
+                                        ),
                                     ),
                                 ),
                                 expr_arena: Arena {
@@ -109,7 +113,7 @@ Ok(
                     },
                 },
             ),
-            Trait(
+            Defn::Trait(
                 TraitDefn {
                     path: TraitPath(`core::ops::Sub`),
                     decl: TraitDecl {
@@ -120,7 +124,11 @@ Ok(
                                 parent: None,
                                 path: RegionPath::Decl(
                                     DeclExprPath::Entity(
-                                        TraitPath(`core::ops::Sub`),
+                                        EntityPath::ModuleItem(
+                                            ModuleItemPath::Trait(
+                                                TraitPath(`core::ops::Sub`),
+                                            ),
+                                        ),
                                     ),
                                 ),
                                 expr_arena: Arena {

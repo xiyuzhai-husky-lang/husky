@@ -1,6 +1,6 @@
 Ok(
     AstSheet {
-        arena: Arena {
+        ast_arena: Arena {
             data: [
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
@@ -248,7 +248,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits::zero`,
                     ),
                     entity_kind: ModuleItem {
@@ -258,7 +258,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `open_one_match`,
@@ -279,7 +283,7 @@ Ok(
                     body: ArenaIdxRange(
                         1..3,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits::zero`,
                     ),
                     entity_kind: ModuleItem {
@@ -289,7 +293,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::zero::almost_closed`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::zero::almost_closed`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `almost_closed`,
@@ -310,7 +318,7 @@ Ok(
                     body: ArenaIdxRange(
                         11..25,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits::zero`,
                     ),
                     entity_kind: ModuleItem {
@@ -320,7 +328,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `is_zero`,

@@ -43,7 +43,7 @@ impl<Db: AstDb> salsa::DebugWithDb<Db> for AstTokenIdxRangeSheet {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         _db: &Db,
-        _include_all_fields: bool,
+        _level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         f.debug_struct("AstRangeSheet")
             .field("ast_token_idx_ranges", &self.ast_token_idx_ranges)

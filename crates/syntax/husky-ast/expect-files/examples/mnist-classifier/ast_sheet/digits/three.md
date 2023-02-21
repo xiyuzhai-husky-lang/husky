@@ -1,6 +1,6 @@
 Ok(
     AstSheet {
-        arena: Arena {
+        ast_arena: Arena {
             data: [
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
@@ -260,7 +260,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits::three`,
                     ),
                     entity_kind: ModuleItem {
@@ -270,7 +270,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Feature`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Feature`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `three_fermi_match`,
@@ -291,7 +295,7 @@ Ok(
                     body: ArenaIdxRange(
                         1..18,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits::three`,
                     ),
                     entity_kind: ModuleItem {
@@ -301,7 +305,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `is_three`,
@@ -322,7 +330,7 @@ Ok(
                     body: ArenaIdxRange(
                         18..21,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits::three`,
                     ),
                     entity_kind: ModuleItem {
@@ -332,7 +340,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::three::uparc`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::three::uparc`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `uparc`,
@@ -353,7 +365,7 @@ Ok(
                     body: ArenaIdxRange(
                         21..24,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits::three`,
                     ),
                     entity_kind: ModuleItem {
@@ -363,7 +375,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::three::downarc`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::three::downarc`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `downarc`,
@@ -384,7 +400,7 @@ Ok(
                     body: ArenaIdxRange(
                         24..27,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits::three`,
                     ),
                     entity_kind: ModuleItem {
@@ -394,7 +410,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::three::back`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::three::back`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `back`,

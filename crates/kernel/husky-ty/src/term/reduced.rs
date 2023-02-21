@@ -23,9 +23,9 @@ impl<Db: TypeDb + ?Sized> salsa::DebugWithDb<Db> for ReducedTerm {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
-        self.0.fmt(f, db, include_all_fields)
+        self.0.fmt(f, db, level)
     }
 }
 
@@ -49,6 +49,14 @@ impl<'a> ReducedTermMenu<'a> {
 
     pub fn bool(&self) -> ReducedTerm {
         ReducedTerm(self.term_menu.bool())
+    }
+
+    pub fn i8(&self) -> ReducedTerm {
+        ReducedTerm(self.term_menu.i8())
+    }
+
+    pub fn i16(&self) -> ReducedTerm {
+        ReducedTerm(self.term_menu.i16())
     }
 
     pub fn i32(&self) -> ReducedTerm {

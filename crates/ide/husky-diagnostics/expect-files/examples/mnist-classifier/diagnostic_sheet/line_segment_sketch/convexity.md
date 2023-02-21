@@ -11,44 +11,19 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Type Error: original `todo` in term LineSegmentSketch",
+                message: "TypeError: todo",
                 severity: Error,
-                range: [6:13, 6:32),
+                range: [6:13, 6:40),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term i32",
+                message: "TypeError: todo",
                 severity: Error,
-                range: [7:60, 7:65),
+                range: [15:32, 15:59),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term i32",
+                message: "TypeError: todo",
                 severity: Error,
-                range: [8:62, 8:67),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [13:62, 13:67),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term LineSegmentSketch",
-                severity: Error,
-                range: [15:32, 15:51),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [19:60, 19:65),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term LineSegmentSketch",
-                severity: Error,
-                range: [21:32, 21:51),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term never",
-                severity: Error,
-                range: [6:5, 25:55),
+                range: [21:32, 21:59),
             },
         ],
     },

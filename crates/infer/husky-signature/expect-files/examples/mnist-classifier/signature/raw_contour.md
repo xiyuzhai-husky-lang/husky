@@ -71,7 +71,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 17,
+                                                    value: 19,
                                                 },
                                             ),
                                         ),
@@ -85,51 +85,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 11,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ],
-                    },
-                    return_ty: Term(`r32`),
-                },
-            ),
-        ),
-    ),
-    Ok(
-        Signature::Form(
-            FormSignature::Function(
-                FunctionSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        data: [],
-                    },
-                    parameters: RegularParameterSignatures {
-                        parameters: [
-                            ParameterSignature {
-                                pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 17,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            ParameterSignature {
-                                pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 11,
+                                                    value: 13,
                                                 },
                                             ),
                                         ),
@@ -159,7 +115,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 17,
+                                                    value: 19,
                                                 },
                                             ),
                                         ),
@@ -173,7 +129,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 11,
+                                                    value: 13,
                                                 },
                                             ),
                                         ),
@@ -203,7 +159,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 17,
+                                                    value: 19,
                                                 },
                                             ),
                                         ),
@@ -217,7 +173,37 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 17,
+                                                    value: 13,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                    return_ty: Term(`r32`),
+                },
+            ),
+        ),
+    ),
+    Ok(
+        Signature::Form(
+            FormSignature::Function(
+                FunctionSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        data: [],
+                    },
+                    parameters: RegularParameterSignatures {
+                        parameters: [
+                            ParameterSignature {
+                                pattern: ParameterSignaturePattern,
+                                ty: Entity(
+                                    ModuleItem(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 19,
                                                 },
                                             ),
                                         ),
@@ -231,7 +217,21 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 11,
+                                                    value: 19,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            ParameterSignature {
+                                pattern: ParameterSignaturePattern,
+                                ty: Entity(
+                                    ModuleItem(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 13,
                                                 },
                                             ),
                                         ),
@@ -261,7 +261,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 35,
+                                                    value: 34,
                                                 },
                                             ),
                                         ),
@@ -275,7 +275,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 35,
+                                                    value: 34,
                                                 },
                                             ),
                                         ),
@@ -305,7 +305,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 17,
+                                                    value: 19,
                                                 },
                                             ),
                                         ),
@@ -319,7 +319,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 17,
+                                                    value: 19,
                                                 },
                                             ),
                                         ),
@@ -333,7 +333,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 11,
+                                                    value: 13,
                                                 },
                                             ),
                                         ),
@@ -347,7 +347,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 35,
+                                                    value: 34,
                                                 },
                                             ),
                                         ),
@@ -382,7 +382,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 11,
+                                                value: 13,
                                             },
                                         ),
                                     ),
@@ -402,7 +402,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 11,
+                                                value: 13,
                                             },
                                         ),
                                     ),
@@ -539,7 +539,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 11,
+                                                        value: 13,
                                                     },
                                                 ),
                                             ),
@@ -553,7 +553,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 11,
+                                                        value: 13,
                                                     },
                                                 ),
                                             ),

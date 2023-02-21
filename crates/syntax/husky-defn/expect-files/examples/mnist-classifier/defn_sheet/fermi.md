@@ -1,8 +1,8 @@
 Ok(
     DefnSheet {
         defns: [
-            Type(
-                RegularStruct(
+            Defn::Type(
+                TypeDefn::RegularStruct(
                     RegularStructTypeDefn {
                         path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                         decl: RegularStructTypeDecl {
@@ -13,7 +13,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -21,7 +25,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::PrefixOpn {
@@ -57,7 +65,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::NewBoxList {
@@ -92,14 +104,22 @@ Ok(
                                                     13,
                                                 ),
                                                 ident: `ConcaveComponent`,
-                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     20,
                                                 ),
                                                 ident: `ConcaveComponent`,
-                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -208,8 +228,8 @@ Ok(
                     },
                 ),
             ),
-            Form(
-                Function(
+            Defn::Form(
+                FormDefn::Function(
                     FunctionDefn {
                         path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                         decl: FunctionDecl {
@@ -220,7 +240,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -240,7 +264,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::Application {
@@ -269,7 +297,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::PrefixOpn {
@@ -282,7 +314,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 2,
                                                 entity_path: Some(
-                                                    TypePath(`core::num::f32`, `Alien`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::Bracketed {
@@ -322,7 +358,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 3,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -334,28 +374,44 @@ Ok(
                                                     153,
                                                 ),
                                                 ident: `ConcaveComponent`,
-                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     162,
                                                 ),
                                                 ident: `ConcaveComponent`,
-                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     166,
                                                 ),
                                                 ident: `f32`,
-                                                entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::f32`, `Alien`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     170,
                                                 ),
                                                 ident: `FermiMatchResult`,
-                                                entity_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -549,7 +605,11 @@ Ok(
                                             parent: None,
                                             path: RegionPath::Decl(
                                                 DeclExprPath::Entity(
-                                                    FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                                        ),
+                                                    ),
                                                 ),
                                             ),
                                             expr_arena: Arena {
@@ -569,7 +629,11 @@ Ok(
                                                     Expr::EntityPath {
                                                         entity_path_expr: 0,
                                                         entity_path: Some(
-                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                ),
+                                                            ),
                                                         ),
                                                     },
                                                     Expr::Application {
@@ -598,7 +662,11 @@ Ok(
                                                     Expr::EntityPath {
                                                         entity_path_expr: 1,
                                                         entity_path: Some(
-                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                ),
+                                                            ),
                                                         ),
                                                     },
                                                     Expr::PrefixOpn {
@@ -611,7 +679,11 @@ Ok(
                                                     Expr::EntityPath {
                                                         entity_path_expr: 2,
                                                         entity_path: Some(
-                                                            TypePath(`core::num::f32`, `Alien`),
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                ),
+                                                            ),
                                                         ),
                                                     },
                                                     Expr::Bracketed {
@@ -651,7 +723,11 @@ Ok(
                                                     Expr::EntityPath {
                                                         entity_path_expr: 3,
                                                         entity_path: Some(
-                                                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                ),
+                                                            ),
                                                         ),
                                                     },
                                                 ],
@@ -663,28 +739,44 @@ Ok(
                                                             153,
                                                         ),
                                                         ident: `ConcaveComponent`,
-                                                        entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            ),
+                                                        ),
                                                     },
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
                                                             162,
                                                         ),
                                                         ident: `ConcaveComponent`,
-                                                        entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            ),
+                                                        ),
                                                     },
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
                                                             166,
                                                         ),
                                                         ident: `f32`,
-                                                        entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     },
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
                                                             170,
                                                         ),
                                                         ident: `FermiMatchResult`,
-                                                        entity_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                            ),
+                                                        ),
                                                     },
                                                 ],
                                             },
@@ -807,7 +899,11 @@ Ok(
                                 ),
                                 path: RegionPath::Defn(
                                     DefnExprPath::Entity(
-                                        FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                        EntityPath::ModuleItem(
+                                            ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                            ),
+                                        ),
                                     ),
                                 ),
                                 expr_arena: Arena {
@@ -1054,7 +1150,11 @@ Ok(
                                         Expr::EntityPath {
                                             entity_path_expr: 0,
                                             entity_path: Some(
-                                                TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                    ),
+                                                ),
                                             ),
                                         },
                                         Expr::CurrentSymbol {
@@ -1104,7 +1204,11 @@ Ok(
                                                 220,
                                             ),
                                             ident: `FermiMatchResult`,
-                                            entity_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                            entity_path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                ),
+                                            ),
                                         },
                                     ],
                                 },
@@ -1456,7 +1560,7 @@ Ok(
                     },
                 ),
             ),
-            ImplBlock(
+            Defn::ImplBlock(
                 ImplBlockDecl::TypeImplBlock(
                     TypeImplBlockDecl {
                         ast_idx: 23,
@@ -1509,7 +1613,11 @@ Ok(
                                         Expr::EntityPath {
                                             entity_path_expr: 0,
                                             entity_path: Some(
-                                                TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                    ),
+                                                ),
                                             ),
                                         },
                                     ],
@@ -1521,7 +1629,11 @@ Ok(
                                                 24,
                                             ),
                                             ident: `FermiMatchResult`,
-                                            entity_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                            entity_path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                ),
+                                            ),
                                         },
                                     ],
                                 },
@@ -1560,9 +1672,9 @@ Ok(
                     },
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Memo(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Memo(
                         TypeMemoDefn {
                             path: Some(
                                 TypeItemPath {
@@ -1590,11 +1702,13 @@ Ok(
                                         ident: `norm`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                            ident: `norm`,
-                                            ty_item_kind: Memo,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                ident: `norm`,
+                                                ty_item_kind: Memo,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -1616,7 +1730,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Memo,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::fermi`,
                                     ),
                                     is_generic: false,
@@ -1643,7 +1757,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -1655,7 +1773,11 @@ Ok(
                                                                     24,
                                                                 ),
                                                                 ident: `FermiMatchResult`,
-                                                                entity_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -1710,7 +1832,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -1722,7 +1848,11 @@ Ok(
                                                         29,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -1802,7 +1932,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -1814,7 +1948,11 @@ Ok(
                                                                             24,
                                                                         ),
                                                                         ident: `FermiMatchResult`,
-                                                                        entity_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -1869,7 +2007,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -1881,7 +2023,11 @@ Ok(
                                                                 29,
                                                             ),
                                                             ident: `f32`,
-                                                            entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -2316,9 +2462,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Memo(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Memo(
                         TypeMemoDefn {
                             path: Some(
                                 TypeItemPath {
@@ -2346,11 +2492,13 @@ Ok(
                                         ident: `rel_norm`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                            ident: `rel_norm`,
-                                            ty_item_kind: Memo,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                ident: `rel_norm`,
+                                                ty_item_kind: Memo,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -2372,7 +2520,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Memo,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::fermi`,
                                     ),
                                     is_generic: false,
@@ -2399,7 +2547,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -2411,7 +2563,11 @@ Ok(
                                                                     24,
                                                                 ),
                                                                 ident: `FermiMatchResult`,
-                                                                entity_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -2466,7 +2622,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -2478,7 +2638,11 @@ Ok(
                                                         67,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -2558,7 +2722,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -2570,7 +2738,11 @@ Ok(
                                                                             24,
                                                                         ),
                                                                         ident: `FermiMatchResult`,
-                                                                        entity_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -2625,7 +2797,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -2637,7 +2813,11 @@ Ok(
                                                                 67,
                                                             ),
                                                             ident: `f32`,
-                                                            entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },
@@ -3072,9 +3252,9 @@ Ok(
                     ),
                 ),
             ),
-            AssociatedItem(
-                TypeItem(
-                    Memo(
+            Defn::AssociatedItem(
+                AssociatedItemDefn::TypeItem(
+                    TypeItemDefn::Memo(
                         TypeMemoDefn {
                             path: Some(
                                 TypeItemPath {
@@ -3102,11 +3282,13 @@ Ok(
                                         ident: `angle_change_norm`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                            ident: `angle_change_norm`,
-                                            ty_item_kind: Memo,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                ident: `angle_change_norm`,
+                                                ty_item_kind: Memo,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -3128,7 +3310,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Memo,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::fermi`,
                                     ),
                                     is_generic: false,
@@ -3155,7 +3337,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -3167,7 +3353,11 @@ Ok(
                                                                     24,
                                                                 ),
                                                                 ident: `FermiMatchResult`,
-                                                                entity_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -3222,7 +3412,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -3234,7 +3428,11 @@ Ok(
                                                         105,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -3314,7 +3512,11 @@ Ok(
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
                                                                         entity_path: Some(
-                                                                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                                ),
+                                                                            ),
                                                                         ),
                                                                     },
                                                                 ],
@@ -3326,7 +3528,11 @@ Ok(
                                                                             24,
                                                                         ),
                                                                         ident: `FermiMatchResult`,
-                                                                        entity_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ],
                                                             },
@@ -3381,7 +3587,11 @@ Ok(
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
                                                             entity_path: Some(
-                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                    ),
+                                                                ),
                                                             ),
                                                         },
                                                     ],
@@ -3393,7 +3603,11 @@ Ok(
                                                                 105,
                                                             ),
                                                             ident: `f32`,
-                                                            entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                ),
+                                                            ),
                                                         },
                                                     ],
                                                 },

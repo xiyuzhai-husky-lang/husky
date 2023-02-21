@@ -1,6 +1,6 @@
 Ok(
     AstSheet {
-        arena: Arena {
+        ast_arena: Arena {
             data: [
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -9,7 +9,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Alien,
@@ -17,7 +17,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::logic::Prop`, `Alien`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`core::logic::Prop`, `Alien`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `Prop`,
@@ -38,7 +42,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Structure,
@@ -46,7 +50,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::logic::LogicAnd`, `Structure`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`core::logic::LogicAnd`, `Structure`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `LogicAnd`,
@@ -67,7 +75,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Inductive,
@@ -75,7 +83,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::logic::LogicOr`, `Inductive`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`core::logic::LogicOr`, `Inductive`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `LogicOr`,

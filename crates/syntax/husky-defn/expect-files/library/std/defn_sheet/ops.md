@@ -1,7 +1,7 @@
 Ok(
     DefnSheet {
         defns: [
-            Trait(
+            Defn::Trait(
                 TraitDefn {
                     path: TraitPath(`std::ops::Add`),
                     decl: TraitDecl {
@@ -12,7 +12,11 @@ Ok(
                                 parent: None,
                                 path: RegionPath::Decl(
                                     DeclExprPath::Entity(
-                                        TraitPath(`std::ops::Add`),
+                                        EntityPath::ModuleItem(
+                                            ModuleItemPath::Trait(
+                                                TraitPath(`std::ops::Add`),
+                                            ),
+                                        ),
                                     ),
                                 ),
                                 expr_arena: Arena {

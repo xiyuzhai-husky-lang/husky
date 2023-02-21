@@ -3,27 +3,10 @@ use parsec::HasParseError;
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct IdentifierToken {
     ident: Identifier,
     token_idx: TokenIdx,
-}
-
-impl<Db> salsa::DebugWithDb<Db> for IdentifierToken
-where
-    Db: TokenDb + ?Sized,
-{
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<TokenJar>>::as_jar_db(db);
-        f.debug_struct("IdentifierToken")
-            .field("ident", &self.ident.debug_with(db, include_all_fields))
-            .field("token_idx", &self.token_idx)
-            .finish()
-    }
 }
 
 impl IdentifierToken {

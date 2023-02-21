@@ -59,9 +59,39 @@ impl<'a> ExprTypeEngine<'a> {
                 },
                 _ => Err(todo!()),
             },
-            BinaryPureClosedOpr::BitAnd => todo!(),
-            BinaryPureClosedOpr::BitOr => todo!(),
-            BinaryPureClosedOpr::BitXor => todo!(),
+            BinaryPureClosedOpr::BitAnd => match lopd_ty {
+                lopd_ty if lopd_ty == menu.r32() => match ropd_ty {
+                    ropd_ty if ropd_ty == menu.r32() => Ok(menu.r32().into()),
+                    _ => Err(todo!()),
+                },
+                lopd_ty if lopd_ty == menu.r64() => match ropd_ty {
+                    ropd_ty if ropd_ty == menu.r64() => Ok(menu.r64().into()),
+                    _ => Err(todo!()),
+                },
+                _ => Err(todo!()),
+            },
+            BinaryPureClosedOpr::BitOr => match lopd_ty {
+                lopd_ty if lopd_ty == menu.r32() => match ropd_ty {
+                    ropd_ty if ropd_ty == menu.r32() => Ok(menu.r32().into()),
+                    _ => Err(todo!()),
+                },
+                lopd_ty if lopd_ty == menu.r64() => match ropd_ty {
+                    ropd_ty if ropd_ty == menu.r64() => Ok(menu.r64().into()),
+                    _ => Err(todo!()),
+                },
+                _ => Err(todo!()),
+            },
+            BinaryPureClosedOpr::BitXor => match lopd_ty {
+                lopd_ty if lopd_ty == menu.r32() => match ropd_ty {
+                    ropd_ty if ropd_ty == menu.r32() => Ok(menu.r32().into()),
+                    _ => Err(todo!()),
+                },
+                lopd_ty if lopd_ty == menu.r64() => match ropd_ty {
+                    ropd_ty if ropd_ty == menu.r64() => Ok(menu.r64().into()),
+                    _ => Err(todo!()),
+                },
+                _ => Err(todo!()),
+            },
             BinaryPureClosedOpr::Div => match lopd_ty {
                 lopd_ty if lopd_ty == menu.i32() => match ropd_ty {
                     ropd_ty if ropd_ty == menu.i32() => Ok(menu.i32().into()),
@@ -80,6 +110,14 @@ impl<'a> ExprTypeEngine<'a> {
                 },
                 lopd_ty if lopd_ty == menu.i64() => match ropd_ty {
                     ropd_ty if ropd_ty == menu.i64() => Ok(menu.i64().into()),
+                    _ => Err(todo!()),
+                },
+                lopd_ty if lopd_ty == menu.f32() => match ropd_ty {
+                    ropd_ty if ropd_ty == menu.f32() => Ok(menu.f32().into()),
+                    _ => Err(todo!()),
+                },
+                lopd_ty if lopd_ty == menu.f64() => match ropd_ty {
+                    ropd_ty if ropd_ty == menu.f64() => Ok(menu.f64().into()),
                     _ => Err(todo!()),
                 },
                 _ => Err(todo!()),
@@ -107,7 +145,17 @@ impl<'a> ExprTypeEngine<'a> {
                 _ => Err(todo!()),
             },
             BinaryPureClosedOpr::Shl => todo!(),
-            BinaryPureClosedOpr::Shr => todo!(),
+            BinaryPureClosedOpr::Shr => match lopd_ty {
+                lopd_ty if lopd_ty == menu.r32() => match ropd_ty {
+                    ropd_ty if ropd_ty == menu.i32() => Ok(menu.r32().into()),
+                    _ => Err(todo!()),
+                },
+                lopd_ty if lopd_ty == menu.r64() => match ropd_ty {
+                    ropd_ty if ropd_ty == menu.i32() => Ok(menu.r64().into()),
+                    _ => Err(todo!()),
+                },
+                _ => Err(todo!()),
+            },
             BinaryPureClosedOpr::Sub => match lopd_ty {
                 lopd_ty if lopd_ty == menu.i32() => match ropd_ty {
                     ropd_ty if ropd_ty == menu.i32() => Ok(menu.i32().into()),
@@ -128,11 +176,12 @@ impl<'a> ExprTypeEngine<'a> {
         ropd: ExprIdx,
     ) -> Result<LocalTerm, ExprTypeError> {
         let lopd_ty = self.infer_new_expr_ty(lopd, ExpectInsSort::default());
-        let ropd_ty_expectation = match lopd_ty {
-            Some(_) => todo!(),
-            None => ExpectInsSort::default(),
+        let _ropd_ty = match lopd_ty {
+            Some(destination) => {
+                self.infer_new_expr_ty(ropd, ExpectImplicitlyConvertible { destination })
+            }
+            None => self.infer_new_expr_ty(ropd, ExpectInsSort::default()),
         };
-        let ropd_ty = self.infer_new_expr_ty(ropd, ropd_ty_expectation);
         Ok(self.reduced_term_menu.bool().into())
     }
 

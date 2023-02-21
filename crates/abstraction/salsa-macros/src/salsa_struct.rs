@@ -336,7 +336,7 @@ impl<A: AllowedOptions> SalsaStruct<A> {
                             #[allow(clippy::needless_borrow)]
                             &self.#field_getter(_db),
                             _db,
-                            _include_all_fields
+                            _level.next()
                         )
                     );
                 };
@@ -350,12 +350,12 @@ impl<A: AllowedOptions> SalsaStruct<A> {
         // `use ::salsa::debug::helper::Fallback` is needed for the fallback to `Debug` impl
         parse_quote_spanned! {ident.span()=>
             impl<_Db: #db_trai + ?Sized> ::salsa::DebugWithDb<_Db> for #ident {
-                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &_Db, _include_all_fields: bool) -> ::std::fmt::Result {
+                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &_Db, _level: salsa::DebugFormatLevel) -> ::std::fmt::Result {
                     #[allow(unused_imports)]
                     use ::salsa::debug::helper::Fallback;
                     let _db = <_Db as ::salsa::DbWithJar<#jar_ty>>::as_jar_db(_db);
                     let mut debug_struct = &mut f.debug_struct(#ident_string);
-                    if _include_all_fields {
+                    if _level.is_root() {
                         debug_struct = debug_struct.field("[salsa id]", &self.0.as_u32());
                     }
                     #fields

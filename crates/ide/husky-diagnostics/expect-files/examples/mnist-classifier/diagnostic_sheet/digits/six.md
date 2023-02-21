@@ -147,11 +147,6 @@ DiagnosticSheet {
                 range: [11:43, 11:51),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term FermiMatchResult",
-                severity: Error,
-                range: [11:5, 11:52),
-            },
-            Diagnostic {
                 message: "OriginalLocalTermExpectationError::Todo: todo",
                 severity: Error,
                 range: [14:17, 14:41),
@@ -160,11 +155,6 @@ DiagnosticSheet {
                 message: "OriginalLocalTermExpectationError::Todo: todo",
                 severity: Error,
                 range: [14:43, 14:60),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term FermiMatchResult",
-                severity: Error,
-                range: [14:5, 14:61),
             },
             Diagnostic {
                 message: "Type Error: TodoSuffix",
@@ -180,6 +170,11 @@ DiagnosticSheet {
                 message: "Type Error: TodoScopeResolution",
                 severity: Error,
                 range: [44:13, 44:28),
+            },
+            Diagnostic {
+                message: "TypeError: todo",
+                severity: Error,
+                range: [45:36, 45:74),
             },
             Diagnostic {
                 message: "Type Error: TodoSuffix",
@@ -205,26 +200,6 @@ DiagnosticSheet {
                 message: "Type Error: TodoScopeResolution",
                 severity: Error,
                 range: [69:5, 69:20),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term ConnectedComponent",
-                severity: Error,
-                range: [20:21, 20:46),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term ConnectedComponent",
-                severity: Error,
-                range: [21:24, 21:49),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term ConnectedComponent",
-                severity: Error,
-                range: [21:63, 21:88),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term LineSegmentSketch",
-                severity: Error,
-                range: [45:36, 45:61),
             },
             Diagnostic {
                 message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime ConcaveComponent",

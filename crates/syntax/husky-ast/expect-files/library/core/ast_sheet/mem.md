@@ -1,6 +1,6 @@
 Ok(
     AstSheet {
-        arena: Arena {
+        ast_arena: Arena {
             data: [
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -9,7 +9,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Alien,
@@ -17,7 +17,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::mem::Ref`, `Alien`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`core::mem::Ref`, `Alien`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `Ref`,
@@ -38,7 +42,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Alien,
@@ -46,7 +50,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::mem::RefMut`, `Alien`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`core::mem::RefMut`, `Alien`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `RefMut`,

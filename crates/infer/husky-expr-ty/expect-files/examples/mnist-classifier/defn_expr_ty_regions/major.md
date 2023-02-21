@@ -326,7 +326,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 22,
+                                                        value: 3,
                                                     },
                                                 ),
                                             ),
@@ -351,7 +351,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 22,
+                                                                        value: 3,
                                                                     },
                                                                 ),
                                                             ),
@@ -366,7 +366,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 22,
+                                                                        value: 3,
                                                                     },
                                                                 ),
                                                             ),
@@ -413,7 +413,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 22,
+                                                        value: 3,
                                                     },
                                                 ),
                                             ),
@@ -438,7 +438,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 22,
+                                                                        value: 3,
                                                                     },
                                                                 ),
                                                             ),
@@ -453,7 +453,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 22,
+                                                                        value: 3,
                                                                     },
                                                                 ),
                                                             ),
@@ -507,7 +507,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 2,
                                                     },
                                                 ),
                                             ),
@@ -521,11 +521,25 @@
                         ),
                         resolve_progress: Expected(
                             Resolved(
-                                Err(
-                                    Derived(
-                                        Duplication(
-                                            8,
-                                        ),
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 2,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -622,7 +636,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 21,
+                                    value: 23,
                                 },
                             ),
                             arguments: [
@@ -695,7 +709,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 21,
+                                    value: 23,
                                 },
                             ),
                             arguments: [
@@ -883,7 +897,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 22,
+                                                        value: 3,
                                                     },
                                                 ),
                                             ),
@@ -899,7 +913,7 @@
                                                 Type(
                                                     TypePath(
                                                         Id {
-                                                            value: 22,
+                                                            value: 3,
                                                         },
                                                     ),
                                                 ),
@@ -920,7 +934,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 22,
+                                                                        value: 3,
                                                                     },
                                                                 ),
                                                             ),
@@ -935,7 +949,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 22,
+                                                                        value: 3,
                                                                     },
                                                                 ),
                                                             ),
@@ -957,7 +971,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 22,
+                                                        value: 3,
                                                     },
                                                 ),
                                             ),
@@ -973,7 +987,7 @@
                                                 Type(
                                                     TypePath(
                                                         Id {
-                                                            value: 22,
+                                                            value: 3,
                                                         },
                                                     ),
                                                 ),
@@ -994,7 +1008,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 22,
+                                                                        value: 3,
                                                                     },
                                                                 ),
                                                             ),
@@ -1009,7 +1023,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 22,
+                                                                        value: 3,
                                                                     },
                                                                 ),
                                                             ),
@@ -1045,7 +1059,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 2,
                                                     },
                                                 ),
                                             ),
@@ -1059,22 +1073,23 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                Err(
-                                    Original(
-                                        TermTypeError {
-                                            term: Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 23,
-                                                            },
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 2,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
-                                            ),
-                                            error: Original(
-                                                Todo,
                                             ),
                                         },
                                     ),
@@ -1219,7 +1234,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 22,
+                                                        value: 3,
                                                     },
                                                 ),
                                             ),
@@ -1244,7 +1259,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 22,
+                                                                        value: 3,
                                                                     },
                                                                 ),
                                                             ),
@@ -1259,7 +1274,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 22,
+                                                                        value: 3,
                                                                     },
                                                                 ),
                                                             ),
@@ -1284,7 +1299,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 33,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
@@ -1352,7 +1367,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 2,
                                                     },
                                                 ),
                                             ),
@@ -1366,11 +1381,25 @@
                         ),
                         resolve_progress: Expected(
                             Resolved(
-                                Err(
-                                    Derived(
-                                        Duplication(
-                                            5,
-                                        ),
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 2,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -1460,7 +1489,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 21,
+                                    value: 23,
                                 },
                             ),
                             arguments: [
@@ -1560,7 +1589,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 22,
+                                                        value: 3,
                                                     },
                                                 ),
                                             ),
@@ -1576,7 +1605,7 @@
                                                 Type(
                                                     TypePath(
                                                         Id {
-                                                            value: 22,
+                                                            value: 3,
                                                         },
                                                     ),
                                                 ),
@@ -1597,7 +1626,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 22,
+                                                                        value: 3,
                                                                     },
                                                                 ),
                                                             ),
@@ -1612,7 +1641,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 22,
+                                                                        value: 3,
                                                                     },
                                                                 ),
                                                             ),
@@ -1634,7 +1663,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 33,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
@@ -1649,21 +1678,21 @@
                             },
                             resolve_progress: Resolved(
                                 Err(
-                                    Original(
+                                    Derived(
                                         TermTypeError {
                                             term: Entity(
                                                 ModuleItem(
                                                     Type(
                                                         TypePath(
                                                             Id {
-                                                                value: 33,
+                                                                value: 32,
                                                             },
                                                         ),
                                                     ),
                                                 ),
                                             ),
-                                            error: Original(
-                                                Todo,
+                                            error: Derived(
+                                                SignatureError,
                                             ),
                                         },
                                     ),
@@ -1679,7 +1708,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 2,
                                                     },
                                                 ),
                                             ),
@@ -1693,22 +1722,23 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                Err(
-                                    Original(
-                                        TermTypeError {
-                                            term: Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 23,
-                                                            },
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 2,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
-                                            ),
-                                            error: Original(
-                                                Todo,
                                             ),
                                         },
                                     ),
@@ -1741,7 +1771,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 33,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
@@ -1819,7 +1849,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 33,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
@@ -1834,21 +1864,21 @@
                             },
                             resolve_progress: Resolved(
                                 Err(
-                                    Original(
+                                    Derived(
                                         TermTypeError {
                                             term: Entity(
                                                 ModuleItem(
                                                     Type(
                                                         TypePath(
                                                             Id {
-                                                                value: 33,
+                                                                value: 32,
                                                             },
                                                         ),
                                                     ),
                                                 ),
                                             ),
-                                            error: Original(
-                                                Todo,
+                                            error: Derived(
+                                                SignatureError,
                                             ),
                                         },
                                     ),
@@ -2000,7 +2030,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 21,
+                                    value: 23,
                                 },
                             ),
                             arguments: [
@@ -2100,7 +2130,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 34,
+                                                        value: 33,
                                                     },
                                                 ),
                                             ),
@@ -2114,11 +2144,25 @@
                         ),
                         resolve_progress: Expected(
                             Resolved(
-                                Err(
-                                    Derived(
-                                        Duplication(
-                                            0,
-                                        ),
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 33,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -2128,8 +2172,10 @@
                 Some(
                     ExprTypeInfo {
                         ty_result: Err(
-                            Derived(
-                                FieldOwnerTypeNotInferred,
+                            Original(
+                                FieldTypeError(
+                                    Todo,
+                                ),
                             ),
                         ),
                         expectation_rule_idx: None,
@@ -2178,7 +2224,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 34,
+                                                        value: 33,
                                                     },
                                                 ),
                                             ),
@@ -2192,22 +2238,23 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                Err(
-                                    Original(
-                                        TermTypeError {
-                                            term: Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 34,
-                                                            },
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 33,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
-                                            ),
-                                            error: Original(
-                                                Todo,
                                             ),
                                         },
                                     ),
@@ -2240,7 +2287,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 44,
+                                                        value: 43,
                                                     },
                                                 ),
                                             ),
@@ -2254,11 +2301,25 @@
                         ),
                         resolve_progress: Expected(
                             Resolved(
-                                Err(
-                                    Derived(
-                                        Duplication(
-                                            0,
-                                        ),
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 43,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -2268,8 +2329,10 @@
                 Some(
                     ExprTypeInfo {
                         ty_result: Err(
-                            Derived(
-                                FieldOwnerTypeNotInferred,
+                            Original(
+                                FieldTypeError(
+                                    Todo,
+                                ),
                             ),
                         ),
                         expectation_rule_idx: None,
@@ -2318,7 +2381,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 44,
+                                                        value: 43,
                                                     },
                                                 ),
                                             ),
@@ -2332,22 +2395,23 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                Err(
-                                    Original(
-                                        TermTypeError {
-                                            term: Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 44,
-                                                            },
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 43,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
-                                            ),
-                                            error: Original(
-                                                Todo,
                                             ),
                                         },
                                     ),

@@ -1,6 +1,6 @@
 Ok(
     AstSheet {
-        arena: Arena {
+        ast_arena: Arena {
             data: [
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -9,12 +9,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::digits::zero`,
+                        EntityPath::Module(
+                            `mnist_classifier::digits::zero`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `zero`,
@@ -35,12 +37,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::digits::one`,
+                        EntityPath::Module(
+                            `mnist_classifier::digits::one`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `one`,
@@ -61,12 +65,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::digits::six`,
+                        EntityPath::Module(
+                            `mnist_classifier::digits::six`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `six`,
@@ -87,12 +93,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::digits::three`,
+                        EntityPath::Module(
+                            `mnist_classifier::digits::three`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `three`,
@@ -113,12 +121,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::digits::four`,
+                        EntityPath::Module(
+                            `mnist_classifier::digits::four`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `four`,
@@ -139,12 +149,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::digits::five`,
+                        EntityPath::Module(
+                            `mnist_classifier::digits::five`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `five`,
@@ -165,12 +177,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::digits::six`,
+                        EntityPath::Module(
+                            `mnist_classifier::digits::six`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `six`,
@@ -191,12 +205,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::digits::seven`,
+                        EntityPath::Module(
+                            `mnist_classifier::digits::seven`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `seven`,
@@ -217,12 +233,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::digits::eight`,
+                        EntityPath::Module(
+                            `mnist_classifier::digits::eight`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `eight`,
@@ -243,12 +261,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::digits::nine`,
+                        EntityPath::Module(
+                            `mnist_classifier::digits::nine`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `nine`,

@@ -1,6 +1,6 @@
 Ok(
     AstSheet {
-        arena: Arena {
+        ast_arena: Arena {
             data: [
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -9,12 +9,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `core`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::basic`,
+                        EntityPath::Module(
+                            `core::basic`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `basic`,
@@ -35,12 +37,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `core`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::logic`,
+                        EntityPath::Module(
+                            `core::logic`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `logic`,
@@ -61,12 +65,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `core`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::mem`,
+                        EntityPath::Module(
+                            `core::mem`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `mem`,
@@ -87,12 +93,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `core`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::num`,
+                        EntityPath::Module(
+                            `core::num`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `num`,
@@ -113,12 +121,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `core`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::ops`,
+                        EntityPath::Module(
+                            `core::ops`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `ops`,
@@ -139,12 +149,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `core`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::prelude`,
+                        EntityPath::Module(
+                            `core::prelude`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `prelude`,
@@ -165,12 +177,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `core`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::raw_bits`,
+                        EntityPath::Module(
+                            `core::raw_bits`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `raw_bits`,
@@ -191,12 +205,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `core`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::fmt`,
+                        EntityPath::Module(
+                            `core::fmt`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `fmt`,
@@ -217,12 +233,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `core`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::clone`,
+                        EntityPath::Module(
+                            `core::clone`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `clone`,
@@ -243,12 +261,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `core`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::marker`,
+                        EntityPath::Module(
+                            `core::marker`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `marker`,
@@ -269,12 +289,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `core`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::vec`,
+                        EntityPath::Module(
+                            `core::vec`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `vec`,
@@ -295,12 +317,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `core`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::cmp`,
+                        EntityPath::Module(
+                            `core::cmp`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `cmp`,

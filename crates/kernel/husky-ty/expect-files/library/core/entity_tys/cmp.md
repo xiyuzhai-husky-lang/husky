@@ -2,25 +2,25 @@
     (
         TraitPath(`core::cmp::PartialEq`),
         Ok(
-            Term(`Type`),
+            Term(`Trait`),
         ),
     ),
     (
         TraitPath(`core::cmp::Eq`),
         Ok(
-            Term(`Type`),
+            Term(`Trait`),
         ),
     ),
     (
         TraitPath(`core::cmp::PartialOrd`),
         Ok(
-            Term(`Type`),
+            Term(`Trait`),
         ),
     ),
     (
         TraitPath(`core::cmp::Ord`),
         Ok(
-            Term(`Type`),
+            Term(`Trait`),
         ),
     ),
 ]

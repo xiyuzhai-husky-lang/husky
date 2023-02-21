@@ -204,13 +204,35 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `never`,
+                            accessibility: Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    path: TypePath(`core::basic::never`, `Alien`),
+                                    accessibility: Public,
+                                    ast_idx: 1,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `unit`,
+                            accessibility: Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    path: TypePath(`core::basic::unit`, `Alien`),
+                                    accessibility: Public,
+                                    ast_idx: 2,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `Trait`,
                             accessibility: Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
                                     path: TypePath(`core::basic::Trait`, `Structure`),
                                     accessibility: Public,
-                                    ast_idx: 1,
+                                    ast_idx: 3,
                                 },
                             ),
                         },
@@ -221,7 +243,7 @@ Ok(
                                 ModuleItemSymbol {
                                     path: TypePath(`core::basic::Module`, `Structure`),
                                     accessibility: Public,
-                                    ast_idx: 2,
+                                    ast_idx: 4,
                                 },
                             ),
                         },
@@ -445,6 +467,44 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `never`,
+                            accessibility: Public,
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TypePath(`core::basic::never`, `Alien`),
+                                            accessibility: Public,
+                                            ast_idx: 1,
+                                        },
+                                    ),
+                                    path: TypePath(`core::basic::never`, `Alien`),
+                                    accessibility: Public,
+                                    ast_idx: 0,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `unit`,
+                            accessibility: Public,
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TypePath(`core::basic::unit`, `Alien`),
+                                            accessibility: Public,
+                                            ast_idx: 2,
+                                        },
+                                    ),
+                                    path: TypePath(`core::basic::unit`, `Alien`),
+                                    accessibility: Public,
+                                    ast_idx: 0,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `Trait`,
                             accessibility: Public,
                             symbol: Use(
@@ -453,7 +513,7 @@ Ok(
                                         ModuleItemSymbol {
                                             path: TypePath(`core::basic::Trait`, `Structure`),
                                             accessibility: Public,
-                                            ast_idx: 1,
+                                            ast_idx: 3,
                                         },
                                     ),
                                     path: TypePath(`core::basic::Trait`, `Structure`),
@@ -472,7 +532,7 @@ Ok(
                                         ModuleItemSymbol {
                                             path: TypePath(`core::basic::Module`, `Structure`),
                                             accessibility: Public,
-                                            ast_idx: 2,
+                                            ast_idx: 4,
                                         },
                                     ),
                                     path: TypePath(`core::basic::Module`, `Structure`),

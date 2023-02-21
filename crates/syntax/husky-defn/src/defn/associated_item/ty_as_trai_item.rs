@@ -12,6 +12,7 @@ use crate::*;
 use husky_entity_path::AssociatedItemPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = DefnDb)]
 pub enum TypeAsTraitItemDefn {
     Function(TypeAsTraitAssociatedFunctionDefn),
     Method(TypeAsTraitMethodDefn),
@@ -62,29 +63,6 @@ impl TypeAsTraitItemDefn {
             TypeAsTraitItemDefn::Method(defn) => defn.expr_region(db),
             TypeAsTraitItemDefn::AlienType(defn) => defn.expr_region(db),
             TypeAsTraitItemDefn::Value(defn) => defn.expr_region(db),
-        }
-    }
-}
-
-impl<Db: DefnDb + ?Sized> salsa::DebugWithDb<Db> for TypeAsTraitItemDefn {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as DbWithJar<DefnJar>>::as_jar_db(db);
-        match self {
-            TypeAsTraitItemDefn::Function(decl) => f
-                .debug_tuple("Function")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            TypeAsTraitItemDefn::Method(decl) => f
-                .debug_tuple("Method")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            TypeAsTraitItemDefn::AlienType(_) => todo!(),
-            TypeAsTraitItemDefn::Value(_) => todo!(),
         }
     }
 }

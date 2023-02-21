@@ -185,7 +185,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 36,
                                                     },
                                                 ),
                                             ),
@@ -199,11 +199,25 @@
                         ),
                         resolve_progress: Expected(
                             Resolved(
-                                Err(
-                                    Derived(
-                                        Duplication(
-                                            0,
-                                        ),
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 36,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -390,7 +404,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 36,
                                                     },
                                                 ),
                                             ),
@@ -404,11 +418,25 @@
                         ),
                         resolve_progress: Expected(
                             Resolved(
-                                Err(
-                                    Derived(
-                                        Duplication(
-                                            3,
-                                        ),
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 36,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -746,7 +774,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 36,
                                                     },
                                                 ),
                                             ),
@@ -760,22 +788,23 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                Err(
-                                    Original(
-                                        TermTypeError {
-                                            term: Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 37,
-                                                            },
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 36,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
-                                            ),
-                                            error: Original(
-                                                Todo,
                                             ),
                                         },
                                     ),
@@ -879,7 +908,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 36,
                                                     },
                                                 ),
                                             ),
@@ -893,22 +922,23 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                Err(
-                                    Original(
-                                        TermTypeError {
-                                            term: Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 37,
-                                                            },
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 36,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
-                                            ),
-                                            error: Original(
-                                                Todo,
                                             ),
                                         },
                                     ),

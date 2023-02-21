@@ -47,6 +47,8 @@ pub struct TermMenu0 {
     ref_ty_path: Term,
     list_ty: Term,
     std: Term,
+    i8: Term,
+    i16: Term,
     i32: Term,
     i64: Term,
     f32: Term,
@@ -109,10 +111,12 @@ impl TermMenu0 {
             trai_ty: Term::Entity(entity_path_menu.trai_ty().into()),
             lifetime_ty: Term::Entity(entity_path_menu.lifetime_ty().into()),
             module: Term::Entity(entity_path_menu.module().into()),
-            i32: Term::Entity(entity_path_menu.i32().into()),
-            i64: Term::Entity(entity_path_menu.i64().into()),
-            f32: Term::Entity(entity_path_menu.f32().into()),
-            f64: Term::Entity(entity_path_menu.f64().into()),
+            i8: Term::Entity(entity_path_menu.i8_ty_path().into()),
+            i16: Term::Entity(entity_path_menu.i16_ty_path().into()),
+            i32: Term::Entity(entity_path_menu.i32_ty_path().into()),
+            i64: Term::Entity(entity_path_menu.i64_ty_path().into()),
+            f32: Term::Entity(entity_path_menu.f32_ty_path().into()),
+            f64: Term::Entity(entity_path_menu.f64_ty_path().into()),
             r32: Term::Entity(entity_path_menu.r32_ty_path().into()),
             r64: Term::Entity(entity_path_menu.r64_ty_path().into()),
         }
@@ -247,6 +251,14 @@ impl TermMenu0 {
 
     pub fn bool(&self) -> Term {
         self.bool
+    }
+
+    pub fn i8(&self) -> Term {
+        self.i8
+    }
+
+    pub fn i16(&self) -> Term {
+        self.i16
     }
 
     pub fn i32(&self) -> Term {

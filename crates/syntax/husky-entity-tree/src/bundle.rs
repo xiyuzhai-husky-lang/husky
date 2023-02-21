@@ -15,7 +15,7 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreeBundleError
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         todo!()
     }
@@ -44,6 +44,7 @@ fn entity_tree_crate_bundle_works() {
 }
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct EntityTreeCrateBundle {
     sheets: VecMap<EntityTreeSheet>,
     principal_entity_path_expr_arena: MajorPathExprArena,
@@ -73,29 +74,5 @@ impl EntityTreeCrateBundle {
 
     pub fn impl_block_iter<'a>(&'a self) -> impl Iterator<Item = ImplBlock> + 'a {
         self.impl_blocks.iter().copied()
-    }
-}
-
-impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntityTreeCrateBundle {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &dyn EntityTreeDb,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        f.debug_struct("EntityTreeBundle")
-            .field("sheets", &self.sheets.debug_with(db, include_all_fields))
-            .finish()
-    }
-}
-
-impl<Db: EntityTreeDb> salsa::DebugWithDb<Db> for EntityTreeCrateBundle {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        self.fmt(f, db as &dyn EntityTreeDb, include_all_fields)
     }
 }

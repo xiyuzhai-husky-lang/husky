@@ -2,7 +2,7 @@ Ok(
     DeclSheet {
         decls: [
             Ok(
-                Type(
+                Decl::Type(
                     TypeDecl::RegularStruct(
                         RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
@@ -12,7 +12,11 @@ Ok(
                                     parent: None,
                                     path: RegionPath::Decl(
                                         DeclExprPath::Entity(
-                                            TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                ),
+                                            ),
                                         ),
                                     ),
                                     expr_arena: Arena {
@@ -20,13 +24,21 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                             Expr::EntityPath {
                                                 entity_path_expr: 1,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -38,14 +50,22 @@ Ok(
                                                     12,
                                                 ),
                                                 ident: `Point2d`,
-                                                entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                             EntityPathExpr::Root {
                                                 token_idx: TokenIdx(
                                                     16,
                                                 ),
                                                 ident: `Point2d`,
-                                                entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -155,7 +175,7 @@ Ok(
                 ),
             ),
             Ok(
-                ImplBlock(
+                Decl::ImplBlock(
                     ImplBlockDecl::TypeImplBlock(
                         TypeImplBlockDecl {
                             ast_idx: 17,
@@ -208,7 +228,11 @@ Ok(
                                             Expr::EntityPath {
                                                 entity_path_expr: 0,
                                                 entity_path: Some(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         ],
@@ -220,7 +244,11 @@ Ok(
                                                     20,
                                                 ),
                                                 ident: `LineSegment`,
-                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                entity_path: EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ],
                                     },
@@ -261,7 +289,7 @@ Ok(
                 ),
             ),
             Ok(
-                AssociatedItem(
+                Decl::AssociatedItem(
                     AssociatedItemDecl::TypeItem(
                         TypeItemDecl::Method(
                             TypeMethodDecl {
@@ -276,11 +304,13 @@ Ok(
                                         ident: `displacement`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                            ident: `displacement`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                ident: `displacement`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -302,7 +332,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::line_segment_sketch::line_segment`,
                                     ),
                                     is_generic: false,
@@ -336,7 +366,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -348,7 +382,11 @@ Ok(
                                                                     20,
                                                                 ),
                                                                 ident: `LineSegment`,
-                                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -403,7 +441,11 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -415,7 +457,11 @@ Ok(
                                                         27,
                                                     ),
                                                     ident: `Vector2d`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -491,7 +537,7 @@ Ok(
                 ),
             ),
             Ok(
-                AssociatedItem(
+                Decl::AssociatedItem(
                     AssociatedItemDecl::TypeItem(
                         TypeItemDecl::Method(
                             TypeMethodDecl {
@@ -506,11 +552,13 @@ Ok(
                                         ident: `dist_to_point`,
                                     },
                                     path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                            ident: `dist_to_point`,
-                                            ty_item_kind: Method,
-                                        },
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                ident: `dist_to_point`,
+                                                ty_item_kind: Method,
+                                            },
+                                        ),
                                     ),
                                     impl_block: ImplBlock {
                                         id: ImplBlockId {
@@ -532,7 +580,7 @@ Ok(
                                     associated_item_kind: TypeItem(
                                         Method,
                                     ),
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::line_segment_sketch::line_segment`,
                                     ),
                                     is_generic: false,
@@ -566,7 +614,11 @@ Ok(
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
                                                                 entity_path: Some(
-                                                                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             },
                                                         ],
@@ -578,7 +630,11 @@ Ok(
                                                                     20,
                                                                 ),
                                                                 ident: `LineSegment`,
-                                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                                    ),
+                                                                ),
                                                             },
                                                         ],
                                                     },
@@ -633,13 +689,21 @@ Ok(
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     entity_path: Some(
-                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 1,
                                                     entity_path: Some(
-                                                        TypePath(`core::num::f32`, `Alien`),
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                             ],
@@ -651,14 +715,22 @@ Ok(
                                                         44,
                                                     ),
                                                     ident: `Point2d`,
-                                                    entity_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        ),
+                                                    ),
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         47,
                                                     ),
                                                     ident: `f32`,
-                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Alien`),
+                                                        ),
+                                                    ),
                                                 },
                                             ],
                                         },

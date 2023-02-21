@@ -1,6 +1,6 @@
 Ok(
     AstSheet {
-        arena: Arena {
+        ast_arena: Arena {
             data: [
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
@@ -33,7 +33,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..2,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             Method,
@@ -59,7 +59,7 @@ Ok(
                     body: ArenaIdxRange(
                         2..3,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     entity_kind: AssociatedItem {
@@ -215,7 +215,7 @@ Ok(
                     body: ArenaIdxRange(
                         7..8,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     entity_kind: AssociatedItem {
@@ -243,7 +243,7 @@ Ok(
                     body: ArenaIdxRange(
                         13..20,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     entity_kind: AssociatedItem {
@@ -271,7 +271,7 @@ Ok(
                     body: ArenaIdxRange(
                         20..21,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             Method,
@@ -1356,12 +1356,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::line_segment_sketch::concave_component`,
+                        EntityPath::Module(
+                            `mnist_classifier::line_segment_sketch::concave_component`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `concave_component`,
@@ -1382,12 +1384,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::line_segment_sketch::convex_component`,
+                        EntityPath::Module(
+                            `mnist_classifier::line_segment_sketch::convex_component`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `convex_component`,
@@ -1408,12 +1412,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::line_segment_sketch::convexity`,
+                        EntityPath::Module(
+                            `mnist_classifier::line_segment_sketch::convexity`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `convexity`,
@@ -1434,12 +1440,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::line_segment_sketch::line_segment`,
+                        EntityPath::Module(
+                            `mnist_classifier::line_segment_sketch::line_segment`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `line_segment`,
@@ -1490,7 +1498,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1498,7 +1506,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `LineSegmentStroke`,
@@ -1527,7 +1539,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1535,7 +1547,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `LineSegmentSketch`,
@@ -1564,7 +1580,7 @@ Ok(
                     body: ArenaIdxRange(
                         26..32,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     entity_kind: ModuleItem {
@@ -1574,7 +1590,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `go_right`,
@@ -1595,7 +1615,7 @@ Ok(
                     body: ArenaIdxRange(
                         32..38,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     entity_kind: ModuleItem {
@@ -1605,7 +1625,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `go_left`,
@@ -1626,7 +1650,7 @@ Ok(
                     body: ArenaIdxRange(
                         60..72,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     entity_kind: ModuleItem {
@@ -1636,7 +1660,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `extend_end`,
@@ -1657,7 +1685,7 @@ Ok(
                     body: ArenaIdxRange(
                         105..115,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     entity_kind: ModuleItem {
@@ -1667,7 +1695,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `extend_start`,
@@ -1688,7 +1720,7 @@ Ok(
                     body: ArenaIdxRange(
                         149..159,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     entity_kind: ModuleItem {
@@ -1698,7 +1730,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `find_line_segments`,

@@ -112,6 +112,7 @@ pub(crate) fn ast_sheet(db: &dyn AstDb, module_path: ModulePath) -> VfsResult<As
 }
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = AstDb)]
 pub struct AstSheet {
     ast_arena: AstArena,
     top_level_asts: AstIdxRange,
@@ -175,7 +176,7 @@ impl std::ops::Deref for AstSheet {
 //         &self,
 //         f: &mut std::fmt::Formatter<'_>,
 //         db: &Db,
-//         include_all_fields: bool,
+//         level: salsa::DebugFormatLevel,
 //     ) -> std::fmt::Result {
 //         match self {
 //             Ast::Err {
@@ -238,11 +239,11 @@ impl std::ops::Deref for AstSheet {
 //                 .field("entity_kind", entity_kind)
 //                 .field(
 //                     "entity_path",
-//                     &entity_path.debug_with(db, include_all_fields),
+//                     &entity_path.debug_with(db, level),
 //                 )
 //                 .field(
 //                     "ident_token",
-//                     &ident_token.debug_with(db, include_all_fields),
+//                     &ident_token.debug_with(db, level),
 //                 )
 //                 .field("is_generic", is_generic)
 //                 .field("body_kind", body_kind)
@@ -256,7 +257,7 @@ impl std::ops::Deref for AstSheet {
 //                 .debug_struct("ModuleItemVariant")
 //                 .field(
 //                     "module_item_variant_path",
-//                     &module_item_variant_path.debug_with(db, include_all_fields),
+//                     &module_item_variant_path.debug_with(db, level),
 //                 )
 //                 .finish(),
 //             Ast::Impl {
@@ -286,17 +287,3 @@ impl std::ops::Deref for AstSheet {
 //         }
 //     }
 // }
-
-impl<Db: AstDb> salsa::DebugWithDb<Db> for AstSheet {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        f.debug_struct("AstSheet")
-            .field("arena", &self.ast_arena.debug_with(db, include_all_fields))
-            .field("top_level_asts", &self.top_level_asts)
-            .finish()
-    }
-}

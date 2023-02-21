@@ -28,10 +28,18 @@ pub(crate) fn ty_method_ty(
 #[salsa::tracked(jar = TypeJar,  )]
 pub(crate) fn entity_ty_method_ty(
     db: &dyn TypeDb,
-    ty: TypePath,
+    ty_path: TypePath,
     ident: Identifier,
 ) -> TypeResult<Option<ReducedTerm>> {
-    todo!()
+    let decl = match db.ty_decl(ty_path) {
+        Ok(decl) => decl,
+        Err(_) => return Err(DerivedTypeError::DeclError.into()),
+    };
+    let signature = match db.ty_signature(decl) {
+        Ok(signature) => signature,
+        Err(_) => return Err(DerivedTypeError::SignatureError.into()),
+    };
+    Err(OriginalTypeError::Todo.into())
 }
 
 #[salsa::tracked(jar = TypeJar)]

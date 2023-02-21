@@ -1,6 +1,6 @@
 Ok(
     AstSheet {
-        arena: Arena {
+        ast_arena: Arena {
             data: [
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
@@ -197,7 +197,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     entity_kind: ModuleItem {
@@ -207,7 +207,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Feature`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Feature`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `upper_mouth_match`,
@@ -228,7 +232,7 @@ Ok(
                     body: ArenaIdxRange(
                         6..13,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     entity_kind: ModuleItem {
@@ -238,7 +242,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `is_eight`,
@@ -259,7 +267,7 @@ Ok(
                     body: ArenaIdxRange(
                         15..17,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     entity_kind: ModuleItem {
@@ -269,7 +277,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::eight::big_mouth`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::eight::big_mouth`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `big_mouth`,

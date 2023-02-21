@@ -54,7 +54,7 @@ impl salsa::DebugWithDb<dyn AstDb + '_> for AstError {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &dyn AstDb,
-        include_all_fields: bool,
+        level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         <Self as std::fmt::Debug>::fmt(self, f)
     }
@@ -65,9 +65,9 @@ impl<Db: AstDb> salsa::DebugWithDb<Db> for AstError {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
-        self.fmt(f, db as &dyn AstDb, include_all_fields)
+        self.fmt(f, db as &dyn AstDb, level)
     }
 }
 

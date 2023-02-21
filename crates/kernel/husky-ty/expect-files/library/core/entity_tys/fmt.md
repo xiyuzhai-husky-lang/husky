@@ -2,7 +2,7 @@
     (
         TraitPath(`core::fmt::Debug`),
         Ok(
-            Term(`Type`),
+            Term(`Trait`),
         ),
     ),
 ]

@@ -14,6 +14,32 @@ pub(crate) fn entity_path_ty(db: &dyn TypeDb, path: EntityPath) -> TypeResult<Re
     }
 }
 
+macro_rules! assert_eq_with_db {
+    ($db: expr, $left: expr, $right: expr) => {
+        if let Err(error_message) = assert_eq_with_db_f(&$db, &$left, &$right) {
+            panic!("{}", error_message)
+        }
+    };
+}
+
+fn assert_eq_with_db_f<Db, T>(db: &Db, left: &T, right: &T) -> Result<(), String>
+where
+    T: PartialEq + salsa::DebugWithDb<Db>,
+{
+    if left != right {
+        use salsa::DebugWithDb;
+        Err(format!(
+            r#"assertion failed: `(left == right)`
+left: `{:?}`,
+right: `{:?}`"#,
+            left.debug(db),
+            right.debug(db)
+        ))
+    } else {
+        Ok(())
+    }
+}
+
 #[test]
 fn entity_path_path_term_ty_works() {
     let db = DB::default();
@@ -21,63 +47,78 @@ fn entity_path_path_term_ty_works() {
     let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
     let reduced_term_menu = db.reduced_term_menu(toolchain).unwrap();
     let invariant_ty0_to_trai_ty = reduced_term_menu.invariant_ty0_to_trai_ty();
-    assert_eq!(
+    assert_eq_with_db!(
+        db,
         entity_path_ty(&db, entity_path_menu.bool().into()),
         Ok(reduced_term_menu.ty0())
     );
-    assert_eq!(
+    assert_eq_with_db!(
+        db,
         entity_path_ty(&db, entity_path_menu.core_ops_add().into()),
         Ok(invariant_ty0_to_trai_ty)
     );
-    assert_eq!(
+    assert_eq_with_db!(
+        db,
         entity_path_ty(&db, entity_path_menu.core_ops_add_assign().into()),
         Ok(invariant_ty0_to_trai_ty)
     );
-    assert_eq!(
+    assert_eq_with_db!(
+        db,
         entity_path_ty(&db, entity_path_menu.core_ops_bit_and().into()),
         Ok(invariant_ty0_to_trai_ty)
     );
-    assert_eq!(
+    assert_eq_with_db!(
+        db,
         entity_path_ty(&db, entity_path_menu.core_ops_bit_and_assign().into()),
         Ok(invariant_ty0_to_trai_ty)
     );
-    assert_eq!(
+    assert_eq_with_db!(
+        db,
         entity_path_ty(&db, entity_path_menu.core_ops_bit_or().into()),
         Ok(invariant_ty0_to_trai_ty)
     );
-    assert_eq!(
+    assert_eq_with_db!(
+        db,
         entity_path_ty(&db, entity_path_menu.core_ops_bit_or_assign().into()),
         Ok(invariant_ty0_to_trai_ty)
     );
-    assert_eq!(
+    assert_eq_with_db!(
+        db,
         entity_path_ty(&db, entity_path_menu.core_ops_bit_xor().into()),
         Ok(invariant_ty0_to_trai_ty)
     );
-    assert_eq!(
+    assert_eq_with_db!(
+        db,
         entity_path_ty(&db, entity_path_menu.core_ops_bit_xor_assign().into()),
         Ok(invariant_ty0_to_trai_ty)
     );
-    assert_eq!(
+    assert_eq_with_db!(
+        db,
         entity_path_ty(&db, entity_path_menu.core_ops_div().into()),
         Ok(invariant_ty0_to_trai_ty)
     );
-    assert_eq!(
+    assert_eq_with_db!(
+        db,
         entity_path_ty(&db, entity_path_menu.core_ops_div_assign().into()),
         Ok(invariant_ty0_to_trai_ty)
     );
-    assert_eq!(
+    assert_eq_with_db!(
+        db,
         entity_path_ty(&db, entity_path_menu.core_ops_mul().into()),
         Ok(invariant_ty0_to_trai_ty)
     );
-    assert_eq!(
+    assert_eq_with_db!(
+        db,
         entity_path_ty(&db, entity_path_menu.core_ops_mul_assign().into()),
         Ok(invariant_ty0_to_trai_ty)
     );
-    assert_eq!(
+    assert_eq_with_db!(
+        db,
         entity_path_ty(&db, entity_path_menu.core_ops_neg().into()),
         Ok(invariant_ty0_to_trai_ty)
     );
-    assert_eq!(
+    assert_eq_with_db!(
+        db,
         entity_path_ty(&db, entity_path_menu.core_ops_not().into()),
         Ok(invariant_ty0_to_trai_ty)
     );
@@ -123,7 +164,7 @@ pub(crate) fn trai_entity_ty(db: &dyn TypeDb, path: TraitPath) -> TypeResult<Red
         db,
         variances,
         signature.implicit_parameters(db),
-        term_menu.ty0().into(),
+        term_menu.trai_ty().into(),
     ))
 }
 

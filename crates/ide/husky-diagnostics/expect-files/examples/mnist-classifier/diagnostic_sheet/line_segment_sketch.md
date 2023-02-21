@@ -78,54 +78,44 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
+                message: "TypeError: todo",
                 severity: Error,
-                range: [64:14, 64:15),
+                range: [64:14, 64:17),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
+                message: "TypeError: todo",
                 severity: Error,
-                range: [64:18, 64:19),
+                range: [64:18, 64:21),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
+                message: "TypeError: todo",
                 severity: Error,
-                range: [64:22, 64:23),
+                range: [64:22, 64:25),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
+                message: "TypeError: todo",
                 severity: Error,
-                range: [64:26, 64:27),
+                range: [64:26, 64:29),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term f32",
+                message: "TypeError: todo",
                 severity: Error,
-                range: [65:16, 65:17),
+                range: [67:17, 67:20),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term f32",
+                message: "TypeError: todo",
                 severity: Error,
-                range: [66:14, 66:15),
+                range: [68:18, 68:21),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term f32",
+                message: "TypeError: todo",
                 severity: Error,
-                range: [66:23, 66:24),
+                range: [69:14, 69:17),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term f32",
+                message: "TypeError: todo",
                 severity: Error,
-                range: [66:25, 66:26),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
-                severity: Error,
-                range: [67:17, 67:18),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
-                severity: Error,
-                range: [68:18, 68:19),
+                range: [69:22, 69:25),
             },
             Diagnostic {
                 message: "OriginalLocalTermExpectationError::Todo: todo",
@@ -133,64 +123,44 @@ DiagnosticSheet {
                 range: [69:5, 69:13),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
+                message: "TypeError: todo",
                 severity: Error,
-                range: [69:14, 69:15),
+                range: [72:14, 72:17),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
+                message: "TypeError: todo",
                 severity: Error,
-                range: [69:22, 69:23),
+                range: [72:18, 72:21),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
+                message: "TypeError: todo",
                 severity: Error,
-                range: [72:14, 72:15),
+                range: [72:22, 72:25),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
+                message: "TypeError: todo",
                 severity: Error,
-                range: [72:18, 72:19),
+                range: [72:26, 72:29),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
+                message: "TypeError: todo",
                 severity: Error,
-                range: [72:22, 72:23),
+                range: [75:18, 75:21),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
+                message: "TypeError: todo",
                 severity: Error,
-                range: [72:26, 72:27),
+                range: [76:17, 76:20),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term f32",
+                message: "TypeError: todo",
                 severity: Error,
-                range: [73:16, 73:17),
+                range: [77:14, 77:17),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term f32",
+                message: "TypeError: todo",
                 severity: Error,
-                range: [74:14, 74:15),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term f32",
-                severity: Error,
-                range: [74:23, 74:24),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term f32",
-                severity: Error,
-                range: [74:25, 74:26),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
-                severity: Error,
-                range: [75:18, 75:19),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
-                severity: Error,
-                range: [76:17, 76:18),
+                range: [77:22, 77:25),
             },
             Diagnostic {
                 message: "OriginalLocalTermExpectationError::Todo: todo",
@@ -198,19 +168,24 @@ DiagnosticSheet {
                 range: [77:5, 77:13),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
-                severity: Error,
-                range: [77:14, 77:15),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
-                severity: Error,
-                range: [77:22, 77:23),
-            },
-            Diagnostic {
                 message: "Type Error: TodoSuffix",
                 severity: Error,
                 range: [85:9, 85:14),
+            },
+            Diagnostic {
+                message: "TypeError: todo",
+                severity: Error,
+                range: [93:17, 93:54),
+            },
+            Diagnostic {
+                message: "TypeError: todo",
+                severity: Error,
+                range: [103:16, 103:59),
+            },
+            Diagnostic {
+                message: "TypeError: todo",
+                severity: Error,
+                range: [105:16, 105:57),
             },
             Diagnostic {
                 message: "Type Error: TodoSuffix",
@@ -218,19 +193,9 @@ DiagnosticSheet {
                 range: [107:9, 107:14),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [80:19, 80:24),
-            },
-            Diagnostic {
                 message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
                 severity: Error,
                 range: [81:18, 81:20),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [81:34, 81:39),
             },
             Diagnostic {
                 message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
@@ -238,59 +203,19 @@ DiagnosticSheet {
                 range: [82:13, 82:15),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [83:19, 83:24),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term f32",
-                severity: Error,
-                range: [84:42, 84:43),
-            },
-            Diagnostic {
                 message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
                 severity: Error,
                 range: [86:14, 86:16),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term i32",
+                message: "OriginalLocalTermExpectationError::Todo: todo",
                 severity: Error,
-                range: [86:30, 86:35),
+                range: [104:17, 104:28),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term f32",
+                message: "OriginalLocalTermExpectationError::Todo: todo",
                 severity: Error,
-                range: [87:20, 87:21),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
-                severity: Error,
-                range: [89:27, 89:42),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
-                severity: Error,
-                range: [90:26, 90:40),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term f32",
-                severity: Error,
-                range: [96:30, 96:31),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term f32",
-                severity: Error,
-                range: [100:22, 100:23),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
-                severity: Error,
-                range: [101:28, 101:43),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
-                severity: Error,
-                range: [102:27, 102:41),
+                range: [106:17, 106:27),
             },
             Diagnostic {
                 message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
@@ -298,24 +223,34 @@ DiagnosticSheet {
                 range: [108:14, 108:16),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [108:30, 108:35),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [109:18, 109:23),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term never",
-                severity: Error,
-                range: [80:5, 110:15),
-            },
-            Diagnostic {
                 message: "Type Error: TodoSuffix",
                 severity: Error,
                 range: [117:9, 117:16),
+            },
+            Diagnostic {
+                message: "TypeError: todo",
+                severity: Error,
+                range: [120:16, 120:33),
+            },
+            Diagnostic {
+                message: "TypeError: todo",
+                severity: Error,
+                range: [134:16, 134:59),
+            },
+            Diagnostic {
+                message: "TypeError: todo",
+                severity: Error,
+                range: [136:16, 136:57),
+            },
+            Diagnostic {
+                message: "TypeError: todo",
+                severity: Error,
+                range: [138:12, 138:57),
+            },
+            Diagnostic {
+                message: "TypeError: todo",
+                severity: Error,
+                range: [141:25, 141:62),
             },
             Diagnostic {
                 message: "Type Error: TodoSuffix",
@@ -323,24 +258,9 @@ DiagnosticSheet {
                 range: [145:13, 145:20),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [113:21, 113:24),
-            },
-            Diagnostic {
                 message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
                 severity: Error,
                 range: [114:19, 114:21),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [114:35, 114:38),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [115:21, 115:24),
             },
             Diagnostic {
                 message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
@@ -348,39 +268,9 @@ DiagnosticSheet {
                 range: [115:27, 115:29),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term f32",
-                severity: Error,
-                range: [116:47, 116:48),
-            },
-            Diagnostic {
                 message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
                 severity: Error,
                 range: [118:15, 118:17),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [118:31, 118:34),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term f32",
-                severity: Error,
-                range: [119:21, 119:22),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [120:26, 120:32),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
-                severity: Error,
-                range: [121:27, 121:43),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
-                severity: Error,
-                range: [122:26, 122:41),
             },
             Diagnostic {
                 message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
@@ -388,44 +278,14 @@ DiagnosticSheet {
                 range: [125:18, 125:20),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term i32",
+                message: "OriginalLocalTermExpectationError::Todo: todo",
                 severity: Error,
-                range: [125:34, 125:37),
+                range: [135:17, 135:28),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term f32",
+                message: "OriginalLocalTermExpectationError::Todo: todo",
                 severity: Error,
-                range: [127:30, 127:31),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term f32",
-                severity: Error,
-                range: [131:22, 131:23),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
-                severity: Error,
-                range: [132:28, 132:43),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
-                severity: Error,
-                range: [133:27, 133:41),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [139:25, 139:31),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [149:17, 149:23),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term never",
-                severity: Error,
-                range: [113:5, 152:22),
+                range: [137:17, 137:27),
             },
             Diagnostic {
                 message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
@@ -433,19 +293,9 @@ DiagnosticSheet {
                 range: [158:23, 158:25),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [160:15, 160:39),
-            },
-            Diagnostic {
                 message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
                 severity: Error,
                 range: [161:52, 161:54),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term bool",
-                severity: Error,
-                range: [162:37, 162:41),
             },
             Diagnostic {
                 message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
@@ -458,14 +308,9 @@ DiagnosticSheet {
                 range: [169:64, 169:66),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term bool",
+                message: "OriginalLocalTermExpectationError::Todo: todo",
                 severity: Error,
-                range: [170:37, 170:42),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [172:21, 172:52),
+                range: [170:17, 170:34),
             },
             Diagnostic {
                 message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
@@ -493,34 +338,9 @@ DiagnosticSheet {
                 range: [196:13, 196:15),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term never",
-                severity: Error,
-                range: [155:5, 200:25),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [22:16, 22:20),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [22:24, 22:26),
-            },
-            Diagnostic {
                 message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
                 severity: Error,
                 range: [23:27, 23:29),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [23:50, 23:54),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [23:56, 23:58),
             },
             Diagnostic {
                 message: "Type Error: original `todo` in term List ConcaveComponent",
@@ -536,11 +356,6 @@ DiagnosticSheet {
                 message: "OriginalLocalTermExpectationError::Todo: todo",
                 severity: Error,
                 range: [54:13, 54:24),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term never",
-                severity: Error,
-                range: [41:9, 55:10),
             },
             Diagnostic {
                 message: "OriginalLocalTermExpectationError::Todo: todo",

@@ -183,7 +183,7 @@ impl<Db: TokenDb + ?Sized> salsa::DebugWithDb<Db> for TokenSheetData {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         f.debug_struct("TokenSheetData")
             .field("tokens", &self.tokens.debug(db))

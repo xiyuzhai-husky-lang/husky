@@ -309,7 +309,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 164,
+                        value: 166,
                     },
                 ),
             },
@@ -321,7 +321,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 32,
+                                    value: 34,
                                 },
                             ),
                         ),
@@ -338,7 +338,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 15,
+                                    value: 17,
                                 },
                             ),
                         ),
@@ -353,7 +353,7 @@ Ok(
                 inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 167,
+                        value: 169,
                     },
                 ),
             },
@@ -370,7 +370,7 @@ Ok(
                 inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 167,
+                        value: 169,
                     },
                 ),
             },

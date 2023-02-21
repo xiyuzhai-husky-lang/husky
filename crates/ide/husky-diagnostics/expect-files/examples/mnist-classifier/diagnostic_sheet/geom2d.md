@@ -32,19 +32,19 @@ DiagnosticSheet {
                 range: [8:9, 8:16),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [8:23, 8:28),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term i32",
-                severity: Error,
-                range: [8:44, 8:45),
-            },
-            Diagnostic {
                 message: "OriginalLocalTermExpectationError::Todo: todo",
                 severity: Error,
                 range: [11:9, 11:17),
+            },
+            Diagnostic {
+                message: "TypeError: todo",
+                severity: Error,
+                range: [14:18, 14:25),
+            },
+            Diagnostic {
+                message: "TypeError: todo",
+                severity: Error,
+                range: [14:36, 14:43),
             },
             Diagnostic {
                 message: "OriginalLocalTermExpectationError::Todo: todo",
@@ -52,24 +52,19 @@ DiagnosticSheet {
                 range: [14:9, 14:17),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Point2d",
-                severity: Error,
-                range: [14:18, 14:23),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Point2d",
-                severity: Error,
-                range: [14:36, 14:41),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Point2d",
-                severity: Error,
-                range: [20:17, 20:22),
-            },
-            Diagnostic {
                 message: "OriginalLocalTermExpectationError::Todo: todo",
                 severity: Error,
                 range: [34:9, 34:16),
+            },
+            Diagnostic {
+                message: "TypeError: todo",
+                severity: Error,
+                range: [37:18, 37:25),
+            },
+            Diagnostic {
+                message: "TypeError: todo",
+                severity: Error,
+                range: [37:36, 37:43),
             },
             Diagnostic {
                 message: "OriginalLocalTermExpectationError::Todo: todo",
@@ -77,54 +72,29 @@ DiagnosticSheet {
                 range: [37:9, 37:17),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
+                message: "TypeError: todo",
                 severity: Error,
-                range: [37:18, 37:23),
+                range: [43:18, 43:25),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
+                message: "TypeError: todo",
                 severity: Error,
-                range: [37:36, 37:41),
+                range: [43:37, 43:44),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
+                message: "TypeError: todo",
                 severity: Error,
-                range: [43:18, 43:23),
+                range: [46:18, 46:25),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
+                message: "TypeError: todo",
                 severity: Error,
-                range: [43:37, 43:42),
+                range: [46:37, 46:44),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
+                message: "TypeError: todo",
                 severity: Error,
-                range: [46:18, 46:23),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
-                severity: Error,
-                range: [46:37, 46:42),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
-                severity: Error,
-                range: [63:20, 63:25),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
-                severity: Error,
-                range: [68:26, 68:31),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
-                severity: Error,
-                range: [70:35, 70:40),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Vector2d",
-                severity: Error,
-                range: [77:57, 77:62),
+                range: [68:26, 68:38),
             },
             Diagnostic {
                 message: "OriginalLocalTermExpectationError::Todo: todo",
@@ -132,29 +102,19 @@ DiagnosticSheet {
                 range: [107:9, 107:28),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term BoundingBox",
+                message: "TypeError: todo",
                 severity: Error,
-                range: [108:40, 108:45),
+                range: [114:40, 114:47),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term BoundingBox",
+                message: "TypeError: todo",
                 severity: Error,
-                range: [109:40, 109:45),
+                range: [115:40, 115:47),
             },
             Diagnostic {
                 message: "OriginalLocalTermExpectationError::Todo: todo",
                 severity: Error,
                 range: [113:9, 113:24),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Point2d",
-                severity: Error,
-                range: [114:40, 114:45),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Point2d",
-                severity: Error,
-                range: [115:40, 115:45),
             },
         ],
     },

@@ -1,6 +1,6 @@
 Ok(
     AstSheet {
-        arena: Arena {
+        ast_arena: Arena {
             data: [
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
@@ -249,7 +249,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..2,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Function,
@@ -257,7 +257,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`quick_sort::quick_sort`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`quick_sort::quick_sort`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `quick_sort`,
@@ -278,7 +282,7 @@ Ok(
                     body: ArenaIdxRange(
                         6..7,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `quick_sort`,
                     ),
                     entity_kind: ModuleItem {
@@ -288,7 +292,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `quick_sort_aux`,
@@ -309,7 +317,7 @@ Ok(
                     body: ArenaIdxRange(
                         18..24,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `quick_sort`,
                     ),
                     entity_kind: ModuleItem {
@@ -319,7 +327,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`quick_sort::partition`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`quick_sort::partition`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `partition`,
@@ -346,7 +358,7 @@ Ok(
                     body: ArenaIdxRange(
                         24..27,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `quick_sort`,
                     ),
                     entity_kind: ModuleItem {
@@ -356,7 +368,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `quick_sort_works_for_integers`,
@@ -383,7 +399,7 @@ Ok(
                     body: ArenaIdxRange(
                         27..30,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `quick_sort`,
                     ),
                     entity_kind: ModuleItem {
@@ -393,7 +409,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `quick_sort_works_for_strs`,

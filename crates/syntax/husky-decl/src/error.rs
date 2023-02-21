@@ -40,7 +40,7 @@ impl<Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for DeclError {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         // ad hoc
         std::fmt::Debug::fmt(&self, f)

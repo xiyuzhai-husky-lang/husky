@@ -1,6 +1,6 @@
 Ok(
     AstSheet {
-        arena: Arena {
+        ast_arena: Arena {
             data: [
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
@@ -464,7 +464,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits::two`,
                     ),
                     entity_kind: ModuleItem {
@@ -474,7 +474,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::two::two_match`, `Feature`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::two::two_match`, `Feature`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `two_match`,
@@ -495,7 +499,7 @@ Ok(
                     body: ArenaIdxRange(
                         1..4,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits::two`,
                     ),
                     entity_kind: ModuleItem {
@@ -505,7 +509,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `left_cc_pattern`,
@@ -526,7 +534,7 @@ Ok(
                     body: ArenaIdxRange(
                         4..7,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits::two`,
                     ),
                     entity_kind: ModuleItem {
@@ -536,7 +544,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `right_cc_pattern`,
@@ -557,7 +569,7 @@ Ok(
                     body: ArenaIdxRange(
                         7..10,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits::two`,
                     ),
                     entity_kind: ModuleItem {
@@ -567,7 +579,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Function`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Function`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `down_cc_pattern`,
@@ -588,7 +604,7 @@ Ok(
                     body: ArenaIdxRange(
                         31..49,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits::two`,
                     ),
                     entity_kind: ModuleItem {
@@ -598,7 +614,11 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::two::is_two`, `Feature`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::two::is_two`, `Feature`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `is_two`,

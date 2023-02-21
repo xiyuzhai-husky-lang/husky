@@ -18,12 +18,12 @@ where
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         let elements = self
             .data
             .iter()
-            .filter_map(|v| Some(v.as_ref()?.debug_with(db, include_all_fields)));
+            .filter_map(|v| Some(v.as_ref()?.debug_with(db, level.next())));
         f.debug_list().entries(elements).finish()
     }
 }

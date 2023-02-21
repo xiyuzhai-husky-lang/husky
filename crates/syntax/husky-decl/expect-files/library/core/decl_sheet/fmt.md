@@ -2,7 +2,7 @@ Ok(
     DeclSheet {
         decls: [
             Ok(
-                Trait(
+                Decl::Trait(
                     TraitDecl {
                         path: TraitPath(`core::fmt::Debug`),
                         ast_idx: 0,
@@ -11,7 +11,11 @@ Ok(
                                 parent: None,
                                 path: RegionPath::Decl(
                                     DeclExprPath::Entity(
-                                        TraitPath(`core::fmt::Debug`),
+                                        EntityPath::ModuleItem(
+                                            ModuleItemPath::Trait(
+                                                TraitPath(`core::fmt::Debug`),
+                                            ),
+                                        ),
                                     ),
                                 ),
                                 expr_arena: Arena {

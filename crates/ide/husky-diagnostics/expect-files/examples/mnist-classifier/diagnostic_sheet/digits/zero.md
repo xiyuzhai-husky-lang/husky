@@ -172,11 +172,6 @@ DiagnosticSheet {
                 range: [11:43, 11:58),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term FermiMatchResult",
-                severity: Error,
-                range: [11:5, 11:59),
-            },
-            Diagnostic {
                 message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime ConcaveComponent",
                 severity: Error,
                 range: [14:13, 14:15),
@@ -197,14 +192,19 @@ DiagnosticSheet {
                 range: [28:5, 34:7),
             },
             Diagnostic {
+                message: "TypeError: todo",
+                severity: Error,
+                range: [41:9, 41:47),
+            },
+            Diagnostic {
+                message: "TypeError: todo",
+                severity: Error,
+                range: [41:57, 41:95),
+            },
+            Diagnostic {
                 message: "Type Error: TodoScopeResolution",
                 severity: Error,
                 range: [46:5, 46:21),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term ConnectedComponent",
-                severity: Error,
-                range: [19:8, 19:33),
             },
             Diagnostic {
                 message: "Type Error: original `todo` in term List ConnectedComponent",
@@ -220,21 +220,6 @@ DiagnosticSheet {
                 message: "OriginalLocalTermExpectationError::Todo: todo",
                 severity: Error,
                 range: [27:61, 27:63),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term FermiMatchResult",
-                severity: Error,
-                range: [27:23, 27:64),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term LineSegmentSketch",
-                severity: Error,
-                range: [41:9, 41:34),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term LineSegmentSketch",
-                severity: Error,
-                range: [41:57, 41:82),
             },
         ],
     },

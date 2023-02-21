@@ -14,7 +14,7 @@ where
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         todo!()
     }

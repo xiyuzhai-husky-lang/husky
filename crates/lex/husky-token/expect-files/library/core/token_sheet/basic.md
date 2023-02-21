@@ -26,7 +26,7 @@ Ok(
             ),
             Keyword(
                 Type(
-                    Structure,
+                    Type,
                 ),
             ),
             Identifier(
@@ -46,7 +46,7 @@ Ok(
             ),
             Keyword(
                 Type(
-                    Structure,
+                    Type,
                 ),
             ),
             Identifier(
@@ -61,13 +61,57 @@ Ok(
             Punctuation(
                 Semicolon,
             ),
+            Attr(
+                Pub,
+            ),
+            Keyword(
+                Type(
+                    Structure,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 17,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Semicolon,
+            ),
+            Attr(
+                Pub,
+            ),
+            Keyword(
+                Type(
+                    Structure,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 18,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Semicolon,
+            ),
         ],
         group_starts: [
             0,
             4,
             8,
+            12,
+            16,
         ],
         indents: [
+            0,
+            0,
             0,
             0,
             0,

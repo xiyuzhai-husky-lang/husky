@@ -275,7 +275,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 48,
+                                                        value: 47,
                                                     },
                                                 ),
                                             ),
@@ -289,11 +289,25 @@
                         ),
                         resolve_progress: Expected(
                             Resolved(
-                                Err(
-                                    Derived(
-                                        Duplication(
-                                            6,
-                                        ),
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 47,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -302,13 +316,51 @@
                 ),
                 Some(
                     ExprTypeInfo {
-                        ty_result: Err(
-                            Derived(
-                                BlockTypeError,
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 47,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             ),
                         ),
-                        expectation_rule_idx: None,
-                        resolve_progress: Unresolved,
+                        expectation_rule_idx: Some(
+                            7,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 47,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     },
                 ),
             ],
@@ -364,7 +416,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 21,
+                                    value: 23,
                                 },
                             ),
                             arguments: [
@@ -653,7 +705,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 48,
+                                                        value: 47,
                                                     },
                                                 ),
                                             ),
@@ -667,22 +719,69 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                Err(
-                                    Original(
-                                        TermTypeError {
-                                            term: Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 48,
-                                                            },
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 47,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
                                             ),
-                                            error: Original(
-                                                Todo,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 7,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 47,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 47,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
                                             ),
                                         },
                                     ),
@@ -834,7 +933,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 48,
+                                                        value: 47,
                                                     },
                                                 ),
                                             ),
@@ -848,11 +947,74 @@
                         ),
                         resolve_progress: Expected(
                             Resolved(
-                                Err(
-                                    Derived(
-                                        Duplication(
-                                            3,
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 47,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 47,
+                                                    },
+                                                ),
+                                            ),
                                         ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
+                            4,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 47,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -862,19 +1024,10 @@
                 Some(
                     ExprTypeInfo {
                         ty_result: Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                        expectation_rule_idx: None,
-                        resolve_progress: Unresolved,
-                    },
-                ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Err(
-                            Derived(
-                                FieldOwnerTypeNotInferred,
+                            Original(
+                                FieldTypeError(
+                                    Todo,
+                                ),
                             ),
                         ),
                         expectation_rule_idx: None,
@@ -891,7 +1044,7 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            4,
+                            5,
                         ),
                         resolve_progress: Expected(
                             Unresolved,
@@ -918,7 +1071,7 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            5,
+                            6,
                         ),
                         resolve_progress: Expected(
                             Resolved(
@@ -992,7 +1145,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 33,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
@@ -1002,14 +1155,14 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            6,
+                            7,
                         ),
                         resolve_progress: Expected(
                             Resolved(
                                 Err(
                                     Derived(
                                         Duplication(
-                                            6,
+                                            7,
                                         ),
                                     ),
                                 ),
@@ -1038,7 +1191,7 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            7,
+                            8,
                         ),
                         resolve_progress: Expected(
                             Unresolved,
@@ -1065,7 +1218,7 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            8,
+                            9,
                         ),
                         resolve_progress: Expected(
                             Resolved(
@@ -1120,7 +1273,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 33,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
@@ -1130,14 +1283,14 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            9,
+                            10,
                         ),
                         resolve_progress: Expected(
                             Resolved(
                                 Err(
                                     Derived(
                                         Duplication(
-                                            9,
+                                            10,
                                         ),
                                     ),
                                 ),
@@ -1166,7 +1319,7 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            10,
+                            11,
                         ),
                         resolve_progress: Expected(
                             Unresolved,
@@ -1193,7 +1346,7 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            11,
+                            12,
                         ),
                         resolve_progress: Expected(
                             Resolved(
@@ -1261,7 +1414,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 33,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
@@ -1271,14 +1424,14 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            12,
+                            13,
                         ),
                         resolve_progress: Expected(
                             Resolved(
                                 Err(
                                     Derived(
                                         Duplication(
-                                            12,
+                                            13,
                                         ),
                                     ),
                                 ),
@@ -1307,7 +1460,7 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            13,
+                            14,
                         ),
                         resolve_progress: Expected(
                             Unresolved,
@@ -1334,7 +1487,7 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            14,
+                            15,
                         ),
                         resolve_progress: Expected(
                             Resolved(
@@ -1389,7 +1542,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 15,
+                                                        value: 17,
                                                     },
                                                 ),
                                             ),
@@ -1399,35 +1552,32 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            15,
-                        ),
-                        resolve_progress: Expected(
-                            Resolved(
-                                Err(
-                                    Derived(
-                                        Duplication(
-                                            15,
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                    },
-                ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
-                                    6,
-                                ),
-                            ),
-                        ),
-                        expectation_rule_idx: Some(
                             16,
                         ),
                         resolve_progress: Expected(
-                            Unresolved,
+                            Resolved(
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 17,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
                         ),
                     },
                 ),
@@ -1441,7 +1591,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 1,
+                                                        value: 17,
                                                     },
                                                 ),
                                             ),
@@ -1466,6 +1616,71 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
+                                                                        value: 17,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 17,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
+                            18,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
                                                                         value: 1,
                                                                     },
                                                                 ),
@@ -1503,12 +1718,12 @@
                         ty_result: Ok(
                             Unresolved(
                                 UnresolvedTermIdx(
-                                    8,
+                                    7,
                                 ),
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            18,
+                            19,
                         ),
                         resolve_progress: Expected(
                             Resolved(
@@ -1518,12 +1733,12 @@
                                             implicit_conversion: None,
                                             expectee: Unresolved(
                                                 UnresolvedTermIdx(
-                                                    7,
+                                                    6,
                                                 ),
                                             ),
                                             destination: Unresolved(
                                                 UnresolvedTermIdx(
-                                                    7,
+                                                    6,
                                                 ),
                                             ),
                                         },
@@ -1538,12 +1753,12 @@
                         ty_result: Ok(
                             Unresolved(
                                 UnresolvedTermIdx(
-                                    9,
+                                    8,
                                 ),
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            19,
+                            20,
                         ),
                         resolve_progress: Expected(
                             Unresolved,
@@ -1552,6 +1767,41 @@
                 ),
                 None,
                 None,
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    10,
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
+                            21,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    9,
+                                                ),
+                                            ),
+                                            destination: Unresolved(
+                                                UnresolvedTermIdx(
+                                                    9,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
                 Some(
                     ExprTypeInfo {
                         ty_result: Ok(
@@ -1562,42 +1812,7 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            20,
-                        ),
-                        resolve_progress: Expected(
-                            Resolved(
-                                Ok(
-                                    ImplicitlyConvertible(
-                                        ExpectImplicitlyConvertibleResolvedOk {
-                                            implicit_conversion: None,
-                                            expectee: Unresolved(
-                                                UnresolvedTermIdx(
-                                                    10,
-                                                ),
-                                            ),
-                                            destination: Unresolved(
-                                                UnresolvedTermIdx(
-                                                    10,
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    },
-                ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
-                                    12,
-                                ),
-                            ),
-                        ),
-                        expectation_rule_idx: Some(
-                            21,
+                            22,
                         ),
                         resolve_progress: Expected(
                             Unresolved,
@@ -1611,12 +1826,12 @@
                         ty_result: Ok(
                             Unresolved(
                                 UnresolvedTermIdx(
-                                    14,
+                                    13,
                                 ),
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            22,
+                            23,
                         ),
                         resolve_progress: Expected(
                             Resolved(
@@ -1626,12 +1841,12 @@
                                             implicit_conversion: None,
                                             expectee: Unresolved(
                                                 UnresolvedTermIdx(
-                                                    13,
+                                                    12,
                                                 ),
                                             ),
                                             destination: Unresolved(
                                                 UnresolvedTermIdx(
-                                                    13,
+                                                    12,
                                                 ),
                                             ),
                                         },
@@ -1646,12 +1861,12 @@
                         ty_result: Ok(
                             Unresolved(
                                 UnresolvedTermIdx(
-                                    15,
+                                    14,
                                 ),
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            23,
+                            24,
                         ),
                         resolve_progress: Expected(
                             Unresolved,
@@ -1689,7 +1904,7 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            24,
+                            25,
                         ),
                         resolve_progress: Expected(
                             Resolved(
@@ -1736,20 +1951,60 @@
                 ),
                 Some(
                     ExprTypeInfo {
-                        ty_result: Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 47,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             ),
                         ),
-                        expectation_rule_idx: None,
-                        resolve_progress: Unresolved,
+                        expectation_rule_idx: Some(
+                            26,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 47,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     },
                 ),
                 Some(
                     ExprTypeInfo {
                         ty_result: Err(
-                            Derived(
-                                FieldOwnerTypeNotInferred,
+                            Original(
+                                FieldTypeError(
+                                    Todo,
+                                ),
                             ),
                         ),
                         expectation_rule_idx: None,
@@ -1761,12 +2016,12 @@
                         ty_result: Ok(
                             Unresolved(
                                 UnresolvedTermIdx(
-                                    16,
+                                    15,
                                 ),
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            25,
+                            27,
                         ),
                         resolve_progress: Expected(
                             Unresolved,
@@ -1793,7 +2048,7 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            26,
+                            28,
                         ),
                         resolve_progress: Expected(
                             Resolved(
@@ -1868,7 +2123,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 33,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
@@ -1878,14 +2133,14 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            28,
+                            30,
                         ),
                         resolve_progress: Expected(
                             Resolved(
                                 Err(
                                     Derived(
                                         Duplication(
-                                            28,
+                                            30,
                                         ),
                                     ),
                                 ),
@@ -1898,12 +2153,12 @@
                         ty_result: Ok(
                             Unresolved(
                                 UnresolvedTermIdx(
-                                    17,
+                                    16,
                                 ),
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            27,
+                            29,
                         ),
                         resolve_progress: Expected(
                             Unresolved,
@@ -1931,7 +2186,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 33,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
@@ -1941,14 +2196,14 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            29,
+                            31,
                         ),
                         resolve_progress: Expected(
                             Resolved(
                                 Err(
                                     Derived(
                                         Duplication(
-                                            29,
+                                            31,
                                         ),
                                     ),
                                 ),
@@ -1994,12 +2249,12 @@
                         ty_result: Ok(
                             Unresolved(
                                 UnresolvedTermIdx(
-                                    18,
+                                    17,
                                 ),
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            30,
+                            32,
                         ),
                         resolve_progress: Expected(
                             Unresolved,
@@ -2026,7 +2281,7 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            31,
+                            33,
                         ),
                         resolve_progress: Expected(
                             Resolved(
@@ -2188,164 +2443,7 @@
                         ty_result: Ok(
                             Unresolved(
                                 UnresolvedTermIdx(
-                                    19,
-                                ),
-                            ),
-                        ),
-                        expectation_rule_idx: Some(
-                            32,
-                        ),
-                        resolve_progress: Expected(
-                            Unresolved,
-                        ),
-                    },
-                ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Ok(
-                            Resolved(
-                                ReducedTerm(
-                                    Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                        expectation_rule_idx: Some(
-                            33,
-                        ),
-                        resolve_progress: Expected(
-                            Resolved(
-                                Ok(
-                                    ImplicitlyConvertible(
-                                        ExpectImplicitlyConvertibleResolvedOk {
-                                            implicit_conversion: None,
-                                            expectee: Resolved(
-                                                ReducedTerm(
-                                                    Entity(
-                                                        ModuleItem(
-                                                            Type(
-                                                                TypePath(
-                                                                    Id {
-                                                                        value: 1,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                ReducedTerm(
-                                                    Entity(
-                                                        ModuleItem(
-                                                            Type(
-                                                                TypePath(
-                                                                    Id {
-                                                                        value: 1,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    },
-                ),
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Err(
-                            Original(
-                                TodoSuffix,
-                            ),
-                        ),
-                        expectation_rule_idx: None,
-                        resolve_progress: Unresolved,
-                    },
-                ),
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Err(
-                            Original(
-                                TodoSuffix,
-                            ),
-                        ),
-                        expectation_rule_idx: None,
-                        resolve_progress: Unresolved,
-                    },
-                ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                        expectation_rule_idx: None,
-                        resolve_progress: Unresolved,
-                    },
-                ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Ok(
-                            Resolved(
-                                ReducedTerm(
-                                    Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
+                                    18,
                                 ),
                             ),
                         ),
@@ -2353,6 +2451,33 @@
                             34,
                         ),
                         resolve_progress: Expected(
+                            Unresolved,
+                        ),
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
+                            35,
+                        ),
+                        resolve_progress: Expected(
                             Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -2395,6 +2520,60 @@
                         ),
                     },
                 ),
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Original(
+                                TodoSuffix,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Original(
+                                TodoSuffix,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
                 Some(
                     ExprTypeInfo {
                         ty_result: Err(
@@ -2404,89 +2583,6 @@
                         ),
                         expectation_rule_idx: None,
                         resolve_progress: Unresolved,
-                    },
-                ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Err(
-                            Derived(
-                                FieldOwnerTypeNotInferred,
-                            ),
-                        ),
-                        expectation_rule_idx: None,
-                        resolve_progress: Unresolved,
-                    },
-                ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                        expectation_rule_idx: None,
-                        resolve_progress: Unresolved,
-                    },
-                ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Err(
-                            Derived(
-                                FieldOwnerTypeNotInferred,
-                            ),
-                        ),
-                        expectation_rule_idx: None,
-                        resolve_progress: Unresolved,
-                    },
-                ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Err(
-                            Derived(
-                                FieldOwnerTypeNotInferred,
-                            ),
-                        ),
-                        expectation_rule_idx: None,
-                        resolve_progress: Unresolved,
-                    },
-                ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Err(
-                            Derived(
-                                FieldOwnerTypeNotInferred,
-                            ),
-                        ),
-                        expectation_rule_idx: None,
-                        resolve_progress: Unresolved,
-                    },
-                ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
-                            ),
-                        ),
-                        expectation_rule_idx: None,
-                        resolve_progress: Unresolved,
-                    },
-                ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
-                                    20,
-                                ),
-                            ),
-                        ),
-                        expectation_rule_idx: Some(
-                            35,
-                        ),
-                        resolve_progress: Expected(
-                            Unresolved,
-                        ),
                     },
                 ),
                 Some(
@@ -2554,6 +2650,165 @@
                         ),
                     },
                 ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                FieldOwnerTypeNotInferred,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                FieldOwnerTypeNotInferred,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                FieldOwnerTypeNotInferred,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                FieldOwnerTypeNotInferred,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                BinaryOperationLeftOperandTypeNotInferred,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    19,
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
+                            37,
+                        ),
+                        resolve_progress: Expected(
+                            Unresolved,
+                        ),
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
+                            38,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
                 None,
                 None,
                 Some(
@@ -2594,12 +2849,12 @@
                         ty_result: Ok(
                             Unresolved(
                                 UnresolvedTermIdx(
-                                    22,
+                                    21,
                                 ),
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            37,
+                            39,
                         ),
                         resolve_progress: Expected(
                             Unresolved,
@@ -2622,12 +2877,12 @@
                         ty_result: Ok(
                             Unresolved(
                                 UnresolvedTermIdx(
-                                    23,
+                                    22,
                                 ),
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            38,
+                            40,
                         ),
                         resolve_progress: Expected(
                             Unresolved,
@@ -2683,158 +2938,7 @@
                         ty_result: Ok(
                             Unresolved(
                                 UnresolvedTermIdx(
-                                    24,
-                                ),
-                            ),
-                        ),
-                        expectation_rule_idx: Some(
-                            39,
-                        ),
-                        resolve_progress: Expected(
-                            Unresolved,
-                        ),
-                    },
-                ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Ok(
-                            Resolved(
-                                ReducedTerm(
-                                    Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                        expectation_rule_idx: Some(
-                            40,
-                        ),
-                        resolve_progress: Expected(
-                            Resolved(
-                                Ok(
-                                    ImplicitlyConvertible(
-                                        ExpectImplicitlyConvertibleResolvedOk {
-                                            implicit_conversion: None,
-                                            expectee: Resolved(
-                                                ReducedTerm(
-                                                    Entity(
-                                                        ModuleItem(
-                                                            Type(
-                                                                TypePath(
-                                                                    Id {
-                                                                        value: 1,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                ReducedTerm(
-                                                    Entity(
-                                                        ModuleItem(
-                                                            Type(
-                                                                TypePath(
-                                                                    Id {
-                                                                        value: 1,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    },
-                ),
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Err(
-                            Original(
-                                TodoSuffix,
-                            ),
-                        ),
-                        expectation_rule_idx: None,
-                        resolve_progress: Unresolved,
-                    },
-                ),
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Err(
-                            Original(
-                                TodoSuffix,
-                            ),
-                        ),
-                        expectation_rule_idx: None,
-                        resolve_progress: Unresolved,
-                    },
-                ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                        expectation_rule_idx: None,
-                        resolve_progress: Unresolved,
-                    },
-                ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Ok(
-                            Resolved(
-                                ReducedTerm(
-                                    Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
+                                    23,
                                 ),
                             ),
                         ),
@@ -2842,6 +2946,33 @@
                             41,
                         ),
                         resolve_progress: Expected(
+                            Unresolved,
+                        ),
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
+                            42,
+                        ),
+                        resolve_progress: Expected(
                             Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -2897,6 +3028,21 @@
                 None,
                 None,
                 None,
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Original(
+                                TodoSuffix,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                None,
+                None,
+                None,
+                None,
                 None,
                 None,
                 None,
@@ -2926,23 +3072,6 @@
                         ),
                         expectation_rule_idx: None,
                         resolve_progress: Unresolved,
-                    },
-                ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
-                                    25,
-                                ),
-                            ),
-                        ),
-                        expectation_rule_idx: Some(
-                            42,
-                        ),
-                        resolve_progress: Expected(
-                            Unresolved,
-                        ),
                     },
                 ),
                 Some(
@@ -3012,6 +3141,132 @@
                 ),
                 None,
                 None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Original(
+                                TodoSuffix,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    24,
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
+                            44,
+                        ),
+                        resolve_progress: Expected(
+                            Unresolved,
+                        ),
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
+                            45,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+                None,
+                None,
                 Some(
                     ExprTypeInfo {
                         ty_result: Err(
@@ -3050,12 +3305,12 @@
                         ty_result: Ok(
                             Unresolved(
                                 UnresolvedTermIdx(
-                                    27,
+                                    26,
                                 ),
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            44,
+                            46,
                         ),
                         resolve_progress: Expected(
                             Unresolved,
@@ -3124,12 +3379,12 @@
                         ty_result: Ok(
                             Unresolved(
                                 UnresolvedTermIdx(
-                                    29,
+                                    28,
                                 ),
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            45,
+                            47,
                         ),
                         resolve_progress: Expected(
                             Unresolved,
@@ -3152,12 +3407,12 @@
                         ty_result: Ok(
                             Unresolved(
                                 UnresolvedTermIdx(
-                                    30,
+                                    29,
                                 ),
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            46,
+                            48,
                         ),
                         resolve_progress: Expected(
                             Unresolved,
@@ -3223,12 +3478,12 @@
                         ty_result: Ok(
                             Unresolved(
                                 UnresolvedTermIdx(
-                                    31,
+                                    30,
                                 ),
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            47,
+                            49,
                         ),
                         resolve_progress: Expected(
                             Unresolved,
@@ -3255,7 +3510,7 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            48,
+                            50,
                         ),
                         resolve_progress: Expected(
                             Resolved(
@@ -3310,7 +3565,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 33,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
@@ -3320,14 +3575,14 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            49,
+                            51,
                         ),
                         resolve_progress: Expected(
                             Resolved(
                                 Err(
                                     Derived(
                                         Duplication(
-                                            49,
+                                            51,
                                         ),
                                     ),
                                 ),
@@ -3356,7 +3611,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 33,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
@@ -3366,14 +3621,14 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            50,
+                            52,
                         ),
                         resolve_progress: Expected(
                             Resolved(
                                 Err(
                                     Derived(
                                         Duplication(
-                                            50,
+                                            52,
                                         ),
                                     ),
                                 ),
@@ -3463,12 +3718,12 @@
                         ty_result: Ok(
                             Unresolved(
                                 UnresolvedTermIdx(
-                                    32,
+                                    31,
                                 ),
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            51,
+                            53,
                         ),
                         resolve_progress: Expected(
                             Unresolved,
@@ -3517,7 +3772,7 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            52,
+                            54,
                         ),
                         resolve_progress: Expected(
                             Resolved(
@@ -3578,12 +3833,12 @@
                         ty_result: Ok(
                             Unresolved(
                                 UnresolvedTermIdx(
-                                    33,
+                                    32,
                                 ),
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            53,
+                            55,
                         ),
                         resolve_progress: Expected(
                             Unresolved,
@@ -3610,7 +3865,7 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            54,
+                            56,
                         ),
                         resolve_progress: Expected(
                             Resolved(
@@ -3950,10 +4205,14 @@
             ],
         },
         inherited_symbol_tys: [],
-        current_symbol_tys: [],
+        current_symbol_tys: [
+            LocalTerm::Resolved(
+                Term(`FermiMatchResult`),
+            ),
+        ],
         local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
-                next: 27,
+                next: 26,
             },
             unresolved_terms: UnresolvedTerms {
                 arena: [
@@ -3978,7 +4237,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 21,
+                                    value: 23,
                                 },
                             ),
                             arguments: [
@@ -4063,27 +4322,11 @@
                         resolve_progress: Unresolved,
                     },
                     UnresolvedTermEntry {
-                        src_expr_idx: 43,
-                        unresolved_term: ImplicitSymbol(
-                            ImplicitSymbol {
-                                idx: ImplicitSymbolIdx(
-                                    5,
-                                ),
-                                src_expr_idx: 43,
-                                variant: UnspecifiedFloatType,
-                            },
-                        ),
-                        implicit_symbol_dependencies: VecSet {
-                            data: [],
-                        },
-                        resolve_progress: Unresolved,
-                    },
-                    UnresolvedTermEntry {
                         src_expr_idx: 48,
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
-                                    6,
+                                    5,
                                 ),
                                 src_expr_idx: 48,
                                 variant: ImplicitType,
@@ -4099,7 +4342,7 @@
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
-                                    7,
+                                    6,
                                 ),
                                 src_expr_idx: 47,
                                 variant: UnspecifiedIntegerType,
@@ -4108,13 +4351,13 @@
                         implicit_symbol_dependencies: VecSet {
                             data: [
                                 UnresolvedTermIdx(
-                                    7,
+                                    6,
                                 ),
                             ],
                         },
                         resolve_progress: PartiallyResolved(
                             UnresolvedTermIdx(
-                                7,
+                                6,
                             ),
                         ),
                     },
@@ -4123,13 +4366,13 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 21,
+                                    value: 23,
                                 },
                             ),
                             arguments: [
                                 Unresolved(
                                     UnresolvedTermIdx(
-                                        7,
+                                        6,
                                     ),
                                 ),
                             ],
@@ -4137,7 +4380,7 @@
                         implicit_symbol_dependencies: VecSet {
                             data: [
                                 UnresolvedTermIdx(
-                                    7,
+                                    6,
                                 ),
                             ],
                         },
@@ -4148,7 +4391,7 @@
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
-                                    8,
+                                    7,
                                 ),
                                 src_expr_idx: 52,
                                 variant: ImplicitType,
@@ -4164,7 +4407,7 @@
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
-                                    9,
+                                    8,
                                 ),
                                 src_expr_idx: 51,
                                 variant: UnspecifiedIntegerType,
@@ -4173,13 +4416,13 @@
                         implicit_symbol_dependencies: VecSet {
                             data: [
                                 UnresolvedTermIdx(
-                                    10,
+                                    9,
                                 ),
                             ],
                         },
                         resolve_progress: PartiallyResolved(
                             UnresolvedTermIdx(
-                                10,
+                                9,
                             ),
                         ),
                     },
@@ -4188,13 +4431,13 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 21,
+                                    value: 23,
                                 },
                             ),
                             arguments: [
                                 Unresolved(
                                     UnresolvedTermIdx(
-                                        10,
+                                        9,
                                     ),
                                 ),
                             ],
@@ -4202,7 +4445,7 @@
                         implicit_symbol_dependencies: VecSet {
                             data: [
                                 UnresolvedTermIdx(
-                                    10,
+                                    9,
                                 ),
                             ],
                         },
@@ -4213,7 +4456,7 @@
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
-                                    10,
+                                    9,
                                 ),
                                 src_expr_idx: 56,
                                 variant: ImplicitType,
@@ -4229,7 +4472,7 @@
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
-                                    11,
+                                    10,
                                 ),
                                 src_expr_idx: 55,
                                 variant: UnspecifiedIntegerType,
@@ -4238,13 +4481,13 @@
                         implicit_symbol_dependencies: VecSet {
                             data: [
                                 UnresolvedTermIdx(
-                                    13,
+                                    12,
                                 ),
                             ],
                         },
                         resolve_progress: PartiallyResolved(
                             UnresolvedTermIdx(
-                                13,
+                                12,
                             ),
                         ),
                     },
@@ -4253,13 +4496,13 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 21,
+                                    value: 23,
                                 },
                             ),
                             arguments: [
                                 Unresolved(
                                     UnresolvedTermIdx(
-                                        13,
+                                        12,
                                     ),
                                 ),
                             ],
@@ -4267,7 +4510,7 @@
                         implicit_symbol_dependencies: VecSet {
                             data: [
                                 UnresolvedTermIdx(
-                                    13,
+                                    12,
                                 ),
                             ],
                         },
@@ -4278,7 +4521,7 @@
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
-                                    12,
+                                    11,
                                 ),
                                 src_expr_idx: 61,
                                 variant: UnspecifiedFloatType,
@@ -4294,7 +4537,7 @@
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
-                                    13,
+                                    12,
                                 ),
                                 src_expr_idx: 74,
                                 variant: UnspecifiedFloatType,
@@ -4310,7 +4553,7 @@
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
-                                    14,
+                                    13,
                                 ),
                                 src_expr_idx: 80,
                                 variant: UnspecifiedFloatType,
@@ -4326,7 +4569,7 @@
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
-                                    15,
+                                    14,
                                 ),
                                 src_expr_idx: 94,
                                 variant: UnspecifiedFloatType,
@@ -4342,7 +4585,7 @@
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
-                                    16,
+                                    15,
                                 ),
                                 src_expr_idx: 139,
                                 variant: UnspecifiedIntegerType,
@@ -4358,7 +4601,7 @@
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
-                                    17,
+                                    16,
                                 ),
                                 src_expr_idx: 148,
                                 variant: ImplicitType,
@@ -4374,7 +4617,7 @@
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
-                                    18,
+                                    17,
                                 ),
                                 src_expr_idx: 146,
                                 variant: UnspecifiedIntegerType,
@@ -4390,13 +4633,13 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 21,
+                                    value: 23,
                                 },
                             ),
                             arguments: [
                                 Unresolved(
                                     UnresolvedTermIdx(
-                                        21,
+                                        20,
                                     ),
                                 ),
                             ],
@@ -4404,7 +4647,7 @@
                         implicit_symbol_dependencies: VecSet {
                             data: [
                                 UnresolvedTermIdx(
-                                    21,
+                                    20,
                                 ),
                             ],
                         },
@@ -4415,7 +4658,7 @@
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
-                                    19,
+                                    18,
                                 ),
                                 src_expr_idx: 153,
                                 variant: UnspecifiedFloatType,
@@ -4431,7 +4674,7 @@
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
-                                    20,
+                                    19,
                                 ),
                                 src_expr_idx: 209,
                                 variant: UnspecifiedIntegerType,
@@ -4447,7 +4690,7 @@
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
-                                    21,
+                                    20,
                                 ),
                                 src_expr_idx: 216,
                                 variant: ImplicitType,
@@ -4463,13 +4706,13 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 21,
+                                    value: 23,
                                 },
                             ),
                             arguments: [
                                 Unresolved(
                                     UnresolvedTermIdx(
-                                        26,
+                                        25,
                                     ),
                                 ),
                             ],
@@ -4477,7 +4720,7 @@
                         implicit_symbol_dependencies: VecSet {
                             data: [
                                 UnresolvedTermIdx(
-                                    26,
+                                    25,
                                 ),
                             ],
                         },
@@ -4488,7 +4731,7 @@
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
-                                    22,
+                                    21,
                                 ),
                                 src_expr_idx: 226,
                                 variant: ImplicitType,
@@ -4504,7 +4747,7 @@
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
-                                    23,
+                                    22,
                                 ),
                                 src_expr_idx: 224,
                                 variant: UnspecifiedIntegerType,
@@ -4520,13 +4763,13 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 21,
+                                    value: 23,
                                 },
                             ),
                             arguments: [
                                 Unresolved(
                                     UnresolvedTermIdx(
-                                        28,
+                                        27,
                                     ),
                                 ),
                             ],
@@ -4534,7 +4777,7 @@
                         implicit_symbol_dependencies: VecSet {
                             data: [
                                 UnresolvedTermIdx(
-                                    28,
+                                    27,
                                 ),
                             ],
                         },
@@ -4545,7 +4788,7 @@
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
-                                    24,
+                                    23,
                                 ),
                                 src_expr_idx: 241,
                                 variant: UnspecifiedIntegerType,
@@ -4561,7 +4804,7 @@
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
-                                    25,
+                                    24,
                                 ),
                                 src_expr_idx: 253,
                                 variant: UnspecifiedFloatType,
@@ -4577,7 +4820,7 @@
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
-                                    26,
+                                    25,
                                 ),
                                 src_expr_idx: 258,
                                 variant: UnspecifiedFloatType,
@@ -4701,7 +4944,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 48,
+                                                        value: 47,
                                                     },
                                                 ),
                                             ),
@@ -4715,22 +4958,69 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                Err(
-                                    Original(
-                                        TermTypeError {
-                                            term: Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 48,
-                                                            },
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 47,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
                                             ),
-                                            error: Original(
-                                                Todo,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 14,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 47,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 47,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
                                             ),
                                         },
                                     ),
@@ -4834,7 +5124,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 33,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
@@ -4849,21 +5139,21 @@
                             },
                             resolve_progress: Resolved(
                                 Err(
-                                    Original(
+                                    Derived(
                                         TermTypeError {
                                             term: Entity(
                                                 ModuleItem(
                                                     Type(
                                                         TypePath(
                                                             Id {
-                                                                value: 33,
+                                                                value: 32,
                                                             },
                                                         ),
                                                     ),
                                                 ),
                                             ),
-                                            error: Original(
-                                                Todo,
+                                            error: Derived(
+                                                SignatureError,
                                             ),
                                         },
                                     ),
@@ -4967,7 +5257,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 33,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
@@ -4982,21 +5272,21 @@
                             },
                             resolve_progress: Resolved(
                                 Err(
-                                    Original(
+                                    Derived(
                                         TermTypeError {
                                             term: Entity(
                                                 ModuleItem(
                                                     Type(
                                                         TypePath(
                                                             Id {
-                                                                value: 33,
+                                                                value: 32,
                                                             },
                                                         ),
                                                     ),
                                                 ),
                                             ),
-                                            error: Original(
-                                                Todo,
+                                            error: Derived(
+                                                SignatureError,
                                             ),
                                         },
                                     ),
@@ -5100,7 +5390,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 33,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
@@ -5115,21 +5405,21 @@
                             },
                             resolve_progress: Resolved(
                                 Err(
-                                    Original(
+                                    Derived(
                                         TermTypeError {
                                             term: Entity(
                                                 ModuleItem(
                                                     Type(
                                                         TypePath(
                                                             Id {
-                                                                value: 33,
+                                                                value: 32,
                                                             },
                                                         ),
                                                     ),
                                                 ),
                                             ),
-                                            error: Original(
-                                                Todo,
+                                            error: Derived(
+                                                SignatureError,
                                             ),
                                         },
                                     ),
@@ -5233,7 +5523,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 15,
+                                                        value: 17,
                                                     },
                                                 ),
                                             ),
@@ -5247,22 +5537,23 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                Err(
-                                    Original(
-                                        TermTypeError {
-                                            term: Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 15,
-                                                            },
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 17,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
-                                            ),
-                                            error: Original(
-                                                Todo,
                                             ),
                                         },
                                     ),
@@ -5271,17 +5562,77 @@
                         },
                         LocalTermExpectationEntry {
                             src_expr_idx: 43,
-                            expectee: Unresolved(
-                                UnresolvedTermIdx(
-                                    6,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 17,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
                                 ),
                             ),
-                            expectation: InsSort {
-                                smallest_universe: TermUniverse(
-                                    0,
+                            expectation: ImplicitlyConversion {
+                                destination: Resolved(
+                                    ReducedTerm(
+                                        Entity(
+                                            ModuleItem(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 17,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
                                 ),
                             },
-                            resolve_progress: Unresolved,
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 17,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 17,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
                         },
                         LocalTermExpectationEntry {
                             src_expr_idx: 44,
@@ -5361,13 +5712,13 @@
                             src_expr_idx: 47,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
-                                    8,
+                                    7,
                                 ),
                             ),
                             expectation: ImplicitlyConversion {
                                 destination: Unresolved(
                                     UnresolvedTermIdx(
-                                        7,
+                                        6,
                                     ),
                                 ),
                             },
@@ -5378,12 +5729,12 @@
                                             implicit_conversion: None,
                                             expectee: Unresolved(
                                                 UnresolvedTermIdx(
-                                                    7,
+                                                    6,
                                                 ),
                                             ),
                                             destination: Unresolved(
                                                 UnresolvedTermIdx(
-                                                    7,
+                                                    6,
                                                 ),
                                             ),
                                         },
@@ -5395,7 +5746,7 @@
                             src_expr_idx: 48,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
-                                    9,
+                                    8,
                                 ),
                             ),
                             expectation: InsSort {
@@ -5409,13 +5760,13 @@
                             src_expr_idx: 51,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
-                                    11,
+                                    10,
                                 ),
                             ),
                             expectation: ImplicitlyConversion {
                                 destination: Unresolved(
                                     UnresolvedTermIdx(
-                                        10,
+                                        9,
                                     ),
                                 ),
                             },
@@ -5426,12 +5777,12 @@
                                             implicit_conversion: None,
                                             expectee: Unresolved(
                                                 UnresolvedTermIdx(
-                                                    10,
+                                                    9,
                                                 ),
                                             ),
                                             destination: Unresolved(
                                                 UnresolvedTermIdx(
-                                                    10,
+                                                    9,
                                                 ),
                                             ),
                                         },
@@ -5443,7 +5794,7 @@
                             src_expr_idx: 52,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
-                                    12,
+                                    11,
                                 ),
                             ),
                             expectation: InsSort {
@@ -5457,13 +5808,13 @@
                             src_expr_idx: 55,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
-                                    14,
+                                    13,
                                 ),
                             ),
                             expectation: ImplicitlyConversion {
                                 destination: Unresolved(
                                     UnresolvedTermIdx(
-                                        13,
+                                        12,
                                     ),
                                 ),
                             },
@@ -5474,12 +5825,12 @@
                                             implicit_conversion: None,
                                             expectee: Unresolved(
                                                 UnresolvedTermIdx(
-                                                    13,
+                                                    12,
                                                 ),
                                             ),
                                             destination: Unresolved(
                                                 UnresolvedTermIdx(
-                                                    13,
+                                                    12,
                                                 ),
                                             ),
                                         },
@@ -5491,7 +5842,7 @@
                             src_expr_idx: 56,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
-                                    15,
+                                    14,
                                 ),
                             ),
                             expectation: InsSort {
@@ -5576,10 +5927,56 @@
                             ),
                         },
                         LocalTermExpectationEntry {
+                            src_expr_idx: 59,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 47,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 47,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
                             src_expr_idx: 61,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
-                                    16,
+                                    15,
                                 ),
                             ),
                             expectation: InsSort {
@@ -5667,7 +6064,7 @@
                             src_expr_idx: 74,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
-                                    17,
+                                    16,
                                 ),
                             ),
                             expectation: InsSort {
@@ -5686,7 +6083,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 33,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
@@ -5701,21 +6098,21 @@
                             },
                             resolve_progress: Resolved(
                                 Err(
-                                    Original(
+                                    Derived(
                                         TermTypeError {
                                             term: Entity(
                                                 ModuleItem(
                                                     Type(
                                                         TypePath(
                                                             Id {
-                                                                value: 33,
+                                                                value: 32,
                                                             },
                                                         ),
                                                     ),
                                                 ),
                                             ),
-                                            error: Original(
-                                                Todo,
+                                            error: Derived(
+                                                SignatureError,
                                             ),
                                         },
                                     ),
@@ -5731,7 +6128,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 33,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
@@ -5746,21 +6143,21 @@
                             },
                             resolve_progress: Resolved(
                                 Err(
-                                    Original(
+                                    Derived(
                                         TermTypeError {
                                             term: Entity(
                                                 ModuleItem(
                                                     Type(
                                                         TypePath(
                                                             Id {
-                                                                value: 33,
+                                                                value: 32,
                                                             },
                                                         ),
                                                     ),
                                                 ),
                                             ),
-                                            error: Original(
-                                                Todo,
+                                            error: Derived(
+                                                SignatureError,
                                             ),
                                         },
                                     ),
@@ -5771,7 +6168,7 @@
                             src_expr_idx: 80,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
-                                    18,
+                                    17,
                                 ),
                             ),
                             expectation: InsSort {
@@ -5859,7 +6256,7 @@
                             src_expr_idx: 94,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
-                                    19,
+                                    18,
                                 ),
                             ),
                             expectation: InsSort {
@@ -6021,7 +6418,7 @@
                             src_expr_idx: 139,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
-                                    20,
+                                    19,
                                 ),
                             ),
                             expectation: InsSort {
@@ -6109,7 +6506,7 @@
                             src_expr_idx: 146,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
-                                    22,
+                                    21,
                                 ),
                             ),
                             expectation: InsSort {
@@ -6123,7 +6520,7 @@
                             src_expr_idx: 148,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
-                                    23,
+                                    22,
                                 ),
                             ),
                             expectation: InsSort {
@@ -6137,7 +6534,7 @@
                             src_expr_idx: 153,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
-                                    24,
+                                    23,
                                 ),
                             ),
                             expectation: InsSort {
@@ -6299,7 +6696,7 @@
                             src_expr_idx: 209,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
-                                    25,
+                                    24,
                                 ),
                             ),
                             expectation: InsSort {
@@ -6387,7 +6784,7 @@
                             src_expr_idx: 216,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
-                                    27,
+                                    26,
                                 ),
                             ),
                             expectation: InsSort {
@@ -6401,7 +6798,7 @@
                             src_expr_idx: 224,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
-                                    29,
+                                    28,
                                 ),
                             ),
                             expectation: InsSort {
@@ -6415,7 +6812,7 @@
                             src_expr_idx: 226,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
-                                    30,
+                                    29,
                                 ),
                             ),
                             expectation: InsSort {
@@ -6429,7 +6826,7 @@
                             src_expr_idx: 241,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
-                                    31,
+                                    30,
                                 ),
                             ),
                             expectation: InsSort {
@@ -6522,7 +6919,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 33,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
@@ -6537,21 +6934,21 @@
                             },
                             resolve_progress: Resolved(
                                 Err(
-                                    Original(
+                                    Derived(
                                         TermTypeError {
                                             term: Entity(
                                                 ModuleItem(
                                                     Type(
                                                         TypePath(
                                                             Id {
-                                                                value: 33,
+                                                                value: 32,
                                                             },
                                                         ),
                                                     ),
                                                 ),
                                             ),
-                                            error: Original(
-                                                Todo,
+                                            error: Derived(
+                                                SignatureError,
                                             ),
                                         },
                                     ),
@@ -6567,7 +6964,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 33,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
@@ -6582,21 +6979,21 @@
                             },
                             resolve_progress: Resolved(
                                 Err(
-                                    Original(
+                                    Derived(
                                         TermTypeError {
                                             term: Entity(
                                                 ModuleItem(
                                                     Type(
                                                         TypePath(
                                                             Id {
-                                                                value: 33,
+                                                                value: 32,
                                                             },
                                                         ),
                                                     ),
                                                 ),
                                             ),
-                                            error: Original(
-                                                Todo,
+                                            error: Derived(
+                                                SignatureError,
                                             ),
                                         },
                                     ),
@@ -6607,7 +7004,7 @@
                             src_expr_idx: 253,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
-                                    32,
+                                    31,
                                 ),
                             ),
                             expectation: InsSort {
@@ -6695,7 +7092,7 @@
                             src_expr_idx: 258,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
-                                    33,
+                                    32,
                                 ),
                             ),
                             expectation: InsSort {

@@ -96,10 +96,13 @@ impl<Db: TermDb + ?Sized> salsa::DebugWithDb<Db> for Term {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
-        f.write_fmt(format_args!("Term(`{}`)", self.display_with(db, false)))
+        f.write_fmt(format_args!(
+            "Term(`{}`)",
+            self.display_with(db, salsa::DisplayFormatLevel::root())
+        ))
     }
 }
 
@@ -108,19 +111,19 @@ impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for Term {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
         match self {
-            Term::Literal(term) => term.debug_with(db, include_all_fields).fmt(f),
-            Term::Symbol(term) => term.display_with_db_fmt(f, db, include_all_fields),
-            Term::Entity(term) => term.display_with_db_fmt(f, db, include_all_fields),
+            Term::Literal(term) => todo!(),
+            Term::Symbol(term) => term.display_with_db_fmt(f, db, level),
+            Term::Entity(term) => term.display_with_db_fmt(f, db, level),
             Term::Category(term) => f.write_str(&term.to_string()),
             Term::Universe(term) => f.write_str(&term.to_string()),
-            Term::Curry(term) => term.debug_with(db, include_all_fields).fmt(f),
-            Term::Ritchie(term) => term.display_with_db_fmt(f, db, include_all_fields),
-            Term::Abstraction(term) => term.debug_with(db, include_all_fields).fmt(f),
-            Term::Application(term) => term.display_with(db, include_all_fields).fmt(f),
+            Term::Curry(term) => todo!(),
+            Term::Ritchie(term) => term.display_with_db_fmt(f, db, level),
+            Term::Abstraction(term) => todo!(),
+            Term::Application(term) => term.display_with_db_fmt(f, db, level),
             Term::Subentity(term) => f.debug_tuple("Subentity").field(&term.debug(db)).finish(),
             Term::AsTraitSubentity(term) => f
                 .debug_tuple("AsTraitSubentity")

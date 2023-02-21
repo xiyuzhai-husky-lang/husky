@@ -50,14 +50,16 @@ pub struct EntityPathMenu {
     unit: TypePath,
     never: TypePath,
     bool: TypePath,
-    i32: TypePath,
-    i64: TypePath,
-    f32: TypePath,
-    f64: TypePath,
+    i8_ty_path: TypePath,
+    i16_ty_path: TypePath,
+    i32_ty_path: TypePath,
+    i64_ty_path: TypePath,
+    f32_ty_path: TypePath,
+    f64_ty_path: TypePath,
     r32_ty_path: TypePath,
     r64_ty_path: TypePath,
-    u32: TypePath,
-    u64: TypePath,
+    u32_ty_path: TypePath,
+    u64_ty_path: TypePath,
     trai_ty: TypePath,
     lifetime_ty: TypePath,
     module: TypePath,
@@ -202,6 +204,20 @@ impl EntityPathMenu {
             ModuleItemConnection::Connected,
             TypeKind::Alien,
         );
+        let i8_ty_path = TypePath::new(
+            db,
+            core_num,
+            word_menu.i8(),
+            ModuleItemConnection::Connected,
+            TypeKind::Alien,
+        );
+        let i16_ty_path = TypePath::new(
+            db,
+            core_num,
+            word_menu.i16(),
+            ModuleItemConnection::Connected,
+            TypeKind::Alien,
+        );
         let i32_ty_path = TypePath::new(
             db,
             core_num,
@@ -324,34 +340,44 @@ impl EntityPathMenu {
             unit,
             never,
             bool,
-            i32: i32_ty_path,
-            i64: i64_ty_path,
-            f32,
-            f64,
+            i8_ty_path,
+            i16_ty_path,
+            i32_ty_path,
+            i64_ty_path,
+            f32_ty_path: f32,
+            f64_ty_path: f64,
             r32_ty_path: r32,
             r64_ty_path: r64,
-            u32,
-            u64,
+            u32_ty_path: u32,
+            u64_ty_path: u64,
             trai_ty: trai,
             module,
             lifetime_ty: lifetime,
         })
     }
 
-    pub fn i32(&self) -> TypePath {
-        self.i32
+    pub fn i8_ty_path(&self) -> TypePath {
+        self.i8_ty_path
     }
 
-    pub fn i64(&self) -> TypePath {
-        self.i64
+    pub fn i16_ty_path(&self) -> TypePath {
+        self.i16_ty_path
     }
 
-    pub fn f32(&self) -> TypePath {
-        self.f32
+    pub fn i32_ty_path(&self) -> TypePath {
+        self.i32_ty_path
     }
 
-    pub fn f64(&self) -> TypePath {
-        self.f64
+    pub fn i64_ty_path(&self) -> TypePath {
+        self.i64_ty_path
+    }
+
+    pub fn f32_ty_path(&self) -> TypePath {
+        self.f32_ty_path
+    }
+
+    pub fn f64_ty_path(&self) -> TypePath {
+        self.f64_ty_path
     }
 
     pub fn r32_ty_path(&self) -> TypePath {
@@ -362,12 +388,12 @@ impl EntityPathMenu {
         self.r64_ty_path
     }
 
-    pub fn u32(&self) -> TypePath {
-        self.u32
+    pub fn u32_ty_path(&self) -> TypePath {
+        self.u32_ty_path
     }
 
-    pub fn u64(&self) -> TypePath {
-        self.u64
+    pub fn u64_ty_path(&self) -> TypePath {
+        self.u64_ty_path
     }
 
     pub fn core_ops_add(&self) -> TraitPath {

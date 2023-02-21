@@ -1,6 +1,6 @@
 Ok(
     AstSheet {
-        arena: Arena {
+        ast_arena: Arena {
             data: [
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
@@ -105,12 +105,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::connected_component`,
+                        EntityPath::Module(
+                            `mnist_classifier::connected_component`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `connected_component`,
@@ -131,12 +133,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::raw_contour`,
+                        EntityPath::Module(
+                            `mnist_classifier::raw_contour`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `raw_contour`,
@@ -157,12 +161,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::geom2d`,
+                        EntityPath::Module(
+                            `mnist_classifier::geom2d`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `geom2d`,
@@ -183,12 +189,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::line_segment_sketch`,
+                        EntityPath::Module(
+                            `mnist_classifier::line_segment_sketch`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `line_segment_sketch`,
@@ -209,12 +217,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::fermi`,
+                        EntityPath::Module(
+                            `mnist_classifier::fermi`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `fermi`,
@@ -235,12 +245,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::digits`,
+                        EntityPath::Module(
+                            `mnist_classifier::digits`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `digits`,
@@ -261,12 +273,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::major`,
+                        EntityPath::Module(
+                            `mnist_classifier::major`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `major`,

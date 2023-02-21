@@ -1,6 +1,6 @@
 Ok(
     AstSheet {
-        arena: Arena {
+        ast_arena: Arena {
             data: [
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -9,7 +9,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `core::clone`,
                     ),
                     entity_kind: AssociatedItem {
@@ -37,13 +37,17 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: Public,
+                    accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Trait,
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TraitPath(`core::clone::Clone`),
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `Clone`,

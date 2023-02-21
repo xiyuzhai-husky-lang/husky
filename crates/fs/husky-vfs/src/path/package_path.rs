@@ -83,7 +83,7 @@ impl<Db: VfsDb + ?Sized> DebugWithDb<Db> for PackagePath {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DebugFormatLevel,
     ) -> ::std::fmt::Result {
         let db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
         f.debug_struct("PackagePath")
@@ -97,14 +97,14 @@ impl<Db: VfsDb + ?Sized> DebugWithDb<Db> for PackagePathData {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DebugFormatLevel,
     ) -> ::std::fmt::Result {
         let db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
         match self {
             PackagePathData::Toolchain { ident, toolchain } => f
                 .debug_struct("Builtin")
                 .field("ident", &ident.data(db))
-                .field("toolchain", &toolchain.debug_with(db, include_all_fields))
+                .field("toolchain", &toolchain.debug_with(db, level.next()))
                 .finish(),
             PackagePathData::Global { ident, ref version } => f
                 .debug_struct("Glocal")
@@ -113,7 +113,7 @@ impl<Db: VfsDb + ?Sized> DebugWithDb<Db> for PackagePathData {
                 .finish(),
             PackagePathData::Local { path } => f
                 .debug_struct("Local")
-                .field("path", &path.debug_with(db, include_all_fields))
+                .field("path", &path.debug_with(db, level.next()))
                 .finish(),
             PackagePathData::Git { url } => f.debug_struct("Git").field("url", url).finish(),
         }

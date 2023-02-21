@@ -20,7 +20,7 @@ where
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
         match self.ritchie_kind(db) {
@@ -32,15 +32,15 @@ where
             if i > 0 {
                 f.write_str(", ")?
             }
-            parameter_ty.display_with_db_fmt(f, db, include_all_fields)?
+            parameter_ty.display_with_db_fmt(f, db, level.next())?
         }
         f.write_str(") -> ")?;
-        self.return_ty(db)
-            .display_with_db_fmt(f, db, include_all_fields)
+        self.return_ty(db).display_with_db_fmt(f, db, level.next())
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
+#[salsa::derive_debug_with_db(db = TermDb)]
 pub struct TermRitchieParameter {
     ty: Term,
 }
@@ -53,9 +53,9 @@ where
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
-        self.ty.display_with_db_fmt(f, db, include_all_fields)
+        self.ty.display_with_db_fmt(f, db, level)
     }
 }
 
@@ -66,20 +66,6 @@ impl TermRitchieParameter {
 
     pub fn ty(&self) -> Term {
         self.ty
-    }
-}
-
-impl<Db: TermDb + ?Sized> salsa::DebugWithDb<Db> for TermRitchieParameter {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
-        f.debug_struct("TermRitchieParameter")
-            .field("ty", &self.ty.debug_with(db, include_all_fields))
-            .finish()
     }
 }
 

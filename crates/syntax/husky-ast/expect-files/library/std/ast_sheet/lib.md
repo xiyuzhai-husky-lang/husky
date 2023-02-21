@@ -1,6 +1,6 @@
 Ok(
     AstSheet {
-        arena: Arena {
+        ast_arena: Arena {
             data: [
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -9,12 +9,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `std`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `std::prelude`,
+                        EntityPath::Module(
+                            `std::prelude`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `prelude`,
@@ -35,12 +37,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `std`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `std::logic`,
+                        EntityPath::Module(
+                            `std::logic`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `logic`,
@@ -61,12 +65,14 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: Accessibility::PublicUnder(
                         `std`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `std::ops`,
+                        EntityPath::Module(
+                            `std::ops`,
+                        ),
                     ),
                     ident_token: IdentifierToken {
                         ident: `ops`,

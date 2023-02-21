@@ -1,6 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum NativeEntitySymbol {
     Submodule(SubmoduleSymbol),
     ModuleItem(ModuleItemSymbol),
@@ -33,26 +34,5 @@ impl From<ModuleItemSymbol> for NativeEntitySymbol {
 impl From<SubmoduleSymbol> for NativeEntitySymbol {
     fn from(v: SubmoduleSymbol) -> Self {
         Self::Submodule(v)
-    }
-}
-
-impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for NativeEntitySymbol {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
-        match self {
-            NativeEntitySymbol::Submodule(symbol) => f
-                .debug_tuple("Submodule")
-                .field(&symbol.debug_with(db, include_all_fields))
-                .finish(),
-            NativeEntitySymbol::ModuleItem(symbol) => f
-                .debug_tuple("ModuleItem")
-                .field(&symbol.debug_with(db, include_all_fields))
-                .finish(),
-        }
     }
 }

@@ -1,7 +1,7 @@
 Ok(
     DefnSheet {
         defns: [
-            Trait(
+            Defn::Trait(
                 TraitDefn {
                     path: TraitPath(`core::cmp::PartialEq`),
                     decl: TraitDecl {
@@ -12,7 +12,11 @@ Ok(
                                 parent: None,
                                 path: RegionPath::Decl(
                                     DeclExprPath::Entity(
-                                        TraitPath(`core::cmp::PartialEq`),
+                                        EntityPath::ModuleItem(
+                                            ModuleItemPath::Trait(
+                                                TraitPath(`core::cmp::PartialEq`),
+                                            ),
+                                        ),
                                     ),
                                 ),
                                 expr_arena: Arena {
@@ -52,7 +56,7 @@ Ok(
                     },
                 },
             ),
-            Trait(
+            Defn::Trait(
                 TraitDefn {
                     path: TraitPath(`core::cmp::Eq`),
                     decl: TraitDecl {
@@ -63,7 +67,11 @@ Ok(
                                 parent: None,
                                 path: RegionPath::Decl(
                                     DeclExprPath::Entity(
-                                        TraitPath(`core::cmp::Eq`),
+                                        EntityPath::ModuleItem(
+                                            ModuleItemPath::Trait(
+                                                TraitPath(`core::cmp::Eq`),
+                                            ),
+                                        ),
                                     ),
                                 ),
                                 expr_arena: Arena {
@@ -103,7 +111,7 @@ Ok(
                     },
                 },
             ),
-            Trait(
+            Defn::Trait(
                 TraitDefn {
                     path: TraitPath(`core::cmp::PartialOrd`),
                     decl: TraitDecl {
@@ -114,7 +122,11 @@ Ok(
                                 parent: None,
                                 path: RegionPath::Decl(
                                     DeclExprPath::Entity(
-                                        TraitPath(`core::cmp::PartialOrd`),
+                                        EntityPath::ModuleItem(
+                                            ModuleItemPath::Trait(
+                                                TraitPath(`core::cmp::PartialOrd`),
+                                            ),
+                                        ),
                                     ),
                                 ),
                                 expr_arena: Arena {
@@ -154,7 +166,7 @@ Ok(
                     },
                 },
             ),
-            Trait(
+            Defn::Trait(
                 TraitDefn {
                     path: TraitPath(`core::cmp::Ord`),
                     decl: TraitDecl {
@@ -165,7 +177,11 @@ Ok(
                                 parent: None,
                                 path: RegionPath::Decl(
                                     DeclExprPath::Entity(
-                                        TraitPath(`core::cmp::Ord`),
+                                        EntityPath::ModuleItem(
+                                            ModuleItemPath::Trait(
+                                                TraitPath(`core::cmp::Ord`),
+                                            ),
+                                        ),
                                     ),
                                 ),
                                 expr_arena: Arena {

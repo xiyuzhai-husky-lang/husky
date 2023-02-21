@@ -12,16 +12,12 @@ impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermApplication {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        include_all_fields: bool,
+        level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
-        self.function(db)
-            .display_with(db, include_all_fields)
-            .fmt(f)?;
+        self.function(db).display_with(db, level.next()).fmt(f)?;
         f.write_str(" ")?;
-        self.argument(db)
-            .display_with(db, include_all_fields)
-            .fmt(f)
+        self.argument(db).display_with(db, level.next()).fmt(f)
     }
 }
 
