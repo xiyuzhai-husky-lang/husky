@@ -69,6 +69,9 @@ impl Diagnose for (TokenGroupIdx, &AstError) {
             AstError::UnexpectedTokenForModuleItem(_) => {
                 format!("Syntax Error: unexpected token for module item")
             }
+            AstError::InvalidAstForDefinitionOrUse => {
+                format!("Syntax Error: invalid ast for definition or use")
+            }
         }
     }
 
@@ -86,7 +89,8 @@ impl Diagnose for (TokenGroupIdx, &AstError) {
             | AstError::ExpectDecoratorOrEntityKeyword
             | AstError::ExpectNothing
             | AstError::UnexpectedStmtInsideModule
-            | AstError::UnexpectedStmtInsideImpl => {
+            | AstError::UnexpectedStmtInsideImpl
+            | AstError::InvalidAstForDefinitionOrUse => {
                 let token_idx_range = ctx.token_sheet_data().token_group_token_idx_range(self.0);
                 ctx.ranged_token_sheet().tokens_text_range(token_idx_range)
             }

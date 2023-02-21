@@ -258,7 +258,7 @@ impl<'a> AstParser<'a> {
         }
         Ast::Err {
             token_group_idx,
-            error: todo!(),
+            error: AstError::InvalidAstForDefinitionOrUse,
         }
     }
 }

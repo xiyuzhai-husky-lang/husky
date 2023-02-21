@@ -41,15 +41,15 @@ Ok(
                     accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Structure,
+                            Alien,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::basic::Trait`, `Structure`),
+                        TypePath(`core::basic::never`, `Alien`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `Trait`,
+                        ident: `never`,
                         token_idx: TokenIdx(
                             6,
                         ),
@@ -70,15 +70,15 @@ Ok(
                     accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Structure,
+                            Alien,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::basic::Module`, `Structure`),
+                        TypePath(`core::basic::unit`, `Alien`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `Module`,
+                        ident: `unit`,
                         token_idx: TokenIdx(
                             10,
                         ),
@@ -89,10 +89,68 @@ Ok(
                         11,
                     ),
                 },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        3,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Public,
+                    entity_kind: ModuleItem {
+                        module_item_kind: Type(
+                            Structure,
+                        ),
+                        connection: Connected,
+                    },
+                    entity_path: Some(
+                        TypePath(`core::basic::Trait`, `Structure`),
+                    ),
+                    ident_token: IdentifierToken {
+                        ident: `Trait`,
+                        token_idx: TokenIdx(
+                            14,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        15,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        4,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Public,
+                    entity_kind: ModuleItem {
+                        module_item_kind: Type(
+                            Structure,
+                        ),
+                        connection: Connected,
+                    },
+                    entity_path: Some(
+                        TypePath(`core::basic::Module`, `Structure`),
+                    ),
+                    ident_token: IdentifierToken {
+                        ident: `Module`,
+                        token_idx: TokenIdx(
+                            18,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        19,
+                    ),
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..3,
+            0..5,
         ),
     },
 )

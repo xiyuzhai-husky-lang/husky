@@ -36,6 +36,8 @@ pub enum AstError {
     UnexpectedTokenForTraitImplItem(TokenIdx),
     #[error("unexpected token for module item")]
     UnexpectedTokenForModuleItem(TokenIdx),
+    #[error("invalid ast for definition or use")]
+    InvalidAstForDefinitionOrUse,
 }
 
 impl<'a, Context> FromAbsent<IdentifierToken, Context> for AstError

@@ -31,7 +31,28 @@ pub(crate) fn term_ty(
 }
 
 pub(crate) fn entity_path_term_ty(db: &dyn TypeDb, path: EntityPath) -> TypeResult<ReducedTerm> {
-    Err(OriginalTypeError::Todo.into())
+    match path {
+        EntityPath::Module(_) => todo!(),
+        EntityPath::ModuleItem(path) => match path {
+            ModuleItemPath::Type(path) => ty_path_term_ty(db, path),
+            ModuleItemPath::Trait(_) => todo!(),
+            ModuleItemPath::Form(_) => todo!(),
+        },
+        EntityPath::AssociatedItem(_) => todo!(),
+        EntityPath::Variant(_) => todo!(),
+    }
+}
+
+pub(crate) fn ty_path_term_ty(db: &dyn TypeDb, path: TypePath) -> TypeResult<ReducedTerm> {
+    let decl = match db.ty_decl(path) {
+        Ok(decl) => decl,
+        Err(_) => return Err(DerivedTypeError::DeclError.into()),
+    };
+    let signature = match db.ty_signature(decl) {
+        Ok(signature) => signature,
+        Err(_) => return Err(DerivedTypeError::SignatureError.into()),
+    };
+    todo!()
 }
 
 #[test]

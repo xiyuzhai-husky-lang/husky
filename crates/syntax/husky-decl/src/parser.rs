@@ -6,7 +6,7 @@ use husky_entity_tree::*;
 use husky_opn_syntax::BinaryOpr;
 use husky_print_utils::p;
 use husky_token::*;
-use husky_vfs::CratePath;
+use husky_vfs::{CratePath, VfsTestUtils};
 use parsec::*;
 use salsa::DebugWithDb;
 use vec_like::{VecMapGetEntry, VecPairMap};
@@ -23,6 +23,14 @@ pub(crate) fn module_item_decl(db: &dyn DeclDb, path: ModuleItemPath) -> DeclRes
 pub(crate) fn ty_decl(db: &dyn DeclDb, path: TypePath) -> DeclResult<TypeDecl> {
     let parser = DeclParser::new(db, path.module_path(db))?;
     parser.parse_ty_decl(path)
+}
+
+#[test]
+fn ty_decl_works() {
+    let db = DB::default();
+    let toolchain = db.dev_toolchain().unwrap();
+    let menu = db.entity_path_menu(toolchain).unwrap();
+    assert!(db.ty_decl(menu.never()).is_ok());
 }
 
 #[salsa::tracked(jar = DeclJar, return_ref)]
@@ -76,13 +84,15 @@ impl<'a> DeclParser<'a> {
 
     fn parse_ty_decl(&self, path: TypePath) -> DeclResult<TypeDecl> {
         let ident = path.ident(self.db);
-        let module_item_symbol = self
+        let Some(entity_symbol) = self
             .module_entity_tree
             .module_symbols()
             .resolve_ident(ident)
-            .unwrap()
-            .module_item_symbol()
-            .unwrap();
+            else {
+                use salsa::DisplayWithDb;
+                panic!("path `{}` is invalid!", path.display(self.db))
+            };
+        let module_item_symbol = entity_symbol.module_item_symbol().unwrap();
 
         let ast_idx: AstIdx = module_item_symbol.ast_idx(self.db);
         match self.ast_sheet[ast_idx] {
