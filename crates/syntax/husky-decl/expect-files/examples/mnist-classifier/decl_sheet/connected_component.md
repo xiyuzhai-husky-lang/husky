@@ -131,7 +131,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 143,
+                                                    value: 146,
                                                 },
                                             ),
                                         ),
@@ -151,7 +151,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 144,
+                                                    value: 147,
                                                 },
                                             ),
                                         ),
@@ -171,7 +171,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 145,
+                                                    value: 148,
                                                 },
                                             ),
                                         ),
@@ -191,7 +191,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 146,
+                                                    value: 149,
                                                 },
                                             ),
                                         ),
@@ -347,7 +347,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 148,
+                                                    value: 151,
                                                 },
                                             ),
                                         ),
@@ -467,7 +467,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 151,
+                                                                value: 154,
                                                             },
                                                         ),
                                                     ),
@@ -586,18 +586,12 @@ Ok(
                                     expr_arena: Arena {
                                         data: [
                                             Expr::Err(
-                                                Original(
-                                                    UnrecognizedIdentifier {
+                                                ExprError::Original(
+                                                    OriginalExprError::UnrecognizedIdentifier {
                                                         token_idx: TokenIdx(
                                                             83,
                                                         ),
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 122,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `BinaryImage28`,
                                                     },
                                                 ),
                                             ),
@@ -650,7 +644,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 154,
+                                                    value: 157,
                                                 },
                                             ),
                                         ),
@@ -785,7 +779,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 182,
+                                                                value: 185,
                                                             },
                                                         ),
                                                     ),
@@ -939,18 +933,12 @@ Ok(
                                     expr_arena: Arena {
                                         data: [
                                             Expr::Err(
-                                                Original(
-                                                    UnrecognizedIdentifier {
+                                                ExprError::Original(
+                                                    OriginalExprError::UnrecognizedIdentifier {
                                                         token_idx: TokenIdx(
                                                             649,
                                                         ),
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 122,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `BinaryImage28`,
                                                     },
                                                 ),
                                             ),
@@ -1015,7 +1003,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 186,
+                                                                value: 189,
                                                             },
                                                         ),
                                                     ),
@@ -3157,7 +3145,7 @@ Ok(
                                                         Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 177,
+                                                                    value: 180,
                                                                 },
                                                             ),
                                                         ),
@@ -3458,7 +3446,7 @@ Ok(
                                                         Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 177,
+                                                                    value: 180,
                                                                 },
                                                             ),
                                                         ),

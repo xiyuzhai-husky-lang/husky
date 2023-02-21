@@ -6,6 +6,7 @@ use parsec::*;
 use thiserror::Error;
 
 #[derive(Error, Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum ExprError {
     #[error("original {0}")]
     Original(#[from] OriginalExprError),
@@ -14,6 +15,7 @@ pub enum ExprError {
 }
 
 #[derive(Error, Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum OriginalExprError {
     #[error("mismatching bracket")]
     MismatchingBracket {
@@ -101,6 +103,7 @@ pub enum OriginalExprError {
 }
 
 #[derive(Error, Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum DerivedExprError {
     #[error("token error")]
     Token(TokenIdx),

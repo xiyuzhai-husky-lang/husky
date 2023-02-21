@@ -10,7 +10,18 @@ Ok(
                         ModuleItemSymbol {
                             path: TraitPath(`core::ops::Add`),
                             accessibility: Public,
-                            ast_idx: 3,
+                            ast_idx: 5,
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `Sub`,
+                    accessibility: Public,
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: TraitPath(`core::ops::Sub`),
+                            accessibility: Public,
+                            ast_idx: 7,
                         },
                     ),
                 },

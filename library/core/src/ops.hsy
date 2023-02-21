@@ -1,5 +1,11 @@
 #[rust("std::ops::Add")]
-pub trait Add<B>:
-    type Output
+pub trait Add<Rhs>:
+    type Output;
 
-    fn add(other: B) -> Self::Output
+    fn add(other: Rhs) -> Self::Output;
+
+#[rust("std::ops::Sub")]
+pub trait Sub<Rhs>:
+    type Output;
+
+    fn sub(other: Rhs) -> Self::Output;

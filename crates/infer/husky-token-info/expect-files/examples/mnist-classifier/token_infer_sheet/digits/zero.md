@@ -309,7 +309,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 163,
+                        value: 164,
                     },
                 ),
             },
@@ -353,7 +353,7 @@ Ok(
                 inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 166,
+                        value: 167,
                     },
                 ),
             },
@@ -370,7 +370,7 @@ Ok(
                 inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 166,
+                        value: 167,
                     },
                 ),
             },

@@ -32,8 +32,8 @@ Ok(
                                                 opd: 0,
                                             },
                                             Expr::Err(
-                                                Original(
-                                                    NoLeftOperandForBinaryOperator {
+                                                ExprError::Original(
+                                                    OriginalExprError::NoLeftOperandForBinaryOperator {
                                                         binary_token_idx: TokenIdx(
                                                             17,
                                                         ),
@@ -41,8 +41,8 @@ Ok(
                                                 ),
                                             ),
                                             Expr::Err(
-                                                Original(
-                                                    NoRightOperandForBinaryOperator {
+                                                ExprError::Original(
+                                                    OriginalExprError::NoRightOperandForBinaryOperator {
                                                         lopd: 2,
                                                         punctuation: PureClosed(
                                                             RemEuclid,
@@ -143,7 +143,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 116,
                                                 },
                                             ),
                                         ),
@@ -163,7 +163,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 327,
+                                                    value: 330,
                                                 },
                                             ),
                                         ),

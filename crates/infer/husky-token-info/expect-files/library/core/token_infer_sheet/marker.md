@@ -9,7 +9,7 @@ Ok(
                         Trait(
                             TraitPath(
                                 Id {
-                                    value: 4,
+                                    value: 5,
                                 },
                             ),
                         ),
@@ -31,7 +31,7 @@ Ok(
                         Trait(
                             TraitPath(
                                 Id {
-                                    value: 5,
+                                    value: 6,
                                 },
                             ),
                         ),
