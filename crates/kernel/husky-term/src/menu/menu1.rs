@@ -5,6 +5,7 @@ pub struct TermMenu1 {
     parent: TermMenu0,
     eval_ref_ty: Term,
     static_ref_ty: Term,
+    invariant_ty0_to_trai_ty: TermCurry,
 }
 
 impl std::ops::Deref for TermMenu1 {
@@ -27,6 +28,12 @@ impl TermMenu1 {
             .into(),
             static_ref_ty: TermApplication::new(db, menu0.ref_ty_path(), menu0.static_lifetime())
                 .into(),
+            invariant_ty0_to_trai_ty: TermCurry::new(
+                db,
+                Variance::Invariant,
+                menu0.ty0().into(),
+                menu0.trai_ty().into(),
+            ),
             parent: menu0,
         }
     }
@@ -37,5 +44,9 @@ impl TermMenu1 {
 
     pub fn static_ref_ty(&self) -> Term {
         self.static_ref_ty
+    }
+
+    pub fn invariant_ty0_to_trai_ty(&self) -> TermCurry {
+        self.invariant_ty0_to_trai_ty
     }
 }

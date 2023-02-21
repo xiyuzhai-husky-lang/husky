@@ -122,16 +122,6 @@ DiagnosticSheet {
                 severity: Error,
                 range: [27:5, 27:8),
             },
-            Diagnostic {
-                message: "Type Error: original `todo` in term unit",
-                severity: Error,
-                range: [32:5, 34:54),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term unit",
-                severity: Error,
-                range: [38:5, 40:73),
-            },
         ],
     },
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {

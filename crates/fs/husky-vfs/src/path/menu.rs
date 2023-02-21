@@ -18,6 +18,7 @@ pub struct VfsPathMenu {
     core_ops: ModulePath,
     core_option: ModulePath,
     core_prelude: ModulePath,
+    core_raw_bits: ModulePath,
     core_vec: ModulePath,
 }
 
@@ -36,12 +37,14 @@ impl VfsPathMenu {
         let core = ModulePath::new_root(db, core_library);
         let std = ModulePath::new_root(db, std_library);
         let core_basic = ModulePath::new_child(db, core, db.it_ident_borrowed("basic").unwrap());
-        let core_prelude =
-            ModulePath::new_child(db, core, db.it_ident_borrowed("prelude").unwrap());
         let core_mem = ModulePath::new_child(db, core, db.it_ident_borrowed("mem").unwrap());
         let core_num = ModulePath::new_child(db, core, db.it_ident_borrowed("num").unwrap());
         let core_ops = ModulePath::new_child(db, core, db.it_ident_borrowed("ops").unwrap());
         let core_option = ModulePath::new_child(db, core, db.it_ident_borrowed("option").unwrap());
+        let core_prelude =
+            ModulePath::new_child(db, core, db.it_ident_borrowed("prelude").unwrap());
+        let core_raw_bits =
+            ModulePath::new_child(db, core, db.it_ident_borrowed("raw_bits").unwrap());
         let core_slice = ModulePath::new_child(db, core, db.it_ident_borrowed("slice").unwrap());
         let core_str = ModulePath::new_child(db, core, db.it_ident_borrowed("str").unwrap());
         let core_vec = ModulePath::new_child(db, core, db.it_ident_borrowed("vec").unwrap());
@@ -58,6 +61,7 @@ impl VfsPathMenu {
             core_ops,
             core_option,
             core_prelude,
+            core_raw_bits,
             core_slice,
             core_str,
             core_vec,
@@ -96,6 +100,11 @@ impl VfsPathMenu {
 
     pub fn core_prelude(&self) -> ModulePath {
         self.core_prelude
+    }
+
+    /// core::raw_bits
+    pub fn core_raw_bits(&self) -> ModulePath {
+        self.core_raw_bits
     }
 
     /// core::vec
@@ -139,5 +148,9 @@ fn vfs_path_menu_works() {
     assert_eq!(menu.core_ops().to_string_with_db(&db), "core::ops");
     assert_eq!(menu.core_option().to_string_with_db(&db), "core::option");
     assert_eq!(menu.core_prelude().to_string_with_db(&db), "core::prelude");
+    assert_eq!(
+        menu.core_raw_bits().to_string_with_db(&db),
+        "core::raw_bits"
+    );
     assert_eq!(menu.core_vec().to_string_with_db(&db), "core::vec");
 }
