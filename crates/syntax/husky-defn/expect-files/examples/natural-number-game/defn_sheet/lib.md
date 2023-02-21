@@ -412,8 +412,8 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 Expr::Err(
-                                                    Original(
-                                                        NoLeftOperandForBinaryOperator {
+                                                    ExprError::Original(
+                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
                                                             binary_token_idx: TokenIdx(
                                                                 14,
                                                             ),
@@ -609,8 +609,8 @@ Ok(
                                                 expr_arena: Arena {
                                                     data: [
                                                         Expr::Err(
-                                                            Original(
-                                                                NoLeftOperandForBinaryOperator {
+                                                            ExprError::Original(
+                                                                OriginalExprError::NoLeftOperandForBinaryOperator {
                                                                     binary_token_idx: TokenIdx(
                                                                         14,
                                                                     ),

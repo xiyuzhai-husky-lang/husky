@@ -37,18 +37,12 @@ Ok(
                                     expr_arena: Arena {
                                         data: [
                                             Expr::Err(
-                                                Original(
-                                                    UnrecognizedIdentifier {
+                                                ExprError::Original(
+                                                    OriginalExprError::UnrecognizedIdentifier {
                                                         token_idx: TokenIdx(
                                                             65,
                                                         ),
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 362,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `FermiMatchResult`,
                                                     },
                                                 ),
                                             ),
@@ -181,7 +175,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 195,
+                                                                value: 198,
                                                             },
                                                         ),
                                                     ),
@@ -319,18 +313,12 @@ Ok(
                                     expr_arena: Arena {
                                         data: [
                                             Expr::Err(
-                                                Original(
-                                                    UnrecognizedIdentifier {
+                                                ExprError::Original(
+                                                    OriginalExprError::UnrecognizedIdentifier {
                                                         token_idx: TokenIdx(
                                                             99,
                                                         ),
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 362,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `FermiMatchResult`,
                                                     },
                                                 ),
                                             ),
@@ -411,18 +399,12 @@ Ok(
                                     expr_arena: Arena {
                                         data: [
                                             Expr::Err(
-                                                Original(
-                                                    UnrecognizedIdentifier {
+                                                ExprError::Original(
+                                                    OriginalExprError::UnrecognizedIdentifier {
                                                         token_idx: TokenIdx(
                                                             112,
                                                         ),
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 362,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `FermiMatchResult`,
                                                     },
                                                 ),
                                             ),
@@ -503,18 +485,12 @@ Ok(
                                     expr_arena: Arena {
                                         data: [
                                             Expr::Err(
-                                                Original(
-                                                    UnrecognizedIdentifier {
+                                                ExprError::Original(
+                                                    OriginalExprError::UnrecognizedIdentifier {
                                                         token_idx: TokenIdx(
                                                             126,
                                                         ),
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 123,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `MnistLabel`,
                                                     },
                                                 ),
                                             ),
@@ -654,7 +630,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 195,
+                                                                value: 198,
                                                             },
                                                         ),
                                                     ),
@@ -844,7 +820,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 195,
+                                                                value: 198,
                                                             },
                                                         ),
                                                     ),

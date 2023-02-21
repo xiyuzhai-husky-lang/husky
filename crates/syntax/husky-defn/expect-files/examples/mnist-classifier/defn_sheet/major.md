@@ -122,18 +122,12 @@ Ok(
                                             ),
                                         },
                                         Expr::Err(
-                                            Original(
-                                                UnrecognizedIdentifier {
+                                            ExprError::Original(
+                                                OriginalExprError::UnrecognizedIdentifier {
                                                     token_idx: TokenIdx(
                                                         40,
                                                     ),
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 454,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `input`,
                                                 },
                                             ),
                                         ),
@@ -692,7 +686,7 @@ Ok(
                                                 frame_var_ident: Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 161,
+                                                            value: 164,
                                                         },
                                                     ),
                                                 ),
@@ -781,7 +775,7 @@ Ok(
                                                 Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 257,
+                                                            value: 260,
                                                         },
                                                     ),
                                                 ),
@@ -793,7 +787,7 @@ Ok(
                                                 Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 455,
+                                                            value: 458,
                                                         },
                                                     ),
                                                 ),
@@ -805,7 +799,7 @@ Ok(
                                                 Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 169,
+                                                            value: 172,
                                                         },
                                                     ),
                                                 ),
@@ -1252,7 +1246,7 @@ Ok(
                                                 frame_var_ident: Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 161,
+                                                            value: 164,
                                                         },
                                                     ),
                                                 ),
@@ -1321,7 +1315,7 @@ Ok(
                                                 Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 456,
+                                                            value: 459,
                                                         },
                                                     ),
                                                 ),

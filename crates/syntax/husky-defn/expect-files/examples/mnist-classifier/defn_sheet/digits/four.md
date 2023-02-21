@@ -38,18 +38,12 @@ Ok(
                                     expr_arena: Arena {
                                         data: [
                                             Expr::Err(
-                                                Original(
-                                                    UnrecognizedIdentifier {
+                                                ExprError::Original(
+                                                    OriginalExprError::UnrecognizedIdentifier {
                                                         token_idx: TokenIdx(
                                                             65,
                                                         ),
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 362,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `FermiMatchResult`,
                                                     },
                                                 ),
                                             ),
@@ -320,7 +314,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 195,
+                                                                value: 198,
                                                             },
                                                         ),
                                                     ),
@@ -504,7 +498,7 @@ Ok(
                                                             Identifier(
                                                                 Word(
                                                                     Id {
-                                                                        value: 195,
+                                                                        value: 198,
                                                                     },
                                                                 ),
                                                             ),
@@ -702,18 +696,12 @@ Ok(
                                     expr_arena: Arena {
                                         data: [
                                             Expr::Err(
-                                                Original(
-                                                    UnrecognizedIdentifier {
+                                                ExprError::Original(
+                                                    OriginalExprError::UnrecognizedIdentifier {
                                                         token_idx: TokenIdx(
                                                             99,
                                                         ),
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 362,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `FermiMatchResult`,
                                                     },
                                                 ),
                                             ),
@@ -919,18 +907,12 @@ Ok(
                                     expr_arena: Arena {
                                         data: [
                                             Expr::Err(
-                                                Original(
-                                                    UnrecognizedIdentifier {
+                                                ExprError::Original(
+                                                    OriginalExprError::UnrecognizedIdentifier {
                                                         token_idx: TokenIdx(
                                                             112,
                                                         ),
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 362,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `FermiMatchResult`,
                                                     },
                                                 ),
                                             ),
@@ -1136,18 +1118,12 @@ Ok(
                                     expr_arena: Arena {
                                         data: [
                                             Expr::Err(
-                                                Original(
-                                                    UnrecognizedIdentifier {
+                                                ExprError::Original(
+                                                    OriginalExprError::UnrecognizedIdentifier {
                                                         token_idx: TokenIdx(
                                                             126,
                                                         ),
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 123,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `MnistLabel`,
                                                     },
                                                 ),
                                             ),
@@ -2055,34 +2031,22 @@ Ok(
                                             ropd: 85,
                                         },
                                         Expr::Err(
-                                            Original(
-                                                UnrecognizedIdentifier {
+                                            ExprError::Original(
+                                                OriginalExprError::UnrecognizedIdentifier {
                                                     token_idx: TokenIdx(
                                                         298,
                                                     ),
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 123,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `MnistLabel`,
                                                 },
                                             ),
                                         ),
                                         Expr::Err(
-                                            Original(
-                                                UnresolvedSubentity {
+                                            ExprError::Original(
+                                                OriginalExprError::UnresolvedSubentity {
                                                     token_idx: TokenIdx(
                                                         300,
                                                     ),
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 139,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `Four`,
                                                 },
                                             ),
                                         ),
@@ -2095,34 +2059,22 @@ Ok(
                                             ropd: 88,
                                         },
                                         Expr::Err(
-                                            Original(
-                                                UnrecognizedIdentifier {
+                                            ExprError::Original(
+                                                OriginalExprError::UnrecognizedIdentifier {
                                                     token_idx: TokenIdx(
                                                         301,
                                                     ),
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 123,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `MnistLabel`,
                                                 },
                                             ),
                                         ),
                                         Expr::Err(
-                                            Original(
-                                                UnresolvedSubentity {
+                                            ExprError::Original(
+                                                OriginalExprError::UnresolvedSubentity {
                                                     token_idx: TokenIdx(
                                                         303,
                                                     ),
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 139,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `Four`,
                                                 },
                                             ),
                                         ),
@@ -2814,7 +2766,7 @@ Ok(
                                                 Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 381,
+                                                            value: 384,
                                                         },
                                                     ),
                                                 ),
@@ -2826,7 +2778,7 @@ Ok(
                                                 Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 381,
+                                                            value: 384,
                                                         },
                                                     ),
                                                 ),
@@ -2838,7 +2790,7 @@ Ok(
                                                 Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 156,
+                                                            value: 159,
                                                         },
                                                     ),
                                                 ),
@@ -2850,7 +2802,7 @@ Ok(
                                                 Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 378,
+                                                            value: 381,
                                                         },
                                                     ),
                                                 ),
@@ -2862,7 +2814,7 @@ Ok(
                                                 Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 432,
+                                                            value: 435,
                                                         },
                                                     ),
                                                 ),
@@ -2874,7 +2826,7 @@ Ok(
                                                 Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 381,
+                                                            value: 384,
                                                         },
                                                     ),
                                                 ),
@@ -2886,7 +2838,7 @@ Ok(
                                                 Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 433,
+                                                            value: 436,
                                                         },
                                                     ),
                                                 ),
@@ -2898,7 +2850,7 @@ Ok(
                                                 Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 434,
+                                                            value: 437,
                                                         },
                                                     ),
                                                 ),
@@ -2910,7 +2862,7 @@ Ok(
                                                 Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 378,
+                                                            value: 381,
                                                         },
                                                     ),
                                                 ),
@@ -2922,7 +2874,7 @@ Ok(
                                                 Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 435,
+                                                            value: 438,
                                                         },
                                                     ),
                                                 ),
@@ -2934,7 +2886,7 @@ Ok(
                                                 Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 381,
+                                                            value: 384,
                                                         },
                                                     ),
                                                 ),
@@ -2946,7 +2898,7 @@ Ok(
                                                 Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 434,
+                                                            value: 437,
                                                         },
                                                     ),
                                                 ),
@@ -2958,7 +2910,7 @@ Ok(
                                                 Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 436,
+                                                            value: 439,
                                                         },
                                                     ),
                                                 ),
@@ -2970,7 +2922,7 @@ Ok(
                                                 Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 381,
+                                                            value: 384,
                                                         },
                                                     ),
                                                 ),
@@ -3283,7 +3235,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 195,
+                                                                value: 198,
                                                             },
                                                         ),
                                                     ),
@@ -3467,7 +3419,7 @@ Ok(
                                                             Identifier(
                                                                 Word(
                                                                     Id {
-                                                                        value: 195,
+                                                                        value: 198,
                                                                     },
                                                                 ),
                                                             ),
@@ -3694,7 +3646,7 @@ Ok(
                                                 Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 315,
+                                                            value: 318,
                                                         },
                                                     ),
                                                 ),
@@ -3849,7 +3801,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 195,
+                                                                value: 198,
                                                             },
                                                         ),
                                                     ),
@@ -4033,7 +3985,7 @@ Ok(
                                                             Identifier(
                                                                 Word(
                                                                     Id {
-                                                                        value: 195,
+                                                                        value: 198,
                                                                     },
                                                                 ),
                                                             ),
@@ -4347,7 +4299,7 @@ Ok(
                                                 Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 315,
+                                                            value: 318,
                                                         },
                                                     ),
                                                 ),

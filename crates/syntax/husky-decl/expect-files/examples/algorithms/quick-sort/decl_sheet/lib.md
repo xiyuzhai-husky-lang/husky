@@ -97,7 +97,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 80,
+                                                                value: 83,
                                                             },
                                                         ),
                                                     ),
@@ -178,7 +178,7 @@ Ok(
                                                         ident: Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 79,
+                                                                    value: 82,
                                                                 },
                                                             ),
                                                         ),
@@ -320,34 +320,22 @@ Ok(
                                                 argument: 2,
                                             },
                                             Expr::Err(
-                                                Original(
-                                                    UnrecognizedIdentifier {
+                                                ExprError::Original(
+                                                    OriginalExprError::UnrecognizedIdentifier {
                                                         token_idx: TokenIdx(
                                                             58,
                                                         ),
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 60,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `isize`,
                                                     },
                                                 ),
                                             ),
                                             Expr::Err(
-                                                Original(
-                                                    UnrecognizedIdentifier {
+                                                ExprError::Original(
+                                                    OriginalExprError::UnrecognizedIdentifier {
                                                         token_idx: TokenIdx(
                                                             62,
                                                         ),
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 60,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `isize`,
                                                     },
                                                 ),
                                             ),
@@ -410,7 +398,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 80,
+                                                                value: 83,
                                                             },
                                                         ),
                                                     ),
@@ -422,7 +410,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 83,
+                                                                value: 86,
                                                             },
                                                         ),
                                                     ),
@@ -434,7 +422,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 84,
+                                                                value: 87,
                                                             },
                                                         ),
                                                     ),
@@ -549,7 +537,7 @@ Ok(
                                                         ident: Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 79,
+                                                                    value: 82,
                                                                 },
                                                             ),
                                                         ),
@@ -726,50 +714,32 @@ Ok(
                                                 argument: 2,
                                             },
                                             Expr::Err(
-                                                Original(
-                                                    UnrecognizedIdentifier {
+                                                ExprError::Original(
+                                                    OriginalExprError::UnrecognizedIdentifier {
                                                         token_idx: TokenIdx(
                                                             119,
                                                         ),
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 60,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `isize`,
                                                     },
                                                 ),
                                             ),
                                             Expr::Err(
-                                                Original(
-                                                    UnrecognizedIdentifier {
+                                                ExprError::Original(
+                                                    OriginalExprError::UnrecognizedIdentifier {
                                                         token_idx: TokenIdx(
                                                             123,
                                                         ),
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 60,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `isize`,
                                                     },
                                                 ),
                                             ),
                                             Expr::Err(
-                                                Original(
-                                                    UnrecognizedIdentifier {
+                                                ExprError::Original(
+                                                    OriginalExprError::UnrecognizedIdentifier {
                                                         token_idx: TokenIdx(
                                                             126,
                                                         ),
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 60,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `isize`,
                                                     },
                                                 ),
                                             ),
@@ -832,7 +802,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 80,
+                                                                value: 83,
                                                             },
                                                         ),
                                                     ),
@@ -844,7 +814,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 83,
+                                                                value: 86,
                                                             },
                                                         ),
                                                     ),
@@ -856,7 +826,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 84,
+                                                                value: 87,
                                                             },
                                                         ),
                                                     ),
@@ -976,7 +946,7 @@ Ok(
                                                         ident: Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 79,
+                                                                    value: 82,
                                                                 },
                                                             ),
                                                         ),
