@@ -90,7 +90,8 @@ impl<'a> DeclParser<'a> {
             .resolve_ident(ident)
             else {
                 use salsa::DisplayWithDb;
-                panic!("path `{}` is invalid!", path.display(self.db))
+                panic!(r#"path `{}` is invalid!
+    This is very likely caused by missing item in standard library."#, path.display(self.db))
             };
         let module_item_symbol = entity_symbol.module_item_symbol().unwrap();
 
