@@ -1,5 +1,9 @@
 pub type bool;
 
+pub type never;
+
+pub type unit;
+
 pub structure Trait;
 
 pub structure Module;

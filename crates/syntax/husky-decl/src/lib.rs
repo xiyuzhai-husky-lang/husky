@@ -3,7 +3,7 @@ mod db;
 mod decl;
 mod error;
 mod parameter;
-mod parse;
+mod parser;
 mod sheet;
 #[cfg(test)]
 mod tests;
@@ -20,7 +20,9 @@ use husky_entity_tree::EntityTreeResult;
 use husky_expr::*;
 use husky_token::*;
 use husky_vfs::{ModulePath, VfsResult};
-use parse::*;
+use parser::*;
+#[cfg(test)]
+use tests::*;
 
 #[salsa::jar(db = DeclDb)]
 pub struct DeclJar(
