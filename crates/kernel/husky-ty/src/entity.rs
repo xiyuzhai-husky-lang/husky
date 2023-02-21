@@ -1,8 +1,8 @@
 use crate::*;
 
-pub(crate) fn entity_ty(db: &dyn TypeDb, entipath: EntityPath) -> TypeResult<ReducedTerm> {
-    let term_menu = db.term_menu(entipath.toolchain(db)).as_ref().unwrap();
-    match entipath {
+pub(crate) fn entity_path_ty(db: &dyn TypeDb, path: EntityPath) -> TypeResult<ReducedTerm> {
+    let term_menu = db.term_menu(path.toolchain(db)).as_ref().unwrap();
+    match path {
         EntityPath::Module(_) => todo!(),
         EntityPath::ModuleItem(path) => match path {
             ModuleItemPath::Type(path) => ty_entity_ty(db, path),
@@ -12,6 +12,75 @@ pub(crate) fn entity_ty(db: &dyn TypeDb, entipath: EntityPath) -> TypeResult<Red
         EntityPath::AssociatedItem(_) => todo!(),
         EntityPath::Variant(_) => todo!(),
     }
+}
+
+#[test]
+fn entity_path_path_term_ty_works() {
+    let db = DB::default();
+    let toolchain = db.dev_toolchain().unwrap();
+    let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
+    let reduced_term_menu = db.reduced_term_menu(toolchain).unwrap();
+    let invariant_ty0_to_trai_ty = reduced_term_menu.invariant_ty0_to_trai_ty();
+    assert_eq!(
+        entity_path_ty(&db, entity_path_menu.bool().into()),
+        Ok(reduced_term_menu.ty0())
+    );
+    assert_eq!(
+        entity_path_ty(&db, entity_path_menu.core_ops_add().into()),
+        Ok(invariant_ty0_to_trai_ty)
+    );
+    assert_eq!(
+        entity_path_ty(&db, entity_path_menu.core_ops_add_assign().into()),
+        Ok(invariant_ty0_to_trai_ty)
+    );
+    assert_eq!(
+        entity_path_ty(&db, entity_path_menu.core_ops_bit_and().into()),
+        Ok(invariant_ty0_to_trai_ty)
+    );
+    assert_eq!(
+        entity_path_ty(&db, entity_path_menu.core_ops_bit_and_assign().into()),
+        Ok(invariant_ty0_to_trai_ty)
+    );
+    assert_eq!(
+        entity_path_ty(&db, entity_path_menu.core_ops_bit_or().into()),
+        Ok(invariant_ty0_to_trai_ty)
+    );
+    assert_eq!(
+        entity_path_ty(&db, entity_path_menu.core_ops_bit_or_assign().into()),
+        Ok(invariant_ty0_to_trai_ty)
+    );
+    assert_eq!(
+        entity_path_ty(&db, entity_path_menu.core_ops_bit_xor().into()),
+        Ok(invariant_ty0_to_trai_ty)
+    );
+    assert_eq!(
+        entity_path_ty(&db, entity_path_menu.core_ops_bit_xor_assign().into()),
+        Ok(invariant_ty0_to_trai_ty)
+    );
+    assert_eq!(
+        entity_path_ty(&db, entity_path_menu.core_ops_div().into()),
+        Ok(invariant_ty0_to_trai_ty)
+    );
+    assert_eq!(
+        entity_path_ty(&db, entity_path_menu.core_ops_div_assign().into()),
+        Ok(invariant_ty0_to_trai_ty)
+    );
+    assert_eq!(
+        entity_path_ty(&db, entity_path_menu.core_ops_mul().into()),
+        Ok(invariant_ty0_to_trai_ty)
+    );
+    assert_eq!(
+        entity_path_ty(&db, entity_path_menu.core_ops_mul_assign().into()),
+        Ok(invariant_ty0_to_trai_ty)
+    );
+    assert_eq!(
+        entity_path_ty(&db, entity_path_menu.core_ops_neg().into()),
+        Ok(invariant_ty0_to_trai_ty)
+    );
+    assert_eq!(
+        entity_path_ty(&db, entity_path_menu.core_ops_not().into()),
+        Ok(invariant_ty0_to_trai_ty)
+    );
 }
 
 #[salsa::tracked(jar = TypeJar)]

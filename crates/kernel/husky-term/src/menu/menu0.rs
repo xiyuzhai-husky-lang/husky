@@ -113,8 +113,8 @@ impl TermMenu0 {
             i64: Term::Entity(entity_path_menu.i64().into()),
             f32: Term::Entity(entity_path_menu.f32().into()),
             f64: Term::Entity(entity_path_menu.f64().into()),
-            r32: Term::Entity(entity_path_menu.r32().into()),
-            r64: Term::Entity(entity_path_menu.r64().into()),
+            r32: Term::Entity(entity_path_menu.r32_ty_path().into()),
+            r64: Term::Entity(entity_path_menu.r64_ty_path().into()),
         }
     }
 
@@ -237,7 +237,7 @@ impl TermMenu0 {
         self.never
     }
 
-    pub fn trai(&self) -> Term {
+    pub fn trai_ty(&self) -> Term {
         self.trai_ty
     }
 

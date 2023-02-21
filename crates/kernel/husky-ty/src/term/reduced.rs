@@ -174,8 +174,12 @@ impl<'a> ReducedTermMenu<'a> {
         ReducedTerm(self.term_menu.ref_ty_path())
     }
 
-    pub fn trai(&self) -> ReducedTerm {
-        ReducedTerm(self.term_menu.trai())
+    pub fn invariant_ty0_to_trai_ty(&self) -> ReducedTerm {
+        ReducedTerm(self.term_menu.invariant_ty0_to_trai_ty().into())
+    }
+
+    pub fn trai_ty(&self) -> ReducedTerm {
+        ReducedTerm(self.term_menu.trai_ty())
     }
 
     pub fn module(&self) -> ReducedTerm {

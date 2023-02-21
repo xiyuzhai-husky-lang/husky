@@ -77,7 +77,7 @@ impl<'a> ExprTypeEngine<'a> {
                 entity_path_expr,
                 entity_path,
             } => match entity_path {
-                Some(entity_path) => match self.db.entity_ty(entity_path) {
+                Some(entity_path) => match self.db.entity_path_ty(entity_path) {
                     Ok(ty) => Ok(ty.into()),
                     Err(_) => Err(DerivedExprTypeError::EntityTypeError.into()),
                 },

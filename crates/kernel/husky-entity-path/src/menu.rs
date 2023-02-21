@@ -54,8 +54,8 @@ pub struct EntityPathMenu {
     i64: TypePath,
     f32: TypePath,
     f64: TypePath,
-    r32: TypePath,
-    r64: TypePath,
+    r32_ty_path: TypePath,
+    r64_ty_path: TypePath,
     u32: TypePath,
     u64: TypePath,
     trai_ty: TypePath,
@@ -73,6 +73,7 @@ impl EntityPathMenu {
         let core_str = path_menu.core_str();
         let core_basic = path_menu.core_basic();
         let core_num = path_menu.core_num();
+        let core_raw_bits = path_menu.core_raw_bits();
         let core_mem = path_menu.core_mem();
         let core_vec = path_menu.core_vec();
         let core_ops_add = TraitPath::new(
@@ -252,14 +253,14 @@ impl EntityPathMenu {
         );
         let r32 = TypePath::new(
             db,
-            core_num,
+            core_raw_bits,
             word_menu.r32(),
             ModuleItemConnection::Connected,
             TypeKind::Alien,
         );
         let r64 = TypePath::new(
             db,
-            core_num,
+            core_raw_bits,
             word_menu.r64(),
             ModuleItemConnection::Connected,
             TypeKind::Alien,
@@ -327,8 +328,8 @@ impl EntityPathMenu {
             i64: i64_ty_path,
             f32,
             f64,
-            r32,
-            r64,
+            r32_ty_path: r32,
+            r64_ty_path: r64,
             u32,
             u64,
             trai_ty: trai,
@@ -353,12 +354,12 @@ impl EntityPathMenu {
         self.f64
     }
 
-    pub fn r32(&self) -> TypePath {
-        self.r32
+    pub fn r32_ty_path(&self) -> TypePath {
+        self.r32_ty_path
     }
 
-    pub fn r64(&self) -> TypePath {
-        self.r64
+    pub fn r64_ty_path(&self) -> TypePath {
+        self.r64_ty_path
     }
 
     pub fn u32(&self) -> TypePath {
