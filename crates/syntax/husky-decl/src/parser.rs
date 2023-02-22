@@ -182,13 +182,18 @@ impl<'a> DeclParser<'a> {
 
     fn parse_trai_decl(&self, path: TraitPath) -> DeclResult<TraitDecl> {
         let ident = path.ident(self.db);
-        let module_item = self
+        let Some(entity_symbol) = self
             .module_entity_tree
             .module_symbols()
-            .resolve_ident(ident)
-            .unwrap()
-            .module_item_symbol()
-            .unwrap();
+            .resolve_ident(ident) 
+            else {
+                use salsa::DisplayWithDb;
+                panic!(r#"
+    Path `{}` is invalid!
+    This is very likely caused by missing item in standard library.
+"#, path.display(self.db))
+            };
+        let module_item = entity_symbol.module_item_symbol().unwrap();
         let ast_idx: AstIdx = module_item.ast_idx(self.db);
         match self.ast_sheet[ast_idx] {
             Ast::Defn {

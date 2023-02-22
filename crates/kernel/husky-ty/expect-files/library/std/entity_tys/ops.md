@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            Term(`independent Type -> Trait`),
+            Term(`invariant Type -> Trait`),
         ),
     ),
 ]

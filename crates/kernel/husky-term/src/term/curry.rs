@@ -71,12 +71,6 @@ pub enum Variance {
     Invariant = 0b11,
 }
 
-impl Default for Variance {
-    fn default() -> Self {
-        Variance::Independent
-    }
-}
-
 impl Variance {
     pub fn merge(self, other: Self) -> Self {
         unsafe { std::mem::transmute((self as u8) | (other as u8)) }

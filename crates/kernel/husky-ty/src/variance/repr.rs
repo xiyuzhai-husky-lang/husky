@@ -1,3 +1,4 @@
+use super::default::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -64,7 +65,9 @@ pub(crate) fn ty_entity_variance_reprs(
     let mut reprs = implicit_parameters
         .iter()
         .map(|implicit_parameter| VarianceRepr {
-            base: implicit_parameter.annotated_variance().unwrap_or_default(),
+            base: implicit_parameter
+                .annotated_variance()
+                .unwrap_or(TYPE_VARIANCE_DEFAULT),
             dependency_exprs: vec![],
             dependencies: vec![],
         })
@@ -110,7 +113,9 @@ pub(crate) fn trai_entity_variance_reprs(
     let mut reprs = implicit_parameters
         .iter()
         .map(|parameter| VarianceRepr {
-            base: parameter.annotated_variance().unwrap_or_default(),
+            base: parameter
+                .annotated_variance()
+                .unwrap_or(TRAIT_VARIANCE_DEFAULT),
             dependency_exprs: vec![],
             dependencies: vec![],
         })
@@ -138,7 +143,9 @@ pub(crate) fn form_entity_variance_reprs(
     let mut reprs = implicit_parameters
         .iter()
         .map(|parameter| VarianceRepr {
-            base: parameter.annotated_variance().unwrap_or_default(),
+            base: parameter
+                .annotated_variance()
+                .unwrap_or(FORM_VARIANCE_DEFAULT),
             dependency_exprs: vec![],
             dependencies: vec![],
         })
