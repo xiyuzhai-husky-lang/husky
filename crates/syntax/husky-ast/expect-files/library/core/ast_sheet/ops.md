@@ -186,10 +186,94 @@ Ok(
                         39,
                     ),
                 },
+                Ast::Err {
+                    token_group_idx: TokenGroupIdx(
+                        8,
+                    ),
+                    error: UnexpectedStmtInsideModule,
+                },
+                Ast::Err {
+                    token_group_idx: TokenGroupIdx(
+                        9,
+                    ),
+                    error: UnexpectedStmtInsideModule,
+                },
+                Ast::Err {
+                    token_group_idx: TokenGroupIdx(
+                        10,
+                    ),
+                    error: UnexpectedStmtInsideModule,
+                },
+                Ast::Err {
+                    token_group_idx: TokenGroupIdx(
+                        11,
+                    ),
+                    error: UnexpectedStmtInsideModule,
+                },
+                Ast::Err {
+                    token_group_idx: TokenGroupIdx(
+                        12,
+                    ),
+                    error: UnexpectedStmtInsideModule,
+                },
+                Ast::Err {
+                    token_group_idx: TokenGroupIdx(
+                        13,
+                    ),
+                    error: UnexpectedStmtInsideModule,
+                },
+                Ast::Err {
+                    token_group_idx: TokenGroupIdx(
+                        14,
+                    ),
+                    error: UnexpectedStmtInsideModule,
+                },
+                Ast::Err {
+                    token_group_idx: TokenGroupIdx(
+                        15,
+                    ),
+                    error: UnexpectedStmtInsideModule,
+                },
+                Ast::Err {
+                    token_group_idx: TokenGroupIdx(
+                        16,
+                    ),
+                    error: UnexpectedStmtInsideModule,
+                },
+                Ast::Err {
+                    token_group_idx: TokenGroupIdx(
+                        17,
+                    ),
+                    error: UnexpectedStmtInsideModule,
+                },
+                Ast::Err {
+                    token_group_idx: TokenGroupIdx(
+                        18,
+                    ),
+                    error: UnexpectedStmtInsideModule,
+                },
+                Ast::Err {
+                    token_group_idx: TokenGroupIdx(
+                        19,
+                    ),
+                    error: UnexpectedStmtInsideModule,
+                },
+                Ast::Err {
+                    token_group_idx: TokenGroupIdx(
+                        20,
+                    ),
+                    error: UnexpectedStmtInsideModule,
+                },
+                Ast::Err {
+                    token_group_idx: TokenGroupIdx(
+                        21,
+                    ),
+                    error: UnexpectedStmtInsideModule,
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            4..8,
+            4..22,
         ),
     },
 )

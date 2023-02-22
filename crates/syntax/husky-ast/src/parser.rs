@@ -189,7 +189,12 @@ impl<'a> AstParser<'a> {
 
     fn parse_stmt(&mut self, token_group_idx: TokenGroupIdx, context: &Context) -> Ast {
         match context.kind() {
-            AstContextKind::InsideTrait { module_item_path } => todo!(),
+            AstContextKind::InsideTrait { module_item_path } => {
+                return Ast::Err {
+                    token_group_idx,
+                    error: AstError::Todo,
+                }
+            }
             AstContextKind::InsideEnumLikeType { module_item_path } => todo!(),
             AstContextKind::InsideForm => (),
             AstContextKind::InsideTypeImpl | AstContextKind::InsideTraitImpl => {

@@ -6,12 +6,13 @@ Ok(
         ),
         use_one_trackers: UseExprRules(
             [
-                UseTracker {
+                UseExprRule {
                     ast_idx: 0,
-                    accessibility: Done {
+                    use_expr_idx: 2,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::Public,
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -24,14 +25,15 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
-                UseTracker {
+                UseExprRule {
                     ast_idx: 1,
-                    accessibility: Done {
+                    use_expr_idx: 5,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::Public,
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -44,14 +46,15 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
-                UseTracker {
+                UseExprRule {
                     ast_idx: 2,
-                    accessibility: Done {
+                    use_expr_idx: 8,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::Public,
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -64,14 +67,15 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
-                UseTracker {
+                UseExprRule {
                     ast_idx: 3,
-                    accessibility: Done {
+                    use_expr_idx: 11,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::Public,
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -84,14 +88,15 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
-                UseTracker {
+                UseExprRule {
                     ast_idx: 4,
-                    accessibility: Done {
+                    use_expr_idx: 14,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::Public,
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -104,14 +109,15 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
-                UseTracker {
+                UseExprRule {
                     ast_idx: 5,
-                    accessibility: Done {
+                    use_expr_idx: 17,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::Public,
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -124,14 +130,15 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
-                UseTracker {
+                UseExprRule {
                     ast_idx: 6,
-                    accessibility: Done {
+                    use_expr_idx: 20,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::Public,
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -144,7 +151,7 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
             ],
         ),

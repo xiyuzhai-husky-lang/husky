@@ -685,20 +685,21 @@ Ok(
                 impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 19,
-                            accessibility: Done {
+                            use_expr_idx: 1,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 101,
+                                                    value: 114,
                                                 },
                                             ),
                                         ),
@@ -712,22 +713,23 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 20,
-                            accessibility: Done {
+                            use_expr_idx: 3,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 101,
+                                                    value: 114,
                                                 },
                                             ),
                                         ),
@@ -741,22 +743,23 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 21,
-                            accessibility: Done {
+                            use_expr_idx: 5,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 109,
+                                                    value: 122,
                                                 },
                                             ),
                                         ),
@@ -770,30 +773,34 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 22,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 21,
+                                        path: `mnist_classifier::major`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 18,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 22,
-                            accessibility: Done {
+                            use_expr_idx: 7,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 108,
+                                                    value: 121,
                                                 },
                                             ),
                                         ),
@@ -807,30 +814,34 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 21,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 20,
+                                        path: `mnist_classifier::digits`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 17,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 23,
-                            accessibility: Done {
+                            use_expr_idx: 9,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 107,
+                                                    value: 120,
                                                 },
                                             ),
                                         ),
@@ -844,30 +855,34 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 20,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 19,
+                                        path: `mnist_classifier::fermi`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 16,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 24,
-                            accessibility: Done {
+                            use_expr_idx: 11,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 104,
+                                                    value: 117,
                                                 },
                                             ),
                                         ),
@@ -881,30 +896,34 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 17,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 16,
+                                        path: `mnist_classifier::raw_contour`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 13,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 25,
-                            accessibility: Done {
+                            use_expr_idx: 13,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 106,
+                                                    value: 119,
                                                 },
                                             ),
                                         ),
@@ -918,30 +937,34 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 18,
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 15,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 26,
-                            accessibility: Done {
+                            use_expr_idx: 18,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -955,24 +978,19 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 24,
-                            accessibility: Done {
+                            use_expr_idx: 10,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier`,
                                 ),
                             },
-                            variant: Leaf {
+                            variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentifierToken {
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 112,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `find_raw_contours`,
                                     token_idx: TokenIdx(
                                         45,
                                     ),
@@ -983,13 +1001,18 @@ Ok(
                                     `mnist_classifier::raw_contour`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 52,
-                                        },
-                                    ),
+                                    ModuleItemSymbol {
+                                        [salsa id]: 51,
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                                        ),
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::raw_contour`,
+                                        ),
+                                        ast_idx: 214,
+                                    },
                                 ),
                             },
                         },
@@ -1073,7 +1096,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 101,
+                                        value: 114,
                                     },
                                 ),
                             ),
@@ -1087,7 +1110,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 101,
+                                        value: 114,
                                     },
                                 ),
                             ),
@@ -1101,7 +1124,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 113,
+                                        value: 126,
                                     },
                                 ),
                             ),
@@ -2266,20 +2289,21 @@ Ok(
                 ],
                 use_expr_rules: UseExprRules(
                     [
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 118,
-                            accessibility: Done {
+                            use_expr_idx: 3,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::connected_component`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 128,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -2293,16 +2317,17 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 119,
-                            accessibility: Done {
+                            use_expr_idx: 6,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::connected_component`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -2315,24 +2340,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 120,
-                            accessibility: Done {
+                            use_expr_idx: 8,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::connected_component`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -2345,30 +2387,47 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 119,
-                            accessibility: Done {
+                            use_expr_idx: 5,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::connected_component`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 104,
+                                                    value: 117,
                                                 },
                                             ),
                                         ),
@@ -2386,13 +2445,16 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 17,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 16,
+                                        path: `mnist_classifier::raw_contour`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 13,
+                                    },
                                 ),
                             },
                         },
@@ -2442,7 +2504,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 128,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -3228,14 +3290,15 @@ Ok(
                 ],
                 use_expr_rules: UseExprRules(
                     [
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 195,
-                            accessibility: Done {
+                            use_expr_idx: 2,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::raw_contour`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -3248,24 +3311,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 196,
-                            accessibility: Done {
+                            use_expr_idx: 5,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::raw_contour`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -3278,24 +3358,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 197,
-                            accessibility: Done {
+                            use_expr_idx: 8,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::raw_contour`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -3308,30 +3405,47 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 198,
-                            accessibility: Done {
+                            use_expr_idx: 11,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::raw_contour`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 101,
+                                                    value: 114,
                                                 },
                                             ),
                                         ),
@@ -3345,22 +3459,23 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 195,
-                            accessibility: Done {
+                            use_expr_idx: 1,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::raw_contour`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 105,
+                                                    value: 118,
                                                 },
                                             ),
                                         ),
@@ -3378,30 +3493,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 18,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 17,
+                                        path: `mnist_classifier::geom2d`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 14,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 196,
-                            accessibility: Done {
+                            use_expr_idx: 4,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::raw_contour`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 103,
+                                                    value: 116,
                                                 },
                                             ),
                                         ),
@@ -3419,30 +3538,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 16,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 15,
+                                        path: `mnist_classifier::connected_component`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 12,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 197,
-                            accessibility: Done {
+                            use_expr_idx: 7,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::raw_contour`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 106,
+                                                    value: 119,
                                                 },
                                             ),
                                         ),
@@ -3460,13 +3583,16 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 18,
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 15,
+                                    },
                                 ),
                             },
                         },
@@ -3533,7 +3659,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 101,
+                                        value: 114,
                                     },
                                 ),
                             ),
@@ -3693,7 +3819,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 276,
+                                                    value: 289,
                                                 },
                                             ),
                                         ),
@@ -4306,18 +4432,19 @@ Ok(
                 ],
                 use_expr_rules: UseExprRules(
                     [
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 163,
-                            accessibility: Done {
+                            use_expr_idx: 1,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::Public,
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 283,
+                                                    value: 296,
                                                 },
                                             ),
                                         ),
@@ -4331,28 +4458,32 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 23,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 22,
+                                        path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
+                                        ast_idx: 159,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 164,
-                            accessibility: Done {
+                            use_expr_idx: 3,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::Public,
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 284,
+                                                    value: 297,
                                                 },
                                             ),
                                         ),
@@ -4366,28 +4497,32 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 24,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 23,
+                                        path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
+                                        ast_idx: 160,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 165,
-                            accessibility: Done {
+                            use_expr_idx: 5,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::Public,
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 286,
+                                                    value: 299,
                                                 },
                                             ),
                                         ),
@@ -4401,24 +4536,28 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 26,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 25,
+                                        path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
+                                        ast_idx: 162,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 166,
-                            accessibility: Done {
+                            use_expr_idx: 8,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -4431,24 +4570,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 167,
-                            accessibility: Done {
+                            use_expr_idx: 11,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -4461,30 +4617,47 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 168,
-                            accessibility: Done {
+                            use_expr_idx: 13,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 286,
+                                                    value: 299,
                                                 },
                                             ),
                                         ),
@@ -4498,30 +4671,34 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 26,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 25,
+                                        path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
+                                        ast_idx: 162,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 166,
-                            accessibility: Done {
+                            use_expr_idx: 7,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 105,
+                                                    value: 118,
                                                 },
                                             ),
                                         ),
@@ -4539,30 +4716,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 18,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 17,
+                                        path: `mnist_classifier::geom2d`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 14,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 167,
-                            accessibility: Done {
+                            use_expr_idx: 10,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 104,
+                                                    value: 117,
                                                 },
                                             ),
                                         ),
@@ -4580,32 +4761,30 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 17,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 16,
+                                        path: `mnist_classifier::raw_contour`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 13,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 167,
-                            accessibility: Done {
+                            use_expr_idx: 9,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
                             },
-                            variant: Leaf {
+                            variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentifierToken {
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 137,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `RawContour`,
                                     token_idx: TokenIdx(
                                         34,
                                     ),
@@ -4616,13 +4795,16 @@ Ok(
                                     `mnist_classifier::raw_contour`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 42,
-                                        },
-                                    ),
+                                    ModuleItemSymbol {
+                                        [salsa id]: 41,
+                                        path: ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        ),
+                                        accessibility: Accessibility::Public,
+                                        ast_idx: 199,
+                                    },
                                 ),
                             },
                         },
@@ -6280,14 +6462,15 @@ Ok(
                 ],
                 use_expr_rules: UseExprRules(
                     [
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 69,
-                            accessibility: Done {
+                            use_expr_idx: 2,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch::concave_component`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -6300,24 +6483,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 70,
-                            accessibility: Done {
+                            use_expr_idx: 6,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch::concave_component`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -6330,24 +6530,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 71,
-                            accessibility: Done {
+                            use_expr_idx: 10,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch::concave_component`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -6360,24 +6577,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 72,
-                            accessibility: Done {
+                            use_expr_idx: 13,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch::concave_component`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -6390,24 +6624,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 73,
-                            accessibility: Done {
+                            use_expr_idx: 15,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch::concave_component`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -6420,30 +6671,47 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 69,
-                            accessibility: Done {
+                            use_expr_idx: 1,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch::concave_component`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 106,
+                                                    value: 119,
                                                 },
                                             ),
                                         ),
@@ -6461,30 +6729,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 18,
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 15,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 70,
-                            accessibility: Done {
+                            use_expr_idx: 5,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch::concave_component`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 106,
+                                                    value: 119,
                                                 },
                                             ),
                                         ),
@@ -6502,30 +6774,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 18,
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 15,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 71,
-                            accessibility: Done {
+                            use_expr_idx: 9,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch::concave_component`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 106,
+                                                    value: 119,
                                                 },
                                             ),
                                         ),
@@ -6543,30 +6819,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 18,
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 15,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 72,
-                            accessibility: Done {
+                            use_expr_idx: 12,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch::concave_component`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 105,
+                                                    value: 118,
                                                 },
                                             ),
                                         ),
@@ -6584,30 +6864,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 18,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 17,
+                                        path: `mnist_classifier::geom2d`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 14,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 70,
-                            accessibility: Done {
+                            use_expr_idx: 4,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch::concave_component`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 286,
+                                                    value: 299,
                                                 },
                                             ),
                                         ),
@@ -6625,30 +6909,34 @@ Ok(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 26,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 25,
+                                        path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
+                                        ast_idx: 162,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 71,
-                            accessibility: Done {
+                            use_expr_idx: 8,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch::concave_component`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 285,
+                                                    value: 298,
                                                 },
                                             ),
                                         ),
@@ -6666,13 +6954,16 @@ Ok(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 25,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 24,
+                                        path: `mnist_classifier::line_segment_sketch::convexity`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
+                                        ast_idx: 161,
+                                    },
                                 ),
                             },
                         },
@@ -7653,14 +7944,15 @@ Ok(
                 ],
                 use_expr_rules: UseExprRules(
                     [
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 2,
-                            accessibility: Done {
+                            use_expr_idx: 2,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch::convex_component`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -7673,30 +7965,47 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 2,
-                            accessibility: Done {
+                            use_expr_idx: 1,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch::convex_component`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 106,
+                                                    value: 119,
                                                 },
                                             ),
                                         ),
@@ -7714,13 +8023,16 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 18,
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 15,
+                                    },
                                 ),
                             },
                         },
@@ -8613,14 +8925,15 @@ Ok(
                 impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 19,
-                            accessibility: Done {
+                            use_expr_idx: 2,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch::convexity`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -8633,24 +8946,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 20,
-                            accessibility: Done {
+                            use_expr_idx: 5,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch::convexity`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -8663,24 +8993,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 21,
-                            accessibility: Done {
+                            use_expr_idx: 8,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch::convexity`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -8693,30 +9040,47 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 19,
-                            accessibility: Done {
+                            use_expr_idx: 1,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch::convexity`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 106,
+                                                    value: 119,
                                                 },
                                             ),
                                         ),
@@ -8734,30 +9098,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 18,
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 15,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 20,
-                            accessibility: Done {
+                            use_expr_idx: 4,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch::convexity`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 104,
+                                                    value: 117,
                                                 },
                                             ),
                                         ),
@@ -8775,30 +9143,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 17,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 16,
+                                        path: `mnist_classifier::raw_contour`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 13,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 21,
-                            accessibility: Done {
+                            use_expr_idx: 7,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch::convexity`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 105,
+                                                    value: 118,
                                                 },
                                             ),
                                         ),
@@ -8816,13 +9188,16 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 18,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 17,
+                                        path: `mnist_classifier::geom2d`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 14,
+                                    },
                                 ),
                             },
                         },
@@ -9124,14 +9499,15 @@ Ok(
                 ],
                 use_expr_rules: UseExprRules(
                     [
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 15,
-                            accessibility: Done {
+                            use_expr_idx: 2,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch::line_segment`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -9144,30 +9520,47 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 15,
-                            accessibility: Done {
+                            use_expr_idx: 1,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::line_segment_sketch::line_segment`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 105,
+                                                    value: 118,
                                                 },
                                             ),
                                         ),
@@ -9185,13 +9578,16 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 18,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 17,
+                                        path: `mnist_classifier::geom2d`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 14,
+                                    },
                                 ),
                             },
                         },
@@ -10224,14 +10620,15 @@ Ok(
                 ],
                 use_expr_rules: UseExprRules(
                     [
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 21,
-                            accessibility: Done {
+                            use_expr_idx: 1,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::fermi`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -10244,13 +10641,29 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -10707,18 +11120,19 @@ Ok(
                 impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 10,
-                            accessibility: Done {
+                            use_expr_idx: 1,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::Public,
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 362,
+                                                    value: 375,
                                                 },
                                             ),
                                         ),
@@ -10732,30 +11146,34 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 28,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 27,
+                                        path: `mnist_classifier::digits::one`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 1,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 11,
-                            accessibility: Done {
+                            use_expr_idx: 3,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 363,
+                                                    value: 376,
                                                 },
                                             ),
                                         ),
@@ -10769,30 +11187,34 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 29,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 28,
+                                        path: `mnist_classifier::digits::six`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 2,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 12,
-                            accessibility: Done {
+                            use_expr_idx: 5,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 361,
+                                                    value: 374,
                                                 },
                                             ),
                                         ),
@@ -10806,30 +11228,34 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 27,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 26,
+                                        path: `mnist_classifier::digits::zero`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 0,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 13,
-                            accessibility: Done {
+                            use_expr_idx: 7,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 370,
+                                                    value: 383,
                                                 },
                                             ),
                                         ),
@@ -10843,22 +11269,23 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 14,
-                            accessibility: Done {
+                            use_expr_idx: 9,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 364,
+                                                    value: 377,
                                                 },
                                             ),
                                         ),
@@ -10872,30 +11299,34 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 30,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 29,
+                                        path: `mnist_classifier::digits::three`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 3,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 15,
-                            accessibility: Done {
+                            use_expr_idx: 11,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 366,
+                                                    value: 379,
                                                 },
                                             ),
                                         ),
@@ -10909,30 +11340,34 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 32,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 31,
+                                        path: `mnist_classifier::digits::five`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 5,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 16,
-                            accessibility: Done {
+                            use_expr_idx: 13,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 363,
+                                                    value: 376,
                                                 },
                                             ),
                                         ),
@@ -10946,30 +11381,34 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 29,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 28,
+                                        path: `mnist_classifier::digits::six`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 2,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 17,
-                            accessibility: Done {
+                            use_expr_idx: 15,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 367,
+                                                    value: 380,
                                                 },
                                             ),
                                         ),
@@ -10983,30 +11422,34 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 34,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 33,
+                                        path: `mnist_classifier::digits::seven`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 7,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 18,
-                            accessibility: Done {
+                            use_expr_idx: 17,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 368,
+                                                    value: 381,
                                                 },
                                             ),
                                         ),
@@ -11020,30 +11463,34 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 35,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 34,
+                                        path: `mnist_classifier::digits::eight`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 8,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 19,
-                            accessibility: Done {
+                            use_expr_idx: 19,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 369,
+                                                    value: 382,
                                                 },
                                             ),
                                         ),
@@ -11057,30 +11504,28 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 36,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 35,
+                                        path: `mnist_classifier::digits::nine`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 9,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 10,
-                            accessibility: Done {
+                            use_expr_idx: 0,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::Public,
                             },
-                            variant: Leaf {
+                            variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentifierToken {
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 118,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `is_one`,
                                     token_idx: TokenIdx(
                                         24,
                                     ),
@@ -11091,32 +11536,30 @@ Ok(
                                     `mnist_classifier::digits::one`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 77,
-                                        },
-                                    ),
+                                    ModuleItemSymbol {
+                                        [salsa id]: 76,
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                        ),
+                                        accessibility: Accessibility::Public,
+                                        ast_idx: 69,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 11,
-                            accessibility: Done {
+                            use_expr_idx: 2,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits`,
                                 ),
                             },
-                            variant: Leaf {
+                            variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentifierToken {
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 119,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `is_six`,
                                     token_idx: TokenIdx(
                                         28,
                                     ),
@@ -11127,32 +11570,32 @@ Ok(
                                     `mnist_classifier::digits::six`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 83,
-                                        },
-                                    ),
+                                    ModuleItemSymbol {
+                                        [salsa id]: 82,
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
+                                        ),
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::digits::six`,
+                                        ),
+                                        ast_idx: 59,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 12,
-                            accessibility: Done {
+                            use_expr_idx: 4,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits`,
                                 ),
                             },
-                            variant: Leaf {
+                            variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentifierToken {
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 120,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `is_zero`,
                                     token_idx: TokenIdx(
                                         32,
                                     ),
@@ -11163,32 +11606,32 @@ Ok(
                                     `mnist_classifier::digits::zero`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 75,
-                                        },
-                                    ),
+                                    ModuleItemSymbol {
+                                        [salsa id]: 74,
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                                        ),
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::digits::zero`,
+                                        ),
+                                        ast_idx: 35,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 14,
-                            accessibility: Done {
+                            use_expr_idx: 8,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits`,
                                 ),
                             },
-                            variant: Leaf {
+                            variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentifierToken {
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 123,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `is_three`,
                                     token_idx: TokenIdx(
                                         40,
                                     ),
@@ -11199,32 +11642,32 @@ Ok(
                                     `mnist_classifier::digits::three`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 87,
-                                        },
-                                    ),
+                                    ModuleItemSymbol {
+                                        [salsa id]: 86,
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
+                                        ),
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::digits::three`,
+                                        ),
+                                        ast_idx: 35,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 15,
-                            accessibility: Done {
+                            use_expr_idx: 10,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits`,
                                 ),
                             },
-                            variant: Leaf {
+                            variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentifierToken {
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 125,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `is_five`,
                                     token_idx: TokenIdx(
                                         44,
                                     ),
@@ -11235,24 +11678,19 @@ Ok(
                                     `mnist_classifier::digits::five`,
                                 ),
                             ),
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 16,
-                            accessibility: Done {
+                            use_expr_idx: 12,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits`,
                                 ),
                             },
-                            variant: Leaf {
+                            variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentifierToken {
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 119,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `is_six`,
                                     token_idx: TokenIdx(
                                         48,
                                     ),
@@ -11263,32 +11701,32 @@ Ok(
                                     `mnist_classifier::digits::six`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 83,
-                                        },
-                                    ),
+                                    ModuleItemSymbol {
+                                        [salsa id]: 82,
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
+                                        ),
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::digits::six`,
+                                        ),
+                                        ast_idx: 59,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 17,
-                            accessibility: Done {
+                            use_expr_idx: 14,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits`,
                                 ),
                             },
-                            variant: Leaf {
+                            variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentifierToken {
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 121,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `is_seven`,
                                     token_idx: TokenIdx(
                                         52,
                                     ),
@@ -11299,32 +11737,32 @@ Ok(
                                     `mnist_classifier::digits::seven`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 103,
-                                        },
-                                    ),
+                                    ModuleItemSymbol {
+                                        [salsa id]: 102,
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
+                                        ),
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::digits::seven`,
+                                        ),
+                                        ast_idx: 52,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 18,
-                            accessibility: Done {
+                            use_expr_idx: 16,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits`,
                                 ),
                             },
-                            variant: Leaf {
+                            variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentifierToken {
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 122,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `is_eight`,
                                     token_idx: TokenIdx(
                                         56,
                                     ),
@@ -11335,32 +11773,32 @@ Ok(
                                     `mnist_classifier::digits::eight`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 105,
-                                        },
-                                    ),
+                                    ModuleItemSymbol {
+                                        [salsa id]: 104,
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+                                        ),
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::digits::eight`,
+                                        ),
+                                        ast_idx: 29,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 19,
-                            accessibility: Done {
+                            use_expr_idx: 18,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits`,
                                 ),
                             },
-                            variant: Leaf {
+                            variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentifierToken {
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 124,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `is_nine`,
                                     token_idx: TokenIdx(
                                         60,
                                     ),
@@ -11371,13 +11809,18 @@ Ok(
                                     `mnist_classifier::digits::nine`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 109,
-                                        },
-                                    ),
+                                    ModuleItemSymbol {
+                                        [salsa id]: 108,
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
+                                        ),
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::digits::nine`,
+                                        ),
+                                        ast_idx: 46,
+                                    },
                                 ),
                             },
                         },
@@ -11392,7 +11835,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 370,
+                                        value: 383,
                                     },
                                 ),
                             ),
@@ -11409,7 +11852,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 125,
+                                        value: 138,
                                     },
                                 ),
                             ),
@@ -11823,20 +12266,21 @@ Ok(
                 impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 25,
-                            accessibility: Done {
+                            use_expr_idx: 3,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 128,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -11850,22 +12294,23 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 26,
-                            accessibility: Done {
+                            use_expr_idx: 8,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -11879,22 +12324,23 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 27,
-                            accessibility: Done {
+                            use_expr_idx: 13,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -11908,22 +12354,23 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 28,
-                            accessibility: Done {
+                            use_expr_idx: 18,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -11937,16 +12384,17 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 29,
-                            accessibility: Done {
+                            use_expr_idx: 21,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -11959,24 +12407,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 30,
-                            accessibility: Done {
+                            use_expr_idx: 24,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -11989,24 +12454,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 31,
-                            accessibility: Done {
+                            use_expr_idx: 28,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -12019,24 +12501,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 32,
-                            accessibility: Done {
+                            use_expr_idx: 31,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -12049,30 +12548,47 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 29,
-                            accessibility: Done {
+                            use_expr_idx: 20,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 109,
+                                                    value: 122,
                                                 },
                                             ),
                                         ),
@@ -12090,30 +12606,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 22,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 21,
+                                        path: `mnist_classifier::major`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 18,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 30,
-                            accessibility: Done {
+                            use_expr_idx: 23,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 107,
+                                                    value: 120,
                                                 },
                                             ),
                                         ),
@@ -12131,30 +12651,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 20,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 19,
+                                        path: `mnist_classifier::fermi`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 16,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 31,
-                            accessibility: Done {
+                            use_expr_idx: 27,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 106,
+                                                    value: 119,
                                                 },
                                             ),
                                         ),
@@ -12172,30 +12696,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 18,
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 15,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 32,
-                            accessibility: Done {
+                            use_expr_idx: 30,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 362,
+                                                    value: 375,
                                                 },
                                             ),
                                         ),
@@ -12213,22 +12741,23 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 31,
-                            accessibility: Done {
+                            use_expr_idx: 26,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 283,
+                                                    value: 296,
                                                 },
                                             ),
                                         ),
@@ -12246,13 +12775,16 @@ Ok(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 23,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 22,
+                                        path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
+                                        ast_idx: 159,
+                                    },
                                 ),
                             },
                         },
@@ -12319,7 +12851,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 128,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -12333,7 +12865,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 113,
+                                        value: 126,
                                     },
                                 ),
                             ),
@@ -12347,7 +12879,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 113,
+                                        value: 126,
                                     },
                                 ),
                             ),
@@ -12361,7 +12893,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 113,
+                                        value: 126,
                                     },
                                 ),
                             ),
@@ -12375,7 +12907,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 362,
+                                        value: 375,
                                     },
                                 ),
                             ),
@@ -12822,20 +13354,21 @@ Ok(
                 impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 61,
-                            accessibility: Done {
+                            use_expr_idx: 3,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::one`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 128,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -12849,22 +13382,23 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 62,
-                            accessibility: Done {
+                            use_expr_idx: 8,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::one`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -12878,22 +13412,23 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 63,
-                            accessibility: Done {
+                            use_expr_idx: 13,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::one`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -12907,22 +13442,23 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 64,
-                            accessibility: Done {
+                            use_expr_idx: 18,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::one`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -12936,16 +13472,17 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 65,
-                            accessibility: Done {
+                            use_expr_idx: 21,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::one`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -12958,24 +13495,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 66,
-                            accessibility: Done {
+                            use_expr_idx: 24,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::one`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -12988,24 +13542,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 67,
-                            accessibility: Done {
+                            use_expr_idx: 28,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::one`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -13018,30 +13589,47 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 65,
-                            accessibility: Done {
+                            use_expr_idx: 20,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::one`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 109,
+                                                    value: 122,
                                                 },
                                             ),
                                         ),
@@ -13059,30 +13647,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 22,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 21,
+                                        path: `mnist_classifier::major`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 18,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 66,
-                            accessibility: Done {
+                            use_expr_idx: 23,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::one`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 107,
+                                                    value: 120,
                                                 },
                                             ),
                                         ),
@@ -13100,30 +13692,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 20,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 19,
+                                        path: `mnist_classifier::fermi`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 16,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 67,
-                            accessibility: Done {
+                            use_expr_idx: 27,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::one`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 106,
+                                                    value: 119,
                                                 },
                                             ),
                                         ),
@@ -13141,30 +13737,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 18,
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 15,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 67,
-                            accessibility: Done {
+                            use_expr_idx: 26,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::one`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 283,
+                                                    value: 296,
                                                 },
                                             ),
                                         ),
@@ -13182,13 +13782,16 @@ Ok(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 23,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 22,
+                                        path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
+                                        ast_idx: 159,
+                                    },
                                 ),
                             },
                         },
@@ -13255,7 +13858,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 128,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -13269,7 +13872,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 113,
+                                        value: 126,
                                     },
                                 ),
                             ),
@@ -13283,7 +13886,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 113,
+                                        value: 126,
                                     },
                                 ),
                             ),
@@ -13297,7 +13900,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 113,
+                                        value: 126,
                                     },
                                 ),
                             ),
@@ -13748,20 +14351,21 @@ Ok(
                 impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 49,
-                            accessibility: Done {
+                            use_expr_idx: 3,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 128,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -13775,22 +14379,23 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 50,
-                            accessibility: Done {
+                            use_expr_idx: 8,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -13804,22 +14409,23 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 51,
-                            accessibility: Done {
+                            use_expr_idx: 13,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -13833,22 +14439,23 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 52,
-                            accessibility: Done {
+                            use_expr_idx: 18,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -13862,16 +14469,17 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 53,
-                            accessibility: Done {
+                            use_expr_idx: 21,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -13884,24 +14492,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 54,
-                            accessibility: Done {
+                            use_expr_idx: 24,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -13914,24 +14539,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 55,
-                            accessibility: Done {
+                            use_expr_idx: 28,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -13944,24 +14586,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 56,
-                            accessibility: Done {
+                            use_expr_idx: 31,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -13974,30 +14633,47 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 53,
-                            accessibility: Done {
+                            use_expr_idx: 20,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 109,
+                                                    value: 122,
                                                 },
                                             ),
                                         ),
@@ -14015,30 +14691,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 22,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 21,
+                                        path: `mnist_classifier::major`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 18,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 54,
-                            accessibility: Done {
+                            use_expr_idx: 23,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 107,
+                                                    value: 120,
                                                 },
                                             ),
                                         ),
@@ -14056,30 +14736,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 20,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 19,
+                                        path: `mnist_classifier::fermi`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 16,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 55,
-                            accessibility: Done {
+                            use_expr_idx: 27,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 106,
+                                                    value: 119,
                                                 },
                                             ),
                                         ),
@@ -14097,30 +14781,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 18,
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 15,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 56,
-                            accessibility: Done {
+                            use_expr_idx: 30,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 362,
+                                                    value: 375,
                                                 },
                                             ),
                                         ),
@@ -14138,22 +14826,23 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 55,
-                            accessibility: Done {
+                            use_expr_idx: 26,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 283,
+                                                    value: 296,
                                                 },
                                             ),
                                         ),
@@ -14171,13 +14860,16 @@ Ok(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 23,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 22,
+                                        path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
+                                        ast_idx: 159,
+                                    },
                                 ),
                             },
                         },
@@ -14244,7 +14936,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 128,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -14258,7 +14950,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 113,
+                                        value: 126,
                                     },
                                 ),
                             ),
@@ -14272,7 +14964,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 113,
+                                        value: 126,
                                     },
                                 ),
                             ),
@@ -14286,7 +14978,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 113,
+                                        value: 126,
                                     },
                                 ),
                             ),
@@ -14300,7 +14992,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 362,
+                                        value: 375,
                                     },
                                 ),
                             ),
@@ -14751,20 +15443,21 @@ Ok(
                 impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 27,
-                            accessibility: Done {
+                            use_expr_idx: 5,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::three`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -14778,22 +15471,23 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 28,
-                            accessibility: Done {
+                            use_expr_idx: 10,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::three`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -14807,22 +15501,23 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 29,
-                            accessibility: Done {
+                            use_expr_idx: 15,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::three`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -14836,22 +15531,23 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 30,
-                            accessibility: Done {
+                            use_expr_idx: 20,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::three`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -14865,16 +15561,17 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 31,
-                            accessibility: Done {
+                            use_expr_idx: 23,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::three`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -14887,24 +15584,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 32,
-                            accessibility: Done {
+                            use_expr_idx: 26,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::three`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -14917,24 +15631,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 33,
-                            accessibility: Done {
+                            use_expr_idx: 30,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::three`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -14947,30 +15678,47 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 31,
-                            accessibility: Done {
+                            use_expr_idx: 22,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::three`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 109,
+                                                    value: 122,
                                                 },
                                             ),
                                         ),
@@ -14988,30 +15736,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 22,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 21,
+                                        path: `mnist_classifier::major`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 18,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 32,
-                            accessibility: Done {
+                            use_expr_idx: 25,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::three`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 107,
+                                                    value: 120,
                                                 },
                                             ),
                                         ),
@@ -15029,30 +15781,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 20,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 19,
+                                        path: `mnist_classifier::fermi`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 16,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 33,
-                            accessibility: Done {
+                            use_expr_idx: 29,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::three`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 106,
+                                                    value: 119,
                                                 },
                                             ),
                                         ),
@@ -15070,30 +15826,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 18,
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 15,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 33,
-                            accessibility: Done {
+                            use_expr_idx: 28,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::three`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 283,
+                                                    value: 296,
                                                 },
                                             ),
                                         ),
@@ -15111,13 +15871,16 @@ Ok(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 23,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 22,
+                                        path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
+                                        ast_idx: 159,
+                                    },
                                 ),
                             },
                         },
@@ -15184,7 +15947,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 113,
+                                        value: 126,
                                     },
                                 ),
                             ),
@@ -15198,7 +15961,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 113,
+                                        value: 126,
                                     },
                                 ),
                             ),
@@ -15212,7 +15975,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 113,
+                                        value: 126,
                                     },
                                 ),
                             ),
@@ -15226,7 +15989,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 113,
+                                        value: 126,
                                     },
                                 ),
                             ),
@@ -15717,20 +16480,21 @@ Ok(
                 impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 37,
-                            accessibility: Done {
+                            use_expr_idx: 5,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::four`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -15744,22 +16508,23 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 38,
-                            accessibility: Done {
+                            use_expr_idx: 10,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::four`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -15773,22 +16538,23 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 39,
-                            accessibility: Done {
+                            use_expr_idx: 15,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::four`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -15802,22 +16568,23 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 40,
-                            accessibility: Done {
+                            use_expr_idx: 20,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::four`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -15831,16 +16598,17 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 41,
-                            accessibility: Done {
+                            use_expr_idx: 23,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::four`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -15853,24 +16621,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 42,
-                            accessibility: Done {
+                            use_expr_idx: 26,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::four`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -15883,24 +16668,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 43,
-                            accessibility: Done {
+                            use_expr_idx: 30,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::four`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -15913,30 +16715,47 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 41,
-                            accessibility: Done {
+                            use_expr_idx: 22,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::four`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 109,
+                                                    value: 122,
                                                 },
                                             ),
                                         ),
@@ -15954,30 +16773,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 22,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 21,
+                                        path: `mnist_classifier::major`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 18,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 42,
-                            accessibility: Done {
+                            use_expr_idx: 25,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::four`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 107,
+                                                    value: 120,
                                                 },
                                             ),
                                         ),
@@ -15995,30 +16818,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 20,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 19,
+                                        path: `mnist_classifier::fermi`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 16,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 43,
-                            accessibility: Done {
+                            use_expr_idx: 29,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::four`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 106,
+                                                    value: 119,
                                                 },
                                             ),
                                         ),
@@ -16036,30 +16863,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 18,
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 15,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 43,
-                            accessibility: Done {
+                            use_expr_idx: 28,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::four`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 283,
+                                                    value: 296,
                                                 },
                                             ),
                                         ),
@@ -16077,13 +16908,16 @@ Ok(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 23,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 22,
+                                        path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
+                                        ast_idx: 159,
+                                    },
                                 ),
                             },
                         },
@@ -16150,7 +16984,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 113,
+                                        value: 126,
                                     },
                                 ),
                             ),
@@ -16164,7 +16998,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 113,
+                                        value: 126,
                                     },
                                 ),
                             ),
@@ -16178,7 +17012,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 113,
+                                        value: 126,
                                     },
                                 ),
                             ),
@@ -16192,7 +17026,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 113,
+                                        value: 126,
                                     },
                                 ),
                             ),
@@ -17252,20 +18086,21 @@ Ok(
                 impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 39,
-                            accessibility: Done {
+                            use_expr_idx: 5,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -17279,16 +18114,17 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 40,
-                            accessibility: Done {
+                            use_expr_idx: 8,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -17301,24 +18137,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 41,
-                            accessibility: Done {
+                            use_expr_idx: 11,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -17331,30 +18184,47 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 42,
-                            accessibility: Done {
+                            use_expr_idx: 16,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -17368,16 +18238,17 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 43,
-                            accessibility: Done {
+                            use_expr_idx: 19,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -17390,24 +18261,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 44,
-                            accessibility: Done {
+                            use_expr_idx: 22,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -17420,24 +18308,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 45,
-                            accessibility: Done {
+                            use_expr_idx: 26,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -17450,24 +18355,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 46,
-                            accessibility: Done {
+                            use_expr_idx: 29,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -17480,30 +18402,47 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 40,
-                            accessibility: Done {
+                            use_expr_idx: 7,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 109,
+                                                    value: 122,
                                                 },
                                             ),
                                         ),
@@ -17521,30 +18460,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 22,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 21,
+                                        path: `mnist_classifier::major`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 18,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 41,
-                            accessibility: Done {
+                            use_expr_idx: 10,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 109,
+                                                    value: 122,
                                                 },
                                             ),
                                         ),
@@ -17562,30 +18505,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 22,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 21,
+                                        path: `mnist_classifier::major`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 18,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 43,
-                            accessibility: Done {
+                            use_expr_idx: 18,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 109,
+                                                    value: 122,
                                                 },
                                             ),
                                         ),
@@ -17603,30 +18550,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 22,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 21,
+                                        path: `mnist_classifier::major`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 18,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 44,
-                            accessibility: Done {
+                            use_expr_idx: 21,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 107,
+                                                    value: 120,
                                                 },
                                             ),
                                         ),
@@ -17644,30 +18595,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 20,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 19,
+                                        path: `mnist_classifier::fermi`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 16,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 45,
-                            accessibility: Done {
+                            use_expr_idx: 25,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 106,
+                                                    value: 119,
                                                 },
                                             ),
                                         ),
@@ -17685,30 +18640,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 18,
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 15,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 46,
-                            accessibility: Done {
+                            use_expr_idx: 28,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 108,
+                                                    value: 121,
                                                 },
                                             ),
                                         ),
@@ -17726,32 +18685,30 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 21,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 20,
+                                        path: `mnist_classifier::digits`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 17,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 40,
-                            accessibility: Done {
+                            use_expr_idx: 6,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
                             },
-                            variant: Leaf {
+                            variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentifierToken {
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 378,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `major_concave_components`,
                                     token_idx: TokenIdx(
                                         17,
                                     ),
@@ -17762,32 +18719,30 @@ Ok(
                                     `mnist_classifier::major`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 118,
-                                        },
-                                    ),
+                                    ModuleItemSymbol {
+                                        [salsa id]: 117,
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                        ),
+                                        accessibility: Accessibility::Public,
+                                        ast_idx: 29,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 41,
-                            accessibility: Done {
+                            use_expr_idx: 9,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
                             },
-                            variant: Leaf {
+                            variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentifierToken {
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 381,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `major_connected_component`,
                                     token_idx: TokenIdx(
                                         23,
                                     ),
@@ -17798,30 +18753,34 @@ Ok(
                                     `mnist_classifier::major`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 113,
-                                        },
-                                    ),
+                                    ModuleItemSymbol {
+                                        [salsa id]: 112,
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                        ),
+                                        accessibility: Accessibility::Public,
+                                        ast_idx: 24,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 45,
-                            accessibility: Done {
+                            use_expr_idx: 24,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 283,
+                                                    value: 296,
                                                 },
                                             ),
                                         ),
@@ -17839,13 +18798,16 @@ Ok(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 23,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 22,
+                                        path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
+                                        ast_idx: 159,
+                                    },
                                 ),
                             },
                         },
@@ -17929,7 +18891,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 113,
+                                        value: 126,
                                     },
                                 ),
                             ),
@@ -17943,7 +18905,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 113,
+                                        value: 126,
                                     },
                                 ),
                             ),
@@ -18222,20 +19184,21 @@ Ok(
                 impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 17,
-                            accessibility: Done {
+                            use_expr_idx: 5,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -18249,16 +19212,17 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 18,
-                            accessibility: Done {
+                            use_expr_idx: 8,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -18271,24 +19235,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 19,
-                            accessibility: Done {
+                            use_expr_idx: 11,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -18301,30 +19282,47 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 20,
-                            accessibility: Done {
+                            use_expr_idx: 16,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -18338,16 +19336,17 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 21,
-                            accessibility: Done {
+                            use_expr_idx: 19,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -18360,24 +19359,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 22,
-                            accessibility: Done {
+                            use_expr_idx: 22,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -18390,24 +19406,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 23,
-                            accessibility: Done {
+                            use_expr_idx: 25,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -18420,24 +19453,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 24,
-                            accessibility: Done {
+                            use_expr_idx: 28,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -18450,24 +19500,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 25,
-                            accessibility: Done {
+                            use_expr_idx: 32,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -18480,24 +19547,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 26,
-                            accessibility: Done {
+                            use_expr_idx: 35,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -18510,24 +19594,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 27,
-                            accessibility: Done {
+                            use_expr_idx: 38,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -18540,30 +19641,47 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 18,
-                            accessibility: Done {
+                            use_expr_idx: 7,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 109,
+                                                    value: 122,
                                                 },
                                             ),
                                         ),
@@ -18581,30 +19699,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 22,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 21,
+                                        path: `mnist_classifier::major`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 18,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 19,
-                            accessibility: Done {
+                            use_expr_idx: 10,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 109,
+                                                    value: 122,
                                                 },
                                             ),
                                         ),
@@ -18622,30 +19744,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 22,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 21,
+                                        path: `mnist_classifier::major`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 18,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 21,
-                            accessibility: Done {
+                            use_expr_idx: 18,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 362,
+                                                    value: 375,
                                                 },
                                             ),
                                         ),
@@ -18663,22 +19789,23 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 22,
-                            accessibility: Done {
+                            use_expr_idx: 21,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 363,
+                                                    value: 376,
                                                 },
                                             ),
                                         ),
@@ -18696,22 +19823,23 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 23,
-                            accessibility: Done {
+                            use_expr_idx: 24,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 361,
+                                                    value: 374,
                                                 },
                                             ),
                                         ),
@@ -18729,22 +19857,23 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 24,
-                            accessibility: Done {
+                            use_expr_idx: 27,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 367,
+                                                    value: 380,
                                                 },
                                             ),
                                         ),
@@ -18762,22 +19891,23 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 25,
-                            accessibility: Done {
+                            use_expr_idx: 31,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 106,
+                                                    value: 119,
                                                 },
                                             ),
                                         ),
@@ -18795,30 +19925,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 18,
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 15,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 26,
-                            accessibility: Done {
+                            use_expr_idx: 34,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 107,
+                                                    value: 120,
                                                 },
                                             ),
                                         ),
@@ -18836,30 +19970,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 20,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 19,
+                                        path: `mnist_classifier::fermi`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 16,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 27,
-                            accessibility: Done {
+                            use_expr_idx: 37,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 104,
+                                                    value: 117,
                                                 },
                                             ),
                                         ),
@@ -18877,32 +20015,30 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 17,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 16,
+                                        path: `mnist_classifier::raw_contour`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 13,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 18,
-                            accessibility: Done {
+                            use_expr_idx: 6,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
                             },
-                            variant: Leaf {
+                            variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentifierToken {
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 378,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `major_concave_components`,
                                     token_idx: TokenIdx(
                                         17,
                                     ),
@@ -18913,32 +20049,30 @@ Ok(
                                     `mnist_classifier::major`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 118,
-                                        },
-                                    ),
+                                    ModuleItemSymbol {
+                                        [salsa id]: 117,
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                        ),
+                                        accessibility: Accessibility::Public,
+                                        ast_idx: 29,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 19,
-                            accessibility: Done {
+                            use_expr_idx: 9,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
                             },
-                            variant: Leaf {
+                            variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentifierToken {
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 381,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `major_connected_component`,
                                     token_idx: TokenIdx(
                                         23,
                                     ),
@@ -18949,30 +20083,34 @@ Ok(
                                     `mnist_classifier::major`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 113,
-                                        },
-                                    ),
+                                    ModuleItemSymbol {
+                                        [salsa id]: 112,
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                        ),
+                                        accessibility: Accessibility::Public,
+                                        ast_idx: 24,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 25,
-                            accessibility: Done {
+                            use_expr_idx: 30,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 283,
+                                                    value: 296,
                                                 },
                                             ),
                                         ),
@@ -18990,13 +20128,16 @@ Ok(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 23,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 22,
+                                        path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
+                                        ast_idx: 159,
+                                    },
                                 ),
                             },
                         },
@@ -19063,7 +20204,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 113,
+                                        value: 126,
                                     },
                                 ),
                             ),
@@ -19077,7 +20218,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 113,
+                                        value: 126,
                                     },
                                 ),
                             ),
@@ -19091,7 +20232,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 362,
+                                        value: 375,
                                     },
                                 ),
                             ),
@@ -19105,7 +20246,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 363,
+                                        value: 376,
                                     },
                                 ),
                             ),
@@ -19119,7 +20260,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 361,
+                                        value: 374,
                                     },
                                 ),
                             ),
@@ -19133,7 +20274,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 367,
+                                        value: 380,
                                     },
                                 ),
                             ),
@@ -19584,20 +20725,21 @@ Ok(
                 impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 35,
-                            accessibility: Done {
+                            use_expr_idx: 5,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -19611,22 +20753,23 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 36,
-                            accessibility: Done {
+                            use_expr_idx: 10,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -19640,22 +20783,23 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 37,
-                            accessibility: Done {
+                            use_expr_idx: 15,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -19669,22 +20813,23 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 38,
-                            accessibility: Done {
+                            use_expr_idx: 20,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -19698,16 +20843,17 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 39,
-                            accessibility: Done {
+                            use_expr_idx: 23,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -19720,24 +20866,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 40,
-                            accessibility: Done {
+                            use_expr_idx: 26,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -19750,24 +20913,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 41,
-                            accessibility: Done {
+                            use_expr_idx: 30,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -19780,24 +20960,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 42,
-                            accessibility: Done {
+                            use_expr_idx: 33,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -19810,24 +21007,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 43,
-                            accessibility: Done {
+                            use_expr_idx: 36,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -19840,30 +21054,47 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 39,
-                            accessibility: Done {
+                            use_expr_idx: 22,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 109,
+                                                    value: 122,
                                                 },
                                             ),
                                         ),
@@ -19881,30 +21112,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 22,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 21,
+                                        path: `mnist_classifier::major`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 18,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 40,
-                            accessibility: Done {
+                            use_expr_idx: 25,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 107,
+                                                    value: 120,
                                                 },
                                             ),
                                         ),
@@ -19922,30 +21157,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 20,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 19,
+                                        path: `mnist_classifier::fermi`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 16,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 41,
-                            accessibility: Done {
+                            use_expr_idx: 29,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 106,
+                                                    value: 119,
                                                 },
                                             ),
                                         ),
@@ -19963,30 +21202,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 18,
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 15,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 42,
-                            accessibility: Done {
+                            use_expr_idx: 32,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 361,
+                                                    value: 374,
                                                 },
                                             ),
                                         ),
@@ -20004,22 +21247,23 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 43,
-                            accessibility: Done {
+                            use_expr_idx: 35,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 363,
+                                                    value: 376,
                                                 },
                                             ),
                                         ),
@@ -20037,22 +21281,23 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Erroneous,
+                            state: UseExprRuleState::Erroneous,
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 41,
-                            accessibility: Done {
+                            use_expr_idx: 28,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 283,
+                                                    value: 296,
                                                 },
                                             ),
                                         ),
@@ -20070,13 +21315,16 @@ Ok(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 23,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 22,
+                                        path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
+                                        ast_idx: 159,
+                                    },
                                 ),
                             },
                         },
@@ -20143,7 +21391,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 113,
+                                        value: 126,
                                     },
                                 ),
                             ),
@@ -20157,7 +21405,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 113,
+                                        value: 126,
                                     },
                                 ),
                             ),
@@ -20171,7 +21419,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 113,
+                                        value: 126,
                                     },
                                 ),
                             ),
@@ -20185,7 +21433,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 113,
+                                        value: 126,
                                     },
                                 ),
                             ),
@@ -20199,7 +21447,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 361,
+                                        value: 374,
                                     },
                                 ),
                             ),
@@ -20213,7 +21461,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 363,
+                                        value: 376,
                                     },
                                 ),
                             ),
@@ -21121,14 +22369,15 @@ Ok(
                 impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 18,
-                            accessibility: Done {
+                            use_expr_idx: 2,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::major`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -21141,24 +22390,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 19,
-                            accessibility: Done {
+                            use_expr_idx: 5,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::major`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -21171,24 +22437,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 20,
-                            accessibility: Done {
+                            use_expr_idx: 8,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::major`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -21201,24 +22484,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 21,
-                            accessibility: Done {
+                            use_expr_idx: 12,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::major`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -21231,24 +22531,41 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 22,
-                            accessibility: Done {
+                            use_expr_idx: 14,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::major`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
@@ -21261,30 +22578,47 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: CrateRoot(
-                                    ModulePath(
-                                        Id {
-                                            value: 23,
+                                    ModulePath {
+                                        [display]: Root(
+                                            CratePath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        [crate]: CratePath {
+                                            package_path: PackagePath {
+                                                data: Local {
+                                                    path: DiffPath {
+                                                        data: DiffPathBuf(
+                                                            "../../../examples/mnist-classifier",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            crate_kind: Main,
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 18,
-                            accessibility: Done {
+                            use_expr_idx: 1,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::major`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 103,
+                                                    value: 116,
                                                 },
                                             ),
                                         ),
@@ -21302,30 +22636,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 16,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 15,
+                                        path: `mnist_classifier::connected_component`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 12,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 19,
-                            accessibility: Done {
+                            use_expr_idx: 4,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::major`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 104,
+                                                    value: 117,
                                                 },
                                             ),
                                         ),
@@ -21343,30 +22681,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 17,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 16,
+                                        path: `mnist_classifier::raw_contour`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 13,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 20,
-                            accessibility: Done {
+                            use_expr_idx: 7,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::major`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 106,
+                                                    value: 119,
                                                 },
                                             ),
                                         ),
@@ -21384,30 +22726,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 18,
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 15,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 21,
-                            accessibility: Done {
+                            use_expr_idx: 11,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::major`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 106,
+                                                    value: 119,
                                                 },
                                             ),
                                         ),
@@ -21425,30 +22771,34 @@ Ok(
                                     `mnist_classifier`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 18,
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 15,
+                                    },
                                 ),
                             },
                         },
-                        UseTracker {
+                        UseExprRule {
                             ast_idx: 21,
-                            accessibility: Done {
+                            use_expr_idx: 10,
+                            accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
                                     `mnist_classifier::major`,
                                 ),
                             },
-                            variant: Parent {
+                            variant: UseExprRuleVariant::Parent {
                                 parent_name_token: Identifier(
                                     IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 283,
+                                                    value: 296,
                                                 },
                                             ),
                                         ),
@@ -21466,13 +22816,16 @@ Ok(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
                             ),
-                            state: Resolved {
+                            state: UseExprRuleState::Resolved {
                                 original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 23,
-                                        },
-                                    ),
+                                    SubmoduleSymbol {
+                                        [salsa id]: 22,
+                                        path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
+                                        ast_idx: 159,
+                                    },
                                 ),
                             },
                         },
@@ -21579,7 +22932,7 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 141,
+                                    value: 154,
                                 },
                             ),
                         ),
@@ -21602,7 +22955,7 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 137,
+                                    value: 150,
                                 },
                             ),
                         ),
@@ -21625,7 +22978,7 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 184,
+                                    value: 197,
                                 },
                             ),
                         ),
@@ -21648,7 +23001,7 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 203,
+                                    value: 216,
                                 },
                             ),
                         ),
@@ -21671,7 +23024,7 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 188,
+                                    value: 201,
                                 },
                             ),
                         ),
@@ -21694,7 +23047,7 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 198,
+                                    value: 211,
                                 },
                             ),
                         ),
@@ -21717,7 +23070,7 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 287,
+                                    value: 300,
                                 },
                             ),
                         ),
@@ -21740,7 +23093,7 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 185,
+                                    value: 198,
                                 },
                             ),
                         ),
@@ -21763,7 +23116,7 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 295,
+                                    value: 308,
                                 },
                             ),
                         ),
@@ -21786,7 +23139,7 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 341,
+                                    value: 354,
                                 },
                             ),
                         ),
@@ -21809,7 +23162,7 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 292,
+                                    value: 305,
                                 },
                             ),
                         ),
@@ -21832,7 +23185,7 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 354,
+                                    value: 367,
                                 },
                             ),
                         ),

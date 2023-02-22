@@ -112,14 +112,15 @@ Ok(
         ),
         use_one_trackers: UseExprRules(
             [
-                UseTracker {
+                UseExprRule {
                     ast_idx: 18,
-                    accessibility: Done {
+                    use_expr_idx: 2,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::major`,
                         ),
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -132,16 +133,17 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
-                UseTracker {
+                UseExprRule {
                     ast_idx: 19,
-                    accessibility: Done {
+                    use_expr_idx: 5,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::major`,
                         ),
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -154,16 +156,17 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
-                UseTracker {
+                UseExprRule {
                     ast_idx: 20,
-                    accessibility: Done {
+                    use_expr_idx: 8,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::major`,
                         ),
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -176,16 +179,17 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
-                UseTracker {
+                UseExprRule {
                     ast_idx: 21,
-                    accessibility: Done {
+                    use_expr_idx: 12,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::major`,
                         ),
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -198,16 +202,17 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
-                UseTracker {
+                UseExprRule {
                     ast_idx: 22,
-                    accessibility: Done {
+                    use_expr_idx: 14,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::major`,
                         ),
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -220,7 +225,7 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
             ],
         ),
@@ -242,7 +247,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 87,
+                                        value: 100,
                                     },
                                 ),
                             ),
@@ -298,7 +303,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 107,
+                                        value: 120,
                                     },
                                 ),
                             ),
@@ -354,7 +359,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 101,
+                                        value: 114,
                                     },
                                 ),
                             ),
@@ -410,7 +415,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 102,
+                                        value: 115,
                                     },
                                 ),
                             ),
@@ -438,7 +443,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 101,
+                                        value: 114,
                                     },
                                 ),
                             ),

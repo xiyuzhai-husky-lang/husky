@@ -164,13 +164,7 @@ Ok(
                             fields: [
                                 RegularStructFieldPattern {
                                     ident_token: IdentifierToken {
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 146,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `row_start`,
                                         token_idx: TokenIdx(
                                             22,
                                         ),
@@ -184,13 +178,7 @@ Ok(
                                 },
                                 RegularStructFieldPattern {
                                     ident_token: IdentifierToken {
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 147,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `row_end`,
                                         token_idx: TokenIdx(
                                             26,
                                         ),
@@ -204,13 +192,7 @@ Ok(
                                 },
                                 RegularStructFieldPattern {
                                     ident_token: IdentifierToken {
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 148,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `upper_mass`,
                                         token_idx: TokenIdx(
                                             30,
                                         ),
@@ -224,13 +206,7 @@ Ok(
                                 },
                                 RegularStructFieldPattern {
                                     ident_token: IdentifierToken {
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 149,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `lower_mass`,
                                         token_idx: TokenIdx(
                                             34,
                                         ),
@@ -392,13 +368,7 @@ Ok(
                             fields: [
                                 RegularStructFieldPattern {
                                     ident_token: IdentifierToken {
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 151,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `matches`,
                                         token_idx: TokenIdx(
                                             43,
                                         ),
@@ -535,7 +505,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 154,
+                                                                value: 167,
                                                             },
                                                         ),
                                                     ),
@@ -713,13 +683,7 @@ Ok(
                             fields: [
                                 RegularStructFieldPattern {
                                     ident_token: IdentifierToken {
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 157,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `mask`,
                                         token_idx: TokenIdx(
                                             81,
                                         ),
@@ -879,7 +843,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 185,
+                                                                value: 198,
                                                             },
                                                         ),
                                                     ),
@@ -1115,7 +1079,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 189,
+                                                                value: 202,
                                                             },
                                                         ),
                                                     ),
@@ -3435,7 +3399,7 @@ Ok(
                                                         Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 180,
+                                                                    value: 193,
                                                                 },
                                                             ),
                                                         ),
@@ -3762,7 +3726,7 @@ Ok(
                                                         Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 180,
+                                                                    value: 193,
                                                                 },
                                                             ),
                                                         ),

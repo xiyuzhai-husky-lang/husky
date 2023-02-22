@@ -9,3 +9,21 @@ pub trait Sub<Rhs>:
     type Output;
 
     fn sub(other: Rhs) -> Self::Output;
+
+
+
+
+add,
+add_assign,
+bit_and,
+bit_and_assign,
+bit_or,
+bit_or_assign,
+bit_xor,
+bit_xor_assign,
+div,
+div_assign,
+mul,
+mul_assign,
+neg,
+not,

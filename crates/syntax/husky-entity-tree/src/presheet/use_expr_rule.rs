@@ -53,6 +53,7 @@ impl UseExprRules {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct UseExprRule {
     ast_idx: AstIdx,
     use_expr_idx: UseExprIdx,
@@ -63,6 +64,7 @@ pub struct UseExprRule {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum UseExprRuleVariant {
     Parent {
         parent_name_token: ParentNameToken,
@@ -75,27 +77,10 @@ pub enum UseExprRuleVariant {
 
 // ad hoc
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum AccessibilityProgress {
     Done { accessibility: Accessibility },
     Todo,
-}
-
-impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for AccessibilityProgress {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
-        match self {
-            AccessibilityProgress::Done { accessibility } => f
-                .debug_struct("Done")
-                .field("accessibility", &accessibility.debug(db))
-                .finish(),
-            AccessibilityProgress::Todo => f.debug_struct("Todo").finish(),
-        }
-    }
 }
 
 impl AccessibilityProgress {
@@ -114,25 +99,8 @@ impl AccessibilityProgress {
     }
 }
 
-impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseExprRule {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
-        f.debug_struct("UseTracker")
-            .field("ast_idx", &self.ast_idx)
-            .field("accessibility", &self.accessibility.debug(db))
-            .field("variant", &self.variant)
-            .field("parent", &self.parent.debug(db))
-            .field("state", &self.state)
-            .finish()
-    }
-}
-
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum UseExprRuleState {
     Unresolved,
     Resolved { original_symbol: EntitySymbol },

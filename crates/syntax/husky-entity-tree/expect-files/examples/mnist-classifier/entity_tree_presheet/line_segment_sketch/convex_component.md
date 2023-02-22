@@ -26,14 +26,15 @@ Ok(
         ),
         use_one_trackers: UseExprRules(
             [
-                UseTracker {
+                UseExprRule {
                     ast_idx: 2,
-                    accessibility: Done {
+                    use_expr_idx: 2,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -46,7 +47,7 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
             ],
         ),
@@ -68,7 +69,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 101,
+                                        value: 114,
                                     },
                                 ),
                             ),

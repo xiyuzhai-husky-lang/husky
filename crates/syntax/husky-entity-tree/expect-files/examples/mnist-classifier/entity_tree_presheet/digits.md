@@ -177,18 +177,19 @@ Ok(
         ),
         use_one_trackers: UseExprRules(
             [
-                UseTracker {
+                UseExprRule {
                     ast_idx: 10,
-                    accessibility: Done {
+                    use_expr_idx: 1,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::Public,
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Identifier(
                             IdentifierToken {
                                 ident: Identifier(
                                     Word(
                                         Id {
-                                            value: 93,
+                                            value: 106,
                                         },
                                     ),
                                 ),
@@ -202,22 +203,23 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
-                UseTracker {
+                UseExprRule {
                     ast_idx: 11,
-                    accessibility: Done {
+                    use_expr_idx: 3,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::digits`,
                         ),
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Identifier(
                             IdentifierToken {
                                 ident: Identifier(
                                     Word(
                                         Id {
-                                            value: 95,
+                                            value: 108,
                                         },
                                     ),
                                 ),
@@ -231,22 +233,23 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
-                UseTracker {
+                UseExprRule {
                     ast_idx: 12,
-                    accessibility: Done {
+                    use_expr_idx: 5,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::digits`,
                         ),
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Identifier(
                             IdentifierToken {
                                 ident: Identifier(
                                     Word(
                                         Id {
-                                            value: 98,
+                                            value: 111,
                                         },
                                     ),
                                 ),
@@ -260,22 +263,23 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
-                UseTracker {
+                UseExprRule {
                     ast_idx: 13,
-                    accessibility: Done {
+                    use_expr_idx: 7,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::digits`,
                         ),
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Identifier(
                             IdentifierToken {
                                 ident: Identifier(
                                     Word(
                                         Id {
-                                            value: 97,
+                                            value: 110,
                                         },
                                     ),
                                 ),
@@ -289,22 +293,23 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
-                UseTracker {
+                UseExprRule {
                     ast_idx: 14,
-                    accessibility: Done {
+                    use_expr_idx: 9,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::digits`,
                         ),
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Identifier(
                             IdentifierToken {
                                 ident: Identifier(
                                     Word(
                                         Id {
-                                            value: 96,
+                                            value: 109,
                                         },
                                     ),
                                 ),
@@ -318,22 +323,23 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
-                UseTracker {
+                UseExprRule {
                     ast_idx: 15,
-                    accessibility: Done {
+                    use_expr_idx: 11,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::digits`,
                         ),
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Identifier(
                             IdentifierToken {
                                 ident: Identifier(
                                     Word(
                                         Id {
-                                            value: 90,
+                                            value: 103,
                                         },
                                     ),
                                 ),
@@ -347,22 +353,23 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
-                UseTracker {
+                UseExprRule {
                     ast_idx: 16,
-                    accessibility: Done {
+                    use_expr_idx: 13,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::digits`,
                         ),
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Identifier(
                             IdentifierToken {
                                 ident: Identifier(
                                     Word(
                                         Id {
-                                            value: 95,
+                                            value: 108,
                                         },
                                     ),
                                 ),
@@ -376,22 +383,23 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
-                UseTracker {
+                UseExprRule {
                     ast_idx: 17,
-                    accessibility: Done {
+                    use_expr_idx: 15,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::digits`,
                         ),
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Identifier(
                             IdentifierToken {
                                 ident: Identifier(
                                     Word(
                                         Id {
-                                            value: 94,
+                                            value: 107,
                                         },
                                     ),
                                 ),
@@ -405,22 +413,23 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
-                UseTracker {
+                UseExprRule {
                     ast_idx: 18,
-                    accessibility: Done {
+                    use_expr_idx: 17,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::digits`,
                         ),
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Identifier(
                             IdentifierToken {
                                 ident: Identifier(
                                     Word(
                                         Id {
-                                            value: 89,
+                                            value: 102,
                                         },
                                     ),
                                 ),
@@ -434,22 +443,23 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
-                UseTracker {
+                UseExprRule {
                     ast_idx: 19,
-                    accessibility: Done {
+                    use_expr_idx: 19,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::digits`,
                         ),
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Identifier(
                             IdentifierToken {
                                 ident: Identifier(
                                     Word(
                                         Id {
-                                            value: 92,
+                                            value: 105,
                                         },
                                     ),
                                 ),
@@ -463,7 +473,7 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
             ],
         ),
@@ -477,7 +487,7 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 118,
+                                    value: 131,
                                 },
                             ),
                         ),
@@ -492,7 +502,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 93,
+                                        value: 106,
                                     },
                                 ),
                             ),
@@ -519,7 +529,7 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 119,
+                                    value: 132,
                                 },
                             ),
                         ),
@@ -534,7 +544,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 95,
+                                        value: 108,
                                     },
                                 ),
                             ),
@@ -561,7 +571,7 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 120,
+                                    value: 133,
                                 },
                             ),
                         ),
@@ -576,7 +586,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 98,
+                                        value: 111,
                                     },
                                 ),
                             ),
@@ -603,7 +613,7 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 126,
+                                    value: 139,
                                 },
                             ),
                         ),
@@ -618,7 +628,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 97,
+                                        value: 110,
                                     },
                                 ),
                             ),
@@ -645,7 +655,7 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 123,
+                                    value: 136,
                                 },
                             ),
                         ),
@@ -660,7 +670,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 96,
+                                        value: 109,
                                     },
                                 ),
                             ),
@@ -687,7 +697,7 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 125,
+                                    value: 138,
                                 },
                             ),
                         ),
@@ -702,7 +712,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 90,
+                                        value: 103,
                                     },
                                 ),
                             ),
@@ -729,7 +739,7 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 119,
+                                    value: 132,
                                 },
                             ),
                         ),
@@ -744,7 +754,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 95,
+                                        value: 108,
                                     },
                                 ),
                             ),
@@ -771,7 +781,7 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 121,
+                                    value: 134,
                                 },
                             ),
                         ),
@@ -786,7 +796,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 94,
+                                        value: 107,
                                     },
                                 ),
                             ),
@@ -813,7 +823,7 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 122,
+                                    value: 135,
                                 },
                             ),
                         ),
@@ -828,7 +838,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 89,
+                                        value: 102,
                                     },
                                 ),
                             ),
@@ -855,7 +865,7 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 124,
+                                    value: 137,
                                 },
                             ),
                         ),
@@ -870,7 +880,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 92,
+                                        value: 105,
                                     },
                                 ),
                             ),
