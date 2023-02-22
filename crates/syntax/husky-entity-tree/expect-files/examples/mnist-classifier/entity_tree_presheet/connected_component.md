@@ -105,20 +105,21 @@ Ok(
         ),
         use_one_trackers: UseExprRules(
             [
-                UseTracker {
+                UseExprRule {
                     ast_idx: 118,
-                    accessibility: Done {
+                    use_expr_idx: 3,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::connected_component`,
                         ),
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Identifier(
                             IdentifierToken {
                                 ident: Identifier(
                                     Word(
                                         Id {
-                                            value: 129,
+                                            value: 142,
                                         },
                                     ),
                                 ),
@@ -132,16 +133,17 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
-                UseTracker {
+                UseExprRule {
                     ast_idx: 119,
-                    accessibility: Done {
+                    use_expr_idx: 6,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::connected_component`,
                         ),
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -154,16 +156,17 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
-                UseTracker {
+                UseExprRule {
                     ast_idx: 120,
-                    accessibility: Done {
+                    use_expr_idx: 8,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::connected_component`,
                         ),
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -176,7 +179,7 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
             ],
         ),
@@ -190,7 +193,7 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 110,
+                                    value: 123,
                                 },
                             ),
                         ),
@@ -205,7 +208,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 108,
+                                        value: 121,
                                     },
                                 ),
                             ),
@@ -233,7 +236,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 130,
+                                        value: 143,
                                     },
                                 ),
                             ),
@@ -261,7 +264,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 129,
+                                        value: 142,
                                     },
                                 ),
                             ),
@@ -296,7 +299,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 107,
+                                        value: 120,
                                     },
                                 ),
                             ),

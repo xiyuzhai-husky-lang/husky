@@ -1,6 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct ImplicitParameterDeclPattern {
     annotated_variance_token: Option<VarianceToken>,
     symbol: CurrentSymbolIdx,

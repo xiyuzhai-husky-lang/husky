@@ -146,13 +146,7 @@ Ok(
                             fields: [
                                 RegularStructFieldPattern {
                                     ident_token: IdentifierToken {
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 259,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `contour`,
                                         token_idx: TokenIdx(
                                             163,
                                         ),
@@ -166,13 +160,7 @@ Ok(
                                 },
                                 RegularStructFieldPattern {
                                     ident_token: IdentifierToken {
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 304,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `strokes`,
                                         token_idx: TokenIdx(
                                             168,
                                         ),
@@ -331,7 +319,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 311,
+                                                                value: 324,
                                                             },
                                                         ),
                                                     ),
@@ -343,7 +331,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 308,
+                                                                value: 321,
                                                             },
                                                         ),
                                                     ),
@@ -605,7 +593,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 311,
+                                                                value: 324,
                                                             },
                                                         ),
                                                     ),
@@ -617,7 +605,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 308,
+                                                                value: 321,
                                                             },
                                                         ),
                                                     ),
@@ -917,7 +905,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 154,
+                                                                value: 167,
                                                             },
                                                         ),
                                                     ),
@@ -929,7 +917,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 216,
+                                                                value: 229,
                                                             },
                                                         ),
                                                     ),
@@ -941,7 +929,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 308,
+                                                                value: 321,
                                                             },
                                                         ),
                                                     ),
@@ -1306,7 +1294,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 154,
+                                                                value: 167,
                                                             },
                                                         ),
                                                     ),
@@ -1318,7 +1306,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 327,
+                                                                value: 340,
                                                             },
                                                         ),
                                                     ),
@@ -1330,7 +1318,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 217,
+                                                                value: 230,
                                                             },
                                                         ),
                                                     ),
@@ -1342,7 +1330,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 308,
+                                                                value: 321,
                                                             },
                                                         ),
                                                     ),
@@ -1695,7 +1683,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 154,
+                                                                value: 167,
                                                             },
                                                         ),
                                                     ),
@@ -1707,7 +1695,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 308,
+                                                                value: 321,
                                                             },
                                                         ),
                                                     ),
@@ -2249,7 +2237,7 @@ Ok(
                                                         Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 154,
+                                                                    value: 167,
                                                                 },
                                                             ),
                                                         ),
@@ -2261,7 +2249,7 @@ Ok(
                                                         Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 301,
+                                                                    value: 314,
                                                                 },
                                                             ),
                                                         ),
@@ -2273,7 +2261,7 @@ Ok(
                                                         Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 222,
+                                                                    value: 235,
                                                                 },
                                                             ),
                                                         ),
@@ -3549,7 +3537,7 @@ Ok(
                                                         Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 154,
+                                                                    value: 167,
                                                                 },
                                                             ),
                                                         ),
@@ -3561,7 +3549,7 @@ Ok(
                                                         Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 308,
+                                                                    value: 321,
                                                                 },
                                                             ),
                                                         ),

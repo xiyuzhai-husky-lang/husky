@@ -38,6 +38,8 @@ pub enum AstError {
     UnexpectedTokenForModuleItem(TokenIdx),
     #[error("invalid ast for definition or use")]
     InvalidAstForDefinitionOrUse,
+    #[error("todo")]
+    Todo,
 }
 
 impl<'a, Context> FromAbsent<IdentifierToken, Context> for AstError

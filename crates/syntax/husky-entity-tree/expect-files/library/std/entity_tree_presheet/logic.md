@@ -6,12 +6,13 @@ Ok(
         ),
         use_one_trackers: UseExprRules(
             [
-                UseTracker {
+                UseExprRule {
                     ast_idx: 0,
-                    accessibility: Done {
+                    use_expr_idx: 2,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::Public,
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Identifier(
                             IdentifierToken {
                                 ident: Identifier(
@@ -31,7 +32,7 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
             ],
         ),

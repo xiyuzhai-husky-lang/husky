@@ -160,13 +160,7 @@ Ok(
                             fields: [
                                 RegularStructFieldPattern {
                                     ident_token: IdentifierToken {
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 116,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
                                             9,
                                         ),
@@ -180,13 +174,7 @@ Ok(
                                 },
                                 RegularStructFieldPattern {
                                     ident_token: IdentifierToken {
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 330,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `line_segments`,
                                         token_idx: TokenIdx(
                                             14,
                                         ),

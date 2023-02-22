@@ -115,13 +115,7 @@ Ok(
                             fields: [
                                 RegularStructFieldPattern {
                                     ident_token: IdentifierToken {
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 216,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `start`,
                                         token_idx: TokenIdx(
                                             10,
                                         ),
@@ -135,13 +129,7 @@ Ok(
                                 },
                                 RegularStructFieldPattern {
                                     ident_token: IdentifierToken {
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 217,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `end`,
                                         token_idx: TokenIdx(
                                             14,
                                         ),
@@ -1049,7 +1037,7 @@ Ok(
                                                         Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 361,
+                                                                    value: 374,
                                                                 },
                                                             ),
                                                         ),
@@ -1318,7 +1306,7 @@ Ok(
                                                                 Identifier(
                                                                     Word(
                                                                         Id {
-                                                                            value: 361,
+                                                                            value: 374,
                                                                         },
                                                                     ),
                                                                 ),
@@ -2035,7 +2023,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 362,
+                                                                value: 375,
                                                             },
                                                         ),
                                                     ),
@@ -2047,7 +2035,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 363,
+                                                                value: 376,
                                                             },
                                                         ),
                                                     ),
@@ -2059,7 +2047,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 364,
+                                                                value: 377,
                                                             },
                                                         ),
                                                     ),

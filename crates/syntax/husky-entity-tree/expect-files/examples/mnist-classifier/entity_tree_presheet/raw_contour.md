@@ -212,14 +212,15 @@ Ok(
         ),
         use_one_trackers: UseExprRules(
             [
-                UseTracker {
+                UseExprRule {
                     ast_idx: 195,
-                    accessibility: Done {
+                    use_expr_idx: 2,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -232,16 +233,17 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
-                UseTracker {
+                UseExprRule {
                     ast_idx: 196,
-                    accessibility: Done {
+                    use_expr_idx: 5,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -254,16 +256,17 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
-                UseTracker {
+                UseExprRule {
                     ast_idx: 197,
-                    accessibility: Done {
+                    use_expr_idx: 8,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -276,22 +279,23 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
-                UseTracker {
+                UseExprRule {
                     ast_idx: 198,
-                    accessibility: Done {
+                    use_expr_idx: 11,
+                    accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                     },
-                    variant: Parent {
+                    variant: UseExprRuleVariant::Parent {
                         parent_name_token: Identifier(
                             IdentifierToken {
                                 ident: Identifier(
                                     Word(
                                         Id {
-                                            value: 108,
+                                            value: 121,
                                         },
                                     ),
                                 ),
@@ -305,7 +309,7 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: Unresolved,
+                    state: UseExprRuleState::Unresolved,
                 },
             ],
         ),
@@ -327,7 +331,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 100,
+                                        value: 113,
                                     },
                                 ),
                             ),
@@ -383,7 +387,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 87,
+                                        value: 100,
                                     },
                                 ),
                             ),
@@ -439,7 +443,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 101,
+                                        value: 114,
                                     },
                                 ),
                             ),
@@ -487,7 +491,7 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 110,
+                                    value: 123,
                                 },
                             ),
                         ),
@@ -501,7 +505,7 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 417,
+                                    value: 430,
                                 },
                             ),
                         ),
@@ -516,7 +520,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 108,
+                                        value: 121,
                                     },
                                 ),
                             ),

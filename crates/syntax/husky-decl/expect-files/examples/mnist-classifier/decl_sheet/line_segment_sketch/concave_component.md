@@ -159,13 +159,7 @@ Ok(
                             fields: [
                                 RegularStructFieldPattern {
                                     ident_token: IdentifierToken {
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 116,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
                                             36,
                                         ),
@@ -179,13 +173,7 @@ Ok(
                                 },
                                 RegularStructFieldPattern {
                                     ident_token: IdentifierToken {
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 304,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `strokes`,
                                         token_idx: TokenIdx(
                                             41,
                                         ),
@@ -336,7 +324,7 @@ Ok(
                                                     Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 116,
+                                                                value: 129,
                                                             },
                                                         ),
                                                     ),
