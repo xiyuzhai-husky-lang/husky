@@ -9,7 +9,7 @@ Ok(
                         Trait(
                             TraitPath(
                                 Id {
-                                    value: 4,
+                                    value: 17,
                                 },
                             ),
                         ),

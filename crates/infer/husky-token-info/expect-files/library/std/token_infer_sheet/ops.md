@@ -14,7 +14,7 @@ Ok(
                         Trait(
                             TraitPath(
                                 Id {
-                                    value: 11,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -36,7 +36,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 94,
+                                        value: 107,
                                     },
                                 ),
                             ),
@@ -48,7 +48,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 52,
+                        value: 65,
                     },
                 ),
             },

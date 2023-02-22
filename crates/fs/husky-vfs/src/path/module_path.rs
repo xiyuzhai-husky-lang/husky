@@ -192,15 +192,82 @@ fn module_path_debug_with_db_works() {
         "`std`",
     );
     expect_test::expect![[r#"
-        `core`
+        ModulePath {
+            [display]: Root(
+                CratePath(
+                    Id {
+                        value: 1,
+                    },
+                ),
+            ),
+            [crate]: CratePath {
+                package_path: PackagePath {
+                    data: Local {
+                        path: DiffPath {
+                            data: DiffPathBuf(
+                                "../../../library/core",
+                            ),
+                        },
+                    },
+                },
+                crate_kind: Library,
+            },
+        }
     "#]]
     .assert_debug_eq(&path_menu.core().debug(&db));
     expect_test::expect![[r#"
-        `core::num`
+        ModulePath {
+            [display]: Child {
+                parent: ModulePath(
+                    Id {
+                        value: 1,
+                    },
+                ),
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 32,
+                        },
+                    ),
+                ),
+            },
+            [crate]: CratePath {
+                package_path: PackagePath {
+                    data: Local {
+                        path: DiffPath {
+                            data: DiffPathBuf(
+                                "../../../library/core",
+                            ),
+                        },
+                    },
+                },
+                crate_kind: Library,
+            },
+        }
     "#]]
     .assert_debug_eq(&path_menu.core_num().debug(&db));
     expect_test::expect![[r#"
-        `std`
+        ModulePath {
+            [display]: Root(
+                CratePath(
+                    Id {
+                        value: 2,
+                    },
+                ),
+            ),
+            [crate]: CratePath {
+                package_path: PackagePath {
+                    data: Local {
+                        path: DiffPath {
+                            data: DiffPathBuf(
+                                "../../../library/std",
+                            ),
+                        },
+                    },
+                },
+                crate_kind: Library,
+            },
+        }
     "#]]
     .assert_debug_eq(&path_menu.std().debug(&db));
 }
