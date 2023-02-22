@@ -2,7 +2,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TraitPath(`core::fmt::Debug`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::fmt::Debug`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {

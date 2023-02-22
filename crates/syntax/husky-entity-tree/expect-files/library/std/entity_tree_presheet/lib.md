@@ -1,17 +1,19 @@
 Ok(
     EntityTreePresheet {
         module_path: `std`,
-        module_specific_symbols: NativeEntitySymbolTable(
+        native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: `prelude`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "prelude",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `std`,
                     ),
-                    symbol: Submodule(
+                    symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `std::prelude`,
-                            accessibility: PubicUnder(
+                            accessibility: Accessibility::PublicUnder(
                                 `std`,
                             ),
                             ast_idx: 0,
@@ -19,14 +21,16 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `logic`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "logic",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `std`,
                     ),
-                    symbol: Submodule(
+                    symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `std::logic`,
-                            accessibility: PubicUnder(
+                            accessibility: Accessibility::PublicUnder(
                                 `std`,
                             ),
                             ast_idx: 1,
@@ -34,14 +38,16 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `ops`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "ops",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `std`,
                     ),
-                    symbol: Submodule(
+                    symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `std::ops`,
-                            accessibility: PubicUnder(
+                            accessibility: Accessibility::PublicUnder(
                                 `std`,
                             ),
                             ast_idx: 2,
@@ -50,8 +56,18 @@ Ok(
                 },
             ],
         ),
-        entity_use_roots: EntityUseExprTrackers(
+        use_one_trackers: UseExprRules(
             [],
         ),
+        use_all_trackers: UseAllRules(
+            [],
+        ),
+        use_expr_arena: Arena {
+            data: [],
+        },
+        mod_path_arena: Arena {
+            data: [],
+        },
+        errors: [],
     },
 )

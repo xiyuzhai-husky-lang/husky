@@ -1,34 +1,52 @@
 Ok(
     EntityTreePresheet {
         module_path: `core::mem`,
-        module_specific_symbols: NativeEntitySymbolTable(
+        native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: `Ref`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "Ref",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`core::mem::Ref`, `Alien`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`core::mem::Ref`, `Alien`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 0,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `RefMut`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "RefMut",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`core::mem::RefMut`, `Alien`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`core::mem::RefMut`, `Alien`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 1,
                         },
                     ),
                 },
             ],
         ),
-        entity_use_roots: EntityUseExprTrackers(
+        use_one_trackers: UseExprRules(
             [],
         ),
+        use_all_trackers: UseAllRules(
+            [],
+        ),
+        use_expr_arena: Arena {
+            data: [],
+        },
+        mod_path_arena: Arena {
+            data: [],
+        },
+        errors: [],
     },
 )

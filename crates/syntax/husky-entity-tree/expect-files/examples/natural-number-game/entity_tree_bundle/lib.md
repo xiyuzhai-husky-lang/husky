@@ -1,19 +1,24 @@
 Ok(
-    EntityTreeBundle {
+    EntityTreeCrateBundle {
         sheets: [
             EntityTreeSheet {
                 module_path: `natural_number_game`,
-                module_specific_symbols: EntitySymbolTable(
+                symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: `Nat`,
-                            accessibility: PubicUnder(
+                            ident: Identifier(
+                                "Nat",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `natural_number_game`,
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    path: TypePath(`natural_number_game::Nat`, `Inductive`),
-                                    accessibility: PubicUnder(
+                                    [salsa id]: 118,
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`natural_number_game::Nat`, `Inductive`),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
                                         `natural_number_game`,
                                     ),
                                     ast_idx: 3,
@@ -21,14 +26,19 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `OddNat`,
-                            accessibility: PubicUnder(
+                            ident: Identifier(
+                                "OddNat",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `natural_number_game`,
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    path: TypePath(`natural_number_game::OddNat`, `Structure`),
-                                    accessibility: PubicUnder(
+                                    [salsa id]: 119,
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`natural_number_game::OddNat`, `Structure`),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
                                         `natural_number_game`,
                                     ),
                                     ast_idx: 9,
@@ -36,14 +46,19 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `EvenNat`,
-                            accessibility: PubicUnder(
+                            ident: Identifier(
+                                "EvenNat",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `natural_number_game`,
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    path: TypePath(`natural_number_game::EvenNat`, `Structure`),
-                                    accessibility: PubicUnder(
+                                    [salsa id]: 120,
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`natural_number_game::EvenNat`, `Structure`),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
                                         `natural_number_game`,
                                     ),
                                     ast_idx: 10,
@@ -52,7 +67,59 @@ Ok(
                         },
                     ],
                 ),
+                impl_blocks: [
+                    ImplBlock {
+                        id: ImplBlockId {
+                            module_path: `natural_number_game`,
+                            impl_block_kind: ImplBlockKind::Type {
+                                ty: TypePath(`natural_number_game::Nat`, `Inductive`),
+                            },
+                        },
+                        ast_idx: 6,
+                        body: ArenaIdxRange(
+                            0..3,
+                        ),
+                        variant: ImplBlockVariant::Type {
+                            ty: TypePath(`natural_number_game::Nat`, `Inductive`),
+                        },
+                    },
+                ],
+                use_expr_rules: UseExprRules(
+                    [],
+                ),
+                use_all_rules: UseAllRules(
+                    [],
+                ),
+                errors: [],
             },
         ],
+        principal_entity_path_expr_arena: Arena {
+            data: [
+                Root {
+                    ident_token: IdentifierToken {
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 462,
+                                },
+                            ),
+                        ),
+                        token_idx: TokenIdx(
+                            10,
+                        ),
+                    },
+                    entity_path: ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 38,
+                                },
+                            ),
+                        ),
+                    ),
+                },
+            ],
+        },
+        impl_blocks: [],
     },
 )

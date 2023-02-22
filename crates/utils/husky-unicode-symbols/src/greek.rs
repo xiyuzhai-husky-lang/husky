@@ -1,2 +1,3 @@
 /// greek letter
-pub const GREEK_LETTER_MU: char = 'μ';
+pub const MU: char = 'μ';
+pub const GREEK_LETTER_LOWERCASE_LAMBDA: char = 'λ';

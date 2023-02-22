@@ -1,67 +1,97 @@
 Ok(
     EntityTreePresheet {
         module_path: `core::basic`,
-        module_specific_symbols: NativeEntitySymbolTable(
+        native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: `bool`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "bool",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`core::basic::bool`, `Alien`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`core::basic::bool`, `Alien`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 0,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `never`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "never",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`core::basic::never`, `Alien`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`core::basic::never`, `Alien`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 1,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `unit`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "unit",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`core::basic::unit`, `Alien`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`core::basic::unit`, `Alien`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 2,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `Trait`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "Trait",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`core::basic::Trait`, `Structure`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`core::basic::Trait`, `Structure`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 3,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `Module`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "Module",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`core::basic::Module`, `Structure`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`core::basic::Module`, `Structure`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 4,
                         },
                     ),
                 },
             ],
         ),
-        entity_use_roots: EntityUseExprTrackers(
+        use_one_trackers: UseExprRules(
             [],
         ),
+        use_all_trackers: UseAllRules(
+            [],
+        ),
+        use_expr_arena: Arena {
+            data: [],
+        },
+        mod_path_arena: Arena {
+            data: [],
+        },
+        errors: [],
     },
 )

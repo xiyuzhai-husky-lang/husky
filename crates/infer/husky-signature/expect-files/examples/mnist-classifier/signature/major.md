@@ -12,7 +12,7 @@
         Signature::Form(
             FormSignature::Feature(
                 FeatureSignature {
-                    return_ty: Term(`ConnectedComponent`),
+                    return_ty: Term(`mnist_classifier::connected_component::ConnectedComponent`),
                 },
             ),
         ),
@@ -21,7 +21,7 @@
         Signature::Form(
             FormSignature::Feature(
                 FeatureSignature {
-                    return_ty: Term(`f32`),
+                    return_ty: Term(`core::num::f32`),
                 },
             ),
         ),
@@ -39,7 +39,7 @@
         Signature::Form(
             FormSignature::Feature(
                 FeatureSignature {
-                    return_ty: Term(`RawContour`),
+                    return_ty: Term(`mnist_classifier::raw_contour::RawContour`),
                 },
             ),
         ),
@@ -48,7 +48,7 @@
         Signature::Form(
             FormSignature::Feature(
                 FeatureSignature {
-                    return_ty: Term(`LineSegmentSketch`),
+                    return_ty: Term(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                 },
             ),
         ),

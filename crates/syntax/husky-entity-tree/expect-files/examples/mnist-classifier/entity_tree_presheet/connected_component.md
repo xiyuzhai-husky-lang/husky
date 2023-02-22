@@ -1,39 +1,51 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::connected_component`,
-        module_specific_symbols: NativeEntitySymbolTable(
+        native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: `ConnectedComponentDistribution`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "ConnectedComponentDistribution",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 121,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `EffHoles`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "EffHoles",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 122,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `hole_tmpl`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "hole_tmpl",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::connected_component`,
                     ),
-                    symbol: ModuleItem(
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
-                            accessibility: PubicUnder(
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             ast_idx: 123,
@@ -41,25 +53,33 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `ConnectedComponent`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "ConnectedComponent",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 124,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `horizontal_extend`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "horizontal_extend",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::connected_component`,
                     ),
-                    symbol: ModuleItem(
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
-                            accessibility: PubicUnder(
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             ast_idx: 126,
@@ -67,24 +87,28 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `find_connected_components`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "find_connected_components",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 127,
                         },
                     ),
                 },
             ],
         ),
-        entity_use_roots: EntityUseExprTrackers(
+        use_one_trackers: UseExprRules(
             [
                 UseTracker {
                     ast_idx: 118,
                     accessibility: Done {
-                        accessibility: PubicUnder(
+                        accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::connected_component`,
                         ),
                     },
@@ -113,7 +137,7 @@ Ok(
                 UseTracker {
                     ast_idx: 119,
                     accessibility: Done {
-                        accessibility: PubicUnder(
+                        accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::connected_component`,
                         ),
                     },
@@ -135,7 +159,7 @@ Ok(
                 UseTracker {
                     ast_idx: 120,
                     accessibility: Done {
-                        accessibility: PubicUnder(
+                        accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::connected_component`,
                         ),
                     },
@@ -156,5 +180,198 @@ Ok(
                 },
             ],
         ),
+        use_all_trackers: UseAllRules(
+            [],
+        ),
+        use_expr_arena: Arena {
+            data: [
+                Leaf {
+                    ident_token: IdentifierToken {
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 110,
+                                },
+                            ),
+                        ),
+                        token_idx: TokenIdx(
+                            7,
+                        ),
+                    },
+                },
+                Parent {
+                    parent_name_token: Identifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 108,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                5,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                6,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 0,
+                        },
+                    ),
+                },
+                Parent {
+                    parent_name_token: Identifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 130,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                3,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                4,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 1,
+                        },
+                    ),
+                },
+                Parent {
+                    parent_name_token: Identifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 129,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                1,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                2,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 2,
+                        },
+                    ),
+                },
+                All {
+                    star_token: StarToken {
+                        token_idx: TokenIdx(
+                            13,
+                        ),
+                    },
+                },
+                Parent {
+                    parent_name_token: Identifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 107,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                11,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                12,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 4,
+                        },
+                    ),
+                },
+                Parent {
+                    parent_name_token: Crate(
+                        CrateToken {
+                            token_idx: TokenIdx(
+                                9,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                10,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 5,
+                        },
+                    ),
+                },
+                All {
+                    star_token: StarToken {
+                        token_idx: TokenIdx(
+                            17,
+                        ),
+                    },
+                },
+                Parent {
+                    parent_name_token: Crate(
+                        CrateToken {
+                            token_idx: TokenIdx(
+                                15,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                16,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 7,
+                        },
+                    ),
+                },
+            ],
+        },
+        mod_path_arena: Arena {
+            data: [],
+        },
+        errors: [],
     },
 )

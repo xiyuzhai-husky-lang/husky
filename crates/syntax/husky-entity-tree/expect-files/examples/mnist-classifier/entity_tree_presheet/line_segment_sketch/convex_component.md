@@ -1,17 +1,21 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-        module_specific_symbols: NativeEntitySymbolTable(
+        native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: `ConvexComponent`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "ConvexComponent",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::convex_component`,
                     ),
-                    symbol: ModuleItem(
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                            accessibility: PubicUnder(
+                            path: ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             ast_idx: 3,
@@ -20,12 +24,12 @@ Ok(
                 },
             ],
         ),
-        entity_use_roots: EntityUseExprTrackers(
+        use_one_trackers: UseExprRules(
             [
                 UseTracker {
                     ast_idx: 2,
                     accessibility: Done {
-                        accessibility: PubicUnder(
+                        accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                     },
@@ -46,5 +50,72 @@ Ok(
                 },
             ],
         ),
+        use_all_trackers: UseAllRules(
+            [],
+        ),
+        use_expr_arena: Arena {
+            data: [
+                All {
+                    star_token: StarToken {
+                        token_idx: TokenIdx(
+                            5,
+                        ),
+                    },
+                },
+                Parent {
+                    parent_name_token: Identifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 101,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                3,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                4,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 0,
+                        },
+                    ),
+                },
+                Parent {
+                    parent_name_token: Crate(
+                        CrateToken {
+                            token_idx: TokenIdx(
+                                1,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                2,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 1,
+                        },
+                    ),
+                },
+            ],
+        },
+        mod_path_arena: Arena {
+            data: [],
+        },
+        errors: [],
     },
 )

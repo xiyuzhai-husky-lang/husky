@@ -1,17 +1,21 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::fermi`,
-        module_specific_symbols: NativeEntitySymbolTable(
+        native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: `FermiMatchResult`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "FermiMatchResult",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::fermi`,
                     ),
-                    symbol: ModuleItem(
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                            accessibility: PubicUnder(
+                            path: ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
                             ast_idx: 22,
@@ -19,24 +23,28 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `fermi_match`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "fermi_match",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 24,
                         },
                     ),
                 },
             ],
         ),
-        entity_use_roots: EntityUseExprTrackers(
+        use_one_trackers: UseExprRules(
             [
                 UseTracker {
                     ast_idx: 21,
                     accessibility: Done {
-                        accessibility: PubicUnder(
+                        accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::fermi`,
                         ),
                     },
@@ -57,5 +65,44 @@ Ok(
                 },
             ],
         ),
+        use_all_trackers: UseAllRules(
+            [],
+        ),
+        use_expr_arena: Arena {
+            data: [
+                All {
+                    star_token: StarToken {
+                        token_idx: TokenIdx(
+                            3,
+                        ),
+                    },
+                },
+                Parent {
+                    parent_name_token: Crate(
+                        CrateToken {
+                            token_idx: TokenIdx(
+                                1,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                2,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 0,
+                        },
+                    ),
+                },
+            ],
+        },
+        mod_path_arena: Arena {
+            data: [],
+        },
+        errors: [],
     },
 )

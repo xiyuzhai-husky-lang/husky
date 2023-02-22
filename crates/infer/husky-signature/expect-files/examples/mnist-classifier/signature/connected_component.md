@@ -191,7 +191,7 @@
                             },
                         ],
                     },
-                    return_ty: Term(`r32`),
+                    return_ty: Term(`core::raw_bits::r32`),
                 },
             ),
         ),
@@ -208,7 +208,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`ConnectedComponent`),
+                    ty: Term(`mnist_classifier::connected_component::ConnectedComponent`),
                 },
             ),
         ),
@@ -229,7 +229,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`EffHoles`),
+                        return_ty: Term(`mnist_classifier::connected_component::EffHoles`),
                     },
                 ),
             ),
@@ -240,7 +240,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`f32`),
+                        return_ty: Term(`core::num::f32`),
                     },
                 ),
             ),
@@ -251,7 +251,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`f32`),
+                        return_ty: Term(`core::num::f32`),
                     },
                 ),
             ),
@@ -262,7 +262,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`f32`),
+                        return_ty: Term(`core::num::f32`),
                     },
                 ),
             ),
@@ -273,7 +273,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`ConnectedComponentDistribution`),
+                        return_ty: Term(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
                     },
                 ),
             ),
@@ -284,7 +284,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`f32`),
+                        return_ty: Term(`core::num::f32`),
                     },
                 ),
             ),
@@ -295,7 +295,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`f32`),
+                        return_ty: Term(`core::num::f32`),
                     },
                 ),
             ),
@@ -327,7 +327,7 @@
                                 },
                             ],
                         },
-                        return_ty: Term(`f32`),
+                        return_ty: Term(`core::num::f32`),
                     },
                 ),
             ),
@@ -359,7 +359,7 @@
                                 },
                             ],
                         },
-                        return_ty: Term(`f32`),
+                        return_ty: Term(`core::num::f32`),
                     },
                 ),
             ),

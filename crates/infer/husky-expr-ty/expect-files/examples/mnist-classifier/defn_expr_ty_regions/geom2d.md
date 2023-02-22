@@ -406,8 +406,8 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`i32`),
-            Term(`i32`),
+            Term(`core::num::i32`),
+            Term(`core::num::i32`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -678,7 +678,7 @@
             },
         },
         return_ty: Some(
-            Term(`Point2d`),
+            Term(`mnist_classifier::geom2d::Point2d`),
         ),
         self_ty: None,
     },
@@ -849,7 +849,7 @@
             },
         },
         return_ty: Some(
-            Term(`Vector2d`),
+            Term(`mnist_classifier::geom2d::Vector2d`),
         ),
         self_ty: None,
     },
@@ -1132,7 +1132,7 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`Point2d`),
+            Term(`mnist_classifier::geom2d::Point2d`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -1266,7 +1266,7 @@
             },
         },
         return_ty: Some(
-            Term(`Vector2d`),
+            Term(`mnist_classifier::geom2d::Vector2d`),
         ),
         self_ty: None,
     },
@@ -1478,7 +1478,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -1603,7 +1603,7 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`Point2d`),
+            Term(`mnist_classifier::geom2d::Point2d`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -1669,7 +1669,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -1840,7 +1840,7 @@
             },
         },
         return_ty: Some(
-            Term(`Point2d`),
+            Term(`mnist_classifier::geom2d::Point2d`),
         ),
         self_ty: None,
     },
@@ -2123,7 +2123,7 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`Vector2d`),
+            Term(`mnist_classifier::geom2d::Vector2d`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -2257,7 +2257,7 @@
             },
         },
         return_ty: Some(
-            Term(`Vector2d`),
+            Term(`mnist_classifier::geom2d::Vector2d`),
         ),
         self_ty: None,
     },
@@ -2469,7 +2469,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -2720,7 +2720,7 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`Vector2d`),
+            Term(`mnist_classifier::geom2d::Vector2d`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -2832,7 +2832,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -3083,7 +3083,7 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`Vector2d`),
+            Term(`mnist_classifier::geom2d::Vector2d`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -3195,7 +3195,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -3804,7 +3804,7 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`bool`),
+            Term(`core::basic::bool`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -4221,7 +4221,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -4346,7 +4346,7 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`Vector2d`),
+            Term(`mnist_classifier::geom2d::Vector2d`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -4412,7 +4412,7 @@
             },
         },
         return_ty: Some(
-            Term(`i32`),
+            Term(`core::num::i32`),
         ),
         self_ty: None,
     },
@@ -5413,8 +5413,8 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`Vector2d`),
-            Term(`bool`),
+            Term(`mnist_classifier::geom2d::Vector2d`),
+            Term(`core::basic::bool`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -6177,7 +6177,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -6428,7 +6428,7 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`BoundingBox`),
+            Term(`mnist_classifier::geom2d::BoundingBox`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -6560,7 +6560,7 @@
             },
         },
         return_ty: Some(
-            Term(`RelativeBoundingBox`),
+            Term(`mnist_classifier::geom2d::RelativeBoundingBox`),
         ),
         self_ty: None,
     },
@@ -6843,7 +6843,7 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`Point2d`),
+            Term(`mnist_classifier::geom2d::Point2d`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -6977,7 +6977,7 @@
             },
         },
         return_ty: Some(
-            Term(`RelativePoint2d`),
+            Term(`mnist_classifier::geom2d::RelativePoint2d`),
         ),
         self_ty: None,
     },
@@ -7069,7 +7069,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -7161,7 +7161,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -7253,7 +7253,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -7345,7 +7345,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -7437,7 +7437,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -7529,7 +7529,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -7621,7 +7621,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -7713,7 +7713,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },

@@ -11,7 +11,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`ConvexComponent`),
+                    ty: Term(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`),
                 },
             ),
         ),

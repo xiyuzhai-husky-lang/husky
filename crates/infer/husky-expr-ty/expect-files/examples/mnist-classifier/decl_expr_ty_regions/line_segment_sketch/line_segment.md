@@ -2,7 +2,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -436,7 +440,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`LineSegment`),
+            Term(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
         ),
     },
     ExprTypeRegion {
@@ -508,7 +512,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`Point2d`),
+                Term(`mnist_classifier::geom2d::Point2d`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -567,7 +571,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`LineSegment`),
+            Term(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
         ),
     },
 ]

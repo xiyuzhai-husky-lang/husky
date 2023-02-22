@@ -2,7 +2,11 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::digits::nine::nine_match`, `Feature`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::digits::nine::nine_match`, `Feature`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -587,7 +591,11 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Feature`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Feature`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -1172,7 +1180,11 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -5554,7 +5566,11 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::digits::nine::downmost`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::digits::nine::downmost`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -5754,7 +5770,7 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`Ref TermLiteral::EvalLifetime ConcaveComponent`),
+            Term(`Ref 'eval ConcaveComponent`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -5923,7 +5939,11 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::digits::nine::big_cc`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::digits::nine::big_cc`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -6295,7 +6315,7 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`Ref TermLiteral::EvalLifetime ConcaveComponent`),
+            Term(`Ref 'eval ConcaveComponent`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {

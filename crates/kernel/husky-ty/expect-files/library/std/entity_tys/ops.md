@@ -1,8 +1,12 @@
 [
     (
-        TraitPath(`std::ops::Add`),
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`std::ops::Add`),
+            ),
+        ),
         Ok(
-            Term(`TermCurry { variance: Independent, x: Term(`Type`), y: Term(`Trait`) }`),
+            Term(`independent Type -> Trait`),
         ),
     ),
 ]

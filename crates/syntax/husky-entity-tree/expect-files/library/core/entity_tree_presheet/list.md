@@ -1,23 +1,37 @@
 Ok(
     EntityTreePresheet {
         module_path: `core::list`,
-        module_specific_symbols: NativeEntitySymbolTable(
+        native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: `List`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "List",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`core::list::List`, `Alien`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`core::list::List`, `Alien`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 0,
                         },
                     ),
                 },
             ],
         ),
-        entity_use_roots: EntityUseExprTrackers(
+        use_one_trackers: UseExprRules(
             [],
         ),
+        use_all_trackers: UseAllRules(
+            [],
+        ),
+        use_expr_arena: Arena {
+            data: [],
+        },
+        mod_path_arena: Arena {
+            data: [],
+        },
+        errors: [],
     },
 )

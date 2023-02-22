@@ -2,7 +2,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`natural_number_game::Nat`, `Inductive`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`natural_number_game::Nat`, `Inductive`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -34,7 +38,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`natural_number_game::OddNat`, `Structure`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`natural_number_game::OddNat`, `Structure`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -66,7 +74,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`natural_number_game::EvenNat`, `Structure`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`natural_number_game::EvenNat`, `Structure`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -579,7 +591,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`Nat`),
+            Term(`natural_number_game::Nat`),
         ),
     },
 ]

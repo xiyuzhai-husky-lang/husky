@@ -1,100 +1,142 @@
 Ok(
     EntityTreePresheet {
         module_path: `core::num`,
-        module_specific_symbols: NativeEntitySymbolTable(
+        native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: `i8`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "i8",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`core::num::i8`, `Alien`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`core::num::i8`, `Alien`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 18,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `i16`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "i16",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`core::num::i16`, `Alien`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`core::num::i16`, `Alien`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 23,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `i32`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "i32",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`core::num::i32`, `Alien`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`core::num::i32`, `Alien`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 28,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `i64`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "i64",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`core::num::i64`, `Alien`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`core::num::i64`, `Alien`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 33,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `f8`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "f8",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`core::num::f8`, `Alien`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`core::num::f8`, `Alien`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 38,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `f16`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "f16",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`core::num::f16`, `Alien`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`core::num::f16`, `Alien`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 43,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `f32`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "f32",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`core::num::f32`, `Alien`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`core::num::f32`, `Alien`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 48,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `f64`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "f64",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`core::num::f64`, `Alien`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`core::num::f64`, `Alien`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 53,
                         },
                     ),
                 },
             ],
         ),
-        entity_use_roots: EntityUseExprTrackers(
+        use_one_trackers: UseExprRules(
             [],
         ),
+        use_all_trackers: UseAllRules(
+            [],
+        ),
+        use_expr_arena: Arena {
+            data: [],
+        },
+        mod_path_arena: Arena {
+            data: [],
+        },
+        errors: [],
     },
 )

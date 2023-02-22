@@ -19,6 +19,7 @@ husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-token = { path = "../../lex/husky-token" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
+husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
 
 [dev-dependencies]
 # kernel

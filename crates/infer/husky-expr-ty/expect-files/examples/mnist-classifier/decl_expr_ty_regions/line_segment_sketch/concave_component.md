@@ -2,7 +2,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -235,7 +239,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -279,7 +287,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`Ref TermLiteral::EvalLifetime LineSegmentSketch`),
+                Term(`Ref 'eval LineSegmentSketch`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -473,7 +481,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`ConcaveComponent`),
+            Term(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
         ),
     },
     ExprTypeRegion {
@@ -598,7 +606,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`ConcaveComponent`),
+            Term(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
         ),
     },
     ExprTypeRegion {
@@ -723,7 +731,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`ConcaveComponent`),
+            Term(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
         ),
     },
     ExprTypeRegion {
@@ -848,7 +856,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`ConcaveComponent`),
+            Term(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
         ),
     },
     ExprTypeRegion {
@@ -904,7 +912,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`ConcaveComponent`),
+            Term(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
         ),
     },
     ExprTypeRegion {
@@ -1029,7 +1037,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`ConcaveComponent`),
+            Term(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
         ),
     },
     ExprTypeRegion {
@@ -1154,7 +1162,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`ConcaveComponent`),
+            Term(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
         ),
     },
     ExprTypeRegion {
@@ -1279,7 +1287,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`ConcaveComponent`),
+            Term(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
         ),
     },
     ExprTypeRegion {
@@ -1404,7 +1412,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`ConcaveComponent`),
+            Term(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
         ),
     },
     ExprTypeRegion {
@@ -1529,7 +1537,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`ConcaveComponent`),
+            Term(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
         ),
     },
     ExprTypeRegion {
@@ -1654,7 +1662,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`ConcaveComponent`),
+            Term(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
         ),
     },
     ExprTypeRegion {
@@ -1779,7 +1787,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`ConcaveComponent`),
+            Term(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
         ),
     },
 ]

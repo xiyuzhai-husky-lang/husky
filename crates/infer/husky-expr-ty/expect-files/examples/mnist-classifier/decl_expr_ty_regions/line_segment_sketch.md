@@ -2,7 +2,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -231,7 +235,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -291,10 +299,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`Vector2d`),
+                Term(`mnist_classifier::geom2d::Vector2d`),
             ),
             LocalTerm::Resolved(
-                Term(`f32`),
+                Term(`core::num::f32`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -357,7 +365,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -417,10 +429,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`Vector2d`),
+                Term(`mnist_classifier::geom2d::Vector2d`),
             ),
             LocalTerm::Resolved(
-                Term(`f32`),
+                Term(`core::num::f32`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -483,7 +495,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -547,13 +563,13 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`Ref TermLiteral::EvalLifetime RawContour`),
+                Term(`Ref 'eval RawContour`),
             ),
             LocalTerm::Resolved(
-                Term(`i32`),
+                Term(`core::num::i32`),
             ),
             LocalTerm::Resolved(
-                Term(`f32`),
+                Term(`core::num::f32`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -616,7 +632,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -682,16 +702,16 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`Ref TermLiteral::EvalLifetime RawContour`),
+                Term(`Ref 'eval RawContour`),
             ),
             LocalTerm::Resolved(
-                Term(`i32`),
+                Term(`core::num::i32`),
             ),
             LocalTerm::Resolved(
-                Term(`i32`),
+                Term(`core::num::i32`),
             ),
             LocalTerm::Resolved(
-                Term(`f32`),
+                Term(`core::num::f32`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -754,7 +774,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -800,10 +824,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`Ref TermLiteral::EvalLifetime RawContour`),
+                Term(`Ref 'eval RawContour`),
             ),
             LocalTerm::Resolved(
-                Term(`f32`),
+                Term(`core::num::f32`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -920,13 +944,13 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`Ref TermLiteral::EvalLifetime RawContour`),
+                Term(`Ref 'eval RawContour`),
             ),
             LocalTerm::Resolved(
-                Term(`i32`),
+                Term(`core::num::i32`),
             ),
             LocalTerm::Resolved(
-                Term(`i32`),
+                Term(`core::num::i32`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -946,7 +970,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`LineSegmentStroke`),
+            Term(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
         ),
     },
     ExprTypeRegion {
@@ -1071,7 +1095,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`LineSegmentStroke`),
+            Term(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
         ),
     },
     ExprTypeRegion {
@@ -1261,7 +1285,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`LineSegmentSketch`),
+            Term(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
         ),
     },
     ExprTypeRegion {
@@ -1317,7 +1341,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`LineSegmentSketch`),
+            Term(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
         ),
     },
     ExprTypeRegion {
@@ -1393,10 +1417,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`Ref TermLiteral::EvalLifetime RawContour`),
+                Term(`Ref 'eval RawContour`),
             ),
             LocalTerm::Resolved(
-                Term(`f32`),
+                Term(`core::num::f32`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -1455,7 +1479,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`LineSegmentSketch`),
+            Term(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
         ),
     },
 ]

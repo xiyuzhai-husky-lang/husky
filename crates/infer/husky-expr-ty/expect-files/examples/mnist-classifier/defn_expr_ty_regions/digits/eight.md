@@ -2,7 +2,11 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Feature`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Feature`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -587,7 +591,11 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -2363,7 +2371,11 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::digits::eight::big_mouth`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::digits::eight::big_mouth`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -2809,7 +2821,7 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`Ref TermLiteral::EvalLifetime ConcaveComponent`),
+            Term(`Ref 'eval ConcaveComponent`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {

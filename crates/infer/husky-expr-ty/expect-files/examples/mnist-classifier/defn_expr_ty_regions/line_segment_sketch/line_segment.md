@@ -111,7 +111,7 @@
             },
         },
         return_ty: Some(
-            Term(`Vector2d`),
+            Term(`mnist_classifier::geom2d::Vector2d`),
         ),
         self_ty: None,
     },
@@ -718,7 +718,7 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`Point2d`),
+            Term(`mnist_classifier::geom2d::Point2d`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -1039,7 +1039,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },

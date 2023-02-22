@@ -1,17 +1,21 @@
 Ok(
     EntityTreePresheet {
         module_path: `std::ops`,
-        module_specific_symbols: NativeEntitySymbolTable(
+        native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: `Add`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "Add",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `std::ops`,
                     ),
-                    symbol: ModuleItem(
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TraitPath(`std::ops::Add`),
-                            accessibility: PubicUnder(
+                            path: ModuleItemPath::Trait(
+                                TraitPath(`std::ops::Add`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `std::ops`,
                             ),
                             ast_idx: 3,
@@ -20,8 +24,18 @@ Ok(
                 },
             ],
         ),
-        entity_use_roots: EntityUseExprTrackers(
+        use_one_trackers: UseExprRules(
             [],
         ),
+        use_all_trackers: UseAllRules(
+            [],
+        ),
+        use_expr_arena: Arena {
+            data: [],
+        },
+        mod_path_arena: Arena {
+            data: [],
+        },
+        errors: [],
     },
 )

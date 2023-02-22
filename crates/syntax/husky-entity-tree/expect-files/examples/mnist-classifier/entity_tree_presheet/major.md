@@ -1,93 +1,121 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::major`,
-        module_specific_symbols: NativeEntitySymbolTable(
+        native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: `connected_components`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "connected_components",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 23,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `major_connected_component`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "major_connected_component",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 24,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `ignored_connected_components_row_span_sum_sum`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "ignored_connected_components_row_span_sum_sum",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 25,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `major_raw_contours`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "major_raw_contours",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 26,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `major_raw_contour`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "major_raw_contour",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 27,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `major_line_segment_sketch`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "major_line_segment_sketch",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 28,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `major_concave_components`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "major_concave_components",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 29,
                         },
                     ),
                 },
             ],
         ),
-        entity_use_roots: EntityUseExprTrackers(
+        use_one_trackers: UseExprRules(
             [
                 UseTracker {
                     ast_idx: 18,
                     accessibility: Done {
-                        accessibility: PubicUnder(
+                        accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::major`,
                         ),
                     },
@@ -109,7 +137,7 @@ Ok(
                 UseTracker {
                     ast_idx: 19,
                     accessibility: Done {
-                        accessibility: PubicUnder(
+                        accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::major`,
                         ),
                     },
@@ -131,7 +159,7 @@ Ok(
                 UseTracker {
                     ast_idx: 20,
                     accessibility: Done {
-                        accessibility: PubicUnder(
+                        accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::major`,
                         ),
                     },
@@ -153,7 +181,7 @@ Ok(
                 UseTracker {
                     ast_idx: 21,
                     accessibility: Done {
-                        accessibility: PubicUnder(
+                        accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::major`,
                         ),
                     },
@@ -175,7 +203,7 @@ Ok(
                 UseTracker {
                     ast_idx: 22,
                     accessibility: Done {
-                        accessibility: PubicUnder(
+                        accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::major`,
                         ),
                     },
@@ -196,5 +224,296 @@ Ok(
                 },
             ],
         ),
+        use_all_trackers: UseAllRules(
+            [],
+        ),
+        use_expr_arena: Arena {
+            data: [
+                All {
+                    star_token: StarToken {
+                        token_idx: TokenIdx(
+                            5,
+                        ),
+                    },
+                },
+                Parent {
+                    parent_name_token: Identifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 87,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                3,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                4,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 0,
+                        },
+                    ),
+                },
+                Parent {
+                    parent_name_token: Crate(
+                        CrateToken {
+                            token_idx: TokenIdx(
+                                1,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                2,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 1,
+                        },
+                    ),
+                },
+                All {
+                    star_token: StarToken {
+                        token_idx: TokenIdx(
+                            11,
+                        ),
+                    },
+                },
+                Parent {
+                    parent_name_token: Identifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 107,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                9,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                10,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 3,
+                        },
+                    ),
+                },
+                Parent {
+                    parent_name_token: Crate(
+                        CrateToken {
+                            token_idx: TokenIdx(
+                                7,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                8,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 4,
+                        },
+                    ),
+                },
+                All {
+                    star_token: StarToken {
+                        token_idx: TokenIdx(
+                            17,
+                        ),
+                    },
+                },
+                Parent {
+                    parent_name_token: Identifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 101,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                15,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                16,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 6,
+                        },
+                    ),
+                },
+                Parent {
+                    parent_name_token: Crate(
+                        CrateToken {
+                            token_idx: TokenIdx(
+                                13,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                14,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 7,
+                        },
+                    ),
+                },
+                All {
+                    star_token: StarToken {
+                        token_idx: TokenIdx(
+                            25,
+                        ),
+                    },
+                },
+                Parent {
+                    parent_name_token: Identifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 102,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                23,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                24,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 9,
+                        },
+                    ),
+                },
+                Parent {
+                    parent_name_token: Identifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 101,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                21,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                22,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 10,
+                        },
+                    ),
+                },
+                Parent {
+                    parent_name_token: Crate(
+                        CrateToken {
+                            token_idx: TokenIdx(
+                                19,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                20,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 11,
+                        },
+                    ),
+                },
+                All {
+                    star_token: StarToken {
+                        token_idx: TokenIdx(
+                            29,
+                        ),
+                    },
+                },
+                Parent {
+                    parent_name_token: Crate(
+                        CrateToken {
+                            token_idx: TokenIdx(
+                                27,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                28,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 13,
+                        },
+                    ),
+                },
+            ],
+        },
+        mod_path_arena: Arena {
+            data: [],
+        },
+        errors: [],
     },
 )

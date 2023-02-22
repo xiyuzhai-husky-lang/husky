@@ -2,7 +2,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TraitPath(`std::ops::Add`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`std::ops::Add`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {

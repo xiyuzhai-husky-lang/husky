@@ -1,20 +1,32 @@
 [
     (
-        TypePath(`core::logic::Prop`, `Alien`),
+        EntityPath::ModuleItem(
+            ModuleItemPath::Type(
+                TypePath(`core::logic::Prop`, `Alien`),
+            ),
+        ),
         Ok(
             Term(`Type`),
         ),
     ),
     (
-        TypePath(`core::logic::LogicAnd`, `Structure`),
+        EntityPath::ModuleItem(
+            ModuleItemPath::Type(
+                TypePath(`core::logic::LogicAnd`, `Structure`),
+            ),
+        ),
         Ok(
-            Term(`TermCurry { variance: Independent, x: Term(`Type`), y: Term(`TermCurry { variance: Independent, x: Term(`Type`), y: Term(`Type`) }`) }`),
+            Term(`independent Type -> independent Type -> Type`),
         ),
     ),
     (
-        TypePath(`core::logic::LogicOr`, `Inductive`),
+        EntityPath::ModuleItem(
+            ModuleItemPath::Type(
+                TypePath(`core::logic::LogicOr`, `Inductive`),
+            ),
+        ),
         Ok(
-            Term(`TermCurry { variance: Independent, x: Term(`Type`), y: Term(`TermCurry { variance: Independent, x: Term(`Type`), y: Term(`Type`) }`) }`),
+            Term(`independent Type -> independent Type -> Type`),
         ),
     ),
 ]

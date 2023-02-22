@@ -2,7 +2,11 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -208,7 +212,7 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`Ref TermLiteral::EvalLifetime RawContour`),
+            Term(`Ref 'eval RawContour`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -407,7 +411,11 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -1507,8 +1515,8 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`r32`),
-            Term(`r32`),
+            Term(`core::raw_bits::r32`),
+            Term(`core::raw_bits::r32`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -2285,14 +2293,18 @@
             },
         },
         return_ty: Some(
-            Term(`r32`),
+            Term(`core::raw_bits::r32`),
         ),
         self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -4840,7 +4852,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`bool`),
+                Term(`core::basic::bool`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -8479,7 +8491,7 @@
             },
         },
         return_ty: Some(
-            Term(`EffHoles`),
+            Term(`mnist_classifier::connected_component::EffHoles`),
         ),
         self_ty: None,
     },
@@ -9348,7 +9360,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -10055,7 +10067,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -10738,7 +10750,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -12334,7 +12346,7 @@
             },
         },
         return_ty: Some(
-            Term(`ConnectedComponentDistribution`),
+            Term(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
         ),
         self_ty: None,
     },
@@ -12537,7 +12549,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -12740,7 +12752,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -13377,7 +13389,7 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`i32`),
+            Term(`core::num::i32`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -14000,7 +14012,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -14637,7 +14649,7 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`i32`),
+            Term(`core::num::i32`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -15260,7 +15272,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },

@@ -1,14 +1,22 @@
 [
     (
-        TraitPath(`core::ops::Add`),
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::ops::Add`),
+            ),
+        ),
         Ok(
-            Term(`TermCurry { variance: Independent, x: Term(`Type`), y: Term(`Trait`) }`),
+            Term(`independent Type -> Trait`),
         ),
     ),
     (
-        TraitPath(`core::ops::Sub`),
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::ops::Sub`),
+            ),
+        ),
         Ok(
-            Term(`TermCurry { variance: Independent, x: Term(`Type`), y: Term(`Trait`) }`),
+            Term(`independent Type -> Trait`),
         ),
     ),
 ]

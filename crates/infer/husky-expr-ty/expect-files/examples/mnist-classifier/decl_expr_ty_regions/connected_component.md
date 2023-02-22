@@ -2,7 +2,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -357,7 +361,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -722,7 +730,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -824,7 +836,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`Ref TermLiteral::EvalLifetime RawContour`),
+                Term(`Ref 'eval RawContour`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -925,7 +937,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -971,7 +987,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -1031,10 +1051,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`r32`),
+                Term(`core::raw_bits::r32`),
             ),
             LocalTerm::Resolved(
-                Term(`r32`),
+                Term(`core::raw_bits::r32`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -1097,7 +1117,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -1411,7 +1435,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`ConnectedComponent`),
+            Term(`mnist_classifier::connected_component::ConnectedComponent`),
         ),
     },
     ExprTypeRegion {
@@ -1536,7 +1560,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`ConnectedComponent`),
+            Term(`mnist_classifier::connected_component::ConnectedComponent`),
         ),
     },
     ExprTypeRegion {
@@ -1661,7 +1685,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`ConnectedComponent`),
+            Term(`mnist_classifier::connected_component::ConnectedComponent`),
         ),
     },
     ExprTypeRegion {
@@ -1786,7 +1810,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`ConnectedComponent`),
+            Term(`mnist_classifier::connected_component::ConnectedComponent`),
         ),
     },
     ExprTypeRegion {
@@ -1911,7 +1935,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`ConnectedComponent`),
+            Term(`mnist_classifier::connected_component::ConnectedComponent`),
         ),
     },
     ExprTypeRegion {
@@ -2036,7 +2060,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`ConnectedComponent`),
+            Term(`mnist_classifier::connected_component::ConnectedComponent`),
         ),
     },
     ExprTypeRegion {
@@ -2161,7 +2185,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`ConnectedComponent`),
+            Term(`mnist_classifier::connected_component::ConnectedComponent`),
         ),
     },
     ExprTypeRegion {
@@ -2286,7 +2310,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`ConnectedComponent`),
+            Term(`mnist_classifier::connected_component::ConnectedComponent`),
         ),
     },
     ExprTypeRegion {
@@ -2358,7 +2382,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`i32`),
+                Term(`core::num::i32`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -2417,7 +2441,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`ConnectedComponent`),
+            Term(`mnist_classifier::connected_component::ConnectedComponent`),
         ),
     },
     ExprTypeRegion {
@@ -2489,7 +2513,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`i32`),
+                Term(`core::num::i32`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -2548,7 +2572,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`ConnectedComponent`),
+            Term(`mnist_classifier::connected_component::ConnectedComponent`),
         ),
     },
 ]

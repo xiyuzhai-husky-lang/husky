@@ -1,4 +1,5 @@
 DiagnosticSheet {
+    [salsa id]: 38,
     token_diagnostic_sheet: TokenDiagnosticSheet {
         diagnostics: [],
     },
@@ -193,17 +194,17 @@ DiagnosticSheet {
                 range: [107:9, 107:14),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
+                message: "Type Error: original `todo` in term Ref 'eval RawContour",
                 severity: Error,
                 range: [81:18, 81:20),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
+                message: "Type Error: original `todo` in term Ref 'eval RawContour",
                 severity: Error,
                 range: [82:13, 82:15),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
+                message: "Type Error: original `todo` in term Ref 'eval RawContour",
                 severity: Error,
                 range: [86:14, 86:16),
             },
@@ -218,7 +219,7 @@ DiagnosticSheet {
                 range: [106:17, 106:27),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
+                message: "Type Error: original `todo` in term Ref 'eval RawContour",
                 severity: Error,
                 range: [108:14, 108:16),
             },
@@ -258,22 +259,22 @@ DiagnosticSheet {
                 range: [145:13, 145:20),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
+                message: "Type Error: original `todo` in term Ref 'eval RawContour",
                 severity: Error,
                 range: [114:19, 114:21),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
+                message: "Type Error: original `todo` in term Ref 'eval RawContour",
                 severity: Error,
                 range: [115:27, 115:29),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
+                message: "Type Error: original `todo` in term Ref 'eval RawContour",
                 severity: Error,
                 range: [118:15, 118:17),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
+                message: "Type Error: original `todo` in term Ref 'eval RawContour",
                 severity: Error,
                 range: [125:18, 125:20),
             },
@@ -288,22 +289,22 @@ DiagnosticSheet {
                 range: [137:17, 137:27),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
+                message: "Type Error: original `todo` in term Ref 'eval RawContour",
                 severity: Error,
                 range: [158:23, 158:25),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
+                message: "Type Error: original `todo` in term Ref 'eval RawContour",
                 severity: Error,
                 range: [161:52, 161:54),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
+                message: "Type Error: original `todo` in term Ref 'eval RawContour",
                 severity: Error,
                 range: [168:25, 168:27),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
+                message: "Type Error: original `todo` in term Ref 'eval RawContour",
                 severity: Error,
                 range: [169:64, 169:66),
             },
@@ -313,32 +314,32 @@ DiagnosticSheet {
                 range: [170:17, 170:34),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
+                message: "Type Error: original `todo` in term Ref 'eval RawContour",
                 severity: Error,
                 range: [173:49, 173:51),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
+                message: "Type Error: original `todo` in term Ref 'eval RawContour",
                 severity: Error,
                 range: [184:49, 184:51),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
+                message: "Type Error: original `todo` in term Ref 'eval RawContour",
                 severity: Error,
                 range: [186:35, 186:37),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
+                message: "Type Error: original `todo` in term Ref 'eval RawContour",
                 severity: Error,
                 range: [190:13, 190:15),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
+                message: "Type Error: original `todo` in term Ref 'eval RawContour",
                 severity: Error,
                 range: [196:13, 196:15),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
+                message: "Type Error: original `todo` in term Ref 'eval RawContour",
                 severity: Error,
                 range: [23:27, 23:29),
             },
@@ -363,7 +364,7 @@ DiagnosticSheet {
                 range: [58:9, 58:26),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime RawContour",
+                message: "Type Error: original `todo` in term Ref 'eval RawContour",
                 severity: Error,
                 range: [58:27, 58:29),
             },

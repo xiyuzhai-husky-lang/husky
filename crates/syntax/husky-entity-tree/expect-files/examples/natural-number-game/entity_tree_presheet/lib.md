@@ -1,17 +1,21 @@
 Ok(
     EntityTreePresheet {
         module_path: `natural_number_game`,
-        module_specific_symbols: NativeEntitySymbolTable(
+        native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: `Nat`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "Nat",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `natural_number_game`,
                     ),
-                    symbol: ModuleItem(
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`natural_number_game::Nat`, `Inductive`),
-                            accessibility: PubicUnder(
+                            path: ModuleItemPath::Type(
+                                TypePath(`natural_number_game::Nat`, `Inductive`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `natural_number_game`,
                             ),
                             ast_idx: 3,
@@ -19,14 +23,18 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `OddNat`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "OddNat",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `natural_number_game`,
                     ),
-                    symbol: ModuleItem(
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`natural_number_game::OddNat`, `Structure`),
-                            accessibility: PubicUnder(
+                            path: ModuleItemPath::Type(
+                                TypePath(`natural_number_game::OddNat`, `Structure`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `natural_number_game`,
                             ),
                             ast_idx: 9,
@@ -34,14 +42,18 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `EvenNat`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "EvenNat",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `natural_number_game`,
                     ),
-                    symbol: ModuleItem(
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`natural_number_game::EvenNat`, `Structure`),
-                            accessibility: PubicUnder(
+                            path: ModuleItemPath::Type(
+                                TypePath(`natural_number_game::EvenNat`, `Structure`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `natural_number_game`,
                             ),
                             ast_idx: 10,
@@ -50,8 +62,18 @@ Ok(
                 },
             ],
         ),
-        entity_use_roots: EntityUseExprTrackers(
+        use_one_trackers: UseExprRules(
             [],
         ),
+        use_all_trackers: UseAllRules(
+            [],
+        ),
+        use_expr_arena: Arena {
+            data: [],
+        },
+        mod_path_arena: Arena {
+            data: [],
+        },
+        errors: [],
     },
 )

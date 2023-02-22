@@ -2,7 +2,11 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Feature`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Feature`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -587,7 +591,11 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -799,7 +807,7 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`Ref TermLiteral::EvalLifetime ConcaveComponent`),
+            Term(`Ref 'eval ConcaveComponent`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -968,7 +976,11 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Feature`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Feature`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -1659,7 +1671,11 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -2031,7 +2047,7 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`Ref TermLiteral::EvalLifetime ConcaveComponent`),
+            Term(`Ref 'eval ConcaveComponent`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -2378,7 +2394,11 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -2908,7 +2928,7 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`Ref TermLiteral::EvalLifetime ConcaveComponent`),
+            Term(`Ref 'eval ConcaveComponent`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -3405,7 +3425,11 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {

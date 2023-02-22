@@ -2,7 +2,11 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -587,7 +591,11 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::digits::zero::almost_closed`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::digits::zero::almost_closed`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -867,7 +875,7 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`Ref TermLiteral::EvalLifetime ConcaveComponent`),
+            Term(`Ref 'eval ConcaveComponent`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -1133,7 +1141,11 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {

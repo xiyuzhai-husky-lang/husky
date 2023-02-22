@@ -2,7 +2,11 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -378,8 +382,8 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`Ref TermLiteral::EvalLifetime List ConcaveComponent`),
-            Term(`List TermCurry { variance: Invariant, x: Term(`Ref TermLiteral::EvalLifetime ConcaveComponent`), y: Term(`Option f32`) }`),
+            Term(`Ref 'eval List ConcaveComponent`),
+            Term(`List invariant Ref 'eval ConcaveComponent -> Option f32`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -597,7 +601,7 @@
             },
         },
         return_ty: Some(
-            Term(`FermiMatchResult`),
+            Term(`mnist_classifier::fermi::FermiMatchResult`),
         ),
         self_ty: None,
     },
@@ -1132,7 +1136,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -1667,7 +1671,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -2214,7 +2218,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },

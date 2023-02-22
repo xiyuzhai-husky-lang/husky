@@ -115,14 +115,14 @@ impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for Term {
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
         match self {
-            Term::Literal(term) => todo!(),
+            Term::Literal(term) => term.display_with_db_fmt(f, db, level),
             Term::Symbol(term) => term.display_with_db_fmt(f, db, level),
             Term::Entity(term) => term.display_with_db_fmt(f, db, level),
             Term::Category(term) => f.write_str(&term.to_string()),
             Term::Universe(term) => f.write_str(&term.to_string()),
-            Term::Curry(term) => todo!(),
+            Term::Curry(term) => term.display_with_db_fmt(f, db, level),
             Term::Ritchie(term) => term.display_with_db_fmt(f, db, level),
-            Term::Abstraction(term) => todo!(),
+            Term::Abstraction(term) => term.display_with_db_fmt(f, db, level),
             Term::Application(term) => term.display_with_db_fmt(f, db, level),
             Term::Subentity(term) => f.debug_tuple("Subentity").field(&term.debug(db)).finish(),
             Term::AsTraitSubentity(term) => f

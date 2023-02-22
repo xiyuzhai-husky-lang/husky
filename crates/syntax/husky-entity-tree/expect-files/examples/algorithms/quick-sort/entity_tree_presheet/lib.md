@@ -1,28 +1,36 @@
 Ok(
     EntityTreePresheet {
         module_path: `quick_sort`,
-        module_specific_symbols: NativeEntitySymbolTable(
+        native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: `quick_sort`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "quick_sort",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: FormPath(`quick_sort::quick_sort`, `Function`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Form(
+                                FormPath(`quick_sort::quick_sort`, `Function`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 30,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `quick_sort_aux`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "quick_sort_aux",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `quick_sort`,
                     ),
-                    symbol: ModuleItem(
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: FormPath(`quick_sort::quick_sort_aux`, `Function`),
-                            accessibility: PubicUnder(
+                            path: ModuleItemPath::Form(
+                                FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `quick_sort`,
                             ),
                             ast_idx: 31,
@@ -30,14 +38,18 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `partition`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "partition",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `quick_sort`,
                     ),
-                    symbol: ModuleItem(
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: FormPath(`quick_sort::partition`, `Function`),
-                            accessibility: PubicUnder(
+                            path: ModuleItemPath::Form(
+                                FormPath(`quick_sort::partition`, `Function`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `quick_sort`,
                             ),
                             ast_idx: 32,
@@ -45,14 +57,18 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `quick_sort_works_for_integers`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "quick_sort_works_for_integers",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `quick_sort`,
                     ),
-                    symbol: ModuleItem(
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
-                            accessibility: PubicUnder(
+                            path: ModuleItemPath::Form(
+                                FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `quick_sort`,
                             ),
                             ast_idx: 34,
@@ -60,14 +76,18 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `quick_sort_works_for_strs`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "quick_sort_works_for_strs",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `quick_sort`,
                     ),
-                    symbol: ModuleItem(
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
-                            accessibility: PubicUnder(
+                            path: ModuleItemPath::Form(
+                                FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `quick_sort`,
                             ),
                             ast_idx: 36,
@@ -76,8 +96,18 @@ Ok(
                 },
             ],
         ),
-        entity_use_roots: EntityUseExprTrackers(
+        use_one_trackers: UseExprRules(
             [],
         ),
+        use_all_trackers: UseAllRules(
+            [],
+        ),
+        use_expr_arena: Arena {
+            data: [],
+        },
+        mod_path_arena: Arena {
+            data: [],
+        },
+        errors: [],
     },
 )
