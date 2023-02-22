@@ -8,6 +8,7 @@ fn toolchain_debug_works() {
     let toolchain = db.dev_toolchain().unwrap();
     expect_test::expect![[r#"
         Toolchain {
+            [salsa id]: 0,
             data: Local {
                 library_path: DiffPath {
                     data: DiffPathBuf(

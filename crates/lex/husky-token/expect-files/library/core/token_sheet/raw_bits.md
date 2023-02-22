@@ -27,7 +27,7 @@ Ok(
                 String(
                     StringLiteral(
                         Id {
-                            value: 3,
+                            value: 16,
                         },
                     ),
                 ),
@@ -133,7 +133,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 73,
+                            value: 86,
                         },
                     ),
                 ),

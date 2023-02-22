@@ -9,7 +9,7 @@ Ok(
                         Trait(
                             TraitPath(
                                 Id {
-                                    value: 7,
+                                    value: 20,
                                 },
                             ),
                         ),
@@ -31,7 +31,7 @@ Ok(
                         Trait(
                             TraitPath(
                                 Id {
-                                    value: 8,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -53,7 +53,7 @@ Ok(
                         Trait(
                             TraitPath(
                                 Id {
-                                    value: 9,
+                                    value: 22,
                                 },
                             ),
                         ),
@@ -75,7 +75,7 @@ Ok(
                         Trait(
                             TraitPath(
                                 Id {
-                                    value: 10,
+                                    value: 23,
                                 },
                             ),
                         ),

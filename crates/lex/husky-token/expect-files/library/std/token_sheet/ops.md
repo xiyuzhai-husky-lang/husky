@@ -13,7 +13,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 74,
+                            value: 87,
                         },
                     ),
                 ),
@@ -29,7 +29,7 @@ Ok(
                 String(
                     StringLiteral(
                         Id {
-                            value: 4,
+                            value: 17,
                         },
                     ),
                 ),
@@ -58,7 +58,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 75,
+                            value: 88,
                         },
                     ),
                 ),
@@ -121,7 +121,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 75,
+                            value: 88,
                         },
                     ),
                 ),

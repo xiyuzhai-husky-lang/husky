@@ -941,7 +941,215 @@ Ok(
                                         TraitPath(`core::ops::Add`),
                                     ),
                                     accessibility: Accessibility::Public,
-                                    ast_idx: 5,
+                                    ast_idx: 26,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Identifier(
+                                "AddAssign",
+                            ),
+                            accessibility: Accessibility::Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    [salsa id]: 19,
+                                    path: ModuleItemPath::Trait(
+                                        TraitPath(`core::ops::AddAssign`),
+                                    ),
+                                    accessibility: Accessibility::Public,
+                                    ast_idx: 28,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Identifier(
+                                "BitAnd",
+                            ),
+                            accessibility: Accessibility::Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    [salsa id]: 20,
+                                    path: ModuleItemPath::Trait(
+                                        TraitPath(`core::ops::BitAnd`),
+                                    ),
+                                    accessibility: Accessibility::Public,
+                                    ast_idx: 30,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Identifier(
+                                "BitAndAssign",
+                            ),
+                            accessibility: Accessibility::Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    [salsa id]: 21,
+                                    path: ModuleItemPath::Trait(
+                                        TraitPath(`core::ops::BitAndAssign`),
+                                    ),
+                                    accessibility: Accessibility::Public,
+                                    ast_idx: 32,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Identifier(
+                                "BitOr",
+                            ),
+                            accessibility: Accessibility::Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    [salsa id]: 22,
+                                    path: ModuleItemPath::Trait(
+                                        TraitPath(`core::ops::BitOr`),
+                                    ),
+                                    accessibility: Accessibility::Public,
+                                    ast_idx: 34,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Identifier(
+                                "BitOrAssign",
+                            ),
+                            accessibility: Accessibility::Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    [salsa id]: 23,
+                                    path: ModuleItemPath::Trait(
+                                        TraitPath(`core::ops::BitOrAssign`),
+                                    ),
+                                    accessibility: Accessibility::Public,
+                                    ast_idx: 36,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Identifier(
+                                "BitXor",
+                            ),
+                            accessibility: Accessibility::Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    [salsa id]: 24,
+                                    path: ModuleItemPath::Trait(
+                                        TraitPath(`core::ops::BitXor`),
+                                    ),
+                                    accessibility: Accessibility::Public,
+                                    ast_idx: 38,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Identifier(
+                                "BitXorAssign",
+                            ),
+                            accessibility: Accessibility::Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    [salsa id]: 25,
+                                    path: ModuleItemPath::Trait(
+                                        TraitPath(`core::ops::BitXorAssign`),
+                                    ),
+                                    accessibility: Accessibility::Public,
+                                    ast_idx: 40,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Identifier(
+                                "Div",
+                            ),
+                            accessibility: Accessibility::Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    [salsa id]: 26,
+                                    path: ModuleItemPath::Trait(
+                                        TraitPath(`core::ops::Div`),
+                                    ),
+                                    accessibility: Accessibility::Public,
+                                    ast_idx: 42,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Identifier(
+                                "DivAssign",
+                            ),
+                            accessibility: Accessibility::Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    [salsa id]: 27,
+                                    path: ModuleItemPath::Trait(
+                                        TraitPath(`core::ops::DivAssign`),
+                                    ),
+                                    accessibility: Accessibility::Public,
+                                    ast_idx: 44,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Identifier(
+                                "Mul",
+                            ),
+                            accessibility: Accessibility::Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    [salsa id]: 28,
+                                    path: ModuleItemPath::Trait(
+                                        TraitPath(`core::ops::Mul`),
+                                    ),
+                                    accessibility: Accessibility::Public,
+                                    ast_idx: 46,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Identifier(
+                                "MulAssign",
+                            ),
+                            accessibility: Accessibility::Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    [salsa id]: 29,
+                                    path: ModuleItemPath::Trait(
+                                        TraitPath(`core::ops::MulAssign`),
+                                    ),
+                                    accessibility: Accessibility::Public,
+                                    ast_idx: 48,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Identifier(
+                                "Neg",
+                            ),
+                            accessibility: Accessibility::Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    [salsa id]: 30,
+                                    path: ModuleItemPath::Trait(
+                                        TraitPath(`core::ops::Neg`),
+                                    ),
+                                    accessibility: Accessibility::Public,
+                                    ast_idx: 50,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Identifier(
+                                "Not",
+                            ),
+                            accessibility: Accessibility::Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    [salsa id]: 31,
+                                    path: ModuleItemPath::Trait(
+                                        TraitPath(`core::ops::Not`),
+                                    ),
+                                    accessibility: Accessibility::Public,
+                                    ast_idx: 52,
                                 },
                             ),
                         },
@@ -952,12 +1160,12 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 19,
+                                    [salsa id]: 32,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::Sub`),
                                     ),
                                     accessibility: Accessibility::Public,
-                                    ast_idx: 7,
+                                    ast_idx: 54,
                                 },
                             ),
                         },
@@ -1363,7 +1571,7 @@ Ok(
                                     [salsa id]: 13,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 20,
+                                            [salsa id]: 33,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::raw_bits::r32`, `Alien`),
                                             ),
@@ -1392,7 +1600,7 @@ Ok(
                                     [salsa id]: 14,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 21,
+                                            [salsa id]: 34,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::fmt::Debug`),
                                             ),
@@ -1421,7 +1629,7 @@ Ok(
                                     [salsa id]: 15,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 23,
+                                            [salsa id]: 36,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::marker::Copy`),
                                             ),
@@ -1450,7 +1658,7 @@ Ok(
                                     [salsa id]: 16,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 24,
+                                            [salsa id]: 37,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::marker::Sized`),
                                             ),
@@ -1479,7 +1687,7 @@ Ok(
                                     [salsa id]: 17,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 22,
+                                            [salsa id]: 35,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::clone::Clone`),
                                             ),
@@ -1508,7 +1716,7 @@ Ok(
                                     [salsa id]: 18,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 25,
+                                            [salsa id]: 38,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::cmp::PartialEq`),
                                             ),
@@ -1537,7 +1745,7 @@ Ok(
                                     [salsa id]: 19,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 26,
+                                            [salsa id]: 39,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::cmp::Eq`),
                                             ),
@@ -1566,7 +1774,7 @@ Ok(
                                     [salsa id]: 20,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 27,
+                                            [salsa id]: 40,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::cmp::PartialOrd`),
                                             ),
@@ -1595,7 +1803,7 @@ Ok(
                                     [salsa id]: 21,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 28,
+                                            [salsa id]: 41,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::cmp::Ord`),
                                             ),
@@ -2331,7 +2539,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 20,
+                                    [salsa id]: 33,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::raw_bits::r32`, `Alien`),
                                     ),
@@ -2362,7 +2570,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 21,
+                                    [salsa id]: 34,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::fmt::Debug`),
                                     ),
@@ -2393,7 +2601,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 22,
+                                    [salsa id]: 35,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::clone::Clone`),
                                     ),
@@ -2424,7 +2632,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 23,
+                                    [salsa id]: 36,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::marker::Copy`),
                                     ),
@@ -2440,7 +2648,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 24,
+                                    [salsa id]: 37,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::marker::Sized`),
                                     ),
@@ -2471,7 +2679,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 25,
+                                    [salsa id]: 38,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::cmp::PartialEq`),
                                     ),
@@ -2487,7 +2695,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 26,
+                                    [salsa id]: 39,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::cmp::Eq`),
                                     ),
@@ -2503,7 +2711,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 27,
+                                    [salsa id]: 40,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::cmp::PartialOrd`),
                                     ),
@@ -2519,7 +2727,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 28,
+                                    [salsa id]: 41,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::cmp::Ord`),
                                     ),

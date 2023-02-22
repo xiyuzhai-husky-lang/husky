@@ -4,26 +4,76 @@ pub trait Add<Rhs>:
 
     fn add(other: Rhs) -> Self::Output;
 
+#[rust("std::ops::AddAssign")]
+pub trait AddAssign<Rhs>:
+    type Output;
+
+    fn add(other: Rhs) -> Self::Output;
+
+#[rust("std::ops::BitAnd")]
+pub trait BitAnd<Rhs>:
+    type Output;
+
+    fn bitand(rhs: Rhs) -> Self::Output;
+
+#[rust("std::ops::BitAndAssign")]
+pub trait BitAndAssign<Rhs>:
+    fn bitand_assign(mut self, rhs: Rhs);
+
+#[rust("std::ops::BitOr")]
+pub trait BitOr<Rhs>:
+    type Output;
+
+    fn bitor(rhs: Rhs) -> Self::Output;
+
+#[rust("std::ops::BitOrAssign")]
+pub trait BitOrAssign<Rhs>:
+    fn bitor_assign(mut self, rhs: Rhs);
+
+#[rust("std::ops::BitXor")]
+pub trait BitXor<Rhs>:
+    type Output;
+
+    fn bitxor(rhs: Rhs) -> Self::Output;
+
+#[rust("std::ops::BitXorAssign")]
+pub trait BitXorAssign<Rhs>:
+    fn bitxor_assign(mut self, rhs: Rhs);
+
+#[rust("std::ops::Div")]
+pub trait Div<Rhs>:
+    type Output;
+
+    fn div(rhs: Rhs) -> Self::Output;
+
+#[rust("std::ops::DivAssign")]
+pub trait DivAssign<Rhs>:
+    fn div_assign(mut self, rhs: Rhs);
+
+#[rust("std::ops::Mul")]
+pub trait Mul<Rhs>:
+    type Output;
+
+    fn mul(rhs: Rhs) -> Self::Output;
+
+#[rust("std::ops::MulAssign")]
+pub trait MulAssign<Rhs>:
+    fn mul_assign(mut self, rhs: Rhs);
+
+#[rust("std::ops::Neg")]
+pub trait Neg:
+    type Output;
+
+    fn neg(self) -> Self::Output;
+
+#[rust("std::ops::Not")]
+pub trait Not:
+    type Output;
+
+    fn not(self) -> Self::Output;
+
 #[rust("std::ops::Sub")]
 pub trait Sub<Rhs>:
     type Output;
 
     fn sub(other: Rhs) -> Self::Output;
-
-
-
-
-add,
-add_assign,
-bit_and,
-bit_and_assign,
-bit_or,
-bit_or_assign,
-bit_xor,
-bit_xor_assign,
-div,
-div_assign,
-mul,
-mul_assign,
-neg,
-not,

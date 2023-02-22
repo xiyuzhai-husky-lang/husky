@@ -61,7 +61,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 118,
+                                value: 131,
                             },
                         ),
                     ),
@@ -109,7 +109,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 113,
+                                value: 126,
                             },
                         ),
                     ),
@@ -475,7 +475,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 110,
                     },
                 ),
             },
@@ -600,7 +600,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 95,
+                        value: 108,
                     },
                 ),
             },
@@ -644,7 +644,7 @@ Ok(
                 inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 111,
                     },
                 ),
             },
@@ -663,7 +663,7 @@ Ok(
                 inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 111,
                     },
                 ),
             },
@@ -683,7 +683,7 @@ Ok(
                 inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 111,
                     },
                 ),
             },
@@ -702,7 +702,7 @@ Ok(
                 inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 111,
                     },
                 ),
             },
