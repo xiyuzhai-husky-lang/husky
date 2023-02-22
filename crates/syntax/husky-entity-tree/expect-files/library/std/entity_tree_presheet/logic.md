@@ -1,15 +1,15 @@
 Ok(
     EntityTreePresheet {
         module_path: `std::logic`,
-        module_specific_symbols: NativeEntitySymbolTable(
+        native_symbol_entries: NativeEntitySymbolTable(
             [],
         ),
-        entity_use_roots: EntityUseExprTrackers(
+        use_one_trackers: UseExprRules(
             [
                 UseTracker {
                     ast_idx: 0,
                     accessibility: Done {
-                        accessibility: Public,
+                        accessibility: Accessibility::Public,
                     },
                     variant: Parent {
                         parent_name_token: Identifier(
@@ -35,5 +35,79 @@ Ok(
                 },
             ],
         ),
+        use_all_trackers: UseAllRules(
+            [],
+        ),
+        use_expr_arena: Arena {
+            data: [
+                All {
+                    star_token: StarToken {
+                        token_idx: TokenIdx(
+                            6,
+                        ),
+                    },
+                },
+                Parent {
+                    parent_name_token: Identifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 6,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                4,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                5,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 0,
+                        },
+                    ),
+                },
+                Parent {
+                    parent_name_token: Identifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 14,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                2,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                3,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 1,
+                        },
+                    ),
+                },
+            ],
+        },
+        mod_path_arena: Arena {
+            data: [],
+        },
+        errors: [],
     },
 )

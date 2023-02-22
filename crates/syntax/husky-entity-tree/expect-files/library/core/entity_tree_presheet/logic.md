@@ -1,45 +1,67 @@
 Ok(
     EntityTreePresheet {
         module_path: `core::logic`,
-        module_specific_symbols: NativeEntitySymbolTable(
+        native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: `Prop`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "Prop",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`core::logic::Prop`, `Alien`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`core::logic::Prop`, `Alien`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 0,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `LogicAnd`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "LogicAnd",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`core::logic::LogicAnd`, `Structure`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`core::logic::LogicAnd`, `Structure`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 1,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `LogicOr`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "LogicOr",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`core::logic::LogicOr`, `Inductive`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`core::logic::LogicOr`, `Inductive`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 2,
                         },
                     ),
                 },
             ],
         ),
-        entity_use_roots: EntityUseExprTrackers(
+        use_one_trackers: UseExprRules(
             [],
         ),
+        use_all_trackers: UseAllRules(
+            [],
+        ),
+        use_expr_arena: Arena {
+            data: [],
+        },
+        mod_path_arena: Arena {
+            data: [],
+        },
+        errors: [],
     },
 )

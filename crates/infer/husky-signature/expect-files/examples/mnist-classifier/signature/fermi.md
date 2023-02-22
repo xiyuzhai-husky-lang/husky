@@ -75,7 +75,7 @@
                             },
                         ],
                     },
-                    return_ty: Term(`FermiMatchResult`),
+                    return_ty: Term(`mnist_classifier::fermi::FermiMatchResult`),
                 },
             ),
         ),
@@ -87,7 +87,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`FermiMatchResult`),
+                    ty: Term(`mnist_classifier::fermi::FermiMatchResult`),
                 },
             ),
         ),
@@ -97,7 +97,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`f32`),
+                        return_ty: Term(`core::num::f32`),
                     },
                 ),
             ),
@@ -108,7 +108,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`f32`),
+                        return_ty: Term(`core::num::f32`),
                     },
                 ),
             ),
@@ -119,7 +119,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`f32`),
+                        return_ty: Term(`core::num::f32`),
                     },
                 ),
             ),

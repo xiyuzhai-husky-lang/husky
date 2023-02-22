@@ -1,7 +1,88 @@
 Ok(
     [
-        `std::prelude`,
-        `std::logic`,
-        `std::ops`,
+        ModulePath {
+            [display]: Child {
+                parent: ModulePath(
+                    Id {
+                        value: 15,
+                    },
+                ),
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 11,
+                        },
+                    ),
+                ),
+            },
+            [crate]: CratePath {
+                package_path: PackagePath {
+                    data: Local {
+                        path: DiffPath {
+                            data: DiffPathBuf(
+                                "../../../library/std",
+                            ),
+                        },
+                    },
+                },
+                crate_kind: Library,
+            },
+        },
+        ModulePath {
+            [display]: Child {
+                parent: ModulePath(
+                    Id {
+                        value: 15,
+                    },
+                ),
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 6,
+                        },
+                    ),
+                ),
+            },
+            [crate]: CratePath {
+                package_path: PackagePath {
+                    data: Local {
+                        path: DiffPath {
+                            data: DiffPathBuf(
+                                "../../../library/std",
+                            ),
+                        },
+                    },
+                },
+                crate_kind: Library,
+            },
+        },
+        ModulePath {
+            [display]: Child {
+                parent: ModulePath(
+                    Id {
+                        value: 15,
+                    },
+                ),
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 10,
+                        },
+                    ),
+                ),
+            },
+            [crate]: CratePath {
+                package_path: PackagePath {
+                    data: Local {
+                        path: DiffPath {
+                            data: DiffPathBuf(
+                                "../../../library/std",
+                            ),
+                        },
+                    },
+                },
+                crate_kind: Library,
+            },
+        },
     ],
 )

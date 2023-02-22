@@ -2,7 +2,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`core::basic::bool`, `Alien`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::basic::bool`, `Alien`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -34,7 +38,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`core::basic::never`, `Alien`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::basic::never`, `Alien`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -66,7 +74,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`core::basic::unit`, `Alien`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::basic::unit`, `Alien`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -98,7 +110,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`core::basic::Trait`, `Structure`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::basic::Trait`, `Structure`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -130,7 +146,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`core::basic::Module`, `Structure`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::basic::Module`, `Structure`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {

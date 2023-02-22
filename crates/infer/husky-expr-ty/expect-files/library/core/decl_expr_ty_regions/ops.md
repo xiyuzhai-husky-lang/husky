@@ -2,7 +2,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TraitPath(`core::ops::Add`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::ops::Add`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -38,7 +42,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TraitPath(`core::ops::Sub`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::ops::Sub`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {

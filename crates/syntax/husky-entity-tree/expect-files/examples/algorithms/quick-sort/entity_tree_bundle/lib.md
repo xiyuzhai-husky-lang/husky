@@ -1,30 +1,40 @@
 Ok(
-    EntityTreeBundle {
+    EntityTreeCrateBundle {
         sheets: [
             EntityTreeSheet {
                 module_path: `quick_sort`,
-                module_specific_symbols: EntitySymbolTable(
+                symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: `quick_sort`,
-                            accessibility: Public,
+                            ident: Identifier(
+                                "quick_sort",
+                            ),
+                            accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    path: FormPath(`quick_sort::quick_sort`, `Function`),
-                                    accessibility: Public,
+                                    [salsa id]: 30,
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`quick_sort::quick_sort`, `Function`),
+                                    ),
+                                    accessibility: Accessibility::Public,
                                     ast_idx: 30,
                                 },
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `quick_sort_aux`,
-                            accessibility: PubicUnder(
+                            ident: Identifier(
+                                "quick_sort_aux",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `quick_sort`,
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    path: FormPath(`quick_sort::quick_sort_aux`, `Function`),
-                                    accessibility: PubicUnder(
+                                    [salsa id]: 31,
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
                                         `quick_sort`,
                                     ),
                                     ast_idx: 31,
@@ -32,14 +42,19 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `partition`,
-                            accessibility: PubicUnder(
+                            ident: Identifier(
+                                "partition",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `quick_sort`,
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    path: FormPath(`quick_sort::partition`, `Function`),
-                                    accessibility: PubicUnder(
+                                    [salsa id]: 32,
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`quick_sort::partition`, `Function`),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
                                         `quick_sort`,
                                     ),
                                     ast_idx: 32,
@@ -47,14 +62,19 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `quick_sort_works_for_integers`,
-                            accessibility: PubicUnder(
+                            ident: Identifier(
+                                "quick_sort_works_for_integers",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `quick_sort`,
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
-                                    accessibility: PubicUnder(
+                                    [salsa id]: 33,
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
                                         `quick_sort`,
                                     ),
                                     ast_idx: 34,
@@ -62,14 +82,19 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `quick_sort_works_for_strs`,
-                            accessibility: PubicUnder(
+                            ident: Identifier(
+                                "quick_sort_works_for_strs",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `quick_sort`,
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
-                                    accessibility: PubicUnder(
+                                    [salsa id]: 34,
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
                                         `quick_sort`,
                                     ),
                                     ast_idx: 36,
@@ -78,7 +103,19 @@ Ok(
                         },
                     ],
                 ),
+                impl_blocks: [],
+                use_expr_rules: UseExprRules(
+                    [],
+                ),
+                use_all_rules: UseAllRules(
+                    [],
+                ),
+                errors: [],
             },
         ],
+        principal_entity_path_expr_arena: Arena {
+            data: [],
+        },
+        impl_blocks: [],
     },
 )

@@ -2,7 +2,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TraitPath(`core::marker::Copy`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::marker::Copy`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -34,7 +38,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TraitPath(`core::marker::Sized`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::marker::Sized`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {

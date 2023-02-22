@@ -2,7 +2,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TraitPath(`core::cmp::PartialEq`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::cmp::PartialEq`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -34,7 +38,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TraitPath(`core::cmp::Eq`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::cmp::Eq`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -66,7 +74,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TraitPath(`core::cmp::PartialOrd`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::cmp::PartialOrd`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -98,7 +110,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TraitPath(`core::cmp::Ord`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::cmp::Ord`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {

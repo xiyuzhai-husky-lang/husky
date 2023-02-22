@@ -1,14 +1,22 @@
 [
     (
-        TraitPath(`core::marker::Copy`),
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::marker::Copy`),
+            ),
+        ),
         Ok(
-            Term(`Trait`),
+            Term(`core::basic::Trait`),
         ),
     ),
     (
-        TraitPath(`core::marker::Sized`),
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::marker::Sized`),
+            ),
+        ),
         Ok(
-            Term(`Trait`),
+            Term(`core::basic::Trait`),
         ),
     ),
 ]

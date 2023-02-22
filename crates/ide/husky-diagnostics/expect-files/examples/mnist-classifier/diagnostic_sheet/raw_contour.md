@@ -1,4 +1,5 @@
 DiagnosticSheet {
+    [salsa id]: 40,
     token_diagnostic_sheet: TokenDiagnosticSheet {
         diagnostics: [],
     },
@@ -178,7 +179,7 @@ DiagnosticSheet {
                 range: [264:25, 264:35),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime ConnectedComponent",
+                message: "Type Error: original `todo` in term Ref 'eval ConnectedComponent",
                 severity: Error,
                 range: [264:36, 264:38),
             },

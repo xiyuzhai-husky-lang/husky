@@ -1,78 +1,112 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::geom2d`,
-        module_specific_symbols: NativeEntitySymbolTable(
+        native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: `Point2d`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "Point2d",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 80,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `RelativePoint2d`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "RelativePoint2d",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 82,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `Vector2d`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "Vector2d",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 83,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `ClosedRange`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "ClosedRange",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 85,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `BoundingBox`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "BoundingBox",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 87,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `RelativeBoundingBox`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "RelativeBoundingBox",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 90,
                         },
                     ),
                 },
             ],
         ),
-        entity_use_roots: EntityUseExprTrackers(
+        use_one_trackers: UseExprRules(
             [],
         ),
+        use_all_trackers: UseAllRules(
+            [],
+        ),
+        use_expr_arena: Arena {
+            data: [],
+        },
+        mod_path_arena: Arena {
+            data: [],
+        },
+        errors: [],
     },
 )

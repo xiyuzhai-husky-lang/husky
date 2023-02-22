@@ -1,4 +1,5 @@
 DiagnosticSheet {
+    [salsa id]: 25,
     token_diagnostic_sheet: TokenDiagnosticSheet {
         diagnostics: [],
     },
@@ -277,22 +278,22 @@ DiagnosticSheet {
                 range: [19:64, 19:66),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime ConcaveComponent",
+                message: "Type Error: original `todo` in term Ref 'eval ConcaveComponent",
                 severity: Error,
                 range: [109:14, 109:16),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime ConcaveComponent",
+                message: "Type Error: original `todo` in term Ref 'eval ConcaveComponent",
                 severity: Error,
                 range: [114:14, 114:16),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime ConcaveComponent",
+                message: "Type Error: original `todo` in term Ref 'eval ConcaveComponent",
                 severity: Error,
                 range: [116:6, 116:8),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime ConcaveComponent",
+                message: "Type Error: original `todo` in term Ref 'eval ConcaveComponent",
                 severity: Error,
                 range: [119:14, 119:16),
             },

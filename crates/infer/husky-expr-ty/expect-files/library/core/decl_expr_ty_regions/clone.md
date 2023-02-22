@@ -2,7 +2,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TraitPath(`core::clone::Clone`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::clone::Clone`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {

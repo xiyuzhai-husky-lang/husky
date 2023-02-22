@@ -59,7 +59,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`LineSegment`),
+                    ty: Term(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
                 },
             ),
         ),
@@ -75,7 +75,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`Vector2d`),
+                        return_ty: Term(`mnist_classifier::geom2d::Vector2d`),
                     },
                 ),
             ),
@@ -107,7 +107,7 @@
                                 },
                             ],
                         },
-                        return_ty: Term(`f32`),
+                        return_ty: Term(`core::num::f32`),
                     },
                 ),
             ),

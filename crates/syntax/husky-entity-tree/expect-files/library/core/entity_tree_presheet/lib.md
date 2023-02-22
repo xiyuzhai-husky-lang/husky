@@ -1,17 +1,19 @@
 Ok(
     EntityTreePresheet {
         module_path: `core`,
-        module_specific_symbols: NativeEntitySymbolTable(
+        native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: `basic`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "basic",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `core`,
                     ),
-                    symbol: Submodule(
+                    symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::basic`,
-                            accessibility: PubicUnder(
+                            accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
                             ast_idx: 0,
@@ -19,14 +21,16 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `logic`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "logic",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `core`,
                     ),
-                    symbol: Submodule(
+                    symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::logic`,
-                            accessibility: PubicUnder(
+                            accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
                             ast_idx: 1,
@@ -34,14 +38,16 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `mem`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "mem",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `core`,
                     ),
-                    symbol: Submodule(
+                    symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::mem`,
-                            accessibility: PubicUnder(
+                            accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
                             ast_idx: 2,
@@ -49,14 +55,16 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `num`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "num",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `core`,
                     ),
-                    symbol: Submodule(
+                    symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::num`,
-                            accessibility: PubicUnder(
+                            accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
                             ast_idx: 3,
@@ -64,14 +72,16 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `ops`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "ops",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `core`,
                     ),
-                    symbol: Submodule(
+                    symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::ops`,
-                            accessibility: PubicUnder(
+                            accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
                             ast_idx: 4,
@@ -79,14 +89,16 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `prelude`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "prelude",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `core`,
                     ),
-                    symbol: Submodule(
+                    symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::prelude`,
-                            accessibility: PubicUnder(
+                            accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
                             ast_idx: 5,
@@ -94,14 +106,16 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `raw_bits`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "raw_bits",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `core`,
                     ),
-                    symbol: Submodule(
+                    symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::raw_bits`,
-                            accessibility: PubicUnder(
+                            accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
                             ast_idx: 6,
@@ -109,14 +123,16 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `fmt`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "fmt",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `core`,
                     ),
-                    symbol: Submodule(
+                    symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::fmt`,
-                            accessibility: PubicUnder(
+                            accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
                             ast_idx: 7,
@@ -124,14 +140,16 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `clone`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "clone",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `core`,
                     ),
-                    symbol: Submodule(
+                    symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::clone`,
-                            accessibility: PubicUnder(
+                            accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
                             ast_idx: 8,
@@ -139,14 +157,16 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `marker`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "marker",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `core`,
                     ),
-                    symbol: Submodule(
+                    symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::marker`,
-                            accessibility: PubicUnder(
+                            accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
                             ast_idx: 9,
@@ -154,14 +174,16 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `vec`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "vec",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `core`,
                     ),
-                    symbol: Submodule(
+                    symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::vec`,
-                            accessibility: PubicUnder(
+                            accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
                             ast_idx: 10,
@@ -169,14 +191,16 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `cmp`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "cmp",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `core`,
                     ),
-                    symbol: Submodule(
+                    symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::cmp`,
-                            accessibility: PubicUnder(
+                            accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
                             ast_idx: 11,
@@ -185,8 +209,18 @@ Ok(
                 },
             ],
         ),
-        entity_use_roots: EntityUseExprTrackers(
+        use_one_trackers: UseExprRules(
             [],
         ),
+        use_all_trackers: UseAllRules(
+            [],
+        ),
+        use_expr_arena: Arena {
+            data: [],
+        },
+        mod_path_arena: Arena {
+            data: [],
+        },
+        errors: [],
     },
 )

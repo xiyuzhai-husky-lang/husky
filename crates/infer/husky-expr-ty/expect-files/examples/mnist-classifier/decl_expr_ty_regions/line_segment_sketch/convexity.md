@@ -2,7 +2,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -62,10 +66,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`LineSegmentSketch`),
+                Term(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
             ),
             LocalTerm::Resolved(
-                Term(`i32`),
+                Term(`core::num::i32`),
             ),
         ],
         local_term_table: LocalTermTable {

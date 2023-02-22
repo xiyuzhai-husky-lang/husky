@@ -1,4 +1,5 @@
 DiagnosticSheet {
+    [salsa id]: 34,
     token_diagnostic_sheet: TokenDiagnosticSheet {
         diagnostics: [],
     },
@@ -43,7 +44,7 @@ DiagnosticSheet {
                 range: [97:13, 97:18),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime LineSegmentSketch",
+                message: "Type Error: original `todo` in term Ref 'eval LineSegmentSketch",
                 severity: Error,
                 range: [89:13, 89:32),
             },
@@ -58,12 +59,12 @@ DiagnosticSheet {
                 range: [96:45, 96:64),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime LineSegmentSketch",
+                message: "Type Error: original `todo` in term Ref 'eval LineSegmentSketch",
                 severity: Error,
                 range: [100:17, 100:36),
             },
             Diagnostic {
-                message: "Type Error: original `todo` in term Ref TermLiteral::EvalLifetime LineSegmentSketch",
+                message: "Type Error: original `todo` in term Ref 'eval LineSegmentSketch",
                 severity: Error,
                 range: [101:17, 101:36),
             },

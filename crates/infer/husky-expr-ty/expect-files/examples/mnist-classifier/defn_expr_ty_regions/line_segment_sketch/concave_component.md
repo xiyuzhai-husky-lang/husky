@@ -2,7 +2,11 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -1638,7 +1642,7 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`Ref TermLiteral::EvalLifetime LineSegmentSketch`),
+            Term(`Ref 'eval LineSegmentSketch`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -3084,7 +3088,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -3212,7 +3216,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -4081,7 +4085,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -5067,7 +5071,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -6600,7 +6604,7 @@
             },
         },
         return_ty: Some(
-            Term(`BoundingBox`),
+            Term(`mnist_classifier::geom2d::BoundingBox`),
         ),
         self_ty: None,
     },
@@ -6728,7 +6732,7 @@
             },
         },
         return_ty: Some(
-            Term(`RelativeBoundingBox`),
+            Term(`mnist_classifier::geom2d::RelativeBoundingBox`),
         ),
         self_ty: None,
     },
@@ -6971,7 +6975,7 @@
             },
         },
         return_ty: Some(
-            Term(`LineSegment`),
+            Term(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
         ),
         self_ty: None,
     },
@@ -7087,7 +7091,7 @@
             },
         },
         return_ty: Some(
-            Term(`Point2d`),
+            Term(`mnist_classifier::geom2d::Point2d`),
         ),
         self_ty: None,
     },
@@ -7203,7 +7207,7 @@
             },
         },
         return_ty: Some(
-            Term(`Point2d`),
+            Term(`mnist_classifier::geom2d::Point2d`),
         ),
         self_ty: None,
     },
@@ -7295,7 +7299,7 @@
             },
         },
         return_ty: Some(
-            Term(`Vector2d`),
+            Term(`mnist_classifier::geom2d::Vector2d`),
         ),
         self_ty: None,
     },
@@ -7399,7 +7403,7 @@
             },
         },
         return_ty: Some(
-            Term(`Vector2d`),
+            Term(`mnist_classifier::geom2d::Vector2d`),
         ),
         self_ty: None,
     },
@@ -7503,7 +7507,7 @@
             },
         },
         return_ty: Some(
-            Term(`Vector2d`),
+            Term(`mnist_classifier::geom2d::Vector2d`),
         ),
         self_ty: None,
     },

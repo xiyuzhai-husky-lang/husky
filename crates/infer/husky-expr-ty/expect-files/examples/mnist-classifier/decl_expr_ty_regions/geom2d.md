@@ -2,7 +2,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -197,7 +201,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -392,7 +400,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -587,7 +599,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -782,7 +798,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -1165,10 +1185,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`i32`),
+                Term(`core::num::i32`),
             ),
             LocalTerm::Resolved(
-                Term(`i32`),
+                Term(`core::num::i32`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -1227,7 +1247,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`Point2d`),
+            Term(`mnist_classifier::geom2d::Point2d`),
         ),
     },
     ExprTypeRegion {
@@ -1352,7 +1372,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`Point2d`),
+            Term(`mnist_classifier::geom2d::Point2d`),
         ),
     },
     ExprTypeRegion {
@@ -1424,7 +1444,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`Point2d`),
+                Term(`mnist_classifier::geom2d::Point2d`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -1483,7 +1503,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`Point2d`),
+            Term(`mnist_classifier::geom2d::Point2d`),
         ),
     },
     ExprTypeRegion {
@@ -1608,7 +1628,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`Point2d`),
+            Term(`mnist_classifier::geom2d::Point2d`),
         ),
     },
     ExprTypeRegion {
@@ -1680,7 +1700,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`Point2d`),
+                Term(`mnist_classifier::geom2d::Point2d`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -1739,7 +1759,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`Point2d`),
+            Term(`mnist_classifier::geom2d::Point2d`),
         ),
     },
     ExprTypeRegion {
@@ -1984,7 +2004,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`Vector2d`),
+            Term(`mnist_classifier::geom2d::Vector2d`),
         ),
     },
     ExprTypeRegion {
@@ -2056,7 +2076,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`Vector2d`),
+                Term(`mnist_classifier::geom2d::Vector2d`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -2115,7 +2135,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`Vector2d`),
+            Term(`mnist_classifier::geom2d::Vector2d`),
         ),
     },
     ExprTypeRegion {
@@ -2240,7 +2260,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`Vector2d`),
+            Term(`mnist_classifier::geom2d::Vector2d`),
         ),
     },
     ExprTypeRegion {
@@ -2312,7 +2332,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`Vector2d`),
+                Term(`mnist_classifier::geom2d::Vector2d`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -2371,7 +2391,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`Vector2d`),
+            Term(`mnist_classifier::geom2d::Vector2d`),
         ),
     },
     ExprTypeRegion {
@@ -2443,7 +2463,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`Vector2d`),
+                Term(`mnist_classifier::geom2d::Vector2d`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -2502,7 +2522,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`Vector2d`),
+            Term(`mnist_classifier::geom2d::Vector2d`),
         ),
     },
     ExprTypeRegion {
@@ -2574,7 +2594,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`bool`),
+                Term(`core::basic::bool`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -2633,7 +2653,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`Vector2d`),
+            Term(`mnist_classifier::geom2d::Vector2d`),
         ),
     },
     ExprTypeRegion {
@@ -2705,7 +2725,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`Vector2d`),
+                Term(`mnist_classifier::geom2d::Vector2d`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -2764,7 +2784,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`Vector2d`),
+            Term(`mnist_classifier::geom2d::Vector2d`),
         ),
     },
     ExprTypeRegion {
@@ -2838,10 +2858,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`Vector2d`),
+                Term(`mnist_classifier::geom2d::Vector2d`),
             ),
             LocalTerm::Resolved(
-                Term(`bool`),
+                Term(`core::basic::bool`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -2900,7 +2920,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`Vector2d`),
+            Term(`mnist_classifier::geom2d::Vector2d`),
         ),
     },
     ExprTypeRegion {
@@ -3023,7 +3043,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`BoundingBox`),
+                Term(`mnist_classifier::geom2d::BoundingBox`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -3082,7 +3102,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`BoundingBox`),
+            Term(`mnist_classifier::geom2d::BoundingBox`),
         ),
     },
     ExprTypeRegion {
@@ -3154,7 +3174,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`Point2d`),
+                Term(`mnist_classifier::geom2d::Point2d`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -3213,7 +3233,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`BoundingBox`),
+            Term(`mnist_classifier::geom2d::BoundingBox`),
         ),
     },
     ExprTypeRegion {
@@ -3338,7 +3358,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`BoundingBox`),
+            Term(`mnist_classifier::geom2d::BoundingBox`),
         ),
     },
     ExprTypeRegion {
@@ -3463,7 +3483,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`BoundingBox`),
+            Term(`mnist_classifier::geom2d::BoundingBox`),
         ),
     },
     ExprTypeRegion {
@@ -3588,7 +3608,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`BoundingBox`),
+            Term(`mnist_classifier::geom2d::BoundingBox`),
         ),
     },
     ExprTypeRegion {
@@ -3713,7 +3733,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`BoundingBox`),
+            Term(`mnist_classifier::geom2d::BoundingBox`),
         ),
     },
     ExprTypeRegion {
@@ -3958,7 +3978,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`RelativeBoundingBox`),
+            Term(`mnist_classifier::geom2d::RelativeBoundingBox`),
         ),
     },
     ExprTypeRegion {
@@ -4083,7 +4103,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`RelativeBoundingBox`),
+            Term(`mnist_classifier::geom2d::RelativeBoundingBox`),
         ),
     },
     ExprTypeRegion {
@@ -4208,7 +4228,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`RelativeBoundingBox`),
+            Term(`mnist_classifier::geom2d::RelativeBoundingBox`),
         ),
     },
     ExprTypeRegion {
@@ -4333,7 +4353,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`RelativeBoundingBox`),
+            Term(`mnist_classifier::geom2d::RelativeBoundingBox`),
         ),
     },
 ]

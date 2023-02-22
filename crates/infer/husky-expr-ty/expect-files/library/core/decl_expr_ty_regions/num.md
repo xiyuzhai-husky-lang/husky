@@ -2,7 +2,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`core::num::i8`, `Alien`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i8`, `Alien`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -34,7 +38,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`core::num::i16`, `Alien`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i16`, `Alien`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -66,7 +74,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`core::num::i32`, `Alien`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i32`, `Alien`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -98,7 +110,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`core::num::i64`, `Alien`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i64`, `Alien`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -130,7 +146,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`core::num::f8`, `Alien`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f8`, `Alien`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -162,7 +182,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`core::num::f16`, `Alien`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f16`, `Alien`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -194,7 +218,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`core::num::f32`, `Alien`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Alien`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -226,7 +254,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`core::num::f64`, `Alien`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f64`, `Alien`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -497,7 +529,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`i8`),
+            Term(`core::num::i8`),
         ),
     },
     ExprTypeRegion {
@@ -742,7 +774,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`i16`),
+            Term(`core::num::i16`),
         ),
     },
     ExprTypeRegion {
@@ -987,7 +1019,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`i32`),
+            Term(`core::num::i32`),
         ),
     },
     ExprTypeRegion {
@@ -1232,7 +1264,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`i64`),
+            Term(`core::num::i64`),
         ),
     },
     ExprTypeRegion {
@@ -1477,7 +1509,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`f8`),
+            Term(`core::num::f8`),
         ),
     },
     ExprTypeRegion {
@@ -1722,7 +1754,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`f16`),
+            Term(`core::num::f16`),
         ),
     },
     ExprTypeRegion {
@@ -1967,7 +1999,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
     },
     ExprTypeRegion {
@@ -2212,7 +2244,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`f64`),
+            Term(`core::num::f64`),
         ),
     },
 ]

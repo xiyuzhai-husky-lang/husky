@@ -1,6 +1,10 @@
 [
     (
-        FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
+        EntityPath::ModuleItem(
+            ModuleItemPath::Form(
+                FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
+            ),
+        ),
         Err(
             Derived(
                 SignatureError,
@@ -8,13 +12,21 @@
         ),
     ),
     (
-        FormPath(`mnist_classifier::digits::zero::almost_closed`, `Function`),
+        EntityPath::ModuleItem(
+            ModuleItemPath::Form(
+                FormPath(`mnist_classifier::digits::zero::almost_closed`, `Function`),
+            ),
+        ),
         Ok(
-            Term(`Fp(Ref TermLiteral::EvalLifetime ConcaveComponent) -> Option f32`),
+            Term(`Fp(Ref 'eval ConcaveComponent) -> Option f32`),
         ),
     ),
     (
-        FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+        EntityPath::ModuleItem(
+            ModuleItemPath::Form(
+                FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+            ),
+        ),
         Err(
             Derived(
                 SignatureError,

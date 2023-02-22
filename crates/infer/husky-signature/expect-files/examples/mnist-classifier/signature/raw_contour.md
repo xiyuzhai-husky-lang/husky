@@ -94,7 +94,7 @@
                             },
                         ],
                     },
-                    return_ty: Term(`r32`),
+                    return_ty: Term(`core::raw_bits::r32`),
                 },
             ),
         ),
@@ -138,7 +138,7 @@
                             },
                         ],
                     },
-                    return_ty: Term(`r32`),
+                    return_ty: Term(`core::raw_bits::r32`),
                 },
             ),
         ),
@@ -182,7 +182,7 @@
                             },
                         ],
                     },
-                    return_ty: Term(`r32`),
+                    return_ty: Term(`core::raw_bits::r32`),
                 },
             ),
         ),
@@ -240,7 +240,7 @@
                             },
                         ],
                     },
-                    return_ty: Term(`Direction`),
+                    return_ty: Term(`mnist_classifier::raw_contour::Direction`),
                 },
             ),
         ),
@@ -284,7 +284,7 @@
                             },
                         ],
                     },
-                    return_ty: Term(`i32`),
+                    return_ty: Term(`core::num::i32`),
                 },
             ),
         ),
@@ -356,7 +356,7 @@
                             },
                         ],
                     },
-                    return_ty: Term(`Direction`),
+                    return_ty: Term(`mnist_classifier::raw_contour::Direction`),
                 },
             ),
         ),
@@ -435,7 +435,7 @@
                             },
                         ],
                     },
-                    return_ty: Term(`Point2d`),
+                    return_ty: Term(`mnist_classifier::geom2d::Point2d`),
                 },
             ),
         ),
@@ -473,7 +473,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`RawContour`),
+                    ty: Term(`mnist_classifier::raw_contour::RawContour`),
                 },
             ),
         ),
@@ -483,7 +483,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`LineSegmentSketch`),
+                        return_ty: Term(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                     },
                 ),
             ),
@@ -494,7 +494,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`BoundingBox`),
+                        return_ty: Term(`mnist_classifier::geom2d::BoundingBox`),
                     },
                 ),
             ),
@@ -505,7 +505,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`RelativeBoundingBox`),
+                        return_ty: Term(`mnist_classifier::geom2d::RelativeBoundingBox`),
                     },
                 ),
             ),
@@ -516,7 +516,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`f32`),
+                        return_ty: Term(`core::num::f32`),
                     },
                 ),
             ),
@@ -562,7 +562,7 @@
                                 },
                             ],
                         },
-                        return_ty: Term(`Vector2d`),
+                        return_ty: Term(`mnist_classifier::geom2d::Vector2d`),
                     },
                 ),
             ),

@@ -22,14 +22,21 @@ impl TermRewriteCopy for TermAbstraction {
     }
 }
 
-impl std::fmt::Display for TermAbstraction {
-    fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        todo!()
-    }
-}
-
 impl From<TermAbstraction> for Term {
     fn from(val: TermAbstraction) -> Self {
         Term::Abstraction(val)
+    }
+}
+
+impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermAbstraction {
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        level: salsa::DisplayFormatLevel,
+    ) -> std::fmt::Result {
+        use std::fmt::Write;
+        f.write_char(husky_unicode_symbols::greek::GREEK_LETTER_LOWERCASE_LAMBDA);
+        todo!()
     }
 }

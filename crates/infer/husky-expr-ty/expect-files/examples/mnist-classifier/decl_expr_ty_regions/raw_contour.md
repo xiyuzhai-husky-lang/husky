@@ -2,7 +2,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -223,7 +227,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -255,7 +263,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -315,10 +327,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`r32`),
+                Term(`core::raw_bits::r32`),
             ),
             LocalTerm::Resolved(
-                Term(`i32`),
+                Term(`core::num::i32`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -381,7 +393,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -441,10 +457,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`r32`),
+                Term(`core::raw_bits::r32`),
             ),
             LocalTerm::Resolved(
-                Term(`i32`),
+                Term(`core::num::i32`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -507,7 +523,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -567,10 +587,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`r32`),
+                Term(`core::raw_bits::r32`),
             ),
             LocalTerm::Resolved(
-                Term(`i32`),
+                Term(`core::num::i32`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -633,7 +653,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -695,13 +719,13 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`r32`),
+                Term(`core::raw_bits::r32`),
             ),
             LocalTerm::Resolved(
-                Term(`r32`),
+                Term(`core::raw_bits::r32`),
             ),
             LocalTerm::Resolved(
-                Term(`i32`),
+                Term(`core::num::i32`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -764,7 +788,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -824,10 +852,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`Direction`),
+                Term(`mnist_classifier::raw_contour::Direction`),
             ),
             LocalTerm::Resolved(
-                Term(`Direction`),
+                Term(`mnist_classifier::raw_contour::Direction`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -890,7 +918,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -954,16 +986,16 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`r32`),
+                Term(`core::raw_bits::r32`),
             ),
             LocalTerm::Resolved(
-                Term(`r32`),
+                Term(`core::raw_bits::r32`),
             ),
             LocalTerm::Resolved(
-                Term(`i32`),
+                Term(`core::num::i32`),
             ),
             LocalTerm::Resolved(
-                Term(`Direction`),
+                Term(`mnist_classifier::raw_contour::Direction`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -1026,7 +1058,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -1221,7 +1257,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -1346,7 +1386,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -1450,7 +1494,7 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`Ref TermLiteral::EvalLifetime ConnectedComponent`),
+                Term(`Ref 'eval ConnectedComponent`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -1790,7 +1834,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`RawContour`),
+            Term(`mnist_classifier::raw_contour::RawContour`),
         ),
     },
     ExprTypeRegion {
@@ -1846,7 +1890,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`RawContour`),
+            Term(`mnist_classifier::raw_contour::RawContour`),
         ),
     },
     ExprTypeRegion {
@@ -1971,7 +2015,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`RawContour`),
+            Term(`mnist_classifier::raw_contour::RawContour`),
         ),
     },
     ExprTypeRegion {
@@ -2096,7 +2140,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`RawContour`),
+            Term(`mnist_classifier::raw_contour::RawContour`),
         ),
     },
     ExprTypeRegion {
@@ -2170,10 +2214,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`i32`),
+                Term(`core::num::i32`),
             ),
             LocalTerm::Resolved(
-                Term(`i32`),
+                Term(`core::num::i32`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -2232,7 +2276,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`RawContour`),
+            Term(`mnist_classifier::raw_contour::RawContour`),
         ),
     },
 ]

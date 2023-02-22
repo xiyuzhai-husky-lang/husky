@@ -22,6 +22,34 @@ pub enum TermLiteral {
     StaticLifetime,
 }
 
+impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermLiteral {
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        level: salsa::DisplayFormatLevel,
+    ) -> std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
+        match self {
+            TermLiteral::Unit => f.write_str("unit"),
+            TermLiteral::I32(_) => todo!(),
+            TermLiteral::I64(_) => todo!(),
+            TermLiteral::Nat(_) => todo!(),
+            TermLiteral::Float(_) => todo!(),
+            TermLiteral::F32(_) => todo!(),
+            TermLiteral::F64(_) => todo!(),
+            TermLiteral::B8(_) => todo!(),
+            TermLiteral::B16(_) => todo!(),
+            TermLiteral::B32(_) => todo!(),
+            TermLiteral::B64(_) => todo!(),
+            TermLiteral::Bool(_) => todo!(),
+            TermLiteral::Str(_) => todo!(),
+            TermLiteral::EvalLifetime => f.write_str("'eval"),
+            TermLiteral::StaticLifetime => f.write_str("'static"),
+        }
+    }
+}
+
 /// allowing representing very large number
 #[salsa::interned(db = TermDb, jar = TermJar)]
 pub struct TermInteger128 {

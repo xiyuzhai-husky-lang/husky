@@ -39,7 +39,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`Nat`),
+                    ty: Term(`natural_number_game::Nat`),
                 },
             ),
         ),

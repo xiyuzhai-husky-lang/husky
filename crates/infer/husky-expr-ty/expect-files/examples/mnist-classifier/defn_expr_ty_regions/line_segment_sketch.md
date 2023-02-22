@@ -2,7 +2,11 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -1234,8 +1238,8 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`Vector2d`),
-            Term(`f32`),
+            Term(`mnist_classifier::geom2d::Vector2d`),
+            Term(`core::num::f32`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -1949,14 +1953,18 @@
             },
         },
         return_ty: Some(
-            Term(`Vector2d`),
+            Term(`mnist_classifier::geom2d::Vector2d`),
         ),
         self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -3188,8 +3196,8 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`Vector2d`),
-            Term(`f32`),
+            Term(`mnist_classifier::geom2d::Vector2d`),
+            Term(`core::num::f32`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -3903,14 +3911,18 @@
             },
         },
         return_ty: Some(
-            Term(`Vector2d`),
+            Term(`mnist_classifier::geom2d::Vector2d`),
         ),
         self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -7828,25 +7840,25 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`Ref TermLiteral::EvalLifetime RawContour`),
-            Term(`i32`),
-            Term(`f32`),
+            Term(`Ref 'eval RawContour`),
+            Term(`core::num::i32`),
+            Term(`core::num::f32`),
         ],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`i32`),
+                Term(`core::num::i32`),
             ),
             LocalTerm::Resolved(
-                Term(`Vector2d`),
+                Term(`mnist_classifier::geom2d::Vector2d`),
             ),
             LocalTerm::Resolved(
-                Term(`Vector2d`),
+                Term(`mnist_classifier::geom2d::Vector2d`),
             ),
             LocalTerm::Resolved(
-                Term(`Vector2d`),
+                Term(`mnist_classifier::geom2d::Vector2d`),
             ),
             LocalTerm::Resolved(
-                Term(`Vector2d`),
+                Term(`mnist_classifier::geom2d::Vector2d`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -11573,14 +11585,18 @@
             },
         },
         return_ty: Some(
-            Term(`i32`),
+            Term(`core::num::i32`),
         ),
         self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -15938,26 +15954,26 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`Ref TermLiteral::EvalLifetime RawContour`),
-            Term(`i32`),
-            Term(`i32`),
-            Term(`f32`),
+            Term(`Ref 'eval RawContour`),
+            Term(`core::num::i32`),
+            Term(`core::num::i32`),
+            Term(`core::num::f32`),
         ],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`i32`),
+                Term(`core::num::i32`),
             ),
             LocalTerm::Resolved(
-                Term(`Vector2d`),
+                Term(`mnist_classifier::geom2d::Vector2d`),
             ),
             LocalTerm::Resolved(
-                Term(`Vector2d`),
+                Term(`mnist_classifier::geom2d::Vector2d`),
             ),
             LocalTerm::Resolved(
-                Term(`Vector2d`),
+                Term(`mnist_classifier::geom2d::Vector2d`),
             ),
             LocalTerm::Resolved(
-                Term(`Vector2d`),
+                Term(`mnist_classifier::geom2d::Vector2d`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -20132,14 +20148,18 @@
             },
         },
         return_ty: Some(
-            Term(`i32`),
+            Term(`core::num::i32`),
         ),
         self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
             DefnExprPath::Entity(
-                FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -24379,12 +24399,12 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`Ref TermLiteral::EvalLifetime RawContour`),
-            Term(`f32`),
+            Term(`Ref 'eval RawContour`),
+            Term(`core::num::f32`),
         ],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`bool`),
+                Term(`core::basic::bool`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -28047,9 +28067,9 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`Ref TermLiteral::EvalLifetime RawContour`),
-            Term(`i32`),
-            Term(`i32`),
+            Term(`Ref 'eval RawContour`),
+            Term(`core::num::i32`),
+            Term(`core::num::i32`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -28423,7 +28443,7 @@
             },
         },
         return_ty: Some(
-            Term(`LineSegmentStroke`),
+            Term(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
         ),
         self_ty: None,
     },
@@ -28539,7 +28559,7 @@
             },
         },
         return_ty: Some(
-            Term(`Vector2d`),
+            Term(`mnist_classifier::geom2d::Vector2d`),
         ),
         self_ty: None,
     },
@@ -30387,7 +30407,7 @@
             },
         },
         return_ty: Some(
-            Term(`BoundingBox`),
+            Term(`mnist_classifier::geom2d::BoundingBox`),
         ),
         self_ty: None,
     },
@@ -30698,8 +30718,8 @@
             ],
         },
         inherited_symbol_tys: [
-            Term(`Ref TermLiteral::EvalLifetime RawContour`),
-            Term(`f32`),
+            Term(`Ref 'eval RawContour`),
+            Term(`core::num::f32`),
         ],
         current_symbol_tys: [],
         local_term_table: LocalTermTable {
@@ -30983,7 +31003,7 @@
             },
         },
         return_ty: Some(
-            Term(`LineSegmentSketch`),
+            Term(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
         ),
         self_ty: None,
     },

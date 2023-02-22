@@ -38,7 +38,7 @@
                             },
                         ],
                     },
-                    return_ty: Term(`bool`),
+                    return_ty: Term(`core::basic::bool`),
                 },
             ),
         ),

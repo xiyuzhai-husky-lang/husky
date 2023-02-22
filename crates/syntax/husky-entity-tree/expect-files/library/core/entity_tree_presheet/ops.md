@@ -1,34 +1,52 @@
 Ok(
     EntityTreePresheet {
         module_path: `core::ops`,
-        module_specific_symbols: NativeEntitySymbolTable(
+        native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: `Add`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "Add",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TraitPath(`core::ops::Add`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Trait(
+                                TraitPath(`core::ops::Add`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 5,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `Sub`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "Sub",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TraitPath(`core::ops::Sub`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Trait(
+                                TraitPath(`core::ops::Sub`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 7,
                         },
                     ),
                 },
             ],
         ),
-        entity_use_roots: EntityUseExprTrackers(
+        use_one_trackers: UseExprRules(
             [],
         ),
+        use_all_trackers: UseAllRules(
+            [],
+        ),
+        use_expr_arena: Arena {
+            data: [],
+        },
+        mod_path_arena: Arena {
+            data: [],
+        },
+        errors: [],
     },
 )

@@ -1,26 +1,42 @@
 [
     (
-        TraitPath(`core::cmp::PartialEq`),
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::cmp::PartialEq`),
+            ),
+        ),
         Ok(
-            Term(`Trait`),
+            Term(`core::basic::Trait`),
         ),
     ),
     (
-        TraitPath(`core::cmp::Eq`),
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::cmp::Eq`),
+            ),
+        ),
         Ok(
-            Term(`Trait`),
+            Term(`core::basic::Trait`),
         ),
     ),
     (
-        TraitPath(`core::cmp::PartialOrd`),
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::cmp::PartialOrd`),
+            ),
+        ),
         Ok(
-            Term(`Trait`),
+            Term(`core::basic::Trait`),
         ),
     ),
     (
-        TraitPath(`core::cmp::Ord`),
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::cmp::Ord`),
+            ),
+        ),
         Ok(
-            Term(`Trait`),
+            Term(`core::basic::Trait`),
         ),
     ),
 ]

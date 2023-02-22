@@ -1,14 +1,26 @@
 Ok(
-    EntityTreeBundle {
+    EntityTreeCrateBundle {
         sheets: [
             EntityTreeSheet {
                 module_path: `MinimalToml(
                     ExpectWordName,
                 )`,
-                module_specific_symbols: EntitySymbolTable(
+                symbols: EntitySymbolTable(
                     [],
                 ),
+                impl_blocks: [],
+                use_expr_rules: UseExprRules(
+                    [],
+                ),
+                use_all_rules: UseAllRules(
+                    [],
+                ),
+                errors: [],
             },
         ],
+        principal_entity_path_expr_arena: Arena {
+            data: [],
+        },
+        impl_blocks: [],
     },
 )

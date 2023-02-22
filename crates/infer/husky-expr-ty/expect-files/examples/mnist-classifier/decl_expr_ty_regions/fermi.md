@@ -2,7 +2,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -124,7 +128,11 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclExprPath::Entity(
-                FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Form(
+                        FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: ArenaMap {
@@ -204,10 +212,10 @@
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
-                Term(`Ref TermLiteral::EvalLifetime List ConcaveComponent`),
+                Term(`Ref 'eval List ConcaveComponent`),
             ),
             LocalTerm::Resolved(
-                Term(`List TermCurry { variance: Invariant, x: Term(`Ref TermLiteral::EvalLifetime ConcaveComponent`), y: Term(`Option f32`) }`),
+                Term(`List invariant Ref 'eval ConcaveComponent -> Option f32`),
             ),
         ],
         local_term_table: LocalTermTable {
@@ -509,7 +517,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`FermiMatchResult`),
+            Term(`mnist_classifier::fermi::FermiMatchResult`),
         ),
     },
     ExprTypeRegion {
@@ -634,7 +642,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`FermiMatchResult`),
+            Term(`mnist_classifier::fermi::FermiMatchResult`),
         ),
     },
     ExprTypeRegion {
@@ -759,7 +767,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            Term(`FermiMatchResult`),
+            Term(`mnist_classifier::fermi::FermiMatchResult`),
         ),
     },
 ]

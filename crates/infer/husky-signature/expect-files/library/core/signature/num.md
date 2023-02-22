@@ -94,7 +94,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`i8`),
+                    ty: Term(`core::num::i8`),
                 },
             ),
         ),
@@ -110,7 +110,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`i8`),
+                        return_ty: Term(`core::num::i8`),
                     },
                 ),
             ),
@@ -123,7 +123,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`i16`),
+                    ty: Term(`core::num::i16`),
                 },
             ),
         ),
@@ -139,7 +139,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`i16`),
+                        return_ty: Term(`core::num::i16`),
                     },
                 ),
             ),
@@ -152,7 +152,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`i32`),
+                    ty: Term(`core::num::i32`),
                 },
             ),
         ),
@@ -168,7 +168,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`i32`),
+                        return_ty: Term(`core::num::i32`),
                     },
                 ),
             ),
@@ -181,7 +181,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`i64`),
+                    ty: Term(`core::num::i64`),
                 },
             ),
         ),
@@ -197,7 +197,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`i64`),
+                        return_ty: Term(`core::num::i64`),
                     },
                 ),
             ),
@@ -210,7 +210,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`f8`),
+                    ty: Term(`core::num::f8`),
                 },
             ),
         ),
@@ -226,7 +226,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`f8`),
+                        return_ty: Term(`core::num::f8`),
                     },
                 ),
             ),
@@ -239,7 +239,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`f16`),
+                    ty: Term(`core::num::f16`),
                 },
             ),
         ),
@@ -255,7 +255,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`f16`),
+                        return_ty: Term(`core::num::f16`),
                     },
                 ),
             ),
@@ -268,7 +268,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`f32`),
+                    ty: Term(`core::num::f32`),
                 },
             ),
         ),
@@ -284,7 +284,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`f32`),
+                        return_ty: Term(`core::num::f32`),
                     },
                 ),
             ),
@@ -297,7 +297,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`f64`),
+                    ty: Term(`core::num::f64`),
                 },
             ),
         ),
@@ -313,7 +313,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`f64`),
+                        return_ty: Term(`core::num::f64`),
                     },
                 ),
             ),

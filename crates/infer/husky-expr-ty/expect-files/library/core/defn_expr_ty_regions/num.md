@@ -37,7 +37,7 @@
             },
         },
         return_ty: Some(
-            Term(`i8`),
+            Term(`core::num::i8`),
         ),
         self_ty: None,
     },
@@ -79,7 +79,7 @@
             },
         },
         return_ty: Some(
-            Term(`i16`),
+            Term(`core::num::i16`),
         ),
         self_ty: None,
     },
@@ -121,7 +121,7 @@
             },
         },
         return_ty: Some(
-            Term(`i32`),
+            Term(`core::num::i32`),
         ),
         self_ty: None,
     },
@@ -163,7 +163,7 @@
             },
         },
         return_ty: Some(
-            Term(`i64`),
+            Term(`core::num::i64`),
         ),
         self_ty: None,
     },
@@ -205,7 +205,7 @@
             },
         },
         return_ty: Some(
-            Term(`f8`),
+            Term(`core::num::f8`),
         ),
         self_ty: None,
     },
@@ -247,7 +247,7 @@
             },
         },
         return_ty: Some(
-            Term(`f16`),
+            Term(`core::num::f16`),
         ),
         self_ty: None,
     },
@@ -289,7 +289,7 @@
             },
         },
         return_ty: Some(
-            Term(`f32`),
+            Term(`core::num::f32`),
         ),
         self_ty: None,
     },
@@ -331,7 +331,7 @@
             },
         },
         return_ty: Some(
-            Term(`f64`),
+            Term(`core::num::f64`),
         ),
         self_ty: None,
     },

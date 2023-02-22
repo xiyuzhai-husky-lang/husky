@@ -1,17 +1,19 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::digits`,
-        module_specific_symbols: NativeEntitySymbolTable(
+        native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: `zero`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "zero",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits`,
                     ),
-                    symbol: Submodule(
+                    symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::digits::zero`,
-                            accessibility: PubicUnder(
+                            accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 0,
@@ -19,14 +21,16 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `one`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "one",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits`,
                     ),
-                    symbol: Submodule(
+                    symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::digits::one`,
-                            accessibility: PubicUnder(
+                            accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 1,
@@ -34,14 +38,16 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `six`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "six",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits`,
                     ),
-                    symbol: Submodule(
+                    symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::digits::six`,
-                            accessibility: PubicUnder(
+                            accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 2,
@@ -49,14 +55,16 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `three`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "three",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits`,
                     ),
-                    symbol: Submodule(
+                    symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::digits::three`,
-                            accessibility: PubicUnder(
+                            accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 3,
@@ -64,14 +72,16 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `four`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "four",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits`,
                     ),
-                    symbol: Submodule(
+                    symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::digits::four`,
-                            accessibility: PubicUnder(
+                            accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 4,
@@ -79,14 +89,16 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `five`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "five",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits`,
                     ),
-                    symbol: Submodule(
+                    symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::digits::five`,
-                            accessibility: PubicUnder(
+                            accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 5,
@@ -94,14 +106,16 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `six`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "six",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits`,
                     ),
-                    symbol: Submodule(
+                    symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::digits::six`,
-                            accessibility: PubicUnder(
+                            accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 6,
@@ -109,14 +123,16 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `seven`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "seven",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits`,
                     ),
-                    symbol: Submodule(
+                    symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::digits::seven`,
-                            accessibility: PubicUnder(
+                            accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 7,
@@ -124,14 +140,16 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `eight`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "eight",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits`,
                     ),
-                    symbol: Submodule(
+                    symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::digits::eight`,
-                            accessibility: PubicUnder(
+                            accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 8,
@@ -139,14 +157,16 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `nine`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "nine",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::digits`,
                     ),
-                    symbol: Submodule(
+                    symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::digits::nine`,
-                            accessibility: PubicUnder(
+                            accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 9,
@@ -155,12 +175,12 @@ Ok(
                 },
             ],
         ),
-        entity_use_roots: EntityUseExprTrackers(
+        use_one_trackers: UseExprRules(
             [
                 UseTracker {
                     ast_idx: 10,
                     accessibility: Done {
-                        accessibility: Public,
+                        accessibility: Accessibility::Public,
                     },
                     variant: Parent {
                         parent_name_token: Identifier(
@@ -187,7 +207,7 @@ Ok(
                 UseTracker {
                     ast_idx: 11,
                     accessibility: Done {
-                        accessibility: PubicUnder(
+                        accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::digits`,
                         ),
                     },
@@ -216,7 +236,7 @@ Ok(
                 UseTracker {
                     ast_idx: 12,
                     accessibility: Done {
-                        accessibility: PubicUnder(
+                        accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::digits`,
                         ),
                     },
@@ -245,7 +265,7 @@ Ok(
                 UseTracker {
                     ast_idx: 13,
                     accessibility: Done {
-                        accessibility: PubicUnder(
+                        accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::digits`,
                         ),
                     },
@@ -274,7 +294,7 @@ Ok(
                 UseTracker {
                     ast_idx: 14,
                     accessibility: Done {
-                        accessibility: PubicUnder(
+                        accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::digits`,
                         ),
                     },
@@ -303,7 +323,7 @@ Ok(
                 UseTracker {
                     ast_idx: 15,
                     accessibility: Done {
-                        accessibility: PubicUnder(
+                        accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::digits`,
                         ),
                     },
@@ -332,7 +352,7 @@ Ok(
                 UseTracker {
                     ast_idx: 16,
                     accessibility: Done {
-                        accessibility: PubicUnder(
+                        accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::digits`,
                         ),
                     },
@@ -361,7 +381,7 @@ Ok(
                 UseTracker {
                     ast_idx: 17,
                     accessibility: Done {
-                        accessibility: PubicUnder(
+                        accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::digits`,
                         ),
                     },
@@ -390,7 +410,7 @@ Ok(
                 UseTracker {
                     ast_idx: 18,
                     accessibility: Done {
-                        accessibility: PubicUnder(
+                        accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::digits`,
                         ),
                     },
@@ -419,7 +439,7 @@ Ok(
                 UseTracker {
                     ast_idx: 19,
                     accessibility: Done {
-                        accessibility: PubicUnder(
+                        accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::digits`,
                         ),
                     },
@@ -447,5 +467,436 @@ Ok(
                 },
             ],
         ),
+        use_all_trackers: UseAllRules(
+            [],
+        ),
+        use_expr_arena: Arena {
+            data: [
+                Leaf {
+                    ident_token: IdentifierToken {
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 118,
+                                },
+                            ),
+                        ),
+                        token_idx: TokenIdx(
+                            24,
+                        ),
+                    },
+                },
+                Parent {
+                    parent_name_token: Identifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 93,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                22,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                23,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 0,
+                        },
+                    ),
+                },
+                Leaf {
+                    ident_token: IdentifierToken {
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 119,
+                                },
+                            ),
+                        ),
+                        token_idx: TokenIdx(
+                            28,
+                        ),
+                    },
+                },
+                Parent {
+                    parent_name_token: Identifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 95,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                26,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                27,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 2,
+                        },
+                    ),
+                },
+                Leaf {
+                    ident_token: IdentifierToken {
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 120,
+                                },
+                            ),
+                        ),
+                        token_idx: TokenIdx(
+                            32,
+                        ),
+                    },
+                },
+                Parent {
+                    parent_name_token: Identifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 98,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                30,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                31,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 4,
+                        },
+                    ),
+                },
+                Leaf {
+                    ident_token: IdentifierToken {
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 126,
+                                },
+                            ),
+                        ),
+                        token_idx: TokenIdx(
+                            36,
+                        ),
+                    },
+                },
+                Parent {
+                    parent_name_token: Identifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 97,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                34,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                35,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 6,
+                        },
+                    ),
+                },
+                Leaf {
+                    ident_token: IdentifierToken {
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 123,
+                                },
+                            ),
+                        ),
+                        token_idx: TokenIdx(
+                            40,
+                        ),
+                    },
+                },
+                Parent {
+                    parent_name_token: Identifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 96,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                38,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                39,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 8,
+                        },
+                    ),
+                },
+                Leaf {
+                    ident_token: IdentifierToken {
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 125,
+                                },
+                            ),
+                        ),
+                        token_idx: TokenIdx(
+                            44,
+                        ),
+                    },
+                },
+                Parent {
+                    parent_name_token: Identifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 90,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                42,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                43,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 10,
+                        },
+                    ),
+                },
+                Leaf {
+                    ident_token: IdentifierToken {
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 119,
+                                },
+                            ),
+                        ),
+                        token_idx: TokenIdx(
+                            48,
+                        ),
+                    },
+                },
+                Parent {
+                    parent_name_token: Identifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 95,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                46,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                47,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 12,
+                        },
+                    ),
+                },
+                Leaf {
+                    ident_token: IdentifierToken {
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 121,
+                                },
+                            ),
+                        ),
+                        token_idx: TokenIdx(
+                            52,
+                        ),
+                    },
+                },
+                Parent {
+                    parent_name_token: Identifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 94,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                50,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                51,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 14,
+                        },
+                    ),
+                },
+                Leaf {
+                    ident_token: IdentifierToken {
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 122,
+                                },
+                            ),
+                        ),
+                        token_idx: TokenIdx(
+                            56,
+                        ),
+                    },
+                },
+                Parent {
+                    parent_name_token: Identifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 89,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                54,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                55,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 16,
+                        },
+                    ),
+                },
+                Leaf {
+                    ident_token: IdentifierToken {
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 124,
+                                },
+                            ),
+                        ),
+                        token_idx: TokenIdx(
+                            60,
+                        ),
+                    },
+                },
+                Parent {
+                    parent_name_token: Identifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 92,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                58,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                59,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 18,
+                        },
+                    ),
+                },
+            ],
+        },
+        mod_path_arena: Arena {
+            data: [],
+        },
+        errors: [],
     },
 )

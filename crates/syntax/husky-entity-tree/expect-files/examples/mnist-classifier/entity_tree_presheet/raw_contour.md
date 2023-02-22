@@ -1,28 +1,36 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::raw_contour`,
-        module_specific_symbols: NativeEntitySymbolTable(
+        native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: `RawContour`,
-                    accessibility: Public,
-                    symbol: ModuleItem(
+                    ident: Identifier(
+                        "RawContour",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                            accessibility: Public,
+                            path: ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                            ),
+                            accessibility: Accessibility::Public,
                             ast_idx: 199,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `Direction`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "Direction",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
-                    symbol: ModuleItem(
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                            accessibility: PubicUnder(
+                            path: ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 201,
@@ -30,14 +38,18 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `get_pixel_pair`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "get_pixel_pair",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
-                    symbol: ModuleItem(
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
-                            accessibility: PubicUnder(
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 206,
@@ -45,14 +57,18 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `get_pixel_to_the_left`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "get_pixel_to_the_left",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
-                    symbol: ModuleItem(
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
-                            accessibility: PubicUnder(
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 207,
@@ -60,14 +76,18 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `get_pixel_to_the_right`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "get_pixel_to_the_right",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
-                    symbol: ModuleItem(
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
-                            accessibility: PubicUnder(
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 208,
@@ -75,14 +95,18 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `get_inward_direction`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "get_inward_direction",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
-                    symbol: ModuleItem(
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
-                            accessibility: PubicUnder(
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 209,
@@ -90,14 +114,18 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `get_angle_change`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "get_angle_change",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
-                    symbol: ModuleItem(
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
-                            accessibility: PubicUnder(
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 210,
@@ -105,14 +133,18 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `get_outward_direction`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "get_outward_direction",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
-                    symbol: ModuleItem(
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
-                            accessibility: PubicUnder(
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 211,
@@ -120,14 +152,18 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `StreakCache`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "StreakCache",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
-                    symbol: ModuleItem(
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
-                            accessibility: PubicUnder(
+                            path: ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 212,
@@ -135,14 +171,18 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `get_concave_middle_point`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "get_concave_middle_point",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
-                    symbol: ModuleItem(
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
-                            accessibility: PubicUnder(
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 213,
@@ -150,14 +190,18 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `find_raw_contours`,
-                    accessibility: PubicUnder(
+                    ident: Identifier(
+                        "find_raw_contours",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
-                    symbol: ModuleItem(
+                    symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
-                            accessibility: PubicUnder(
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 214,
@@ -166,12 +210,12 @@ Ok(
                 },
             ],
         ),
-        entity_use_roots: EntityUseExprTrackers(
+        use_one_trackers: UseExprRules(
             [
                 UseTracker {
                     ast_idx: 195,
                     accessibility: Done {
-                        accessibility: PubicUnder(
+                        accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                     },
@@ -193,7 +237,7 @@ Ok(
                 UseTracker {
                     ast_idx: 196,
                     accessibility: Done {
-                        accessibility: PubicUnder(
+                        accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                     },
@@ -215,7 +259,7 @@ Ok(
                 UseTracker {
                     ast_idx: 197,
                     accessibility: Done {
-                        accessibility: PubicUnder(
+                        accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                     },
@@ -237,7 +281,7 @@ Ok(
                 UseTracker {
                     ast_idx: 198,
                     accessibility: Done {
-                        accessibility: PubicUnder(
+                        accessibility: Accessibility::PublicUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                     },
@@ -265,5 +309,261 @@ Ok(
                 },
             ],
         ),
+        use_all_trackers: UseAllRules(
+            [],
+        ),
+        use_expr_arena: Arena {
+            data: [
+                All {
+                    star_token: StarToken {
+                        token_idx: TokenIdx(
+                            5,
+                        ),
+                    },
+                },
+                Parent {
+                    parent_name_token: Identifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 100,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                3,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                4,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 0,
+                        },
+                    ),
+                },
+                Parent {
+                    parent_name_token: Crate(
+                        CrateToken {
+                            token_idx: TokenIdx(
+                                1,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                2,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 1,
+                        },
+                    ),
+                },
+                All {
+                    star_token: StarToken {
+                        token_idx: TokenIdx(
+                            11,
+                        ),
+                    },
+                },
+                Parent {
+                    parent_name_token: Identifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 87,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                9,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                10,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 3,
+                        },
+                    ),
+                },
+                Parent {
+                    parent_name_token: Crate(
+                        CrateToken {
+                            token_idx: TokenIdx(
+                                7,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                8,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 4,
+                        },
+                    ),
+                },
+                All {
+                    star_token: StarToken {
+                        token_idx: TokenIdx(
+                            17,
+                        ),
+                    },
+                },
+                Parent {
+                    parent_name_token: Identifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 101,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                15,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                16,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 6,
+                        },
+                    ),
+                },
+                Parent {
+                    parent_name_token: Crate(
+                        CrateToken {
+                            token_idx: TokenIdx(
+                                13,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                14,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Single {
+                            child: 7,
+                        },
+                    ),
+                },
+                Leaf {
+                    ident_token: IdentifierToken {
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 110,
+                                },
+                            ),
+                        ),
+                        token_idx: TokenIdx(
+                            22,
+                        ),
+                    },
+                },
+                Leaf {
+                    ident_token: IdentifierToken {
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 417,
+                                },
+                            ),
+                        ),
+                        token_idx: TokenIdx(
+                            24,
+                        ),
+                    },
+                },
+                Parent {
+                    parent_name_token: Identifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 108,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                19,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: Ok(
+                        ScopeResolutionToken {
+                            token_idx: TokenIdx(
+                                20,
+                            ),
+                        },
+                    ),
+                    children: Ok(
+                        Multiple {
+                            lcurl_token: LeftCurlyBraceToken {
+                                token_idx: TokenIdx(
+                                    21,
+                                ),
+                            },
+                            children: ArenaIdxRange(
+                                9..11,
+                            ),
+                            comma_tokens: [
+                                CommaToken {
+                                    token_idx: TokenIdx(
+                                        23,
+                                    ),
+                                },
+                            ],
+                            rcurl_token: Ok(
+                                RightCurlyBraceToken {
+                                    token_idx: TokenIdx(
+                                        25,
+                                    ),
+                                },
+                            ),
+                        },
+                    ),
+                },
+            ],
+        },
+        mod_path_arena: Arena {
+            data: [],
+        },
+        errors: [],
     },
 )

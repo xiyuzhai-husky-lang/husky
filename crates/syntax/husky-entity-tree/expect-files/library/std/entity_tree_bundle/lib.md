@@ -1,19 +1,22 @@
 Ok(
-    EntityTreeBundle {
+    EntityTreeCrateBundle {
         sheets: [
             EntityTreeSheet {
                 module_path: `std`,
-                module_specific_symbols: EntitySymbolTable(
+                symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: `prelude`,
-                            accessibility: PubicUnder(
+                            ident: Identifier(
+                                "prelude",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `std`,
                             ),
                             symbol: Submodule(
                                 SubmoduleSymbol {
+                                    [salsa id]: 12,
                                     path: `std::prelude`,
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `std`,
                                     ),
                                     ast_idx: 0,
@@ -21,14 +24,17 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `logic`,
-                            accessibility: PubicUnder(
+                            ident: Identifier(
+                                "logic",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `std`,
                             ),
                             symbol: Submodule(
                                 SubmoduleSymbol {
+                                    [salsa id]: 13,
                                     path: `std::logic`,
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `std`,
                                     ),
                                     ast_idx: 1,
@@ -36,14 +42,17 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `ops`,
-                            accessibility: PubicUnder(
+                            ident: Identifier(
+                                "ops",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `std`,
                             ),
                             symbol: Submodule(
                                 SubmoduleSymbol {
+                                    [salsa id]: 14,
                                     path: `std::ops`,
-                                    accessibility: PubicUnder(
+                                    accessibility: Accessibility::PublicUnder(
                                         `std`,
                                     ),
                                     ast_idx: 2,
@@ -52,32 +61,104 @@ Ok(
                         },
                     ],
                 ),
+                impl_blocks: [],
+                use_expr_rules: UseExprRules(
+                    [],
+                ),
+                use_all_rules: UseAllRules(
+                    [],
+                ),
+                errors: [],
             },
             EntityTreeSheet {
                 module_path: `std::prelude`,
-                module_specific_symbols: EntitySymbolTable(
+                symbols: EntitySymbolTable(
                     [],
                 ),
+                impl_blocks: [],
+                use_expr_rules: UseExprRules(
+                    [],
+                ),
+                use_all_rules: UseAllRules(
+                    [],
+                ),
+                errors: [],
             },
             EntityTreeSheet {
                 module_path: `std::logic`,
-                module_specific_symbols: EntitySymbolTable(
+                symbols: EntitySymbolTable(
                     [],
                 ),
+                impl_blocks: [],
+                use_expr_rules: UseExprRules(
+                    [
+                        UseTracker {
+                            ast_idx: 0,
+                            accessibility: Done {
+                                accessibility: Accessibility::Public,
+                            },
+                            variant: Parent {
+                                parent_name_token: Identifier(
+                                    IdentifierToken {
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 40,
+                                                },
+                                            ),
+                                        ),
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    1..2,
+                                ),
+                            },
+                            parent: None,
+                            state: Erroneous,
+                        },
+                    ],
+                ),
+                use_all_rules: UseAllRules(
+                    [],
+                ),
+                errors: [
+                    UnresolvedIdentifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 40,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                2,
+                            ),
+                        },
+                    ),
+                ],
             },
             EntityTreeSheet {
                 module_path: `std::ops`,
-                module_specific_symbols: EntitySymbolTable(
+                symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: `Add`,
-                            accessibility: PubicUnder(
+                            ident: Identifier(
+                                "Add",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
                                 `std::ops`,
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    path: TraitPath(`std::ops::Add`),
-                                    accessibility: PubicUnder(
+                                    [salsa id]: 29,
+                                    path: ModuleItemPath::Trait(
+                                        TraitPath(`std::ops::Add`),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
                                         `std::ops`,
                                     ),
                                     ast_idx: 3,
@@ -86,7 +167,19 @@ Ok(
                         },
                     ],
                 ),
+                impl_blocks: [],
+                use_expr_rules: UseExprRules(
+                    [],
+                ),
+                use_all_rules: UseAllRules(
+                    [],
+                ),
+                errors: [],
             },
         ],
+        principal_entity_path_expr_arena: Arena {
+            data: [],
+        },
+        impl_blocks: [],
     },
 )
