@@ -14,45 +14,45 @@ use husky_ast::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 pub enum TraitItemDecl {
-    Function(TraitAssociatedFunctionDecl),
+    AssociatedFunction(TraitAssociatedFunctionDecl),
     Method(TraitMethodDecl),
-    AlienType(TraitAssociatedTypeDecl),
+    AssociatedType(TraitAssociatedTypeDecl),
     Value(TraitAssociatedValueDecl),
 }
 
 impl TraitItemDecl {
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
-            TraitItemDecl::Function(decl) => decl.ast_idx(db),
+            TraitItemDecl::AssociatedFunction(decl) => decl.ast_idx(db),
             TraitItemDecl::Method(decl) => decl.ast_idx(db),
-            TraitItemDecl::AlienType(decl) => decl.ast_idx(db),
+            TraitItemDecl::AssociatedType(decl) => decl.ast_idx(db),
             TraitItemDecl::Value(decl) => decl.ast_idx(db),
         }
     }
 
     pub fn implicit_parameters(self, db: &dyn DeclDb) -> &[ImplicitParameterDecl] {
         match self {
-            TraitItemDecl::Function(_) => todo!(),
+            TraitItemDecl::AssociatedFunction(_) => todo!(),
             TraitItemDecl::Method(_) => todo!(),
-            TraitItemDecl::AlienType(_) => todo!(),
+            TraitItemDecl::AssociatedType(_) => todo!(),
             TraitItemDecl::Value(_) => todo!(),
         }
     }
 
     pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
         match self {
-            TraitItemDecl::Function(_) => todo!(),
+            TraitItemDecl::AssociatedFunction(_) => todo!(),
             TraitItemDecl::Method(_) => todo!(),
-            TraitItemDecl::AlienType(_) => todo!(),
+            TraitItemDecl::AssociatedType(_) => todo!(),
             TraitItemDecl::Value(_) => todo!(),
         }
     }
 
     pub fn path(self, db: &dyn DeclDb) -> TraitItemPath {
         match self {
-            TraitItemDecl::Function(_) => todo!(),
+            TraitItemDecl::AssociatedFunction(_) => todo!(),
             TraitItemDecl::Method(_) => todo!(),
-            TraitItemDecl::AlienType(_) => todo!(),
+            TraitItemDecl::AssociatedType(_) => todo!(),
             TraitItemDecl::Value(_) => todo!(),
         }
     }

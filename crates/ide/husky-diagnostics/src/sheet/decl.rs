@@ -18,10 +18,15 @@ pub(crate) fn decl_diagnostic_sheet(
         db.decl_sheet(module_path),
     ) {
         let token_sheet_data = ranged_token_sheet.token_sheet_data(db);
-        for decl in decl_sheet.decls().iter().copied() {
-            let mut collector =
-                RegionDiagnosticsCollector::new(db, decl.expr_region(db), &mut center);
-            collector.visit_decl(decl)
+        for (path, decl) in decl_sheet.decls().iter().copied() {
+            match decl {
+                Ok(decl) => {
+                    let mut collector =
+                        RegionDiagnosticsCollector::new(db, decl.expr_region(db), &mut center);
+                    collector.visit_decl(decl)
+                }
+                Err(_) => todo!(),
+            }
         }
     }
     // todo

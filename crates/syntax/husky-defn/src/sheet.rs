@@ -2,27 +2,31 @@ use vec_like::VecPairMap;
 
 use crate::*;
 
-#[salsa::tracked(jar = DefnJar, return_ref)]
-pub(crate) fn defn_sheet(db: &dyn DefnDb, module_path: ModulePath) -> EntityTreeResult<DefnSheet> {
+pub(crate) fn collect_defn_sheet(
+    db: &dyn DefnDb,
+    module_path: ModulePath,
+) -> EntityTreeResult<DefnSheet> {
     Ok(DefnCollector::new(db, module_path)?.collect_all())
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct DefnSheet {
-    defns: Vec<Defn>,
+pub struct DefnSheet<'a> {
+    defns: VecPairMap<DefnRegionPath, DeclResultRef<'a, Defn>>,
 }
 
-impl DefnSheet {
-    pub fn new(defns: Vec<Defn>) -> Self {
+impl<'a> DefnSheet<'a> {
+    pub fn new(defns: VecPairMap<DefnRegionPath, DeclResultRef<'a, Defn>>) -> Self {
         Self { defns }
     }
 
-    pub fn defns<'a>(&'a self) -> impl Iterator<Item = Defn> + 'a {
+    pub fn defns<'b>(
+        &'b self,
+    ) -> impl Iterator<Item = (DefnRegionPath, DeclResultRef<'a, Defn>)> + 'b {
         self.defns.iter().copied()
     }
 }
 
-impl<Db: DefnDb + ?Sized> salsa::DebugWithDb<Db> for DefnSheet {
+impl<'a, Db: DefnDb + ?Sized> salsa::DebugWithDb<Db> for DefnSheet<'a> {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,

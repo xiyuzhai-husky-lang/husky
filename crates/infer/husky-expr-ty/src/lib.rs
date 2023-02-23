@@ -16,6 +16,7 @@ use engine::*;
 use husky_defn::*;
 use husky_entity_path::*;
 use husky_entity_taxonomy::*;
+use husky_entity_tree::*;
 use husky_expr::*;
 use husky_signature::*;
 use husky_term::*;

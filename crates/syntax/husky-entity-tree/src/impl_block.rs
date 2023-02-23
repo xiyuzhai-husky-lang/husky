@@ -3,6 +3,7 @@ use husky_token::*;
 use husky_word::IdentPairMap;
 use parsec::ParseContext;
 use thiserror::Error;
+use vec_like::VecPairMap;
 
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
 pub struct ImplBlock {
@@ -37,6 +38,7 @@ impl ImplBlockVariant {
 pub struct ImplBlockId {
     module_path: ModulePath,
     impl_block_kind: ImplBlockKind,
+    disambiguator: u8,
 }
 
 impl ImplBlockId {
@@ -53,9 +55,29 @@ pub enum ImplBlockKind {
     Err,
 }
 
+#[derive(Default)]
+pub struct ImplBlockRegistry {
+    next_disambiguitors: VecPairMap<(ModulePath, ImplBlockKind), u8>,
+}
+impl ImplBlockRegistry {
+    fn issue_disambiguitor(
+        &mut self,
+        module_path: ModulePath,
+        impl_block_kind: ImplBlockKind,
+    ) -> u8 {
+        let next_disambiguitor = self
+            .next_disambiguitors
+            .get_mut_or_insert_default((module_path, impl_block_kind));
+        let new_disambiguitor = *next_disambiguitor;
+        *next_disambiguitor += 1;
+        new_disambiguitor
+    }
+}
+
 impl ImplBlock {
     pub(crate) fn parse_from_token_group<'a>(
         db: &dyn EntityTreeDb,
+        impl_block_registry: &mut ImplBlockRegistry,
         module_symbol_context: ModuleSymbolContext<'a>,
         module_path: ModulePath,
         ast_idx: AstIdx,
@@ -81,6 +103,7 @@ impl ImplBlock {
             Err(e) => {
                 return new_impl_block(
                     db,
+                    impl_block_registry,
                     module_path,
                     ast_idx,
                     body,
@@ -91,6 +114,7 @@ impl ImplBlock {
         match path {
             ModuleItemPath::Type(ty) => new_impl_block(
                 db,
+                impl_block_registry,
                 module_path,
                 ast_idx,
                 body,
@@ -101,6 +125,7 @@ impl ImplBlock {
 
                 new_impl_block(
                     db,
+                    impl_block_registry,
                     module_path,
                     ast_idx,
                     body,
@@ -125,16 +150,19 @@ impl ImplBlock {
 
 fn new_impl_block(
     db: &dyn EntityTreeDb,
+    registry: &mut ImplBlockRegistry,
     module_path: ModulePath,
     ast_idx: ArenaIdx<Ast>,
     body: ArenaIdxRange<Ast>,
     variant: ImplBlockVariant,
 ) -> ImplBlock {
+    let impl_block_kind = variant.kind();
     ImplBlock::new(
         db,
         ImplBlockId {
             module_path,
-            impl_block_kind: variant.kind(),
+            impl_block_kind,
+            disambiguator: registry.issue_disambiguitor(module_path, impl_block_kind),
         },
         ast_idx,
         body,

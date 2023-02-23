@@ -25,14 +25,16 @@ pub(crate) fn expr_ty_diagnostic_sheet(
     let mut diagnostics = vec![];
     if let (Ok(ranged_token_sheet), Ok(defn_sheet)) = (
         db.ranged_token_sheet(module_path),
-        db.defn_sheet(module_path),
+        db.collect_defns(module_path),
     ) {
         let token_sheet_data = ranged_token_sheet.token_sheet_data(db);
-        for defn in defn_sheet.defns() {
-            let decl = defn.decl(db);
-            collect_expr_ty_diagnostics(db, decl.expr_region(db), &mut diagnostics);
-            if let Some(expr_region) = defn.expr_region(db) {
-                collect_expr_ty_diagnostics(db, expr_region, &mut diagnostics);
+        for (_, defn) in defn_sheet.defns() {
+            if let Ok(defn) = defn {
+                let decl = defn.decl(db);
+                collect_expr_ty_diagnostics(db, decl.expr_region(db), &mut diagnostics);
+                if let Some(expr_region) = defn.expr_region(db) {
+                    collect_expr_ty_diagnostics(db, expr_region, &mut diagnostics);
+                }
             }
         }
     }

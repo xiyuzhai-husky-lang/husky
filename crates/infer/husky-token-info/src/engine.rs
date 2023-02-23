@@ -10,7 +10,7 @@ pub(crate) struct InferEngine<'a> {
     ast_sheet: &'a AstSheet,
     entity_tree_presheet: &'a EntityTreePresheet,
     entity_tree_sheet: &'a EntityTreeSheet,
-    defn_sheet: &'a DefnSheet,
+    defn_sheet: DefnSheet<'a>,
     module_symbol_context: ModuleSymbolContext<'a>,
     sheet: TokenInfoSheet,
 }
@@ -21,7 +21,7 @@ impl<'a> InferEngine<'a> {
         Ok(Self {
             db,
             token_sheet_data,
-            defn_sheet: db.defn_sheet(module_path)?,
+            defn_sheet: db.collect_defns(module_path)?,
             ast_sheet: db.ast_sheet(module_path)?,
             entity_tree_presheet: db.entity_tree_presheet(module_path)?,
             entity_tree_sheet: db.entity_tree_sheet(module_path)?,
@@ -37,8 +37,11 @@ impl<'a> InferEngine<'a> {
     }
 
     fn visit_defns(&mut self) {
-        for defn in self.defn_sheet.defns() {
-            self.visit_defn(defn);
+        for (_, defn) in self.defn_sheet.defns() {
+            if let Ok(defn) = defn {
+                todo!()
+                // self.visit_defn(defn);
+            }
         }
     }
 
@@ -133,7 +136,8 @@ impl<'a> InferEngine<'a> {
             TypeDefn::TupleStruct(defn) => self.visit_tuple_struct_ty(defn),
             TypeDefn::RegularStruct(defn) => self.visit_props_struct_ty(defn),
             TypeDefn::Structure(defn) => self.visit_structure_ty(defn),
-            TypeDefn::Foreign(defn) => self.visit_alias_ty(defn),
+            TypeDefn::Alien(defn) => self.visit_alias_ty(defn),
+            TypeDefn::Union(_) => todo!(),
         }
     }
 

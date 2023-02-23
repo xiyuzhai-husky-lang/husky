@@ -168,13 +168,14 @@ impl ExprRegion {
         match self.data(db).path {
             RegionPath::Snippet(toolchain) => toolchain,
             RegionPath::Decl(path) => match path {
-                DeclExprPath::Entity(path) => path.toolchain(db),
-                DeclExprPath::ImplBlock(impl_block) => impl_block.module_path().toolchain(db),
-                DeclExprPath::AssociatedItem(item) => item.module_path().toolchain(db),
+                DeclRegionPath::Entity(path) => path.toolchain(db),
+                DeclRegionPath::ImplBlock(impl_block) => impl_block.module_path().toolchain(db),
+                DeclRegionPath::AssociatedItem(item) => item.module_path().toolchain(db),
             },
             RegionPath::Defn(path) => match path {
-                DefnExprPath::Entity(path) => path.toolchain(db),
-                DefnExprPath::AssociatedItem(item) => item.module_path().toolchain(db),
+                DefnRegionPath::Entity(path) => path.toolchain(db),
+                DefnRegionPath::ImplBlock(impl_block) => impl_block.module_path().toolchain(db),
+                DefnRegionPath::AssociatedItem(item) => item.module_path().toolchain(db),
             },
         }
     }
