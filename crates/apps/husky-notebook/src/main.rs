@@ -44,7 +44,7 @@ impl eframe::App for HuskyNotebook {
             ui.label(format!("Hello '{}', age {}", self.name, self.age));
             ui.label(format!(
                 "Formula: {}xdx",
-                husky_unicode_symbols::opr::INTEGRAL
+                husky_unicode_symbols::opr::OPR_INTEGRAL
             ))
         });
     }
