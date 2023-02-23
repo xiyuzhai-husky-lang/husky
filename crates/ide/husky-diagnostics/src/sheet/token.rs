@@ -1,6 +1,6 @@
 use std::fmt::format;
 
-use husky_token::TokenError;
+use husky_token::{Token, TokenError};
 
 use super::*;
 
@@ -15,22 +15,43 @@ pub(crate) fn token_diagnostic_sheet(
     db: &dyn DiagnosticsDb,
     module_path: ModulePath,
 ) -> TokenDiagnosticSheet {
+    let ctx = DiagnosticsSheetContext::new(db, module_path);
     let mut diagnostics = vec![];
-    // todo
+    if let Ok(ranged_token_sheet) = db.ranged_token_sheet(module_path) {
+        for (range, token) in ranged_token_sheet.ranged_token_iter(db) {
+            if let Token::Err(e) = token {
+                diagnostics.push((range, e).to_diagnostic(&ctx))
+            }
+        }
+    }
     TokenDiagnosticSheet::new(db, diagnostics)
 }
 
-fn token_error_message(error: &TokenError) -> String {
-    match error {
-        TokenError::IncompleteStringLiteral => format!("Syntax Error: incomplete string literal"),
-        TokenError::UnexpectedCharAfterBackslash => {
-            format!("Syntax Error: unexpected char after backslash")
+impl Diagnose for (&TextRange, &TokenError) {
+    type Context<'a> = DiagnosticsSheetContext<'a>;
+
+    fn message(&self, db: &Self::Context<'_>) -> String {
+        match self.1 {
+            TokenError::IncompleteStringLiteral => {
+                format!("Syntax Error: incomplete string literal")
+            }
+            TokenError::UnexpectedCharAfterBackslash => {
+                format!("Syntax Error: unexpected char after backslash")
+            }
+            TokenError::UnrecognizedChar(_) => format!("Syntax Error: unrecognized char"),
+            TokenError::IllFormedLiteral(_) => format!("Syntax Error: ill-formed literal"),
+            TokenError::NumberPseudoLiteral(_) => format!("Syntax Error: number pseudoliteral"),
+            TokenError::ParseIntError => format!("Syntax Error: parse int error"),
+            TokenError::InvalidIntegerSuffix => format!("Syntax Error: invalid integer suffix"),
+            TokenError::InvalidIdentifier => format!("Syntax Error: invalid identifier"),
         }
-        TokenError::UnrecognizedChar(_) => format!("Syntax Error: unrecognized char"),
-        TokenError::IllFormedLiteral(_) => format!("Syntax Error: ill-formed literal"),
-        TokenError::NumberPseudoLiteral(_) => format!("Syntax Error: number pseudoliteral"),
-        TokenError::ParseIntError => format!("Syntax Error: parse int error"),
-        TokenError::InvalidIntegerSuffix => format!("Syntax Error: invalid integer suffix"),
-        TokenError::InvalidIdentifier => format!("Syntax Error: invalid identifier"),
+    }
+
+    fn severity(&self) -> DiagnosticSeverity {
+        DiagnosticSeverity::Error
+    }
+
+    fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
+        *self.0
     }
 }

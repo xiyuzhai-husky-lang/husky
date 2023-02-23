@@ -21,6 +21,11 @@ Ok(
             Punctuation(
                 LaOrLt,
             ),
+            Keyword(
+                Pattern(
+                    Covariant,
+                ),
+            ),
             Err(
                 UnrecognizedChar(
                     '\'',
@@ -123,7 +128,7 @@ Ok(
         ],
         group_starts: [
             0,
-            11,
+            12,
         ],
         indents: [
             0,
