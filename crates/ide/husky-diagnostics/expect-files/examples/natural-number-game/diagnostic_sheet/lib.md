@@ -1,7 +1,43 @@
 DiagnosticSheet {
     [salsa id]: 41,
     token_diagnostic_sheet: TokenDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Syntax Error: unrecognized char",
+                severity: Error,
+                range: [10:16, 10:17),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized char",
+                severity: Error,
+                range: [10:22, 10:23),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized char",
+                severity: Error,
+                range: [10:46, 10:47),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized char",
+                severity: Error,
+                range: [15:13, 15:14),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized char",
+                severity: Error,
+                range: [15:17, 15:18),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized char",
+                severity: Error,
+                range: [20:13, 20:14),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized char",
+                severity: Error,
+                range: [20:17, 20:18),
+            },
+        ],
     },
     ast_diagnostic_sheet: AstDiagnosticSheet {
         diagnostics: [

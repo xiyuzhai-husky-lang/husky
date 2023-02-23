@@ -32,7 +32,6 @@ pub(crate) fn expr_diagnostic_sheet(
             }
         }
     }
-    // todo
     ExprDiagnosticSheet::new(db, diagnostics)
 }
 
