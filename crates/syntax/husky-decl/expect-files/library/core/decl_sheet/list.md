@@ -1,9 +1,15 @@
-Err(
-    InvalidModulePath(
-        ModulePath(
-            Id {
-                value: 6,
-            },
-        ),
-    ),
+Ok(
+    DeclSheet {
+        decls: [
+            Err(
+                Expr(
+                    MissingRightAngleBracket {
+                        langle_token_idx: TokenIdx(
+                            3,
+                        ),
+                    },
+                ),
+            ),
+        ],
+    },
 )

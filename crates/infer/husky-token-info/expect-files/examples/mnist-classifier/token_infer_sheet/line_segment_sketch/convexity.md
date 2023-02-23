@@ -145,7 +145,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 33,
+                                    value: 34,
                                 },
                             ),
                         ),

@@ -295,11 +295,11 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         EntityPath::Module(
-                            `core::vec`,
+                            `core::list`,
                         ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `vec`,
+                        ident: `list`,
                         token_idx: TokenIdx(
                             21,
                         ),

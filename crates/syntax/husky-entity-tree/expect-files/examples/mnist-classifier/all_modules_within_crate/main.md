@@ -30,34 +30,6 @@
             ident: Identifier(
                 Word(
                     Id {
-                        value: 112,
-                    },
-                ),
-            ),
-        },
-        [crate]: CratePath {
-            package_path: PackagePath {
-                data: Local {
-                    path: DiffPath {
-                        data: DiffPathBuf(
-                            "../../../examples/mnist-classifier",
-                        ),
-                    },
-                },
-            },
-            crate_kind: Main,
-        },
-    },
-    ModulePath {
-        [display]: Child {
-            parent: ModulePath(
-                Id {
-                    value: 20,
-                },
-            ),
-            ident: Identifier(
-                Word(
-                    Id {
                         value: 113,
                     },
                 ),
@@ -136,13 +108,13 @@
         [display]: Child {
             parent: ModulePath(
                 Id {
-                    value: 24,
+                    value: 20,
                 },
             ),
             ident: Identifier(
                 Word(
                     Id {
-                        value: 292,
+                        value: 116,
                     },
                 ),
             ),
@@ -248,13 +220,13 @@
         [display]: Child {
             parent: ModulePath(
                 Id {
-                    value: 20,
+                    value: 24,
                 },
             ),
             ident: Identifier(
                 Word(
                     Id {
-                        value: 116,
+                        value: 296,
                     },
                 ),
             ),
@@ -304,13 +276,13 @@
         [display]: Child {
             parent: ModulePath(
                 Id {
-                    value: 26,
+                    value: 20,
                 },
             ),
             ident: Identifier(
                 Word(
                     Id {
-                        value: 370,
+                        value: 118,
                     },
                 ),
             ),
@@ -556,13 +528,41 @@
         [display]: Child {
             parent: ModulePath(
                 Id {
+                    value: 26,
+                },
+            ),
+            ident: Identifier(
+                Word(
+                    Id {
+                        value: 379,
+                    },
+                ),
+            ),
+        },
+        [crate]: CratePath {
+            package_path: PackagePath {
+                data: Local {
+                    path: DiffPath {
+                        data: DiffPathBuf(
+                            "../../../examples/mnist-classifier",
+                        ),
+                    },
+                },
+            },
+            crate_kind: Main,
+        },
+    },
+    ModulePath {
+        [display]: Child {
+            parent: ModulePath(
+                Id {
                     value: 20,
                 },
             ),
             ident: Identifier(
                 Word(
                     Id {
-                        value: 118,
+                        value: 119,
                     },
                 ),
             ),
