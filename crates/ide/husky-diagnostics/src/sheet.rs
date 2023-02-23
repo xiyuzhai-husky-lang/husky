@@ -1,14 +1,18 @@
 mod ast;
+mod decl;
+mod defn;
 mod entity_tree;
 mod expr;
 mod expr_ty;
 mod token;
 
-pub use ast::*;
-pub use entity_tree::*;
-pub use expr::*;
-pub use expr_ty::*;
-pub use token::*;
+pub(crate) use ast::*;
+pub(crate) use decl::*;
+pub(crate) use defn::*;
+pub(crate) use entity_tree::*;
+pub(crate) use expr::*;
+pub(crate) use expr_ty::*;
+pub(crate) use token::*;
 
 use crate::*;
 
@@ -16,6 +20,8 @@ use crate::*;
 pub struct DiagnosticSheet {
     pub token_diagnostic_sheet: TokenDiagnosticSheet,
     pub ast_diagnostic_sheet: AstDiagnosticSheet,
+    pub decl_diagnostic_sheet: DeclDiagnosticSheet,
+    pub defn_diagnostic_sheet: DefnDiagnosticSheet,
     pub expr_diagnostic_sheet: ExprDiagnosticSheet,
     pub expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet,
     pub entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet,
@@ -25,12 +31,16 @@ pub struct DiagnosticSheet {
 pub(crate) fn diagnostic_sheet(db: &dyn DiagnosticsDb, module_path: ModulePath) -> DiagnosticSheet {
     let token_diagnostic_sheet = token_diagnostic_sheet(db, module_path);
     let ast_diagnostic_sheet = ast_diagnostic_sheet(db, module_path);
+    let decl_diagnostic_sheet = decl_diagnostic_sheet(db, module_path);
+    let defn_diagnostic_sheet = defn_diagnostic_sheet(db, module_path);
     let expr_diagnostic_sheet = expr_diagnostic_sheet(db, module_path);
     let expr_ty_diagnostic_sheet = expr_ty_diagnostic_sheet(db, module_path);
     DiagnosticSheet::new(
         db,
         token_diagnostic_sheet,
         ast_diagnostic_sheet,
+        decl_diagnostic_sheet,
+        defn_diagnostic_sheet,
         expr_diagnostic_sheet,
         expr_ty_diagnostic_sheet,
         entity_tree_diagnostic_sheet(db, module_path),

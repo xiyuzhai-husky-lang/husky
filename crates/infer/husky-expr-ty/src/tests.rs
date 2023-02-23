@@ -43,7 +43,7 @@ fn decl_expr_ty_regions(db: &DB, module_path: ModulePath) -> Vec<&ExprTypeRegion
     decl_sheet
         .decls()
         .iter()
-        .filter_map(|decl| Some(db.expr_ty_region(decl.ok()?.expr_region(db))))
+        .map(|decl| db.expr_ty_region(decl.expr_region(db)))
         .collect()
 }
 

@@ -33,7 +33,7 @@ pub enum DeclError {
 }
 
 pub type DeclResult<T> = Result<T, DeclError>;
-pub type DeclResultBorrowed<'a, T> = Result<T, &'a DeclError>;
+pub type DeclResultRef<'a, T> = Result<T, &'a DeclError>;
 
 impl<Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for DeclError {
     fn fmt(

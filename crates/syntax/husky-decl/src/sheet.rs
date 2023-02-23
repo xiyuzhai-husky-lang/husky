@@ -4,7 +4,7 @@ use vec_like::VecPairMap;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct DeclSheet<'a> {
-    decls: Vec<DeclResultBorrowed<'a, Decl>>,
+    decls: Vec<DeclResultRef<'a, Decl>>,
 }
 
 pub fn decl_sheet<'a>(db: &'a dyn DeclDb, path: ModulePath) -> EntityTreeResult<DeclSheet<'a>> {
@@ -22,7 +22,7 @@ fn decl_sheet_works() {
 impl<'a> DeclSheet<'a> {
     pub fn collect_from_module(db: &'a dyn DeclDb, path: ModulePath) -> EntityTreeResult<Self> {
         let entity_tree_sheet = db.entity_tree_sheet(path)?;
-        let mut decls: Vec<DeclResultBorrowed<'a, Decl>> = Default::default();
+        let mut decls: Vec<DeclResultRef<'a, Decl>> = Default::default();
         for path in entity_tree_sheet.module_item_path_iter(db) {
             decls.push(db.module_item_decl(path))
         }
@@ -39,12 +39,12 @@ impl<'a> DeclSheet<'a> {
         Ok(DeclSheet::new(decls))
     }
 
-    fn new(decls: Vec<DeclResultBorrowed<'a, Decl>>) -> Self {
+    fn new(decls: Vec<DeclResultRef<'a, Decl>>) -> Self {
         Self { decls }
     }
 
-    pub fn decls(&self) -> &[DeclResultBorrowed<'a, Decl>] {
-        &self.decls
+    pub fn decls(&self) -> &[Decl] {
+        todo!()
     }
 }
 

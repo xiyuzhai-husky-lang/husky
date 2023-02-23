@@ -3,7 +3,7 @@ use std::time::Instant;
 use crossbeam_channel::Sender;
 
 use dashmap::{mapref::entry::Entry, DashMap};
-use husky_diagnostics::{DiagnosticSheet, DiagnosticsDb};
+use husky_diagnostics::DiagnosticsDb;
 use husky_vfs::{ModulePath, VfsDb};
 use lsp_types::notification::Notification;
 use salsa::DebugWithDb;

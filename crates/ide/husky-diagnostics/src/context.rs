@@ -3,13 +3,13 @@ use husky_expr::{ExprIdx, ExprRangeRegion, ExprRegion, ExprRegionData};
 use husky_expr_ty::*;
 use husky_token::TokenIdxRange;
 
-pub(crate) struct DiagnosticsSheetContext<'a> {
+pub(crate) struct SheetDiagnosticsContext<'a> {
     db: &'a dyn DiagnosticsDb,
     token_sheet_data: &'a TokenSheetData,
     ranged_token_sheet: &'a RangedTokenSheet,
 }
 
-impl<'a> DiagnosticsSheetContext<'a> {
+impl<'a> SheetDiagnosticsContext<'a> {
     pub(crate) fn new(db: &'a dyn DiagnosticsDb, module_path: ModulePath) -> Self {
         let ranged_token_sheet = db.ranged_token_sheet(module_path).unwrap();
         let token_sheet_data = ranged_token_sheet.token_sheet_data(db);
@@ -33,7 +33,7 @@ impl<'a> DiagnosticsSheetContext<'a> {
     }
 }
 
-pub(crate) struct DiagnosticsRegionContext<'a> {
+pub(crate) struct RegionDiagnosticsContext<'a> {
     db: &'a dyn DiagnosticsDb,
     token_sheet_data: &'a TokenSheetData,
     ranged_token_sheet: &'a RangedTokenSheet,
@@ -42,7 +42,7 @@ pub(crate) struct DiagnosticsRegionContext<'a> {
     expr_range_region: &'a ExprRangeRegion,
 }
 
-impl<'a> DiagnosticsRegionContext<'a> {
+impl<'a> RegionDiagnosticsContext<'a> {
     pub(crate) fn new(db: &'a dyn DiagnosticsDb, expr_region: ExprRegion) -> Self {
         let expr_region_data = &expr_region.data(db);
         let module_path = expr_region_data.path().module_path(db);

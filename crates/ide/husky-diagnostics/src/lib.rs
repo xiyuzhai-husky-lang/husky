@@ -1,5 +1,5 @@
 #![feature(trait_upcasting)]
-mod collect;
+mod collector;
 mod context;
 mod db;
 mod severity;
@@ -10,16 +10,17 @@ mod tests;
 pub use db::DiagnosticsDb;
 use husky_token::{RangedTokenSheet, TokenSheetData};
 pub use severity::DiagnosticSeverity;
-pub use sheet::*;
 #[cfg(test)]
 pub use tests::*;
 
-use collect::collect_module_diagnostics;
+use collector::{
+    RegionDiagnosticsCollector, RegionDiagnosticsCollectorCenter, SheetDiagnosticsCollector,
+};
 use context::*;
 use husky_dev_utils::DevSource;
 use husky_doc::TextRange;
 use husky_vfs::*;
-
+use sheet::*;
 use std::fmt::Write;
 use std::sync::Arc;
 
@@ -33,6 +34,10 @@ pub struct DiagnosticsJar(
     ast_diagnostic_sheet,
     TokenDiagnosticSheet,
     token_diagnostic_sheet,
+    DeclDiagnosticSheet,
+    decl_diagnostic_sheet,
+    DefnDiagnosticSheet,
+    defn_diagnostic_sheet,
     ExprDiagnosticSheet,
     expr_diagnostic_sheet,
     ExprTypeDiagnosticSheet,
