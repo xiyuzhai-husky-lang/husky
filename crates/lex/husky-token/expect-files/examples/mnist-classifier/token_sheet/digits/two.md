@@ -1340,6 +1340,11 @@ Ok(
                     ),
                 ),
             ),
+            Keyword(
+                Stmt(
+                    Let,
+                ),
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -1385,6 +1390,11 @@ Ok(
             Punctuation(
                 Ket(
                     Par,
+                ),
+            ),
+            Keyword(
+                Stmt(
+                    Let,
                 ),
             ),
             Identifier(
@@ -1477,6 +1487,11 @@ Ok(
                     ),
                 ),
             ),
+            Keyword(
+                Stmt(
+                    Let,
+                ),
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -1529,6 +1544,11 @@ Ok(
                     Box,
                 ),
             ),
+            Keyword(
+                Stmt(
+                    Let,
+                ),
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -1579,6 +1599,11 @@ Ok(
             Punctuation(
                 Ket(
                     Box,
+                ),
+            ),
+            Keyword(
+                Stmt(
+                    Let,
                 ),
             ),
             Identifier(
@@ -1657,6 +1682,11 @@ Ok(
             Literal(
                 Integer(
                     Unspecified,
+                ),
+            ),
+            Keyword(
+                Stmt(
+                    Let,
                 ),
             ),
             Identifier(
@@ -1827,6 +1857,11 @@ Ok(
                     ),
                 ),
             ),
+            Keyword(
+                Stmt(
+                    Let,
+                ),
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -1887,6 +1922,11 @@ Ok(
             Literal(
                 Float(
                     Unspecified,
+                ),
+            ),
+            Keyword(
+                Stmt(
+                    Let,
                 ),
             ),
             Identifier(
@@ -1963,6 +2003,11 @@ Ok(
                     Par,
                 ),
             ),
+            Keyword(
+                Stmt(
+                    Let,
+                ),
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -2022,6 +2067,11 @@ Ok(
                     ),
                 ),
             ),
+            Keyword(
+                Stmt(
+                    Let,
+                ),
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -2079,6 +2129,11 @@ Ok(
                             value: 196,
                         },
                     ),
+                ),
+            ),
+            Keyword(
+                Stmt(
+                    Let,
                 ),
             ),
             Identifier(
@@ -2140,6 +2195,11 @@ Ok(
                     Par,
                 ),
             ),
+            Keyword(
+                Stmt(
+                    Let,
+                ),
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -2197,6 +2257,11 @@ Ok(
             Punctuation(
                 Ket(
                     Par,
+                ),
+            ),
+            Keyword(
+                Stmt(
+                    Let,
                 ),
             ),
             Identifier(
@@ -2262,6 +2327,11 @@ Ok(
                     Unspecified,
                 ),
             ),
+            Keyword(
+                Stmt(
+                    Let,
+                ),
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -2321,6 +2391,11 @@ Ok(
                     Par,
                 ),
             ),
+            Keyword(
+                Stmt(
+                    Let,
+                ),
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -2378,6 +2453,11 @@ Ok(
             Punctuation(
                 Ket(
                     Par,
+                ),
+            ),
+            Keyword(
+                Stmt(
+                    Let,
                 ),
             ),
             Identifier(
@@ -2636,6 +2716,11 @@ Ok(
                     Unspecified,
                 ),
             ),
+            Keyword(
+                Stmt(
+                    Let,
+                ),
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -2731,36 +2816,36 @@ Ok(
             221,
             225,
             229,
-            236,
-            241,
-            250,
-            258,
-            266,
-            274,
-            278,
-            287,
-            291,
-            296,
-            300,
-            304,
-            309,
-            314,
-            326,
-            335,
+            237,
+            243,
+            252,
+            261,
+            270,
+            279,
+            283,
+            293,
+            297,
+            302,
+            306,
+            310,
+            316,
+            321,
+            334,
             344,
-            353,
-            362,
-            371,
-            380,
-            389,
-            398,
-            402,
-            407,
-            411,
-            415,
-            419,
-            429,
-            434,
+            354,
+            364,
+            374,
+            384,
+            394,
+            404,
+            414,
+            418,
+            423,
+            427,
+            431,
+            435,
+            445,
+            451,
         ],
         indents: [
             0,
