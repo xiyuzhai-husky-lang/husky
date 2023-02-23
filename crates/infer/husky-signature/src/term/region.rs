@@ -1,6 +1,6 @@
 use super::*;
-use husky_expr::{CurrentSymbolIdx, ExprIdx, ExprMap, ExprRegion, RegionPath};
-use husky_print_utils::p;
+use husky_entity_tree::RegionPath;
+use husky_expr::{CurrentSymbolIdx, ExprIdx, ExprMap, ExprRegion};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SignatureTermRegion {

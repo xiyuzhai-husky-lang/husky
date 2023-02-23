@@ -19,6 +19,18 @@ pub enum TraitItemDefn {
     Value(TraitAssociatedValueDefn),
 }
 
+impl From<TraitMethodDefn> for TraitItemDefn {
+    fn from(v: TraitMethodDefn) -> Self {
+        Self::Method(v)
+    }
+}
+
+impl From<TraitAssociatedFunctionDefn> for TraitItemDefn {
+    fn from(v: TraitAssociatedFunctionDefn) -> Self {
+        Self::Function(v)
+    }
+}
+
 impl TraitItemDefn {
     pub fn decl(self, db: &dyn DefnDb) -> TraitItemDecl {
         todo!()

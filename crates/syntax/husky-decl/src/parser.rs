@@ -6,7 +6,7 @@ use husky_entity_tree::*;
 use husky_opn_syntax::BinaryOpr;
 use husky_print_utils::p;
 use husky_token::*;
-use husky_vfs::{CratePath, VfsTestUtils};
+use husky_vfs::{CratePath};
 use parsec::*;
 use salsa::DebugWithDb;
 use vec_like::{VecMapGetEntry, VecPairMap};
@@ -167,7 +167,7 @@ impl<'a> DeclParser<'a> {
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeDecl> {
         let mut parser = self.expr_parser(
-            DeclExprPath::Entity(path.into()),
+            DeclRegionPath::Entity(path.into()),
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
@@ -219,7 +219,7 @@ impl<'a> DeclParser<'a> {
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TraitDecl> {
         let mut parser = self.expr_parser(
-            DeclExprPath::Entity(path.into()),
+            DeclRegionPath::Entity(path.into()),
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
@@ -247,7 +247,7 @@ impl<'a> DeclParser<'a> {
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeDecl> {
         let mut parser = self.expr_parser(
-            DeclExprPath::Entity(path.into()),
+            DeclRegionPath::Entity(path.into()),
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
@@ -272,7 +272,7 @@ impl<'a> DeclParser<'a> {
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeDecl> {
         let mut parser = self.expr_parser(
-            DeclExprPath::Entity(path.into()),
+            DeclRegionPath::Entity(path.into()),
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
@@ -306,7 +306,7 @@ impl<'a> DeclParser<'a> {
 
     fn expr_parser(
         &self,
-        expr_path: DeclExprPath,
+        expr_path: DeclRegionPath,
         parent_expr_region: Option<ExprRegion>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
@@ -335,7 +335,7 @@ impl<'a> DeclParser<'a> {
             .token_group_token_stream(token_group_idx, Some(saved_stream_state));
 
         let mut parser = self.expr_parser(
-            DeclExprPath::Entity(path.into()),
+            DeclRegionPath::Entity(path.into()),
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
@@ -365,7 +365,7 @@ impl<'a> DeclParser<'a> {
             .token_group_token_stream(token_group_idx, Some(saved_stream_state));
 
         let mut parser = self.expr_parser(
-            DeclExprPath::Entity(path.into()),
+            DeclRegionPath::Entity(path.into()),
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
@@ -439,7 +439,7 @@ impl<'a> DeclParser<'a> {
         path: FormPath,
     ) -> Result<FormDecl, DeclError> {
         let mut parser = self.expr_parser(
-            DeclExprPath::Entity(path.into()),
+            DeclRegionPath::Entity(path.into()),
             None,
             AllowSelfType::False,
             AllowSelfValue::False,
@@ -471,7 +471,7 @@ impl<'a> DeclParser<'a> {
         path: FormPath,
     ) -> Result<FormDecl, DeclError> {
         let mut parser = self.expr_parser(
-            DeclExprPath::Entity(path.into()),
+            DeclRegionPath::Entity(path.into()),
             None,
             AllowSelfType::False,
             AllowSelfValue::False,
@@ -526,7 +526,7 @@ impl<'a> DeclParser<'a> {
         impl_block: ImplBlock,
     ) -> DeclResult<TypeImplBlockDecl> {
         let mut parser = self.expr_parser(
-            DeclExprPath::ImplBlock(impl_block.id(self.db)),
+            DeclRegionPath::ImplBlock(impl_block.id(self.db)),
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
@@ -621,7 +621,7 @@ impl<'a> DeclParser<'a> {
         let Ok(impl_block_decl) = self.db.impl_block_decl(associated_item.impl_block(self.db))
             else { return Err(DeclError::UnableToParseImplBlockDeclForTyMethodDecl) };
         let mut parser = self.expr_parser(
-            DeclExprPath::AssociatedItem(associated_item.id(self.db)),
+            DeclRegionPath::AssociatedItem(associated_item.id(self.db)),
             Some(impl_block_decl.expr_region(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,
@@ -668,7 +668,7 @@ impl<'a> DeclParser<'a> {
         let Ok(impl_block_decl) = self.db.impl_block_decl(associated_item.impl_block(self.db))
             else { todo!() };
         let mut parser = self.expr_parser(
-            DeclExprPath::AssociatedItem(associated_item.id(self.db)),
+            DeclRegionPath::AssociatedItem(associated_item.id(self.db)),
             Some(impl_block_decl.expr_region(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,
@@ -708,7 +708,7 @@ impl<'a> DeclParser<'a> {
         let Ok(impl_block_decl) = self.db.impl_block_decl(associated_item.impl_block(self.db))
             else { return Err(DeclError::UnableToParseImplBlockDeclForTyAsTraitMethodDecl) };
         let mut parser = self.expr_parser(
-            DeclExprPath::AssociatedItem(associated_item.id(self.db)),
+            DeclRegionPath::AssociatedItem(associated_item.id(self.db)),
             Some(impl_block_decl.expr_region(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,

@@ -1,59 +1,68 @@
 Ok(
     DeclSheet {
         decls: [
-            Ok(
-                Decl::Type(
-                    TypeDecl::Foreign(
-                        AlienTypeDecl {
-                            path: TypePath(`core::raw_bits::r32`, `Alien`),
-                            ast_idx: 2,
-                            expr_region: ExprRegion {
-                                data: ExprRegionData {
-                                    parent: None,
-                                    path: RegionPath::Decl(
-                                        DeclExprPath::Entity(
-                                            EntityPath::ModuleItem(
-                                                ModuleItemPath::Type(
-                                                    TypePath(`core::raw_bits::r32`, `Alien`),
+            (
+                DeclRegionPath::Entity(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::raw_bits::r32`, `Alien`),
+                        ),
+                    ),
+                ),
+                Ok(
+                    Decl::Type(
+                        TypeDecl::Foreign(
+                            AlienTypeDecl {
+                                path: TypePath(`core::raw_bits::r32`, `Alien`),
+                                ast_idx: 2,
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::Entity(
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::raw_bits::r32`, `Alien`),
+                                                    ),
                                                 ),
                                             ),
                                         ),
-                                    ),
-                                    expr_arena: Arena {
-                                        data: [],
-                                    },
-                                    entity_path_expr_arena: Arena {
-                                        data: [],
-                                    },
-                                    stmt_arena: Arena {
-                                        data: [],
-                                    },
-                                    pattern_expr_region: PatternExprRegion {
-                                        pattern_expr_arena: Arena {
+                                        expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_infos: [],
-                                        pattern_symbol_maps: [],
-                                        pattern_symbol_arena: Arena {
+                                        entity_path_expr_arena: Arena {
                                             data: [],
                                         },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [],
                                     },
-                                    symbol_region: SymbolRegion {
-                                        inherited_symbol_arena: Arena {
-                                            data: [],
-                                        },
-                                        current_symbol_arena: Arena {
-                                            data: [],
-                                        },
-                                        allow_self_type: True,
-                                        allow_self_value: False,
-                                        pattern_ty_constraints: [],
-                                    },
-                                    roots: [],
                                 },
+                                implicit_parameter_decl_list: None,
                             },
-                            implicit_parameter_decl_list: None,
-                        },
+                        ),
                     ),
                 ),
             ),

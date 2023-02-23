@@ -15,13 +15,13 @@ pub(crate) fn trai_associated_item_signature(
     decl: TraitItemDecl,
 ) -> SignatureResultRef<TraitItemSignature> {
     match decl {
-        TraitItemDecl::Function(decl) => trai_associated_function_signature(db, decl)
+        TraitItemDecl::AssociatedFunction(decl) => trai_associated_function_signature(db, decl)
             .as_ref()
             .map(|s| (*s).into()),
         TraitItemDecl::Method(decl) => trai_method_signature(db, decl)
             .as_ref()
             .map(|s| (*s).into()),
-        TraitItemDecl::AlienType(decl) => trai_associated_ty_signature(db, decl)
+        TraitItemDecl::AssociatedType(decl) => trai_associated_ty_signature(db, decl)
             .as_ref()
             .map(|s| (*s).into()),
         TraitItemDecl::Value(decl) => trai_associated_value_signature(db, decl)

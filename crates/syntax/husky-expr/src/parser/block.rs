@@ -34,6 +34,10 @@ impl<'a> BlockExprParser<'a> {
         }
     }
 
+    pub fn ast_sheet(&self) -> &'a AstSheet {
+        self.ast_sheet
+    }
+
     pub fn parse_block_stmts_expected(
         &mut self,
         body: AstIdxRange,

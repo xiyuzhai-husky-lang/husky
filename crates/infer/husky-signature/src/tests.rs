@@ -41,7 +41,7 @@ fn module_signatures<'a>(
     decl_sheet
         .decls()
         .iter()
-        .map(|decl| db.signature(*decl))
+        .filter_map(|decl| decl.1.as_ref().ok().copied().map(|decl| db.signature(decl)))
         .collect()
 }
 
