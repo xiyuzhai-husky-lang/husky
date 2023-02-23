@@ -11,6 +11,7 @@ members = [
     "crates/infer/*",
     "crates/kernel/*",
     "crates/lex/*",
+    "crates/robotics/*",
     "crates/runtime/*",
     "crates/syntax/*",
     "crates/try/*",
