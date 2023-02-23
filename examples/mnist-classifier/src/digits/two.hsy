@@ -42,39 +42,39 @@ def is_two -> ?MnistLabel:
     require is_nine be none
     require is_six be none
 
-    cc_num=major_concave_components.ilen()
-    eff_holes=major_connected_component.eff_holes
+    let cc_num = major_concave_components.ilen()
+    let eff_holes = major_connected_component.eff_holes
     require eff_holes.matches[1] be none
 
 
-    left_cc = two_match.matches[0]
-    right_cc = two_match.matches[1]
-    down_cc = two_match.matches[2]
+    let left_cc = two_match.matches[0]
+    let right_cc = two_match.matches[1]
+    let down_cc = two_match.matches[2]
 
     require cc_num<=3
 
-    lower_excess = major_connected_component.lower_mass - major_connected_component.upper_mass
+    let lower_excess = major_connected_component.lower_mass - major_connected_component.upper_mass
 
     require lower_excess > 10.0
 
     if cc_num == 2:
         require left_cc be some
         require right_cc be some
-        a=right_cc.angle_change
+        let a = right_cc.angle_change
         require a>-180.0
         // get the end line of the cc
-        end_tan = left_cc.end_tangent().angle(true)
+        let end_tan = left_cc.end_tangent().angle(true)
         // require end_tan < -200.0
-        x = left_cc.end_tangent().x
-        y = left_cc.end_tangent().y
+        let x = left_cc.end_tangent().x
+        let y = left_cc.end_tangent().y
 
-        left_ymax = left_cc.relative_bounding_box.ymax()
-        left_ymin = left_cc.relative_bounding_box.ymin()
-        left_mid_y = (left_ymax + left_ymin) / 2.0
+        let left_ymax = left_cc.relative_bounding_box.ymax()
+        let left_ymin = left_cc.relative_bounding_box.ymin()
+        let left_mid_y = (left_ymax + left_ymin) / 2.0
 
-        right_ymax = right_cc.relative_bounding_box.ymax()
-        right_ymin = right_cc.relative_bounding_box.ymin()
-        right_mid_y = (right_ymax + right_ymin) / 2.0
+        let right_ymax = right_cc.relative_bounding_box.ymax()
+        let right_ymin = right_cc.relative_bounding_box.ymin()
+        let right_mid_y = (right_ymax + right_ymin) / 2.0
         require left_mid_y >= right_mid_y
 
     // if cc_num == 2:
@@ -84,5 +84,5 @@ def is_two -> ?MnistLabel:
         require right_cc be some
         require down_cc be some
         require down_cc.relative_bounding_box.ymin() <0.4
-        a = down_cc.angle_change
+        let a = down_cc.angle_change
     MnistLabel::Two
