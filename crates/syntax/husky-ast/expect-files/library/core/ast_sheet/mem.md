@@ -59,13 +59,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `RefMut`,
                         token_idx: TokenIdx(
-                            14,
+                            13,
                         ),
                     },
                     is_generic: true,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        15,
+                        14,
                     ),
                 },
             ],

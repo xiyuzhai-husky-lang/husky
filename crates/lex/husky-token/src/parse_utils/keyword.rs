@@ -181,6 +181,7 @@ where
                     Ok(Some(WhileToken { token_idx }))
                 }
                 Token::Err(_)
+                | Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -231,6 +232,7 @@ where
                     Ok(Some(DoToken { token_idx }.into()))
                 }
                 Token::Err(_)
+                | Token::AuxiliaryIdentifier(_)
                 | Token::Keyword(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
@@ -298,6 +300,7 @@ where
                     Ok(Some(MutToken { token_idx }))
                 }
                 Token::Err(_)
+                | Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -333,6 +336,7 @@ where
             match token {
                 Token::Keyword(Keyword::Stmt(StmtKeyword::If)) => Ok(Some(IfToken { token_idx })),
                 Token::Err(_)
+                | Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -370,6 +374,7 @@ where
                     Ok(Some(ElifToken { token_idx }))
                 }
                 Token::Err(_)
+                | Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -407,6 +412,7 @@ where
                     Ok(Some(ElseToken { token_idx }))
                 }
                 Token::Err(_)
+                | Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -444,6 +450,7 @@ where
             match token {
                 Token::Keyword(Keyword::Impl) => Ok(Some(ImplToken { token_idx })),
                 Token::Err(_)
+                | Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -481,6 +488,7 @@ where
             match token {
                 Token::Attr(AttributeKeyword::Pub) => Ok(Some(PubToken { token_idx })),
                 Token::Err(_)
+                | Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -518,6 +526,7 @@ where
             match token {
                 Token::Keyword(Keyword::Use) => Ok(Some(UseToken { token_idx })),
                 Token::Err(_)
+                | Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -572,6 +581,7 @@ where
                     Ok(Some(CrateToken { token_idx }))
                 }
                 Token::Err(_)
+                | Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -626,6 +636,7 @@ where
                     Ok(Some(SelfValueToken { token_idx }))
                 }
                 Token::Err(_)
+                | Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -679,6 +690,7 @@ where
                     Ok(Some(SelfTypeToken { token_idx }))
                 }
                 Token::Err(_)
+                | Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -732,6 +744,7 @@ where
                     Ok(Some(SuperToken { token_idx }))
                 }
                 Token::Err(_)
+                | Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -805,6 +818,7 @@ where
                     Ok(Some(InvariantToken { token_idx }.into()))
                 }
                 Token::Err(_)
+                | Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)

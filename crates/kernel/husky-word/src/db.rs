@@ -13,6 +13,8 @@ pub trait WordDb: DbWithJar<WordJar> {
 
     fn it_ident_borrowed(&self, data: &str) -> Option<Identifier>;
 
+    fn it_auxiliary_ident_borrowed(&self, data: &str) -> Option<AuxiliaryIdentifier>;
+
     fn dt_ident(&self, data: Identifier) -> &str;
 
     fn word_db(&self) -> &dyn WordDb;
@@ -60,6 +62,10 @@ where
 
     fn it_ident_borrowed(&self, data: &str) -> Option<Identifier> {
         Identifier::from_borrowed(self, data)
+    }
+
+    fn it_auxiliary_ident_borrowed(&self, data: &str) -> Option<AuxiliaryIdentifier> {
+        AuxiliaryIdentifier::from_borrowed(self, data)
     }
 
     fn dt_ident(&self, ident: Identifier) -> &str {

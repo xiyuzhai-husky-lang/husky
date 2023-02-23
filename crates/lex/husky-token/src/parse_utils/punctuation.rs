@@ -23,6 +23,7 @@ where
             match token {
                 Token::Punctuation(punc) => Ok(Some(PunctuationToken { punc, token_idx })),
                 Token::Err(_)
+                | Token::AuxiliaryIdentifier(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
@@ -48,6 +49,7 @@ where
         match token {
             Token::Punctuation(punc) if punc == target => Some(token_idx),
             Token::Err(_)
+            | Token::AuxiliaryIdentifier(_)
             | Token::Punctuation(_)
             | Token::Identifier(_)
             | Token::WordOpr(_)
@@ -603,6 +605,7 @@ where
                     None => Ok(Some(EolColonToken { token_idx })),
                 },
                 Token::Err(_)
+                | Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -656,6 +659,7 @@ where
                     Ok(Some(ScopeResolutionToken { token_idx }))
                 }
                 Token::Err(_)
+                | Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -708,6 +712,7 @@ where
             match token {
                 Token::Punctuation(Punctuation::Star) => Ok(Some(StarToken { token_idx })),
                 Token::Err(_)
+                | Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -756,6 +761,7 @@ where
                     Ok(Some(CurryToken { token_idx }))
                 }
                 Token::Err(_)
+                | Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
