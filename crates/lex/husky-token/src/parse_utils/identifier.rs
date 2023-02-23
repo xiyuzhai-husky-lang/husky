@@ -30,6 +30,7 @@ where
             match token {
                 Token::Identifier(ident) => Ok(Some(IdentifierToken { ident, token_idx })),
                 Token::Err(_)
+                | Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)

@@ -159,6 +159,89 @@ impl<'a, 'b> PretokenStream<'a, 'b> {
 }
 
 impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
+    fn next_token_variant(&mut self) -> Option<Pretoken> {
+        let c = self.char_iter.next()?;
+        assert_ne!(c, ' ');
+        match c {
+            '\n' => Some(Pretoken::NewLine),
+            '\'' => Some(self.next_char_or_lifetime_or_label()),
+            '"' => {
+                match self.next_string_literal() {
+                    Ok(v) => Some(v),
+                    Err(e) => {
+                        // skip this line
+                        while let Some(c) = self.char_iter.next() {
+                            if c == '\n' {
+                                break;
+                            }
+                        }
+                        Some(Pretoken::Err(e))
+                    }
+                }
+            }
+            c if c.is_alphabetic() || c == '_' => {
+                self.buffer.push(c);
+                Some(self.next_word())
+            }
+            c if c.is_digit(10) => {
+                self.buffer.push(c);
+                Some(self.next_number())
+            }
+            c if c == '/' && self.char_iter.peek() == Some('/') => {
+                while let Some(c) = self.char_iter.peek() {
+                    if c == '\n' {
+                        break;
+                    } else {
+                        self.char_iter.next();
+                    }
+                }
+                Some(Pretoken::Comment)
+            }
+            c => self.next_punctuation(c),
+        }
+    }
+
+    fn next_char_or_lifetime_or_label(&mut self) -> Pretoken {
+        let Some((fst, snd)) = self.char_iter.peek_two()
+            else {
+                return Pretoken::Err(TokenError::NothingAfterSingleQuote)
+            };
+        match fst {
+            '\\' => todo!(),
+            fst => match snd {
+                Some('\'') => {
+                    self.char_iter.next();
+                    self.char_iter.next();
+                    Pretoken::Literal(Literal::Char(CharLiteral::Basic(fst)))
+                }
+                Some(_) if fst.is_alphabetic() => self.next_auxiliary_identifier(),
+                Some(_) => {
+                    todo!()
+                    // self.next_word(f)
+                }
+                None => todo!(),
+            },
+        }
+    }
+
+    fn next_auxiliary_identifier(&mut self) -> Pretoken {
+        while let Some(c) = self.char_iter.peek() {
+            if is_word_char(c) {
+                self.eat_char();
+            } else {
+                break;
+            }
+        }
+        assert!(self.buffer.len() > 0);
+        let word = &self.buffer;
+        let pretoken = match self.db.it_auxiliary_ident_borrowed(word) {
+            Some(identifier) => Token::AuxiliaryIdentifier(identifier).into(),
+            None => Pretoken::Err(TokenError::InvalidIdentifier),
+        };
+        self.buffer.clear();
+        pretoken
+    }
+
     fn skip_whitespaces(&mut self) {
         while let Some(' ') = self.char_iter.peek() {
             self.char_iter.next();
@@ -173,8 +256,18 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 break;
             }
         }
-        let _len = self.buffer.len();
-        self.take_buffer_word()
+        assert!(self.buffer.len() > 0);
+        let word = &self.buffer;
+        let pretoken = if let Some(pretoken) = new_reserved_word(self.db, word) {
+            pretoken
+        } else {
+            match self.db.it_ident_borrowed(word) {
+                Some(identifier) => Token::Identifier(identifier).into(),
+                None => Pretoken::Err(TokenError::InvalidIdentifier),
+            }
+        };
+        self.buffer.clear();
+        pretoken
     }
 
     fn next_number(&mut self) -> Pretoken {
@@ -242,23 +335,6 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
             };
             self.buffer.clear();
             token
-        }
-    }
-
-    fn take_buffer_word(&mut self) -> Pretoken {
-        let word = std::mem::take(&mut self.buffer);
-        self.new_word(word)
-    }
-
-    fn new_word(&self, word: String) -> Pretoken {
-        if let Some(token_kind) = new_reserved_word(self.db, &word) {
-            // ad hoc
-            token_kind
-        } else {
-            match self.db.it_ident_owned(word) {
-                Some(identifier) => Token::Identifier(identifier).into(),
-                None => Pretoken::Err(TokenError::InvalidIdentifier),
-            }
         }
     }
 
@@ -460,45 +536,6 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
         Ok(Pretoken::Literal(Literal::String(StringLiteral::new(
             self.db, s,
         ))))
-    }
-
-    fn next_token_variant(&mut self) -> Option<Pretoken> {
-        let c = self.char_iter.next()?;
-        if c == '\n' {
-            Some(Pretoken::NewLine)
-        } else if c == '"' {
-            match self.next_string_literal() {
-                Ok(v) => Some(v),
-                Err(e) => {
-                    // skip this line
-                    while let Some(c) = self.char_iter.next() {
-                        if c == '\n' {
-                            break;
-                        }
-                    }
-                    Some(Pretoken::Err(e))
-                }
-            }
-        } else if c == ' ' {
-            unreachable!()
-        } else if c.is_alphabetic() || c == '_' {
-            self.buffer.push(c);
-            Some(self.next_word())
-        } else if c.is_digit(10) {
-            self.buffer.push(c);
-            Some(self.next_number())
-        } else if c == '/' && self.char_iter.peek() == Some('/') {
-            while let Some(c) = self.char_iter.peek() {
-                if c == '\n' {
-                    break;
-                } else {
-                    self.char_iter.next();
-                }
-            }
-            Some(Pretoken::Comment)
-        } else {
-            self.next_punctuation(c)
-        }
     }
 }
 

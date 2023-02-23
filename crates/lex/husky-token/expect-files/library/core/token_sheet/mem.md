@@ -26,17 +26,14 @@ Ok(
                     Covariant,
                 ),
             ),
-            Err(
-                UnrecognizedChar(
-                    '\'',
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 38,
-                        },
+            AuxiliaryIdentifier(
+                AuxiliaryIdentifier(
+                    Identifier(
+                        Word(
+                            Id {
+                                value: 38,
+                            },
+                        ),
                     ),
                 ),
             ),
@@ -88,17 +85,14 @@ Ok(
                     Covariant,
                 ),
             ),
-            Err(
-                UnrecognizedChar(
-                    '\'',
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 38,
-                        },
+            AuxiliaryIdentifier(
+                AuxiliaryIdentifier(
+                    Identifier(
+                        Word(
+                            Id {
+                                value: 38,
+                            },
+                        ),
                     ),
                 ),
             ),
@@ -128,7 +122,7 @@ Ok(
         ],
         group_starts: [
             0,
-            12,
+            11,
         ],
         indents: [
             0,

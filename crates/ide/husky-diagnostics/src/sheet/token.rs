@@ -44,6 +44,7 @@ impl Diagnose for (&TextRange, &TokenError) {
             TokenError::ParseIntError => format!("Syntax Error: parse int error"),
             TokenError::InvalidIntegerSuffix => format!("Syntax Error: invalid integer suffix"),
             TokenError::InvalidIdentifier => format!("Syntax Error: invalid identifier"),
+            TokenError::NothingAfterSingleQuote => format!("Syntax Error: nothing after `'`"),
         }
     }
 

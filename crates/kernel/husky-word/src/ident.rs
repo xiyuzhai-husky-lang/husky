@@ -7,21 +7,8 @@ use vec_like::{VecMap, VecPairMap};
 #[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
 pub struct Identifier(Word);
 
-impl<Db: WordDb + ?Sized> DebugWithDb<Db> for Identifier {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<WordJar>>::as_jar_db(db);
-        if level.is_root() {
-            f.debug_tuple("Identifier").field(&self.data(db)).finish()
-        } else {
-            f.write_fmt(format_args!("`{}`", &self.data(db)))
-        }
-    }
-}
+#[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
+pub struct AuxiliaryIdentifier(Identifier);
 
 impl Identifier {
     pub fn word(self) -> Word {
@@ -67,6 +54,28 @@ impl Identifier {
                     IdentifierCase::SnakeCase
                 }
             }
+        }
+    }
+}
+
+impl AuxiliaryIdentifier {
+    pub fn word(self) -> Word {
+        self.0 .0
+    }
+
+    pub fn from_owned(db: &dyn WordDb, data: String) -> Option<Self> {
+        if is_valid_ident(&data) {
+            Some(Self(Identifier(db.it_word_owned(data))))
+        } else {
+            None
+        }
+    }
+
+    pub fn from_borrowed(db: &dyn WordDb, data: &str) -> Option<Self> {
+        if is_valid_ident(data) {
+            Some(Self(Identifier(db.it_word_borrowed(data))))
+        } else {
+            None
         }
     }
 }
@@ -123,4 +132,20 @@ pub(crate) fn is_valid_ident(word: &str) -> bool {
         }
     }
     true
+}
+
+impl<Db: WordDb + ?Sized> DebugWithDb<Db> for Identifier {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        level: salsa::DebugFormatLevel,
+    ) -> std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<WordJar>>::as_jar_db(db);
+        if level.is_root() {
+            f.debug_tuple("Identifier").field(&self.data(db)).finish()
+        } else {
+            f.write_fmt(format_args!("`{}`", &self.data(db)))
+        }
+    }
 }

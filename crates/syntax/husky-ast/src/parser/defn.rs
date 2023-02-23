@@ -122,6 +122,7 @@ impl<'a> AstParser<'a> {
                 Token::Attr(_) => todo!(),
                 Token::Keyword(_) => todo!(),
                 Token::Identifier(_) => todo!(),
+                Token::AuxiliaryIdentifier(_) => todo!(),
                 Token::Punctuation(_) => todo!(),
                 Token::WordOpr(_) => todo!(),
                 Token::Literal(_) => todo!(),

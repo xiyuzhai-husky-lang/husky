@@ -112,6 +112,12 @@ impl<'a> TextCharIter<'a> {
     pub fn peek(&self) -> Option<char> {
         self.clone().next()
     }
+
+    pub fn peek_two(&self) -> Option<(char, Option<char>)> {
+        let mut text_char_iter = self.clone();
+        let fst = text_char_iter.next()?;
+        Some((fst, text_char_iter.next()))
+    }
 }
 
 #[derive(Clone)]

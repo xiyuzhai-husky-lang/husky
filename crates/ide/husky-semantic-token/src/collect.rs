@@ -31,7 +31,7 @@ fn token_to_semantic_token(
         TokenInfo::None => match token {
             Token::Attr(_) => SemanticToken::Attribute,
             Token::Keyword(kw) => SemanticToken::Keyword(*kw),
-            Token::Identifier(_) => return None,
+            Token::Identifier(_) | Token::AuxiliaryIdentifier(_) => return None,
             Token::Punctuation(_) => SemanticToken::Special,
             Token::WordOpr(_) => SemanticToken::WordOpr,
             Token::Literal(_) => SemanticToken::Literal,

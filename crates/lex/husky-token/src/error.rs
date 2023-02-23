@@ -20,6 +20,8 @@ pub enum TokenError {
     InvalidIntegerSuffix,
     #[error("invalid identifier")]
     InvalidIdentifier,
+    #[error("nothing after `'`")]
+    NothingAfterSingleQuote,
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
