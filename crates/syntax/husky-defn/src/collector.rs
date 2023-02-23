@@ -28,10 +28,8 @@ impl<'a> DefnCollector<'a> {
 
     pub(crate) fn collect_all(mut self) -> DefnSheet {
         let mut defns: Vec<Defn> = Default::default();
-        for decl in self.decl_sheet.decls().iter() {
-            if let Ok(decl) = decl {
-                defns.push(self.parse_defn(*decl))
-            }
+        for decl in self.decl_sheet.decls().iter().copied() {
+            defns.push(self.parse_defn(decl))
         }
         DefnSheet::new(defns)
     }

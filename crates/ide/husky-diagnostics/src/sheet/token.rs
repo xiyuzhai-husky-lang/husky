@@ -15,7 +15,7 @@ pub(crate) fn token_diagnostic_sheet(
     db: &dyn DiagnosticsDb,
     module_path: ModulePath,
 ) -> TokenDiagnosticSheet {
-    let ctx = DiagnosticsSheetContext::new(db, module_path);
+    let ctx = SheetDiagnosticsContext::new(db, module_path);
     let mut diagnostics = vec![];
     if let Ok(ranged_token_sheet) = db.ranged_token_sheet(module_path) {
         for (range, token) in ranged_token_sheet.ranged_token_iter(db) {
@@ -28,7 +28,7 @@ pub(crate) fn token_diagnostic_sheet(
 }
 
 impl Diagnose for (&TextRange, &TokenError) {
-    type Context<'a> = DiagnosticsSheetContext<'a>;
+    type Context<'a> = SheetDiagnosticsContext<'a>;
 
     fn message(&self, db: &Self::Context<'_>) -> String {
         match self.1 {

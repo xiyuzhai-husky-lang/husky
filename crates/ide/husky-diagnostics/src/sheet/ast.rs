@@ -15,7 +15,7 @@ pub(crate) fn ast_diagnostic_sheet(
     module_path: ModulePath,
 ) -> AstDiagnosticSheet {
     let mut diagnostics = vec![];
-    let ctx = DiagnosticsSheetContext::new(db, module_path);
+    let ctx = SheetDiagnosticsContext::new(db, module_path);
     if let (Ok(ranged_token_sheet), Ok(ast_sheet)) = (
         db.ranged_token_sheet(module_path),
         db.ast_sheet(module_path),
@@ -35,9 +35,9 @@ pub(crate) fn ast_diagnostic_sheet(
     AstDiagnosticSheet::new(db, diagnostics)
 }
 impl Diagnose for (TokenGroupIdx, &AstError) {
-    type Context<'a> = DiagnosticsSheetContext<'a>;
+    type Context<'a> = SheetDiagnosticsContext<'a>;
 
-    fn message(&self, db: &DiagnosticsSheetContext) -> String {
+    fn message(&self, db: &SheetDiagnosticsContext) -> String {
         match self.1 {
             AstError::ExcessiveIndent => format!("Syntax Error: excessive indent"),
             AstError::StandaloneElif => format!("Syntax Error: standalone elif"),
@@ -82,7 +82,7 @@ impl Diagnose for (TokenGroupIdx, &AstError) {
         DiagnosticSeverity::Error
     }
 
-    fn range(&self, ctx: &DiagnosticsSheetContext) -> TextRange {
+    fn range(&self, ctx: &SheetDiagnosticsContext) -> TextRange {
         // merge branches
         match self.1 {
             AstError::ExcessiveIndent

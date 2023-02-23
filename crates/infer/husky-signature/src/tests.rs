@@ -41,10 +41,7 @@ fn module_signatures<'a>(
     decl_sheet
         .decls()
         .iter()
-        .filter_map(|decl| match decl {
-            Ok(decl) => Some(db.signature(*decl)),
-            Err(_) => None,
-        })
+        .map(|decl| db.signature(*decl))
         .collect()
 }
 

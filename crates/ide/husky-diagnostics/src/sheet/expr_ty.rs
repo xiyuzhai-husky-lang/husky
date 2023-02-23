@@ -45,7 +45,7 @@ fn collect_expr_ty_diagnostics(
     expr_region: ExprRegion,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
-    let ctx: DiagnosticsRegionContext = DiagnosticsRegionContext::new(db, expr_region);
+    let ctx: RegionDiagnosticsContext = RegionDiagnosticsContext::new(db, expr_region);
     let expr_ty_region = ctx.expr_ty_region();
     for (expr_idx, local_term_result) in expr_ty_region.expr_local_terms().key_value_iter() {
         match local_term_result {
@@ -81,9 +81,9 @@ fn collect_expr_ty_diagnostics(
 }
 
 impl Diagnose for (ExprIdx, &'_ OriginalExprTermError) {
-    type Context<'a> = DiagnosticsRegionContext<'a>;
+    type Context<'a> = RegionDiagnosticsContext<'a>;
 
-    fn message(&self, db: &DiagnosticsRegionContext) -> String {
+    fn message(&self, db: &RegionDiagnosticsContext) -> String {
         match self {
             _ => todo!(),
         }
@@ -93,15 +93,15 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTermError) {
         todo!()
     }
 
-    fn range(&self, ctx: &DiagnosticsRegionContext) -> TextRange {
+    fn range(&self, ctx: &RegionDiagnosticsContext) -> TextRange {
         todo!()
     }
 }
 
 impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
-    type Context<'a> = DiagnosticsRegionContext<'a>;
+    type Context<'a> = RegionDiagnosticsContext<'a>;
 
-    fn message(&self, ctx: &DiagnosticsRegionContext) -> String {
+    fn message(&self, ctx: &RegionDiagnosticsContext) -> String {
         match self.1 {
             OriginalExprTypeError::UnresolvedTerm => {
                 format!("Type Error: UnresolvedTerm")
@@ -125,15 +125,15 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
         DiagnosticSeverity::Error
     }
 
-    fn range(&self, ctx: &DiagnosticsRegionContext) -> TextRange {
+    fn range(&self, ctx: &RegionDiagnosticsContext) -> TextRange {
         ctx.expr_text_range(self.0)
     }
 }
 
 impl Diagnose for (ExprIdx, &'_ OriginalLocalTermResolveError) {
-    type Context<'a> = DiagnosticsRegionContext<'a>;
+    type Context<'a> = RegionDiagnosticsContext<'a>;
 
-    fn message(&self, db: &DiagnosticsRegionContext) -> String {
+    fn message(&self, db: &RegionDiagnosticsContext) -> String {
         match self.1 {
             OriginalLocalTermResolveError::UnresolvedTerm => todo!(),
         }
@@ -143,15 +143,15 @@ impl Diagnose for (ExprIdx, &'_ OriginalLocalTermResolveError) {
         DiagnosticSeverity::Error
     }
 
-    fn range(&self, ctx: &DiagnosticsRegionContext) -> TextRange {
+    fn range(&self, ctx: &RegionDiagnosticsContext) -> TextRange {
         ctx.expr_text_range(self.0)
     }
 }
 
 impl Diagnose for (ExprIdx, &'_ OriginalLocalTermExpectationError) {
-    type Context<'a> = DiagnosticsRegionContext<'a>;
+    type Context<'a> = RegionDiagnosticsContext<'a>;
 
-    fn message(&self, ctx: &DiagnosticsRegionContext) -> String {
+    fn message(&self, ctx: &RegionDiagnosticsContext) -> String {
         match self.1 {
             OriginalLocalTermExpectationError::TermTypeError { term, error } => {
                 format!("Type Error: {error} in term {}", term.display(ctx.db()))
@@ -166,7 +166,7 @@ impl Diagnose for (ExprIdx, &'_ OriginalLocalTermExpectationError) {
         DiagnosticSeverity::Error
     }
 
-    fn range(&self, ctx: &DiagnosticsRegionContext) -> TextRange {
+    fn range(&self, ctx: &RegionDiagnosticsContext) -> TextRange {
         ctx.expr_text_range(self.0)
     }
 }

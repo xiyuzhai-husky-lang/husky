@@ -41,7 +41,7 @@ fn collect_expr_diagnostics(
     diagnostics: &mut Vec<Diagnostic>,
 ) {
     let expr_region_data = expr_region.data(db);
-    let ctx: DiagnosticsRegionContext = DiagnosticsRegionContext::new(db, expr_region);
+    let ctx: RegionDiagnosticsContext = RegionDiagnosticsContext::new(db, expr_region);
     for expr in expr_region_data.expr_arena().data() {
         match expr {
             Expr::Err(ExprError::Original(error)) => diagnostics.push(error.to_diagnostic(&ctx)),
@@ -78,7 +78,7 @@ fn collect_expr_diagnostics(
 }
 
 impl Diagnose for OriginalExprError {
-    type Context<'a> = DiagnosticsRegionContext<'a>;
+    type Context<'a> = RegionDiagnosticsContext<'a>;
 
     fn message(&self, db: &Self::Context<'_>) -> String {
         match self {
@@ -214,9 +214,9 @@ impl Diagnose for OriginalExprError {
 }
 
 impl Diagnose for OriginalEntityPathExprError {
-    type Context<'a> = DiagnosticsRegionContext<'a>;
+    type Context<'a> = RegionDiagnosticsContext<'a>;
 
-    fn message(&self, ctx: &DiagnosticsRegionContext) -> String {
+    fn message(&self, ctx: &RegionDiagnosticsContext) -> String {
         match self {
             OriginalEntityPathExprError::EntityTree { token_idx, error } => {
                 format!("entity tree error {:?}", error.debug(ctx.db()))
@@ -236,7 +236,7 @@ impl Diagnose for OriginalEntityPathExprError {
         }
     }
 
-    fn range(&self, ctx: &DiagnosticsRegionContext) -> TextRange {
+    fn range(&self, ctx: &RegionDiagnosticsContext) -> TextRange {
         match self {
             OriginalEntityPathExprError::EntityTree { token_idx, error } => {
                 ctx.ranged_token_sheet().token_text_range(*token_idx)
@@ -247,9 +247,9 @@ impl Diagnose for OriginalEntityPathExprError {
 }
 
 impl Diagnose for StmtError {
-    type Context<'a> = DiagnosticsRegionContext<'a>;
+    type Context<'a> = RegionDiagnosticsContext<'a>;
 
-    fn message(&self, ctx: &DiagnosticsRegionContext) -> String {
+    fn message(&self, ctx: &RegionDiagnosticsContext) -> String {
         todo!()
     }
 
@@ -257,7 +257,7 @@ impl Diagnose for StmtError {
         todo!()
     }
 
-    fn range(&self, ctx: &DiagnosticsRegionContext) -> TextRange {
+    fn range(&self, ctx: &RegionDiagnosticsContext) -> TextRange {
         todo!()
     }
 }

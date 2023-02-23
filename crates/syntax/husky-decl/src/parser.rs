@@ -11,7 +11,7 @@ use parsec::*;
 use salsa::DebugWithDb;
 use vec_like::{VecMapGetEntry, VecPairMap};
 
-pub(crate) fn module_item_decl(db: &dyn DeclDb, path: ModuleItemPath) -> DeclResultBorrowed<Decl> {
+pub(crate) fn module_item_decl(db: &dyn DeclDb, path: ModuleItemPath) -> DeclResultRef<Decl> {
     match path {
         ModuleItemPath::Type(path) => ty_decl(db, path).as_ref().map(|decl| (*decl).into()),
         ModuleItemPath::Trait(path) => trai_decl(db, path).as_ref().map(|decl| (*decl).into()),

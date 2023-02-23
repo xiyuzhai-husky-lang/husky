@@ -3,7 +3,6 @@
 
 mod context;
 mod db;
-mod decl;
 mod error;
 mod menu;
 mod rewrite;
@@ -13,7 +12,6 @@ mod tests;
 
 pub use context::*;
 pub use db::*;
-pub use decl::*;
 pub use error::*;
 pub use menu::*;
 pub use rewrite::*;
