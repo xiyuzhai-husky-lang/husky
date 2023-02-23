@@ -13,7 +13,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 25,
+                            value: 24,
                         },
                     ),
                 ),
@@ -30,7 +30,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 26,
+                            value: 25,
                         },
                     ),
                 ),

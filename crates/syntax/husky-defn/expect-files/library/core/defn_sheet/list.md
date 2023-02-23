@@ -1,9 +1,5 @@
-Err(
-    InvalidModulePath(
-        ModulePath(
-            Id {
-                value: 6,
-            },
-        ),
-    ),
+Ok(
+    DefnSheet {
+        defns: [],
+    },
 )

@@ -143,7 +143,7 @@ Ok(
                                     [salsa id]: 22,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 64,
+                                            [salsa id]: 65,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
                                             ),
@@ -178,7 +178,7 @@ Ok(
                                     [salsa id]: 23,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 124,
+                                            [salsa id]: 125,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                             ),
@@ -211,7 +211,7 @@ Ok(
                                     [salsa id]: 24,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 125,
+                                            [salsa id]: 126,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
@@ -244,7 +244,7 @@ Ok(
                                     [salsa id]: 25,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 126,
+                                            [salsa id]: 127,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                             ),
@@ -277,7 +277,7 @@ Ok(
                                     [salsa id]: 26,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 127,
+                                            [salsa id]: 128,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                             ),
@@ -310,7 +310,7 @@ Ok(
                                     [salsa id]: 27,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 128,
+                                            [salsa id]: 129,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                             ),
@@ -343,7 +343,7 @@ Ok(
                                     [salsa id]: 28,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 129,
+                                            [salsa id]: 130,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                             ),
@@ -376,7 +376,7 @@ Ok(
                                     [salsa id]: 29,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 130,
+                                            [salsa id]: 131,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
@@ -409,7 +409,7 @@ Ok(
                                     [salsa id]: 41,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 84,
+                                            [salsa id]: 85,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
@@ -442,7 +442,7 @@ Ok(
                                     [salsa id]: 46,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 71,
+                                            [salsa id]: 72,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             ),
@@ -475,7 +475,7 @@ Ok(
                                     [salsa id]: 47,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 72,
+                                            [salsa id]: 73,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             ),
@@ -511,7 +511,7 @@ Ok(
                                             [salsa id]: 112,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 89,
+                                                    [salsa id]: 90,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                                     ),
@@ -557,7 +557,7 @@ Ok(
                                             [salsa id]: 71,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 78,
+                                                    [salsa id]: 79,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ),
@@ -603,7 +603,7 @@ Ok(
                                             [salsa id]: 72,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 79,
+                                                    [salsa id]: 80,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                                     ),
@@ -649,7 +649,7 @@ Ok(
                                             [salsa id]: 74,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 82,
+                                                    [salsa id]: 83,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                     ),
@@ -699,7 +699,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 127,
+                                                    value: 129,
                                                 },
                                             ),
                                         ),
@@ -729,7 +729,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 127,
+                                                    value: 129,
                                                 },
                                             ),
                                         ),
@@ -759,7 +759,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 135,
+                                                    value: 137,
                                                 },
                                             ),
                                         ),
@@ -800,7 +800,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 134,
+                                                    value: 136,
                                                 },
                                             ),
                                         ),
@@ -841,7 +841,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 133,
+                                                    value: 135,
                                                 },
                                             ),
                                         ),
@@ -882,7 +882,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 130,
+                                                    value: 132,
                                                 },
                                             ),
                                         ),
@@ -923,7 +923,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 132,
+                                                    value: 134,
                                                 },
                                             ),
                                         ),
@@ -964,7 +964,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 139,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -1004,7 +1004,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 64,
+                                        [salsa id]: 65,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
                                         ),
@@ -1023,7 +1023,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 30,
+                                    value: 31,
                                 },
                             ),
                             ast_idx: 21,
@@ -1031,7 +1031,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 23,
+                                        value: 24,
                                     },
                                 ),
                             ),
@@ -1040,7 +1040,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 29,
+                                    value: 30,
                                 },
                             ),
                             ast_idx: 22,
@@ -1048,7 +1048,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 23,
+                                        value: 24,
                                     },
                                 ),
                             ),
@@ -1057,7 +1057,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 28,
+                                    value: 29,
                                 },
                             ),
                             ast_idx: 23,
@@ -1065,7 +1065,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 23,
+                                        value: 24,
                                     },
                                 ),
                             ),
@@ -1074,7 +1074,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 27,
+                                    value: 28,
                                 },
                             ),
                             ast_idx: 25,
@@ -1082,7 +1082,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 23,
+                                        value: 24,
                                     },
                                 ),
                             ),
@@ -1096,7 +1096,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 127,
+                                        value: 129,
                                     },
                                 ),
                             ),
@@ -1110,7 +1110,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 127,
+                                        value: 129,
                                     },
                                 ),
                             ),
@@ -1124,7 +1124,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 139,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -1147,7 +1147,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 48,
+                                    [salsa id]: 49,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                     ),
@@ -1163,7 +1163,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 49,
+                                    [salsa id]: 50,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                     ),
@@ -1181,7 +1181,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 50,
+                                    [salsa id]: 51,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
                                     ),
@@ -1199,7 +1199,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 51,
+                                    [salsa id]: 52,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
@@ -1217,7 +1217,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 52,
+                                    [salsa id]: 53,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
                                     ),
@@ -1235,7 +1235,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 53,
+                                    [salsa id]: 54,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
                                     ),
@@ -1476,7 +1476,7 @@ Ok(
                                             [salsa id]: 22,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 64,
+                                                    [salsa id]: 65,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
                                                     ),
@@ -1526,7 +1526,7 @@ Ok(
                                             [salsa id]: 23,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 124,
+                                                    [salsa id]: 125,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                                     ),
@@ -1574,7 +1574,7 @@ Ok(
                                             [salsa id]: 24,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 125,
+                                                    [salsa id]: 126,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                                     ),
@@ -1622,7 +1622,7 @@ Ok(
                                             [salsa id]: 25,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 126,
+                                                    [salsa id]: 127,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                                     ),
@@ -1670,7 +1670,7 @@ Ok(
                                             [salsa id]: 26,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 127,
+                                                    [salsa id]: 128,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                                     ),
@@ -1718,7 +1718,7 @@ Ok(
                                             [salsa id]: 27,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 128,
+                                                    [salsa id]: 129,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                                     ),
@@ -1766,7 +1766,7 @@ Ok(
                                             [salsa id]: 28,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 129,
+                                                    [salsa id]: 130,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                                     ),
@@ -1814,7 +1814,7 @@ Ok(
                                             [salsa id]: 29,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 130,
+                                                    [salsa id]: 131,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                                     ),
@@ -1862,7 +1862,7 @@ Ok(
                                             [salsa id]: 41,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 84,
+                                                    [salsa id]: 85,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                                     ),
@@ -1910,7 +1910,7 @@ Ok(
                                             [salsa id]: 46,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 71,
+                                                    [salsa id]: 72,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                     ),
@@ -1958,7 +1958,7 @@ Ok(
                                             [salsa id]: 47,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 72,
+                                                    [salsa id]: 73,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                     ),
@@ -2003,7 +2003,7 @@ Ok(
                                     [salsa id]: 176,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 54,
+                                            [salsa id]: 55,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             ),
@@ -2042,7 +2042,7 @@ Ok(
                                                     [salsa id]: 112,
                                                     original_symbol: ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 89,
+                                                            [salsa id]: 90,
                                                             path: ModuleItemPath::Form(
                                                                 FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                                             ),
@@ -2103,7 +2103,7 @@ Ok(
                                                     [salsa id]: 71,
                                                     original_symbol: ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 78,
+                                                            [salsa id]: 79,
                                                             path: ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                             ),
@@ -2164,7 +2164,7 @@ Ok(
                                                     [salsa id]: 72,
                                                     original_symbol: ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 79,
+                                                            [salsa id]: 80,
                                                             path: ModuleItemPath::Form(
                                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                                             ),
@@ -2225,7 +2225,7 @@ Ok(
                                                     [salsa id]: 74,
                                                     original_symbol: ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 82,
+                                                            [salsa id]: 83,
                                                             path: ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                             ),
@@ -2303,7 +2303,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 154,
+                                                    value: 156,
                                                 },
                                             ),
                                         ),
@@ -2427,7 +2427,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 130,
+                                                    value: 132,
                                                 },
                                             ),
                                         ),
@@ -2465,7 +2465,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                             ast_idx: 120,
@@ -2473,7 +2473,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 24,
+                                        value: 25,
                                     },
                                 ),
                             ),
@@ -2482,7 +2482,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 25,
+                                    value: 26,
                                 },
                             ),
                             ast_idx: 119,
@@ -2490,7 +2490,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 24,
+                                        value: 25,
                                     },
                                 ),
                             ),
@@ -2504,7 +2504,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 154,
+                                        value: 156,
                                     },
                                 ),
                             ),
@@ -2526,7 +2526,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 54,
+                                    [salsa id]: 55,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                     ),
@@ -2544,7 +2544,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 55,
+                                    [salsa id]: 56,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                     ),
@@ -2564,7 +2564,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 56,
+                                    [salsa id]: 57,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
                                     ),
@@ -2584,7 +2584,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 57,
+                                    [salsa id]: 58,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
                                     ),
@@ -2604,7 +2604,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 58,
+                                    [salsa id]: 59,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
                                     ),
@@ -2624,7 +2624,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 59,
+                                    [salsa id]: 60,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
                                     ),
@@ -2644,7 +2644,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 60,
+                                    [salsa id]: 61,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
                                     ),
@@ -2664,7 +2664,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 61,
+                                    [salsa id]: 62,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
                                     ),
@@ -2684,7 +2684,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 62,
+                                    [salsa id]: 63,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                                     ),
@@ -2704,7 +2704,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 63,
+                                    [salsa id]: 64,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
                                     ),
@@ -2724,7 +2724,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 64,
+                                    [salsa id]: 65,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
                                     ),
@@ -2747,7 +2747,7 @@ Ok(
                                     [salsa id]: 187,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 65,
+                                            [salsa id]: 66,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             ),
@@ -2780,7 +2780,7 @@ Ok(
                                     [salsa id]: 188,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 66,
+                                            [salsa id]: 67,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                             ),
@@ -2813,7 +2813,7 @@ Ok(
                                     [salsa id]: 189,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 67,
+                                            [salsa id]: 68,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             ),
@@ -2846,7 +2846,7 @@ Ok(
                                     [salsa id]: 190,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 68,
+                                            [salsa id]: 69,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             ),
@@ -2879,7 +2879,7 @@ Ok(
                                     [salsa id]: 191,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 69,
+                                            [salsa id]: 70,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                             ),
@@ -2912,7 +2912,7 @@ Ok(
                                     [salsa id]: 192,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 70,
+                                            [salsa id]: 71,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                             ),
@@ -2945,7 +2945,7 @@ Ok(
                                     [salsa id]: 193,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 48,
+                                            [salsa id]: 49,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                             ),
@@ -2978,7 +2978,7 @@ Ok(
                                     [salsa id]: 194,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 49,
+                                            [salsa id]: 50,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                             ),
@@ -3011,7 +3011,7 @@ Ok(
                                     [salsa id]: 196,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 51,
+                                            [salsa id]: 52,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ),
@@ -3044,7 +3044,7 @@ Ok(
                                     [salsa id]: 198,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 53,
+                                            [salsa id]: 54,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
                                             ),
@@ -3077,7 +3077,7 @@ Ok(
                                     [salsa id]: 222,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 71,
+                                            [salsa id]: 72,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             ),
@@ -3110,7 +3110,7 @@ Ok(
                                     [salsa id]: 223,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 72,
+                                            [salsa id]: 73,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             ),
@@ -3146,7 +3146,7 @@ Ok(
                                             [salsa id]: 71,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 78,
+                                                    [salsa id]: 79,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ),
@@ -3192,7 +3192,7 @@ Ok(
                                             [salsa id]: 72,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 79,
+                                                    [salsa id]: 80,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                                     ),
@@ -3238,7 +3238,7 @@ Ok(
                                             [salsa id]: 74,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 82,
+                                                    [salsa id]: 83,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                     ),
@@ -3445,7 +3445,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 127,
+                                                    value: 129,
                                                 },
                                             ),
                                         ),
@@ -3475,7 +3475,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 131,
+                                                    value: 133,
                                                 },
                                             ),
                                         ),
@@ -3520,7 +3520,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 129,
+                                                    value: 131,
                                                 },
                                             ),
                                         ),
@@ -3565,7 +3565,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 132,
+                                                    value: 134,
                                                 },
                                             ),
                                         ),
@@ -3603,7 +3603,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 26,
+                                    value: 27,
                                 },
                             ),
                             ast_idx: 195,
@@ -3611,7 +3611,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 25,
+                                        value: 26,
                                     },
                                 ),
                             ),
@@ -3620,7 +3620,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 24,
+                                    value: 25,
                                 },
                             ),
                             ast_idx: 196,
@@ -3628,7 +3628,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 25,
+                                        value: 26,
                                     },
                                 ),
                             ),
@@ -3637,7 +3637,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 27,
+                                    value: 28,
                                 },
                             ),
                             ast_idx: 197,
@@ -3645,7 +3645,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 25,
+                                        value: 26,
                                     },
                                 ),
                             ),
@@ -3659,7 +3659,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 127,
+                                        value: 129,
                                     },
                                 ),
                             ),
@@ -3681,7 +3681,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 65,
+                                    [salsa id]: 66,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                     ),
@@ -3697,7 +3697,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 66,
+                                    [salsa id]: 67,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                     ),
@@ -3713,7 +3713,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 67,
+                                    [salsa id]: 68,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                     ),
@@ -3729,7 +3729,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 68,
+                                    [salsa id]: 69,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                     ),
@@ -3745,7 +3745,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 69,
+                                    [salsa id]: 70,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                     ),
@@ -3761,7 +3761,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 70,
+                                    [salsa id]: 71,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                     ),
@@ -3819,7 +3819,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 302,
+                                                    value: 304,
                                                 },
                                             ),
                                         ),
@@ -3953,7 +3953,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 71,
+                                    [salsa id]: 72,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                     ),
@@ -3969,7 +3969,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 72,
+                                    [salsa id]: 73,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                     ),
@@ -3987,7 +3987,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 73,
+                                    [salsa id]: 74,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
                                     ),
@@ -4007,7 +4007,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 74,
+                                    [salsa id]: 75,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
                                     ),
@@ -4027,7 +4027,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 75,
+                                    [salsa id]: 76,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
                                     ),
@@ -4047,7 +4047,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 76,
+                                    [salsa id]: 77,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
                                     ),
@@ -4067,7 +4067,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 77,
+                                    [salsa id]: 78,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
                                     ),
@@ -4088,7 +4088,7 @@ Ok(
                                     [salsa id]: 71,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 78,
+                                            [salsa id]: 79,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
@@ -4117,7 +4117,7 @@ Ok(
                                     [salsa id]: 72,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 79,
+                                            [salsa id]: 80,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
@@ -4146,7 +4146,7 @@ Ok(
                                     [salsa id]: 74,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 82,
+                                            [salsa id]: 83,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                             ),
@@ -4177,7 +4177,7 @@ Ok(
                                     [salsa id]: 232,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 54,
+                                            [salsa id]: 55,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             ),
@@ -4210,7 +4210,7 @@ Ok(
                                     [salsa id]: 251,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 65,
+                                            [salsa id]: 66,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             ),
@@ -4243,7 +4243,7 @@ Ok(
                                     [salsa id]: 252,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 66,
+                                            [salsa id]: 67,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                             ),
@@ -4276,7 +4276,7 @@ Ok(
                                     [salsa id]: 253,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 67,
+                                            [salsa id]: 68,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             ),
@@ -4309,7 +4309,7 @@ Ok(
                                     [salsa id]: 254,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 68,
+                                            [salsa id]: 69,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             ),
@@ -4342,7 +4342,7 @@ Ok(
                                     [salsa id]: 255,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 69,
+                                            [salsa id]: 70,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                             ),
@@ -4375,7 +4375,7 @@ Ok(
                                     [salsa id]: 256,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 70,
+                                            [salsa id]: 71,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                             ),
@@ -4444,7 +4444,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 309,
+                                                    value: 311,
                                                 },
                                             ),
                                         ),
@@ -4483,7 +4483,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 310,
+                                                    value: 312,
                                                 },
                                             ),
                                         ),
@@ -4522,7 +4522,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 312,
+                                                    value: 314,
                                                 },
                                             ),
                                         ),
@@ -4657,7 +4657,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 312,
+                                                    value: 314,
                                                 },
                                             ),
                                         ),
@@ -4698,7 +4698,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 131,
+                                                    value: 133,
                                                 },
                                             ),
                                         ),
@@ -4743,7 +4743,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 130,
+                                                    value: 132,
                                                 },
                                             ),
                                         ),
@@ -4798,7 +4798,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 54,
+                                        [salsa id]: 55,
                                         path: ModuleItemPath::Type(
                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                         ),
@@ -4815,7 +4815,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 31,
+                                    value: 32,
                                 },
                             ),
                             ast_idx: 163,
@@ -4826,7 +4826,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 32,
+                                    value: 33,
                                 },
                             ),
                             ast_idx: 164,
@@ -4837,7 +4837,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 34,
+                                    value: 35,
                                 },
                             ),
                             ast_idx: 165,
@@ -4848,7 +4848,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 34,
+                                    value: 35,
                                 },
                             ),
                             ast_idx: 168,
@@ -4856,7 +4856,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 27,
+                                        value: 28,
                                     },
                                 ),
                             ),
@@ -4865,7 +4865,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 26,
+                                    value: 27,
                                 },
                             ),
                             ast_idx: 166,
@@ -4873,7 +4873,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 27,
+                                        value: 28,
                                     },
                                 ),
                             ),
@@ -4894,7 +4894,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 78,
+                                    [salsa id]: 79,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
@@ -4910,7 +4910,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 79,
+                                    [salsa id]: 80,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                     ),
@@ -5151,7 +5151,7 @@ Ok(
                                             [salsa id]: 22,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 64,
+                                                    [salsa id]: 65,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
                                                     ),
@@ -5201,7 +5201,7 @@ Ok(
                                             [salsa id]: 23,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 124,
+                                                    [salsa id]: 125,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                                     ),
@@ -5249,7 +5249,7 @@ Ok(
                                             [salsa id]: 24,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 125,
+                                                    [salsa id]: 126,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                                     ),
@@ -5297,7 +5297,7 @@ Ok(
                                             [salsa id]: 25,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 126,
+                                                    [salsa id]: 127,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                                     ),
@@ -5345,7 +5345,7 @@ Ok(
                                             [salsa id]: 26,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 127,
+                                                    [salsa id]: 128,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                                     ),
@@ -5393,7 +5393,7 @@ Ok(
                                             [salsa id]: 27,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 128,
+                                                    [salsa id]: 129,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                                     ),
@@ -5441,7 +5441,7 @@ Ok(
                                             [salsa id]: 28,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 129,
+                                                    [salsa id]: 130,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                                     ),
@@ -5489,7 +5489,7 @@ Ok(
                                             [salsa id]: 29,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 130,
+                                                    [salsa id]: 131,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                                     ),
@@ -5537,7 +5537,7 @@ Ok(
                                             [salsa id]: 41,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 84,
+                                                    [salsa id]: 85,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                                     ),
@@ -5585,7 +5585,7 @@ Ok(
                                             [salsa id]: 46,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 71,
+                                                    [salsa id]: 72,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                     ),
@@ -5633,7 +5633,7 @@ Ok(
                                             [salsa id]: 47,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 72,
+                                                    [salsa id]: 73,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                     ),
@@ -5802,7 +5802,7 @@ Ok(
                                     [salsa id]: 263,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 73,
+                                            [salsa id]: 74,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
                                             ),
@@ -5837,7 +5837,7 @@ Ok(
                                     [salsa id]: 264,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 74,
+                                            [salsa id]: 75,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
                                             ),
@@ -5872,7 +5872,7 @@ Ok(
                                     [salsa id]: 265,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 75,
+                                            [salsa id]: 76,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
                                             ),
@@ -5907,7 +5907,7 @@ Ok(
                                     [salsa id]: 266,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 76,
+                                            [salsa id]: 77,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
                                             ),
@@ -5942,7 +5942,7 @@ Ok(
                                     [salsa id]: 267,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 77,
+                                            [salsa id]: 78,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
                                             ),
@@ -5980,7 +5980,7 @@ Ok(
                                             [salsa id]: 74,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 82,
+                                                    [salsa id]: 83,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                     ),
@@ -6026,7 +6026,7 @@ Ok(
                                             [salsa id]: 232,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 54,
+                                                    [salsa id]: 55,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     ),
@@ -6074,7 +6074,7 @@ Ok(
                                             [salsa id]: 251,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 65,
+                                                    [salsa id]: 66,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                     ),
@@ -6122,7 +6122,7 @@ Ok(
                                             [salsa id]: 252,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 66,
+                                                    [salsa id]: 67,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                                     ),
@@ -6170,7 +6170,7 @@ Ok(
                                             [salsa id]: 253,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 67,
+                                                    [salsa id]: 68,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     ),
@@ -6218,7 +6218,7 @@ Ok(
                                             [salsa id]: 254,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 68,
+                                                    [salsa id]: 69,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                     ),
@@ -6266,7 +6266,7 @@ Ok(
                                             [salsa id]: 255,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 69,
+                                                    [salsa id]: 70,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     ),
@@ -6314,7 +6314,7 @@ Ok(
                                             [salsa id]: 256,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 70,
+                                                    [salsa id]: 71,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                     ),
@@ -6365,7 +6365,7 @@ Ok(
                                                     [salsa id]: 112,
                                                     original_symbol: ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 89,
+                                                            [salsa id]: 90,
                                                             path: ModuleItemPath::Form(
                                                                 FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                                             ),
@@ -6420,7 +6420,7 @@ Ok(
                                     [salsa id]: 863,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 81,
+                                            [salsa id]: 82,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
                                             ),
@@ -6711,7 +6711,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 132,
+                                                    value: 134,
                                                 },
                                             ),
                                         ),
@@ -6756,7 +6756,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 132,
+                                                    value: 134,
                                                 },
                                             ),
                                         ),
@@ -6801,7 +6801,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 132,
+                                                    value: 134,
                                                 },
                                             ),
                                         ),
@@ -6846,7 +6846,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 131,
+                                                    value: 133,
                                                 },
                                             ),
                                         ),
@@ -6891,7 +6891,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 312,
+                                                    value: 314,
                                                 },
                                             ),
                                         ),
@@ -6936,7 +6936,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 311,
+                                                    value: 313,
                                                 },
                                             ),
                                         ),
@@ -6974,7 +6974,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                             ast_idx: 73,
@@ -6982,7 +6982,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 31,
+                                        value: 32,
                                     },
                                 ),
                             ),
@@ -6991,7 +6991,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 27,
+                                    value: 28,
                                 },
                             ),
                             ast_idx: 69,
@@ -6999,7 +6999,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 31,
+                                        value: 32,
                                     },
                                 ),
                             ),
@@ -7008,7 +7008,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 26,
+                                    value: 27,
                                 },
                             ),
                             ast_idx: 72,
@@ -7016,7 +7016,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 31,
+                                        value: 32,
                                     },
                                 ),
                             ),
@@ -7025,7 +7025,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 34,
+                                    value: 35,
                                 },
                             ),
                             ast_idx: 70,
@@ -7033,7 +7033,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 31,
+                                        value: 32,
                                     },
                                 ),
                             ),
@@ -7042,7 +7042,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 33,
+                                    value: 34,
                                 },
                             ),
                             ast_idx: 71,
@@ -7050,7 +7050,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 31,
+                                        value: 32,
                                     },
                                 ),
                             ),
@@ -7073,7 +7073,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 80,
+                                    [salsa id]: 81,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                     ),
@@ -7220,7 +7220,7 @@ Ok(
                                     [salsa id]: 288,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 71,
+                                            [salsa id]: 72,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             ),
@@ -7253,7 +7253,7 @@ Ok(
                                     [salsa id]: 289,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 72,
+                                            [salsa id]: 73,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             ),
@@ -7286,7 +7286,7 @@ Ok(
                                     [salsa id]: 290,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 73,
+                                            [salsa id]: 74,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
                                             ),
@@ -7321,7 +7321,7 @@ Ok(
                                     [salsa id]: 291,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 74,
+                                            [salsa id]: 75,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
                                             ),
@@ -7356,7 +7356,7 @@ Ok(
                                     [salsa id]: 292,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 75,
+                                            [salsa id]: 76,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
                                             ),
@@ -7391,7 +7391,7 @@ Ok(
                                     [salsa id]: 293,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 76,
+                                            [salsa id]: 77,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
                                             ),
@@ -7426,7 +7426,7 @@ Ok(
                                     [salsa id]: 294,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 77,
+                                            [salsa id]: 78,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
                                             ),
@@ -7464,7 +7464,7 @@ Ok(
                                             [salsa id]: 71,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 78,
+                                                    [salsa id]: 79,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ),
@@ -7510,7 +7510,7 @@ Ok(
                                             [salsa id]: 72,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 79,
+                                                    [salsa id]: 80,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                                     ),
@@ -7556,7 +7556,7 @@ Ok(
                                             [salsa id]: 74,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 82,
+                                                    [salsa id]: 83,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                     ),
@@ -7602,7 +7602,7 @@ Ok(
                                             [salsa id]: 232,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 54,
+                                                    [salsa id]: 55,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     ),
@@ -7650,7 +7650,7 @@ Ok(
                                             [salsa id]: 251,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 65,
+                                                    [salsa id]: 66,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                     ),
@@ -7698,7 +7698,7 @@ Ok(
                                             [salsa id]: 252,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 66,
+                                                    [salsa id]: 67,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                                     ),
@@ -7746,7 +7746,7 @@ Ok(
                                             [salsa id]: 253,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 67,
+                                                    [salsa id]: 68,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     ),
@@ -7794,7 +7794,7 @@ Ok(
                                             [salsa id]: 254,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 68,
+                                                    [salsa id]: 69,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                     ),
@@ -7842,7 +7842,7 @@ Ok(
                                             [salsa id]: 255,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 69,
+                                                    [salsa id]: 70,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     ),
@@ -7890,7 +7890,7 @@ Ok(
                                             [salsa id]: 256,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 70,
+                                                    [salsa id]: 71,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                     ),
@@ -8005,7 +8005,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 132,
+                                                    value: 134,
                                                 },
                                             ),
                                         ),
@@ -8043,7 +8043,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 27,
+                                    value: 28,
                                 },
                             ),
                             ast_idx: 2,
@@ -8051,7 +8051,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 32,
+                                        value: 33,
                                     },
                                 ),
                             ),
@@ -8072,7 +8072,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 81,
+                                    [salsa id]: 82,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
                                     ),
@@ -8217,7 +8217,7 @@ Ok(
                                     [salsa id]: 309,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 71,
+                                            [salsa id]: 72,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             ),
@@ -8250,7 +8250,7 @@ Ok(
                                     [salsa id]: 310,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 72,
+                                            [salsa id]: 73,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             ),
@@ -8283,7 +8283,7 @@ Ok(
                                     [salsa id]: 311,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 73,
+                                            [salsa id]: 74,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
                                             ),
@@ -8318,7 +8318,7 @@ Ok(
                                     [salsa id]: 312,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 74,
+                                            [salsa id]: 75,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
                                             ),
@@ -8353,7 +8353,7 @@ Ok(
                                     [salsa id]: 313,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 75,
+                                            [salsa id]: 76,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
                                             ),
@@ -8388,7 +8388,7 @@ Ok(
                                     [salsa id]: 314,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 76,
+                                            [salsa id]: 77,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
                                             ),
@@ -8423,7 +8423,7 @@ Ok(
                                     [salsa id]: 315,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 77,
+                                            [salsa id]: 78,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
                                             ),
@@ -8461,7 +8461,7 @@ Ok(
                                             [salsa id]: 71,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 78,
+                                                    [salsa id]: 79,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ),
@@ -8507,7 +8507,7 @@ Ok(
                                             [salsa id]: 72,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 79,
+                                                    [salsa id]: 80,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                                     ),
@@ -8553,7 +8553,7 @@ Ok(
                                             [salsa id]: 74,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 82,
+                                                    [salsa id]: 83,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                     ),
@@ -8599,7 +8599,7 @@ Ok(
                                             [salsa id]: 232,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 54,
+                                                    [salsa id]: 55,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     ),
@@ -8647,7 +8647,7 @@ Ok(
                                             [salsa id]: 251,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 65,
+                                                    [salsa id]: 66,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                     ),
@@ -8695,7 +8695,7 @@ Ok(
                                             [salsa id]: 252,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 66,
+                                                    [salsa id]: 67,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                                     ),
@@ -8743,7 +8743,7 @@ Ok(
                                             [salsa id]: 253,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 67,
+                                                    [salsa id]: 68,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     ),
@@ -8791,7 +8791,7 @@ Ok(
                                             [salsa id]: 254,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 68,
+                                                    [salsa id]: 69,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                     ),
@@ -8839,7 +8839,7 @@ Ok(
                                             [salsa id]: 255,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 69,
+                                                    [salsa id]: 70,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     ),
@@ -8887,7 +8887,7 @@ Ok(
                                             [salsa id]: 256,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 70,
+                                                    [salsa id]: 71,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                     ),
@@ -9080,7 +9080,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 132,
+                                                    value: 134,
                                                 },
                                             ),
                                         ),
@@ -9125,7 +9125,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 130,
+                                                    value: 132,
                                                 },
                                             ),
                                         ),
@@ -9170,7 +9170,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 131,
+                                                    value: 133,
                                                 },
                                             ),
                                         ),
@@ -9208,7 +9208,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 27,
+                                    value: 28,
                                 },
                             ),
                             ast_idx: 19,
@@ -9216,7 +9216,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 33,
+                                        value: 34,
                                     },
                                 ),
                             ),
@@ -9225,7 +9225,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 25,
+                                    value: 26,
                                 },
                             ),
                             ast_idx: 20,
@@ -9233,7 +9233,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 33,
+                                        value: 34,
                                     },
                                 ),
                             ),
@@ -9242,7 +9242,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 26,
+                                    value: 27,
                                 },
                             ),
                             ast_idx: 21,
@@ -9250,7 +9250,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 33,
+                                        value: 34,
                                     },
                                 ),
                             ),
@@ -9271,7 +9271,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 82,
+                                    [salsa id]: 83,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                     ),
@@ -9292,7 +9292,7 @@ Ok(
                                     [salsa id]: 358,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 65,
+                                            [salsa id]: 66,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             ),
@@ -9325,7 +9325,7 @@ Ok(
                                     [salsa id]: 359,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 66,
+                                            [salsa id]: 67,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                             ),
@@ -9358,7 +9358,7 @@ Ok(
                                     [salsa id]: 360,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 67,
+                                            [salsa id]: 68,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             ),
@@ -9391,7 +9391,7 @@ Ok(
                                     [salsa id]: 361,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 68,
+                                            [salsa id]: 69,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             ),
@@ -9424,7 +9424,7 @@ Ok(
                                     [salsa id]: 362,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 69,
+                                            [salsa id]: 70,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                             ),
@@ -9457,7 +9457,7 @@ Ok(
                                     [salsa id]: 363,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 70,
+                                            [salsa id]: 71,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                             ),
@@ -9560,7 +9560,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 131,
+                                                    value: 133,
                                                 },
                                             ),
                                         ),
@@ -9598,7 +9598,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 26,
+                                    value: 27,
                                 },
                             ),
                             ast_idx: 15,
@@ -9606,7 +9606,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 34,
+                                        value: 35,
                                     },
                                 ),
                             ),
@@ -9629,7 +9629,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 83,
+                                    [salsa id]: 84,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                     ),
@@ -9647,7 +9647,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 84,
+                                    [salsa id]: 85,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                     ),
@@ -9888,7 +9888,7 @@ Ok(
                                             [salsa id]: 22,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 64,
+                                                    [salsa id]: 65,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
                                                     ),
@@ -9938,7 +9938,7 @@ Ok(
                                             [salsa id]: 23,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 124,
+                                                    [salsa id]: 125,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                                     ),
@@ -9986,7 +9986,7 @@ Ok(
                                             [salsa id]: 24,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 125,
+                                                    [salsa id]: 126,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                                     ),
@@ -10034,7 +10034,7 @@ Ok(
                                             [salsa id]: 25,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 126,
+                                                    [salsa id]: 127,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                                     ),
@@ -10082,7 +10082,7 @@ Ok(
                                             [salsa id]: 26,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 127,
+                                                    [salsa id]: 128,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                                     ),
@@ -10130,7 +10130,7 @@ Ok(
                                             [salsa id]: 27,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 128,
+                                                    [salsa id]: 129,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                                     ),
@@ -10178,7 +10178,7 @@ Ok(
                                             [salsa id]: 28,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 129,
+                                                    [salsa id]: 130,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                                     ),
@@ -10226,7 +10226,7 @@ Ok(
                                             [salsa id]: 29,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 130,
+                                                    [salsa id]: 131,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                                     ),
@@ -10274,7 +10274,7 @@ Ok(
                                             [salsa id]: 46,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 71,
+                                                    [salsa id]: 72,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                     ),
@@ -10322,7 +10322,7 @@ Ok(
                                             [salsa id]: 47,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 72,
+                                                    [salsa id]: 73,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                     ),
@@ -10373,7 +10373,7 @@ Ok(
                                                     [salsa id]: 112,
                                                     original_symbol: ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 89,
+                                                            [salsa id]: 90,
                                                             path: ModuleItemPath::Form(
                                                                 FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                                             ),
@@ -10434,7 +10434,7 @@ Ok(
                                                     [salsa id]: 71,
                                                     original_symbol: ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 78,
+                                                            [salsa id]: 79,
                                                             path: ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                             ),
@@ -10495,7 +10495,7 @@ Ok(
                                                     [salsa id]: 72,
                                                     original_symbol: ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 79,
+                                                            [salsa id]: 80,
                                                             path: ModuleItemPath::Form(
                                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                                             ),
@@ -10556,7 +10556,7 @@ Ok(
                                                     [salsa id]: 74,
                                                     original_symbol: ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 82,
+                                                            [salsa id]: 83,
                                                             path: ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                             ),
@@ -10674,7 +10674,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                             ast_idx: 21,
@@ -10682,7 +10682,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 28,
+                                        value: 29,
                                     },
                                 ),
                             ),
@@ -10886,7 +10886,7 @@ Ok(
                                     [salsa id]: 112,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 89,
+                                            [salsa id]: 90,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                             ),
@@ -10917,7 +10917,7 @@ Ok(
                                     [salsa id]: 113,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 95,
+                                            [salsa id]: 96,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
                                             ),
@@ -10952,7 +10952,7 @@ Ok(
                                     [salsa id]: 114,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 87,
+                                            [salsa id]: 88,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
                                             ),
@@ -10987,7 +10987,7 @@ Ok(
                                     [salsa id]: 115,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 99,
+                                            [salsa id]: 100,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
                                             ),
@@ -11022,7 +11022,7 @@ Ok(
                                     [salsa id]: 117,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 115,
+                                            [salsa id]: 116,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
                                             ),
@@ -11057,7 +11057,7 @@ Ok(
                                     [salsa id]: 118,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 117,
+                                            [salsa id]: 118,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
                                             ),
@@ -11092,7 +11092,7 @@ Ok(
                                     [salsa id]: 119,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 121,
+                                            [salsa id]: 122,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
                                             ),
@@ -11132,7 +11132,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 388,
+                                                    value: 390,
                                                 },
                                             ),
                                         ),
@@ -11173,7 +11173,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 389,
+                                                    value: 391,
                                                 },
                                             ),
                                         ),
@@ -11214,7 +11214,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 387,
+                                                    value: 389,
                                                 },
                                             ),
                                         ),
@@ -11255,7 +11255,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 396,
+                                                    value: 398,
                                                 },
                                             ),
                                         ),
@@ -11285,7 +11285,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 390,
+                                                    value: 392,
                                                 },
                                             ),
                                         ),
@@ -11326,7 +11326,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 392,
+                                                    value: 394,
                                                 },
                                             ),
                                         ),
@@ -11367,7 +11367,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 389,
+                                                    value: 391,
                                                 },
                                             ),
                                         ),
@@ -11408,7 +11408,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 393,
+                                                    value: 395,
                                                 },
                                             ),
                                         ),
@@ -11449,7 +11449,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 394,
+                                                    value: 396,
                                                 },
                                             ),
                                         ),
@@ -11490,7 +11490,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 395,
+                                                    value: 397,
                                                 },
                                             ),
                                         ),
@@ -11539,7 +11539,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 89,
+                                        [salsa id]: 90,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                         ),
@@ -11573,7 +11573,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 95,
+                                        [salsa id]: 96,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
                                         ),
@@ -11609,7 +11609,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 87,
+                                        [salsa id]: 88,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
                                         ),
@@ -11645,7 +11645,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 99,
+                                        [salsa id]: 100,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
                                         ),
@@ -11704,7 +11704,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 95,
+                                        [salsa id]: 96,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
                                         ),
@@ -11740,7 +11740,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 115,
+                                        [salsa id]: 116,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
                                         ),
@@ -11776,7 +11776,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 117,
+                                        [salsa id]: 118,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
                                         ),
@@ -11812,7 +11812,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 121,
+                                        [salsa id]: 122,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
                                         ),
@@ -11835,7 +11835,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 396,
+                                        value: 398,
                                     },
                                 ),
                             ),
@@ -11852,7 +11852,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 151,
+                                        value: 153,
                                     },
                                 ),
                             ),
@@ -11880,7 +11880,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 85,
+                                    [salsa id]: 86,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
                                     ),
@@ -11900,7 +11900,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 86,
+                                    [salsa id]: 87,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::zero::almost_closed`, `Function`),
                                     ),
@@ -11920,7 +11920,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 87,
+                                    [salsa id]: 88,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
                                     ),
@@ -11943,7 +11943,7 @@ Ok(
                                     [salsa id]: 364,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 124,
+                                            [salsa id]: 125,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                             ),
@@ -11976,7 +11976,7 @@ Ok(
                                     [salsa id]: 365,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 125,
+                                            [salsa id]: 126,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
@@ -12009,7 +12009,7 @@ Ok(
                                     [salsa id]: 366,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 126,
+                                            [salsa id]: 127,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                             ),
@@ -12042,7 +12042,7 @@ Ok(
                                     [salsa id]: 367,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 127,
+                                            [salsa id]: 128,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                             ),
@@ -12075,7 +12075,7 @@ Ok(
                                     [salsa id]: 368,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 128,
+                                            [salsa id]: 129,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                             ),
@@ -12108,7 +12108,7 @@ Ok(
                                     [salsa id]: 369,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 129,
+                                            [salsa id]: 130,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                             ),
@@ -12141,7 +12141,7 @@ Ok(
                                     [salsa id]: 370,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 130,
+                                            [salsa id]: 131,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
@@ -12174,7 +12174,7 @@ Ok(
                                     [salsa id]: 383,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 84,
+                                            [salsa id]: 85,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
@@ -12207,7 +12207,7 @@ Ok(
                                     [salsa id]: 897,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 78,
+                                            [salsa id]: 79,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
@@ -12240,7 +12240,7 @@ Ok(
                                     [salsa id]: 898,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 79,
+                                            [salsa id]: 80,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
@@ -12280,7 +12280,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 154,
+                                                    value: 156,
                                                 },
                                             ),
                                         ),
@@ -12310,7 +12310,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 139,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -12340,7 +12340,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 139,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -12370,7 +12370,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 139,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -12588,7 +12588,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 135,
+                                                    value: 137,
                                                 },
                                             ),
                                         ),
@@ -12633,7 +12633,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 133,
+                                                    value: 135,
                                                 },
                                             ),
                                         ),
@@ -12678,7 +12678,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 132,
+                                                    value: 134,
                                                 },
                                             ),
                                         ),
@@ -12723,7 +12723,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 388,
+                                                    value: 390,
                                                 },
                                             ),
                                         ),
@@ -12757,7 +12757,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 309,
+                                                    value: 311,
                                                 },
                                             ),
                                         ),
@@ -12795,7 +12795,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 30,
+                                    value: 31,
                                 },
                             ),
                             ast_idx: 29,
@@ -12803,7 +12803,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 35,
+                                        value: 36,
                                     },
                                 ),
                             ),
@@ -12812,7 +12812,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 28,
+                                    value: 29,
                                 },
                             ),
                             ast_idx: 30,
@@ -12820,7 +12820,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 35,
+                                        value: 36,
                                     },
                                 ),
                             ),
@@ -12829,7 +12829,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 31,
+                                    value: 32,
                                 },
                             ),
                             ast_idx: 31,
@@ -12837,7 +12837,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 35,
+                                        value: 36,
                                     },
                                 ),
                             ),
@@ -12851,7 +12851,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 154,
+                                        value: 156,
                                     },
                                 ),
                             ),
@@ -12865,7 +12865,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 139,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -12879,7 +12879,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 139,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -12893,7 +12893,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 139,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -12907,7 +12907,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 388,
+                                        value: 390,
                                     },
                                 ),
                             ),
@@ -12932,7 +12932,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 88,
+                                    [salsa id]: 89,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Feature`),
                                     ),
@@ -12950,7 +12950,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 89,
+                                    [salsa id]: 90,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                     ),
@@ -12968,7 +12968,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 90,
+                                    [salsa id]: 91,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::one::upmost`, `Function`),
                                     ),
@@ -12988,7 +12988,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 91,
+                                    [salsa id]: 92,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::one::downmost`, `Function`),
                                     ),
@@ -13008,7 +13008,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 92,
+                                    [salsa id]: 93,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::one::hat`, `Function`),
                                     ),
@@ -13031,7 +13031,7 @@ Ok(
                                     [salsa id]: 401,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 124,
+                                            [salsa id]: 125,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                             ),
@@ -13064,7 +13064,7 @@ Ok(
                                     [salsa id]: 402,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 125,
+                                            [salsa id]: 126,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
@@ -13097,7 +13097,7 @@ Ok(
                                     [salsa id]: 403,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 126,
+                                            [salsa id]: 127,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                             ),
@@ -13130,7 +13130,7 @@ Ok(
                                     [salsa id]: 404,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 127,
+                                            [salsa id]: 128,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                             ),
@@ -13163,7 +13163,7 @@ Ok(
                                     [salsa id]: 405,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 128,
+                                            [salsa id]: 129,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                             ),
@@ -13196,7 +13196,7 @@ Ok(
                                     [salsa id]: 406,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 129,
+                                            [salsa id]: 130,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                             ),
@@ -13229,7 +13229,7 @@ Ok(
                                     [salsa id]: 407,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 130,
+                                            [salsa id]: 131,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
@@ -13262,7 +13262,7 @@ Ok(
                                     [salsa id]: 420,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 84,
+                                            [salsa id]: 85,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
@@ -13295,7 +13295,7 @@ Ok(
                                     [salsa id]: 944,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 78,
+                                            [salsa id]: 79,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
@@ -13328,7 +13328,7 @@ Ok(
                                     [salsa id]: 945,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 79,
+                                            [salsa id]: 80,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
@@ -13368,7 +13368,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 154,
+                                                    value: 156,
                                                 },
                                             ),
                                         ),
@@ -13398,7 +13398,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 139,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -13428,7 +13428,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 139,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -13458,7 +13458,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 139,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -13629,7 +13629,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 135,
+                                                    value: 137,
                                                 },
                                             ),
                                         ),
@@ -13674,7 +13674,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 133,
+                                                    value: 135,
                                                 },
                                             ),
                                         ),
@@ -13719,7 +13719,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 132,
+                                                    value: 134,
                                                 },
                                             ),
                                         ),
@@ -13764,7 +13764,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 309,
+                                                    value: 311,
                                                 },
                                             ),
                                         ),
@@ -13802,7 +13802,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 30,
+                                    value: 31,
                                 },
                             ),
                             ast_idx: 65,
@@ -13810,7 +13810,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 36,
+                                        value: 37,
                                     },
                                 ),
                             ),
@@ -13819,7 +13819,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 28,
+                                    value: 29,
                                 },
                             ),
                             ast_idx: 66,
@@ -13827,7 +13827,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 36,
+                                        value: 37,
                                     },
                                 ),
                             ),
@@ -13836,7 +13836,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 31,
+                                    value: 32,
                                 },
                             ),
                             ast_idx: 67,
@@ -13844,7 +13844,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 36,
+                                        value: 37,
                                     },
                                 ),
                             ),
@@ -13858,7 +13858,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 154,
+                                        value: 156,
                                     },
                                 ),
                             ),
@@ -13872,7 +13872,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 139,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -13886,7 +13886,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 139,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -13900,7 +13900,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 139,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -13925,7 +13925,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 93,
+                                    [salsa id]: 94,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::six::six_match`, `Feature`),
                                     ),
@@ -13945,7 +13945,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 94,
+                                    [salsa id]: 95,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Feature`),
                                     ),
@@ -13965,7 +13965,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 95,
+                                    [salsa id]: 96,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
                                     ),
@@ -13985,7 +13985,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 96,
+                                    [salsa id]: 97,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::six::upmost`, `Function`),
                                     ),
@@ -14005,7 +14005,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 97,
+                                    [salsa id]: 98,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::six::bottom1`, `Function`),
                                     ),
@@ -14028,7 +14028,7 @@ Ok(
                                     [salsa id]: 438,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 124,
+                                            [salsa id]: 125,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                             ),
@@ -14061,7 +14061,7 @@ Ok(
                                     [salsa id]: 439,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 125,
+                                            [salsa id]: 126,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
@@ -14094,7 +14094,7 @@ Ok(
                                     [salsa id]: 440,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 126,
+                                            [salsa id]: 127,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                             ),
@@ -14127,7 +14127,7 @@ Ok(
                                     [salsa id]: 441,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 127,
+                                            [salsa id]: 128,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                             ),
@@ -14160,7 +14160,7 @@ Ok(
                                     [salsa id]: 442,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 128,
+                                            [salsa id]: 129,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                             ),
@@ -14193,7 +14193,7 @@ Ok(
                                     [salsa id]: 443,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 129,
+                                            [salsa id]: 130,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                             ),
@@ -14226,7 +14226,7 @@ Ok(
                                     [salsa id]: 444,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 130,
+                                            [salsa id]: 131,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
@@ -14259,7 +14259,7 @@ Ok(
                                     [salsa id]: 457,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 84,
+                                            [salsa id]: 85,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
@@ -14292,7 +14292,7 @@ Ok(
                                     [salsa id]: 991,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 78,
+                                            [salsa id]: 79,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
@@ -14325,7 +14325,7 @@ Ok(
                                     [salsa id]: 992,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 79,
+                                            [salsa id]: 80,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
@@ -14365,7 +14365,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 154,
+                                                    value: 156,
                                                 },
                                             ),
                                         ),
@@ -14395,7 +14395,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 139,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -14425,7 +14425,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 139,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -14455,7 +14455,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 139,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -14673,7 +14673,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 135,
+                                                    value: 137,
                                                 },
                                             ),
                                         ),
@@ -14718,7 +14718,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 133,
+                                                    value: 135,
                                                 },
                                             ),
                                         ),
@@ -14763,7 +14763,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 132,
+                                                    value: 134,
                                                 },
                                             ),
                                         ),
@@ -14808,7 +14808,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 388,
+                                                    value: 390,
                                                 },
                                             ),
                                         ),
@@ -14842,7 +14842,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 309,
+                                                    value: 311,
                                                 },
                                             ),
                                         ),
@@ -14880,7 +14880,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 30,
+                                    value: 31,
                                 },
                             ),
                             ast_idx: 53,
@@ -14888,7 +14888,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 37,
+                                        value: 38,
                                     },
                                 ),
                             ),
@@ -14897,7 +14897,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 28,
+                                    value: 29,
                                 },
                             ),
                             ast_idx: 54,
@@ -14905,7 +14905,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 37,
+                                        value: 38,
                                     },
                                 ),
                             ),
@@ -14914,7 +14914,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 31,
+                                    value: 32,
                                 },
                             ),
                             ast_idx: 55,
@@ -14922,7 +14922,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 37,
+                                        value: 38,
                                     },
                                 ),
                             ),
@@ -14936,7 +14936,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 154,
+                                        value: 156,
                                     },
                                 ),
                             ),
@@ -14950,7 +14950,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 139,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -14964,7 +14964,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 139,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -14978,7 +14978,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 139,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -14992,7 +14992,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 388,
+                                        value: 390,
                                     },
                                 ),
                             ),
@@ -15017,7 +15017,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 98,
+                                    [salsa id]: 99,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Feature`),
                                     ),
@@ -15037,7 +15037,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 99,
+                                    [salsa id]: 100,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
                                     ),
@@ -15057,7 +15057,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 100,
+                                    [salsa id]: 101,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::three::uparc`, `Function`),
                                     ),
@@ -15077,7 +15077,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 101,
+                                    [salsa id]: 102,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::three::downarc`, `Function`),
                                     ),
@@ -15097,7 +15097,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 102,
+                                    [salsa id]: 103,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::three::back`, `Function`),
                                     ),
@@ -15120,7 +15120,7 @@ Ok(
                                     [salsa id]: 475,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 124,
+                                            [salsa id]: 125,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                             ),
@@ -15153,7 +15153,7 @@ Ok(
                                     [salsa id]: 476,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 125,
+                                            [salsa id]: 126,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
@@ -15186,7 +15186,7 @@ Ok(
                                     [salsa id]: 477,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 126,
+                                            [salsa id]: 127,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                             ),
@@ -15219,7 +15219,7 @@ Ok(
                                     [salsa id]: 478,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 127,
+                                            [salsa id]: 128,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                             ),
@@ -15252,7 +15252,7 @@ Ok(
                                     [salsa id]: 479,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 128,
+                                            [salsa id]: 129,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                             ),
@@ -15285,7 +15285,7 @@ Ok(
                                     [salsa id]: 480,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 129,
+                                            [salsa id]: 130,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                             ),
@@ -15318,7 +15318,7 @@ Ok(
                                     [salsa id]: 481,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 130,
+                                            [salsa id]: 131,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
@@ -15351,7 +15351,7 @@ Ok(
                                     [salsa id]: 494,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 84,
+                                            [salsa id]: 85,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
@@ -15384,7 +15384,7 @@ Ok(
                                     [salsa id]: 1038,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 78,
+                                            [salsa id]: 79,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
@@ -15417,7 +15417,7 @@ Ok(
                                     [salsa id]: 1039,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 79,
+                                            [salsa id]: 80,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
@@ -15457,7 +15457,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 139,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -15487,7 +15487,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 139,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -15517,7 +15517,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 139,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -15547,7 +15547,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 139,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -15718,7 +15718,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 135,
+                                                    value: 137,
                                                 },
                                             ),
                                         ),
@@ -15763,7 +15763,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 133,
+                                                    value: 135,
                                                 },
                                             ),
                                         ),
@@ -15808,7 +15808,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 132,
+                                                    value: 134,
                                                 },
                                             ),
                                         ),
@@ -15853,7 +15853,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 309,
+                                                    value: 311,
                                                 },
                                             ),
                                         ),
@@ -15891,7 +15891,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 30,
+                                    value: 31,
                                 },
                             ),
                             ast_idx: 31,
@@ -15899,7 +15899,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 38,
+                                        value: 39,
                                     },
                                 ),
                             ),
@@ -15908,7 +15908,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 28,
+                                    value: 29,
                                 },
                             ),
                             ast_idx: 32,
@@ -15916,7 +15916,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 38,
+                                        value: 39,
                                     },
                                 ),
                             ),
@@ -15925,7 +15925,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 31,
+                                    value: 32,
                                 },
                             ),
                             ast_idx: 33,
@@ -15933,7 +15933,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 38,
+                                        value: 39,
                                     },
                                 ),
                             ),
@@ -15947,7 +15947,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 139,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -15961,7 +15961,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 139,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -15975,7 +15975,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 139,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -15989,7 +15989,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 139,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -16014,7 +16014,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 103,
+                                    [salsa id]: 104,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::four::left_components`, `Feature`),
                                     ),
@@ -16034,7 +16034,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 104,
+                                    [salsa id]: 105,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Function`),
                                     ),
@@ -16054,7 +16054,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 105,
+                                    [salsa id]: 106,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Feature`),
                                     ),
@@ -16074,7 +16074,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 106,
+                                    [salsa id]: 107,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::four::components_max_heights`, `Feature`),
                                     ),
@@ -16094,7 +16094,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 107,
+                                    [salsa id]: 108,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
                                     ),
@@ -16114,7 +16114,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 108,
+                                    [salsa id]: 109,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Function`),
                                     ),
@@ -16134,7 +16134,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 109,
+                                    [salsa id]: 110,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Function`),
                                     ),
@@ -16157,7 +16157,7 @@ Ok(
                                     [salsa id]: 512,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 124,
+                                            [salsa id]: 125,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                             ),
@@ -16190,7 +16190,7 @@ Ok(
                                     [salsa id]: 513,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 125,
+                                            [salsa id]: 126,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
@@ -16223,7 +16223,7 @@ Ok(
                                     [salsa id]: 514,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 126,
+                                            [salsa id]: 127,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                             ),
@@ -16256,7 +16256,7 @@ Ok(
                                     [salsa id]: 515,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 127,
+                                            [salsa id]: 128,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                             ),
@@ -16289,7 +16289,7 @@ Ok(
                                     [salsa id]: 516,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 128,
+                                            [salsa id]: 129,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                             ),
@@ -16322,7 +16322,7 @@ Ok(
                                     [salsa id]: 517,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 129,
+                                            [salsa id]: 130,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                             ),
@@ -16355,7 +16355,7 @@ Ok(
                                     [salsa id]: 518,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 130,
+                                            [salsa id]: 131,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
@@ -16388,7 +16388,7 @@ Ok(
                                     [salsa id]: 531,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 84,
+                                            [salsa id]: 85,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
@@ -16421,7 +16421,7 @@ Ok(
                                     [salsa id]: 1085,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 78,
+                                            [salsa id]: 79,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
@@ -16454,7 +16454,7 @@ Ok(
                                     [salsa id]: 1086,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 79,
+                                            [salsa id]: 80,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
@@ -16494,7 +16494,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 139,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -16524,7 +16524,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 139,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -16554,7 +16554,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 139,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -16584,7 +16584,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 139,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -16755,7 +16755,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 135,
+                                                    value: 137,
                                                 },
                                             ),
                                         ),
@@ -16800,7 +16800,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 133,
+                                                    value: 135,
                                                 },
                                             ),
                                         ),
@@ -16845,7 +16845,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 132,
+                                                    value: 134,
                                                 },
                                             ),
                                         ),
@@ -16890,7 +16890,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 309,
+                                                    value: 311,
                                                 },
                                             ),
                                         ),
@@ -16928,7 +16928,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 30,
+                                    value: 31,
                                 },
                             ),
                             ast_idx: 41,
@@ -16936,7 +16936,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 39,
+                                        value: 40,
                                     },
                                 ),
                             ),
@@ -16945,7 +16945,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 28,
+                                    value: 29,
                                 },
                             ),
                             ast_idx: 42,
@@ -16953,7 +16953,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 39,
+                                        value: 40,
                                     },
                                 ),
                             ),
@@ -16962,7 +16962,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 31,
+                                    value: 32,
                                 },
                             ),
                             ast_idx: 43,
@@ -16970,7 +16970,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 39,
+                                        value: 40,
                                     },
                                 ),
                             ),
@@ -16984,7 +16984,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 139,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -16998,7 +16998,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 139,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -17012,7 +17012,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 139,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -17026,7 +17026,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 139,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -17065,7 +17065,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 110,
+                                    [salsa id]: 111,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Feature`),
                                     ),
@@ -17085,7 +17085,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 111,
+                                    [salsa id]: 112,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Function`),
                                     ),
@@ -17105,7 +17105,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 112,
+                                    [salsa id]: 113,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Feature`),
                                     ),
@@ -17125,7 +17125,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 113,
+                                    [salsa id]: 114,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Function`),
                                     ),
@@ -17145,7 +17145,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 114,
+                                    [salsa id]: 115,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Function`),
                                     ),
@@ -17165,7 +17165,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 115,
+                                    [salsa id]: 116,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
                                     ),
@@ -17188,7 +17188,7 @@ Ok(
                                     [salsa id]: 549,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 130,
+                                            [salsa id]: 131,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
@@ -17221,7 +17221,7 @@ Ok(
                                     [salsa id]: 550,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 125,
+                                            [salsa id]: 126,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
@@ -17254,7 +17254,7 @@ Ok(
                                     [salsa id]: 551,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 124,
+                                            [salsa id]: 125,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                             ),
@@ -17287,7 +17287,7 @@ Ok(
                                     [salsa id]: 553,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 126,
+                                            [salsa id]: 127,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                             ),
@@ -17320,7 +17320,7 @@ Ok(
                                     [salsa id]: 554,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 127,
+                                            [salsa id]: 128,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                             ),
@@ -17353,7 +17353,7 @@ Ok(
                                     [salsa id]: 555,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 128,
+                                            [salsa id]: 129,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                             ),
@@ -17386,7 +17386,7 @@ Ok(
                                     [salsa id]: 556,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 129,
+                                            [salsa id]: 130,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                             ),
@@ -17419,7 +17419,7 @@ Ok(
                                     [salsa id]: 570,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 84,
+                                            [salsa id]: 85,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
@@ -17734,7 +17734,7 @@ Ok(
                                             [salsa id]: 112,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 89,
+                                                    [salsa id]: 90,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                                     ),
@@ -17780,7 +17780,7 @@ Ok(
                                             [salsa id]: 113,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 95,
+                                                    [salsa id]: 96,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
                                                     ),
@@ -17830,7 +17830,7 @@ Ok(
                                             [salsa id]: 114,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 87,
+                                                    [salsa id]: 88,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
                                                     ),
@@ -17880,7 +17880,7 @@ Ok(
                                             [salsa id]: 115,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 99,
+                                                    [salsa id]: 100,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
                                                     ),
@@ -17930,7 +17930,7 @@ Ok(
                                             [salsa id]: 118,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 117,
+                                                    [salsa id]: 118,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
                                                     ),
@@ -17980,7 +17980,7 @@ Ok(
                                             [salsa id]: 119,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 121,
+                                                    [salsa id]: 122,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
                                                     ),
@@ -18027,7 +18027,7 @@ Ok(
                                     [salsa id]: 1132,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 78,
+                                            [salsa id]: 79,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
@@ -18060,7 +18060,7 @@ Ok(
                                     [salsa id]: 1133,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 79,
+                                            [salsa id]: 80,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
@@ -18100,7 +18100,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 139,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -18224,7 +18224,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 139,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -18442,7 +18442,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 135,
+                                                    value: 137,
                                                 },
                                             ),
                                         ),
@@ -18487,7 +18487,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 135,
+                                                    value: 137,
                                                 },
                                             ),
                                         ),
@@ -18532,7 +18532,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 135,
+                                                    value: 137,
                                                 },
                                             ),
                                         ),
@@ -18577,7 +18577,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 133,
+                                                    value: 135,
                                                 },
                                             ),
                                         ),
@@ -18622,7 +18622,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 132,
+                                                    value: 134,
                                                 },
                                             ),
                                         ),
@@ -18667,7 +18667,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 134,
+                                                    value: 136,
                                                 },
                                             ),
                                         ),
@@ -18722,7 +18722,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 130,
+                                        [salsa id]: 131,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                         ),
@@ -18756,7 +18756,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 125,
+                                        [salsa id]: 126,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                         ),
@@ -18780,7 +18780,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 309,
+                                                    value: 311,
                                                 },
                                             ),
                                         ),
@@ -18818,7 +18818,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 30,
+                                    value: 31,
                                 },
                             ),
                             ast_idx: 43,
@@ -18826,7 +18826,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 41,
+                                        value: 42,
                                     },
                                 ),
                             ),
@@ -18835,7 +18835,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 28,
+                                    value: 29,
                                 },
                             ),
                             ast_idx: 44,
@@ -18843,7 +18843,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 41,
+                                        value: 42,
                                     },
                                 ),
                             ),
@@ -18852,7 +18852,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 29,
+                                    value: 30,
                                 },
                             ),
                             ast_idx: 46,
@@ -18860,7 +18860,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 41,
+                                        value: 42,
                                     },
                                 ),
                             ),
@@ -18869,7 +18869,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 31,
+                                    value: 32,
                                 },
                             ),
                             ast_idx: 45,
@@ -18877,7 +18877,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 41,
+                                        value: 42,
                                     },
                                 ),
                             ),
@@ -18891,7 +18891,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 139,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -18905,7 +18905,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 139,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -18930,7 +18930,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 116,
+                                    [salsa id]: 117,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Feature`),
                                     ),
@@ -18950,7 +18950,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 117,
+                                    [salsa id]: 118,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
                                     ),
@@ -18970,7 +18970,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 118,
+                                    [salsa id]: 119,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::eight::big_mouth`, `Function`),
                                     ),
@@ -18993,7 +18993,7 @@ Ok(
                                     [salsa id]: 605,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 130,
+                                            [salsa id]: 131,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
@@ -19026,7 +19026,7 @@ Ok(
                                     [salsa id]: 606,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 125,
+                                            [salsa id]: 126,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
@@ -19059,7 +19059,7 @@ Ok(
                                     [salsa id]: 608,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 84,
+                                            [salsa id]: 85,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
@@ -19092,7 +19092,7 @@ Ok(
                                     [salsa id]: 626,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 54,
+                                            [salsa id]: 55,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             ),
@@ -19125,7 +19125,7 @@ Ok(
                                     [salsa id]: 1171,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 78,
+                                            [salsa id]: 79,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
@@ -19158,7 +19158,7 @@ Ok(
                                     [salsa id]: 1172,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 79,
+                                            [salsa id]: 80,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
@@ -19198,7 +19198,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 139,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -19322,7 +19322,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 139,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -19681,7 +19681,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 135,
+                                                    value: 137,
                                                 },
                                             ),
                                         ),
@@ -19726,7 +19726,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 135,
+                                                    value: 137,
                                                 },
                                             ),
                                         ),
@@ -19771,7 +19771,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 388,
+                                                    value: 390,
                                                 },
                                             ),
                                         ),
@@ -19805,7 +19805,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 389,
+                                                    value: 391,
                                                 },
                                             ),
                                         ),
@@ -19839,7 +19839,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 387,
+                                                    value: 389,
                                                 },
                                             ),
                                         ),
@@ -19873,7 +19873,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 393,
+                                                    value: 395,
                                                 },
                                             ),
                                         ),
@@ -19907,7 +19907,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 132,
+                                                    value: 134,
                                                 },
                                             ),
                                         ),
@@ -19952,7 +19952,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 133,
+                                                    value: 135,
                                                 },
                                             ),
                                         ),
@@ -19997,7 +19997,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 130,
+                                                    value: 132,
                                                 },
                                             ),
                                         ),
@@ -20052,7 +20052,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 130,
+                                        [salsa id]: 131,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                         ),
@@ -20086,7 +20086,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 125,
+                                        [salsa id]: 126,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                         ),
@@ -20110,7 +20110,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 309,
+                                                    value: 311,
                                                 },
                                             ),
                                         ),
@@ -20148,7 +20148,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 28,
+                                    value: 29,
                                 },
                             ),
                             ast_idx: 26,
@@ -20156,7 +20156,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 42,
+                                        value: 43,
                                     },
                                 ),
                             ),
@@ -20165,7 +20165,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 25,
+                                    value: 26,
                                 },
                             ),
                             ast_idx: 27,
@@ -20173,7 +20173,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 42,
+                                        value: 43,
                                     },
                                 ),
                             ),
@@ -20182,7 +20182,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 31,
+                                    value: 32,
                                 },
                             ),
                             ast_idx: 25,
@@ -20190,7 +20190,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 42,
+                                        value: 43,
                                     },
                                 ),
                             ),
@@ -20204,7 +20204,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 139,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -20218,7 +20218,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 139,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -20232,7 +20232,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 388,
+                                        value: 390,
                                     },
                                 ),
                             ),
@@ -20246,7 +20246,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 389,
+                                        value: 391,
                                     },
                                 ),
                             ),
@@ -20260,7 +20260,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 387,
+                                        value: 389,
                                     },
                                 ),
                             ),
@@ -20274,7 +20274,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 393,
+                                        value: 395,
                                     },
                                 ),
                             ),
@@ -20299,7 +20299,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 119,
+                                    [salsa id]: 120,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::nine::nine_match`, `Feature`),
                                     ),
@@ -20319,7 +20319,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 120,
+                                    [salsa id]: 121,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Feature`),
                                     ),
@@ -20339,7 +20339,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 121,
+                                    [salsa id]: 122,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
                                     ),
@@ -20359,7 +20359,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 122,
+                                    [salsa id]: 123,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::nine::downmost`, `Function`),
                                     ),
@@ -20379,7 +20379,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 123,
+                                    [salsa id]: 124,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::nine::big_cc`, `Function`),
                                     ),
@@ -20402,7 +20402,7 @@ Ok(
                                     [salsa id]: 652,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 124,
+                                            [salsa id]: 125,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                             ),
@@ -20435,7 +20435,7 @@ Ok(
                                     [salsa id]: 653,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 125,
+                                            [salsa id]: 126,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
@@ -20468,7 +20468,7 @@ Ok(
                                     [salsa id]: 654,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 126,
+                                            [salsa id]: 127,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                             ),
@@ -20501,7 +20501,7 @@ Ok(
                                     [salsa id]: 655,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 127,
+                                            [salsa id]: 128,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                             ),
@@ -20534,7 +20534,7 @@ Ok(
                                     [salsa id]: 656,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 128,
+                                            [salsa id]: 129,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                             ),
@@ -20567,7 +20567,7 @@ Ok(
                                     [salsa id]: 657,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 129,
+                                            [salsa id]: 130,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                             ),
@@ -20600,7 +20600,7 @@ Ok(
                                     [salsa id]: 658,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 130,
+                                            [salsa id]: 131,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
@@ -20633,7 +20633,7 @@ Ok(
                                     [salsa id]: 671,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 84,
+                                            [salsa id]: 85,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
@@ -20666,7 +20666,7 @@ Ok(
                                     [salsa id]: 1218,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 78,
+                                            [salsa id]: 79,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
@@ -20699,7 +20699,7 @@ Ok(
                                     [salsa id]: 1219,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 79,
+                                            [salsa id]: 80,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
@@ -20739,7 +20739,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 139,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -20769,7 +20769,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 139,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -20799,7 +20799,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 139,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -20829,7 +20829,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 139,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -21094,7 +21094,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 135,
+                                                    value: 137,
                                                 },
                                             ),
                                         ),
@@ -21139,7 +21139,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 133,
+                                                    value: 135,
                                                 },
                                             ),
                                         ),
@@ -21184,7 +21184,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 132,
+                                                    value: 134,
                                                 },
                                             ),
                                         ),
@@ -21229,7 +21229,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 387,
+                                                    value: 389,
                                                 },
                                             ),
                                         ),
@@ -21263,7 +21263,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 389,
+                                                    value: 391,
                                                 },
                                             ),
                                         ),
@@ -21297,7 +21297,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 309,
+                                                    value: 311,
                                                 },
                                             ),
                                         ),
@@ -21335,7 +21335,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 30,
+                                    value: 31,
                                 },
                             ),
                             ast_idx: 39,
@@ -21343,7 +21343,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 43,
+                                        value: 44,
                                     },
                                 ),
                             ),
@@ -21352,7 +21352,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 28,
+                                    value: 29,
                                 },
                             ),
                             ast_idx: 40,
@@ -21360,7 +21360,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 43,
+                                        value: 44,
                                     },
                                 ),
                             ),
@@ -21369,7 +21369,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 31,
+                                    value: 32,
                                 },
                             ),
                             ast_idx: 41,
@@ -21377,7 +21377,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 43,
+                                        value: 44,
                                     },
                                 ),
                             ),
@@ -21391,7 +21391,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 139,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -21405,7 +21405,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 139,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -21419,7 +21419,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 139,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -21433,7 +21433,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 139,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -21447,7 +21447,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 387,
+                                        value: 389,
                                     },
                                 ),
                             ),
@@ -21461,7 +21461,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 389,
+                                        value: 391,
                                     },
                                 ),
                             ),
@@ -21484,7 +21484,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 124,
+                                    [salsa id]: 125,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                     ),
@@ -21500,7 +21500,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 125,
+                                    [salsa id]: 126,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                     ),
@@ -21516,7 +21516,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 126,
+                                    [salsa id]: 127,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                     ),
@@ -21532,7 +21532,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 127,
+                                    [salsa id]: 128,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                     ),
@@ -21548,7 +21548,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 128,
+                                    [salsa id]: 129,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                     ),
@@ -21564,7 +21564,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 129,
+                                    [salsa id]: 130,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                     ),
@@ -21580,7 +21580,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 130,
+                                    [salsa id]: 131,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                     ),
@@ -21821,7 +21821,7 @@ Ok(
                                             [salsa id]: 22,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 64,
+                                                    [salsa id]: 65,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
                                                     ),
@@ -21871,7 +21871,7 @@ Ok(
                                             [salsa id]: 41,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 84,
+                                                    [salsa id]: 85,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                                     ),
@@ -21919,7 +21919,7 @@ Ok(
                                             [salsa id]: 46,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 71,
+                                                    [salsa id]: 72,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                     ),
@@ -21967,7 +21967,7 @@ Ok(
                                             [salsa id]: 47,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 72,
+                                                    [salsa id]: 73,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                     ),
@@ -22012,7 +22012,7 @@ Ok(
                                     [salsa id]: 689,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 48,
+                                            [salsa id]: 49,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                             ),
@@ -22045,7 +22045,7 @@ Ok(
                                     [salsa id]: 690,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 49,
+                                            [salsa id]: 50,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                             ),
@@ -22078,7 +22078,7 @@ Ok(
                                     [salsa id]: 692,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 51,
+                                            [salsa id]: 52,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ),
@@ -22111,7 +22111,7 @@ Ok(
                                     [salsa id]: 694,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 53,
+                                            [salsa id]: 54,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
                                             ),
@@ -22144,7 +22144,7 @@ Ok(
                                     [salsa id]: 714,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 54,
+                                            [salsa id]: 55,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             ),
@@ -22180,7 +22180,7 @@ Ok(
                                             [salsa id]: 71,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 78,
+                                                    [salsa id]: 79,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ),
@@ -22226,7 +22226,7 @@ Ok(
                                             [salsa id]: 72,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 79,
+                                                    [salsa id]: 80,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                                     ),
@@ -22272,7 +22272,7 @@ Ok(
                                             [salsa id]: 74,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 82,
+                                                    [salsa id]: 83,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                     ),
@@ -22321,7 +22321,7 @@ Ok(
                                                     [salsa id]: 112,
                                                     original_symbol: ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 89,
+                                                            [salsa id]: 90,
                                                             path: ModuleItemPath::Form(
                                                                 FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                                             ),
@@ -22618,7 +22618,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 129,
+                                                    value: 131,
                                                 },
                                             ),
                                         ),
@@ -22663,7 +22663,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 130,
+                                                    value: 132,
                                                 },
                                             ),
                                         ),
@@ -22708,7 +22708,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 132,
+                                                    value: 134,
                                                 },
                                             ),
                                         ),
@@ -22753,7 +22753,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 132,
+                                                    value: 134,
                                                 },
                                             ),
                                         ),
@@ -22798,7 +22798,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 309,
+                                                    value: 311,
                                                 },
                                             ),
                                         ),
@@ -22836,7 +22836,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                             ast_idx: 22,
@@ -22844,7 +22844,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 30,
+                                        value: 31,
                                     },
                                 ),
                             ),
@@ -22853,7 +22853,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 24,
+                                    value: 25,
                                 },
                             ),
                             ast_idx: 18,
@@ -22861,7 +22861,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 30,
+                                        value: 31,
                                     },
                                 ),
                             ),
@@ -22870,7 +22870,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 25,
+                                    value: 26,
                                 },
                             ),
                             ast_idx: 19,
@@ -22878,7 +22878,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 30,
+                                        value: 31,
                                     },
                                 ),
                             ),
@@ -22887,7 +22887,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 27,
+                                    value: 28,
                                 },
                             ),
                             ast_idx: 20,
@@ -22895,7 +22895,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 30,
+                                        value: 31,
                                     },
                                 ),
                             ),
@@ -22904,7 +22904,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 31,
+                                    value: 32,
                                 },
                             ),
                             ast_idx: 21,
@@ -22912,7 +22912,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 30,
+                                        value: 31,
                                     },
                                 ),
                             ),
@@ -22932,35 +22932,12 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 167,
+                                    value: 169,
                                 },
                             ),
                         ),
                         token_idx: TokenIdx(
                             86,
-                        ),
-                    },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 22,
-                                },
-                            ),
-                        ),
-                    ),
-                },
-                Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 163,
-                                },
-                            ),
-                        ),
-                        token_idx: TokenIdx(
-                            43,
                         ),
                     },
                     entity_path: ModuleItem(
@@ -22978,7 +22955,30 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 210,
+                                    value: 165,
+                                },
+                            ),
+                        ),
+                        token_idx: TokenIdx(
+                            43,
+                        ),
+                    },
+                    entity_path: ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 24,
+                                },
+                            ),
+                        ),
+                    ),
+                },
+                Root {
+                    ident_token: IdentifierToken {
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 212,
                                 },
                             ),
                         ),
@@ -22990,7 +22990,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 26,
+                                    value: 27,
                                 },
                             ),
                         ),
@@ -23001,7 +23001,7 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 229,
+                                    value: 231,
                                 },
                             ),
                         ),
@@ -23013,7 +23013,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 29,
                                 },
                             ),
                         ),
@@ -23024,35 +23024,12 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 214,
+                                    value: 216,
                                 },
                             ),
                         ),
                         token_idx: TokenIdx(
                             610,
-                        ),
-                    },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 30,
-                                },
-                            ),
-                        ),
-                    ),
-                },
-                Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 224,
-                                },
-                            ),
-                        ),
-                        token_idx: TokenIdx(
-                            744,
                         ),
                     },
                     entity_path: ModuleItem(
@@ -23070,12 +23047,12 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 313,
+                                    value: 226,
                                 },
                             ),
                         ),
                         token_idx: TokenIdx(
-                            82,
+                            744,
                         ),
                     },
                     entity_path: ModuleItem(
@@ -23093,12 +23070,12 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 211,
+                                    value: 315,
                                 },
                             ),
                         ),
                         token_idx: TokenIdx(
-                            176,
+                            82,
                         ),
                     },
                     entity_path: ModuleItem(
@@ -23116,12 +23093,12 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 321,
+                                    value: 213,
                                 },
                             ),
                         ),
                         token_idx: TokenIdx(
-                            50,
+                            176,
                         ),
                     },
                     entity_path: ModuleItem(
@@ -23139,12 +23116,12 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 367,
+                                    value: 323,
                                 },
                             ),
                         ),
                         token_idx: TokenIdx(
-                            23,
+                            50,
                         ),
                     },
                     entity_path: ModuleItem(
@@ -23162,12 +23139,12 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 318,
+                                    value: 369,
                                 },
                             ),
                         ),
                         token_idx: TokenIdx(
-                            20,
+                            23,
                         ),
                     },
                     entity_path: ModuleItem(
@@ -23185,7 +23162,30 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 380,
+                                    value: 320,
+                                },
+                            ),
+                        ),
+                        token_idx: TokenIdx(
+                            20,
+                        ),
+                    },
+                    entity_path: ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 37,
+                                },
+                            ),
+                        ),
+                    ),
+                },
+                Root {
+                    ident_token: IdentifierToken {
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 382,
                                 },
                             ),
                         ),
@@ -23197,7 +23197,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 37,
+                                    value: 38,
                                 },
                             ),
                         ),

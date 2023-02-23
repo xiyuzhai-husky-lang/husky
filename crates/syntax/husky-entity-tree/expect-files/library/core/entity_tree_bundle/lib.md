@@ -187,7 +187,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: Identifier(
-                                "vec",
+                                "list",
                             ),
                             accessibility: Accessibility::PublicUnder(
                                 `core`,
@@ -195,7 +195,7 @@ Ok(
                             symbol: Submodule(
                                 SubmoduleSymbol {
                                     [salsa id]: 10,
-                                    path: `core::vec`,
+                                    path: `core::list`,
                                     accessibility: Accessibility::PublicUnder(
                                         `core`,
                                     ),
@@ -1716,7 +1716,7 @@ Ok(
                                     [salsa id]: 18,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 38,
+                                            [salsa id]: 39,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::cmp::PartialEq`),
                                             ),
@@ -1745,7 +1745,7 @@ Ok(
                                     [salsa id]: 19,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 39,
+                                            [salsa id]: 40,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::cmp::Eq`),
                                             ),
@@ -1774,7 +1774,7 @@ Ok(
                                     [salsa id]: 20,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 40,
+                                            [salsa id]: 41,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::cmp::PartialOrd`),
                                             ),
@@ -1803,7 +1803,7 @@ Ok(
                                     [salsa id]: 21,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 41,
+                                            [salsa id]: 42,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::cmp::Ord`),
                                             ),
@@ -2669,6 +2669,37 @@ Ok(
                 errors: [],
             },
             EntityTreeSheet {
+                module_path: `core::list`,
+                symbols: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: Identifier(
+                                "List",
+                            ),
+                            accessibility: Accessibility::Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    [salsa id]: 38,
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`core::list::List`, `Alien`),
+                                    ),
+                                    accessibility: Accessibility::Public,
+                                    ast_idx: 0,
+                                },
+                            ),
+                        },
+                    ],
+                ),
+                impl_blocks: [],
+                use_expr_rules: UseExprRules(
+                    [],
+                ),
+                use_all_rules: UseAllRules(
+                    [],
+                ),
+                errors: [],
+            },
+            EntityTreeSheet {
                 module_path: `core::cmp`,
                 symbols: EntitySymbolTable(
                     [
@@ -2679,7 +2710,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 38,
+                                    [salsa id]: 39,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::cmp::PartialEq`),
                                     ),
@@ -2695,7 +2726,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 39,
+                                    [salsa id]: 40,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::cmp::Eq`),
                                     ),
@@ -2711,7 +2742,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 40,
+                                    [salsa id]: 41,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::cmp::PartialOrd`),
                                     ),
@@ -2727,7 +2758,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 41,
+                                    [salsa id]: 42,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::cmp::Ord`),
                                     ),

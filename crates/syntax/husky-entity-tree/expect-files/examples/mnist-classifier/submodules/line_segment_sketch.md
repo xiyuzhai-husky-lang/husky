@@ -4,7 +4,35 @@ Ok(
             [display]: Child {
                 parent: ModulePath(
                     Id {
-                        value: 36,
+                        value: 35,
+                    },
+                ),
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 126,
+                        },
+                    ),
+                ),
+            },
+            [crate]: CratePath {
+                package_path: PackagePath {
+                    data: Local {
+                        path: DiffPath {
+                            data: DiffPathBuf(
+                                "../../../examples/mnist-classifier",
+                            ),
+                        },
+                    },
+                },
+                crate_kind: Main,
+            },
+        },
+        ModulePath {
+            [display]: Child {
+                parent: ModulePath(
+                    Id {
+                        value: 35,
                     },
                 ),
                 ident: Identifier(
@@ -32,7 +60,7 @@ Ok(
             [display]: Child {
                 parent: ModulePath(
                     Id {
-                        value: 36,
+                        value: 35,
                     },
                 ),
                 ident: Identifier(
@@ -60,41 +88,13 @@ Ok(
             [display]: Child {
                 parent: ModulePath(
                     Id {
-                        value: 36,
+                        value: 35,
                     },
                 ),
                 ident: Identifier(
                     Word(
                         Id {
                             value: 129,
-                        },
-                    ),
-                ),
-            },
-            [crate]: CratePath {
-                package_path: PackagePath {
-                    data: Local {
-                        path: DiffPath {
-                            data: DiffPathBuf(
-                                "../../../examples/mnist-classifier",
-                            ),
-                        },
-                    },
-                },
-                crate_kind: Main,
-            },
-        },
-        ModulePath {
-            [display]: Child {
-                parent: ModulePath(
-                    Id {
-                        value: 36,
-                    },
-                ),
-                ident: Identifier(
-                    Word(
-                        Id {
-                            value: 130,
                         },
                     ),
                 ),

@@ -175,14 +175,14 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: Identifier(
-                        "vec",
+                        "list",
                     ),
                     accessibility: Accessibility::PublicUnder(
                         `core`,
                     ),
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            path: `core::vec`,
+                            path: `core::list`,
                             accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
