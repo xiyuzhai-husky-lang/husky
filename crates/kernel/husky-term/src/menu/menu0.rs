@@ -108,7 +108,7 @@ impl TermMenu0 {
             unit: Term::Entity(entity_path_menu.unit().into()),
             never: Term::Entity(entity_path_menu.never().into()),
             bool: Term::Entity(entity_path_menu.bool().into()),
-            trai_ty: Term::Entity(entity_path_menu.trai_ty().into()),
+            trai_ty: Term::Entity(entity_path_menu.trai_ty_path().into()),
             lifetime_ty: Term::Entity(entity_path_menu.lifetime_ty().into()),
             module: Term::Entity(entity_path_menu.module().into()),
             i8: Term::Entity(entity_path_menu.i8_ty_path().into()),

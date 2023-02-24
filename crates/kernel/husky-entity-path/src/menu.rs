@@ -502,7 +502,7 @@ impl EntityPathMenu {
         self.list_ty
     }
 
-    pub fn trai_ty(&self) -> TypePath {
+    pub fn trai_ty_path(&self) -> TypePath {
         self.trai_ty_path
     }
 
