@@ -1057,24 +1057,24 @@ Ok(
                 ),
             ),
             (
-                DefnRegionPath::ImplBlock(
-                    ImplBlockId {
+                DefnRegionPath::Impl(
+                    ImplId {
                         module_path: `mnist_classifier::geom2d`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                         },
                         disambiguator: 0,
                     },
                 ),
                 Ok(
-                    Defn::ImplBlock(
-                        ImplBlockDecl::TypeImplBlock(
-                            TypeImplBlockDecl {
+                    Defn::Impl(
+                        ImplDecl::Type(
+                            TypeImplDecl {
                                 ast_idx: 81,
-                                impl_block: ImplBlock {
-                                    id: ImplBlockId {
+                                im: Impl {
+                                    id: ImplId {
                                         module_path: `mnist_classifier::geom2d`,
-                                        impl_block_kind: ImplBlockKind::Type {
+                                        impl_kind: ImplKind::Type {
                                             ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                         },
                                         disambiguator: 0,
@@ -1083,7 +1083,7 @@ Ok(
                                     body: ArenaIdxRange(
                                         5..10,
                                     ),
-                                    variant: ImplBlockVariant::Type {
+                                    variant: ImplVariant::Type {
                                         ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                     },
                                 },
@@ -1109,10 +1109,10 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::ImplBlock(
-                                                ImplBlockId {
+                                            DeclRegionPath::Impl(
+                                                ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -1188,9 +1188,9 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                             },
                             disambiguator: 0,
@@ -1213,9 +1213,9 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_block_id: ImplBlockId {
+                                                impl_id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -1231,10 +1231,10 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            impl_block: ImplBlock {
-                                                id: ImplBlockId {
+                                            im: Impl {
+                                                id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -1243,7 +1243,7 @@ Ok(
                                                 body: ArenaIdxRange(
                                                     5..10,
                                                 ),
-                                                variant: ImplBlockVariant::Type {
+                                                variant: ImplVariant::Type {
                                                     ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 },
                                             },
@@ -1270,10 +1270,10 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::ImplBlock(
-                                                                    ImplBlockId {
+                                                                DeclRegionPath::Impl(
+                                                                    ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -1345,9 +1345,9 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_block_id: ImplBlockId {
+                                                            impl_id: ImplId {
                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                impl_kind: ImplKind::Type {
                                                                     ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                 },
                                                                 disambiguator: 0,
@@ -1623,10 +1623,10 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::ImplBlock(
-                                                                            ImplBlockId {
+                                                                        DeclRegionPath::Impl(
+                                                                            ImplId {
                                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                                impl_kind: ImplKind::Type {
                                                                                     ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                                 },
                                                                                 disambiguator: 0,
@@ -1698,9 +1698,9 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_block_id: ImplBlockId {
+                                                                    impl_id: ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -1900,9 +1900,9 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `mnist_classifier::geom2d`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                             },
                                                             disambiguator: 0,
@@ -2143,9 +2143,9 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                             },
                             disambiguator: 0,
@@ -2168,9 +2168,9 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_block_id: ImplBlockId {
+                                                impl_id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -2186,10 +2186,10 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            impl_block: ImplBlock {
-                                                id: ImplBlockId {
+                                            im: Impl {
+                                                id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -2198,7 +2198,7 @@ Ok(
                                                 body: ArenaIdxRange(
                                                     5..10,
                                                 ),
-                                                variant: ImplBlockVariant::Type {
+                                                variant: ImplVariant::Type {
                                                     ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 },
                                             },
@@ -2227,10 +2227,10 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::ImplBlock(
-                                                                    ImplBlockId {
+                                                                DeclRegionPath::Impl(
+                                                                    ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -2302,9 +2302,9 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_block_id: ImplBlockId {
+                                                            impl_id: ImplId {
                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                impl_kind: ImplKind::Type {
                                                                     ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                 },
                                                                 disambiguator: 0,
@@ -2423,10 +2423,10 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::ImplBlock(
-                                                                            ImplBlockId {
+                                                                        DeclRegionPath::Impl(
+                                                                            ImplId {
                                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                                impl_kind: ImplKind::Type {
                                                                                     ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                                 },
                                                                                 disambiguator: 0,
@@ -2498,9 +2498,9 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_block_id: ImplBlockId {
+                                                                    impl_id: ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -2574,9 +2574,9 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `mnist_classifier::geom2d`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                             },
                                                             disambiguator: 0,
@@ -2714,9 +2714,9 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                             },
                             disambiguator: 0,
@@ -2739,9 +2739,9 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_block_id: ImplBlockId {
+                                                impl_id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -2757,10 +2757,10 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            impl_block: ImplBlock {
-                                                id: ImplBlockId {
+                                            im: Impl {
+                                                id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -2769,7 +2769,7 @@ Ok(
                                                 body: ArenaIdxRange(
                                                     5..10,
                                                 ),
-                                                variant: ImplBlockVariant::Type {
+                                                variant: ImplVariant::Type {
                                                     ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 },
                                             },
@@ -2798,10 +2798,10 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::ImplBlock(
-                                                                    ImplBlockId {
+                                                                DeclRegionPath::Impl(
+                                                                    ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -2873,9 +2873,9 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_block_id: ImplBlockId {
+                                                            impl_id: ImplId {
                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                impl_kind: ImplKind::Type {
                                                                     ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                 },
                                                                 disambiguator: 0,
@@ -3073,10 +3073,10 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::ImplBlock(
-                                                                            ImplBlockId {
+                                                                        DeclRegionPath::Impl(
+                                                                            ImplId {
                                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                                impl_kind: ImplKind::Type {
                                                                                     ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                                 },
                                                                                 disambiguator: 0,
@@ -3148,9 +3148,9 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_block_id: ImplBlockId {
+                                                                    impl_id: ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -3290,9 +3290,9 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `mnist_classifier::geom2d`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                             },
                                                             disambiguator: 0,
@@ -3498,9 +3498,9 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                             },
                             disambiguator: 0,
@@ -3523,9 +3523,9 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_block_id: ImplBlockId {
+                                                impl_id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -3541,10 +3541,10 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            impl_block: ImplBlock {
-                                                id: ImplBlockId {
+                                            im: Impl {
+                                                id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -3553,7 +3553,7 @@ Ok(
                                                 body: ArenaIdxRange(
                                                     5..10,
                                                 ),
-                                                variant: ImplBlockVariant::Type {
+                                                variant: ImplVariant::Type {
                                                     ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 },
                                             },
@@ -3582,10 +3582,10 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::ImplBlock(
-                                                                    ImplBlockId {
+                                                                DeclRegionPath::Impl(
+                                                                    ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -3657,9 +3657,9 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_block_id: ImplBlockId {
+                                                            impl_id: ImplId {
                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                impl_kind: ImplKind::Type {
                                                                     ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                 },
                                                                 disambiguator: 0,
@@ -3778,10 +3778,10 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::ImplBlock(
-                                                                            ImplBlockId {
+                                                                        DeclRegionPath::Impl(
+                                                                            ImplId {
                                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                                impl_kind: ImplKind::Type {
                                                                                     ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                                 },
                                                                                 disambiguator: 0,
@@ -3853,9 +3853,9 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_block_id: ImplBlockId {
+                                                                    impl_id: ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -3929,9 +3929,9 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `mnist_classifier::geom2d`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                             },
                                                             disambiguator: 0,
@@ -4129,9 +4129,9 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                             },
                             disambiguator: 0,
@@ -4154,9 +4154,9 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_block_id: ImplBlockId {
+                                                impl_id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -4172,10 +4172,10 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            impl_block: ImplBlock {
-                                                id: ImplBlockId {
+                                            im: Impl {
+                                                id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -4184,7 +4184,7 @@ Ok(
                                                 body: ArenaIdxRange(
                                                     5..10,
                                                 ),
-                                                variant: ImplBlockVariant::Type {
+                                                variant: ImplVariant::Type {
                                                     ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 },
                                             },
@@ -4213,10 +4213,10 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::ImplBlock(
-                                                                    ImplBlockId {
+                                                                DeclRegionPath::Impl(
+                                                                    ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -4288,9 +4288,9 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_block_id: ImplBlockId {
+                                                            impl_id: ImplId {
                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                impl_kind: ImplKind::Type {
                                                                     ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                 },
                                                                 disambiguator: 0,
@@ -4488,10 +4488,10 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::ImplBlock(
-                                                                            ImplBlockId {
+                                                                        DeclRegionPath::Impl(
+                                                                            ImplId {
                                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                                impl_kind: ImplKind::Type {
                                                                                     ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                                 },
                                                                                 disambiguator: 0,
@@ -4563,9 +4563,9 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_block_id: ImplBlockId {
+                                                                    impl_id: ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -4705,9 +4705,9 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `mnist_classifier::geom2d`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                             },
                                                             disambiguator: 0,
@@ -4839,24 +4839,24 @@ Ok(
                 ),
             ),
             (
-                DefnRegionPath::ImplBlock(
-                    ImplBlockId {
+                DefnRegionPath::Impl(
+                    ImplId {
                         module_path: `mnist_classifier::geom2d`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                         },
                         disambiguator: 0,
                     },
                 ),
                 Ok(
-                    Defn::ImplBlock(
-                        ImplBlockDecl::TypeImplBlock(
-                            TypeImplBlockDecl {
+                    Defn::Impl(
+                        ImplDecl::Type(
+                            TypeImplDecl {
                                 ast_idx: 84,
-                                impl_block: ImplBlock {
-                                    id: ImplBlockId {
+                                im: Impl {
+                                    id: ImplId {
                                         module_path: `mnist_classifier::geom2d`,
-                                        impl_block_kind: ImplBlockKind::Type {
+                                        impl_kind: ImplKind::Type {
                                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                         },
                                         disambiguator: 0,
@@ -4865,7 +4865,7 @@ Ok(
                                     body: ArenaIdxRange(
                                         41..49,
                                     ),
-                                    variant: ImplBlockVariant::Type {
+                                    variant: ImplVariant::Type {
                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                     },
                                 },
@@ -4891,10 +4891,10 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::ImplBlock(
-                                                ImplBlockId {
+                                            DeclRegionPath::Impl(
+                                                ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -4970,9 +4970,9 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                             },
                             disambiguator: 0,
@@ -4995,9 +4995,9 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_block_id: ImplBlockId {
+                                                impl_id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -5013,10 +5013,10 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            impl_block: ImplBlock {
-                                                id: ImplBlockId {
+                                            im: Impl {
+                                                id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -5025,7 +5025,7 @@ Ok(
                                                 body: ArenaIdxRange(
                                                     41..49,
                                                 ),
-                                                variant: ImplBlockVariant::Type {
+                                                variant: ImplVariant::Type {
                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                 },
                                             },
@@ -5052,10 +5052,10 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::ImplBlock(
-                                                                    ImplBlockId {
+                                                                DeclRegionPath::Impl(
+                                                                    ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -5127,9 +5127,9 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_block_id: ImplBlockId {
+                                                            impl_id: ImplId {
                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                impl_kind: ImplKind::Type {
                                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                 },
                                                                 disambiguator: 0,
@@ -5248,10 +5248,10 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::ImplBlock(
-                                                                            ImplBlockId {
+                                                                        DeclRegionPath::Impl(
+                                                                            ImplId {
                                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                                impl_kind: ImplKind::Type {
                                                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                                 },
                                                                                 disambiguator: 0,
@@ -5323,9 +5323,9 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_block_id: ImplBlockId {
+                                                                    impl_id: ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -5399,9 +5399,9 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `mnist_classifier::geom2d`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                             },
                                                             disambiguator: 0,
@@ -5539,9 +5539,9 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                             },
                             disambiguator: 0,
@@ -5564,9 +5564,9 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_block_id: ImplBlockId {
+                                                impl_id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -5582,10 +5582,10 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            impl_block: ImplBlock {
-                                                id: ImplBlockId {
+                                            im: Impl {
+                                                id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -5594,7 +5594,7 @@ Ok(
                                                 body: ArenaIdxRange(
                                                     41..49,
                                                 ),
-                                                variant: ImplBlockVariant::Type {
+                                                variant: ImplVariant::Type {
                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                 },
                                             },
@@ -5621,10 +5621,10 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::ImplBlock(
-                                                                    ImplBlockId {
+                                                                DeclRegionPath::Impl(
+                                                                    ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -5696,9 +5696,9 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_block_id: ImplBlockId {
+                                                            impl_id: ImplId {
                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                impl_kind: ImplKind::Type {
                                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                 },
                                                                 disambiguator: 0,
@@ -5896,10 +5896,10 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::ImplBlock(
-                                                                            ImplBlockId {
+                                                                        DeclRegionPath::Impl(
+                                                                            ImplId {
                                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                                impl_kind: ImplKind::Type {
                                                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                                 },
                                                                                 disambiguator: 0,
@@ -5971,9 +5971,9 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_block_id: ImplBlockId {
+                                                                    impl_id: ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -6113,9 +6113,9 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `mnist_classifier::geom2d`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                             },
                                                             disambiguator: 0,
@@ -6321,9 +6321,9 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                             },
                             disambiguator: 0,
@@ -6346,9 +6346,9 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_block_id: ImplBlockId {
+                                                impl_id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -6364,10 +6364,10 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            impl_block: ImplBlock {
-                                                id: ImplBlockId {
+                                            im: Impl {
+                                                id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -6376,7 +6376,7 @@ Ok(
                                                 body: ArenaIdxRange(
                                                     41..49,
                                                 ),
-                                                variant: ImplBlockVariant::Type {
+                                                variant: ImplVariant::Type {
                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                 },
                                             },
@@ -6405,10 +6405,10 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::ImplBlock(
-                                                                    ImplBlockId {
+                                                                DeclRegionPath::Impl(
+                                                                    ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -6480,9 +6480,9 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_block_id: ImplBlockId {
+                                                            impl_id: ImplId {
                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                impl_kind: ImplKind::Type {
                                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                 },
                                                                 disambiguator: 0,
@@ -6601,10 +6601,10 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::ImplBlock(
-                                                                            ImplBlockId {
+                                                                        DeclRegionPath::Impl(
+                                                                            ImplId {
                                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                                impl_kind: ImplKind::Type {
                                                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                                 },
                                                                                 disambiguator: 0,
@@ -6676,9 +6676,9 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_block_id: ImplBlockId {
+                                                                    impl_id: ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -6752,9 +6752,9 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `mnist_classifier::geom2d`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                             },
                                                             disambiguator: 0,
@@ -6952,9 +6952,9 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                             },
                             disambiguator: 0,
@@ -6977,9 +6977,9 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_block_id: ImplBlockId {
+                                                impl_id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -6995,10 +6995,10 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            impl_block: ImplBlock {
-                                                id: ImplBlockId {
+                                            im: Impl {
+                                                id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -7007,7 +7007,7 @@ Ok(
                                                 body: ArenaIdxRange(
                                                     41..49,
                                                 ),
-                                                variant: ImplBlockVariant::Type {
+                                                variant: ImplVariant::Type {
                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                 },
                                             },
@@ -7036,10 +7036,10 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::ImplBlock(
-                                                                    ImplBlockId {
+                                                                DeclRegionPath::Impl(
+                                                                    ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -7111,9 +7111,9 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_block_id: ImplBlockId {
+                                                            impl_id: ImplId {
                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                impl_kind: ImplKind::Type {
                                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                 },
                                                                 disambiguator: 0,
@@ -7311,10 +7311,10 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::ImplBlock(
-                                                                            ImplBlockId {
+                                                                        DeclRegionPath::Impl(
+                                                                            ImplId {
                                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                                impl_kind: ImplKind::Type {
                                                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                                 },
                                                                                 disambiguator: 0,
@@ -7386,9 +7386,9 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_block_id: ImplBlockId {
+                                                                    impl_id: ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -7528,9 +7528,9 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `mnist_classifier::geom2d`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                             },
                                                             disambiguator: 0,
@@ -7711,9 +7711,9 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                             },
                             disambiguator: 0,
@@ -7736,9 +7736,9 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_block_id: ImplBlockId {
+                                                impl_id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -7754,10 +7754,10 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            impl_block: ImplBlock {
-                                                id: ImplBlockId {
+                                            im: Impl {
+                                                id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -7766,7 +7766,7 @@ Ok(
                                                 body: ArenaIdxRange(
                                                     41..49,
                                                 ),
-                                                variant: ImplBlockVariant::Type {
+                                                variant: ImplVariant::Type {
                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                 },
                                             },
@@ -7795,10 +7795,10 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::ImplBlock(
-                                                                    ImplBlockId {
+                                                                DeclRegionPath::Impl(
+                                                                    ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -7870,9 +7870,9 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_block_id: ImplBlockId {
+                                                            impl_id: ImplId {
                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                impl_kind: ImplKind::Type {
                                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                 },
                                                                 disambiguator: 0,
@@ -8070,10 +8070,10 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::ImplBlock(
-                                                                            ImplBlockId {
+                                                                        DeclRegionPath::Impl(
+                                                                            ImplId {
                                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                                impl_kind: ImplKind::Type {
                                                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                                 },
                                                                                 disambiguator: 0,
@@ -8145,9 +8145,9 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_block_id: ImplBlockId {
+                                                                    impl_id: ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -8287,9 +8287,9 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `mnist_classifier::geom2d`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                             },
                                                             disambiguator: 0,
@@ -8470,9 +8470,9 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                             },
                             disambiguator: 0,
@@ -8495,9 +8495,9 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_block_id: ImplBlockId {
+                                                impl_id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -8513,10 +8513,10 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            impl_block: ImplBlock {
-                                                id: ImplBlockId {
+                                            im: Impl {
+                                                id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -8525,7 +8525,7 @@ Ok(
                                                 body: ArenaIdxRange(
                                                     41..49,
                                                 ),
-                                                variant: ImplBlockVariant::Type {
+                                                variant: ImplVariant::Type {
                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                 },
                                             },
@@ -8554,10 +8554,10 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::ImplBlock(
-                                                                    ImplBlockId {
+                                                                DeclRegionPath::Impl(
+                                                                    ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -8629,9 +8629,9 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_block_id: ImplBlockId {
+                                                            impl_id: ImplId {
                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                impl_kind: ImplKind::Type {
                                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                 },
                                                                 disambiguator: 0,
@@ -8829,10 +8829,10 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::ImplBlock(
-                                                                            ImplBlockId {
+                                                                        DeclRegionPath::Impl(
+                                                                            ImplId {
                                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                                impl_kind: ImplKind::Type {
                                                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                                 },
                                                                                 disambiguator: 0,
@@ -8904,9 +8904,9 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_block_id: ImplBlockId {
+                                                                    impl_id: ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -9046,9 +9046,9 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `mnist_classifier::geom2d`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                             },
                                                             disambiguator: 0,
@@ -9610,9 +9610,9 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                             },
                             disambiguator: 0,
@@ -9635,9 +9635,9 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_block_id: ImplBlockId {
+                                                impl_id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -9653,10 +9653,10 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            impl_block: ImplBlock {
-                                                id: ImplBlockId {
+                                            im: Impl {
+                                                id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -9665,7 +9665,7 @@ Ok(
                                                 body: ArenaIdxRange(
                                                     41..49,
                                                 ),
-                                                variant: ImplBlockVariant::Type {
+                                                variant: ImplVariant::Type {
                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                 },
                                             },
@@ -9694,10 +9694,10 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::ImplBlock(
-                                                                    ImplBlockId {
+                                                                DeclRegionPath::Impl(
+                                                                    ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -9769,9 +9769,9 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_block_id: ImplBlockId {
+                                                            impl_id: ImplId {
                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                impl_kind: ImplKind::Type {
                                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                 },
                                                                 disambiguator: 0,
@@ -9969,10 +9969,10 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::ImplBlock(
-                                                                            ImplBlockId {
+                                                                        DeclRegionPath::Impl(
+                                                                            ImplId {
                                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                                impl_kind: ImplKind::Type {
                                                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                                 },
                                                                                 disambiguator: 0,
@@ -10044,9 +10044,9 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_block_id: ImplBlockId {
+                                                                    impl_id: ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -10186,9 +10186,9 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `mnist_classifier::geom2d`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                             },
                                                             disambiguator: 0,
@@ -10322,9 +10322,9 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                             },
                             disambiguator: 0,
@@ -10347,9 +10347,9 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_block_id: ImplBlockId {
+                                                impl_id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -10365,10 +10365,10 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            impl_block: ImplBlock {
-                                                id: ImplBlockId {
+                                            im: Impl {
+                                                id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -10377,7 +10377,7 @@ Ok(
                                                 body: ArenaIdxRange(
                                                     41..49,
                                                 ),
-                                                variant: ImplBlockVariant::Type {
+                                                variant: ImplVariant::Type {
                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                 },
                                             },
@@ -10406,10 +10406,10 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::ImplBlock(
-                                                                    ImplBlockId {
+                                                                DeclRegionPath::Impl(
+                                                                    ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -10481,9 +10481,9 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_block_id: ImplBlockId {
+                                                            impl_id: ImplId {
                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                impl_kind: ImplKind::Type {
                                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                 },
                                                                 disambiguator: 0,
@@ -10759,10 +10759,10 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::ImplBlock(
-                                                                            ImplBlockId {
+                                                                        DeclRegionPath::Impl(
+                                                                            ImplId {
                                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                                impl_kind: ImplKind::Type {
                                                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                                 },
                                                                                 disambiguator: 0,
@@ -10834,9 +10834,9 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_block_id: ImplBlockId {
+                                                                    impl_id: ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -11036,9 +11036,9 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `mnist_classifier::geom2d`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                             },
                                                             disambiguator: 0,
@@ -11971,25 +11971,25 @@ Ok(
                 ),
             ),
             (
-                DefnRegionPath::ImplBlock(
-                    ImplBlockId {
+                DefnRegionPath::Impl(
+                    ImplId {
                         module_path: `mnist_classifier::geom2d`,
-                        impl_block_kind: ImplBlockKind::Err,
+                        impl_kind: ImplKind::Err,
                         disambiguator: 0,
                     },
                 ),
                 Err(
                     Derived(
-                        ImplBlockErr,
+                        ImplErr,
                     ),
                 ),
             ),
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 0,
                         },
                         ident: `relative_range`,
@@ -11997,16 +11997,16 @@ Ok(
                 ),
                 Err(
                     Derived(
-                        UnableToParseImplBlockDeclForTyMethodDecl,
+                        UnableToParseImplDeclForTyMethodDecl,
                     ),
                 ),
             ),
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 0,
                         },
                         ident: `relative_point`,
@@ -12014,29 +12014,29 @@ Ok(
                 ),
                 Err(
                     Derived(
-                        UnableToParseImplBlockDeclForTyMethodDecl,
+                        UnableToParseImplDeclForTyMethodDecl,
                     ),
                 ),
             ),
             (
-                DefnRegionPath::ImplBlock(
-                    ImplBlockId {
+                DefnRegionPath::Impl(
+                    ImplId {
                         module_path: `mnist_classifier::geom2d`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                         },
                         disambiguator: 0,
                     },
                 ),
                 Ok(
-                    Defn::ImplBlock(
-                        ImplBlockDecl::TypeImplBlock(
-                            TypeImplBlockDecl {
+                    Defn::Impl(
+                        ImplDecl::Type(
+                            TypeImplDecl {
                                 ast_idx: 89,
-                                impl_block: ImplBlock {
-                                    id: ImplBlockId {
+                                im: Impl {
+                                    id: ImplId {
                                         module_path: `mnist_classifier::geom2d`,
-                                        impl_block_kind: ImplBlockKind::Type {
+                                        impl_kind: ImplKind::Type {
                                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                         },
                                         disambiguator: 0,
@@ -12045,7 +12045,7 @@ Ok(
                                     body: ArenaIdxRange(
                                         66..72,
                                     ),
-                                    variant: ImplBlockVariant::Type {
+                                    variant: ImplVariant::Type {
                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                     },
                                 },
@@ -12071,10 +12071,10 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::ImplBlock(
-                                                ImplBlockId {
+                                            DeclRegionPath::Impl(
+                                                ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -12150,9 +12150,9 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                             },
                             disambiguator: 0,
@@ -12175,9 +12175,9 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_block_id: ImplBlockId {
+                                                impl_id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -12193,10 +12193,10 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            impl_block: ImplBlock {
-                                                id: ImplBlockId {
+                                            im: Impl {
+                                                id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -12205,7 +12205,7 @@ Ok(
                                                 body: ArenaIdxRange(
                                                     66..72,
                                                 ),
-                                                variant: ImplBlockVariant::Type {
+                                                variant: ImplVariant::Type {
                                                     ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                 },
                                             },
@@ -12234,10 +12234,10 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::ImplBlock(
-                                                                    ImplBlockId {
+                                                                DeclRegionPath::Impl(
+                                                                    ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -12309,9 +12309,9 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_block_id: ImplBlockId {
+                                                            impl_id: ImplId {
                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                impl_kind: ImplKind::Type {
                                                                     ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                                 },
                                                                 disambiguator: 0,
@@ -12509,10 +12509,10 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::ImplBlock(
-                                                                            ImplBlockId {
+                                                                        DeclRegionPath::Impl(
+                                                                            ImplId {
                                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                                impl_kind: ImplKind::Type {
                                                                                     ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                                                 },
                                                                                 disambiguator: 0,
@@ -12584,9 +12584,9 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_block_id: ImplBlockId {
+                                                                    impl_id: ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -12726,9 +12726,9 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `mnist_classifier::geom2d`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                             },
                                                             disambiguator: 0,
@@ -12958,9 +12958,9 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                             },
                             disambiguator: 0,
@@ -12983,9 +12983,9 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_block_id: ImplBlockId {
+                                                impl_id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -13001,10 +13001,10 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            impl_block: ImplBlock {
-                                                id: ImplBlockId {
+                                            im: Impl {
+                                                id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -13013,7 +13013,7 @@ Ok(
                                                 body: ArenaIdxRange(
                                                     66..72,
                                                 ),
-                                                variant: ImplBlockVariant::Type {
+                                                variant: ImplVariant::Type {
                                                     ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                 },
                                             },
@@ -13042,10 +13042,10 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::ImplBlock(
-                                                                    ImplBlockId {
+                                                                DeclRegionPath::Impl(
+                                                                    ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -13117,9 +13117,9 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_block_id: ImplBlockId {
+                                                            impl_id: ImplId {
                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                impl_kind: ImplKind::Type {
                                                                     ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                                 },
                                                                 disambiguator: 0,
@@ -13317,10 +13317,10 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::ImplBlock(
-                                                                            ImplBlockId {
+                                                                        DeclRegionPath::Impl(
+                                                                            ImplId {
                                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                                impl_kind: ImplKind::Type {
                                                                                     ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                                                 },
                                                                                 disambiguator: 0,
@@ -13392,9 +13392,9 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_block_id: ImplBlockId {
+                                                                    impl_id: ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -13534,9 +13534,9 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `mnist_classifier::geom2d`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                             },
                                                             disambiguator: 0,
@@ -13766,9 +13766,9 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                             },
                             disambiguator: 0,
@@ -13791,9 +13791,9 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_block_id: ImplBlockId {
+                                                impl_id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -13809,10 +13809,10 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            impl_block: ImplBlock {
-                                                id: ImplBlockId {
+                                            im: Impl {
+                                                id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -13821,7 +13821,7 @@ Ok(
                                                 body: ArenaIdxRange(
                                                     66..72,
                                                 ),
-                                                variant: ImplBlockVariant::Type {
+                                                variant: ImplVariant::Type {
                                                     ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                 },
                                             },
@@ -13850,10 +13850,10 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::ImplBlock(
-                                                                    ImplBlockId {
+                                                                DeclRegionPath::Impl(
+                                                                    ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -13925,9 +13925,9 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_block_id: ImplBlockId {
+                                                            impl_id: ImplId {
                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                impl_kind: ImplKind::Type {
                                                                     ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                                 },
                                                                 disambiguator: 0,
@@ -14046,10 +14046,10 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::ImplBlock(
-                                                                            ImplBlockId {
+                                                                        DeclRegionPath::Impl(
+                                                                            ImplId {
                                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                                impl_kind: ImplKind::Type {
                                                                                     ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                                                 },
                                                                                 disambiguator: 0,
@@ -14121,9 +14121,9 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_block_id: ImplBlockId {
+                                                                    impl_id: ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -14197,9 +14197,9 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `mnist_classifier::geom2d`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                             },
                                                             disambiguator: 0,
@@ -14297,9 +14297,9 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                             },
                             disambiguator: 0,
@@ -14322,9 +14322,9 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_block_id: ImplBlockId {
+                                                impl_id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -14340,10 +14340,10 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            impl_block: ImplBlock {
-                                                id: ImplBlockId {
+                                            im: Impl {
+                                                id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -14352,7 +14352,7 @@ Ok(
                                                 body: ArenaIdxRange(
                                                     66..72,
                                                 ),
-                                                variant: ImplBlockVariant::Type {
+                                                variant: ImplVariant::Type {
                                                     ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                 },
                                             },
@@ -14381,10 +14381,10 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::ImplBlock(
-                                                                    ImplBlockId {
+                                                                DeclRegionPath::Impl(
+                                                                    ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -14456,9 +14456,9 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_block_id: ImplBlockId {
+                                                            impl_id: ImplId {
                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                impl_kind: ImplKind::Type {
                                                                     ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                                 },
                                                                 disambiguator: 0,
@@ -14577,10 +14577,10 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::ImplBlock(
-                                                                            ImplBlockId {
+                                                                        DeclRegionPath::Impl(
+                                                                            ImplId {
                                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                                impl_kind: ImplKind::Type {
                                                                                     ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                                                 },
                                                                                 disambiguator: 0,
@@ -14652,9 +14652,9 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_block_id: ImplBlockId {
+                                                                    impl_id: ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -14728,9 +14728,9 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `mnist_classifier::geom2d`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                             },
                                                             disambiguator: 0,
@@ -14828,9 +14828,9 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                             },
                             disambiguator: 0,
@@ -14853,9 +14853,9 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_block_id: ImplBlockId {
+                                                impl_id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -14871,10 +14871,10 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            impl_block: ImplBlock {
-                                                id: ImplBlockId {
+                                            im: Impl {
+                                                id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -14883,7 +14883,7 @@ Ok(
                                                 body: ArenaIdxRange(
                                                     66..72,
                                                 ),
-                                                variant: ImplBlockVariant::Type {
+                                                variant: ImplVariant::Type {
                                                     ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                 },
                                             },
@@ -14912,10 +14912,10 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::ImplBlock(
-                                                                    ImplBlockId {
+                                                                DeclRegionPath::Impl(
+                                                                    ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -14987,9 +14987,9 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_block_id: ImplBlockId {
+                                                            impl_id: ImplId {
                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                impl_kind: ImplKind::Type {
                                                                     ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                                 },
                                                                 disambiguator: 0,
@@ -15108,10 +15108,10 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::ImplBlock(
-                                                                            ImplBlockId {
+                                                                        DeclRegionPath::Impl(
+                                                                            ImplId {
                                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                                impl_kind: ImplKind::Type {
                                                                                     ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                                                 },
                                                                                 disambiguator: 0,
@@ -15183,9 +15183,9 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_block_id: ImplBlockId {
+                                                                    impl_id: ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -15259,9 +15259,9 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `mnist_classifier::geom2d`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                             },
                                                             disambiguator: 0,
@@ -15359,9 +15359,9 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                             },
                             disambiguator: 0,
@@ -15384,9 +15384,9 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_block_id: ImplBlockId {
+                                                impl_id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -15402,10 +15402,10 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            impl_block: ImplBlock {
-                                                id: ImplBlockId {
+                                            im: Impl {
+                                                id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -15414,7 +15414,7 @@ Ok(
                                                 body: ArenaIdxRange(
                                                     66..72,
                                                 ),
-                                                variant: ImplBlockVariant::Type {
+                                                variant: ImplVariant::Type {
                                                     ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                 },
                                             },
@@ -15443,10 +15443,10 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::ImplBlock(
-                                                                    ImplBlockId {
+                                                                DeclRegionPath::Impl(
+                                                                    ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -15518,9 +15518,9 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_block_id: ImplBlockId {
+                                                            impl_id: ImplId {
                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                impl_kind: ImplKind::Type {
                                                                     ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                                 },
                                                                 disambiguator: 0,
@@ -15639,10 +15639,10 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::ImplBlock(
-                                                                            ImplBlockId {
+                                                                        DeclRegionPath::Impl(
+                                                                            ImplId {
                                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                                impl_kind: ImplKind::Type {
                                                                                     ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                                                 },
                                                                                 disambiguator: 0,
@@ -15714,9 +15714,9 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_block_id: ImplBlockId {
+                                                                    impl_id: ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -15790,9 +15790,9 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `mnist_classifier::geom2d`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                             },
                                                             disambiguator: 0,
@@ -15888,24 +15888,24 @@ Ok(
                 ),
             ),
             (
-                DefnRegionPath::ImplBlock(
-                    ImplBlockId {
+                DefnRegionPath::Impl(
+                    ImplId {
                         module_path: `mnist_classifier::geom2d`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                         },
                         disambiguator: 0,
                     },
                 ),
                 Ok(
-                    Defn::ImplBlock(
-                        ImplBlockDecl::TypeImplBlock(
-                            TypeImplBlockDecl {
+                    Defn::Impl(
+                        ImplDecl::Type(
+                            TypeImplDecl {
                                 ast_idx: 91,
-                                impl_block: ImplBlock {
-                                    id: ImplBlockId {
+                                im: Impl {
+                                    id: ImplId {
                                         module_path: `mnist_classifier::geom2d`,
-                                        impl_block_kind: ImplBlockKind::Type {
+                                        impl_kind: ImplKind::Type {
                                             ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                         },
                                         disambiguator: 0,
@@ -15914,7 +15914,7 @@ Ok(
                                     body: ArenaIdxRange(
                                         76..80,
                                     ),
-                                    variant: ImplBlockVariant::Type {
+                                    variant: ImplVariant::Type {
                                         ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                     },
                                 },
@@ -15940,10 +15940,10 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::ImplBlock(
-                                                ImplBlockId {
+                                            DeclRegionPath::Impl(
+                                                ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -16019,9 +16019,9 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                             },
                             disambiguator: 0,
@@ -16044,9 +16044,9 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_block_id: ImplBlockId {
+                                                impl_id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -16062,10 +16062,10 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            impl_block: ImplBlock {
-                                                id: ImplBlockId {
+                                            im: Impl {
+                                                id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -16074,7 +16074,7 @@ Ok(
                                                 body: ArenaIdxRange(
                                                     76..80,
                                                 ),
-                                                variant: ImplBlockVariant::Type {
+                                                variant: ImplVariant::Type {
                                                     ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                 },
                                             },
@@ -16103,10 +16103,10 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::ImplBlock(
-                                                                    ImplBlockId {
+                                                                DeclRegionPath::Impl(
+                                                                    ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -16178,9 +16178,9 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_block_id: ImplBlockId {
+                                                            impl_id: ImplId {
                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                impl_kind: ImplKind::Type {
                                                                     ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                                 },
                                                                 disambiguator: 0,
@@ -16299,10 +16299,10 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::ImplBlock(
-                                                                            ImplBlockId {
+                                                                        DeclRegionPath::Impl(
+                                                                            ImplId {
                                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                                impl_kind: ImplKind::Type {
                                                                                     ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                                                 },
                                                                                 disambiguator: 0,
@@ -16374,9 +16374,9 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_block_id: ImplBlockId {
+                                                                    impl_id: ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -16450,9 +16450,9 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `mnist_classifier::geom2d`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                             },
                                                             disambiguator: 0,
@@ -16550,9 +16550,9 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                             },
                             disambiguator: 0,
@@ -16575,9 +16575,9 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_block_id: ImplBlockId {
+                                                impl_id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -16593,10 +16593,10 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            impl_block: ImplBlock {
-                                                id: ImplBlockId {
+                                            im: Impl {
+                                                id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -16605,7 +16605,7 @@ Ok(
                                                 body: ArenaIdxRange(
                                                     76..80,
                                                 ),
-                                                variant: ImplBlockVariant::Type {
+                                                variant: ImplVariant::Type {
                                                     ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                 },
                                             },
@@ -16634,10 +16634,10 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::ImplBlock(
-                                                                    ImplBlockId {
+                                                                DeclRegionPath::Impl(
+                                                                    ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -16709,9 +16709,9 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_block_id: ImplBlockId {
+                                                            impl_id: ImplId {
                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                impl_kind: ImplKind::Type {
                                                                     ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                                 },
                                                                 disambiguator: 0,
@@ -16830,10 +16830,10 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::ImplBlock(
-                                                                            ImplBlockId {
+                                                                        DeclRegionPath::Impl(
+                                                                            ImplId {
                                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                                impl_kind: ImplKind::Type {
                                                                                     ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                                                 },
                                                                                 disambiguator: 0,
@@ -16905,9 +16905,9 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_block_id: ImplBlockId {
+                                                                    impl_id: ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -16981,9 +16981,9 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `mnist_classifier::geom2d`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                             },
                                                             disambiguator: 0,
@@ -17081,9 +17081,9 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                             },
                             disambiguator: 0,
@@ -17106,9 +17106,9 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_block_id: ImplBlockId {
+                                                impl_id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -17124,10 +17124,10 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            impl_block: ImplBlock {
-                                                id: ImplBlockId {
+                                            im: Impl {
+                                                id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -17136,7 +17136,7 @@ Ok(
                                                 body: ArenaIdxRange(
                                                     76..80,
                                                 ),
-                                                variant: ImplBlockVariant::Type {
+                                                variant: ImplVariant::Type {
                                                     ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                 },
                                             },
@@ -17165,10 +17165,10 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::ImplBlock(
-                                                                    ImplBlockId {
+                                                                DeclRegionPath::Impl(
+                                                                    ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -17240,9 +17240,9 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_block_id: ImplBlockId {
+                                                            impl_id: ImplId {
                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                impl_kind: ImplKind::Type {
                                                                     ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                                 },
                                                                 disambiguator: 0,
@@ -17361,10 +17361,10 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::ImplBlock(
-                                                                            ImplBlockId {
+                                                                        DeclRegionPath::Impl(
+                                                                            ImplId {
                                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                                impl_kind: ImplKind::Type {
                                                                                     ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                                                 },
                                                                                 disambiguator: 0,
@@ -17436,9 +17436,9 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_block_id: ImplBlockId {
+                                                                    impl_id: ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -17512,9 +17512,9 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `mnist_classifier::geom2d`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                             },
                                                             disambiguator: 0,
@@ -17612,9 +17612,9 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                             },
                             disambiguator: 0,
@@ -17637,9 +17637,9 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_block_id: ImplBlockId {
+                                                impl_id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -17655,10 +17655,10 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            impl_block: ImplBlock {
-                                                id: ImplBlockId {
+                                            im: Impl {
+                                                id: ImplId {
                                                     module_path: `mnist_classifier::geom2d`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                     },
                                                     disambiguator: 0,
@@ -17667,7 +17667,7 @@ Ok(
                                                 body: ArenaIdxRange(
                                                     76..80,
                                                 ),
-                                                variant: ImplBlockVariant::Type {
+                                                variant: ImplVariant::Type {
                                                     ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                 },
                                             },
@@ -17696,10 +17696,10 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::ImplBlock(
-                                                                    ImplBlockId {
+                                                                DeclRegionPath::Impl(
+                                                                    ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -17771,9 +17771,9 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_block_id: ImplBlockId {
+                                                            impl_id: ImplId {
                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                impl_kind: ImplKind::Type {
                                                                     ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                                 },
                                                                 disambiguator: 0,
@@ -17892,10 +17892,10 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::ImplBlock(
-                                                                            ImplBlockId {
+                                                                        DeclRegionPath::Impl(
+                                                                            ImplId {
                                                                                 module_path: `mnist_classifier::geom2d`,
-                                                                                impl_block_kind: ImplBlockKind::Type {
+                                                                                impl_kind: ImplKind::Type {
                                                                                     ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                                                 },
                                                                                 disambiguator: 0,
@@ -17967,9 +17967,9 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_block_id: ImplBlockId {
+                                                                    impl_id: ImplId {
                                                                         module_path: `mnist_classifier::geom2d`,
-                                                                        impl_block_kind: ImplBlockKind::Type {
+                                                                        impl_kind: ImplKind::Type {
                                                                             ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                                         },
                                                                         disambiguator: 0,
@@ -18043,9 +18043,9 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `mnist_classifier::geom2d`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                             },
                                                             disambiguator: 0,

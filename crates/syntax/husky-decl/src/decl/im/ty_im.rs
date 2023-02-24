@@ -2,9 +2,9 @@ use super::*;
 use husky_token::EolColonToken;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
-pub struct TypeImplBlockDecl {
+pub struct TypeImplDecl {
     pub ast_idx: AstIdx,
-    pub impl_block: ImplBlock,
+    pub im: Impl,
     pub impl_token: ImplToken,
     #[return_ref]
     pub implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
@@ -14,7 +14,7 @@ pub struct TypeImplBlockDecl {
     pub expr_region: ExprRegion,
 }
 
-impl TypeImplBlockDecl {
+impl TypeImplDecl {
     pub fn implicit_parameters<'a>(
         self,
         db: &'a dyn DeclDb,

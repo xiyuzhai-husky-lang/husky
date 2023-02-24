@@ -682,7 +682,7 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impls: [],
                 use_expr_rules: UseExprRules(
                     [
                         UseExprRule {
@@ -2270,11 +2270,11 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [
-                    ImplBlock {
-                        id: ImplBlockId {
+                impls: [
+                    Impl {
+                        id: ImplId {
                             module_path: `mnist_classifier::connected_component`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                             },
                             disambiguator: 0,
@@ -2283,7 +2283,7 @@ Ok(
                         body: ArenaIdxRange(
                             67..79,
                         ),
-                        variant: ImplBlockVariant::Type {
+                        variant: ImplVariant::Type {
                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                         },
                     },
@@ -3272,11 +3272,11 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [
-                    ImplBlock {
-                        id: ImplBlockId {
+                impls: [
+                    Impl {
+                        id: ImplId {
                             module_path: `mnist_classifier::raw_contour`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                             },
                             disambiguator: 0,
@@ -3285,7 +3285,7 @@ Ok(
                         body: ArenaIdxRange(
                             27..34,
                         ),
-                        variant: ImplBlockVariant::Type {
+                        variant: ImplVariant::Type {
                             ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         },
                     },
@@ -3774,11 +3774,11 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [
-                    ImplBlock {
-                        id: ImplBlockId {
+                impls: [
+                    Impl {
+                        id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                             },
                             disambiguator: 0,
@@ -3787,14 +3787,14 @@ Ok(
                         body: ArenaIdxRange(
                             5..10,
                         ),
-                        variant: ImplBlockVariant::Type {
+                        variant: ImplVariant::Type {
                             ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                         },
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                             },
                             disambiguator: 0,
@@ -3803,22 +3803,22 @@ Ok(
                         body: ArenaIdxRange(
                             41..49,
                         ),
-                        variant: ImplBlockVariant::Type {
+                        variant: ImplVariant::Type {
                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                         },
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 0,
                         },
                         ast_idx: 86,
                         body: ArenaIdxRange(
                             56..58,
                         ),
-                        variant: ImplBlockVariant::Err(
-                            ImplBlockError::MajorPath(
+                        variant: ImplVariant::Err(
+                            ImplError::MajorPath(
                                 Original(
                                     UnrecognizedIdentifier(
                                         IdentifierToken {
@@ -3838,10 +3838,10 @@ Ok(
                             ),
                         ),
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                             },
                             disambiguator: 0,
@@ -3850,14 +3850,14 @@ Ok(
                         body: ArenaIdxRange(
                             66..72,
                         ),
-                        variant: ImplBlockVariant::Type {
+                        variant: ImplVariant::Type {
                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                         },
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `mnist_classifier::geom2d`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                             },
                             disambiguator: 0,
@@ -3866,7 +3866,7 @@ Ok(
                         body: ArenaIdxRange(
                             76..80,
                         ),
-                        variant: ImplBlockVariant::Type {
+                        variant: ImplVariant::Type {
                             ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                         },
                     },
@@ -4407,11 +4407,11 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [
-                    ImplBlock {
-                        id: ImplBlockId {
+                impls: [
+                    Impl {
+                        id: ImplId {
                             module_path: `mnist_classifier::line_segment_sketch`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                             },
                             disambiguator: 0,
@@ -4420,14 +4420,14 @@ Ok(
                         body: ArenaIdxRange(
                             3..7,
                         ),
-                        variant: ImplBlockVariant::Type {
+                        variant: ImplVariant::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         },
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `mnist_classifier::line_segment_sketch`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                             },
                             disambiguator: 0,
@@ -4436,7 +4436,7 @@ Ok(
                         body: ArenaIdxRange(
                             21..26,
                         ),
-                        variant: ImplBlockVariant::Type {
+                        variant: ImplVariant::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                         },
                     },
@@ -6454,11 +6454,11 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [
-                    ImplBlock {
-                        id: ImplBlockId {
+                impls: [
+                    Impl {
+                        id: ImplId {
                             module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                             },
                             disambiguator: 0,
@@ -6467,7 +6467,7 @@ Ok(
                         body: ArenaIdxRange(
                             39..53,
                         ),
-                        variant: ImplBlockVariant::Type {
+                        variant: ImplVariant::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         },
                     },
@@ -7937,11 +7937,11 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [
-                    ImplBlock {
-                        id: ImplBlockId {
+                impls: [
+                    Impl {
+                        id: ImplId {
                             module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                             },
                             disambiguator: 0,
@@ -7950,7 +7950,7 @@ Ok(
                         body: ArenaIdxRange(
                             0..2,
                         ),
-                        variant: ImplBlockVariant::Type {
+                        variant: ImplVariant::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                         },
                     },
@@ -8935,7 +8935,7 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impls: [],
                 use_expr_rules: UseExprRules(
                     [
                         UseExprRule {
@@ -9493,11 +9493,11 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [
-                    ImplBlock {
-                        id: ImplBlockId {
+                impls: [
+                    Impl {
+                        id: ImplId {
                             module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                             },
                             disambiguator: 0,
@@ -9506,7 +9506,7 @@ Ok(
                         body: ArenaIdxRange(
                             13..15,
                         ),
-                        variant: ImplBlockVariant::Type {
+                        variant: ImplVariant::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                         },
                     },
@@ -10615,11 +10615,11 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [
-                    ImplBlock {
-                        id: ImplBlockId {
+                impls: [
+                    Impl {
+                        id: ImplId {
                             module_path: `mnist_classifier::fermi`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                             },
                             disambiguator: 0,
@@ -10628,7 +10628,7 @@ Ok(
                         body: ArenaIdxRange(
                             12..15,
                         ),
-                        variant: ImplBlockVariant::Type {
+                        variant: ImplVariant::Type {
                             ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                         },
                     },
@@ -11132,7 +11132,7 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impls: [],
                 use_expr_rules: UseExprRules(
                     [
                         UseExprRule {
@@ -12278,7 +12278,7 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impls: [],
                 use_expr_rules: UseExprRules(
                     [
                         UseExprRule {
@@ -13366,7 +13366,7 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impls: [],
                 use_expr_rules: UseExprRules(
                     [
                         UseExprRule {
@@ -14363,7 +14363,7 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impls: [],
                 use_expr_rules: UseExprRules(
                     [
                         UseExprRule {
@@ -15455,7 +15455,7 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impls: [],
                 use_expr_rules: UseExprRules(
                     [
                         UseExprRule {
@@ -16492,7 +16492,7 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impls: [],
                 use_expr_rules: UseExprRules(
                     [
                         UseExprRule {
@@ -17058,7 +17058,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [],
                 ),
-                impl_blocks: [],
+                impls: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -18098,7 +18098,7 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impls: [],
                 use_expr_rules: UseExprRules(
                     [
                         UseExprRule {
@@ -19196,7 +19196,7 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impls: [],
                 use_expr_rules: UseExprRules(
                     [
                         UseExprRule {
@@ -20737,7 +20737,7 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impls: [],
                 use_expr_rules: UseExprRules(
                     [
                         UseExprRule {
@@ -22381,7 +22381,7 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impls: [],
                 use_expr_rules: UseExprRules(
                     [
                         UseExprRule {
@@ -23220,6 +23220,6 @@ Ok(
                 },
             ],
         },
-        impl_blocks: [],
+        impls: [],
     },
 )

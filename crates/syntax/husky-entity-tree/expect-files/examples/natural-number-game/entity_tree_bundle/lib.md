@@ -67,11 +67,11 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [
-                    ImplBlock {
-                        id: ImplBlockId {
+                impls: [
+                    Impl {
+                        id: ImplId {
                             module_path: `natural_number_game`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`natural_number_game::Nat`, `Inductive`),
                             },
                             disambiguator: 0,
@@ -80,7 +80,7 @@ Ok(
                         body: ArenaIdxRange(
                             0..3,
                         ),
-                        variant: ImplBlockVariant::Type {
+                        variant: ImplVariant::Type {
                             ty: TypePath(`natural_number_game::Nat`, `Inductive`),
                         },
                     },
@@ -121,6 +121,6 @@ Ok(
                 },
             ],
         },
-        impl_blocks: [],
+        impls: [],
     },
 )

@@ -3,9 +3,9 @@
         path: RegionPath::Defn(
             DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_block_id: ImplBlockId {
+                    impl_id: ImplId {
                         module_path: `natural_number_game`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`natural_number_game::Nat`, `Inductive`),
                         },
                         disambiguator: 0,

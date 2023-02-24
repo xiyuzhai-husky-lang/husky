@@ -999,10 +999,10 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::ImplBlock(
-                ImplBlockId {
+            DeclRegionPath::Impl(
+                ImplId {
                     module_path: `mnist_classifier::line_segment_sketch`,
-                    impl_block_kind: ImplBlockKind::Type {
+                    impl_kind: ImplKind::Type {
                         ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                     },
                     disambiguator: 0,
@@ -1053,9 +1053,9 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_block_id: ImplBlockId {
+                    impl_id: ImplId {
                         module_path: `mnist_classifier::line_segment_sketch`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         },
                         disambiguator: 0,
@@ -1128,9 +1128,9 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_block_id: ImplBlockId {
+                    impl_id: ImplId {
                         module_path: `mnist_classifier::line_segment_sketch`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         },
                         disambiguator: 0,
@@ -1252,10 +1252,10 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::ImplBlock(
-                ImplBlockId {
+            DeclRegionPath::Impl(
+                ImplId {
                     module_path: `mnist_classifier::line_segment_sketch`,
-                    impl_block_kind: ImplBlockKind::Type {
+                    impl_kind: ImplKind::Type {
                         ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                     },
                     disambiguator: 0,
@@ -1375,9 +1375,9 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_block_id: ImplBlockId {
+                    impl_id: ImplId {
                         module_path: `mnist_classifier::line_segment_sketch`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                         },
                         disambiguator: 0,
@@ -1446,9 +1446,9 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_block_id: ImplBlockId {
+                    impl_id: ImplId {
                         module_path: `mnist_classifier::line_segment_sketch`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                         },
                         disambiguator: 0,
@@ -1572,9 +1572,9 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_block_id: ImplBlockId {
+                    impl_id: ImplId {
                         module_path: `mnist_classifier::line_segment_sketch`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                         },
                         disambiguator: 0,

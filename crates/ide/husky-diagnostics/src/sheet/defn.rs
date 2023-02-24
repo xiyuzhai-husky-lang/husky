@@ -48,7 +48,7 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
             },
             Defn::Form(Defn) => (),
             Defn::Trait(Defn) => (),
-            Defn::ImplBlock(Defn) => (),
+            Defn::Impl(Defn) => (),
             Defn::AssociatedItem(Defn) => (),
             Defn::Variant(Defn) => (),
         }

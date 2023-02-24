@@ -48,9 +48,9 @@ pub struct DeclJar(
     MorphismDecl,
     TypeAliasDecl,
     // impl block
-    impl_block_decl,
-    TypeImplBlockDecl,
-    TypeAsTraitImplBlockDecl,
+    impl_decl,
+    TypeImplDecl,
+    TypeAsTraitImplDecl,
     // variant
     UnitVariantDecl,
     PropsVariantDecl,

@@ -46,9 +46,9 @@ pub(crate) fn trai_decl(db: &dyn DeclDb, path: TraitPath) -> DeclResult<TraitDec
 }
 
 #[salsa::tracked(jar = DeclJar,return_ref)]
-pub(crate) fn impl_block_decl(db: &dyn DeclDb, impl_block: ImplBlock) -> DeclResult<ImplBlockDecl> {
-    let parser = DeclParser::new(db, impl_block.module_path(db))?;
-    parser.parse_impl_block_decl(impl_block)
+pub(crate) fn impl_decl(db: &dyn DeclDb, im: Impl) -> DeclResult<ImplDecl> {
+    let parser = DeclParser::new(db, im.module_path(db))?;
+    parser.parse_impl_decl(im)
 }
 
 #[salsa::tracked(jar = DeclJar,return_ref)]
@@ -498,31 +498,31 @@ impl<'a> DeclParser<'a> {
         .into())
     }
 
-    fn parse_impl_block_decl(&self, impl_block: ImplBlock) -> DeclResult<ImplBlockDecl> {
-        let ast_idx = impl_block.ast_idx(self.db);
+    fn parse_impl_decl(&self, im: Impl) -> DeclResult<ImplDecl> {
+        let ast_idx = im.ast_idx(self.db);
         match self.ast_sheet[ast_idx] {
             Ast::Impl {
                 token_group_idx,
                 body,
-            } => match impl_block.kind(self.db) {
-                ImplBlockKind::Type { ty } => Ok(self
-                    .parse_ty_impl_block_decl(ast_idx, token_group_idx, impl_block)?
+            } => match im.kind(self.db) {
+                ImplKind::Type { ty } => Ok(self
+                    .parse_ty_impl_decl(ast_idx, token_group_idx, im)?
                     .into()),
-                ImplBlockKind::TypeAsTrait { ty, trai } => todo!(),
-                ImplBlockKind::Err => Err(DerivedDeclError::ImplBlockErr.into()),
+                ImplKind::TypeAsTrait { ty, trai } => todo!(),
+                ImplKind::Err => Err(DerivedDeclError::ImplErr.into()),
             },
             _ => unreachable!(),
         }
     }
 
-    fn parse_ty_impl_block_decl(
+    fn parse_ty_impl_decl(
         &self,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
-        impl_block: ImplBlock,
-    ) -> DeclResult<TypeImplBlockDecl> {
+        im: Impl,
+    ) -> DeclResult<TypeImplDecl> {
         let mut parser = self.expr_parser(
-            DeclRegionPath::ImplBlock(impl_block.id(self.db)),
+            DeclRegionPath::Impl(im.id(self.db)),
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
@@ -535,10 +535,10 @@ impl<'a> DeclParser<'a> {
         let implicit_parameter_decl_list = ctx.parse();
         let ty = ctx.parse().unwrap().unwrap();
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);
-        Ok(TypeImplBlockDecl::new(
+        Ok(TypeImplDecl::new(
             self.db,
             ast_idx,
-            impl_block,
+            im,
             impl_token,
             implicit_parameter_decl_list,
             ty,
@@ -614,11 +614,11 @@ impl<'a> DeclParser<'a> {
         associated_item: AssociatedItem,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeMethodDecl> {
-        let Ok(impl_block_decl) = self.db.impl_block_decl(associated_item.impl_block(self.db))
-            else { return Err(DerivedDeclError::UnableToParseImplBlockDeclForTyMethodDecl.into()) };
+        let Ok(impl_decl) = self.db.impl_decl(associated_item.im(self.db))
+            else { return Err(DerivedDeclError::UnableToParseImplDeclForTyMethodDecl.into()) };
         let mut parser = self.expr_parser(
             DeclRegionPath::AssociatedItem(associated_item.id(self.db)),
-            Some(impl_block_decl.expr_region(self.db)),
+            Some(impl_decl.expr_region(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,
         );
@@ -658,11 +658,11 @@ impl<'a> DeclParser<'a> {
         associated_item: AssociatedItem,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeMemoDecl> {
-        let Ok(impl_block_decl) = self.db.impl_block_decl(associated_item.impl_block(self.db))
+        let Ok(impl_decl) = self.db.impl_decl(associated_item.im(self.db))
             else { todo!() };
         let mut parser = self.expr_parser(
             DeclRegionPath::AssociatedItem(associated_item.id(self.db)),
-            Some(impl_block_decl.expr_region(self.db)),
+            Some(impl_decl.expr_region(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,
         );
@@ -698,15 +698,15 @@ impl<'a> DeclParser<'a> {
         associated_item: AssociatedItem,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeAsTraitMethodDecl> {
-        let Ok(impl_block_decl) = self.db.impl_block_decl(associated_item.impl_block(self.db))
+        let Ok(impl_decl) = self.db.impl_decl(associated_item.im(self.db))
             else {
                 return Err(
-                    DerivedDeclError::UnableToParseImplBlockDeclForTyAsTraitMethodDecl.into()
+                    DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl.into()
                 )
             };
         let mut parser = self.expr_parser(
             DeclRegionPath::AssociatedItem(associated_item.id(self.db)),
-            Some(impl_block_decl.expr_region(self.db)),
+            Some(impl_decl.expr_region(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,
         );

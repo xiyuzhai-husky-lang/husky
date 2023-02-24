@@ -36,7 +36,7 @@ pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + AstDb + EntityPathDb + Manife
         parent: EntityPath,
         identifier: Identifier,
     ) -> EntityTreeResult<EntityPath>;
-    fn impl_block_associated_items(&self, impl_block: ImplBlock) -> &IdentPairMap<AssociatedItem>;
+    fn impl_associated_items(&self, im: Impl) -> &IdentPairMap<AssociatedItem>;
 }
 
 impl<T> EntityTreeDb for T
@@ -96,7 +96,7 @@ where
         subentity_path(self, parent, identifier)
     }
 
-    fn impl_block_associated_items(&self, impl_block: ImplBlock) -> &IdentPairMap<AssociatedItem> {
-        impl_block_associated_items(self, impl_block)
+    fn impl_associated_items(&self, im: Impl) -> &IdentPairMap<AssociatedItem> {
+        impl_associated_items(self, im)
     }
 }

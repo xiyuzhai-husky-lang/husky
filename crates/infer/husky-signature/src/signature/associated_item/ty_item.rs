@@ -28,8 +28,8 @@ pub(crate) fn ty_associated_item_signature(
             .as_ref()
             .map(|s| (*s).into()),
         TypeItemDecl::Memo(decl) => ty_memo_signature(db, decl).as_ref().map(|s| (*s).into()),
-        // ImplBlockDecl::TypeImplBlock(decl) => ty_impl_block_signature(db, decl).into(),
-        // ImplBlockDecl::TypeAsTraitImplBlock(decl) => ty_as_trai_impl_block_signature(db, decl).into(),
+        // ImplDecl::TypeImpl(decl) => ty_im_signature(db, decl).into(),
+        // ImplDecl::TypeAsTraitImpl(decl) => ty_as_trai_im_signature(db, decl).into(),
         // TypeDecl::Union(decl) => union_ty_signature(db, decl).into(),
     }
 }

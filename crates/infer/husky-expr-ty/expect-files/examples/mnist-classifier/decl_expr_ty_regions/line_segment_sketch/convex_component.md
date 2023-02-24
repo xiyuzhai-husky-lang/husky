@@ -238,10 +238,10 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::ImplBlock(
-                ImplBlockId {
+            DeclRegionPath::Impl(
+                ImplId {
                     module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                    impl_block_kind: ImplBlockKind::Type {
+                    impl_kind: ImplKind::Type {
                         ty: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                     },
                     disambiguator: 0,

@@ -7,7 +7,7 @@ mod context;
 mod db;
 mod error;
 mod expr;
-mod impl_block;
+mod im;
 mod prelude;
 mod presheet;
 mod region_path;
@@ -26,7 +26,7 @@ pub use db::EntityTreeDb;
 pub use error::EntityTreeError;
 pub use error::*;
 pub use expr::*;
-pub use impl_block::*;
+pub use im::*;
 pub use prelude::*;
 pub use presheet::*;
 pub use region_path::*;
@@ -55,7 +55,7 @@ pub struct EntityTreeJar(
     SubmoduleSymbol,
     ModuleItemSymbol,
     UseSymbol,
-    ImplBlock,
+    Impl,
     AssociatedItem,
     entity_tree_presheet,
     entity_tree_crate_bundle,
@@ -63,7 +63,7 @@ pub struct EntityTreeJar(
     module_subentity_path,
     all_modules_within_crate,
     crate_specific_prelude,
-    ty_impl_blocks,
+    ty_impls,
     ty_associated_items,
-    impl_block_associated_items,
+    impl_associated_items,
 );
