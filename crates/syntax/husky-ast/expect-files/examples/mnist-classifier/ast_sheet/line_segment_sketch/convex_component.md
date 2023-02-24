@@ -6,8 +6,8 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
-                    error: Original(
-                        ExpectIdentifier(
+                    error: AstError::Original(
+                        OriginalAstError::ExpectIdentifier(
                             TokenIdx(
                                 26,
                             ),
@@ -18,8 +18,8 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
-                    error: Original(
-                        ExcessiveIndent,
+                    error: AstError::Original(
+                        OriginalAstError::ExcessiveIndent,
                     ),
                 },
                 Ast::Use {

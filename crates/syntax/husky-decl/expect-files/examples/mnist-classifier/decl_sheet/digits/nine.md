@@ -497,6 +497,9 @@ Ok(
                                             },
                                         ],
                                         commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
                                         rpar: RightParenthesisToken(
                                             TokenIdx(
                                                 279,
@@ -720,6 +723,9 @@ Ok(
                                             },
                                         ],
                                         commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
                                         rpar: RightParenthesisToken(
                                             TokenIdx(
                                                 308,

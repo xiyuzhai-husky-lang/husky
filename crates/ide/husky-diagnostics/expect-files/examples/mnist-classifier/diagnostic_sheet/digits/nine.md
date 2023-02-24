@@ -1,15 +1,12 @@
 DiagnosticSheet {
     [salsa id]: 24,
+    entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
+        diagnostics: [],
+    },
     token_diagnostic_sheet: TokenDiagnosticSheet {
         diagnostics: [],
     },
     ast_diagnostic_sheet: AstDiagnosticSheet {
-        diagnostics: [],
-    },
-    decl_diagnostic_sheet: DeclDiagnosticSheet {
-        diagnostics: [],
-    },
-    defn_diagnostic_sheet: DefnDiagnosticSheet {
         diagnostics: [],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
@@ -60,6 +57,12 @@ DiagnosticSheet {
                 range: [58:17, 58:21),
             },
         ],
+    },
+    decl_diagnostic_sheet: DeclDiagnosticSheet {
+        diagnostics: [],
+    },
+    defn_diagnostic_sheet: DefnDiagnosticSheet {
+        diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
@@ -119,8 +122,5 @@ DiagnosticSheet {
                 range: [71:5, 71:7),
             },
         ],
-    },
-    entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
-        diagnostics: [],
     },
 }

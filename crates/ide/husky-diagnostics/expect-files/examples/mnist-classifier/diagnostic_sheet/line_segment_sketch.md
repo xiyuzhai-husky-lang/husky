@@ -1,5 +1,8 @@
 DiagnosticSheet {
     [salsa id]: 38,
+    entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
+        diagnostics: [],
+    },
     token_diagnostic_sheet: TokenDiagnosticSheet {
         diagnostics: [],
     },
@@ -47,18 +50,6 @@ DiagnosticSheet {
             },
         ],
     },
-    decl_diagnostic_sheet: DeclDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: expect `}`",
-                severity: Error,
-                range: [16:20, 16:22),
-            },
-        ],
-    },
-    defn_diagnostic_sheet: DefnDiagnosticSheet {
-        diagnostics: [],
-    },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [
             Diagnostic {
@@ -97,6 +88,18 @@ DiagnosticSheet {
                 range: [195:53, 195:56),
             },
         ],
+    },
+    decl_diagnostic_sheet: DeclDiagnosticSheet {
+        diagnostics: [
+            Diagnostic {
+                message: "Syntax Error: expect `}`",
+                severity: Error,
+                range: [16:20, 16:22),
+            },
+        ],
+    },
+    defn_diagnostic_sheet: DefnDiagnosticSheet {
+        diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
@@ -401,8 +404,5 @@ DiagnosticSheet {
                 range: [58:31, 58:56),
             },
         ],
-    },
-    entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
-        diagnostics: [],
     },
 }

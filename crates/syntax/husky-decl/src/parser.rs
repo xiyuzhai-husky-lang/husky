@@ -283,7 +283,7 @@ impl<'a> DeclParser<'a> {
         );
         let implicit_parameters = ctx.parse();
         if let Some(lcurl) = ctx.parse::<LeftCurlyBraceToken>()? {
-            let  fields = parse_separated_list(&mut ctx) ;
+            let field_comma_list = parse_separated_list(&mut ctx) ;
             let rcurl= ctx.parse_expected(OriginalDeclExprError::ExpectRightCurlyBrace) ;
             Ok(RegularStructTypeDecl::new(
                 self.db,
@@ -292,7 +292,7 @@ impl<'a> DeclParser<'a> {
                 parser.finish(),
                 implicit_parameters,
                 lcurl,
-                fields, 
+                field_comma_list, 
                 rcurl,
             )
             .into())

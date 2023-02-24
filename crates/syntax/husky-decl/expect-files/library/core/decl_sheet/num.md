@@ -1170,6 +1170,9 @@ Ok(
                                             ),
                                             parameters: [],
                                             commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
                                                     37,
@@ -1600,6 +1603,9 @@ Ok(
                                             ),
                                             parameters: [],
                                             commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
                                                     89,
@@ -2030,6 +2036,9 @@ Ok(
                                             ),
                                             parameters: [],
                                             commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
                                                     141,
@@ -2460,6 +2469,9 @@ Ok(
                                             ),
                                             parameters: [],
                                             commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
                                                     192,
@@ -2890,6 +2902,9 @@ Ok(
                                             ),
                                             parameters: [],
                                             commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
                                                     244,
@@ -3320,6 +3335,9 @@ Ok(
                                             ),
                                             parameters: [],
                                             commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
                                                     296,
@@ -3750,6 +3768,9 @@ Ok(
                                             ),
                                             parameters: [],
                                             commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
                                                     348,
@@ -4180,6 +4201,9 @@ Ok(
                                             ),
                                             parameters: [],
                                             commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
                                                     400,
@@ -4610,6 +4634,9 @@ Ok(
                                             ),
                                             parameters: [],
                                             commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
                                                     452,
@@ -5040,6 +5067,9 @@ Ok(
                                             ),
                                             parameters: [],
                                             commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
                                                     504,
@@ -5470,6 +5500,9 @@ Ok(
                                             ),
                                             parameters: [],
                                             commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
                                                     556,
@@ -5900,6 +5933,9 @@ Ok(
                                             ),
                                             parameters: [],
                                             commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
                                                     607,

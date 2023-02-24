@@ -7,6 +7,7 @@ use thiserror::Error;
 use crate::{AstDb, AstIdx};
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
+#[salsa::derive_debug_with_db(db = AstDb)]
 pub enum AstError {
     #[error("{0}")]
     Original(#[from] OriginalAstError),
@@ -15,6 +16,7 @@ pub enum AstError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
+#[salsa::derive_debug_with_db(db = AstDb)]
 pub enum OriginalAstError {
     #[error("excessive indent")]
     ExcessiveIndent,
@@ -61,31 +63,10 @@ impl From<TokenError> for AstError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
+#[salsa::derive_debug_with_db(db = AstDb)]
 pub enum DerivedAstError {
     #[error("{0}")]
     Token(#[from] TokenError),
-}
-
-impl salsa::DebugWithDb<dyn AstDb + '_> for AstError {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &dyn AstDb,
-        level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        <Self as std::fmt::Debug>::fmt(self, f)
-    }
-}
-
-impl<Db: AstDb> salsa::DebugWithDb<Db> for AstError {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        self.fmt(f, db as &dyn AstDb, level)
-    }
 }
 
 impl From<&AstError> for AstError {

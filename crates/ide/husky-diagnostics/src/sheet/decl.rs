@@ -82,6 +82,7 @@ impl Diagnose for OriginalDeclExprError {
                 format!("Syntax Error: expect `>` for implicit parameter decl list",)
             }
             OriginalDeclExprError::ExpectParameterDeclList(_) => todo!(),
+            OriginalDeclExprError::ExpectImplicitParameterDecl(_) => todo!(),
         }
     }
 
@@ -101,6 +102,7 @@ impl Diagnose for OriginalDeclExprError {
                 ..
             } => ctx.ranged_token_sheet().token_text_range(*token_idx),
             OriginalDeclExprError::ExpectParameterDeclList(_) => todo!(),
+            OriginalDeclExprError::ExpectImplicitParameterDecl(_) => todo!(),
         }
     }
 }
@@ -130,7 +132,7 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
     fn visit_regular_struct_decl(&mut self, decl: RegularStructTypeDecl) {
         if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
             self.visit_atom(e)
-        } else if let Err(ExprError::Original(e)) = decl.field_comma_list(self.db()) {
+        } else if let Err(ExprError::Original(e)) = decl.fields(self.db()) {
             self.visit_atom(e)
         } else if let Err(DeclExprError::Original(e)) = decl.rcurl(self.db()) {
             self.visit_atom(e)

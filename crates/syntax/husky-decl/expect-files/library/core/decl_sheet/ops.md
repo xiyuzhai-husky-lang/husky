@@ -111,6 +111,9 @@ Ok(
                                             },
                                         ],
                                         commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
                                         rangle: RightAngleBracketToken(
                                             TokenIdx(
                                                 12,
@@ -233,6 +236,9 @@ Ok(
                                             },
                                         ],
                                         commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
                                         rangle: RightAngleBracketToken(
                                             TokenIdx(
                                                 41,
@@ -355,6 +361,9 @@ Ok(
                                             },
                                         ],
                                         commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
                                         rangle: RightAngleBracketToken(
                                             TokenIdx(
                                                 70,
@@ -477,6 +486,9 @@ Ok(
                                             },
                                         ],
                                         commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
                                         rangle: RightAngleBracketToken(
                                             TokenIdx(
                                                 99,
@@ -599,6 +611,9 @@ Ok(
                                             },
                                         ],
                                         commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
                                         rangle: RightAngleBracketToken(
                                             TokenIdx(
                                                 124,
@@ -721,6 +736,9 @@ Ok(
                                             },
                                         ],
                                         commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
                                         rangle: RightAngleBracketToken(
                                             TokenIdx(
                                                 153,
@@ -843,6 +861,9 @@ Ok(
                                             },
                                         ],
                                         commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
                                         rangle: RightAngleBracketToken(
                                             TokenIdx(
                                                 178,
@@ -965,6 +986,9 @@ Ok(
                                             },
                                         ],
                                         commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
                                         rangle: RightAngleBracketToken(
                                             TokenIdx(
                                                 207,
@@ -1087,6 +1111,9 @@ Ok(
                                             },
                                         ],
                                         commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
                                         rangle: RightAngleBracketToken(
                                             TokenIdx(
                                                 232,
@@ -1209,6 +1236,9 @@ Ok(
                                             },
                                         ],
                                         commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
                                         rangle: RightAngleBracketToken(
                                             TokenIdx(
                                                 261,
@@ -1331,6 +1361,9 @@ Ok(
                                             },
                                         ],
                                         commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
                                         rangle: RightAngleBracketToken(
                                             TokenIdx(
                                                 286,
@@ -1453,6 +1486,9 @@ Ok(
                                             },
                                         ],
                                         commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
                                         rangle: RightAngleBracketToken(
                                             TokenIdx(
                                                 315,
@@ -1705,6 +1741,9 @@ Ok(
                                             },
                                         ],
                                         commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
                                         rangle: RightAngleBracketToken(
                                             TokenIdx(
                                                 388,

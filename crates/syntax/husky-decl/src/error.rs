@@ -88,6 +88,7 @@ impl<Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for DeclError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = DeclDb)]
 pub enum DeclExprError {
     #[error("{0}")]
     Original(#[from] OriginalDeclExprError),
@@ -114,6 +115,7 @@ impl From<ExprError> for DeclExprError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = DeclDb)]
 pub enum OriginalDeclExprError {
     #[error("derived {0}")]
     Expr(#[from] OriginalExprError),
@@ -132,6 +134,8 @@ pub enum OriginalDeclExprError {
     },
     #[error("expect parameter declaration list")]
     ExpectParameterDeclList(TokenIdx),
+    #[error("expect implicit parameter declaration")]
+    ExpectImplicitParameterDecl(TokenIdx),
 }
 
 impl OriginalError for OriginalDeclExprError {
@@ -139,6 +143,7 @@ impl OriginalError for OriginalDeclExprError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = DeclDb)]
 pub enum DerivedDeclExprError {
     #[error("{0}")]
     ExprError(#[from] DerivedExprError),

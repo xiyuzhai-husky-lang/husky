@@ -105,16 +105,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
-                    error: Original(
-                        UnexpectedStmtInsideModule,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
-                    error: Original(
-                        UnexpectedStmtInsideModule,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
             ],

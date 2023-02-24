@@ -1,11 +1,12 @@
 use husky_opn_syntax::Bracket;
 use husky_print_utils::p;
 use husky_token::*;
-use parsec::{parse_separated_list, ParseContext, ParseFrom};
+use parsec::{parse_separated_list, parse_separated_list_expected, ParseContext, ParseFrom};
 
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = DeclDb)]
 pub struct ImplicitParameterDecl {
     pattern: ImplicitParameterDeclPattern,
     traits: Option<(ColonToken, Option<ExprIdx>)>,
@@ -22,11 +23,11 @@ impl ImplicitParameterDecl {
 }
 
 impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDecl {
-    type Error = ExprError;
+    type Error = DeclExprError;
 
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> ExprResult<Option<Self>> {
+    ) -> DeclExprResult<Option<Self>> {
         let Some(pattern) = ctx.parse::<ImplicitParameterDeclPattern>()? else {
             return Ok(None)
         };
@@ -50,6 +51,7 @@ pub struct ImplicitParameterDeclList {
     langle: LeftAngleBracketOrLessThanToken,
     implicit_parameters: Vec<ImplicitParameterDecl>,
     commas: Vec<CommaToken>,
+    decl_list_result: Result<(), DeclExprError>,
     rangle: RightAngleBracketToken,
 }
 
@@ -88,11 +90,16 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDeclList {
         let Some(langle) = ctx.parse::< LeftAngleBracketOrLessThanToken>()? else {
             return Ok(None)
         };
-        let (decls, commas) = parse_separated_list(ctx)?;
+        let (decls, commas, decl_list_result) = parse_separated_list_expected(
+            ctx,
+            1,
+            OriginalDeclExprError::ExpectImplicitParameterDecl,
+        );
         Ok(Some(Self {
             langle,
             implicit_parameters: decls,
             commas,
+            decl_list_result,
             rangle: ctx.parse_expected(|current_token_idx| {
                 OriginalDeclExprError::ExpectRightAngleBracketForImplicitParameterDeclList {
                     langle_token_idx: langle.token_idx(),
@@ -108,6 +115,7 @@ pub struct ParameterDeclList {
     lpar: LeftParenthesisToken,
     parameters: Vec<RegularParameterDeclPattern>,
     commas: Vec<CommaToken>,
+    decl_list_result: Result<(), ExprError>,
     rpar: RightParenthesisToken,
 }
 
@@ -126,12 +134,13 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ParameterDeclList {
         let Some(lpar) = ctx.parse::<LeftParenthesisToken>()? else {
             return Ok(None)
         };
-        let (parameters, commas) = parse_separated_list(ctx)?;
+        let (parameters, commas, decl_list_result) = parse_separated_list(ctx);
         let rpar = ctx.parse_expected(OriginalExprError::ExpectRightParenthesis)?;
         Ok(Some(Self {
             lpar,
             parameters,
             commas,
+            decl_list_result,
             rpar,
         }))
     }
