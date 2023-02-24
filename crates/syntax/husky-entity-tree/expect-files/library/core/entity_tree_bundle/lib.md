@@ -453,7 +453,7 @@ Ok(
                                         TypePath(`core::num::i8`, `Alien`),
                                     ),
                                     accessibility: Accessibility::Public,
-                                    ast_idx: 18,
+                                    ast_idx: 19,
                                 },
                             ),
                         },
@@ -469,7 +469,7 @@ Ok(
                                         TypePath(`core::num::i16`, `Alien`),
                                     ),
                                     accessibility: Accessibility::Public,
-                                    ast_idx: 23,
+                                    ast_idx: 24,
                                 },
                             ),
                         },
@@ -485,7 +485,7 @@ Ok(
                                         TypePath(`core::num::i32`, `Alien`),
                                     ),
                                     accessibility: Accessibility::Public,
-                                    ast_idx: 28,
+                                    ast_idx: 29,
                                 },
                             ),
                         },
@@ -501,7 +501,7 @@ Ok(
                                         TypePath(`core::num::i64`, `Alien`),
                                     ),
                                     accessibility: Accessibility::Public,
-                                    ast_idx: 33,
+                                    ast_idx: 34,
                                 },
                             ),
                         },
@@ -517,7 +517,7 @@ Ok(
                                         TypePath(`core::num::f8`, `Alien`),
                                     ),
                                     accessibility: Accessibility::Public,
-                                    ast_idx: 38,
+                                    ast_idx: 39,
                                 },
                             ),
                         },
@@ -533,7 +533,7 @@ Ok(
                                         TypePath(`core::num::f16`, `Alien`),
                                     ),
                                     accessibility: Accessibility::Public,
-                                    ast_idx: 43,
+                                    ast_idx: 44,
                                 },
                             ),
                         },
@@ -549,7 +549,7 @@ Ok(
                                         TypePath(`core::num::f32`, `Alien`),
                                     ),
                                     accessibility: Accessibility::Public,
-                                    ast_idx: 48,
+                                    ast_idx: 49,
                                 },
                             ),
                         },
@@ -565,7 +565,7 @@ Ok(
                                         TypePath(`core::num::f64`, `Alien`),
                                     ),
                                     accessibility: Accessibility::Public,
-                                    ast_idx: 53,
+                                    ast_idx: 54,
                                 },
                             ),
                         },
@@ -580,7 +580,7 @@ Ok(
                             },
                             disambiguator: 0,
                         },
-                        ast_idx: 19,
+                        ast_idx: 20,
                         body: ArenaIdxRange(
                             0..1,
                         ),
@@ -594,7 +594,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Err,
                             disambiguator: 0,
                         },
-                        ast_idx: 20,
+                        ast_idx: 21,
                         body: ArenaIdxRange(
                             1..2,
                         ),
@@ -606,12 +606,12 @@ Ok(
                                             ident: Identifier(
                                                 Word(
                                                     Id {
-                                                        value: 40,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
                                             token_idx: TokenIdx(
-                                                36,
+                                                42,
                                             ),
                                         },
                                     ),
@@ -627,7 +627,7 @@ Ok(
                             },
                             disambiguator: 0,
                         },
-                        ast_idx: 24,
+                        ast_idx: 25,
                         body: ArenaIdxRange(
                             2..3,
                         ),
@@ -641,7 +641,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Err,
                             disambiguator: 1,
                         },
-                        ast_idx: 25,
+                        ast_idx: 26,
                         body: ArenaIdxRange(
                             3..4,
                         ),
@@ -653,7 +653,7 @@ Ok(
                                             ident: Identifier(
                                                 Word(
                                                     Id {
-                                                        value: 40,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
@@ -674,7 +674,7 @@ Ok(
                             },
                             disambiguator: 0,
                         },
-                        ast_idx: 29,
+                        ast_idx: 30,
                         body: ArenaIdxRange(
                             4..5,
                         ),
@@ -688,7 +688,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Err,
                             disambiguator: 2,
                         },
-                        ast_idx: 30,
+                        ast_idx: 31,
                         body: ArenaIdxRange(
                             5..6,
                         ),
@@ -700,12 +700,12 @@ Ok(
                                             ident: Identifier(
                                                 Word(
                                                     Id {
-                                                        value: 40,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
                                             token_idx: TokenIdx(
-                                                152,
+                                                146,
                                             ),
                                         },
                                     ),
@@ -721,7 +721,7 @@ Ok(
                             },
                             disambiguator: 0,
                         },
-                        ast_idx: 34,
+                        ast_idx: 35,
                         body: ArenaIdxRange(
                             6..7,
                         ),
@@ -735,7 +735,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Err,
                             disambiguator: 3,
                         },
-                        ast_idx: 35,
+                        ast_idx: 36,
                         body: ArenaIdxRange(
                             7..8,
                         ),
@@ -747,12 +747,12 @@ Ok(
                                             ident: Identifier(
                                                 Word(
                                                     Id {
-                                                        value: 40,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
                                             token_idx: TokenIdx(
-                                                209,
+                                                197,
                                             ),
                                         },
                                     ),
@@ -768,7 +768,7 @@ Ok(
                             },
                             disambiguator: 0,
                         },
-                        ast_idx: 39,
+                        ast_idx: 40,
                         body: ArenaIdxRange(
                             8..9,
                         ),
@@ -782,7 +782,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Err,
                             disambiguator: 4,
                         },
-                        ast_idx: 40,
+                        ast_idx: 41,
                         body: ArenaIdxRange(
                             9..10,
                         ),
@@ -794,12 +794,12 @@ Ok(
                                             ident: Identifier(
                                                 Word(
                                                     Id {
-                                                        value: 40,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
                                             token_idx: TokenIdx(
-                                                267,
+                                                249,
                                             ),
                                         },
                                     ),
@@ -815,7 +815,7 @@ Ok(
                             },
                             disambiguator: 0,
                         },
-                        ast_idx: 44,
+                        ast_idx: 45,
                         body: ArenaIdxRange(
                             10..11,
                         ),
@@ -829,7 +829,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Err,
                             disambiguator: 5,
                         },
-                        ast_idx: 45,
+                        ast_idx: 46,
                         body: ArenaIdxRange(
                             11..12,
                         ),
@@ -841,12 +841,12 @@ Ok(
                                             ident: Identifier(
                                                 Word(
                                                     Id {
-                                                        value: 40,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
                                             token_idx: TokenIdx(
-                                                325,
+                                                301,
                                             ),
                                         },
                                     ),
@@ -862,7 +862,7 @@ Ok(
                             },
                             disambiguator: 0,
                         },
-                        ast_idx: 49,
+                        ast_idx: 50,
                         body: ArenaIdxRange(
                             12..13,
                         ),
@@ -876,7 +876,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Err,
                             disambiguator: 6,
                         },
-                        ast_idx: 50,
+                        ast_idx: 51,
                         body: ArenaIdxRange(
                             13..14,
                         ),
@@ -888,12 +888,12 @@ Ok(
                                             ident: Identifier(
                                                 Word(
                                                     Id {
-                                                        value: 40,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
                                             token_idx: TokenIdx(
-                                                383,
+                                                353,
                                             ),
                                         },
                                     ),
@@ -909,7 +909,7 @@ Ok(
                             },
                             disambiguator: 0,
                         },
-                        ast_idx: 54,
+                        ast_idx: 55,
                         body: ArenaIdxRange(
                             14..15,
                         ),
@@ -923,7 +923,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Err,
                             disambiguator: 7,
                         },
-                        ast_idx: 55,
+                        ast_idx: 56,
                         body: ArenaIdxRange(
                             15..16,
                         ),
@@ -935,12 +935,12 @@ Ok(
                                             ident: Identifier(
                                                 Word(
                                                     Id {
-                                                        value: 40,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
                                             token_idx: TokenIdx(
-                                                440,
+                                                404,
                                             ),
                                         },
                                     ),
@@ -950,12 +950,58 @@ Ok(
                     },
                 ],
                 use_expr_rules: UseExprRules(
-                    [],
+                    [
+                        UseExprRule {
+                            ast_idx: 16,
+                            use_expr_idx: 2,
+                            accessibility: AccessibilityProgress::Done {
+                                accessibility: Accessibility::PublicUnder(
+                                    `core::num`,
+                                ),
+                            },
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: Identifier(
+                                    IdentifierToken {
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 31,
+                                                },
+                                            ),
+                                        ),
+                                        token_idx: TokenIdx(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    1..2,
+                                ),
+                            },
+                            parent: None,
+                            state: UseExprRuleState::Erroneous,
+                        },
+                    ],
                 ),
                 use_all_rules: UseAllRules(
                     [],
                 ),
-                errors: [],
+                errors: [
+                    UnresolvedIdentifier(
+                        IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 31,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                1,
+                            ),
+                        },
+                    ),
+                ],
             },
             EntityTreeSheet {
                 module_path: `core::ops`,
@@ -1376,7 +1422,7 @@ Ok(
                                                 TypePath(`core::num::i8`, `Alien`),
                                             ),
                                             accessibility: Accessibility::Public,
-                                            ast_idx: 18,
+                                            ast_idx: 19,
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -1405,7 +1451,7 @@ Ok(
                                                 TypePath(`core::num::i16`, `Alien`),
                                             ),
                                             accessibility: Accessibility::Public,
-                                            ast_idx: 23,
+                                            ast_idx: 24,
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -1434,7 +1480,7 @@ Ok(
                                                 TypePath(`core::num::i32`, `Alien`),
                                             ),
                                             accessibility: Accessibility::Public,
-                                            ast_idx: 28,
+                                            ast_idx: 29,
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -1463,7 +1509,7 @@ Ok(
                                                 TypePath(`core::num::i64`, `Alien`),
                                             ),
                                             accessibility: Accessibility::Public,
-                                            ast_idx: 33,
+                                            ast_idx: 34,
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -1492,7 +1538,7 @@ Ok(
                                                 TypePath(`core::num::f8`, `Alien`),
                                             ),
                                             accessibility: Accessibility::Public,
-                                            ast_idx: 38,
+                                            ast_idx: 39,
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -1521,7 +1567,7 @@ Ok(
                                                 TypePath(`core::num::f16`, `Alien`),
                                             ),
                                             accessibility: Accessibility::Public,
-                                            ast_idx: 43,
+                                            ast_idx: 44,
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -1550,7 +1596,7 @@ Ok(
                                                 TypePath(`core::num::f32`, `Alien`),
                                             ),
                                             accessibility: Accessibility::Public,
-                                            ast_idx: 48,
+                                            ast_idx: 49,
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -1579,7 +1625,7 @@ Ok(
                                                 TypePath(`core::num::f64`, `Alien`),
                                             ),
                                             accessibility: Accessibility::Public,
-                                            ast_idx: 53,
+                                            ast_idx: 54,
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2818,12 +2864,12 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 32,
+                                    value: 34,
                                 },
                             ),
                         ),
                         token_idx: TokenIdx(
-                            25,
+                            31,
                         ),
                     },
                     entity_path: ModuleItem(
@@ -2869,7 +2915,7 @@ Ok(
                             ),
                         ),
                         token_idx: TokenIdx(
-                            141,
+                            135,
                         ),
                     },
                     entity_path: ModuleItem(
@@ -2892,7 +2938,7 @@ Ok(
                             ),
                         ),
                         token_idx: TokenIdx(
-                            198,
+                            186,
                         ),
                     },
                     entity_path: ModuleItem(
@@ -2915,7 +2961,7 @@ Ok(
                             ),
                         ),
                         token_idx: TokenIdx(
-                            256,
+                            238,
                         ),
                     },
                     entity_path: ModuleItem(
@@ -2938,7 +2984,7 @@ Ok(
                             ),
                         ),
                         token_idx: TokenIdx(
-                            314,
+                            290,
                         ),
                     },
                     entity_path: ModuleItem(
@@ -2961,7 +3007,7 @@ Ok(
                             ),
                         ),
                         token_idx: TokenIdx(
-                            372,
+                            342,
                         ),
                     },
                     entity_path: ModuleItem(
@@ -2984,7 +3030,7 @@ Ok(
                             ),
                         ),
                         token_idx: TokenIdx(
-                            429,
+                            393,
                         ),
                     },
                     entity_path: ModuleItem(

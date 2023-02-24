@@ -1,3 +1,5 @@
+use core::ops::Add
+
 #[rust(i8)]
 @derive(Debug, PartialEq, Eq, Clone, Copy)
 pub type i8;
@@ -5,7 +7,7 @@ pub type i8;
 impl i8:
     pub fn abs() -> i8;
 
-impl core::ops::Add<i8> for i8:
+impl Add i8 for i8:
     pub fn add(other: i8) -> i8;
 
 #[rust(i16)]
@@ -15,7 +17,7 @@ pub type i16;
 impl i16:
     pub fn abs() -> i16;
 
-impl core::ops::Add<i32> for i16:
+impl Add i32 for i16:
     pub fn add(other: i32) -> i16;
 
 #[rust(i32)]
@@ -25,7 +27,7 @@ pub type i32;
 impl i32:
     pub fn abs() -> i32;
 
-impl core::ops::Add<i32> for i32:
+impl Add i32 for i32:
     fn add(other: i32) -> i32;
 
 #[rust(i64)]
@@ -35,7 +37,7 @@ pub type i64;
 impl i64:
     pub fn abs() -> i64;
 
-impl core::ops::Add<i64> for i64:
+impl Add i64 for i64:
     pub fn add(other: i64) -> i64;
 
 #[rust(f8)]
@@ -45,7 +47,7 @@ pub type f8;
 impl f8:
     pub fn abs() -> f8;
 
-impl core::ops::Add<f8> for f8:
+impl Add f8 for f8:
     pub fn add(other: f8) -> f8;
 
 #[rust(f16)]
@@ -55,7 +57,7 @@ pub type f16;
 impl f16:
     pub fn abs() -> f16;
 
-impl core::ops::Add<f32> for f16:
+impl Add f32 for f16:
     pub fn add(other: f32) -> f16;
 
 #[rust(f32)]
@@ -65,7 +67,7 @@ pub type f32;
 impl f32:
     pub fn abs() -> f32;
 
-impl core::ops::Add<f32> for f32:
+impl Add f32 for f32:
     fn add(other: f32) -> f32;
 
 #[rust(f64)]
@@ -75,5 +77,5 @@ pub type f64;
 impl f64:
     pub fn abs() -> f64;
 
-impl core::ops::Add<f64> for f64:
+impl Add f64 for f64:
     pub fn add(other: f64) -> f64;
