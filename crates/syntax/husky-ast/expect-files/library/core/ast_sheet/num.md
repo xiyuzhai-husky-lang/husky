@@ -4,7 +4,7 @@ Ok(
             data: [
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        4,
+                        5,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -19,18 +19,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `abs`,
                         token_idx: TokenIdx(
-                            29,
+                            35,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        30,
+                        36,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        6,
+                        7,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -56,7 +56,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        11,
+                        12,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -82,7 +82,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        13,
+                        14,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -97,18 +97,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `add`,
                         token_idx: TokenIdx(
-                            107,
+                            101,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        108,
+                        102,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        18,
+                        19,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -123,18 +123,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `abs`,
                         token_idx: TokenIdx(
-                            145,
+                            139,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        146,
+                        140,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        20,
+                        21,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -151,18 +151,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `add`,
                         token_idx: TokenIdx(
-                            164,
+                            152,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        165,
+                        153,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        25,
+                        26,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -177,18 +177,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `abs`,
                         token_idx: TokenIdx(
-                            202,
+                            190,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        203,
+                        191,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        27,
+                        28,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -203,18 +203,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `add`,
                         token_idx: TokenIdx(
-                            222,
+                            204,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        223,
+                        205,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        32,
+                        33,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -229,18 +229,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `abs`,
                         token_idx: TokenIdx(
-                            260,
+                            242,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        261,
+                        243,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        34,
+                        35,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -255,18 +255,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `add`,
                         token_idx: TokenIdx(
-                            280,
+                            256,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        281,
+                        257,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        39,
+                        40,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -281,18 +281,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `abs`,
                         token_idx: TokenIdx(
-                            318,
+                            294,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        319,
+                        295,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        41,
+                        42,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -307,18 +307,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `add`,
                         token_idx: TokenIdx(
-                            338,
+                            308,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        339,
+                        309,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        46,
+                        47,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -333,18 +333,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `abs`,
                         token_idx: TokenIdx(
-                            376,
+                            346,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        377,
+                        347,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        48,
+                        49,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -361,18 +361,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `add`,
                         token_idx: TokenIdx(
-                            395,
+                            359,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        396,
+                        360,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        53,
+                        54,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -387,18 +387,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `abs`,
                         token_idx: TokenIdx(
-                            433,
+                            397,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        434,
+                        398,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        55,
+                        56,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -413,23 +413,28 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `add`,
                         token_idx: TokenIdx(
-                            453,
+                            411,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        454,
+                        412,
                     ),
                 },
-                Ast::Decor {
+                Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
                 },
-                Ast::Err {
+                Ast::Decor {
                     token_group_idx: TokenGroupIdx(
                         1,
+                    ),
+                },
+                Ast::Err {
+                    token_group_idx: TokenGroupIdx(
+                        2,
                     ),
                     error: Original(
                         UnexpectedStmtInsideModule,
@@ -437,7 +442,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        2,
+                        3,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -459,18 +464,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `i8`,
                         token_idx: TokenIdx(
-                            22,
+                            28,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        23,
+                        29,
                     ),
                 },
                 Ast::Impl {
                     token_group_idx: TokenGroupIdx(
-                        3,
+                        4,
                     ),
                     body: ArenaIdxRange(
                         0..1,
@@ -478,7 +483,7 @@ Ok(
                 },
                 Ast::Impl {
                     token_group_idx: TokenGroupIdx(
-                        5,
+                        6,
                     ),
                     body: ArenaIdxRange(
                         1..2,
@@ -486,12 +491,12 @@ Ok(
                 },
                 Ast::Decor {
                     token_group_idx: TokenGroupIdx(
-                        7,
+                        8,
                     ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
-                        8,
+                        9,
                     ),
                     error: Original(
                         UnexpectedStmtInsideModule,
@@ -499,7 +504,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        9,
+                        10,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -532,7 +537,7 @@ Ok(
                 },
                 Ast::Impl {
                     token_group_idx: TokenGroupIdx(
-                        10,
+                        11,
                     ),
                     body: ArenaIdxRange(
                         2..3,
@@ -540,7 +545,7 @@ Ok(
                 },
                 Ast::Impl {
                     token_group_idx: TokenGroupIdx(
-                        12,
+                        13,
                     ),
                     body: ArenaIdxRange(
                         3..4,
@@ -548,12 +553,12 @@ Ok(
                 },
                 Ast::Decor {
                     token_group_idx: TokenGroupIdx(
-                        14,
+                        15,
                     ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
-                        15,
+                        16,
                     ),
                     error: Original(
                         UnexpectedStmtInsideModule,
@@ -561,7 +566,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        16,
+                        17,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -583,18 +588,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `i32`,
                         token_idx: TokenIdx(
-                            138,
+                            132,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        139,
+                        133,
                     ),
                 },
                 Ast::Impl {
                     token_group_idx: TokenGroupIdx(
-                        17,
+                        18,
                     ),
                     body: ArenaIdxRange(
                         4..5,
@@ -602,7 +607,7 @@ Ok(
                 },
                 Ast::Impl {
                     token_group_idx: TokenGroupIdx(
-                        19,
+                        20,
                     ),
                     body: ArenaIdxRange(
                         5..6,
@@ -610,12 +615,12 @@ Ok(
                 },
                 Ast::Decor {
                     token_group_idx: TokenGroupIdx(
-                        21,
+                        22,
                     ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
-                        22,
+                        23,
                     ),
                     error: Original(
                         UnexpectedStmtInsideModule,
@@ -623,7 +628,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        23,
+                        24,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -645,18 +650,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `i64`,
                         token_idx: TokenIdx(
-                            195,
+                            183,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        196,
+                        184,
                     ),
                 },
                 Ast::Impl {
                     token_group_idx: TokenGroupIdx(
-                        24,
+                        25,
                     ),
                     body: ArenaIdxRange(
                         6..7,
@@ -664,7 +669,7 @@ Ok(
                 },
                 Ast::Impl {
                     token_group_idx: TokenGroupIdx(
-                        26,
+                        27,
                     ),
                     body: ArenaIdxRange(
                         7..8,
@@ -672,12 +677,12 @@ Ok(
                 },
                 Ast::Decor {
                     token_group_idx: TokenGroupIdx(
-                        28,
+                        29,
                     ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
-                        29,
+                        30,
                     ),
                     error: Original(
                         UnexpectedStmtInsideModule,
@@ -685,7 +690,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        30,
+                        31,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -707,18 +712,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `f8`,
                         token_idx: TokenIdx(
-                            253,
+                            235,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        254,
+                        236,
                     ),
                 },
                 Ast::Impl {
                     token_group_idx: TokenGroupIdx(
-                        31,
+                        32,
                     ),
                     body: ArenaIdxRange(
                         8..9,
@@ -726,7 +731,7 @@ Ok(
                 },
                 Ast::Impl {
                     token_group_idx: TokenGroupIdx(
-                        33,
+                        34,
                     ),
                     body: ArenaIdxRange(
                         9..10,
@@ -734,12 +739,12 @@ Ok(
                 },
                 Ast::Decor {
                     token_group_idx: TokenGroupIdx(
-                        35,
+                        36,
                     ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
-                        36,
+                        37,
                     ),
                     error: Original(
                         UnexpectedStmtInsideModule,
@@ -747,7 +752,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        37,
+                        38,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -769,18 +774,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `f16`,
                         token_idx: TokenIdx(
-                            311,
+                            287,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        312,
+                        288,
                     ),
                 },
                 Ast::Impl {
                     token_group_idx: TokenGroupIdx(
-                        38,
+                        39,
                     ),
                     body: ArenaIdxRange(
                         10..11,
@@ -788,7 +793,7 @@ Ok(
                 },
                 Ast::Impl {
                     token_group_idx: TokenGroupIdx(
-                        40,
+                        41,
                     ),
                     body: ArenaIdxRange(
                         11..12,
@@ -796,12 +801,12 @@ Ok(
                 },
                 Ast::Decor {
                     token_group_idx: TokenGroupIdx(
-                        42,
+                        43,
                     ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
-                        43,
+                        44,
                     ),
                     error: Original(
                         UnexpectedStmtInsideModule,
@@ -809,7 +814,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        44,
+                        45,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -831,18 +836,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `f32`,
                         token_idx: TokenIdx(
-                            369,
+                            339,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        370,
+                        340,
                     ),
                 },
                 Ast::Impl {
                     token_group_idx: TokenGroupIdx(
-                        45,
+                        46,
                     ),
                     body: ArenaIdxRange(
                         12..13,
@@ -850,7 +855,7 @@ Ok(
                 },
                 Ast::Impl {
                     token_group_idx: TokenGroupIdx(
-                        47,
+                        48,
                     ),
                     body: ArenaIdxRange(
                         13..14,
@@ -858,12 +863,12 @@ Ok(
                 },
                 Ast::Decor {
                     token_group_idx: TokenGroupIdx(
-                        49,
+                        50,
                     ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
-                        50,
+                        51,
                     ),
                     error: Original(
                         UnexpectedStmtInsideModule,
@@ -871,7 +876,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        51,
+                        52,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -893,18 +898,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `f64`,
                         token_idx: TokenIdx(
-                            426,
+                            390,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        427,
+                        391,
                     ),
                 },
                 Ast::Impl {
                     token_group_idx: TokenGroupIdx(
-                        52,
+                        53,
                     ),
                     body: ArenaIdxRange(
                         14..15,
@@ -912,7 +917,7 @@ Ok(
                 },
                 Ast::Impl {
                     token_group_idx: TokenGroupIdx(
-                        54,
+                        55,
                     ),
                     body: ArenaIdxRange(
                         15..16,
@@ -921,7 +926,7 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            16..56,
+            16..57,
         ),
     },
 )

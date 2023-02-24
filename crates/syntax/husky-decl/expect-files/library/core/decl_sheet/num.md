@@ -14,7 +14,7 @@ Ok(
                         TypeDecl::Alien(
                             AlienTypeDecl {
                                 path: TypePath(`core::num::i8`, `Alien`),
-                                ast_idx: 18,
+                                ast_idx: 19,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -81,7 +81,7 @@ Ok(
                         TypeDecl::Alien(
                             AlienTypeDecl {
                                 path: TypePath(`core::num::i16`, `Alien`),
-                                ast_idx: 23,
+                                ast_idx: 24,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -148,7 +148,7 @@ Ok(
                         TypeDecl::Alien(
                             AlienTypeDecl {
                                 path: TypePath(`core::num::i32`, `Alien`),
-                                ast_idx: 28,
+                                ast_idx: 29,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -215,7 +215,7 @@ Ok(
                         TypeDecl::Alien(
                             AlienTypeDecl {
                                 path: TypePath(`core::num::i64`, `Alien`),
-                                ast_idx: 33,
+                                ast_idx: 34,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -282,7 +282,7 @@ Ok(
                         TypeDecl::Alien(
                             AlienTypeDecl {
                                 path: TypePath(`core::num::f8`, `Alien`),
-                                ast_idx: 38,
+                                ast_idx: 39,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -349,7 +349,7 @@ Ok(
                         TypeDecl::Alien(
                             AlienTypeDecl {
                                 path: TypePath(`core::num::f16`, `Alien`),
-                                ast_idx: 43,
+                                ast_idx: 44,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -416,7 +416,7 @@ Ok(
                         TypeDecl::Alien(
                             AlienTypeDecl {
                                 path: TypePath(`core::num::f32`, `Alien`),
-                                ast_idx: 48,
+                                ast_idx: 49,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -483,7 +483,7 @@ Ok(
                         TypeDecl::Alien(
                             AlienTypeDecl {
                                 path: TypePath(`core::num::f64`, `Alien`),
-                                ast_idx: 53,
+                                ast_idx: 54,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -551,7 +551,7 @@ Ok(
                     Decl::ImplBlock(
                         ImplBlockDecl::TypeImplBlock(
                             TypeImplBlockDecl {
-                                ast_idx: 19,
+                                ast_idx: 20,
                                 impl_block: ImplBlock {
                                     id: ImplBlockId {
                                         module_path: `core::num`,
@@ -560,7 +560,7 @@ Ok(
                                         },
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 19,
+                                    ast_idx: 20,
                                     body: ArenaIdxRange(
                                         0..1,
                                     ),
@@ -570,7 +570,7 @@ Ok(
                                 },
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        24,
+                                        30,
                                     ),
                                 },
                                 implicit_parameter_decl_list: Ok(
@@ -582,7 +582,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken(
                                         TokenIdx(
-                                            26,
+                                            32,
                                         ),
                                     ),
                                 ),
@@ -618,7 +618,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        25,
+                                                        31,
                                                     ),
                                                     ident: `i8`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -712,7 +712,7 @@ Ok(
                                                 },
                                                 disambiguator: 0,
                                             },
-                                            ast_idx: 19,
+                                            ast_idx: 20,
                                             body: ArenaIdxRange(
                                                 0..1,
                                             ),
@@ -771,7 +771,7 @@ Ok(
                                                             data: [
                                                                 EntityPathExpr::Root {
                                                                     token_idx: TokenIdx(
-                                                                        25,
+                                                                        31,
                                                                     ),
                                                                     ident: `i8`,
                                                                     entity_path: EntityPath::ModuleItem(
@@ -847,7 +847,7 @@ Ok(
                                                 data: [
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
-                                                            33,
+                                                            39,
                                                         ),
                                                         ident: `i8`,
                                                         entity_path: EntityPath::ModuleItem(
@@ -897,14 +897,14 @@ Ok(
                                         ParameterDeclList {
                                             lpar: LeftParenthesisToken(
                                                 TokenIdx(
-                                                    30,
+                                                    36,
                                                 ),
                                             ),
                                             parameters: [],
                                             commas: [],
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
-                                                    31,
+                                                    37,
                                                 ),
                                             ),
                                         },
@@ -912,7 +912,7 @@ Ok(
                                     curry_token: Ok(
                                         CurryToken(
                                             TokenIdx(
-                                                32,
+                                                38,
                                             ),
                                         ),
                                     ),
@@ -925,7 +925,7 @@ Ok(
                                         Original(
                                             ExpectEolColon(
                                                 TokenIdx(
-                                                    34,
+                                                    40,
                                                 ),
                                             ),
                                         ),
@@ -981,7 +981,7 @@ Ok(
                     Decl::ImplBlock(
                         ImplBlockDecl::TypeImplBlock(
                             TypeImplBlockDecl {
-                                ast_idx: 24,
+                                ast_idx: 25,
                                 impl_block: ImplBlock {
                                     id: ImplBlockId {
                                         module_path: `core::num`,
@@ -990,7 +990,7 @@ Ok(
                                         },
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 24,
+                                    ast_idx: 25,
                                     body: ArenaIdxRange(
                                         2..3,
                                     ),
@@ -1142,7 +1142,7 @@ Ok(
                                                 },
                                                 disambiguator: 0,
                                             },
-                                            ast_idx: 24,
+                                            ast_idx: 25,
                                             body: ArenaIdxRange(
                                                 2..3,
                                             ),
@@ -1411,7 +1411,7 @@ Ok(
                     Decl::ImplBlock(
                         ImplBlockDecl::TypeImplBlock(
                             TypeImplBlockDecl {
-                                ast_idx: 29,
+                                ast_idx: 30,
                                 impl_block: ImplBlock {
                                     id: ImplBlockId {
                                         module_path: `core::num`,
@@ -1420,7 +1420,7 @@ Ok(
                                         },
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 29,
+                                    ast_idx: 30,
                                     body: ArenaIdxRange(
                                         4..5,
                                     ),
@@ -1430,7 +1430,7 @@ Ok(
                                 },
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        140,
+                                        134,
                                     ),
                                 },
                                 implicit_parameter_decl_list: Ok(
@@ -1442,7 +1442,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken(
                                         TokenIdx(
-                                            142,
+                                            136,
                                         ),
                                     ),
                                 ),
@@ -1478,7 +1478,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        141,
+                                                        135,
                                                     ),
                                                     ident: `i32`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -1572,7 +1572,7 @@ Ok(
                                                 },
                                                 disambiguator: 0,
                                             },
-                                            ast_idx: 29,
+                                            ast_idx: 30,
                                             body: ArenaIdxRange(
                                                 4..5,
                                             ),
@@ -1631,7 +1631,7 @@ Ok(
                                                             data: [
                                                                 EntityPathExpr::Root {
                                                                     token_idx: TokenIdx(
-                                                                        141,
+                                                                        135,
                                                                     ),
                                                                     ident: `i32`,
                                                                     entity_path: EntityPath::ModuleItem(
@@ -1707,7 +1707,7 @@ Ok(
                                                 data: [
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
-                                                            149,
+                                                            143,
                                                         ),
                                                         ident: `i32`,
                                                         entity_path: EntityPath::ModuleItem(
@@ -1757,14 +1757,14 @@ Ok(
                                         ParameterDeclList {
                                             lpar: LeftParenthesisToken(
                                                 TokenIdx(
-                                                    146,
+                                                    140,
                                                 ),
                                             ),
                                             parameters: [],
                                             commas: [],
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
-                                                    147,
+                                                    141,
                                                 ),
                                             ),
                                         },
@@ -1772,7 +1772,7 @@ Ok(
                                     curry_token: Ok(
                                         CurryToken(
                                             TokenIdx(
-                                                148,
+                                                142,
                                             ),
                                         ),
                                     ),
@@ -1785,7 +1785,7 @@ Ok(
                                         Original(
                                             ExpectEolColon(
                                                 TokenIdx(
-                                                    150,
+                                                    144,
                                                 ),
                                             ),
                                         ),
@@ -1841,7 +1841,7 @@ Ok(
                     Decl::ImplBlock(
                         ImplBlockDecl::TypeImplBlock(
                             TypeImplBlockDecl {
-                                ast_idx: 34,
+                                ast_idx: 35,
                                 impl_block: ImplBlock {
                                     id: ImplBlockId {
                                         module_path: `core::num`,
@@ -1850,7 +1850,7 @@ Ok(
                                         },
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 34,
+                                    ast_idx: 35,
                                     body: ArenaIdxRange(
                                         6..7,
                                     ),
@@ -1860,7 +1860,7 @@ Ok(
                                 },
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        197,
+                                        185,
                                     ),
                                 },
                                 implicit_parameter_decl_list: Ok(
@@ -1872,7 +1872,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken(
                                         TokenIdx(
-                                            199,
+                                            187,
                                         ),
                                     ),
                                 ),
@@ -1908,7 +1908,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        198,
+                                                        186,
                                                     ),
                                                     ident: `i64`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -2002,7 +2002,7 @@ Ok(
                                                 },
                                                 disambiguator: 0,
                                             },
-                                            ast_idx: 34,
+                                            ast_idx: 35,
                                             body: ArenaIdxRange(
                                                 6..7,
                                             ),
@@ -2061,7 +2061,7 @@ Ok(
                                                             data: [
                                                                 EntityPathExpr::Root {
                                                                     token_idx: TokenIdx(
-                                                                        198,
+                                                                        186,
                                                                     ),
                                                                     ident: `i64`,
                                                                     entity_path: EntityPath::ModuleItem(
@@ -2137,7 +2137,7 @@ Ok(
                                                 data: [
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
-                                                            206,
+                                                            194,
                                                         ),
                                                         ident: `i64`,
                                                         entity_path: EntityPath::ModuleItem(
@@ -2187,14 +2187,14 @@ Ok(
                                         ParameterDeclList {
                                             lpar: LeftParenthesisToken(
                                                 TokenIdx(
-                                                    203,
+                                                    191,
                                                 ),
                                             ),
                                             parameters: [],
                                             commas: [],
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
-                                                    204,
+                                                    192,
                                                 ),
                                             ),
                                         },
@@ -2202,7 +2202,7 @@ Ok(
                                     curry_token: Ok(
                                         CurryToken(
                                             TokenIdx(
-                                                205,
+                                                193,
                                             ),
                                         ),
                                     ),
@@ -2215,7 +2215,7 @@ Ok(
                                         Original(
                                             ExpectEolColon(
                                                 TokenIdx(
-                                                    207,
+                                                    195,
                                                 ),
                                             ),
                                         ),
@@ -2271,7 +2271,7 @@ Ok(
                     Decl::ImplBlock(
                         ImplBlockDecl::TypeImplBlock(
                             TypeImplBlockDecl {
-                                ast_idx: 39,
+                                ast_idx: 40,
                                 impl_block: ImplBlock {
                                     id: ImplBlockId {
                                         module_path: `core::num`,
@@ -2280,7 +2280,7 @@ Ok(
                                         },
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 39,
+                                    ast_idx: 40,
                                     body: ArenaIdxRange(
                                         8..9,
                                     ),
@@ -2290,7 +2290,7 @@ Ok(
                                 },
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        255,
+                                        237,
                                     ),
                                 },
                                 implicit_parameter_decl_list: Ok(
@@ -2302,7 +2302,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken(
                                         TokenIdx(
-                                            257,
+                                            239,
                                         ),
                                     ),
                                 ),
@@ -2338,7 +2338,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        256,
+                                                        238,
                                                     ),
                                                     ident: `f8`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -2432,7 +2432,7 @@ Ok(
                                                 },
                                                 disambiguator: 0,
                                             },
-                                            ast_idx: 39,
+                                            ast_idx: 40,
                                             body: ArenaIdxRange(
                                                 8..9,
                                             ),
@@ -2491,7 +2491,7 @@ Ok(
                                                             data: [
                                                                 EntityPathExpr::Root {
                                                                     token_idx: TokenIdx(
-                                                                        256,
+                                                                        238,
                                                                     ),
                                                                     ident: `f8`,
                                                                     entity_path: EntityPath::ModuleItem(
@@ -2567,7 +2567,7 @@ Ok(
                                                 data: [
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
-                                                            264,
+                                                            246,
                                                         ),
                                                         ident: `f8`,
                                                         entity_path: EntityPath::ModuleItem(
@@ -2617,14 +2617,14 @@ Ok(
                                         ParameterDeclList {
                                             lpar: LeftParenthesisToken(
                                                 TokenIdx(
-                                                    261,
+                                                    243,
                                                 ),
                                             ),
                                             parameters: [],
                                             commas: [],
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
-                                                    262,
+                                                    244,
                                                 ),
                                             ),
                                         },
@@ -2632,7 +2632,7 @@ Ok(
                                     curry_token: Ok(
                                         CurryToken(
                                             TokenIdx(
-                                                263,
+                                                245,
                                             ),
                                         ),
                                     ),
@@ -2645,7 +2645,7 @@ Ok(
                                         Original(
                                             ExpectEolColon(
                                                 TokenIdx(
-                                                    265,
+                                                    247,
                                                 ),
                                             ),
                                         ),
@@ -2701,7 +2701,7 @@ Ok(
                     Decl::ImplBlock(
                         ImplBlockDecl::TypeImplBlock(
                             TypeImplBlockDecl {
-                                ast_idx: 44,
+                                ast_idx: 45,
                                 impl_block: ImplBlock {
                                     id: ImplBlockId {
                                         module_path: `core::num`,
@@ -2710,7 +2710,7 @@ Ok(
                                         },
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 44,
+                                    ast_idx: 45,
                                     body: ArenaIdxRange(
                                         10..11,
                                     ),
@@ -2720,7 +2720,7 @@ Ok(
                                 },
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        313,
+                                        289,
                                     ),
                                 },
                                 implicit_parameter_decl_list: Ok(
@@ -2732,7 +2732,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken(
                                         TokenIdx(
-                                            315,
+                                            291,
                                         ),
                                     ),
                                 ),
@@ -2768,7 +2768,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        314,
+                                                        290,
                                                     ),
                                                     ident: `f16`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -2862,7 +2862,7 @@ Ok(
                                                 },
                                                 disambiguator: 0,
                                             },
-                                            ast_idx: 44,
+                                            ast_idx: 45,
                                             body: ArenaIdxRange(
                                                 10..11,
                                             ),
@@ -2921,7 +2921,7 @@ Ok(
                                                             data: [
                                                                 EntityPathExpr::Root {
                                                                     token_idx: TokenIdx(
-                                                                        314,
+                                                                        290,
                                                                     ),
                                                                     ident: `f16`,
                                                                     entity_path: EntityPath::ModuleItem(
@@ -2997,7 +2997,7 @@ Ok(
                                                 data: [
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
-                                                            322,
+                                                            298,
                                                         ),
                                                         ident: `f16`,
                                                         entity_path: EntityPath::ModuleItem(
@@ -3047,14 +3047,14 @@ Ok(
                                         ParameterDeclList {
                                             lpar: LeftParenthesisToken(
                                                 TokenIdx(
-                                                    319,
+                                                    295,
                                                 ),
                                             ),
                                             parameters: [],
                                             commas: [],
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
-                                                    320,
+                                                    296,
                                                 ),
                                             ),
                                         },
@@ -3062,7 +3062,7 @@ Ok(
                                     curry_token: Ok(
                                         CurryToken(
                                             TokenIdx(
-                                                321,
+                                                297,
                                             ),
                                         ),
                                     ),
@@ -3075,7 +3075,7 @@ Ok(
                                         Original(
                                             ExpectEolColon(
                                                 TokenIdx(
-                                                    323,
+                                                    299,
                                                 ),
                                             ),
                                         ),
@@ -3131,7 +3131,7 @@ Ok(
                     Decl::ImplBlock(
                         ImplBlockDecl::TypeImplBlock(
                             TypeImplBlockDecl {
-                                ast_idx: 49,
+                                ast_idx: 50,
                                 impl_block: ImplBlock {
                                     id: ImplBlockId {
                                         module_path: `core::num`,
@@ -3140,7 +3140,7 @@ Ok(
                                         },
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 49,
+                                    ast_idx: 50,
                                     body: ArenaIdxRange(
                                         12..13,
                                     ),
@@ -3150,7 +3150,7 @@ Ok(
                                 },
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        371,
+                                        341,
                                     ),
                                 },
                                 implicit_parameter_decl_list: Ok(
@@ -3162,7 +3162,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken(
                                         TokenIdx(
-                                            373,
+                                            343,
                                         ),
                                     ),
                                 ),
@@ -3198,7 +3198,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        372,
+                                                        342,
                                                     ),
                                                     ident: `f32`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -3292,7 +3292,7 @@ Ok(
                                                 },
                                                 disambiguator: 0,
                                             },
-                                            ast_idx: 49,
+                                            ast_idx: 50,
                                             body: ArenaIdxRange(
                                                 12..13,
                                             ),
@@ -3351,7 +3351,7 @@ Ok(
                                                             data: [
                                                                 EntityPathExpr::Root {
                                                                     token_idx: TokenIdx(
-                                                                        372,
+                                                                        342,
                                                                     ),
                                                                     ident: `f32`,
                                                                     entity_path: EntityPath::ModuleItem(
@@ -3427,7 +3427,7 @@ Ok(
                                                 data: [
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
-                                                            380,
+                                                            350,
                                                         ),
                                                         ident: `f32`,
                                                         entity_path: EntityPath::ModuleItem(
@@ -3477,14 +3477,14 @@ Ok(
                                         ParameterDeclList {
                                             lpar: LeftParenthesisToken(
                                                 TokenIdx(
-                                                    377,
+                                                    347,
                                                 ),
                                             ),
                                             parameters: [],
                                             commas: [],
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
-                                                    378,
+                                                    348,
                                                 ),
                                             ),
                                         },
@@ -3492,7 +3492,7 @@ Ok(
                                     curry_token: Ok(
                                         CurryToken(
                                             TokenIdx(
-                                                379,
+                                                349,
                                             ),
                                         ),
                                     ),
@@ -3505,7 +3505,7 @@ Ok(
                                         Original(
                                             ExpectEolColon(
                                                 TokenIdx(
-                                                    381,
+                                                    351,
                                                 ),
                                             ),
                                         ),
@@ -3561,7 +3561,7 @@ Ok(
                     Decl::ImplBlock(
                         ImplBlockDecl::TypeImplBlock(
                             TypeImplBlockDecl {
-                                ast_idx: 54,
+                                ast_idx: 55,
                                 impl_block: ImplBlock {
                                     id: ImplBlockId {
                                         module_path: `core::num`,
@@ -3570,7 +3570,7 @@ Ok(
                                         },
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 54,
+                                    ast_idx: 55,
                                     body: ArenaIdxRange(
                                         14..15,
                                     ),
@@ -3580,7 +3580,7 @@ Ok(
                                 },
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        428,
+                                        392,
                                     ),
                                 },
                                 implicit_parameter_decl_list: Ok(
@@ -3592,7 +3592,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken(
                                         TokenIdx(
-                                            430,
+                                            394,
                                         ),
                                     ),
                                 ),
@@ -3628,7 +3628,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        429,
+                                                        393,
                                                     ),
                                                     ident: `f64`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -3722,7 +3722,7 @@ Ok(
                                                 },
                                                 disambiguator: 0,
                                             },
-                                            ast_idx: 54,
+                                            ast_idx: 55,
                                             body: ArenaIdxRange(
                                                 14..15,
                                             ),
@@ -3781,7 +3781,7 @@ Ok(
                                                             data: [
                                                                 EntityPathExpr::Root {
                                                                     token_idx: TokenIdx(
-                                                                        429,
+                                                                        393,
                                                                     ),
                                                                     ident: `f64`,
                                                                     entity_path: EntityPath::ModuleItem(
@@ -3857,7 +3857,7 @@ Ok(
                                                 data: [
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
-                                                            437,
+                                                            401,
                                                         ),
                                                         ident: `f64`,
                                                         entity_path: EntityPath::ModuleItem(
@@ -3907,14 +3907,14 @@ Ok(
                                         ParameterDeclList {
                                             lpar: LeftParenthesisToken(
                                                 TokenIdx(
-                                                    434,
+                                                    398,
                                                 ),
                                             ),
                                             parameters: [],
                                             commas: [],
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
-                                                    435,
+                                                    399,
                                                 ),
                                             ),
                                         },
@@ -3922,7 +3922,7 @@ Ok(
                                     curry_token: Ok(
                                         CurryToken(
                                             TokenIdx(
-                                                436,
+                                                400,
                                             ),
                                         ),
                                     ),
@@ -3935,7 +3935,7 @@ Ok(
                                         Original(
                                             ExpectEolColon(
                                                 TokenIdx(
-                                                    438,
+                                                    402,
                                                 ),
                                             ),
                                         ),
