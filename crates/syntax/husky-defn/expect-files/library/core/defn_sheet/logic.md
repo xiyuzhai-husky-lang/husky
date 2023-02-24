@@ -217,11 +217,11 @@ Ok(
                                     implicit_parameter_decl_list: Ok(
                                         Some(
                                             ImplicitParameterDeclList {
-                                                langle: LeftAngleBracketOrLessThanToken {
-                                                    token_idx: TokenIdx(
+                                                langle: LeftAngleBracketOrLessThanToken(
+                                                    TokenIdx(
                                                         7,
                                                     ),
-                                                },
+                                                ),
                                                 implicit_parameters: [
                                                     ImplicitParameterDecl {
                                                         pattern: ImplicitParameterDeclPattern {
@@ -244,11 +244,11 @@ Ok(
                                                         },
                                                         traits: Some(
                                                             (
-                                                                ColonToken {
-                                                                    token_idx: TokenIdx(
+                                                                ColonToken(
+                                                                    TokenIdx(
                                                                         9,
                                                                     ),
-                                                                },
+                                                                ),
                                                                 Some(
                                                                     0,
                                                                 ),
@@ -276,11 +276,11 @@ Ok(
                                                         },
                                                         traits: Some(
                                                             (
-                                                                ColonToken {
-                                                                    token_idx: TokenIdx(
+                                                                ColonToken(
+                                                                    TokenIdx(
                                                                         13,
                                                                     ),
-                                                                },
+                                                                ),
                                                                 Some(
                                                                     1,
                                                                 ),
@@ -289,17 +289,17 @@ Ok(
                                                     },
                                                 ],
                                                 commas: [
-                                                    CommaToken {
-                                                        token_idx: TokenIdx(
+                                                    CommaToken(
+                                                        TokenIdx(
                                                             11,
                                                         ),
-                                                    },
+                                                    ),
                                                 ],
-                                                rangle: RightAngleBracketToken {
-                                                    token_idx: TokenIdx(
+                                                rangle: RightAngleBracketToken(
+                                                    TokenIdx(
                                                         15,
                                                     ),
-                                                },
+                                                ),
                                             },
                                         ),
                                     ),
@@ -455,11 +455,11 @@ Ok(
                                     implicit_parameter_decl_list: Ok(
                                         Some(
                                             ImplicitParameterDeclList {
-                                                langle: LeftAngleBracketOrLessThanToken {
-                                                    token_idx: TokenIdx(
+                                                langle: LeftAngleBracketOrLessThanToken(
+                                                    TokenIdx(
                                                         29,
                                                     ),
-                                                },
+                                                ),
                                                 implicit_parameters: [
                                                     ImplicitParameterDecl {
                                                         pattern: ImplicitParameterDeclPattern {
@@ -482,11 +482,11 @@ Ok(
                                                         },
                                                         traits: Some(
                                                             (
-                                                                ColonToken {
-                                                                    token_idx: TokenIdx(
+                                                                ColonToken(
+                                                                    TokenIdx(
                                                                         31,
                                                                     ),
-                                                                },
+                                                                ),
                                                                 Some(
                                                                     0,
                                                                 ),
@@ -514,11 +514,11 @@ Ok(
                                                         },
                                                         traits: Some(
                                                             (
-                                                                ColonToken {
-                                                                    token_idx: TokenIdx(
+                                                                ColonToken(
+                                                                    TokenIdx(
                                                                         35,
                                                                     ),
-                                                                },
+                                                                ),
                                                                 Some(
                                                                     1,
                                                                 ),
@@ -527,17 +527,17 @@ Ok(
                                                     },
                                                 ],
                                                 commas: [
-                                                    CommaToken {
-                                                        token_idx: TokenIdx(
+                                                    CommaToken(
+                                                        TokenIdx(
                                                             33,
                                                         ),
-                                                    },
+                                                    ),
                                                 ],
-                                                rangle: RightAngleBracketToken {
-                                                    token_idx: TokenIdx(
+                                                rangle: RightAngleBracketToken(
+                                                    TokenIdx(
                                                         37,
                                                     ),
-                                                },
+                                                ),
                                             },
                                         ),
                                     ),

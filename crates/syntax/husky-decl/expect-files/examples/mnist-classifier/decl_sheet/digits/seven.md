@@ -16,11 +16,11 @@ Ok(
                                 path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Feature`),
                                 ast_idx: 47,
                                 curry_token: Ok(
-                                    CurryToken {
-                                        token_idx: TokenIdx(
+                                    CurryToken(
+                                        TokenIdx(
                                             62,
                                         ),
-                                    },
+                                    ),
                                 ),
                                 return_ty: Ok(
                                     OutputTypeExpr {
@@ -28,11 +28,11 @@ Ok(
                                     },
                                 ),
                                 eol_colon: Ok(
-                                    EolColonToken {
-                                        token_idx: TokenIdx(
+                                    EolColonToken(
+                                        TokenIdx(
                                             64,
                                         ),
-                                    },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -272,39 +272,39 @@ Ok(
                                 ),
                                 parameter_decl_list: Ok(
                                     ParameterDeclList {
-                                        lpar: LeftParenthesisToken {
-                                            token_idx: TokenIdx(
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
                                                 75,
                                             ),
-                                        },
+                                        ),
                                         parameters: [
                                             RegularParameterDeclPattern {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
                                                 ),
-                                                colon: ColonToken {
-                                                    token_idx: TokenIdx(
+                                                colon: ColonToken(
+                                                    TokenIdx(
                                                         77,
                                                     ),
-                                                },
+                                                ),
                                                 ty: 1,
                                             },
                                         ],
                                         commas: [],
-                                        rpar: RightParenthesisToken {
-                                            token_idx: TokenIdx(
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
                                                 80,
                                             ),
-                                        },
+                                        ),
                                     },
                                 ),
                                 curry_token: Ok(
-                                    CurryToken {
-                                        token_idx: TokenIdx(
+                                    CurryToken(
+                                        TokenIdx(
                                             81,
                                         ),
-                                    },
+                                    ),
                                 ),
                                 return_ty: Ok(
                                     OutputTypeExpr {
@@ -312,11 +312,11 @@ Ok(
                                     },
                                 ),
                                 eol_colon: Ok(
-                                    EolColonToken {
-                                        token_idx: TokenIdx(
+                                    EolColonToken(
+                                        TokenIdx(
                                             84,
                                         ),
-                                    },
+                                    ),
                                 ),
                             },
                         ),
@@ -338,11 +338,11 @@ Ok(
                                 path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Feature`),
                                 ast_idx: 49,
                                 curry_token: Ok(
-                                    CurryToken {
-                                        token_idx: TokenIdx(
+                                    CurryToken(
+                                        TokenIdx(
                                             105,
                                         ),
-                                    },
+                                    ),
                                 ),
                                 return_ty: Ok(
                                     OutputTypeExpr {
@@ -350,11 +350,11 @@ Ok(
                                     },
                                 ),
                                 eol_colon: Ok(
-                                    EolColonToken {
-                                        token_idx: TokenIdx(
+                                    EolColonToken(
+                                        TokenIdx(
                                             107,
                                         ),
-                                    },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -594,39 +594,39 @@ Ok(
                                 ),
                                 parameter_decl_list: Ok(
                                     ParameterDeclList {
-                                        lpar: LeftParenthesisToken {
-                                            token_idx: TokenIdx(
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
                                                 120,
                                             ),
-                                        },
+                                        ),
                                         parameters: [
                                             RegularParameterDeclPattern {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
                                                 ),
-                                                colon: ColonToken {
-                                                    token_idx: TokenIdx(
+                                                colon: ColonToken(
+                                                    TokenIdx(
                                                         122,
                                                     ),
-                                                },
+                                                ),
                                                 ty: 1,
                                             },
                                         ],
                                         commas: [],
-                                        rpar: RightParenthesisToken {
-                                            token_idx: TokenIdx(
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
                                                 125,
                                             ),
-                                        },
+                                        ),
                                     },
                                 ),
                                 curry_token: Ok(
-                                    CurryToken {
-                                        token_idx: TokenIdx(
+                                    CurryToken(
+                                        TokenIdx(
                                             126,
                                         ),
-                                    },
+                                    ),
                                 ),
                                 return_ty: Ok(
                                     OutputTypeExpr {
@@ -634,11 +634,11 @@ Ok(
                                     },
                                 ),
                                 eol_colon: Ok(
-                                    EolColonToken {
-                                        token_idx: TokenIdx(
+                                    EolColonToken(
+                                        TokenIdx(
                                             129,
                                         ),
-                                    },
+                                    ),
                                 ),
                             },
                         ),
@@ -817,39 +817,39 @@ Ok(
                                 ),
                                 parameter_decl_list: Ok(
                                     ParameterDeclList {
-                                        lpar: LeftParenthesisToken {
-                                            token_idx: TokenIdx(
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
                                                 163,
                                             ),
-                                        },
+                                        ),
                                         parameters: [
                                             RegularParameterDeclPattern {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
                                                 ),
-                                                colon: ColonToken {
-                                                    token_idx: TokenIdx(
+                                                colon: ColonToken(
+                                                    TokenIdx(
                                                         165,
                                                     ),
-                                                },
+                                                ),
                                                 ty: 1,
                                             },
                                         ],
                                         commas: [],
-                                        rpar: RightParenthesisToken {
-                                            token_idx: TokenIdx(
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
                                                 168,
                                             ),
-                                        },
+                                        ),
                                     },
                                 ),
                                 curry_token: Ok(
-                                    CurryToken {
-                                        token_idx: TokenIdx(
+                                    CurryToken(
+                                        TokenIdx(
                                             169,
                                         ),
-                                    },
+                                    ),
                                 ),
                                 return_ty: Ok(
                                     OutputTypeExpr {
@@ -857,11 +857,11 @@ Ok(
                                     },
                                 ),
                                 eol_colon: Ok(
-                                    EolColonToken {
-                                        token_idx: TokenIdx(
+                                    EolColonToken(
+                                        TokenIdx(
                                             172,
                                         ),
-                                    },
+                                    ),
                                 ),
                             },
                         ),
@@ -883,11 +883,11 @@ Ok(
                                 path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
                                 ast_idx: 52,
                                 curry_token: Ok(
-                                    CurryToken {
-                                        token_idx: TokenIdx(
+                                    CurryToken(
+                                        TokenIdx(
                                             217,
                                         ),
-                                    },
+                                    ),
                                 ),
                                 return_ty: Ok(
                                     OutputTypeExpr {
@@ -895,11 +895,11 @@ Ok(
                                     },
                                 ),
                                 eol_colon: Ok(
-                                    EolColonToken {
-                                        token_idx: TokenIdx(
+                                    EolColonToken(
+                                        TokenIdx(
                                             220,
                                         ),
-                                    },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {

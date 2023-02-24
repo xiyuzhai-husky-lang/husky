@@ -22,8 +22,8 @@ where
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Punctuation(punc) => Ok(Some(PunctuationToken { punc, token_idx })),
-                Token::Error(_)
-                | Token::AuxiliaryIdentifier(_)
+                Token::Error(error) => Err(error),
+                Token::AuxiliaryIdentifier(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
@@ -38,36 +38,35 @@ where
 
 // specific punctuation
 
-fn parse_specific_punctuation_from<'a, Context>(
+fn parse_specific_punctuation_from<'a, Context, T>(
     ctx: &mut Context,
     target: Punctuation,
-) -> Option<TokenIdx>
+    f: impl FnOnce(TokenIdx) -> T,
+) -> TokenResult<Option<T>>
 where
     Context: TokenParseContext<'a>,
 {
     if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
         match token {
-            Token::Punctuation(punc) if punc == target => Some(token_idx),
-            Token::Error(_)
-            | Token::AuxiliaryIdentifier(_)
+            Token::Punctuation(punc) if punc == target => Ok(Some(f(token_idx))),
+            Token::Error(error) => Err(error),
+            Token::AuxiliaryIdentifier(_)
             | Token::Punctuation(_)
             | Token::Identifier(_)
             | Token::WordOpr(_)
             | Token::Literal(_)
             | Token::Attr(_)
-            | Token::Keyword(_) => None,
+            | Token::Keyword(_) => Ok(None),
         }
     } else {
-        None
+        Ok(None)
     }
 }
 
 // colon
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct ColonToken {
-    token_idx: TokenIdx,
-}
+pub struct ColonToken(TokenIdx);
 
 impl<'a, Context> parsec::ParseFrom<Context> for ColonToken
 where
@@ -76,8 +75,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        Ok(parse_specific_punctuation_from(ctx, Punctuation::Colon)
-            .map(|token_idx| ColonToken { token_idx }))
+        parse_specific_punctuation_from(ctx, Punctuation::Colon, ColonToken)
     }
 }
 
@@ -97,9 +95,7 @@ fn colon_token_works() {
 // comma
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct CommaToken {
-    token_idx: TokenIdx,
-}
+pub struct CommaToken(TokenIdx);
 
 impl<'a, Context> parsec::ParseFrom<Context> for CommaToken
 where
@@ -108,8 +104,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        Ok(parse_specific_punctuation_from(ctx, Punctuation::Comma)
-            .map(|token_idx| CommaToken { token_idx }))
+        parse_specific_punctuation_from(ctx, Punctuation::Comma, CommaToken)
     }
 }
 
@@ -129,13 +124,11 @@ fn comma_token_works() {
 // assign
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct AssignToken {
-    token_idx: TokenIdx,
-}
+pub struct AssignToken(TokenIdx);
 
 impl AssignToken {
     pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+        self.0
     }
 }
 
@@ -146,10 +139,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        Ok(
-            parse_specific_punctuation_from(ctx, BinaryOpr::Assign(None).into())
-                .map(|token_idx| AssignToken { token_idx }),
-        )
+        parse_specific_punctuation_from(ctx, BinaryOpr::Assign(None).into(), AssignToken)
     }
 }
 
@@ -169,13 +159,11 @@ fn assign_token_works() {
 // left parenthesis
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct LeftParenthesisToken {
-    token_idx: TokenIdx,
-}
+pub struct LeftParenthesisToken(TokenIdx);
 
 impl LeftParenthesisToken {
     pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+        self.0
     }
 }
 
@@ -186,10 +174,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        Ok(
-            parse_specific_punctuation_from(ctx, Punctuation::Bra(Bracket::Par))
-                .map(|token_idx| LeftParenthesisToken { token_idx }),
-        )
+        parse_specific_punctuation_from(ctx, Punctuation::Bra(Bracket::Par), LeftParenthesisToken)
     }
 }
 
@@ -209,9 +194,7 @@ fn left_parenthesis_token_works() {
 // right parenthesis
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct RightParenthesisToken {
-    token_idx: TokenIdx,
-}
+pub struct RightParenthesisToken(TokenIdx);
 
 impl<'a, Context> parsec::ParseFrom<Context> for RightParenthesisToken
 where
@@ -220,10 +203,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        Ok(
-            parse_specific_punctuation_from(ctx, Punctuation::Ket(Bracket::Par))
-                .map(|token_idx| RightParenthesisToken { token_idx }),
-        )
+        parse_specific_punctuation_from(ctx, Punctuation::Ket(Bracket::Par), RightParenthesisToken)
     }
 }
 
@@ -243,9 +223,7 @@ fn right_parenthesis_token_works() {
 // left box bracket
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct LeftBoxBracketToken {
-    token_idx: TokenIdx,
-}
+pub struct LeftBoxBracketToken(TokenIdx);
 
 impl<'a, Context> parsec::ParseFrom<Context> for LeftBoxBracketToken
 where
@@ -254,10 +232,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        Ok(
-            parse_specific_punctuation_from(ctx, Punctuation::Bra(Bracket::Box))
-                .map(|token_idx| LeftBoxBracketToken { token_idx }),
-        )
+        parse_specific_punctuation_from(ctx, Punctuation::Bra(Bracket::Box), LeftBoxBracketToken)
     }
 }
 
@@ -277,13 +252,11 @@ fn left_box_bracket_token_works() {
 // right box bracket
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct RightBoxBracketToken {
-    token_idx: TokenIdx,
-}
+pub struct RightBoxBracketToken(TokenIdx);
 
 impl RightBoxBracketToken {
     pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+        self.0
     }
 }
 
@@ -294,10 +267,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        Ok(
-            parse_specific_punctuation_from(ctx, Punctuation::Ket(Bracket::Box))
-                .map(|token_idx| RightBoxBracketToken { token_idx }),
-        )
+        parse_specific_punctuation_from(ctx, Punctuation::Ket(Bracket::Box), RightBoxBracketToken)
     }
 }
 
@@ -317,9 +287,7 @@ fn right_box_bracket_token_works() {
 // left curly brace
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct LeftCurlyBraceToken {
-    token_idx: TokenIdx,
-}
+pub struct LeftCurlyBraceToken(TokenIdx);
 
 impl<'a, Context> parsec::ParseFrom<Context> for LeftCurlyBraceToken
 where
@@ -328,10 +296,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        Ok(
-            parse_specific_punctuation_from(ctx, Punctuation::Bra(Bracket::Curl))
-                .map(|token_idx| LeftCurlyBraceToken { token_idx }),
-        )
+        parse_specific_punctuation_from(ctx, Punctuation::Bra(Bracket::Curl), LeftCurlyBraceToken)
     }
 }
 
@@ -351,9 +316,7 @@ fn left_curly_brace_token_works() {
 // right curly brace
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct RightCurlyBraceToken {
-    token_idx: TokenIdx,
-}
+pub struct RightCurlyBraceToken(TokenIdx);
 
 impl<'a, Context> parsec::ParseFrom<Context> for RightCurlyBraceToken
 where
@@ -362,10 +325,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        Ok(
-            parse_specific_punctuation_from(ctx, Punctuation::Ket(Bracket::Curl))
-                .map(|token_idx| RightCurlyBraceToken { token_idx }),
-        )
+        parse_specific_punctuation_from(ctx, Punctuation::Ket(Bracket::Curl), RightCurlyBraceToken)
     }
 }
 
@@ -385,13 +345,11 @@ fn right_curly_brace_token_works() {
 // left angle bracket
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct LeftAngleBracketOrLessThanToken {
-    token_idx: TokenIdx,
-}
+pub struct LeftAngleBracketOrLessThanToken(TokenIdx);
 
 impl LeftAngleBracketOrLessThanToken {
     pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+        self.0
     }
 }
 
@@ -402,8 +360,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        Ok(parse_specific_punctuation_from(ctx, Punctuation::LaOrLt)
-            .map(|token_idx| LeftAngleBracketOrLessThanToken { token_idx }))
+        parse_specific_punctuation_from(ctx, Punctuation::LaOrLt, LeftAngleBracketOrLessThanToken)
     }
 }
 
@@ -424,13 +381,11 @@ fn left_angle_or_less_bracket_token_works() {
 // colon colon left angle bracket
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct ColonColonLeftAngleBracketToken {
-    token_idx: TokenIdx,
-}
+pub struct ColonColonLeftAngleBracketToken(TokenIdx);
 
 impl ColonColonLeftAngleBracketToken {
     pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+        self.0
     }
 }
 
@@ -441,9 +396,10 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        Ok(
-            parse_specific_punctuation_from(ctx, Punctuation::ColonColonLAngle)
-                .map(|token_idx| ColonColonLeftAngleBracketToken { token_idx }),
+        parse_specific_punctuation_from(
+            ctx,
+            Punctuation::ColonColonLAngle,
+            ColonColonLeftAngleBracketToken,
         )
     }
 }
@@ -465,9 +421,7 @@ fn colon_colon_left_angle_bracket_token_works() {
 // right curly brace
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct RightAngleBracketToken {
-    token_idx: TokenIdx,
-}
+pub struct RightAngleBracketToken(TokenIdx);
 
 impl<'a, Context> parsec::ParseFrom<Context> for RightAngleBracketToken
 where
@@ -476,8 +430,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        Ok(parse_specific_punctuation_from(ctx, Punctuation::RaOrGt)
-            .map(|token_idx| RightAngleBracketToken { token_idx }))
+        parse_specific_punctuation_from(ctx, Punctuation::RaOrGt, RightAngleBracketToken)
     }
 }
 
@@ -497,9 +450,7 @@ fn right_angle_bracket_token_works() {
 // vertical
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct VerticalToken {
-    token_idx: TokenIdx,
-}
+pub struct VerticalToken(TokenIdx);
 
 impl<'a, Context> parsec::ParseFrom<Context> for VerticalToken
 where
@@ -508,8 +459,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        Ok(parse_specific_punctuation_from(ctx, Punctuation::Vertical)
-            .map(|token_idx| VerticalToken { token_idx }))
+        parse_specific_punctuation_from(ctx, Punctuation::Vertical, VerticalToken)
     }
 }
 
@@ -529,9 +479,7 @@ fn vertical_token_works() {
 // at
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct AtToken {
-    token_idx: TokenIdx,
-}
+pub struct AtToken(TokenIdx);
 
 impl<'a, Context> parsec::ParseFrom<Context> for AtToken
 where
@@ -540,8 +488,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        Ok(parse_specific_punctuation_from(ctx, Punctuation::At)
-            .map(|token_idx| AtToken { token_idx }))
+        parse_specific_punctuation_from(ctx, Punctuation::At, AtToken)
     }
 }
 
@@ -562,9 +509,7 @@ fn at_token_works() {
 // dotdot
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct DotDotToken {
-    token_idx: TokenIdx,
-}
+pub struct DotDotToken(TokenIdx);
 
 impl<'a, Context> parsec::ParseFrom<Context> for DotDotToken
 where
@@ -573,8 +518,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        Ok(parse_specific_punctuation_from(ctx, Punctuation::DotDot)
-            .map(|token_idx| DotDotToken { token_idx }))
+        parse_specific_punctuation_from(ctx, Punctuation::DotDot, DotDotToken)
     }
 }
 
@@ -595,13 +539,11 @@ fn dotdot_token_works() {
 
 /// `:` at the end of line
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct EolColonToken {
-    token_idx: TokenIdx,
-}
+pub struct EolColonToken(TokenIdx);
 
 impl EolColonToken {
     pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+        self.0
     }
 }
 
@@ -617,10 +559,10 @@ where
             match token {
                 Token::Punctuation(Punctuation::Colon) => match token_stream.peek() {
                     Some(_) => Ok(None),
-                    None => Ok(Some(EolColonToken { token_idx })),
+                    None => Ok(Some(EolColonToken(token_idx))),
                 },
-                Token::Error(_)
-                | Token::AuxiliaryIdentifier(_)
+                Token::Error(error) => Err(error),
+                Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -651,13 +593,11 @@ fn eol_colon_token_works() {
 
 /// `::`
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct ScopeResolutionToken {
-    token_idx: TokenIdx,
-}
+pub struct ScopeResolutionToken(TokenIdx);
 
 impl ScopeResolutionToken {
     pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+        self.0
     }
 }
 
@@ -672,10 +612,10 @@ where
         if let Some((token_idx, token)) = token_stream.next_indexed() {
             match token {
                 Token::Punctuation(Punctuation::ColonColon) => {
-                    Ok(Some(ScopeResolutionToken { token_idx }))
+                    Ok(Some(ScopeResolutionToken(token_idx)))
                 }
-                Token::Error(_)
-                | Token::AuxiliaryIdentifier(_)
+                Token::Error(error) => Err(error),
+                Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -707,13 +647,11 @@ fn scope_resolution_token_works() {
 
 /// `*`
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct StarToken {
-    token_idx: TokenIdx,
-}
+pub struct StarToken(TokenIdx);
 
 impl StarToken {
     pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
+        self.0
     }
 }
 
@@ -727,9 +665,9 @@ where
         let token_stream = ctx.token_stream_mut();
         if let Some((token_idx, token)) = token_stream.next_indexed() {
             match token {
-                Token::Punctuation(Punctuation::Star) => Ok(Some(StarToken { token_idx })),
-                Token::Error(_)
-                | Token::AuxiliaryIdentifier(_)
+                Token::Punctuation(Punctuation::Star) => Ok(Some(StarToken(token_idx))),
+                Token::Error(error) => Err(error),
+                Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -761,9 +699,7 @@ fn star_token_works() {
 
 /// `->`
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct CurryToken {
-    token_idx: TokenIdx,
-}
+pub struct CurryToken(TokenIdx);
 
 impl<'a, Context> parsec::ParseFrom<Context> for CurryToken
 where
@@ -776,10 +712,10 @@ where
         if let Some((token_idx, token)) = token_stream.next_indexed() {
             match token {
                 Token::Punctuation(Punctuation::Binary(BinaryOpr::Curry)) => {
-                    Ok(Some(CurryToken { token_idx }))
+                    Ok(Some(CurryToken(token_idx)))
                 }
-                Token::Error(_)
-                | Token::AuxiliaryIdentifier(_)
+                Token::Error(error) => Err(error),
+                Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)

@@ -16,11 +16,11 @@ Ok(
                                 path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                 ast_idx: 23,
                                 curry_token: Ok(
-                                    CurryToken {
-                                        token_idx: TokenIdx(
+                                    CurryToken(
+                                        TokenIdx(
                                             33,
                                         ),
-                                    },
+                                    ),
                                 ),
                                 return_ty: Ok(
                                     OutputTypeExpr {
@@ -28,11 +28,11 @@ Ok(
                                     },
                                 ),
                                 eol_colon: Ok(
-                                    EolColonToken {
-                                        token_idx: TokenIdx(
+                                    EolColonToken(
+                                        TokenIdx(
                                             37,
                                         ),
-                                    },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -143,11 +143,11 @@ Ok(
                                 path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                 ast_idx: 24,
                                 curry_token: Ok(
-                                    CurryToken {
-                                        token_idx: TokenIdx(
+                                    CurryToken(
+                                        TokenIdx(
                                             45,
                                         ),
-                                    },
+                                    ),
                                 ),
                                 return_ty: Ok(
                                     OutputTypeExpr {
@@ -155,11 +155,11 @@ Ok(
                                     },
                                 ),
                                 eol_colon: Ok(
-                                    EolColonToken {
-                                        token_idx: TokenIdx(
+                                    EolColonToken(
+                                        TokenIdx(
                                             47,
                                         ),
-                                    },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -254,11 +254,11 @@ Ok(
                                 path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                 ast_idx: 25,
                                 curry_token: Ok(
-                                    CurryToken {
-                                        token_idx: TokenIdx(
+                                    CurryToken(
+                                        TokenIdx(
                                             95,
                                         ),
-                                    },
+                                    ),
                                 ),
                                 return_ty: Ok(
                                     OutputTypeExpr {
@@ -266,11 +266,11 @@ Ok(
                                     },
                                 ),
                                 eol_colon: Ok(
-                                    EolColonToken {
-                                        token_idx: TokenIdx(
+                                    EolColonToken(
+                                        TokenIdx(
                                             97,
                                         ),
-                                    },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -365,11 +365,11 @@ Ok(
                                 path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                 ast_idx: 26,
                                 curry_token: Ok(
-                                    CurryToken {
-                                        token_idx: TokenIdx(
+                                    CurryToken(
+                                        TokenIdx(
                                             129,
                                         ),
-                                    },
+                                    ),
                                 ),
                                 return_ty: Ok(
                                     OutputTypeExpr {
@@ -377,11 +377,11 @@ Ok(
                                     },
                                 ),
                                 eol_colon: Ok(
-                                    EolColonToken {
-                                        token_idx: TokenIdx(
+                                    EolColonToken(
+                                        TokenIdx(
                                             133,
                                         ),
-                                    },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -492,11 +492,11 @@ Ok(
                                 path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                 ast_idx: 27,
                                 curry_token: Ok(
-                                    CurryToken {
-                                        token_idx: TokenIdx(
+                                    CurryToken(
+                                        TokenIdx(
                                             140,
                                         ),
-                                    },
+                                    ),
                                 ),
                                 return_ty: Ok(
                                     OutputTypeExpr {
@@ -504,11 +504,11 @@ Ok(
                                     },
                                 ),
                                 eol_colon: Ok(
-                                    EolColonToken {
-                                        token_idx: TokenIdx(
+                                    EolColonToken(
+                                        TokenIdx(
                                             142,
                                         ),
-                                    },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -603,11 +603,11 @@ Ok(
                                 path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                 ast_idx: 28,
                                 curry_token: Ok(
-                                    CurryToken {
-                                        token_idx: TokenIdx(
+                                    CurryToken(
+                                        TokenIdx(
                                             152,
                                         ),
-                                    },
+                                    ),
                                 ),
                                 return_ty: Ok(
                                     OutputTypeExpr {
@@ -615,11 +615,11 @@ Ok(
                                     },
                                 ),
                                 eol_colon: Ok(
-                                    EolColonToken {
-                                        token_idx: TokenIdx(
+                                    EolColonToken(
+                                        TokenIdx(
                                             154,
                                         ),
-                                    },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -714,11 +714,11 @@ Ok(
                                 path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                 ast_idx: 29,
                                 curry_token: Ok(
-                                    CurryToken {
-                                        token_idx: TokenIdx(
+                                    CurryToken(
+                                        TokenIdx(
                                             161,
                                         ),
-                                    },
+                                    ),
                                 ),
                                 return_ty: Ok(
                                     OutputTypeExpr {
@@ -726,11 +726,11 @@ Ok(
                                     },
                                 ),
                                 eol_colon: Ok(
-                                    EolColonToken {
-                                        token_idx: TokenIdx(
+                                    EolColonToken(
+                                        TokenIdx(
                                             165,
                                         ),
-                                    },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
