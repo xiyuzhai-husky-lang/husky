@@ -37,5 +37,5 @@ fn menu_entity_decl_works() {
     let i32_ty_path_decl = db.ty_decl(entity_path_menu.i32_ty_path()).unwrap();
     salsa::assert_eq_with_db!(db, i32_ty_path_decl.implicit_parameters(&db), Ok(&[]));
     let ref_ty_path_decl = db.ty_decl(entity_path_menu.ref_ty_path()).unwrap();
-    p!(ref_ty_path_decl.debug(&db));
+    p!(ref_ty_path_decl.implicit_parameters(&db).debug(&db));
 }

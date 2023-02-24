@@ -9,7 +9,7 @@ pub struct UnitStructTypeDecl {
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
     #[return_ref]
-    pub implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
+    implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
 }
 
 impl UnitStructTypeDecl {
@@ -17,11 +17,10 @@ impl UnitStructTypeDecl {
         self,
         db: &'a dyn DeclDb,
     ) -> DeclExprResultRef<'a, &'a [ImplicitParameterDecl]> {
-        Ok(self
-            .implicit_parameter_decl_list(db)
+        self.implicit_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
-            .map(|l| -> &[ImplicitParameterDecl] { &l })
-            .unwrap_or(&[]))
+            .map(ImplicitParameterDeclList::implicit_parameters)
+            .unwrap_or(Ok(&[]))
     }
 }

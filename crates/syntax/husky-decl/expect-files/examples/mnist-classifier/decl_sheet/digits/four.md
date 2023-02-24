@@ -271,7 +271,7 @@ Ok(
                                     None,
                                 ),
                                 parameter_decl_list: Ok(
-                                    ParameterDeclList {
+                                    RegularParameterDeclList {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
                                                 79,
@@ -295,9 +295,11 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rpar: RightParenthesisToken(
-                                            TokenIdx(
-                                                84,
+                                        rpar: Ok(
+                                            RightParenthesisToken(
+                                                TokenIdx(
+                                                    84,
+                                                ),
                                             ),
                                         ),
                                     },
@@ -801,7 +803,7 @@ Ok(
                                     None,
                                 ),
                                 parameter_decl_list: Ok(
-                                    ParameterDeclList {
+                                    RegularParameterDeclList {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
                                                 306,
@@ -825,9 +827,11 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rpar: RightParenthesisToken(
-                                            TokenIdx(
-                                                311,
+                                        rpar: Ok(
+                                            RightParenthesisToken(
+                                                TokenIdx(
+                                                    311,
+                                                ),
                                             ),
                                         ),
                                     },
@@ -1027,7 +1031,7 @@ Ok(
                                     None,
                                 ),
                                 parameter_decl_list: Ok(
-                                    ParameterDeclList {
+                                    RegularParameterDeclList {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
                                                 335,
@@ -1051,9 +1055,11 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rpar: RightParenthesisToken(
-                                            TokenIdx(
-                                                340,
+                                        rpar: Ok(
+                                            RightParenthesisToken(
+                                                TokenIdx(
+                                                    340,
+                                                ),
                                             ),
                                         ),
                                     },

@@ -15,12 +15,12 @@ DiagnosticSheet {
     decl_diagnostic_sheet: DeclDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Syntax Error: expect `>` for implicit parameter decl list",
+                message: "Syntax Error: expect implicit parameter declaration",
                 severity: Error,
                 range: [1:14, 1:23),
             },
             Diagnostic {
-                message: "Syntax Error: expect `>` for implicit parameter decl list",
+                message: "Syntax Error: expect implicit parameter declaration",
                 severity: Error,
                 range: [3:17, 3:26),
             },

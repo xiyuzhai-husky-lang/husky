@@ -7,9 +7,9 @@ pub struct TraitMethodDecl {
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
     #[return_ref]
-    pub implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
+    implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
     #[return_ref]
-    pub parameter_decl_list: ParameterDeclList,
+    parameter_decl_list: RegularParameterDeclList,
     #[return_ref]
     pub curry_token: DeclExprResult<CurryToken>,
     #[return_ref]
@@ -19,7 +19,10 @@ pub struct TraitMethodDecl {
 }
 
 impl TraitMethodDecl {
-    pub fn parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [RegularParameterDeclPattern] {
+    pub fn parameters<'a>(
+        self,
+        db: &'a dyn DeclDb,
+    ) -> DeclExprResultRef<'a, &'a [RegularParameterDeclPattern]> {
         self.parameter_decl_list(db).parameters()
     }
     pub fn implicit_parameters<'a>(
@@ -27,7 +30,7 @@ impl TraitMethodDecl {
         db: &'a dyn DeclDb,
     ) -> DeclExprResultRef<'a, &'a [ImplicitParameterDecl]> {
         match self.implicit_parameter_decl_list(db).as_ref()? {
-            Some(list) => Ok(list.implicit_parameters()),
+            Some(list) => list.implicit_parameters(),
             None => Ok(&[]),
         }
     }

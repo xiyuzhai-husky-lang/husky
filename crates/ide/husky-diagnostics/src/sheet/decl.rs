@@ -79,10 +79,13 @@ impl Diagnose for OriginalDeclExprError {
             OriginalDeclExprError::ExpectRightAngleBracketForImplicitParameterDeclList {
                 ..
             } => {
-                format!("Syntax Error: expect `>` for implicit parameter decl list",)
+                format!("Syntax Error: expect `>` for implicit parameter declaration list",)
             }
             OriginalDeclExprError::ExpectParameterDeclList(_) => todo!(),
-            OriginalDeclExprError::ExpectImplicitParameterDecl(_) => todo!(),
+            OriginalDeclExprError::ExpectImplicitParameterDecl(_) => {
+                format!("Syntax Error: expect implicit parameter declaration",)
+            }
+            OriginalDeclExprError::ExpectRightParenthesisInParameterList(_) => todo!(),
         }
     }
 
@@ -100,9 +103,12 @@ impl Diagnose for OriginalDeclExprError {
             | OriginalDeclExprError::ExpectRightAngleBracketForImplicitParameterDeclList {
                 current_token_idx: token_idx,
                 ..
-            } => ctx.ranged_token_sheet().token_text_range(*token_idx),
-            OriginalDeclExprError::ExpectParameterDeclList(_) => todo!(),
-            OriginalDeclExprError::ExpectImplicitParameterDecl(_) => todo!(),
+            }
+            | OriginalDeclExprError::ExpectParameterDeclList(token_idx)
+            | OriginalDeclExprError::ExpectImplicitParameterDecl(token_idx)
+            | OriginalDeclExprError::ExpectRightParenthesisInParameterList(token_idx) => {
+                ctx.ranged_token_sheet().token_text_range(*token_idx)
+            }
         }
     }
 }
@@ -130,7 +136,7 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
     }
 
     fn visit_regular_struct_decl(&mut self, decl: RegularStructTypeDecl) {
-        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameters(self.db()) {
             self.visit_atom(e)
         } else if let Err(ExprError::Original(e)) = decl.fields(self.db()) {
             self.visit_atom(e)
@@ -140,54 +146,54 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
     }
 
     fn visit_unit_struct_decl(&mut self, decl: UnitStructTypeDecl) {
-        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameters(self.db()) {
             self.visit_atom(e)
         }
         // todo!()
     }
 
     fn visit_tuple_struct_decl(&mut self, decl: TupleStructTypeDecl) {
-        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameters(self.db()) {
             self.visit_atom(e)
         }
         // todo!()
     }
 
     fn visit_record_decl(&mut self, decl: RecordTypeDecl) {
-        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameters(self.db()) {
             self.visit_atom(e)
         }
         // todo!()
     }
 
     fn visit_inductive_decl(&mut self, decl: InductiveTypeDecl) {
-        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameters(self.db()) {
             self.visit_atom(e)
         }
         // todo!()
     }
 
     fn visit_structure_decl(&mut self, decl: StructureTypeDecl) {
-        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameters(self.db()) {
             self.visit_atom(e)
         }
         // todo!()
     }
 
     fn visit_alien_decl(&mut self, decl: AlienTypeDecl) {
-        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameters(self.db()) {
             self.visit_atom(e)
         }
     }
 
     fn visit_union_decl(&mut self, decl: UnionTypeDecl) {
-        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameters(self.db()) {
             self.visit_atom(e)
         }
     }
 
     fn visit_enum_decl(&mut self, decl: EnumTypeDecl) {
-        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameters(self.db()) {
             self.visit_atom(e)
         }
     }
@@ -202,9 +208,9 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
     }
 
     fn visit_function_decl(&mut self, decl: FunctionDecl) {
-        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameters(self.db()) {
             self.visit_atom(e)
-        } else if let Err(DeclExprError::Original(e)) = decl.parameter_decl_list(self.db()) {
+        } else if let Err(DeclExprError::Original(e)) = decl.parameters(self.db()) {
             self.visit_atom(e)
         } else if let Err(DeclExprError::Original(e)) = decl.curry_token(self.db()) {
             self.visit_atom(e)
@@ -226,21 +232,21 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
     }
 
     fn visit_morphism_decl(&mut self, decl: MorphismDecl) {
-        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameters(self.db()) {
             self.visit_atom(e)
         }
         // todo!()
     }
 
     fn visit_value_decl(&mut self, decl: ValueDecl) {
-        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameters(self.db()) {
             self.visit_atom(e)
         }
         // todo!()
     }
 
     fn visit_trait_decl(&mut self, decl: TraitDecl) {
-        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameters(self.db()) {
             self.visit_atom(e)
         }
         // todo!()
@@ -254,7 +260,7 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
     }
 
     fn visit_ty_impl_decl(&mut self, decl: TypeImplDecl) {
-        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameters(self.db()) {
             self.visit_atom(e)
         } else if let Err(DeclExprError::Original(e)) = decl.eol_colon(self.db()) {
             self.visit_atom(e)

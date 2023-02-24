@@ -114,9 +114,11 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
-                                            TokenIdx(
-                                                12,
+                                        rangle: Ok(
+                                            RightAngleBracketToken(
+                                                TokenIdx(
+                                                    12,
+                                                ),
                                             ),
                                         ),
                                     },
@@ -239,9 +241,11 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
-                                            TokenIdx(
-                                                41,
+                                        rangle: Ok(
+                                            RightAngleBracketToken(
+                                                TokenIdx(
+                                                    41,
+                                                ),
                                             ),
                                         ),
                                     },
@@ -364,9 +368,11 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
-                                            TokenIdx(
-                                                70,
+                                        rangle: Ok(
+                                            RightAngleBracketToken(
+                                                TokenIdx(
+                                                    70,
+                                                ),
                                             ),
                                         ),
                                     },
@@ -489,9 +495,11 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
-                                            TokenIdx(
-                                                99,
+                                        rangle: Ok(
+                                            RightAngleBracketToken(
+                                                TokenIdx(
+                                                    99,
+                                                ),
                                             ),
                                         ),
                                     },
@@ -614,9 +622,11 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
-                                            TokenIdx(
-                                                124,
+                                        rangle: Ok(
+                                            RightAngleBracketToken(
+                                                TokenIdx(
+                                                    124,
+                                                ),
                                             ),
                                         ),
                                     },
@@ -739,9 +749,11 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
-                                            TokenIdx(
-                                                153,
+                                        rangle: Ok(
+                                            RightAngleBracketToken(
+                                                TokenIdx(
+                                                    153,
+                                                ),
                                             ),
                                         ),
                                     },
@@ -864,9 +876,11 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
-                                            TokenIdx(
-                                                178,
+                                        rangle: Ok(
+                                            RightAngleBracketToken(
+                                                TokenIdx(
+                                                    178,
+                                                ),
                                             ),
                                         ),
                                     },
@@ -989,9 +1003,11 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
-                                            TokenIdx(
-                                                207,
+                                        rangle: Ok(
+                                            RightAngleBracketToken(
+                                                TokenIdx(
+                                                    207,
+                                                ),
                                             ),
                                         ),
                                     },
@@ -1114,9 +1130,11 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
-                                            TokenIdx(
-                                                232,
+                                        rangle: Ok(
+                                            RightAngleBracketToken(
+                                                TokenIdx(
+                                                    232,
+                                                ),
                                             ),
                                         ),
                                     },
@@ -1239,9 +1257,11 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
-                                            TokenIdx(
-                                                261,
+                                        rangle: Ok(
+                                            RightAngleBracketToken(
+                                                TokenIdx(
+                                                    261,
+                                                ),
                                             ),
                                         ),
                                     },
@@ -1364,9 +1384,11 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
-                                            TokenIdx(
-                                                286,
+                                        rangle: Ok(
+                                            RightAngleBracketToken(
+                                                TokenIdx(
+                                                    286,
+                                                ),
                                             ),
                                         ),
                                     },
@@ -1489,9 +1511,11 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
-                                            TokenIdx(
-                                                315,
+                                        rangle: Ok(
+                                            RightAngleBracketToken(
+                                                TokenIdx(
+                                                    315,
+                                                ),
                                             ),
                                         ),
                                     },
@@ -1744,9 +1768,11 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
-                                            TokenIdx(
-                                                388,
+                                        rangle: Ok(
+                                            RightAngleBracketToken(
+                                                TokenIdx(
+                                                    388,
+                                                ),
                                             ),
                                         ),
                                     },

@@ -52,15 +52,7 @@ pub struct ImplicitParameterDeclList {
     implicit_parameters: Vec<ImplicitParameterDecl>,
     commas: Vec<CommaToken>,
     decl_list_result: Result<(), DeclExprError>,
-    rangle: RightAngleBracketToken,
-}
-
-impl std::ops::Deref for ImplicitParameterDeclList {
-    type Target = Vec<ImplicitParameterDecl>;
-
-    fn deref(&self) -> &Self::Target {
-        &self.implicit_parameters
-    }
+    rangle: DeclExprResult<RightAngleBracketToken>,
 }
 
 impl ImplicitParameterDeclList {
@@ -68,16 +60,14 @@ impl ImplicitParameterDeclList {
         self.langle
     }
 
-    pub fn implicit_parameters(&self) -> &[ImplicitParameterDecl] {
-        self.implicit_parameters.as_ref()
+    pub fn implicit_parameters<'a>(&'a self) -> DeclExprResultRef<'a, &'a [ImplicitParameterDecl]> {
+        self.decl_list_result.as_ref()?;
+        self.rangle.as_ref()?;
+        Ok(self.implicit_parameters.as_ref())
     }
 
     pub fn commas(&self) -> &[CommaToken] {
         self.commas.as_ref()
-    }
-
-    pub fn rcurl(&self) -> RightAngleBracketToken {
-        self.rangle
     }
 }
 
@@ -105,27 +95,29 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDeclList {
                     langle_token_idx: langle.token_idx(),
                     current_token_idx,
                 }
-            })?,
+            }),
         }))
     }
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct ParameterDeclList {
+pub struct RegularParameterDeclList {
     lpar: LeftParenthesisToken,
     parameters: Vec<RegularParameterDeclPattern>,
     commas: Vec<CommaToken>,
-    decl_list_result: Result<(), ExprError>,
-    rpar: RightParenthesisToken,
+    decl_list_result: Result<(), DeclExprError>,
+    rpar: DeclExprResult<RightParenthesisToken>,
 }
 
-impl ParameterDeclList {
-    pub fn parameters(&self) -> &[RegularParameterDeclPattern] {
-        self.parameters.as_ref()
+impl RegularParameterDeclList {
+    pub fn parameters<'a>(&'a self) -> DeclExprResultRef<'a, &'a [RegularParameterDeclPattern]> {
+        self.decl_list_result.as_ref()?;
+        self.rpar.as_ref()?;
+        Ok(self.parameters.as_ref())
     }
 }
 
-impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ParameterDeclList {
+impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for RegularParameterDeclList {
     type Error = DeclExprError;
 
     fn parse_from_without_guaranteed_rollback(
@@ -135,12 +127,12 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ParameterDeclList {
             return Ok(None)
         };
         let (parameters, commas, decl_list_result) = parse_separated_list(ctx);
-        let rpar = ctx.parse_expected(OriginalExprError::ExpectRightParenthesis)?;
+        let rpar = ctx.parse_expected(OriginalDeclExprError::ExpectRightParenthesisInParameterList);
         Ok(Some(Self {
             lpar,
             parameters,
             commas,
-            decl_list_result,
+            decl_list_result: decl_list_result.map_err(|e| e.into()),
             rpar,
         }))
     }

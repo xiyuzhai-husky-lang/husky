@@ -69,6 +69,7 @@ where
             Err(error) => break Err(error.into()),
         }
     };
+    assert!(result.is_err() || elements.len() >= nelem_min);
     (elements, separators, result)
 }
 

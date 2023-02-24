@@ -227,16 +227,18 @@ Ok(
                                             decl_list_result: Ok(
                                                 (),
                                             ),
-                                            rangle: RightAngleBracketToken(
-                                                TokenIdx(
-                                                    7,
+                                            rangle: Ok(
+                                                RightAngleBracketToken(
+                                                    TokenIdx(
+                                                        7,
+                                                    ),
                                                 ),
                                             ),
                                         },
                                     ),
                                 ),
                                 parameter_decl_list: Ok(
-                                    ParameterDeclList {
+                                    RegularParameterDeclList {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
                                                 8,
@@ -260,9 +262,11 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rpar: RightParenthesisToken(
-                                            TokenIdx(
-                                                16,
+                                        rpar: Ok(
+                                            RightParenthesisToken(
+                                                TokenIdx(
+                                                    16,
+                                                ),
                                             ),
                                         ),
                                     },
@@ -621,16 +625,18 @@ Ok(
                                             decl_list_result: Ok(
                                                 (),
                                             ),
-                                            rangle: RightAngleBracketToken(
-                                                TokenIdx(
-                                                    46,
+                                            rangle: Ok(
+                                                RightAngleBracketToken(
+                                                    TokenIdx(
+                                                        46,
+                                                    ),
                                                 ),
                                             ),
                                         },
                                     ),
                                 ),
                                 parameter_decl_list: Ok(
-                                    ParameterDeclList {
+                                    RegularParameterDeclList {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
                                                 47,
@@ -689,9 +695,11 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rpar: RightParenthesisToken(
-                                            TokenIdx(
-                                                63,
+                                        rpar: Ok(
+                                            RightParenthesisToken(
+                                                TokenIdx(
+                                                    63,
+                                                ),
                                             ),
                                         ),
                                     },
@@ -1065,16 +1073,18 @@ Ok(
                                             decl_list_result: Ok(
                                                 (),
                                             ),
-                                            rangle: RightAngleBracketToken(
-                                                TokenIdx(
-                                                    107,
+                                            rangle: Ok(
+                                                RightAngleBracketToken(
+                                                    TokenIdx(
+                                                        107,
+                                                    ),
                                                 ),
                                             ),
                                         },
                                     ),
                                 ),
                                 parameter_decl_list: Ok(
-                                    ParameterDeclList {
+                                    RegularParameterDeclList {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
                                                 108,
@@ -1133,9 +1143,11 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rpar: RightParenthesisToken(
-                                            TokenIdx(
-                                                124,
+                                        rpar: Ok(
+                                            RightParenthesisToken(
+                                                TokenIdx(
+                                                    124,
+                                                ),
                                             ),
                                         ),
                                     },
