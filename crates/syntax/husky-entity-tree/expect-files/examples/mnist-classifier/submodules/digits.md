@@ -10,63 +10,7 @@ Ok(
                 ident: Identifier(
                     Word(
                         Id {
-                            value: 122,
-                        },
-                    ),
-                ),
-            },
-            [crate]: CratePath {
-                package_path: PackagePath {
-                    data: Local {
-                        path: DiffPath {
-                            data: DiffPathBuf(
-                                "../../../examples/mnist-classifier",
-                            ),
-                        },
-                    },
-                },
-                crate_kind: Main,
-            },
-        },
-        ModulePath {
-            [display]: Child {
-                parent: ModulePath(
-                    Id {
-                        value: 22,
-                    },
-                ),
-                ident: Identifier(
-                    Word(
-                        Id {
-                            value: 117,
-                        },
-                    ),
-                ),
-            },
-            [crate]: CratePath {
-                package_path: PackagePath {
-                    data: Local {
-                        path: DiffPath {
-                            data: DiffPathBuf(
-                                "../../../examples/mnist-classifier",
-                            ),
-                        },
-                    },
-                },
-                crate_kind: Main,
-            },
-        },
-        ModulePath {
-            [display]: Child {
-                parent: ModulePath(
-                    Id {
-                        value: 22,
-                    },
-                ),
-                ident: Identifier(
-                    Word(
-                        Id {
-                            value: 119,
+                            value: 125,
                         },
                     ),
                 ),
@@ -122,7 +66,7 @@ Ok(
                 ident: Identifier(
                     Word(
                         Id {
-                            value: 115,
+                            value: 122,
                         },
                     ),
                 ),
@@ -150,35 +94,7 @@ Ok(
                 ident: Identifier(
                     Word(
                         Id {
-                            value: 114,
-                        },
-                    ),
-                ),
-            },
-            [crate]: CratePath {
-                package_path: PackagePath {
-                    data: Local {
-                        path: DiffPath {
-                            data: DiffPathBuf(
-                                "../../../examples/mnist-classifier",
-                            ),
-                        },
-                    },
-                },
-                crate_kind: Main,
-            },
-        },
-        ModulePath {
-            [display]: Child {
-                parent: ModulePath(
-                    Id {
-                        value: 22,
-                    },
-                ),
-                ident: Identifier(
-                    Word(
-                        Id {
-                            value: 119,
+                            value: 123,
                         },
                     ),
                 ),
@@ -234,7 +150,63 @@ Ok(
                 ident: Identifier(
                     Word(
                         Id {
-                            value: 113,
+                            value: 117,
+                        },
+                    ),
+                ),
+            },
+            [crate]: CratePath {
+                package_path: PackagePath {
+                    data: Local {
+                        path: DiffPath {
+                            data: DiffPathBuf(
+                                "../../../examples/mnist-classifier",
+                            ),
+                        },
+                    },
+                },
+                crate_kind: Main,
+            },
+        },
+        ModulePath {
+            [display]: Child {
+                parent: ModulePath(
+                    Id {
+                        value: 22,
+                    },
+                ),
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 122,
+                        },
+                    ),
+                ),
+            },
+            [crate]: CratePath {
+                package_path: PackagePath {
+                    data: Local {
+                        path: DiffPath {
+                            data: DiffPathBuf(
+                                "../../../examples/mnist-classifier",
+                            ),
+                        },
+                    },
+                },
+                crate_kind: Main,
+            },
+        },
+        ModulePath {
+            [display]: Child {
+                parent: ModulePath(
+                    Id {
+                        value: 22,
+                    },
+                ),
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 121,
                         },
                     ),
                 ),
@@ -263,6 +235,34 @@ Ok(
                     Word(
                         Id {
                             value: 116,
+                        },
+                    ),
+                ),
+            },
+            [crate]: CratePath {
+                package_path: PackagePath {
+                    data: Local {
+                        path: DiffPath {
+                            data: DiffPathBuf(
+                                "../../../examples/mnist-classifier",
+                            ),
+                        },
+                    },
+                },
+                crate_kind: Main,
+            },
+        },
+        ModulePath {
+            [display]: Child {
+                parent: ModulePath(
+                    Id {
+                        value: 22,
+                    },
+                ),
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 119,
                         },
                     ),
                 ),

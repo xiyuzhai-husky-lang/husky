@@ -349,9 +349,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::PublicUnder(
-                        `core::num`,
-                    ),
+                    accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
                             Method,
@@ -361,13 +359,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `add`,
                         token_idx: TokenIdx(
-                            359,
+                            360,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        360,
+                        361,
                     ),
                 },
                 Ast::Defn {
@@ -387,13 +385,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `abs`,
                         token_idx: TokenIdx(
-                            397,
+                            398,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        398,
+                        399,
                     ),
                 },
                 Ast::Defn {
@@ -413,13 +411,223 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `add`,
                         token_idx: TokenIdx(
-                            411,
+                            412,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        412,
+                        413,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        61,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::Public,
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `abs`,
+                        token_idx: TokenIdx(
+                            450,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        451,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        63,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::Public,
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeAsTraitItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `add`,
+                        token_idx: TokenIdx(
+                            464,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        465,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        68,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::Public,
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `abs`,
+                        token_idx: TokenIdx(
+                            502,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        503,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        70,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::Public,
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeAsTraitItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `add`,
+                        token_idx: TokenIdx(
+                            516,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        517,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        75,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::Public,
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `abs`,
+                        token_idx: TokenIdx(
+                            554,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        555,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        77,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `core::num`,
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeAsTraitItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `add`,
+                        token_idx: TokenIdx(
+                            567,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        568,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        82,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::Public,
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `abs`,
+                        token_idx: TokenIdx(
+                            605,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        606,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        84,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::Public,
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeAsTraitItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `add`,
+                        token_idx: TokenIdx(
+                            619,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        620,
                     ),
                 },
                 Ast::Use {
@@ -705,12 +913,12 @@ Ok(
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::num::f8`, `Alien`),
+                                TypePath(`core::num::u8`, `Alien`),
                             ),
                         ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `f8`,
+                        ident: `u8`,
                         token_idx: TokenIdx(
                             235,
                         ),
@@ -767,12 +975,12 @@ Ok(
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::num::f16`, `Alien`),
+                                TypePath(`core::num::u16`, `Alien`),
                             ),
                         ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `f16`,
+                        ident: `u16`,
                         token_idx: TokenIdx(
                             287,
                         ),
@@ -829,12 +1037,12 @@ Ok(
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::num::f32`, `Alien`),
+                                TypePath(`core::num::u32`, `Alien`),
                             ),
                         ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `f32`,
+                        ident: `u32`,
                         token_idx: TokenIdx(
                             339,
                         ),
@@ -891,20 +1099,20 @@ Ok(
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::num::f64`, `Alien`),
+                                TypePath(`core::num::u64`, `Alien`),
                             ),
                         ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `f64`,
+                        ident: `u64`,
                         token_idx: TokenIdx(
-                            390,
+                            391,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        391,
+                        392,
                     ),
                 },
                 Ast::Impl {
@@ -923,10 +1131,258 @@ Ok(
                         15..16,
                     ),
                 },
+                Ast::Decor {
+                    token_group_idx: TokenGroupIdx(
+                        57,
+                    ),
+                },
+                Ast::Err {
+                    token_group_idx: TokenGroupIdx(
+                        58,
+                    ),
+                    error: Original(
+                        UnexpectedStmtInsideModule,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        59,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::Public,
+                    entity_kind: ModuleItem {
+                        module_item_kind: Type(
+                            Alien,
+                        ),
+                        connection: Connected,
+                    },
+                    entity_path: Some(
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`core::num::u128`, `Alien`),
+                            ),
+                        ),
+                    ),
+                    ident_token: IdentifierToken {
+                        ident: `u128`,
+                        token_idx: TokenIdx(
+                            443,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        444,
+                    ),
+                },
+                Ast::Impl {
+                    token_group_idx: TokenGroupIdx(
+                        60,
+                    ),
+                    body: ArenaIdxRange(
+                        16..17,
+                    ),
+                },
+                Ast::Impl {
+                    token_group_idx: TokenGroupIdx(
+                        62,
+                    ),
+                    body: ArenaIdxRange(
+                        17..18,
+                    ),
+                },
+                Ast::Decor {
+                    token_group_idx: TokenGroupIdx(
+                        64,
+                    ),
+                },
+                Ast::Err {
+                    token_group_idx: TokenGroupIdx(
+                        65,
+                    ),
+                    error: Original(
+                        UnexpectedStmtInsideModule,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        66,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::Public,
+                    entity_kind: ModuleItem {
+                        module_item_kind: Type(
+                            Alien,
+                        ),
+                        connection: Connected,
+                    },
+                    entity_path: Some(
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`core::num::usize`, `Alien`),
+                            ),
+                        ),
+                    ),
+                    ident_token: IdentifierToken {
+                        ident: `usize`,
+                        token_idx: TokenIdx(
+                            495,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        496,
+                    ),
+                },
+                Ast::Impl {
+                    token_group_idx: TokenGroupIdx(
+                        67,
+                    ),
+                    body: ArenaIdxRange(
+                        18..19,
+                    ),
+                },
+                Ast::Impl {
+                    token_group_idx: TokenGroupIdx(
+                        69,
+                    ),
+                    body: ArenaIdxRange(
+                        19..20,
+                    ),
+                },
+                Ast::Decor {
+                    token_group_idx: TokenGroupIdx(
+                        71,
+                    ),
+                },
+                Ast::Err {
+                    token_group_idx: TokenGroupIdx(
+                        72,
+                    ),
+                    error: Original(
+                        UnexpectedStmtInsideModule,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        73,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::Public,
+                    entity_kind: ModuleItem {
+                        module_item_kind: Type(
+                            Alien,
+                        ),
+                        connection: Connected,
+                    },
+                    entity_path: Some(
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`core::num::f32`, `Alien`),
+                            ),
+                        ),
+                    ),
+                    ident_token: IdentifierToken {
+                        ident: `f32`,
+                        token_idx: TokenIdx(
+                            547,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        548,
+                    ),
+                },
+                Ast::Impl {
+                    token_group_idx: TokenGroupIdx(
+                        74,
+                    ),
+                    body: ArenaIdxRange(
+                        20..21,
+                    ),
+                },
+                Ast::Impl {
+                    token_group_idx: TokenGroupIdx(
+                        76,
+                    ),
+                    body: ArenaIdxRange(
+                        21..22,
+                    ),
+                },
+                Ast::Decor {
+                    token_group_idx: TokenGroupIdx(
+                        78,
+                    ),
+                },
+                Ast::Err {
+                    token_group_idx: TokenGroupIdx(
+                        79,
+                    ),
+                    error: Original(
+                        UnexpectedStmtInsideModule,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        80,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::Public,
+                    entity_kind: ModuleItem {
+                        module_item_kind: Type(
+                            Alien,
+                        ),
+                        connection: Connected,
+                    },
+                    entity_path: Some(
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`core::num::f64`, `Alien`),
+                            ),
+                        ),
+                    ),
+                    ident_token: IdentifierToken {
+                        ident: `f64`,
+                        token_idx: TokenIdx(
+                            598,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        599,
+                    ),
+                },
+                Ast::Impl {
+                    token_group_idx: TokenGroupIdx(
+                        81,
+                    ),
+                    body: ArenaIdxRange(
+                        22..23,
+                    ),
+                },
+                Ast::Impl {
+                    token_group_idx: TokenGroupIdx(
+                        83,
+                    ),
+                    body: ArenaIdxRange(
+                        23..24,
+                    ),
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            16..57,
+            24..85,
         ),
     },
 )

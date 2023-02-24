@@ -6,6 +6,9 @@ pub struct TermMenu1 {
     eval_ref_ty: Term,
     static_ref_ty: Term,
     invariant_ty0_to_trai_ty: TermCurry,
+    covariant_ty0_to_ty0: TermCurry,
+    contravariant_ty0_to_ty0: TermCurry,
+    invariant_ty0_to_ty0: TermCurry,
 }
 
 impl std::ops::Deref for TermMenu1 {
@@ -34,6 +37,24 @@ impl TermMenu1 {
                 menu0.ty0().into(),
                 menu0.trai_ty().into(),
             ),
+            covariant_ty0_to_ty0: TermCurry::new(
+                db,
+                Variance::Covariant,
+                menu0.ty0().into(),
+                menu0.ty0().into(),
+            ),
+            contravariant_ty0_to_ty0: TermCurry::new(
+                db,
+                Variance::Contravariant,
+                menu0.ty0().into(),
+                menu0.ty0().into(),
+            ),
+            invariant_ty0_to_ty0: TermCurry::new(
+                db,
+                Variance::Invariant,
+                menu0.ty0().into(),
+                menu0.ty0().into(),
+            ),
             parent: menu0,
         }
     }
@@ -48,5 +69,17 @@ impl TermMenu1 {
 
     pub fn invariant_ty0_to_trai_ty(&self) -> TermCurry {
         self.invariant_ty0_to_trai_ty
+    }
+
+    pub fn covariant_ty0_to_ty0(&self) -> TermCurry {
+        self.covariant_ty0_to_ty0
+    }
+
+    pub fn contravariant_ty0_to_ty0(&self) -> TermCurry {
+        self.contravariant_ty0_to_ty0
+    }
+
+    pub fn invariant_ty0_to_ty0(&self) -> TermCurry {
+        self.invariant_ty0_to_ty0
     }
 }

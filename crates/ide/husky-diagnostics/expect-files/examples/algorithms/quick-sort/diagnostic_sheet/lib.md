@@ -55,41 +55,6 @@ DiagnosticSheet {
                 severity: Error,
                 range: [11:67, 11:72),
             },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [12:25, 12:30),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [18:34, 18:39),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [21:52, 21:57),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [26:37, 26:42),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [26:58, 26:63),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [27:29, 27:34),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [27:45, 27:50),
-            },
         ],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {

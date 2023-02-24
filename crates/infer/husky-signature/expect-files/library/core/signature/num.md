@@ -88,6 +88,50 @@
         ),
     ),
     Ok(
+        Signature::Type(
+            TypeSignature::Foreign(
+                AlienTypeSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        data: [],
+                    },
+                },
+            ),
+        ),
+    ),
+    Ok(
+        Signature::Type(
+            TypeSignature::Foreign(
+                AlienTypeSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        data: [],
+                    },
+                },
+            ),
+        ),
+    ),
+    Ok(
+        Signature::Type(
+            TypeSignature::Foreign(
+                AlienTypeSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        data: [],
+                    },
+                },
+            ),
+        ),
+    ),
+    Ok(
+        Signature::Type(
+            TypeSignature::Foreign(
+                AlienTypeSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        data: [],
+                    },
+                },
+            ),
+        ),
+    ),
+    Ok(
         Signature::ImplBlock(
             ImplBlockSignature::TypeImplBlock(
                 TypeImplBlockSignature {
@@ -210,7 +254,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`core::num::f8`),
+                    ty: Term(`core::num::u8`),
                 },
             ),
         ),
@@ -226,7 +270,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`core::num::f8`),
+                        return_ty: Term(`core::num::u8`),
                     },
                 ),
             ),
@@ -239,7 +283,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`core::num::f16`),
+                    ty: Term(`core::num::u16`),
                 },
             ),
         ),
@@ -255,7 +299,123 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`core::num::f16`),
+                        return_ty: Term(`core::num::u16`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        Signature::ImplBlock(
+            ImplBlockSignature::TypeImplBlock(
+                TypeImplBlockSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        data: [],
+                    },
+                    ty: Term(`core::num::u32`),
+                },
+            ),
+        ),
+    ),
+    Ok(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
+                TypeItemSignature::Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            data: [],
+                        },
+                        parameters: RegularParameterSignatures {
+                            parameters: [],
+                        },
+                        return_ty: Term(`core::num::u32`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        Signature::ImplBlock(
+            ImplBlockSignature::TypeImplBlock(
+                TypeImplBlockSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        data: [],
+                    },
+                    ty: Term(`core::num::u64`),
+                },
+            ),
+        ),
+    ),
+    Ok(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
+                TypeItemSignature::Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            data: [],
+                        },
+                        parameters: RegularParameterSignatures {
+                            parameters: [],
+                        },
+                        return_ty: Term(`core::num::u64`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        Signature::ImplBlock(
+            ImplBlockSignature::TypeImplBlock(
+                TypeImplBlockSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        data: [],
+                    },
+                    ty: Term(`core::num::u128`),
+                },
+            ),
+        ),
+    ),
+    Ok(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
+                TypeItemSignature::Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            data: [],
+                        },
+                        parameters: RegularParameterSignatures {
+                            parameters: [],
+                        },
+                        return_ty: Term(`core::num::u128`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        Signature::ImplBlock(
+            ImplBlockSignature::TypeImplBlock(
+                TypeImplBlockSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        data: [],
+                    },
+                    ty: Term(`core::num::usize`),
+                },
+            ),
+        ),
+    ),
+    Ok(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
+                TypeItemSignature::Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            data: [],
+                        },
+                        parameters: RegularParameterSignatures {
+                            parameters: [],
+                        },
+                        return_ty: Term(`core::num::usize`),
                     },
                 ),
             ),

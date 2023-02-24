@@ -61,7 +61,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 132,
+                                value: 136,
                             },
                         ),
                     ),
@@ -109,7 +109,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 127,
+                                value: 131,
                             },
                         ),
                     ),
@@ -475,7 +475,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 113,
+                        value: 129,
                     },
                 ),
             },
@@ -600,7 +600,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 111,
+                        value: 127,
                     },
                 ),
             },
@@ -612,7 +612,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 35,
+                                    value: 39,
                                 },
                             ),
                         ),
@@ -629,7 +629,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 17,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -644,7 +644,7 @@ Ok(
                 inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 114,
+                        value: 130,
                     },
                 ),
             },
@@ -663,7 +663,7 @@ Ok(
                 inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 114,
+                        value: 130,
                     },
                 ),
             },
@@ -683,7 +683,7 @@ Ok(
                 inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 114,
+                        value: 130,
                     },
                 ),
             },
@@ -702,7 +702,7 @@ Ok(
                 inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 114,
+                        value: 130,
                     },
                 ),
             },

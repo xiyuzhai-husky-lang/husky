@@ -178,7 +178,7 @@
                     impl_block_id: ImplBlockId {
                         module_path: `core::num`,
                         impl_block_kind: ImplBlockKind::Type {
-                            ty: TypePath(`core::num::f8`, `Alien`),
+                            ty: TypePath(`core::num::u8`, `Alien`),
                         },
                         disambiguator: 0,
                     },
@@ -210,7 +210,7 @@
             },
         },
         return_ty: Some(
-            Term(`core::num::f8`),
+            Term(`core::num::u8`),
         ),
         self_ty: None,
     },
@@ -221,7 +221,7 @@
                     impl_block_id: ImplBlockId {
                         module_path: `core::num`,
                         impl_block_kind: ImplBlockKind::Type {
-                            ty: TypePath(`core::num::f16`, `Alien`),
+                            ty: TypePath(`core::num::u16`, `Alien`),
                         },
                         disambiguator: 0,
                     },
@@ -253,7 +253,179 @@
             },
         },
         return_ty: Some(
-            Term(`core::num::f16`),
+            Term(`core::num::u16`),
+        ),
+        self_ty: None,
+    },
+    ExprTypeRegion {
+        path: RegionPath::Defn(
+            DefnRegionPath::AssociatedItem(
+                AssociatedItemId {
+                    impl_block_id: ImplBlockId {
+                        module_path: `core::num`,
+                        impl_block_kind: ImplBlockKind::Type {
+                            ty: TypePath(`core::num::u32`, `Alien`),
+                        },
+                        disambiguator: 0,
+                    },
+                    ident: `abs`,
+                },
+            ),
+        ),
+        expr_ty_infos: ArenaMap {
+            data: [],
+        },
+        expr_local_terms: ArenaMap {
+            data: [],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
+        local_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
+            },
+            expectations: LocalTermExpectations {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`core::num::u32`),
+        ),
+        self_ty: None,
+    },
+    ExprTypeRegion {
+        path: RegionPath::Defn(
+            DefnRegionPath::AssociatedItem(
+                AssociatedItemId {
+                    impl_block_id: ImplBlockId {
+                        module_path: `core::num`,
+                        impl_block_kind: ImplBlockKind::Type {
+                            ty: TypePath(`core::num::u64`, `Alien`),
+                        },
+                        disambiguator: 0,
+                    },
+                    ident: `abs`,
+                },
+            ),
+        ),
+        expr_ty_infos: ArenaMap {
+            data: [],
+        },
+        expr_local_terms: ArenaMap {
+            data: [],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
+        local_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
+            },
+            expectations: LocalTermExpectations {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`core::num::u64`),
+        ),
+        self_ty: None,
+    },
+    ExprTypeRegion {
+        path: RegionPath::Defn(
+            DefnRegionPath::AssociatedItem(
+                AssociatedItemId {
+                    impl_block_id: ImplBlockId {
+                        module_path: `core::num`,
+                        impl_block_kind: ImplBlockKind::Type {
+                            ty: TypePath(`core::num::u128`, `Alien`),
+                        },
+                        disambiguator: 0,
+                    },
+                    ident: `abs`,
+                },
+            ),
+        ),
+        expr_ty_infos: ArenaMap {
+            data: [],
+        },
+        expr_local_terms: ArenaMap {
+            data: [],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
+        local_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
+            },
+            expectations: LocalTermExpectations {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`core::num::u128`),
+        ),
+        self_ty: None,
+    },
+    ExprTypeRegion {
+        path: RegionPath::Defn(
+            DefnRegionPath::AssociatedItem(
+                AssociatedItemId {
+                    impl_block_id: ImplBlockId {
+                        module_path: `core::num`,
+                        impl_block_kind: ImplBlockKind::Type {
+                            ty: TypePath(`core::num::usize`, `Alien`),
+                        },
+                        disambiguator: 0,
+                    },
+                    ident: `abs`,
+                },
+            ),
+        ),
+        expr_ty_infos: ArenaMap {
+            data: [],
+        },
+        expr_local_terms: ArenaMap {
+            data: [],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
+        local_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
+            },
+            expectations: LocalTermExpectations {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`core::num::usize`),
         ),
         self_ty: None,
     },

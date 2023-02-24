@@ -11,7 +11,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 214,
+                                        value: 212,
                                     },
                                 ),
                             ),
@@ -20,7 +20,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 17,
+                                                value: 21,
                                             },
                                         ),
                                     ),
@@ -31,7 +31,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 215,
+                                        value: 213,
                                     },
                                 ),
                             ),
@@ -40,60 +40,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 17,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-            ),
-        ),
-    ),
-    Ok(
-        Signature::Type(
-            TypeSignature::RegularStruct(
-                RegularStructTypeSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        data: [],
-                    },
-                    fields: [
-                        RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 214,
-                                    },
-                                ),
-                            ),
-                            ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 17,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                        RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 215,
-                                    },
-                                ),
-                            ),
-                            ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 17,
+                                                value: 21,
                                             },
                                         ),
                                     ),
@@ -117,7 +64,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 214,
+                                        value: 212,
                                     },
                                 ),
                             ),
@@ -126,7 +73,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 17,
+                                                value: 21,
                                             },
                                         ),
                                     ),
@@ -137,7 +84,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 215,
+                                        value: 213,
                                     },
                                 ),
                             ),
@@ -146,7 +93,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 17,
+                                                value: 21,
                                             },
                                         ),
                                     ),
@@ -170,7 +117,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 239,
+                                        value: 212,
                                     },
                                 ),
                             ),
@@ -179,7 +126,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 17,
+                                                value: 21,
                                             },
                                         ),
                                     ),
@@ -190,7 +137,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 199,
+                                        value: 213,
                                     },
                                 ),
                             ),
@@ -199,7 +146,60 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 17,
+                                                value: 21,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+            ),
+        ),
+    ),
+    Ok(
+        Signature::Type(
+            TypeSignature::RegularStruct(
+                RegularStructTypeSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        data: [],
+                    },
+                    fields: [
+                        RegularStructFieldSignature {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 237,
+                                    },
+                                ),
+                            ),
+                            ty: Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 21,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        RegularStructFieldSignature {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 197,
+                                    },
+                                ),
+                            ),
+                            ty: Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 21,
                                             },
                                         ),
                                     ),
@@ -235,7 +235,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 325,
+                                        value: 323,
                                     },
                                 ),
                             ),
@@ -244,7 +244,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 40,
+                                                value: 42,
                                             },
                                         ),
                                     ),
@@ -255,7 +255,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 326,
+                                        value: 324,
                                     },
                                 ),
                             ),
@@ -264,7 +264,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 40,
+                                                value: 42,
                                             },
                                         ),
                                     ),
@@ -368,7 +368,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -417,7 +417,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -478,7 +478,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 39,
+                                                        value: 41,
                                                     },
                                                 ),
                                             ),
@@ -527,7 +527,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 39,
+                                                        value: 41,
                                                     },
                                                 ),
                                             ),
@@ -559,7 +559,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 39,
+                                                        value: 41,
                                                     },
                                                 ),
                                             ),
@@ -623,7 +623,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 39,
+                                                        value: 41,
                                                     },
                                                 ),
                                             ),
@@ -655,7 +655,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 39,
+                                                        value: 41,
                                                     },
                                                 ),
                                             ),
@@ -713,7 +713,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 41,
+                                                        value: 43,
                                                     },
                                                 ),
                                             ),
@@ -745,7 +745,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),

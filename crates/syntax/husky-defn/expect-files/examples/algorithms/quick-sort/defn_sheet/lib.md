@@ -119,7 +119,7 @@ Ok(
                                                             Identifier(
                                                                 Word(
                                                                     Id {
-                                                                        value: 110,
+                                                                        value: 108,
                                                                     },
                                                                 ),
                                                             ),
@@ -201,7 +201,7 @@ Ok(
                                                                     ident: Identifier(
                                                                         Word(
                                                                             Id {
-                                                                                value: 109,
+                                                                                value: 107,
                                                                             },
                                                                         ),
                                                                     ),
@@ -394,7 +394,7 @@ Ok(
                                                                     Identifier(
                                                                         Word(
                                                                             Id {
-                                                                                value: 110,
+                                                                                value: 108,
                                                                             },
                                                                         ),
                                                                     ),
@@ -669,7 +669,7 @@ Ok(
                                                         Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 111,
+                                                                    value: 109,
                                                                 },
                                                             ),
                                                         ),
@@ -902,7 +902,7 @@ Ok(
                                                             Identifier(
                                                                 Word(
                                                                     Id {
-                                                                        value: 110,
+                                                                        value: 108,
                                                                     },
                                                                 ),
                                                             ),
@@ -914,7 +914,7 @@ Ok(
                                                             Identifier(
                                                                 Word(
                                                                     Id {
-                                                                        value: 113,
+                                                                        value: 111,
                                                                     },
                                                                 ),
                                                             ),
@@ -926,7 +926,7 @@ Ok(
                                                             Identifier(
                                                                 Word(
                                                                     Id {
-                                                                        value: 114,
+                                                                        value: 112,
                                                                     },
                                                                 ),
                                                             ),
@@ -1042,7 +1042,7 @@ Ok(
                                                                     ident: Identifier(
                                                                         Word(
                                                                             Id {
-                                                                                value: 109,
+                                                                                value: 107,
                                                                             },
                                                                         ),
                                                                     ),
@@ -1310,7 +1310,7 @@ Ok(
                                                                     Identifier(
                                                                         Word(
                                                                             Id {
-                                                                                value: 110,
+                                                                                value: 108,
                                                                             },
                                                                         ),
                                                                     ),
@@ -1322,7 +1322,7 @@ Ok(
                                                                     Identifier(
                                                                         Word(
                                                                             Id {
-                                                                                value: 113,
+                                                                                value: 111,
                                                                             },
                                                                         ),
                                                                     ),
@@ -1334,7 +1334,7 @@ Ok(
                                                                     Identifier(
                                                                         Word(
                                                                             Id {
-                                                                                value: 114,
+                                                                                value: 112,
                                                                             },
                                                                         ),
                                                                     ),
@@ -1777,7 +1777,7 @@ Ok(
                                                         Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 115,
+                                                                    value: 113,
                                                                 },
                                                             ),
                                                         ),
@@ -2034,7 +2034,7 @@ Ok(
                                                             Identifier(
                                                                 Word(
                                                                     Id {
-                                                                        value: 110,
+                                                                        value: 108,
                                                                     },
                                                                 ),
                                                             ),
@@ -2046,7 +2046,7 @@ Ok(
                                                             Identifier(
                                                                 Word(
                                                                     Id {
-                                                                        value: 113,
+                                                                        value: 111,
                                                                     },
                                                                 ),
                                                             ),
@@ -2058,7 +2058,7 @@ Ok(
                                                             Identifier(
                                                                 Word(
                                                                     Id {
-                                                                        value: 114,
+                                                                        value: 112,
                                                                     },
                                                                 ),
                                                             ),
@@ -2179,7 +2179,7 @@ Ok(
                                                                     ident: Identifier(
                                                                         Word(
                                                                             Id {
-                                                                                value: 109,
+                                                                                value: 107,
                                                                             },
                                                                         ),
                                                                     ),
@@ -2451,7 +2451,7 @@ Ok(
                                                                     Identifier(
                                                                         Word(
                                                                             Id {
-                                                                                value: 110,
+                                                                                value: 108,
                                                                             },
                                                                         ),
                                                                     ),
@@ -2463,7 +2463,7 @@ Ok(
                                                                     Identifier(
                                                                         Word(
                                                                             Id {
-                                                                                value: 113,
+                                                                                value: 111,
                                                                             },
                                                                         ),
                                                                     ),
@@ -2475,7 +2475,7 @@ Ok(
                                                                     Identifier(
                                                                         Word(
                                                                             Id {
-                                                                                value: 114,
+                                                                                value: 112,
                                                                             },
                                                                         ),
                                                                     ),
@@ -2598,16 +2598,16 @@ Ok(
                                                     inherited_symbol_idx: 3,
                                                     inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdentifier {
-                                                            token_idx: TokenIdx(
-                                                                133,
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    entity_path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::usize`, `Alien`),
                                                             ),
-                                                            ident: `usize`,
-                                                        },
+                                                        ),
                                                     ),
-                                                ),
+                                                },
                                                 Expr::BinaryOpn {
                                                     lopd: 0,
                                                     opr: As,
@@ -2697,16 +2697,16 @@ Ok(
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdentifier {
-                                                            token_idx: TokenIdx(
-                                                                157,
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    entity_path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::usize`, `Alien`),
                                                             ),
-                                                            ident: `usize`,
-                                                        },
+                                                        ),
                                                     ),
-                                                ),
+                                                },
                                                 Expr::BinaryOpn {
                                                     lopd: 12,
                                                     opr: As,
@@ -2858,16 +2858,16 @@ Ok(
                                                         pattern_symbol_idx: 2,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdentifier {
-                                                            token_idx: TokenIdx(
-                                                                180,
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 2,
+                                                    entity_path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::usize`, `Alien`),
                                                             ),
-                                                            ident: `usize`,
-                                                        },
+                                                        ),
                                                     ),
-                                                ),
+                                                },
                                                 Expr::BinaryOpn {
                                                     lopd: 29,
                                                     opr: As,
@@ -3027,16 +3027,16 @@ Ok(
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdentifier {
-                                                            token_idx: TokenIdx(
-                                                                205,
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 3,
+                                                    entity_path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::usize`, `Alien`),
                                                             ),
-                                                            ident: `usize`,
-                                                        },
+                                                        ),
                                                     ),
-                                                ),
+                                                },
                                                 Expr::CurrentSymbol {
                                                     ident: `last_index`,
                                                     token_idx: TokenIdx(
@@ -3047,16 +3047,16 @@ Ok(
                                                         pattern_symbol_idx: 2,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdentifier {
-                                                            token_idx: TokenIdx(
-                                                                209,
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 4,
+                                                    entity_path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::usize`, `Alien`),
                                                             ),
-                                                            ident: `usize`,
-                                                        },
+                                                        ),
                                                     ),
-                                                ),
+                                                },
                                                 Expr::BinaryOpn {
                                                     lopd: 46,
                                                     opr: As,
@@ -3113,16 +3113,16 @@ Ok(
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdentifier {
-                                                            token_idx: TokenIdx(
-                                                                217,
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 5,
+                                                    entity_path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::usize`, `Alien`),
                                                             ),
-                                                            ident: `usize`,
-                                                        },
+                                                        ),
                                                     ),
-                                                ),
+                                                },
                                                 Expr::CurrentSymbol {
                                                     ident: `pivot`,
                                                     token_idx: TokenIdx(
@@ -3133,16 +3133,16 @@ Ok(
                                                         pattern_symbol_idx: 0,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdentifier {
-                                                            token_idx: TokenIdx(
-                                                                221,
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 6,
+                                                    entity_path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::usize`, `Alien`),
                                                             ),
-                                                            ident: `usize`,
-                                                        },
+                                                        ),
                                                     ),
-                                                ),
+                                                },
                                                 Expr::BinaryOpn {
                                                     lopd: 54,
                                                     opr: As,
@@ -3199,7 +3199,85 @@ Ok(
                                             ],
                                         },
                                         entity_path_expr_arena: Arena {
-                                            data: [],
+                                            data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        133,
+                                                    ),
+                                                    ident: `usize`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::usize`, `Alien`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        157,
+                                                    ),
+                                                    ident: `usize`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::usize`, `Alien`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        180,
+                                                    ),
+                                                    ident: `usize`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::usize`, `Alien`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        205,
+                                                    ),
+                                                    ident: `usize`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::usize`, `Alien`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        209,
+                                                    ),
+                                                    ident: `usize`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::usize`, `Alien`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        217,
+                                                    ),
+                                                    ident: `usize`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::usize`, `Alien`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        221,
+                                                    ),
+                                                    ident: `usize`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::usize`, `Alien`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
                                         },
                                         stmt_arena: Arena {
                                             data: [
@@ -3475,7 +3553,7 @@ Ok(
                                                         Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 117,
+                                                                    value: 115,
                                                                 },
                                                             ),
                                                         ),
@@ -3487,7 +3565,7 @@ Ok(
                                                         Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 118,
+                                                                    value: 116,
                                                                 },
                                                             ),
                                                         ),
@@ -3499,7 +3577,7 @@ Ok(
                                                         Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 119,
+                                                                    value: 117,
                                                                 },
                                                             ),
                                                         ),
@@ -4006,7 +4084,7 @@ Ok(
                                                         Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 123,
+                                                                    value: 121,
                                                                 },
                                                             ),
                                                         ),
@@ -4392,7 +4470,7 @@ Ok(
                                                         Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 125,
+                                                                    value: 123,
                                                                 },
                                                             ),
                                                         ),
