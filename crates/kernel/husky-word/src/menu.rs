@@ -115,6 +115,14 @@ impl WordMenu {
         self.bool
     }
 
+    pub fn u8(&self) -> Identifier {
+        self.u8
+    }
+
+    pub fn u16(&self) -> Identifier {
+        self.u16
+    }
+
     pub fn u32(&self) -> Identifier {
         self.u32
     }

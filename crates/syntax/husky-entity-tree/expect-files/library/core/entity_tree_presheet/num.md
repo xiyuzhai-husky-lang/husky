@@ -14,7 +14,7 @@ Ok(
                                 TypePath(`core::num::i8`, `Alien`),
                             ),
                             accessibility: Accessibility::Public,
-                            ast_idx: 19,
+                            ast_idx: 27,
                         },
                     ),
                 },
@@ -29,7 +29,7 @@ Ok(
                                 TypePath(`core::num::i16`, `Alien`),
                             ),
                             accessibility: Accessibility::Public,
-                            ast_idx: 24,
+                            ast_idx: 32,
                         },
                     ),
                 },
@@ -44,7 +44,7 @@ Ok(
                                 TypePath(`core::num::i32`, `Alien`),
                             ),
                             accessibility: Accessibility::Public,
-                            ast_idx: 29,
+                            ast_idx: 37,
                         },
                     ),
                 },
@@ -59,37 +59,97 @@ Ok(
                                 TypePath(`core::num::i64`, `Alien`),
                             ),
                             accessibility: Accessibility::Public,
-                            ast_idx: 34,
+                            ast_idx: 42,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
                     ident: Identifier(
-                        "f8",
+                        "u8",
                     ),
                     accessibility: Accessibility::Public,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
-                                TypePath(`core::num::f8`, `Alien`),
+                                TypePath(`core::num::u8`, `Alien`),
                             ),
                             accessibility: Accessibility::Public,
-                            ast_idx: 39,
+                            ast_idx: 47,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
                     ident: Identifier(
-                        "f16",
+                        "u16",
                     ),
                     accessibility: Accessibility::Public,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
-                                TypePath(`core::num::f16`, `Alien`),
+                                TypePath(`core::num::u16`, `Alien`),
                             ),
                             accessibility: Accessibility::Public,
-                            ast_idx: 44,
+                            ast_idx: 52,
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: Identifier(
+                        "u32",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
+                        ModuleItemSymbol {
+                            path: ModuleItemPath::Type(
+                                TypePath(`core::num::u32`, `Alien`),
+                            ),
+                            accessibility: Accessibility::Public,
+                            ast_idx: 57,
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: Identifier(
+                        "u64",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
+                        ModuleItemSymbol {
+                            path: ModuleItemPath::Type(
+                                TypePath(`core::num::u64`, `Alien`),
+                            ),
+                            accessibility: Accessibility::Public,
+                            ast_idx: 62,
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: Identifier(
+                        "u128",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
+                        ModuleItemSymbol {
+                            path: ModuleItemPath::Type(
+                                TypePath(`core::num::u128`, `Alien`),
+                            ),
+                            accessibility: Accessibility::Public,
+                            ast_idx: 67,
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: Identifier(
+                        "usize",
+                    ),
+                    accessibility: Accessibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
+                        ModuleItemSymbol {
+                            path: ModuleItemPath::Type(
+                                TypePath(`core::num::usize`, `Alien`),
+                            ),
+                            accessibility: Accessibility::Public,
+                            ast_idx: 72,
                         },
                     ),
                 },
@@ -104,7 +164,7 @@ Ok(
                                 TypePath(`core::num::f32`, `Alien`),
                             ),
                             accessibility: Accessibility::Public,
-                            ast_idx: 49,
+                            ast_idx: 77,
                         },
                     ),
                 },
@@ -119,7 +179,7 @@ Ok(
                                 TypePath(`core::num::f64`, `Alien`),
                             ),
                             accessibility: Accessibility::Public,
-                            ast_idx: 54,
+                            ast_idx: 82,
                         },
                     ),
                 },
@@ -128,7 +188,7 @@ Ok(
         use_one_trackers: UseExprRules(
             [
                 UseExprRule {
-                    ast_idx: 16,
+                    ast_idx: 24,
                     use_expr_idx: 2,
                     accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(

@@ -49,3 +49,37 @@ fn module_signatures<'a>(
 fn module_signatures_works() {
     DB::default().vfs_expect_test_debug_with_db("signature", module_signatures)
 }
+
+#[test]
+fn menu_entity_signatures_works() {
+    let db = DB::default();
+    let toolchain = db.dev_toolchain().unwrap();
+    let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
+    assert!(db
+        .ty_signature(db.ty_decl(entity_path_menu.i16_ty_path()).unwrap())
+        .is_ok());
+    assert!(db
+        .ty_signature(db.ty_decl(entity_path_menu.i32_ty_path()).unwrap())
+        .is_ok());
+    assert!(db
+        .ty_signature(db.ty_decl(entity_path_menu.i64_ty_path()).unwrap())
+        .is_ok());
+    assert!(db
+        .ty_signature(db.ty_decl(entity_path_menu.u8_ty_path()).unwrap())
+        .is_ok());
+    assert!(db
+        .ty_signature(db.ty_decl(entity_path_menu.u16_ty_path()).unwrap())
+        .is_ok());
+    assert!(db
+        .ty_signature(db.ty_decl(entity_path_menu.u32_ty_path()).unwrap())
+        .is_ok());
+    assert!(db
+        .ty_signature(db.ty_decl(entity_path_menu.u64_ty_path()).unwrap())
+        .is_ok());
+    assert!(db
+        .ty_signature(db.ty_decl(entity_path_menu.f32_ty_path()).unwrap())
+        .is_ok());
+    assert!(db
+        .ty_signature(db.ty_decl(entity_path_menu.f64_ty_path()).unwrap())
+        .is_ok());
+}

@@ -11,6 +11,46 @@
                             ident: Identifier(
                                 Word(
                                     Id {
+                                        value: 173,
+                                    },
+                                ),
+                            ),
+                            ty: Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 13,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        RegularStructFieldSignature {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 174,
+                                    },
+                                ),
+                            ),
+                            ty: Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 13,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        RegularStructFieldSignature {
+                            ident: Identifier(
+                                Word(
+                                    Id {
                                         value: 175,
                                     },
                                 ),
@@ -47,46 +87,6 @@
                                 ),
                             ),
                         },
-                        RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 177,
-                                    },
-                                ),
-                            ),
-                            ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                        RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 178,
-                                    },
-                                ),
-                            ),
-                            ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
                     ],
                 },
             ),
@@ -104,7 +104,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 180,
+                                        value: 178,
                                     },
                                 ),
                             ),
@@ -168,7 +168,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 19,
+                                                    value: 23,
                                                 },
                                             ),
                                         ),
@@ -182,7 +182,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 19,
+                                                    value: 23,
                                                 },
                                             ),
                                         ),

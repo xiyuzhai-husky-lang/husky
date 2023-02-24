@@ -75,7 +75,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 21,
+                                    value: 25,
                                 },
                             ),
                         ),
@@ -168,7 +168,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 26,
                                 },
                             ),
                         ),
@@ -196,7 +196,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 24,
+                                    value: 28,
                                 },
                             ),
                         ),
@@ -236,7 +236,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 81,
+                        value: 97,
                     },
                 ),
             },
@@ -248,7 +248,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 24,
+                                    value: 28,
                                 },
                             ),
                         ),
@@ -265,7 +265,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 17,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -282,7 +282,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 96,
+                        value: 112,
                     },
                 ),
             },
@@ -292,7 +292,7 @@ Ok(
                 inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 96,
+                        value: 112,
                     },
                 ),
             },
@@ -306,7 +306,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 96,
+                        value: 112,
                     },
                 ),
             },
@@ -319,7 +319,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 96,
+                        value: 112,
                     },
                 ),
             },
@@ -333,7 +333,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 23,
+                                    value: 27,
                                 },
                             ),
                         ),
@@ -360,7 +360,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 23,
+                                    value: 27,
                                 },
                             ),
                         ),
@@ -376,7 +376,7 @@ Ok(
                         TypeItem(
                             TypeItemPath(
                                 Id {
-                                    value: 9,
+                                    value: 13,
                                 },
                             ),
                         ),
@@ -399,7 +399,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 24,
+                                    value: 28,
                                 },
                             ),
                         ),
@@ -432,732 +432,6 @@ Ok(
                         TypeItem(
                             TypeItemPath(
                                 Id {
-                                    value: 10,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            Memo,
-                        ),
-                    },
-                ),
-            ),
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 22,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 100,
-                    },
-                ),
-            },
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 1,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 100,
-                    },
-                ),
-            },
-            None,
-            BoxPrefix,
-            BoxPrefix,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 100,
-                    },
-                ),
-            },
-            None,
-            Method,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 6,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 1,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 100,
-                    },
-                ),
-            },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 100,
-                    },
-                ),
-            },
-            None,
-            Method,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 6,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 1,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 100,
-                    },
-                ),
-            },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 100,
-                    },
-                ),
-            },
-            None,
-            Method,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 6,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 22,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 1,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 100,
-                    },
-                ),
-            },
-            None,
-            None,
-            Entity(
-                Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 11,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            Memo,
-                        ),
-                    },
-                ),
-            ),
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 17,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 101,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 1,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 101,
-                    },
-                ),
-            },
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 2,
-                current_symbol_kind: FrameVariable(
-                    4,
-                ),
-                expr_region: ExprRegion(
-                    Id {
-                        value: 101,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 1,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 101,
-                    },
-                ),
-            },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 2,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 101,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 1,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 101,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 2,
-                current_symbol_kind: FrameVariable(
-                    4,
-                ),
-                expr_region: ExprRegion(
-                    Id {
-                        value: 101,
-                    },
-                ),
-            },
-            None,
-            None,
-            Field,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 101,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 2,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 101,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 101,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 2,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 101,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 101,
-                    },
-                ),
-            },
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 17,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            Entity(
-                Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 12,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            Memo,
-                        ),
-                    },
-                ),
-            ),
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 17,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 102,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: FrameVariable(
-                    2,
-                ),
-                expr_region: ExprRegion(
-                    Id {
-                        value: 102,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 102,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 102,
-                    },
-                ),
-            },
-            None,
-            Method,
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: FrameVariable(
-                    2,
-                ),
-                expr_region: ExprRegion(
-                    Id {
-                        value: 102,
-                    },
-                ),
-            },
-            None,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 102,
-                    },
-                ),
-            },
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 17,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            Entity(
-                Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            Memo,
-                        ),
-                    },
-                ),
-            ),
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 17,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 103,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: FrameVariable(
-                    2,
-                ),
-                expr_region: ExprRegion(
-                    Id {
-                        value: 103,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 103,
-                    },
-                ),
-            },
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: FrameVariable(
-                    2,
-                ),
-                expr_region: ExprRegion(
-                    Id {
-                        value: 103,
-                    },
-                ),
-            },
-            None,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 103,
-                    },
-                ),
-            },
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 17,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            Entity(
-                Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
                                     value: 14,
                                 },
                             ),
@@ -1179,7 +453,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 21,
+                                    value: 26,
                                 },
                             ),
                         ),
@@ -1197,222 +471,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 104,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 104,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 1,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 104,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 104,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 1,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 104,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 2,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 104,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 1,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 104,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 104,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 3,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 104,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 2,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 104,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 4,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 4,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 104,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 104,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 5,
-                current_symbol_kind: FrameVariable(
-                    21,
-                ),
-                expr_region: ExprRegion(
-                    Id {
-                        value: 104,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 104,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 3,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 104,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 4,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 4,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 104,
+                        value: 116,
                     },
                 ),
             },
@@ -1420,19 +479,6 @@ Ok(
             SelfValue,
             None,
             Field,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 5,
-                current_symbol_kind: FrameVariable(
-                    21,
-                ),
-                expr_region: ExprRegion(
-                    Id {
-                        value: 104,
-                    },
-                ),
-            },
-            None,
             None,
             Method,
             None,
@@ -1440,97 +486,153 @@ Ok(
             None,
             None,
             CurrentSymbol {
-                current_symbol_idx: 6,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 5,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 104,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: LetVariable {
                     pattern_symbol_idx: 1,
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 104,
+                        value: 116,
                     },
                 ),
             },
             None,
-            CurrentSymbol {
-                current_symbol_idx: 7,
-                current_symbol_kind: FrameVariable(
-                    36,
+            BoxPrefix,
+            BoxPrefix,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
+                        ),
+                    ),
                 ),
-                expr_region: ExprRegion(
-                    Id {
-                        value: 104,
-                    },
-                ),
-            },
+                None,
+            ),
+            None,
             None,
             CurrentSymbol {
-                current_symbol_idx: 1,
+                current_symbol_idx: 0,
                 current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 1,
+                    pattern_symbol_idx: 0,
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 104,
+                        value: 116,
                     },
                 ),
             },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 3,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 104,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 6,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 5,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 104,
-                    },
-                ),
-            },
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 7,
-                current_symbol_kind: FrameVariable(
-                    36,
-                ),
-                expr_region: ExprRegion(
-                    Id {
-                        value: 104,
-                    },
-                ),
-            },
-            None,
             None,
             Method,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 6,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 116,
+                    },
+                ),
+            },
+            None,
+            Method,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 116,
+                    },
+                ),
+            },
+            None,
+            Method,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 6,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 116,
+                    },
+                ),
+            },
+            None,
+            Method,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 116,
+                    },
+                ),
+            },
+            None,
+            Method,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 6,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             None,
@@ -1540,7 +642,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 21,
+                                    value: 26,
                                 },
                             ),
                         ),
@@ -1550,53 +652,16 @@ Ok(
             ),
             None,
             CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 104,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: LetVariable {
                     pattern_symbol_idx: 1,
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 104,
+                        value: 116,
                     },
                 ),
             },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 4,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 4,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 104,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 6,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 5,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 104,
-                    },
-                ),
-            },
-            None,
             None,
             None,
             Entity(
@@ -1626,7 +691,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 17,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -1635,11 +700,171 @@ Ok(
                 None,
             ),
             None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 117,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 117,
+                    },
+                ),
+            },
+            None,
             SelfValue,
             None,
             Field,
             None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: FrameVariable(
+                    4,
+                ),
+                expr_region: ExprRegion(
+                    Id {
+                        value: 117,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 117,
+                    },
+                ),
+            },
+            None,
+            Method,
+            None,
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 3,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 2,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 117,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 117,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: FrameVariable(
+                    4,
+                ),
+                expr_region: ExprRegion(
+                    Id {
+                        value: 117,
+                    },
+                ),
+            },
+            None,
+            None,
             Field,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 117,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 3,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 2,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 117,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 117,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 3,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 2,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 117,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 117,
+                    },
+                ),
+            },
             None,
             Entity(
                 Some(
@@ -1647,7 +872,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 17,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -1683,7 +908,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 17,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -1692,11 +917,97 @@ Ok(
                 None,
             ),
             None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 118,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: FrameVariable(
+                    2,
+                ),
+                expr_region: ExprRegion(
+                    Id {
+                        value: 118,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 118,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 118,
+                    },
+                ),
+            },
+            None,
+            Method,
+            None,
             SelfValue,
             None,
             Field,
             None,
-            Field,
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: FrameVariable(
+                    2,
+                ),
+                expr_region: ExprRegion(
+                    Id {
+                        value: 118,
+                    },
+                ),
+            },
+            None,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 118,
+                    },
+                ),
+            },
             None,
             Entity(
                 Some(
@@ -1704,7 +1015,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 17,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -1728,23 +1039,11 @@ Ok(
                 Some(
                     AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            Memo,
                         ),
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: Parameter {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 94,
-                    },
-                ),
-            },
             None,
             Entity(
                 Some(
@@ -1752,23 +1051,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 13,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 17,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -1786,109 +1069,28 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 107,
+                        value: 119,
                     },
                 ),
             },
             None,
-            None,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter,
-                expr_region: ExprRegion(
-                    Id {
-                        value: 107,
-                    },
-                ),
-            },
             None,
             None,
             None,
             None,
             CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 1,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 107,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 1,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 107,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 1,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 107,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 2,
                 current_symbol_kind: FrameVariable(
-                    10,
+                    2,
                 ),
                 expr_region: ExprRegion(
                     Id {
-                        value: 107,
+                        value: 119,
                     },
                 ),
             },
             None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 1,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 107,
-                    },
-                ),
-            },
             None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter,
-                expr_region: ExprRegion(
-                    Id {
-                        value: 107,
-                    },
-                ),
-            },
             None,
             CurrentSymbol {
                 current_symbol_idx: 0,
@@ -1897,7 +1099,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 107,
+                        value: 119,
                     },
                 ),
             },
@@ -1907,13 +1109,13 @@ Ok(
             Field,
             None,
             CurrentSymbol {
-                current_symbol_idx: 2,
+                current_symbol_idx: 1,
                 current_symbol_kind: FrameVariable(
-                    10,
+                    2,
                 ),
                 expr_region: ExprRegion(
                     Id {
-                        value: 107,
+                        value: 119,
                     },
                 ),
             },
@@ -1930,7 +1132,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 107,
+                        value: 119,
                     },
                 ),
             },
@@ -1941,7 +1143,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 17,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -1965,6 +1167,567 @@ Ok(
                 Some(
                     AssociatedItem {
                         associated_item_kind: TypeItem(
+                            Memo,
+                        ),
+                    },
+                ),
+            ),
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 25,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            SelfValue,
+            None,
+            Field,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            SelfValue,
+            None,
+            Field,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 2,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 3,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 3,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 2,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 4,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 4,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 5,
+                current_symbol_kind: FrameVariable(
+                    21,
+                ),
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 3,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 3,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 4,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 4,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            SelfValue,
+            None,
+            Field,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 5,
+                current_symbol_kind: FrameVariable(
+                    21,
+                ),
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 6,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 5,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 7,
+                current_symbol_kind: FrameVariable(
+                    36,
+                ),
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 3,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 3,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 6,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 5,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            SelfValue,
+            None,
+            Field,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 7,
+                current_symbol_kind: FrameVariable(
+                    36,
+                ),
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 25,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 4,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 4,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 6,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 5,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 120,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    AssociatedItem(
+                        TypeItem(
+                            TypeItemPath(
+                                Id {
+                                    value: 19,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Memo,
+                        ),
+                    },
+                ),
+            ),
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 21,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            SelfValue,
+            None,
+            Field,
+            None,
+            Field,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 21,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            Entity(
+                Some(
+                    AssociatedItem(
+                        TypeItem(
+                            TypeItemPath(
+                                Id {
+                                    value: 20,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Memo,
+                        ),
+                    },
+                ),
+            ),
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 21,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            SelfValue,
+            None,
+            Field,
+            None,
+            Field,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 21,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            Entity(
+                Some(
+                    AssociatedItem(
+                        TypeItem(
+                            TypeItemPath(
+                                Id {
+                                    value: 21,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
                             Method,
                         ),
                     },
@@ -1978,7 +1741,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 95,
+                        value: 110,
                     },
                 ),
             },
@@ -2005,7 +1768,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 17,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -2023,7 +1786,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 108,
+                        value: 123,
                     },
                 ),
             },
@@ -2035,7 +1798,7 @@ Ok(
                 inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 108,
+                        value: 123,
                     },
                 ),
             },
@@ -2050,7 +1813,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 108,
+                        value: 123,
                     },
                 ),
             },
@@ -2073,7 +1836,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 108,
+                        value: 123,
                     },
                 ),
             },
@@ -2088,7 +1851,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 108,
+                        value: 123,
                     },
                 ),
             },
@@ -2100,7 +1863,7 @@ Ok(
                 ),
                 expr_region: ExprRegion(
                     Id {
-                        value: 108,
+                        value: 123,
                     },
                 ),
             },
@@ -2112,7 +1875,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 108,
+                        value: 123,
                     },
                 ),
             },
@@ -2122,7 +1885,7 @@ Ok(
                 inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 108,
+                        value: 123,
                     },
                 ),
             },
@@ -2134,7 +1897,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 108,
+                        value: 123,
                     },
                 ),
             },
@@ -2150,7 +1913,7 @@ Ok(
                 ),
                 expr_region: ExprRegion(
                     Id {
-                        value: 108,
+                        value: 123,
                     },
                 ),
             },
@@ -2167,7 +1930,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 108,
+                        value: 123,
                     },
                 ),
             },
@@ -2178,7 +1941,244 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 17,
+                                    value: 21,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            Entity(
+                Some(
+                    AssociatedItem(
+                        TypeItem(
+                            TypeItemPath(
+                                Id {
+                                    value: 22,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
+                    },
+                ),
+            ),
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: Parameter {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 111,
+                    },
+                ),
+            },
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 21,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 124,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: RegularParameter,
+                expr_region: ExprRegion(
+                    Id {
+                        value: 124,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 124,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            SelfValue,
+            None,
+            Field,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 124,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 124,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: FrameVariable(
+                    10,
+                ),
+                expr_region: ExprRegion(
+                    Id {
+                        value: 124,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 124,
+                    },
+                ),
+            },
+            None,
+            InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: RegularParameter,
+                expr_region: ExprRegion(
+                    Id {
+                        value: 124,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 124,
+                    },
+                ),
+            },
+            None,
+            SelfValue,
+            None,
+            Field,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: FrameVariable(
+                    10,
+                ),
+                expr_region: ExprRegion(
+                    Id {
+                        value: 124,
+                    },
+                ),
+            },
+            None,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 124,
+                    },
+                ),
+            },
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -2219,7 +2219,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 83,
+                        value: 99,
                     },
                 ),
             },
@@ -2230,7 +2230,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 19,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -2246,7 +2246,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 83,
+                        value: 99,
                     },
                 ),
             },
@@ -2257,7 +2257,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 19,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -2273,7 +2273,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 19,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -2291,7 +2291,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 113,
                     },
                 ),
             },
@@ -2301,7 +2301,7 @@ Ok(
                 inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 113,
                     },
                 ),
             },
@@ -2312,7 +2312,7 @@ Ok(
                 inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 113,
                     },
                 ),
             },
@@ -2323,7 +2323,7 @@ Ok(
                 inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 113,
                     },
                 ),
             },
@@ -2337,7 +2337,7 @@ Ok(
                 inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 113,
                     },
                 ),
             },
@@ -2354,7 +2354,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 113,
                     },
                 ),
             },
@@ -2364,7 +2364,7 @@ Ok(
                 inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 113,
                     },
                 ),
             },
@@ -2377,7 +2377,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 113,
                     },
                 ),
             },
@@ -2390,7 +2390,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 113,
                     },
                 ),
             },
@@ -2406,7 +2406,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 113,
                     },
                 ),
             },
@@ -2422,7 +2422,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 113,
                     },
                 ),
             },
@@ -2434,7 +2434,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 113,
                     },
                 ),
             },
@@ -2446,7 +2446,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 113,
                     },
                 ),
             },
@@ -2458,7 +2458,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 113,
                     },
                 ),
             },
@@ -2469,7 +2469,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 113,
                     },
                 ),
             },
@@ -2479,7 +2479,7 @@ Ok(
                 inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 113,
                     },
                 ),
             },
@@ -2492,7 +2492,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 113,
                     },
                 ),
             },
@@ -2505,23 +2505,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 97,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 97,
+                        value: 113,
                     },
                 ),
             },
@@ -2537,7 +2521,23 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 113,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 113,
                     },
                 ),
             },
@@ -2572,7 +2572,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 84,
+                        value: 100,
                     },
                 ),
             },
@@ -2588,7 +2588,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 23,
+                                    value: 27,
                                 },
                             ),
                         ),
@@ -2606,7 +2606,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -2619,7 +2619,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 23,
+                                    value: 27,
                                 },
                             ),
                         ),
@@ -2638,7 +2638,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -2648,7 +2648,7 @@ Ok(
                 inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -2664,7 +2664,7 @@ Ok(
                 ),
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -2679,7 +2679,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -2691,7 +2691,7 @@ Ok(
                 ),
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -2705,7 +2705,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -2717,7 +2717,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -2729,7 +2729,7 @@ Ok(
                 ),
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -2742,7 +2742,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -2754,7 +2754,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -2771,7 +2771,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -2786,7 +2786,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -2798,7 +2798,7 @@ Ok(
                 ),
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -2826,7 +2826,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -2840,7 +2840,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -2854,7 +2854,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -2869,7 +2869,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -2881,7 +2881,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -2896,7 +2896,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -2908,7 +2908,7 @@ Ok(
                 ),
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -2927,7 +2927,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -2939,7 +2939,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -2951,7 +2951,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -2966,7 +2966,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -2978,7 +2978,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3003,7 +3003,7 @@ Ok(
                 inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3015,7 +3015,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3030,7 +3030,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3042,7 +3042,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3057,7 +3057,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3071,7 +3071,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3083,7 +3083,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3095,7 +3095,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3108,7 +3108,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3120,7 +3120,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3135,7 +3135,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3152,7 +3152,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3164,7 +3164,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3176,7 +3176,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3189,7 +3189,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3201,7 +3201,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3226,7 +3226,7 @@ Ok(
                 inherited_symbol_kind: RegularParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3238,7 +3238,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3251,7 +3251,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3263,7 +3263,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3279,7 +3279,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3291,7 +3291,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3303,7 +3303,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3316,7 +3316,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3328,7 +3328,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3341,7 +3341,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3353,7 +3353,7 @@ Ok(
                 ),
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3365,7 +3365,7 @@ Ok(
                 ),
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3379,7 +3379,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3391,7 +3391,7 @@ Ok(
                 ),
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3406,7 +3406,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3418,7 +3418,7 @@ Ok(
                 ),
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3431,7 +3431,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3444,7 +3444,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 23,
+                                    value: 27,
                                 },
                             ),
                         ),
@@ -3460,7 +3460,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },
@@ -3474,7 +3474,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 114,
                     },
                 ),
             },

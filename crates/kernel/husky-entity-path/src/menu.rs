@@ -58,9 +58,11 @@ pub struct EntityPathMenu {
     f64_ty_path: TypePath,
     r32_ty_path: TypePath,
     r64_ty_path: TypePath,
+    u8_ty_path: TypePath,
+    u16_ty_path: TypePath,
     u32_ty_path: TypePath,
     u64_ty_path: TypePath,
-    trai_ty: TypePath,
+    trai_ty_path: TypePath,
     lifetime_ty: TypePath,
     module: TypePath,
 }
@@ -253,49 +255,63 @@ impl EntityPathMenu {
             ModuleItemConnection::Connected,
             TypeKind::Alien,
         );
-        let f32 = TypePath::new(
+        let f32_ty_path = TypePath::new(
             db,
             core_num,
             word_menu.f32(),
             ModuleItemConnection::Connected,
             TypeKind::Alien,
         );
-        let f64 = TypePath::new(
+        let f64_ty_path = TypePath::new(
             db,
             core_num,
             word_menu.f64(),
             ModuleItemConnection::Connected,
             TypeKind::Alien,
         );
-        let r32 = TypePath::new(
+        let r32_ty_path = TypePath::new(
             db,
             core_raw_bits,
             word_menu.r32(),
             ModuleItemConnection::Connected,
             TypeKind::Alien,
         );
-        let r64 = TypePath::new(
+        let r64_ty_path = TypePath::new(
             db,
             core_raw_bits,
             word_menu.r64(),
             ModuleItemConnection::Connected,
             TypeKind::Alien,
         );
-        let u32 = TypePath::new(
+        let u8_ty_path = TypePath::new(
+            db,
+            core_num,
+            word_menu.u8(),
+            ModuleItemConnection::Connected,
+            TypeKind::Alien,
+        );
+        let u16_ty_path = TypePath::new(
+            db,
+            core_num,
+            word_menu.u16(),
+            ModuleItemConnection::Connected,
+            TypeKind::Alien,
+        );
+        let u32_ty_path = TypePath::new(
             db,
             core_num,
             word_menu.u32(),
             ModuleItemConnection::Connected,
             TypeKind::Alien,
         );
-        let u64 = TypePath::new(
+        let u64_ty_path = TypePath::new(
             db,
             core_num,
             word_menu.u64(),
             ModuleItemConnection::Connected,
             TypeKind::Alien,
         );
-        let trai = TypePath::new(
+        let trai_ty_path = TypePath::new(
             db,
             core_basic,
             word_menu.trai_ty(),
@@ -344,13 +360,15 @@ impl EntityPathMenu {
             i16_ty_path,
             i32_ty_path,
             i64_ty_path,
-            f32_ty_path: f32,
-            f64_ty_path: f64,
-            r32_ty_path: r32,
-            r64_ty_path: r64,
-            u32_ty_path: u32,
-            u64_ty_path: u64,
-            trai_ty: trai,
+            f32_ty_path,
+            f64_ty_path,
+            r32_ty_path,
+            r64_ty_path,
+            u8_ty_path,
+            u16_ty_path,
+            u32_ty_path,
+            u64_ty_path,
+            trai_ty_path,
             module,
             lifetime_ty: lifetime,
         })
@@ -386,6 +404,14 @@ impl EntityPathMenu {
 
     pub fn r64_ty_path(&self) -> TypePath {
         self.r64_ty_path
+    }
+
+    pub fn u8_ty_path(&self) -> TypePath {
+        self.u8_ty_path
+    }
+
+    pub fn u16_ty_path(&self) -> TypePath {
+        self.u16_ty_path
     }
 
     pub fn u32_ty_path(&self) -> TypePath {
@@ -477,7 +503,7 @@ impl EntityPathMenu {
     }
 
     pub fn trai_ty(&self) -> TypePath {
-        self.trai_ty
+        self.trai_ty_path
     }
 
     pub fn module(&self) -> TypePath {

@@ -186,6 +186,42 @@ impl<'a> ReducedTermMenu<'a> {
         ReducedTerm(self.term_menu.invariant_ty0_to_trai_ty().into())
     }
 
+    pub fn covariant_ty0_to_ty0(&self) -> ReducedTerm {
+        ReducedTerm(self.term_menu.covariant_ty0_to_ty0().into())
+    }
+
+    pub fn contravariant_ty0_to_ty0(&self) -> ReducedTerm {
+        ReducedTerm(self.term_menu.contravariant_ty0_to_ty0().into())
+    }
+
+    pub fn invariant_ty0_to_ty0(&self) -> ReducedTerm {
+        ReducedTerm(self.term_menu.invariant_ty0_to_ty0().into())
+    }
+
+    pub fn covariant_lifetime_to_covariant_ty0_to_ty0(&self) -> ReducedTerm {
+        ReducedTerm(
+            self.term_menu
+                .covariant_lifetime_to_covariant_ty0_to_ty0()
+                .into(),
+        )
+    }
+
+    pub fn covariant_lifetime_to_contravariant_ty0_to_ty0(&self) -> ReducedTerm {
+        ReducedTerm(
+            self.term_menu
+                .covariant_lifetime_to_contravariant_ty0_to_ty0()
+                .into(),
+        )
+    }
+
+    pub fn covariant_lifetime_to_invariant_ty0_to_ty0(&self) -> ReducedTerm {
+        ReducedTerm(
+            self.term_menu
+                .covariant_lifetime_to_invariant_ty0_to_ty0()
+                .into(),
+        )
+    }
+
     pub fn trai_ty(&self) -> ReducedTerm {
         ReducedTerm(self.term_menu.trai_ty())
     }

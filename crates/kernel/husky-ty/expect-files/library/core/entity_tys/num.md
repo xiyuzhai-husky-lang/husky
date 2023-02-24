@@ -42,7 +42,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Type(
-                TypePath(`core::num::f8`, `Alien`),
+                TypePath(`core::num::u8`, `Alien`),
             ),
         ),
         Ok(
@@ -52,7 +52,47 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Type(
-                TypePath(`core::num::f16`, `Alien`),
+                TypePath(`core::num::u16`, `Alien`),
+            ),
+        ),
+        Ok(
+            Term(`Type`),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Type(
+                TypePath(`core::num::u32`, `Alien`),
+            ),
+        ),
+        Ok(
+            Term(`Type`),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Type(
+                TypePath(`core::num::u64`, `Alien`),
+            ),
+        ),
+        Ok(
+            Term(`Type`),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Type(
+                TypePath(`core::num::u128`, `Alien`),
+            ),
+        ),
+        Ok(
+            Term(`Type`),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Type(
+                TypePath(`core::num::usize`, `Alien`),
             ),
         ),
         Ok(

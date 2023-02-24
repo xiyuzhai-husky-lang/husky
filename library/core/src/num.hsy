@@ -40,25 +40,65 @@ impl i64:
 impl Add i64 for i64:
     pub fn add(other: i64) -> i64;
 
-#[rust(f8)]
+#[rust(u8)]
 @derive(Debug, PartialEq, Eq, Clone, Copy)
-pub type f8;
+pub type u8;
 
-impl f8:
-    pub fn abs() -> f8;
+impl u8:
+    pub fn abs() -> u8;
 
-impl Add f8 for f8:
-    pub fn add(other: f8) -> f8;
+impl Add u8 for u8:
+    pub fn add(other: u8) -> u8;
 
-#[rust(f16)]
+#[rust(u16)]
 @derive(Debug, PartialEq, Eq, Clone, Copy)
-pub type f16;
+pub type u16;
 
-impl f16:
-    pub fn abs() -> f16;
+impl u16:
+    pub fn abs() -> u16;
 
-impl Add f32 for f16:
-    pub fn add(other: f32) -> f16;
+impl Add u16 for u16:
+    pub fn add(other: u16) -> u16;
+
+#[rust(u32)]
+@derive(Debug, PartialEq, Eq, Clone, Copy)
+pub type u32;
+
+impl u32:
+    pub fn abs() -> u32;
+
+impl Add u32 for u32:
+    pub fn add(other: u32) -> u32;
+
+#[rust(u64)]
+@derive(Debug, PartialEq, Eq, Clone, Copy)
+pub type u64;
+
+impl u64:
+    pub fn abs() -> u64;
+
+impl Add u64 for u64:
+    pub fn add(other: u64) -> u64;
+
+#[rust(u128)]
+@derive(Debug, PartialEq, Eq, Clone, Copy)
+pub type u128;
+
+impl u128:
+    pub fn abs() -> u128;
+
+impl Add u128 for u128:
+    pub fn add(other: u128) -> u128;
+
+#[rust(usize)]
+@derive(Debug, PartialEq, Eq, Clone, Copy)
+pub type usize;
+
+impl usize:
+    pub fn abs() -> usize;
+
+impl Add usize for usize:
+    pub fn add(other: usize) -> usize;
 
 #[rust(f32)]
 @derive(Debug, PartialEq, Eq, Clone, Copy)

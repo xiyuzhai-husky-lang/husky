@@ -182,7 +182,7 @@ Ok(
                                                     ident: Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 178,
+                                                                value: 176,
                                                             },
                                                         ),
                                                     ),
@@ -202,7 +202,7 @@ Ok(
                                                     ident: Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 393,
+                                                                value: 391,
                                                             },
                                                         ),
                                                     ),
@@ -474,7 +474,7 @@ Ok(
                                                         Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 332,
+                                                                    value: 330,
                                                                 },
                                                             ),
                                                         ),
@@ -486,7 +486,7 @@ Ok(
                                                         Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 396,
+                                                                    value: 394,
                                                                 },
                                                             ),
                                                         ),

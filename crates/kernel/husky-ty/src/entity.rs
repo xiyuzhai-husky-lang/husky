@@ -47,6 +47,10 @@ fn entity_path_path_term_ty_works() {
     let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
     let reduced_term_menu = db.reduced_term_menu(toolchain).unwrap();
     let invariant_ty0_to_trai_ty = reduced_term_menu.invariant_ty0_to_trai_ty();
+    let covariant_lifetime_to_covariant_ty0_to_ty0 =
+        reduced_term_menu.covariant_lifetime_to_covariant_ty0_to_ty0();
+    let covariant_lifetime_to_invariant_ty0_to_ty0 =
+        reduced_term_menu.covariant_lifetime_to_invariant_ty0_to_ty0();
     let trai_ty = reduced_term_menu.trai_ty();
     assert_eq_with_db!(
         db,
@@ -123,6 +127,11 @@ fn entity_path_path_term_ty_works() {
         entity_path_ty(&db, entity_path_menu.core_ops_not().into()),
         Ok(trai_ty)
     );
+    // assert_eq_with_db!(
+    //     db,
+    //     entity_path_ty(&db, entity_path_menu.ref_ty_path().into()),
+    //     Ok(covariant_lifetime_to_covariant_ty0_to_ty0)
+    // );
 }
 
 #[salsa::tracked(jar = TypeJar)]

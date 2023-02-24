@@ -11,7 +11,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 245,
+                                        value: 243,
                                     },
                                 ),
                             ),
@@ -20,7 +20,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 37,
+                                                value: 39,
                                             },
                                         ),
                                     ),
@@ -31,7 +31,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 246,
+                                        value: 244,
                                     },
                                 ),
                             ),
@@ -40,7 +40,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 37,
+                                                value: 39,
                                             },
                                         ),
                                     ),
@@ -98,7 +98,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
