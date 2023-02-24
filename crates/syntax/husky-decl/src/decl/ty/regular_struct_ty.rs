@@ -16,7 +16,11 @@ pub struct RegularStructTypeDecl {
     pub implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
     pub lcurl: LeftCurlyBraceToken,
     #[return_ref]
-    pub field_comma_list: ExprResult<(Vec<RegularStructFieldPattern>, Vec<CommaToken>)>,
+    pub field_comma_list: (
+        Vec<RegularStructFieldPattern>,
+        Vec<CommaToken>,
+        ExprResult<()>,
+    ),
     #[return_ref]
     pub rcurl: DeclExprResult<RightCurlyBraceToken>,
 }
@@ -38,6 +42,7 @@ impl RegularStructTypeDecl {
         self,
         db: &'a dyn DeclDb,
     ) -> ExprResultRef<'a, &'a [RegularStructFieldPattern]> {
-        Ok(self.field_comma_list(db).as_ref()?.0.as_ref())
+        self.field_comma_list(db).2.as_ref()?;
+        Ok(self.field_comma_list(db).0.as_ref())
     }
 }

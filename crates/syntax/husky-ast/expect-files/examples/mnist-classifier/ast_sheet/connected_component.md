@@ -817,8 +817,8 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         80,
                     ),
-                    error: Original(
-                        ExpectIdentifier(
+                    error: AstError::Original(
+                        OriginalAstError::ExpectIdentifier(
                             TokenIdx(
                                 556,
                             ),
@@ -829,8 +829,8 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         81,
                     ),
-                    error: Original(
-                        ExcessiveIndent,
+                    error: AstError::Original(
+                        OriginalAstError::ExcessiveIndent,
                     ),
                 },
                 Ast::BasicStmtOrBranch {

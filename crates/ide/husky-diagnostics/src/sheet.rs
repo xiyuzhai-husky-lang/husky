@@ -18,32 +18,26 @@ use crate::*;
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]
 pub struct DiagnosticSheet {
+    pub entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet,
     pub token_diagnostic_sheet: TokenDiagnosticSheet,
     pub ast_diagnostic_sheet: AstDiagnosticSheet,
+    pub expr_diagnostic_sheet: ExprDiagnosticSheet,
     pub decl_diagnostic_sheet: DeclDiagnosticSheet,
     pub defn_diagnostic_sheet: DefnDiagnosticSheet,
-    pub expr_diagnostic_sheet: ExprDiagnosticSheet,
     pub expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet,
-    pub entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet,
 }
 
 #[salsa::tracked(jar = DiagnosticsJar)]
 pub(crate) fn diagnostic_sheet(db: &dyn DiagnosticsDb, module_path: ModulePath) -> DiagnosticSheet {
-    let token_diagnostic_sheet = token_diagnostic_sheet(db, module_path);
-    let ast_diagnostic_sheet = ast_diagnostic_sheet(db, module_path);
-    let decl_diagnostic_sheet = decl_diagnostic_sheet(db, module_path);
-    let defn_diagnostic_sheet = defn_diagnostic_sheet(db, module_path);
-    let expr_diagnostic_sheet = expr_diagnostic_sheet(db, module_path);
-    let expr_ty_diagnostic_sheet = expr_ty_diagnostic_sheet(db, module_path);
     DiagnosticSheet::new(
         db,
-        token_diagnostic_sheet,
-        ast_diagnostic_sheet,
-        decl_diagnostic_sheet,
-        defn_diagnostic_sheet,
-        expr_diagnostic_sheet,
-        expr_ty_diagnostic_sheet,
         entity_tree_diagnostic_sheet(db, module_path),
+        token_diagnostic_sheet(db, module_path),
+        ast_diagnostic_sheet(db, module_path),
+        expr_diagnostic_sheet(db, module_path),
+        decl_diagnostic_sheet(db, module_path),
+        defn_diagnostic_sheet(db, module_path),
+        expr_ty_diagnostic_sheet(db, module_path),
     )
 }
 
@@ -52,13 +46,15 @@ impl DiagnosticSheet {
         self,
         db: &'a dyn DiagnosticsDb,
     ) -> impl Iterator<Item = &'a Diagnostic> + 'a {
-        self.token_diagnostic_sheet(db)
+        self.entity_tree_diagnostic_sheet(db)
             .diagnostics(db)
             .iter()
+            .chain(self.token_diagnostic_sheet(db).diagnostics(db).iter())
             .chain(self.ast_diagnostic_sheet(db).diagnostics(db).iter())
             .chain(self.expr_diagnostic_sheet(db).diagnostics(db).iter())
+            .chain(self.decl_diagnostic_sheet(db).diagnostics(db).iter())
+            .chain(self.defn_diagnostic_sheet(db).diagnostics(db).iter())
             .chain(self.expr_ty_diagnostic_sheet(db).diagnostics(db).iter())
-            .chain(self.entity_tree_diagnostic_sheet(db).diagnostics(db).iter())
     }
 }
 

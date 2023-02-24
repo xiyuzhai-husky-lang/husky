@@ -1,5 +1,8 @@
 DiagnosticSheet {
     [salsa id]: 41,
+    entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
+        diagnostics: [],
+    },
     token_diagnostic_sheet: TokenDiagnosticSheet {
         diagnostics: [
             Diagnostic {
@@ -73,12 +76,6 @@ DiagnosticSheet {
             },
         ],
     },
-    decl_diagnostic_sheet: DeclDiagnosticSheet {
-        diagnostics: [],
-    },
-    defn_diagnostic_sheet: DefnDiagnosticSheet {
-        diagnostics: [],
-    },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [
             Diagnostic {
@@ -88,10 +85,13 @@ DiagnosticSheet {
             },
         ],
     },
-    expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
+    decl_diagnostic_sheet: DeclDiagnosticSheet {
         diagnostics: [],
     },
-    entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
+    defn_diagnostic_sheet: DefnDiagnosticSheet {
+        diagnostics: [],
+    },
+    expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [],
     },
 }

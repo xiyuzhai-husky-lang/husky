@@ -159,57 +159,58 @@ Ok(
                                         42,
                                     ),
                                 ),
-                                field_comma_list: Ok(
-                                    (
-                                        [
-                                            RegularStructFieldPattern {
-                                                ident_token: IdentifierToken {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 192,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    token_idx: TokenIdx(
-                                                        43,
-                                                    ),
-                                                },
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        44,
+                                field_comma_list: (
+                                    [
+                                        RegularStructFieldPattern {
+                                            ident_token: IdentifierToken {
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 192,
+                                                        },
                                                     ),
                                                 ),
-                                                ty: 4,
-                                            },
-                                            RegularStructFieldPattern {
-                                                ident_token: IdentifierToken {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 241,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    token_idx: TokenIdx(
-                                                        50,
-                                                    ),
-                                                },
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        51,
-                                                    ),
+                                                token_idx: TokenIdx(
+                                                    43,
                                                 ),
-                                                ty: 5,
                                             },
-                                        ],
-                                        [
-                                            CommaToken(
+                                            colon: ColonToken(
                                                 TokenIdx(
-                                                    49,
+                                                    44,
                                                 ),
                                             ),
-                                        ],
+                                            ty: 4,
+                                        },
+                                        RegularStructFieldPattern {
+                                            ident_token: IdentifierToken {
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 241,
+                                                        },
+                                                    ),
+                                                ),
+                                                token_idx: TokenIdx(
+                                                    50,
+                                                ),
+                                            },
+                                            colon: ColonToken(
+                                                TokenIdx(
+                                                    51,
+                                                ),
+                                            ),
+                                            ty: 5,
+                                        },
+                                    ],
+                                    [
+                                        CommaToken(
+                                            TokenIdx(
+                                                49,
+                                            ),
+                                        ),
+                                    ],
+                                    Ok(
+                                        (),
                                     ),
                                 ),
                                 rcurl: Err(
@@ -369,62 +370,63 @@ Ok(
                                         162,
                                     ),
                                 ),
-                                field_comma_list: Ok(
-                                    (
-                                        [
-                                            RegularStructFieldPattern {
-                                                ident_token: IdentifierToken {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 284,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    token_idx: TokenIdx(
-                                                        163,
-                                                    ),
-                                                },
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        164,
+                                field_comma_list: (
+                                    [
+                                        RegularStructFieldPattern {
+                                            ident_token: IdentifierToken {
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 284,
+                                                        },
                                                     ),
                                                 ),
-                                                ty: 1,
-                                            },
-                                            RegularStructFieldPattern {
-                                                ident_token: IdentifierToken {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 329,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    token_idx: TokenIdx(
-                                                        168,
-                                                    ),
-                                                },
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        169,
-                                                    ),
+                                                token_idx: TokenIdx(
+                                                    163,
                                                 ),
-                                                ty: 4,
                                             },
-                                        ],
-                                        [
-                                            CommaToken(
+                                            colon: ColonToken(
                                                 TokenIdx(
-                                                    167,
+                                                    164,
                                                 ),
                                             ),
-                                            CommaToken(
+                                            ty: 1,
+                                        },
+                                        RegularStructFieldPattern {
+                                            ident_token: IdentifierToken {
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 329,
+                                                        },
+                                                    ),
+                                                ),
+                                                token_idx: TokenIdx(
+                                                    168,
+                                                ),
+                                            },
+                                            colon: ColonToken(
                                                 TokenIdx(
-                                                    173,
+                                                    169,
                                                 ),
                                             ),
-                                        ],
+                                            ty: 4,
+                                        },
+                                    ],
+                                    [
+                                        CommaToken(
+                                            TokenIdx(
+                                                167,
+                                            ),
+                                        ),
+                                        CommaToken(
+                                            TokenIdx(
+                                                173,
+                                            ),
+                                        ),
+                                    ],
+                                    Ok(
+                                        (),
                                     ),
                                 ),
                                 rcurl: Ok(
@@ -695,6 +697,9 @@ Ok(
                                                 ),
                                             ),
                                         ],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
                                         rpar: RightParenthesisToken(
                                             TokenIdx(
                                                 355,
@@ -982,6 +987,9 @@ Ok(
                                                 ),
                                             ),
                                         ],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
                                         rpar: RightParenthesisToken(
                                             TokenIdx(
                                                 452,
@@ -1353,6 +1361,9 @@ Ok(
                                                 ),
                                             ),
                                         ],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
                                         rpar: RightParenthesisToken(
                                             TokenIdx(
                                                 554,
@@ -1801,6 +1812,9 @@ Ok(
                                                 ),
                                             ),
                                         ],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
                                         rpar: RightParenthesisToken(
                                             TokenIdx(
                                                 791,
@@ -2111,6 +2125,9 @@ Ok(
                                                 ),
                                             ),
                                         ],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
                                         rpar: RightParenthesisToken(
                                             TokenIdx(
                                                 1049,
@@ -2748,6 +2765,9 @@ Ok(
                                                     ),
                                                 ),
                                             ],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
                                                     100,
@@ -3018,6 +3038,9 @@ Ok(
                                             ),
                                             parameters: [],
                                             commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
                                                     126,
@@ -4097,6 +4120,9 @@ Ok(
                                                     ),
                                                 ),
                                             ],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
                                                     325,

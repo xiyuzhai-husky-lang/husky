@@ -644,8 +644,8 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    error: Original(
-                        UnexpectedStmtInsideModule,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {
@@ -706,8 +706,8 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         9,
                     ),
-                    error: Original(
-                        UnexpectedStmtInsideModule,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {
@@ -768,8 +768,8 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         16,
                     ),
-                    error: Original(
-                        UnexpectedStmtInsideModule,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {
@@ -830,8 +830,8 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         23,
                     ),
-                    error: Original(
-                        UnexpectedStmtInsideModule,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {
@@ -892,8 +892,8 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         30,
                     ),
-                    error: Original(
-                        UnexpectedStmtInsideModule,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {
@@ -954,8 +954,8 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         37,
                     ),
-                    error: Original(
-                        UnexpectedStmtInsideModule,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {
@@ -1016,8 +1016,8 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         44,
                     ),
-                    error: Original(
-                        UnexpectedStmtInsideModule,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {
@@ -1078,8 +1078,8 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         51,
                     ),
-                    error: Original(
-                        UnexpectedStmtInsideModule,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {
@@ -1140,8 +1140,8 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         58,
                     ),
-                    error: Original(
-                        UnexpectedStmtInsideModule,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {
@@ -1202,8 +1202,8 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         65,
                     ),
-                    error: Original(
-                        UnexpectedStmtInsideModule,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {
@@ -1264,8 +1264,8 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         72,
                     ),
-                    error: Original(
-                        UnexpectedStmtInsideModule,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {
@@ -1326,8 +1326,8 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         79,
                     ),
-                    error: Original(
-                        UnexpectedStmtInsideModule,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {

@@ -226,6 +226,9 @@ Ok(
                                                     },
                                                 ],
                                                 commas: [],
+                                                decl_list_result: Ok(
+                                                    (),
+                                                ),
                                                 rangle: RightAngleBracketToken(
                                                     TokenIdx(
                                                         7,
@@ -256,6 +259,9 @@ Ok(
                                                 },
                                             ],
                                             commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
                                                     16,
@@ -1067,6 +1073,9 @@ Ok(
                                                     },
                                                 ],
                                                 commas: [],
+                                                decl_list_result: Ok(
+                                                    (),
+                                                ),
                                                 rangle: RightAngleBracketToken(
                                                     TokenIdx(
                                                         46,
@@ -1132,6 +1141,9 @@ Ok(
                                                     ),
                                                 ),
                                             ],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
                                                     63,
@@ -2204,6 +2216,9 @@ Ok(
                                                     },
                                                 ],
                                                 commas: [],
+                                                decl_list_result: Ok(
+                                                    (),
+                                                ),
                                                 rangle: RightAngleBracketToken(
                                                     TokenIdx(
                                                         107,
@@ -2269,6 +2284,9 @@ Ok(
                                                     ),
                                                 ),
                                             ],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
                                                     124,

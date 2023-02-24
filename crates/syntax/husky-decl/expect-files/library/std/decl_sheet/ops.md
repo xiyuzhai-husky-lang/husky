@@ -111,6 +111,9 @@ Ok(
                                             },
                                         ],
                                         commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
                                         rangle: RightAngleBracketToken(
                                             TokenIdx(
                                                 10,

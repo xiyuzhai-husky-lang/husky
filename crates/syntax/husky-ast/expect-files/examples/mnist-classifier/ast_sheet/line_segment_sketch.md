@@ -84,8 +84,8 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         17,
                     ),
-                    error: Original(
-                        ExpectIdentifier(
+                    error: AstError::Original(
+                        OriginalAstError::ExpectIdentifier(
                             TokenIdx(
                                 141,
                             ),
@@ -96,8 +96,8 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         18,
                     ),
-                    error: Original(
-                        ExcessiveIndent,
+                    error: AstError::Original(
+                        OriginalAstError::ExcessiveIndent,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -298,8 +298,8 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         38,
                     ),
-                    error: Original(
-                        ExpectIdentifier(
+                    error: AstError::Original(
+                        OriginalAstError::ExpectIdentifier(
                             TokenIdx(
                                 341,
                             ),
@@ -310,8 +310,8 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         39,
                     ),
-                    error: Original(
-                        ExcessiveIndent,
+                    error: AstError::Original(
+                        OriginalAstError::ExcessiveIndent,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -547,16 +547,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         71,
                     ),
-                    error: Original(
-                        StandaloneElif,
+                    error: AstError::Original(
+                        OriginalAstError::StandaloneElif,
                     ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         72,
                     ),
-                    error: Original(
-                        ExcessiveIndent,
+                    error: AstError::Original(
+                        OriginalAstError::ExcessiveIndent,
                     ),
                 },
                 Ast::IfElseStmts {
@@ -877,16 +877,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         101,
                     ),
-                    error: Original(
-                        StandaloneElif,
+                    error: AstError::Original(
+                        OriginalAstError::StandaloneElif,
                     ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         102,
                     ),
-                    error: Original(
-                        ExcessiveIndent,
+                    error: AstError::Original(
+                        OriginalAstError::ExcessiveIndent,
                     ),
                 },
                 Ast::IfElseStmts {

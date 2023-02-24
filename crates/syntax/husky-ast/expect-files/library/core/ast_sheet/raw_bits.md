@@ -11,8 +11,8 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    error: Original(
-                        UnexpectedStmtInsideModule,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {

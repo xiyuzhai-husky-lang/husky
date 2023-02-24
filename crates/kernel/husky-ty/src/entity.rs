@@ -1,3 +1,5 @@
+use salsa::assert_eq_with_db;
+
 use crate::*;
 
 pub(crate) fn entity_path_ty(db: &dyn TypeDb, path: EntityPath) -> TypeResult<ReducedTerm> {
@@ -11,32 +13,6 @@ pub(crate) fn entity_path_ty(db: &dyn TypeDb, path: EntityPath) -> TypeResult<Re
         },
         EntityPath::AssociatedItem(_) => todo!(),
         EntityPath::Variant(_) => todo!(),
-    }
-}
-
-macro_rules! assert_eq_with_db {
-    ($db: expr, $left: expr, $right: expr) => {
-        if let Err(error_message) = assert_eq_with_db_f(&$db, &$left, &$right) {
-            panic!("{}", error_message)
-        }
-    };
-}
-
-fn assert_eq_with_db_f<Db, T>(db: &Db, left: &T, right: &T) -> Result<(), String>
-where
-    T: PartialEq + salsa::DebugWithDb<Db>,
-{
-    if left != right {
-        use salsa::DebugWithDb;
-        Err(format!(
-            r#"assertion failed: `(left == right)`
-left: `{:?}`,
-right: `{:?}`"#,
-            left.debug(db),
-            right.debug(db)
-        ))
-    } else {
-        Ok(())
     }
 }
 

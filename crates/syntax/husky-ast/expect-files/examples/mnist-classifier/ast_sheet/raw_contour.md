@@ -362,8 +362,8 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         38,
                     ),
-                    error: Original(
-                        ExpectIdentifier(
+                    error: AstError::Original(
+                        OriginalAstError::ExpectIdentifier(
                             TokenIdx(
                                 382,
                             ),
@@ -374,8 +374,8 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         39,
                     ),
-                    error: Original(
-                        ExcessiveIndent,
+                    error: AstError::Original(
+                        OriginalAstError::ExcessiveIndent,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -1185,96 +1185,96 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         165,
                     ),
-                    error: Original(
-                        StandaloneElif,
+                    error: AstError::Original(
+                        OriginalAstError::StandaloneElif,
                     ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         166,
                     ),
-                    error: Original(
-                        ExcessiveIndent,
+                    error: AstError::Original(
+                        OriginalAstError::ExcessiveIndent,
                     ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         167,
                     ),
-                    error: Original(
-                        ExcessiveIndent,
+                    error: AstError::Original(
+                        OriginalAstError::ExcessiveIndent,
                     ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         168,
                     ),
-                    error: Original(
-                        ExcessiveIndent,
+                    error: AstError::Original(
+                        OriginalAstError::ExcessiveIndent,
                     ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         169,
                     ),
-                    error: Original(
-                        StandaloneElif,
+                    error: AstError::Original(
+                        OriginalAstError::StandaloneElif,
                     ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         170,
                     ),
-                    error: Original(
-                        ExcessiveIndent,
+                    error: AstError::Original(
+                        OriginalAstError::ExcessiveIndent,
                     ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         171,
                     ),
-                    error: Original(
-                        ExcessiveIndent,
+                    error: AstError::Original(
+                        OriginalAstError::ExcessiveIndent,
                     ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         172,
                     ),
-                    error: Original(
-                        ExcessiveIndent,
+                    error: AstError::Original(
+                        OriginalAstError::ExcessiveIndent,
                     ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         173,
                     ),
-                    error: Original(
-                        StandaloneElse,
+                    error: AstError::Original(
+                        OriginalAstError::StandaloneElse,
                     ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         174,
                     ),
-                    error: Original(
-                        ExcessiveIndent,
+                    error: AstError::Original(
+                        OriginalAstError::ExcessiveIndent,
                     ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         175,
                     ),
-                    error: Original(
-                        ExcessiveIndent,
+                    error: AstError::Original(
+                        OriginalAstError::ExcessiveIndent,
                     ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         176,
                     ),
-                    error: Original(
-                        ExcessiveIndent,
+                    error: AstError::Original(
+                        OriginalAstError::ExcessiveIndent,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -1775,32 +1775,32 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         41,
                     ),
-                    error: Original(
-                        UnexpectedStmtInsideModule,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         42,
                     ),
-                    error: Original(
-                        UnexpectedStmtInsideModule,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         43,
                     ),
-                    error: Original(
-                        UnexpectedStmtInsideModule,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         44,
                     ),
-                    error: Original(
-                        UnexpectedStmtInsideModule,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {
