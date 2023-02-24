@@ -7,7 +7,7 @@ pub struct TypeImplDecl {
     pub im: Impl,
     pub impl_token: ImplToken,
     #[return_ref]
-    pub implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
+    implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
     pub ty: TypeExpr,
     #[return_ref]
     pub eol_colon: DeclExprResult<EolColonToken>,
@@ -19,11 +19,10 @@ impl TypeImplDecl {
         self,
         db: &'a dyn DeclDb,
     ) -> DeclExprResultRef<'a, &'a [ImplicitParameterDecl]> {
-        Ok(self
-            .implicit_parameter_decl_list(db)
+        self.implicit_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
-            .map(|l| -> &[ImplicitParameterDecl] { &l })
-            .unwrap_or(&[]))
+            .map(ImplicitParameterDeclList::implicit_parameters)
+            .unwrap_or(Ok(&[]))
     }
 }

@@ -9,9 +9,9 @@ pub struct TypeAsTraitMethodDecl {
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
     #[return_ref]
-    pub implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
+    implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
     #[return_ref]
-    pub parameter_decl_list: DeclExprResult<ParameterDeclList>,
+    parameter_decl_list: DeclExprResult<RegularParameterDeclList>,
     #[return_ref]
     pub curry_token: DeclExprResult<CurryToken>,
     #[return_ref]
@@ -25,7 +25,7 @@ impl TypeAsTraitMethodDecl {
         self,
         db: &'a dyn DeclDb,
     ) -> DeclExprResultRef<'a, &'a [RegularParameterDeclPattern]> {
-        Ok(self.parameter_decl_list(db).as_ref()?.parameters())
+        self.parameter_decl_list(db).as_ref()?.parameters()
     }
 
     pub fn implicit_parameters<'a>(
@@ -33,7 +33,7 @@ impl TypeAsTraitMethodDecl {
         db: &'a dyn DeclDb,
     ) -> DeclExprResultRef<'a, &'a [ImplicitParameterDecl]> {
         match self.implicit_parameter_decl_list(db).as_ref()? {
-            Some(list) => Ok(list.implicit_parameters()),
+            Some(list) => list.implicit_parameters(),
             None => Ok(&[]),
         }
     }

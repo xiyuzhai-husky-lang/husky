@@ -62,14 +62,36 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    implicit_parameter_decl_list: Err(
-                                        Original(
-                                            ExpectRightAngleBracketForImplicitParameterDeclList {
-                                                langle_token_idx: TokenIdx(
-                                                    3,
+                                    implicit_parameter_decl_list: Ok(
+                                        Some(
+                                            ImplicitParameterDeclList {
+                                                langle: LeftAngleBracketOrLessThanToken(
+                                                    TokenIdx(
+                                                        3,
+                                                    ),
                                                 ),
-                                                current_token_idx: TokenIdx(
-                                                    4,
+                                                implicit_parameters: [],
+                                                commas: [],
+                                                decl_list_result: Err(
+                                                    Original(
+                                                        ExpectImplicitParameterDecl(
+                                                            TokenIdx(
+                                                                4,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                                rangle: Err(
+                                                    Original(
+                                                        ExpectRightAngleBracketForImplicitParameterDeclList {
+                                                            langle_token_idx: TokenIdx(
+                                                                3,
+                                                            ),
+                                                            current_token_idx: TokenIdx(
+                                                                4,
+                                                            ),
+                                                        },
+                                                    ),
                                                 ),
                                             },
                                         ),

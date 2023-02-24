@@ -136,6 +136,8 @@ pub enum OriginalDeclExprError {
     ExpectParameterDeclList(TokenIdx),
     #[error("expect implicit parameter declaration")]
     ExpectImplicitParameterDecl(TokenIdx),
+    #[error("expect `)` in parameter list")]
+    ExpectRightParenthesisInParameterList(TokenIdx),
 }
 
 impl OriginalError for OriginalDeclExprError {
