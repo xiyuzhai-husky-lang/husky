@@ -319,11 +319,11 @@ Ok(
         use_expr_arena: Arena {
             data: [
                 All {
-                    star_token: StarToken {
-                        token_idx: TokenIdx(
+                    star_token: StarToken(
+                        TokenIdx(
                             5,
                         ),
-                    },
+                    ),
                 },
                 Parent {
                     parent_name_token: Identifier(
@@ -341,11 +341,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 4,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -362,11 +362,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 2,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -375,11 +375,11 @@ Ok(
                     ),
                 },
                 All {
-                    star_token: StarToken {
-                        token_idx: TokenIdx(
+                    star_token: StarToken(
+                        TokenIdx(
                             11,
                         ),
-                    },
+                    ),
                 },
                 Parent {
                     parent_name_token: Identifier(
@@ -397,11 +397,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 10,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -418,11 +418,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 8,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -431,11 +431,11 @@ Ok(
                     ),
                 },
                 All {
-                    star_token: StarToken {
-                        token_idx: TokenIdx(
+                    star_token: StarToken(
+                        TokenIdx(
                             17,
                         ),
-                    },
+                    ),
                 },
                 Parent {
                     parent_name_token: Identifier(
@@ -453,11 +453,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 16,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -474,11 +474,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 14,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -530,35 +530,35 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 20,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Multiple {
-                            lcurl_token: LeftCurlyBraceToken {
-                                token_idx: TokenIdx(
+                            lcurl_token: LeftCurlyBraceToken(
+                                TokenIdx(
                                     21,
                                 ),
-                            },
+                            ),
                             children: ArenaIdxRange(
                                 9..11,
                             ),
                             comma_tokens: [
-                                CommaToken {
-                                    token_idx: TokenIdx(
+                                CommaToken(
+                                    TokenIdx(
                                         23,
                                     ),
-                                },
+                                ),
                             ],
                             rcurl_token: Ok(
-                                RightCurlyBraceToken {
-                                    token_idx: TokenIdx(
+                                RightCurlyBraceToken(
+                                    TokenIdx(
                                         25,
                                     ),
-                                },
+                                ),
                             ),
                         },
                     ),

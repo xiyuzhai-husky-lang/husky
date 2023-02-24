@@ -313,11 +313,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 6,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -341,11 +341,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 4,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -369,11 +369,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 2,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -411,11 +411,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 16,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -439,11 +439,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 14,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -467,11 +467,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 12,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -495,11 +495,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 10,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -537,11 +537,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 26,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -565,11 +565,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 24,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -593,11 +593,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 22,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -621,11 +621,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 20,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -663,11 +663,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 36,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -691,11 +691,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 34,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -719,11 +719,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 32,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -747,11 +747,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 30,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -760,11 +760,11 @@ Ok(
                     ),
                 },
                 All {
-                    star_token: StarToken {
-                        token_idx: TokenIdx(
+                    star_token: StarToken(
+                        TokenIdx(
                             43,
                         ),
-                    },
+                    ),
                 },
                 Parent {
                     parent_name_token: Identifier(
@@ -782,11 +782,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 42,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -803,11 +803,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 40,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -816,11 +816,11 @@ Ok(
                     ),
                 },
                 All {
-                    star_token: StarToken {
-                        token_idx: TokenIdx(
+                    star_token: StarToken(
+                        TokenIdx(
                             49,
                         ),
-                    },
+                    ),
                 },
                 Parent {
                     parent_name_token: Identifier(
@@ -838,11 +838,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 48,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -859,11 +859,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 46,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -872,11 +872,11 @@ Ok(
                     ),
                 },
                 All {
-                    star_token: StarToken {
-                        token_idx: TokenIdx(
+                    star_token: StarToken(
+                        TokenIdx(
                             57,
                         ),
-                    },
+                    ),
                 },
                 Parent {
                     parent_name_token: Identifier(
@@ -894,11 +894,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 56,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -922,11 +922,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 54,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -943,11 +943,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 52,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -985,11 +985,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 62,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -1006,11 +1006,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 60,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {

@@ -168,11 +168,11 @@ Ok(
                                     implicit_parameter_decl_list: Ok(
                                         None,
                                     ),
-                                    lcurl: LeftCurlyBraceToken {
-                                        token_idx: TokenIdx(
+                                    lcurl: LeftCurlyBraceToken(
+                                        TokenIdx(
                                             21,
                                         ),
-                                    },
+                                    ),
                                     field_comma_list: Ok(
                                         (
                                             [
@@ -189,11 +189,11 @@ Ok(
                                                             22,
                                                         ),
                                                     },
-                                                    colon: ColonToken {
-                                                        token_idx: TokenIdx(
+                                                    colon: ColonToken(
+                                                        TokenIdx(
                                                             23,
                                                         ),
-                                                    },
+                                                    ),
                                                     ty: 0,
                                                 },
                                                 RegularStructFieldPattern {
@@ -209,11 +209,11 @@ Ok(
                                                             26,
                                                         ),
                                                     },
-                                                    colon: ColonToken {
-                                                        token_idx: TokenIdx(
+                                                    colon: ColonToken(
+                                                        TokenIdx(
                                                             27,
                                                         ),
-                                                    },
+                                                    ),
                                                     ty: 1,
                                                 },
                                                 RegularStructFieldPattern {
@@ -229,11 +229,11 @@ Ok(
                                                             30,
                                                         ),
                                                     },
-                                                    colon: ColonToken {
-                                                        token_idx: TokenIdx(
+                                                    colon: ColonToken(
+                                                        TokenIdx(
                                                             31,
                                                         ),
-                                                    },
+                                                    ),
                                                     ty: 2,
                                                 },
                                                 RegularStructFieldPattern {
@@ -249,44 +249,44 @@ Ok(
                                                             34,
                                                         ),
                                                     },
-                                                    colon: ColonToken {
-                                                        token_idx: TokenIdx(
+                                                    colon: ColonToken(
+                                                        TokenIdx(
                                                             35,
                                                         ),
-                                                    },
+                                                    ),
                                                     ty: 3,
                                                 },
                                             ],
                                             [
-                                                CommaToken {
-                                                    token_idx: TokenIdx(
+                                                CommaToken(
+                                                    TokenIdx(
                                                         25,
                                                     ),
-                                                },
-                                                CommaToken {
-                                                    token_idx: TokenIdx(
+                                                ),
+                                                CommaToken(
+                                                    TokenIdx(
                                                         29,
                                                     ),
-                                                },
-                                                CommaToken {
-                                                    token_idx: TokenIdx(
+                                                ),
+                                                CommaToken(
+                                                    TokenIdx(
                                                         33,
                                                     ),
-                                                },
-                                                CommaToken {
-                                                    token_idx: TokenIdx(
+                                                ),
+                                                CommaToken(
+                                                    TokenIdx(
                                                         37,
                                                     ),
-                                                },
+                                                ),
                                             ],
                                         ),
                                     ),
                                     rcurl: Ok(
-                                        RightCurlyBraceToken {
-                                            token_idx: TokenIdx(
+                                        RightCurlyBraceToken(
+                                            TokenIdx(
                                                 38,
                                             ),
-                                        },
+                                        ),
                                     ),
                                 },
                             },
@@ -416,11 +416,11 @@ Ok(
                                     implicit_parameter_decl_list: Ok(
                                         None,
                                     ),
-                                    lcurl: LeftCurlyBraceToken {
-                                        token_idx: TokenIdx(
+                                    lcurl: LeftCurlyBraceToken(
+                                        TokenIdx(
                                             42,
                                         ),
-                                    },
+                                    ),
                                     field_comma_list: Ok(
                                         (
                                             [
@@ -437,29 +437,29 @@ Ok(
                                                             43,
                                                         ),
                                                     },
-                                                    colon: ColonToken {
-                                                        token_idx: TokenIdx(
+                                                    colon: ColonToken(
+                                                        TokenIdx(
                                                             44,
                                                         ),
-                                                    },
+                                                    ),
                                                     ty: 4,
                                                 },
                                             ],
                                             [
-                                                CommaToken {
-                                                    token_idx: TokenIdx(
+                                                CommaToken(
+                                                    TokenIdx(
                                                         50,
                                                     ),
-                                                },
+                                                ),
                                             ],
                                         ),
                                     ),
                                     rcurl: Ok(
-                                        RightCurlyBraceToken {
-                                            token_idx: TokenIdx(
+                                        RightCurlyBraceToken(
+                                            TokenIdx(
                                                 51,
                                             ),
-                                        },
+                                        ),
                                     ),
                                 },
                             },
@@ -641,39 +641,39 @@ Ok(
                                     ),
                                     parameter_decl_list: Ok(
                                         ParameterDeclList {
-                                            lpar: LeftParenthesisToken {
-                                                token_idx: TokenIdx(
+                                            lpar: LeftParenthesisToken(
+                                                TokenIdx(
                                                     54,
                                                 ),
-                                            },
+                                            ),
                                             parameters: [
                                                 RegularParameterDeclPattern {
                                                     pattern: 0,
                                                     variables: ArenaIdxRange(
                                                         0..1,
                                                     ),
-                                                    colon: ColonToken {
-                                                        token_idx: TokenIdx(
+                                                    colon: ColonToken(
+                                                        TokenIdx(
                                                             56,
                                                         ),
-                                                    },
+                                                    ),
                                                     ty: 1,
                                                 },
                                             ],
                                             commas: [],
-                                            rpar: RightParenthesisToken {
-                                                token_idx: TokenIdx(
+                                            rpar: RightParenthesisToken(
+                                                TokenIdx(
                                                     59,
                                                 ),
-                                            },
+                                            ),
                                         },
                                     ),
                                     curry_token: Ok(
-                                        CurryToken {
-                                            token_idx: TokenIdx(
+                                        CurryToken(
+                                            TokenIdx(
                                                 60,
                                             ),
-                                        },
+                                        ),
                                     ),
                                     return_ty: Ok(
                                         OutputTypeExpr {
@@ -681,11 +681,11 @@ Ok(
                                         },
                                     ),
                                     eol_colon: Ok(
-                                        EolColonToken {
-                                            token_idx: TokenIdx(
+                                        EolColonToken(
+                                            TokenIdx(
                                                 63,
                                             ),
-                                        },
+                                        ),
                                     ),
                                 },
                                 expr_region: ExprRegion {
@@ -957,11 +957,11 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken {
-                                                            token_idx: TokenIdx(
+                                                        AssignToken(
+                                                            TokenIdx(
                                                                 66,
                                                             ),
-                                                        },
+                                                        ),
                                                     ),
                                                     initial_value: Ok(
                                                         1,
@@ -1153,11 +1153,11 @@ Ok(
                                     implicit_parameter_decl_list: Ok(
                                         None,
                                     ),
-                                    lcurl: LeftCurlyBraceToken {
-                                        token_idx: TokenIdx(
+                                    lcurl: LeftCurlyBraceToken(
+                                        TokenIdx(
                                             80,
                                         ),
-                                    },
+                                    ),
                                     field_comma_list: Ok(
                                         (
                                             [
@@ -1174,11 +1174,11 @@ Ok(
                                                             81,
                                                         ),
                                                     },
-                                                    colon: ColonToken {
-                                                        token_idx: TokenIdx(
+                                                    colon: ColonToken(
+                                                        TokenIdx(
                                                             82,
                                                         ),
-                                                    },
+                                                    ),
                                                     ty: 0,
                                                 },
                                             ],
@@ -1186,11 +1186,11 @@ Ok(
                                         ),
                                     ),
                                     rcurl: Ok(
-                                        RightCurlyBraceToken {
-                                            token_idx: TokenIdx(
+                                        RightCurlyBraceToken(
+                                            TokenIdx(
                                                 84,
                                             ),
-                                        },
+                                        ),
                                     ),
                                 },
                             },
@@ -1418,22 +1418,22 @@ Ok(
                                     ),
                                     parameter_decl_list: Ok(
                                         ParameterDeclList {
-                                            lpar: LeftParenthesisToken {
-                                                token_idx: TokenIdx(
+                                            lpar: LeftParenthesisToken(
+                                                TokenIdx(
                                                     560,
                                                 ),
-                                            },
+                                            ),
                                             parameters: [
                                                 RegularParameterDeclPattern {
                                                     pattern: 0,
                                                     variables: ArenaIdxRange(
                                                         0..1,
                                                     ),
-                                                    colon: ColonToken {
-                                                        token_idx: TokenIdx(
+                                                    colon: ColonToken(
+                                                        TokenIdx(
                                                             562,
                                                         ),
-                                                    },
+                                                    ),
                                                     ty: 0,
                                                 },
                                                 RegularParameterDeclPattern {
@@ -1441,34 +1441,34 @@ Ok(
                                                     variables: ArenaIdxRange(
                                                         1..2,
                                                     ),
-                                                    colon: ColonToken {
-                                                        token_idx: TokenIdx(
+                                                    colon: ColonToken(
+                                                        TokenIdx(
                                                             566,
                                                         ),
-                                                    },
+                                                    ),
                                                     ty: 1,
                                                 },
                                             ],
                                             commas: [
-                                                CommaToken {
-                                                    token_idx: TokenIdx(
+                                                CommaToken(
+                                                    TokenIdx(
                                                         564,
                                                     ),
-                                                },
+                                                ),
                                             ],
-                                            rpar: RightParenthesisToken {
-                                                token_idx: TokenIdx(
+                                            rpar: RightParenthesisToken(
+                                                TokenIdx(
                                                     568,
                                                 ),
-                                            },
+                                            ),
                                         },
                                     ),
                                     curry_token: Ok(
-                                        CurryToken {
-                                            token_idx: TokenIdx(
+                                        CurryToken(
+                                            TokenIdx(
                                                 569,
                                             ),
-                                        },
+                                        ),
                                     ),
                                     return_ty: Ok(
                                         OutputTypeExpr {
@@ -1476,11 +1476,11 @@ Ok(
                                         },
                                     ),
                                     eol_colon: Ok(
-                                        EolColonToken {
-                                            token_idx: TokenIdx(
+                                        EolColonToken(
+                                            TokenIdx(
                                                 571,
                                             ),
-                                        },
+                                        ),
                                     ),
                                 },
                                 expr_region: ExprRegion {
@@ -2193,11 +2193,11 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken {
-                                                            token_idx: TokenIdx(
+                                                        AssignToken(
+                                                            TokenIdx(
                                                                 575,
                                                             ),
-                                                        },
+                                                        ),
                                                     ),
                                                     initial_value: Ok(
                                                         13,
@@ -2222,11 +2222,11 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken {
-                                                            token_idx: TokenIdx(
+                                                        AssignToken(
+                                                            TokenIdx(
                                                                 596,
                                                             ),
-                                                        },
+                                                        ),
                                                     ),
                                                     initial_value: Ok(
                                                         27,
@@ -2242,11 +2242,11 @@ Ok(
                                                         30,
                                                     ),
                                                     eol_colon: Ok(
-                                                        EolColonToken {
-                                                            token_idx: TokenIdx(
+                                                        EolColonToken(
+                                                            TokenIdx(
                                                                 618,
                                                             ),
-                                                        },
+                                                        ),
                                                     ),
                                                     block: Ok(
                                                         ArenaIdxRange(
@@ -2570,39 +2570,39 @@ Ok(
                                     ),
                                     parameter_decl_list: Ok(
                                         ParameterDeclList {
-                                            lpar: LeftParenthesisToken {
-                                                token_idx: TokenIdx(
+                                            lpar: LeftParenthesisToken(
+                                                TokenIdx(
                                                     646,
                                                 ),
-                                            },
+                                            ),
                                             parameters: [
                                                 RegularParameterDeclPattern {
                                                     pattern: 0,
                                                     variables: ArenaIdxRange(
                                                         0..1,
                                                     ),
-                                                    colon: ColonToken {
-                                                        token_idx: TokenIdx(
+                                                    colon: ColonToken(
+                                                        TokenIdx(
                                                             648,
                                                         ),
-                                                    },
+                                                    ),
                                                     ty: 0,
                                                 },
                                             ],
                                             commas: [],
-                                            rpar: RightParenthesisToken {
-                                                token_idx: TokenIdx(
+                                            rpar: RightParenthesisToken(
+                                                TokenIdx(
                                                     650,
                                                 ),
-                                            },
+                                            ),
                                         },
                                     ),
                                     curry_token: Ok(
-                                        CurryToken {
-                                            token_idx: TokenIdx(
+                                        CurryToken(
+                                            TokenIdx(
                                                 651,
                                             ),
-                                        },
+                                        ),
                                     ),
                                     return_ty: Ok(
                                         OutputTypeExpr {
@@ -2610,11 +2610,11 @@ Ok(
                                         },
                                     ),
                                     eol_colon: Ok(
-                                        EolColonToken {
-                                            token_idx: TokenIdx(
+                                        EolColonToken(
+                                            TokenIdx(
                                                 655,
                                             ),
-                                        },
+                                        ),
                                     ),
                                 },
                                 expr_region: ExprRegion {
@@ -4046,11 +4046,11 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken {
-                                                            token_idx: TokenIdx(
+                                                        AssignToken(
+                                                            TokenIdx(
                                                                 746,
                                                             ),
-                                                        },
+                                                        ),
                                                     ),
                                                     initial_value: Ok(
                                                         40,
@@ -4075,11 +4075,11 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken {
-                                                            token_idx: TokenIdx(
+                                                        AssignToken(
+                                                            TokenIdx(
                                                                 755,
                                                             ),
-                                                        },
+                                                        ),
                                                     ),
                                                     initial_value: Ok(
                                                         52,
@@ -4096,11 +4096,11 @@ Ok(
                                                             54,
                                                         ),
                                                         eol_colon: Ok(
-                                                            EolColonToken {
-                                                                token_idx: TokenIdx(
+                                                            EolColonToken(
+                                                                TokenIdx(
                                                                     775,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         block: Ok(
                                                             ArenaIdxRange(
@@ -4122,11 +4122,11 @@ Ok(
                                                             57,
                                                         ),
                                                         eol_colon: Ok(
-                                                            EolColonToken {
-                                                                token_idx: TokenIdx(
+                                                            EolColonToken(
+                                                                TokenIdx(
                                                                     781,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         block: Ok(
                                                             ArenaIdxRange(
@@ -4162,11 +4162,11 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken {
-                                                            token_idx: TokenIdx(
+                                                        AssignToken(
+                                                            TokenIdx(
                                                                 800,
                                                             ),
-                                                        },
+                                                        ),
                                                     ),
                                                     initial_value: Ok(
                                                         70,
@@ -4191,11 +4191,11 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken {
-                                                            token_idx: TokenIdx(
+                                                        AssignToken(
+                                                            TokenIdx(
                                                                 807,
                                                             ),
-                                                        },
+                                                        ),
                                                     ),
                                                     initial_value: Ok(
                                                         82,
@@ -4212,11 +4212,11 @@ Ok(
                                                             85,
                                                         ),
                                                         eol_colon: Ok(
-                                                            EolColonToken {
-                                                                token_idx: TokenIdx(
+                                                            EolColonToken(
+                                                                TokenIdx(
                                                                     828,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         block: Ok(
                                                             ArenaIdxRange(
@@ -4249,11 +4249,11 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken {
-                                                            token_idx: TokenIdx(
+                                                        AssignToken(
+                                                            TokenIdx(
                                                                 735,
                                                             ),
-                                                        },
+                                                        ),
                                                     ),
                                                     initial_value: Ok(
                                                         35,
@@ -4323,11 +4323,11 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken {
-                                                            token_idx: TokenIdx(
+                                                        AssignToken(
+                                                            TokenIdx(
                                                                 687,
                                                             ),
-                                                        },
+                                                        ),
                                                     ),
                                                     initial_value: Ok(
                                                         14,
@@ -4352,11 +4352,11 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken {
-                                                            token_idx: TokenIdx(
+                                                        AssignToken(
+                                                            TokenIdx(
                                                                 694,
                                                             ),
-                                                        },
+                                                        ),
                                                     ),
                                                     initial_value: Ok(
                                                         16,
@@ -4381,11 +4381,11 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken {
-                                                            token_idx: TokenIdx(
+                                                        AssignToken(
+                                                            TokenIdx(
                                                                 703,
                                                             ),
-                                                        },
+                                                        ),
                                                     ),
                                                     initial_value: Ok(
                                                         18,
@@ -4413,11 +4413,11 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken {
-                                                            token_idx: TokenIdx(
+                                                        AssignToken(
+                                                            TokenIdx(
                                                                 723,
                                                             ),
-                                                        },
+                                                        ),
                                                     ),
                                                     initial_value: Ok(
                                                         29,
@@ -4433,11 +4433,11 @@ Ok(
                                                         31,
                                                     ),
                                                     eol_colon: Ok(
-                                                        EolColonToken {
-                                                            token_idx: TokenIdx(
+                                                        EolColonToken(
+                                                            TokenIdx(
                                                                 728,
                                                             ),
-                                                        },
+                                                        ),
                                                     ),
                                                     block: Ok(
                                                         ArenaIdxRange(
@@ -4483,11 +4483,11 @@ Ok(
                                                     },
                                                     frame_var_symbol_idx: 12,
                                                     eol_colon: Ok(
-                                                        EolColonToken {
-                                                            token_idx: TokenIdx(
+                                                        EolColonToken(
+                                                            TokenIdx(
                                                                 844,
                                                             ),
-                                                        },
+                                                        ),
                                                     ),
                                                     block: Ok(
                                                         ArenaIdxRange(
@@ -4508,11 +4508,11 @@ Ok(
                                                         11,
                                                     ),
                                                     eol_colon: Ok(
-                                                        EolColonToken {
-                                                            token_idx: TokenIdx(
+                                                        EolColonToken(
+                                                            TokenIdx(
                                                                 684,
                                                             ),
-                                                        },
+                                                        ),
                                                     ),
                                                     block: Ok(
                                                         ArenaIdxRange(
@@ -4539,11 +4539,11 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken {
-                                                            token_idx: TokenIdx(
+                                                        AssignToken(
+                                                            TokenIdx(
                                                                 659,
                                                             ),
-                                                        },
+                                                        ),
                                                     ),
                                                     initial_value: Ok(
                                                         3,
@@ -4568,11 +4568,11 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken {
-                                                            token_idx: TokenIdx(
+                                                        AssignToken(
+                                                            TokenIdx(
                                                                 668,
                                                             ),
-                                                        },
+                                                        ),
                                                     ),
                                                     initial_value: Ok(
                                                         5,
@@ -4614,11 +4614,11 @@ Ok(
                                                     },
                                                     frame_var_symbol_idx: 2,
                                                     eol_colon: Ok(
-                                                        EolColonToken {
-                                                            token_idx: TokenIdx(
+                                                        EolColonToken(
+                                                            TokenIdx(
                                                                 678,
                                                             ),
-                                                        },
+                                                        ),
                                                     ),
                                                     block: Ok(
                                                         ArenaIdxRange(
@@ -5217,11 +5217,11 @@ Ok(
                                     expr: 0,
                                 },
                                 eol_colon: Ok(
-                                    EolColonToken {
-                                        token_idx: TokenIdx(
+                                    EolColonToken(
+                                        TokenIdx(
                                             87,
                                         ),
-                                    },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -5554,11 +5554,11 @@ Ok(
                                             },
                                         },
                                         curry_token: Ok(
-                                            CurryToken {
-                                                token_idx: TokenIdx(
+                                            CurryToken(
+                                                TokenIdx(
                                                     90,
                                                 ),
-                                            },
+                                            ),
                                         ),
                                         return_ty: Ok(
                                             OutputTypeExpr {
@@ -5566,11 +5566,11 @@ Ok(
                                             },
                                         ),
                                         eol_colon: Ok(
-                                            EolColonToken {
-                                                token_idx: TokenIdx(
+                                            EolColonToken(
+                                                TokenIdx(
                                                     94,
                                                 ),
-                                            },
+                                            ),
                                         ),
                                     },
                                     expr_region: ExprRegion {
@@ -6090,11 +6090,11 @@ Ok(
                                             },
                                         },
                                         curry_token: Ok(
-                                            CurryToken {
-                                                token_idx: TokenIdx(
+                                            CurryToken(
+                                                TokenIdx(
                                                     101,
                                                 ),
-                                            },
+                                            ),
                                         ),
                                         return_ty: Ok(
                                             OutputTypeExpr {
@@ -6102,11 +6102,11 @@ Ok(
                                             },
                                         ),
                                         eol_colon: Ok(
-                                            EolColonToken {
-                                                token_idx: TokenIdx(
+                                            EolColonToken(
+                                                TokenIdx(
                                                     103,
                                                 ),
-                                            },
+                                            ),
                                         ),
                                     },
                                     expr_region: ExprRegion {
@@ -6682,11 +6682,11 @@ Ok(
                                                             },
                                                         ),
                                                         assign_token: Ok(
-                                                            AssignToken {
-                                                                token_idx: TokenIdx(
+                                                            AssignToken(
+                                                                TokenIdx(
                                                                     107,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         initial_value: Ok(
                                                             2,
@@ -6711,11 +6711,11 @@ Ok(
                                                             },
                                                         ),
                                                         assign_token: Ok(
-                                                            AssignToken {
-                                                                token_idx: TokenIdx(
+                                                            AssignToken(
+                                                                TokenIdx(
                                                                     118,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         initial_value: Ok(
                                                             8,
@@ -7102,11 +7102,11 @@ Ok(
                                             },
                                         },
                                         curry_token: Ok(
-                                            CurryToken {
-                                                token_idx: TokenIdx(
+                                            CurryToken(
+                                                TokenIdx(
                                                     162,
                                                 ),
-                                            },
+                                            ),
                                         ),
                                         return_ty: Ok(
                                             OutputTypeExpr {
@@ -7114,11 +7114,11 @@ Ok(
                                             },
                                         ),
                                         eol_colon: Ok(
-                                            EolColonToken {
-                                                token_idx: TokenIdx(
+                                            EolColonToken(
+                                                TokenIdx(
                                                     164,
                                                 ),
-                                            },
+                                            ),
                                         ),
                                     },
                                     expr_region: ExprRegion {
@@ -7586,11 +7586,11 @@ Ok(
                                                             },
                                                         ),
                                                         assign_token: Ok(
-                                                            AssignToken {
-                                                                token_idx: TokenIdx(
+                                                            AssignToken(
+                                                                TokenIdx(
                                                                     189,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         initial_value: Ok(
                                                             13,
@@ -7607,11 +7607,11 @@ Ok(
                                                                 16,
                                                             ),
                                                             eol_colon: Ok(
-                                                                EolColonToken {
-                                                                    token_idx: TokenIdx(
+                                                                EolColonToken(
+                                                                    TokenIdx(
                                                                         204,
                                                                     ),
-                                                                },
+                                                                ),
                                                             ),
                                                             block: Ok(
                                                                 ArenaIdxRange(
@@ -7641,11 +7641,11 @@ Ok(
                                                             },
                                                         ),
                                                         assign_token: Ok(
-                                                            AssignToken {
-                                                                token_idx: TokenIdx(
+                                                            AssignToken(
+                                                                TokenIdx(
                                                                     168,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         initial_value: Ok(
                                                             0,
@@ -7670,11 +7670,11 @@ Ok(
                                                             },
                                                         ),
                                                         assign_token: Ok(
-                                                            AssignToken {
-                                                                token_idx: TokenIdx(
+                                                            AssignToken(
+                                                                TokenIdx(
                                                                     172,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         initial_value: Ok(
                                                             2,
@@ -7718,11 +7718,11 @@ Ok(
                                                         },
                                                         frame_var_symbol_idx: 2,
                                                         eol_colon: Ok(
-                                                            EolColonToken {
-                                                                token_idx: TokenIdx(
+                                                            EolColonToken(
+                                                                TokenIdx(
                                                                     186,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         block: Ok(
                                                             ArenaIdxRange(
@@ -8161,11 +8161,11 @@ Ok(
                                             },
                                         },
                                         curry_token: Ok(
-                                            CurryToken {
-                                                token_idx: TokenIdx(
+                                            CurryToken(
+                                                TokenIdx(
                                                     214,
                                                 ),
-                                            },
+                                            ),
                                         ),
                                         return_ty: Ok(
                                             OutputTypeExpr {
@@ -8173,11 +8173,11 @@ Ok(
                                             },
                                         ),
                                         eol_colon: Ok(
-                                            EolColonToken {
-                                                token_idx: TokenIdx(
+                                            EolColonToken(
+                                                TokenIdx(
                                                     216,
                                                 ),
-                                            },
+                                            ),
                                         ),
                                     },
                                     expr_region: ExprRegion {
@@ -8588,11 +8588,11 @@ Ok(
                                                             },
                                                         ),
                                                         assign_token: Ok(
-                                                            AssignToken {
-                                                                token_idx: TokenIdx(
+                                                            AssignToken(
+                                                                TokenIdx(
                                                                     220,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         initial_value: Ok(
                                                             0,
@@ -8636,11 +8636,11 @@ Ok(
                                                         },
                                                         frame_var_symbol_idx: 1,
                                                         eol_colon: Ok(
-                                                            EolColonToken {
-                                                                token_idx: TokenIdx(
+                                                            EolColonToken(
+                                                                TokenIdx(
                                                                     228,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         block: Ok(
                                                             ArenaIdxRange(
@@ -8997,11 +8997,11 @@ Ok(
                                             },
                                         },
                                         curry_token: Ok(
-                                            CurryToken {
-                                                token_idx: TokenIdx(
+                                            CurryToken(
+                                                TokenIdx(
                                                     252,
                                                 ),
-                                            },
+                                            ),
                                         ),
                                         return_ty: Ok(
                                             OutputTypeExpr {
@@ -9009,11 +9009,11 @@ Ok(
                                             },
                                         ),
                                         eol_colon: Ok(
-                                            EolColonToken {
-                                                token_idx: TokenIdx(
+                                            EolColonToken(
+                                                TokenIdx(
                                                     254,
                                                 ),
-                                            },
+                                            ),
                                         ),
                                     },
                                     expr_region: ExprRegion {
@@ -9394,11 +9394,11 @@ Ok(
                                                             },
                                                         ),
                                                         assign_token: Ok(
-                                                            AssignToken {
-                                                                token_idx: TokenIdx(
+                                                            AssignToken(
+                                                                TokenIdx(
                                                                     258,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         initial_value: Ok(
                                                             0,
@@ -9442,11 +9442,11 @@ Ok(
                                                         },
                                                         frame_var_symbol_idx: 1,
                                                         eol_colon: Ok(
-                                                            EolColonToken {
-                                                                token_idx: TokenIdx(
+                                                            EolColonToken(
+                                                                TokenIdx(
                                                                     266,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         block: Ok(
                                                             ArenaIdxRange(
@@ -9803,11 +9803,11 @@ Ok(
                                             },
                                         },
                                         curry_token: Ok(
-                                            CurryToken {
-                                                token_idx: TokenIdx(
+                                            CurryToken(
+                                                TokenIdx(
                                                     285,
                                                 ),
-                                            },
+                                            ),
                                         ),
                                         return_ty: Ok(
                                             OutputTypeExpr {
@@ -9815,11 +9815,11 @@ Ok(
                                             },
                                         ),
                                         eol_colon: Ok(
-                                            EolColonToken {
-                                                token_idx: TokenIdx(
+                                            EolColonToken(
+                                                TokenIdx(
                                                     287,
                                                 ),
-                                            },
+                                            ),
                                         ),
                                     },
                                     expr_region: ExprRegion {
@@ -10595,11 +10595,11 @@ Ok(
                                                                 4,
                                                             ),
                                                             eol_colon: Ok(
-                                                                EolColonToken {
-                                                                    token_idx: TokenIdx(
+                                                                EolColonToken(
+                                                                    TokenIdx(
                                                                         305,
                                                                     ),
-                                                                },
+                                                                ),
                                                             ),
                                                             block: Ok(
                                                                 ArenaIdxRange(
@@ -10628,11 +10628,11 @@ Ok(
                                                                 12,
                                                             ),
                                                             eol_colon: Ok(
-                                                                EolColonToken {
-                                                                    token_idx: TokenIdx(
+                                                                EolColonToken(
+                                                                    TokenIdx(
                                                                         327,
                                                                     ),
-                                                                },
+                                                                ),
                                                             ),
                                                             block: Ok(
                                                                 ArenaIdxRange(
@@ -10668,11 +10668,11 @@ Ok(
                                                             },
                                                         ),
                                                         assign_token: Ok(
-                                                            AssignToken {
-                                                                token_idx: TokenIdx(
+                                                            AssignToken(
+                                                                TokenIdx(
                                                                     291,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         initial_value: Ok(
                                                             0,
@@ -10718,11 +10718,11 @@ Ok(
                                                             },
                                                         ),
                                                         assign_token: Ok(
-                                                            AssignToken {
-                                                                token_idx: TokenIdx(
+                                                            AssignToken(
+                                                                TokenIdx(
                                                                     310,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         initial_value: Ok(
                                                             7,
@@ -10768,11 +10768,11 @@ Ok(
                                                             },
                                                         ),
                                                         assign_token: Ok(
-                                                            AssignToken {
-                                                                token_idx: TokenIdx(
+                                                            AssignToken(
+                                                                TokenIdx(
                                                                     331,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         initial_value: Ok(
                                                             15,
@@ -10797,11 +10797,11 @@ Ok(
                                                             },
                                                         ),
                                                         assign_token: Ok(
-                                                            AssignToken {
-                                                                token_idx: TokenIdx(
+                                                            AssignToken(
+                                                                TokenIdx(
                                                                     337,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         initial_value: Ok(
                                                             18,
@@ -10826,11 +10826,11 @@ Ok(
                                                             },
                                                         ),
                                                         assign_token: Ok(
-                                                            AssignToken {
-                                                                token_idx: TokenIdx(
+                                                            AssignToken(
+                                                                TokenIdx(
                                                                     344,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         initial_value: Ok(
                                                             19,
@@ -10874,11 +10874,11 @@ Ok(
                                                         },
                                                         frame_var_symbol_idx: 5,
                                                         eol_colon: Ok(
-                                                            EolColonToken {
-                                                                token_idx: TokenIdx(
+                                                            EolColonToken(
+                                                                TokenIdx(
                                                                     354,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         block: Ok(
                                                             ArenaIdxRange(
@@ -10905,11 +10905,11 @@ Ok(
                                                             },
                                                         ),
                                                         assign_token: Ok(
-                                                            AssignToken {
-                                                                token_idx: TokenIdx(
+                                                            AssignToken(
+                                                                TokenIdx(
                                                                     370,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         initial_value: Ok(
                                                             34,
@@ -10953,11 +10953,11 @@ Ok(
                                                         },
                                                         frame_var_symbol_idx: 7,
                                                         eol_colon: Ok(
-                                                            EolColonToken {
-                                                                token_idx: TokenIdx(
+                                                            EolColonToken(
+                                                                TokenIdx(
                                                                     380,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         block: Ok(
                                                             ArenaIdxRange(
@@ -11536,11 +11536,11 @@ Ok(
                                             },
                                         },
                                         curry_token: Ok(
-                                            CurryToken {
-                                                token_idx: TokenIdx(
+                                            CurryToken(
+                                                TokenIdx(
                                                     407,
                                                 ),
-                                            },
+                                            ),
                                         ),
                                         return_ty: Ok(
                                             OutputTypeExpr {
@@ -11548,11 +11548,11 @@ Ok(
                                             },
                                         ),
                                         eol_colon: Ok(
-                                            EolColonToken {
-                                                token_idx: TokenIdx(
+                                            EolColonToken(
+                                                TokenIdx(
                                                     409,
                                                 ),
-                                            },
+                                            ),
                                         ),
                                     },
                                     expr_region: ExprRegion {
@@ -12078,11 +12078,11 @@ Ok(
                                             },
                                         },
                                         curry_token: Ok(
-                                            CurryToken {
-                                                token_idx: TokenIdx(
+                                            CurryToken(
+                                                TokenIdx(
                                                     419,
                                                 ),
-                                            },
+                                            ),
                                         ),
                                         return_ty: Ok(
                                             OutputTypeExpr {
@@ -12090,11 +12090,11 @@ Ok(
                                             },
                                         ),
                                         eol_colon: Ok(
-                                            EolColonToken {
-                                                token_idx: TokenIdx(
+                                            EolColonToken(
+                                                TokenIdx(
                                                     421,
                                                 ),
-                                            },
+                                            ),
                                         ),
                                     },
                                     expr_region: ExprRegion {
@@ -12690,39 +12690,39 @@ Ok(
                                         ),
                                         parameter_decl_list: Ok(
                                             ParameterDeclList {
-                                                lpar: LeftParenthesisToken {
-                                                    token_idx: TokenIdx(
+                                                lpar: LeftParenthesisToken(
+                                                    TokenIdx(
                                                         431,
                                                     ),
-                                                },
+                                                ),
                                                 parameters: [
                                                     RegularParameterDeclPattern {
                                                         pattern: 0,
                                                         variables: ArenaIdxRange(
                                                             0..1,
                                                         ),
-                                                        colon: ColonToken {
-                                                            token_idx: TokenIdx(
+                                                        colon: ColonToken(
+                                                            TokenIdx(
                                                                 433,
                                                             ),
-                                                        },
+                                                        ),
                                                         ty: 0,
                                                     },
                                                 ],
                                                 commas: [],
-                                                rpar: RightParenthesisToken {
-                                                    token_idx: TokenIdx(
+                                                rpar: RightParenthesisToken(
+                                                    TokenIdx(
                                                         435,
                                                     ),
-                                                },
+                                                ),
                                             },
                                         ),
                                         curry_token: Ok(
-                                            CurryToken {
-                                                token_idx: TokenIdx(
+                                            CurryToken(
+                                                TokenIdx(
                                                     436,
                                                 ),
-                                            },
+                                            ),
                                         ),
                                         return_ty: Ok(
                                             OutputTypeExpr {
@@ -12730,11 +12730,11 @@ Ok(
                                             },
                                         ),
                                         eol_colon: Ok(
-                                            EolColonToken {
-                                                token_idx: TokenIdx(
+                                            EolColonToken(
+                                                TokenIdx(
                                                     438,
                                                 ),
-                                            },
+                                            ),
                                         ),
                                     },
                                     expr_region: ExprRegion {
@@ -13274,11 +13274,11 @@ Ok(
                                                                 8,
                                                             ),
                                                             eol_colon: Ok(
-                                                                EolColonToken {
-                                                                    token_idx: TokenIdx(
+                                                                EolColonToken(
+                                                                    TokenIdx(
                                                                         465,
                                                                     ),
-                                                                },
+                                                                ),
                                                             ),
                                                             block: Ok(
                                                                 ArenaIdxRange(
@@ -13311,11 +13311,11 @@ Ok(
                                                             },
                                                         ),
                                                         assign_token: Ok(
-                                                            AssignToken {
-                                                                token_idx: TokenIdx(
+                                                            AssignToken(
+                                                                TokenIdx(
                                                                     442,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         initial_value: Ok(
                                                             0,
@@ -13350,11 +13350,11 @@ Ok(
                                                             },
                                                         ),
                                                         assign_token: Ok(
-                                                            AssignToken {
-                                                                token_idx: TokenIdx(
+                                                            AssignToken(
+                                                                TokenIdx(
                                                                     451,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         initial_value: Ok(
                                                             4,
@@ -13419,11 +13419,11 @@ Ok(
                                                         },
                                                         frame_var_symbol_idx: 2,
                                                         eol_colon: Ok(
-                                                            EolColonToken {
-                                                                token_idx: TokenIdx(
+                                                            EolColonToken(
+                                                                TokenIdx(
                                                                     475,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         block: Ok(
                                                             ArenaIdxRange(
@@ -13899,39 +13899,39 @@ Ok(
                                         ),
                                         parameter_decl_list: Ok(
                                             ParameterDeclList {
-                                                lpar: LeftParenthesisToken {
-                                                    token_idx: TokenIdx(
+                                                lpar: LeftParenthesisToken(
+                                                    TokenIdx(
                                                         494,
                                                     ),
-                                                },
+                                                ),
                                                 parameters: [
                                                     RegularParameterDeclPattern {
                                                         pattern: 0,
                                                         variables: ArenaIdxRange(
                                                             0..1,
                                                         ),
-                                                        colon: ColonToken {
-                                                            token_idx: TokenIdx(
+                                                        colon: ColonToken(
+                                                            TokenIdx(
                                                                 496,
                                                             ),
-                                                        },
+                                                        ),
                                                         ty: 0,
                                                     },
                                                 ],
                                                 commas: [],
-                                                rpar: RightParenthesisToken {
-                                                    token_idx: TokenIdx(
+                                                rpar: RightParenthesisToken(
+                                                    TokenIdx(
                                                         498,
                                                     ),
-                                                },
+                                                ),
                                             },
                                         ),
                                         curry_token: Ok(
-                                            CurryToken {
-                                                token_idx: TokenIdx(
+                                            CurryToken(
+                                                TokenIdx(
                                                     499,
                                                 ),
-                                            },
+                                            ),
                                         ),
                                         return_ty: Ok(
                                             OutputTypeExpr {
@@ -13939,11 +13939,11 @@ Ok(
                                             },
                                         ),
                                         eol_colon: Ok(
-                                            EolColonToken {
-                                                token_idx: TokenIdx(
+                                            EolColonToken(
+                                                TokenIdx(
                                                     501,
                                                 ),
-                                            },
+                                            ),
                                         ),
                                     },
                                     expr_region: ExprRegion {
@@ -14483,11 +14483,11 @@ Ok(
                                                                 8,
                                                             ),
                                                             eol_colon: Ok(
-                                                                EolColonToken {
-                                                                    token_idx: TokenIdx(
+                                                                EolColonToken(
+                                                                    TokenIdx(
                                                                         528,
                                                                     ),
-                                                                },
+                                                                ),
                                                             ),
                                                             block: Ok(
                                                                 ArenaIdxRange(
@@ -14520,11 +14520,11 @@ Ok(
                                                             },
                                                         ),
                                                         assign_token: Ok(
-                                                            AssignToken {
-                                                                token_idx: TokenIdx(
+                                                            AssignToken(
+                                                                TokenIdx(
                                                                     505,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         initial_value: Ok(
                                                             0,
@@ -14559,11 +14559,11 @@ Ok(
                                                             },
                                                         ),
                                                         assign_token: Ok(
-                                                            AssignToken {
-                                                                token_idx: TokenIdx(
+                                                            AssignToken(
+                                                                TokenIdx(
                                                                     514,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         initial_value: Ok(
                                                             4,
@@ -14628,11 +14628,11 @@ Ok(
                                                         },
                                                         frame_var_symbol_idx: 2,
                                                         eol_colon: Ok(
-                                                            EolColonToken {
-                                                                token_idx: TokenIdx(
+                                                            EolColonToken(
+                                                                TokenIdx(
                                                                     538,
                                                                 ),
-                                                            },
+                                                            ),
                                                         ),
                                                         block: Ok(
                                                             ArenaIdxRange(

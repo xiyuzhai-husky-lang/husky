@@ -53,11 +53,11 @@ Ok(
         use_expr_arena: Arena {
             data: [
                 All {
-                    star_token: StarToken {
-                        token_idx: TokenIdx(
+                    star_token: StarToken(
+                        TokenIdx(
                             5,
                         ),
-                    },
+                    ),
                 },
                 Parent {
                     parent_name_token: Identifier(
@@ -75,11 +75,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 4,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {
@@ -96,11 +96,11 @@ Ok(
                         },
                     ),
                     scope_resolution_token: Ok(
-                        ScopeResolutionToken {
-                            token_idx: TokenIdx(
+                        ScopeResolutionToken(
+                            TokenIdx(
                                 2,
                             ),
-                        },
+                        ),
                     ),
                     children: Ok(
                         Single {

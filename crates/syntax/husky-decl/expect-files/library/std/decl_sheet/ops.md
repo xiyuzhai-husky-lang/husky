@@ -82,11 +82,11 @@ Ok(
                             implicit_parameter_decl_list: Ok(
                                 Some(
                                     ImplicitParameterDeclList {
-                                        langle: LeftAngleBracketOrLessThanToken {
-                                            token_idx: TokenIdx(
+                                        langle: LeftAngleBracketOrLessThanToken(
+                                            TokenIdx(
                                                 8,
                                             ),
-                                        },
+                                        ),
                                         implicit_parameters: [
                                             ImplicitParameterDecl {
                                                 pattern: ImplicitParameterDeclPattern {
@@ -111,11 +111,11 @@ Ok(
                                             },
                                         ],
                                         commas: [],
-                                        rangle: RightAngleBracketToken {
-                                            token_idx: TokenIdx(
+                                        rangle: RightAngleBracketToken(
+                                            TokenIdx(
                                                 10,
                                             ),
-                                        },
+                                        ),
                                     },
                                 ),
                             ),

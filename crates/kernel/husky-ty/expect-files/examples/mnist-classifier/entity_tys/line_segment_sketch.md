@@ -7,7 +7,7 @@
         ),
         Err(
             Derived(
-                DeclError,
+                SignatureError,
             ),
         ),
     ),
