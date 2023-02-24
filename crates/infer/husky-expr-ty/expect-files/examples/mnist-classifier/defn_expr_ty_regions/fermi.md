@@ -1,7 +1,7 @@
 [
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::Entity(
+            DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
@@ -607,13 +607,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::fermi`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `norm`,
                 },
@@ -1142,13 +1143,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::fermi`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `rel_norm`,
                 },
@@ -1677,13 +1679,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::fermi`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `angle_change_norm`,
                 },

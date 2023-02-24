@@ -1,7 +1,7 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
                         TypePath(`core::basic::bool`, `Alien`),
@@ -37,7 +37,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
                         TypePath(`core::basic::never`, `Alien`),
@@ -73,7 +73,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
                         TypePath(`core::basic::unit`, `Alien`),
@@ -109,7 +109,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
                         TypePath(`core::basic::Trait`, `Structure`),
@@ -145,7 +145,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
                         TypePath(`core::basic::Module`, `Structure`),

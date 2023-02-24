@@ -49,14 +49,17 @@ impl Decl {
         }
     }
 
-    pub fn implicit_parameters(self, db: &dyn DeclDb) -> &[ImplicitParameterDecl] {
+    pub fn implicit_parameters<'a>(
+        self,
+        db: &'a dyn DeclDb,
+    ) -> DeclExprResultRef<'a, &'a [ImplicitParameterDecl]> {
         match self {
             Decl::Type(decl) => decl.implicit_parameters(db),
             Decl::Form(decl) => decl.implicit_parameters(db),
             Decl::Trait(decl) => decl.implicit_parameters(db),
             Decl::ImplBlock(decl) => decl.implicit_parameters(db),
             Decl::AssociatedItem(decl) => decl.implicit_parameters(db),
-            Decl::Variant(decl) => &[],
+            Decl::Variant(decl) => Ok(&[]),
         }
     }
 

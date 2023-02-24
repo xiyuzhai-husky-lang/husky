@@ -1,7 +1,7 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Trait(
                         TraitPath(`core::cmp::PartialEq`),
@@ -37,7 +37,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Trait(
                         TraitPath(`core::cmp::Eq`),
@@ -73,7 +73,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Trait(
                         TraitPath(`core::cmp::PartialOrd`),
@@ -109,7 +109,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Trait(
                         TraitPath(`core::cmp::Ord`),

@@ -170,8 +170,8 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_let_stmt(
         &mut self,
-        let_variable_pattern: &Result<LetVariablesPattern, OriginalExprError>,
-        initial_value: &Result<ExprIdx, OriginalExprError>,
+        let_variable_pattern: &ExprResult<LetVariablesPattern>,
+        initial_value: &ExprResult<ExprIdx>,
     ) -> Option<LocalTerm> {
         let pattern_ty = match let_variable_pattern {
             Ok(pattern) => match pattern.ty() {

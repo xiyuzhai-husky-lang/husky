@@ -1,4 +1,4 @@
-use husky_ast::{Ast, AstError};
+use husky_ast::{Ast, AstError, OriginalAstError};
 use husky_token::{TokenGroupIdx, TokenSheetData};
 
 use super::*;
@@ -25,7 +25,7 @@ pub(crate) fn ast_diagnostic_sheet(
             match ast {
                 Ast::Err {
                     token_group_idx,
-                    error,
+                    error: AstError::Original(error),
                 } => diagnostics.push((*token_group_idx, error).to_diagnostic(&ctx)),
                 _ => (),
             }
@@ -34,45 +34,47 @@ pub(crate) fn ast_diagnostic_sheet(
     // todo
     AstDiagnosticSheet::new(db, diagnostics)
 }
-impl Diagnose for (TokenGroupIdx, &AstError) {
+impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
     type Context<'a> = SheetDiagnosticsContext<'a>;
 
     fn message(&self, db: &SheetDiagnosticsContext) -> String {
         match self.1 {
-            AstError::ExcessiveIndent => format!("Syntax Error: excessive indent"),
-            AstError::StandaloneElif => format!("Syntax Error: standalone elif"),
-            AstError::StandaloneElse => format!("Syntax Error: standalone else"),
-            AstError::ExpectEntityKeyword => format!("Syntax Error: expected entity keyword"),
-            AstError::ExpectDecoratorOrEntityKeyword => {
+            OriginalAstError::ExcessiveIndent => format!("Syntax Error: excessive indent"),
+            OriginalAstError::StandaloneElif => format!("Syntax Error: standalone elif"),
+            OriginalAstError::StandaloneElse => format!("Syntax Error: standalone else"),
+            OriginalAstError::ExpectEntityKeyword => {
+                format!("Syntax Error: expected entity keyword")
+            }
+            OriginalAstError::ExpectDecoratorOrEntityKeyword => {
                 format!("Syntax Error: expected decorator or entity keyword")
             }
-            AstError::ExpectIdentifier(_) => format!("Syntax Error: expected identifier"),
-            AstError::UnexpectedEndOfTokenGroupAfterPubKeyword(_) => {
+            OriginalAstError::ExpectIdentifier(_) => format!("Syntax Error: expected identifier"),
+            OriginalAstError::UnexpectedEndOfTokenGroupAfterPubKeyword(_) => {
                 format!("Syntax Error: unexpected end after `pub`")
             }
-            AstError::ExpectNothing => format!("Syntax Error: expected nothing"),
-            AstError::UnexpectedStmtInsideModule => {
+            OriginalAstError::ExpectNothing => format!("Syntax Error: expected nothing"),
+            OriginalAstError::UnexpectedStmtInsideModule => {
                 format!("Syntax Error: unexpected stmt inside module")
             }
-            AstError::UnexpectedStmtInsideImpl => {
+            OriginalAstError::UnexpectedStmtInsideImpl => {
                 format!("Syntax Error: unexpected stmt inside impl")
             }
-            AstError::UnexpectedTokenForTraitItem(_) => {
+            OriginalAstError::UnexpectedTokenForTraitItem(_) => {
                 format!("Syntax Error: unexpected token for trait item")
             }
-            AstError::UnexpectedTokenForTypeImplItem(_) => {
+            OriginalAstError::UnexpectedTokenForTypeImplItem(_) => {
                 format!("Syntax Error: unexpected token for type implementation item")
             }
-            AstError::UnexpectedTokenForTraitImplItem(_) => {
+            OriginalAstError::UnexpectedTokenForTraitImplItem(_) => {
                 format!("Syntax Error: unexpected token for trait implementation item")
             }
-            AstError::UnexpectedTokenForModuleItem(_) => {
+            OriginalAstError::UnexpectedTokenForModuleItem(_) => {
                 format!("Syntax Error: unexpected token for module item")
             }
-            AstError::InvalidAstForDefinitionOrUse => {
+            OriginalAstError::InvalidAstForDefinitionOrUse => {
                 format!("Syntax Error: invalid ast for definition or use")
             }
-            AstError::Todo => {
+            OriginalAstError::Todo => {
                 format!("Syntax Error: ast error todo")
             }
         }
@@ -85,25 +87,25 @@ impl Diagnose for (TokenGroupIdx, &AstError) {
     fn range(&self, ctx: &SheetDiagnosticsContext) -> TextRange {
         // merge branches
         match self.1 {
-            AstError::ExcessiveIndent
-            | AstError::StandaloneElif
-            | AstError::StandaloneElse
-            | AstError::ExpectEntityKeyword
-            | AstError::ExpectDecoratorOrEntityKeyword
-            | AstError::ExpectNothing
-            | AstError::UnexpectedStmtInsideModule
-            | AstError::UnexpectedStmtInsideImpl
-            | AstError::InvalidAstForDefinitionOrUse
-            | AstError::Todo => {
+            OriginalAstError::ExcessiveIndent
+            | OriginalAstError::StandaloneElif
+            | OriginalAstError::StandaloneElse
+            | OriginalAstError::ExpectEntityKeyword
+            | OriginalAstError::ExpectDecoratorOrEntityKeyword
+            | OriginalAstError::ExpectNothing
+            | OriginalAstError::UnexpectedStmtInsideModule
+            | OriginalAstError::UnexpectedStmtInsideImpl
+            | OriginalAstError::InvalidAstForDefinitionOrUse
+            | OriginalAstError::Todo => {
                 let token_idx_range = ctx.token_sheet_data().token_group_token_idx_range(self.0);
                 ctx.ranged_token_sheet().tokens_text_range(token_idx_range)
             }
-            AstError::ExpectIdentifier(token_idx)
-            | AstError::UnexpectedEndOfTokenGroupAfterPubKeyword(token_idx)
-            | AstError::UnexpectedTokenForTraitItem(token_idx)
-            | AstError::UnexpectedTokenForTypeImplItem(token_idx)
-            | AstError::UnexpectedTokenForTraitImplItem(token_idx)
-            | AstError::UnexpectedTokenForModuleItem(token_idx) => {
+            OriginalAstError::ExpectIdentifier(token_idx)
+            | OriginalAstError::UnexpectedEndOfTokenGroupAfterPubKeyword(token_idx)
+            | OriginalAstError::UnexpectedTokenForTraitItem(token_idx)
+            | OriginalAstError::UnexpectedTokenForTypeImplItem(token_idx)
+            | OriginalAstError::UnexpectedTokenForTraitImplItem(token_idx)
+            | OriginalAstError::UnexpectedTokenForModuleItem(token_idx) => {
                 ctx.ranged_token_sheet().token_text_range(*token_idx)
             }
         }

@@ -22,6 +22,8 @@ husky-decl = { path = "../../syntax/husky-decl" }
 husky-defn = { path = "../../syntax/husky-defn" }
 
 [dev-dependencies]
+# fs
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 # infer

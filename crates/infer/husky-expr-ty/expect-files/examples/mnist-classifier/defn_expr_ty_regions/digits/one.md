@@ -1,7 +1,7 @@
 [
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::Entity(
+            DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Feature`),
@@ -802,7 +802,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::Entity(
+            DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
@@ -7194,7 +7194,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::Entity(
+            DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::digits::one::upmost`, `Function`),
@@ -7567,7 +7567,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::Entity(
+            DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::digits::one::downmost`, `Function`),
@@ -8021,7 +8021,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::Entity(
+            DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::digits::one::hat`, `Function`),

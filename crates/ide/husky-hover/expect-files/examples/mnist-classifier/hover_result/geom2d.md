@@ -70,7 +70,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 78;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 43,\n            },\n        ),\n    ),\n);\n\ntoken_info = InheritedSymbol {\n    inherited_symbol_idx: 0,\n    inherited_symbol_kind: RegularParameter,\n    expr_region: ExprRegion(\n        Id {\n            value: 228,\n        },\n    ),\n};\n\nInheritedSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 43,\n            },\n        ),\n    ),\n    parent_symbol_idx: Current(\n        0,\n    ),\n    kind: RegularParameter,\n}\n",
+                                value: "\ntoken_idx = 78;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 43,\n            },\n        ),\n    ),\n);\n\ntoken_info = InheritedSymbol {\n    inherited_symbol_idx: 0,\n    inherited_symbol_kind: RegularParameter,\n    expr_region: ExprRegion(\n        Id {\n            value: 232,\n        },\n    ),\n};\n\nInheritedSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 43,\n            },\n        ),\n    ),\n    parent_symbol_idx: Current(\n        0,\n    ),\n    kind: RegularParameter,\n}\n",
                             },
                         ),
                         range: Some(

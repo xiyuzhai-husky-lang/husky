@@ -1,7 +1,7 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
@@ -51,7 +51,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::digits::zero::almost_closed`, `Function`),
@@ -258,7 +258,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),

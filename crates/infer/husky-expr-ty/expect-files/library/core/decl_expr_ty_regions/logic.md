@@ -1,7 +1,7 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
                         TypePath(`core::logic::Prop`, `Alien`),
@@ -37,7 +37,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
                         TypePath(`core::logic::LogicAnd`, `Structure`),
@@ -86,7 +86,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
                         TypePath(`core::logic::LogicOr`, `Inductive`),

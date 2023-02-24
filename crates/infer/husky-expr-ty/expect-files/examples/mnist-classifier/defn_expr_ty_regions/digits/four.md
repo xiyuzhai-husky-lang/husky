@@ -1,7 +1,7 @@
 [
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::Entity(
+            DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::digits::four::left_components`, `Feature`),
@@ -696,7 +696,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::Entity(
+            DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Function`),
@@ -844,7 +844,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::Entity(
+            DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Feature`),
@@ -1433,7 +1433,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::Entity(
+            DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::digits::four::components_max_heights`, `Feature`),
@@ -2022,7 +2022,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::Entity(
+            DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
@@ -6726,7 +6726,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::Entity(
+            DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Function`),
@@ -7099,7 +7099,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::Entity(
+            DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Function`),

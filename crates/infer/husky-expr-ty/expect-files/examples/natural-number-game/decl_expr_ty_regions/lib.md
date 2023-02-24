@@ -1,7 +1,7 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
                         TypePath(`natural_number_game::Nat`, `Inductive`),
@@ -37,7 +37,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
                         TypePath(`natural_number_game::OddNat`, `Structure`),
@@ -73,7 +73,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
                         TypePath(`natural_number_game::EvenNat`, `Structure`),
@@ -109,12 +109,13 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::ImplBlock(
+            DeclRegionPath::ImplBlock(
                 ImplBlockId {
                     module_path: `natural_number_game`,
                     impl_block_kind: ImplBlockKind::Type {
                         ty: TypePath(`natural_number_game::Nat`, `Inductive`),
                     },
+                    disambiguator: 0,
                 },
             ),
         ),
@@ -229,13 +230,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::AssociatedItem(
+            DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `natural_number_game`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`natural_number_game::Nat`, `Inductive`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `add`,
                 },

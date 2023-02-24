@@ -9,25 +9,32 @@ pub struct TypeMethodDecl {
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
     #[return_ref]
-    pub implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    pub implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
     #[return_ref]
-    pub parameter_decl_list: ParameterDeclList,
+    pub parameter_decl_list: DeclExprResult<ParameterDeclList>,
     #[return_ref]
-    pub curry_token: DeclResult<CurryToken>,
+    pub curry_token: DeclExprResult<CurryToken>,
     #[return_ref]
-    pub return_ty: DeclResult<OutputTypeExpr>,
+    pub return_ty: DeclExprResult<OutputTypeExpr>,
     #[return_ref]
-    pub eol_colon: DeclResult<EolColonToken>,
+    pub eol_colon: DeclExprResult<EolColonToken>,
 }
 
 impl TypeMethodDecl {
-    pub fn parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [RegularParameterDeclPattern] {
-        self.parameter_decl_list(db).parameters()
+    pub fn parameters<'a>(
+        self,
+        db: &'a dyn DeclDb,
+    ) -> DeclExprResultRef<'a, &'a [RegularParameterDeclPattern]> {
+        Ok(self.parameter_decl_list(db).as_ref()?.parameters())
     }
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {
-        match self.implicit_parameter_decl_list(db) {
-            Some(list) => list.implicit_parameters(),
-            None => &[],
+
+    pub fn implicit_parameters<'a>(
+        self,
+        db: &'a dyn DeclDb,
+    ) -> DeclExprResultRef<'a, &'a [ImplicitParameterDecl]> {
+        match self.implicit_parameter_decl_list(db).as_ref()? {
+            Some(list) => Ok(list.implicit_parameters()),
+            None => Ok(&[]),
         }
     }
 }

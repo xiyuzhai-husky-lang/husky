@@ -1,7 +1,7 @@
 [
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::Entity(
+            DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`quick_sort::quick_sort`, `Function`),
@@ -316,7 +316,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::Entity(
+            DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`quick_sort::quick_sort_aux`, `Function`),
@@ -1006,7 +1006,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::Entity(
+            DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`quick_sort::partition`, `Function`),
@@ -3655,7 +3655,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::Entity(
+            DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
@@ -5937,7 +5937,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::Entity(
+            DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),

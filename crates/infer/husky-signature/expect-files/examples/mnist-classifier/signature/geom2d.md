@@ -218,6 +218,18 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
+                    fields: [],
+                },
+            ),
+        ),
+    ),
+    Ok(
+        Signature::Type(
+            TypeSignature::RegularStruct(
+                RegularStructTypeSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        data: [],
+                    },
                     fields: [
                         RegularStructFieldSignature {
                             ident: Identifier(

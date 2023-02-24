@@ -6,11 +6,11 @@ use husky_expr::*;
 
 pub(crate) struct InferEngine<'a> {
     db: &'a dyn TokenInfoDb,
+    module_path: ModulePath,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
     entity_tree_presheet: &'a EntityTreePresheet,
     entity_tree_sheet: &'a EntityTreeSheet,
-    defn_sheet: DefnSheet<'a>,
     module_symbol_context: ModuleSymbolContext<'a>,
     sheet: TokenInfoSheet,
 }
@@ -20,8 +20,8 @@ impl<'a> InferEngine<'a> {
         let token_sheet_data = &db.token_sheet_data(module_path)?;
         Ok(Self {
             db,
+            module_path,
             token_sheet_data,
-            defn_sheet: db.collect_defns(module_path)?,
             ast_sheet: db.ast_sheet(module_path)?,
             entity_tree_presheet: db.entity_tree_presheet(module_path)?,
             entity_tree_sheet: db.entity_tree_sheet(module_path)?,
@@ -30,19 +30,19 @@ impl<'a> InferEngine<'a> {
         })
     }
 
-    pub(crate) fn visit_all(mut self) -> TokenInfoSheet {
-        self.visit_defns();
+    pub(crate) fn visit_all(mut self) -> EntityTreeResult<TokenInfoSheet> {
+        self.visit_decl_and_defns()?;
         self.visit_use_expr_rules();
-        self.sheet
+        Ok(self.sheet)
     }
 
-    fn visit_defns(&mut self) {
-        for (_, defn) in self.defn_sheet.defns() {
+    fn visit_decl_and_defns(&mut self) -> EntityTreeResult<()> {
+        for (_, defn) in self.db.collect_defns(self.module_path)?.defns() {
             if let Ok(defn) = defn {
-                todo!()
-                // self.visit_defn(defn);
+                self.visit_decl_and_defn(defn);
             }
         }
+        Ok(())
     }
 
     fn visit_use_expr_rules(&mut self) {
@@ -81,7 +81,7 @@ impl<'a> InferEngine<'a> {
         }
     }
 
-    fn visit_defn(&mut self, defn: Defn) {
+    fn visit_decl_and_defn(&mut self, defn: Defn) {
         let decl = defn.decl(self.db);
         self.visit_expr_region(decl.expr_region(self.db).into());
         defn.expr_region(self.db)

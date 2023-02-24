@@ -176,7 +176,7 @@ impl<'a> DeclParser<'a> {
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
-        let implicit_parameters = ctx.parse()?;
+        let implicit_parameters = ctx.parse() ;
         Ok(EnumTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters).into())
     }
 
@@ -228,7 +228,7 @@ impl<'a> DeclParser<'a> {
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
-        let implicit_parameters = ctx.parse()?;
+        let implicit_parameters = ctx.parse();
         Ok(TraitDecl::new(
             self.db,
             path,
@@ -256,7 +256,7 @@ impl<'a> DeclParser<'a> {
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
-        let implicit_parameters = ctx.parse()?;
+        let implicit_parameters = ctx.parse();
         Ok(
             InductiveTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters)
                 .into(),
@@ -281,10 +281,10 @@ impl<'a> DeclParser<'a> {
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
-        let implicit_parameters = ctx.parse()?;
+        let implicit_parameters = ctx.parse();
         if let Some(lcurl) = ctx.parse::<LeftCurlyBraceToken>()? {
             let  fields = parse_separated_list(&mut ctx) ;
-            let rcurl: RightCurlyBraceToken = ctx.parse_expected(OriginalOriginalDeclExprError::ExpectRightCurlyBrace)?;
+            let rcurl= ctx.parse_expected(OriginalDeclExprError::ExpectRightCurlyBrace) ;
             Ok(RegularStructTypeDecl::new(
                 self.db,
                 path,
@@ -299,7 +299,7 @@ impl<'a> DeclParser<'a> {
         } else if let Some(lbox) = ctx.parse::<LeftBoxBracketToken>()? {
             todo!()
         } else {
-            Err(OriginalDeclExprError::ExpectLCurlOrLParOrSemicolon(ctx.save_state()))
+            Err(OriginalDeclError::ExpectLCurlOrLParOrSemicolon(ctx.save_state()).into())
         }
     }
 
@@ -343,7 +343,7 @@ impl<'a> DeclParser<'a> {
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
-        let implicit_parameters = ctx.parse()?;
+        let implicit_parameters = ctx.parse();
         Ok(
             StructureTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters)
                 .into(),
@@ -373,7 +373,7 @@ impl<'a> DeclParser<'a> {
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
-        let implicit_parameters = ctx.parse()?;
+        let implicit_parameters = ctx.parse();
         Ok(AlienTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters).into())
     }
 
@@ -479,11 +479,8 @@ impl<'a> DeclParser<'a> {
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
-        let implicit_parameter_decl_list = ctx.parse()?;
-        let Some(parameter_decl_list) = ctx.parse()? else {
-            p!(path.debug(self.db));
-            todo!()
-        };
+        let implicit_parameter_decl_list = ctx.parse();
+        let  parameter_decl_list  = ctx.parse_expected(OriginalDeclExprError::ExpectParameterDeclList) ;
         let curry_token = ctx.parse_expected(OriginalDeclExprError::ExpectCurry);
         let return_ty = ctx.parse_expected(OriginalDeclExprError::ExpectOutputType);
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);
@@ -512,7 +509,7 @@ impl<'a> DeclParser<'a> {
                     .parse_ty_impl_block_decl(ast_idx, token_group_idx, impl_block)?
                     .into()),
                 ImplBlockKind::TypeAsTrait { ty, trai } => todo!(),
-                ImplBlockKind::Err => Err(OriginalDeclExprError::ImplBlockErr),
+                ImplBlockKind::Err => Err(DerivedDeclError::ImplBlockErr.into()),
             },
             _ => unreachable!(),
         }
@@ -535,7 +532,7 @@ impl<'a> DeclParser<'a> {
                 .token_group_token_stream(token_group_idx, None),
         );
         let impl_token = ctx.parse().unwrap().unwrap();
-        let implicit_parameter_decl_list = ctx.parse()?;
+        let implicit_parameter_decl_list = ctx.parse();
         let ty = ctx.parse().unwrap().unwrap();
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);
         Ok(TypeImplBlockDecl::new(
@@ -618,7 +615,7 @@ impl<'a> DeclParser<'a> {
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeMethodDecl> {
         let Ok(impl_block_decl) = self.db.impl_block_decl(associated_item.impl_block(self.db))
-            else { return Err(OriginalDeclExprError::UnableToParseImplBlockDeclForTyMethodDecl) };
+            else { return Err(DerivedDeclError::UnableToParseImplBlockDeclForTyMethodDecl.into()) };
         let mut parser = self.expr_parser(
             DeclRegionPath::AssociatedItem(associated_item.id(self.db)),
             Some(impl_block_decl.expr_region(self.db)),
@@ -629,16 +626,13 @@ impl<'a> DeclParser<'a> {
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, saved_stream_state),
         );
-        let implicit_parameter_decl_list = ctx.parse()?;
+        let implicit_parameter_decl_list = ctx.parse();
         let path = match associated_item.path(self.db) {
             Some(AssociatedItemPath::TypeItem(path)) => Some(path),
             None => None,
             _ => unreachable!(),
         };
-        let Some(parameter_decl_list) = ctx.parse()? else {
-            p!(path.debug(self.db));
-            todo!()
-        };
+        let  parameter_decl_list  = ctx.parse_expected(OriginalDeclExprError::ExpectParameterDeclList) ;
         let curry_token = ctx.parse_expected(OriginalDeclExprError::ExpectCurry);
         let return_ty = ctx.parse_expected(OriginalDeclExprError::ExpectOutputType);
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);
@@ -705,7 +699,11 @@ impl<'a> DeclParser<'a> {
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeAsTraitMethodDecl> {
         let Ok(impl_block_decl) = self.db.impl_block_decl(associated_item.impl_block(self.db))
-            else { return Err(OriginalDeclExprError::UnableToParseImplBlockDeclForTyAsTraitMethodDecl) };
+            else {
+                return Err(
+                    DerivedDeclError::UnableToParseImplBlockDeclForTyAsTraitMethodDecl.into()
+                )
+            };
         let mut parser = self.expr_parser(
             DeclRegionPath::AssociatedItem(associated_item.id(self.db)),
             Some(impl_block_decl.expr_region(self.db)),
@@ -716,16 +714,13 @@ impl<'a> DeclParser<'a> {
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, saved_stream_state),
         );
-        let implicit_parameter_decl_list = ctx.parse()?;
+        let implicit_parameter_decl_list = ctx.parse();
         let path = match associated_item.path(self.db) {
             Some(AssociatedItemPath::TypeAsTraitItem(path)) => Some(path),
             None => None,
             _ => unreachable!(),
         };
-        let Some(parameter_decl_list) = ctx.parse()? else {
-            p!(path.debug(self.db));
-            todo!()
-        };
+        let parameter_decl_list = ctx.parse_expected(OriginalDeclExprError::ExpectParameterDeclList);
         let curry_token = ctx.parse_expected(OriginalDeclExprError::ExpectCurry);
         let return_ty = ctx.parse_expected(OriginalDeclExprError::ExpectOutputType);
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);

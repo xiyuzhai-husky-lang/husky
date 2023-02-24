@@ -158,59 +158,79 @@ Ok(
                                         ],
                                     },
                                 },
-                                implicit_parameter_decl_list: None,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 lcurl: LeftCurlyBraceToken {
                                     token_idx: TokenIdx(
                                         8,
                                     ),
                                 },
-                                fields: [
-                                    RegularStructFieldPattern {
-                                        ident_token: IdentifierToken {
-                                            ident: `line_segment_sketch`,
-                                            token_idx: TokenIdx(
-                                                9,
-                                            ),
-                                        },
-                                        colon: ColonToken {
-                                            token_idx: TokenIdx(
-                                                10,
-                                            ),
-                                        },
-                                        ty: 1,
-                                    },
-                                    RegularStructFieldPattern {
-                                        ident_token: IdentifierToken {
-                                            ident: `line_segments`,
-                                            token_idx: TokenIdx(
-                                                14,
-                                            ),
-                                        },
-                                        colon: ColonToken {
-                                            token_idx: TokenIdx(
-                                                15,
-                                            ),
-                                        },
-                                        ty: 6,
-                                    },
-                                ],
-                                separators: [
-                                    CommaToken {
-                                        token_idx: TokenIdx(
-                                            13,
-                                        ),
-                                    },
-                                    CommaToken {
-                                        token_idx: TokenIdx(
-                                            20,
-                                        ),
-                                    },
-                                ],
-                                rcurl: RightCurlyBraceToken {
-                                    token_idx: TokenIdx(
-                                        21,
+                                field_comma_list: Ok(
+                                    (
+                                        [
+                                            RegularStructFieldPattern {
+                                                ident_token: IdentifierToken {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 143,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    token_idx: TokenIdx(
+                                                        9,
+                                                    ),
+                                                },
+                                                colon: ColonToken {
+                                                    token_idx: TokenIdx(
+                                                        10,
+                                                    ),
+                                                },
+                                                ty: 1,
+                                            },
+                                            RegularStructFieldPattern {
+                                                ident_token: IdentifierToken {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 357,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    token_idx: TokenIdx(
+                                                        14,
+                                                    ),
+                                                },
+                                                colon: ColonToken {
+                                                    token_idx: TokenIdx(
+                                                        15,
+                                                    ),
+                                                },
+                                                ty: 6,
+                                            },
+                                        ],
+                                        [
+                                            CommaToken {
+                                                token_idx: TokenIdx(
+                                                    13,
+                                                ),
+                                            },
+                                            CommaToken {
+                                                token_idx: TokenIdx(
+                                                    20,
+                                                ),
+                                            },
+                                        ],
                                     ),
-                                },
+                                ),
+                                rcurl: Ok(
+                                    RightCurlyBraceToken {
+                                        token_idx: TokenIdx(
+                                            21,
+                                        ),
+                                    },
+                                ),
                             },
                         ),
                     ),
@@ -252,7 +272,9 @@ Ok(
                                         22,
                                     ),
                                 },
-                                implicit_parameter_decl_list: None,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 ty: TypeExpr {
                                     expr: 0,
                                 },

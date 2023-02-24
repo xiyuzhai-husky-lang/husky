@@ -6,9 +6,11 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
-                    error: ExpectIdentifier(
-                        TokenIdx(
-                            26,
+                    error: Original(
+                        ExpectIdentifier(
+                            TokenIdx(
+                                26,
+                            ),
                         ),
                     ),
                 },
@@ -16,7 +18,9 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
-                    error: ExcessiveIndent,
+                    error: Original(
+                        ExcessiveIndent,
+                    ),
                 },
                 Ast::Use {
                     token_group_idx: TokenGroupIdx(

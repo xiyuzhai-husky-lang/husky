@@ -97,6 +97,12 @@ DiagnosticSheet {
             },
         ],
     },
+    decl_diagnostic_sheet: DeclDiagnosticSheet {
+        diagnostics: [],
+    },
+    defn_diagnostic_sheet: DefnDiagnosticSheet {
+        diagnostics: [],
+    },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [
             Diagnostic {
@@ -182,6 +188,11 @@ DiagnosticSheet {
                 message: "Type Error: original `todo` in term Ref 'eval ConnectedComponent",
                 severity: Error,
                 range: [264:36, 264:38),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError::Todo: todo",
+                severity: Error,
+                range: [27:16, 27:27),
             },
             Diagnostic {
                 message: "OriginalLocalTermExpectationError::Todo: todo",

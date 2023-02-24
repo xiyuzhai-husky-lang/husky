@@ -1,4 +1,9 @@
 [
+    Err(
+        FieldTypeTermError(
+            0,
+        ),
+    ),
     Ok(
         Signature::Type(
             TypeSignature::RegularStruct(

@@ -46,9 +46,13 @@ impl Defn {
         self.decl(db).ast_idx(db)
     }
 
-    pub fn implicit_parameters(self, db: &dyn DefnDb) -> &[ImplicitParameterDecl] {
+    pub fn implicit_parameters<'a>(
+        self,
+        db: &'a dyn DefnDb,
+    ) -> DeclExprResultRef<'a, &'a [ImplicitParameterDecl]> {
         self.decl(db).implicit_parameters(db)
     }
+
     pub fn expr_region(self, db: &dyn DefnDb) -> Option<ExprRegion> {
         match self {
             Defn::Type(_) | Defn::Trait(_) => None,

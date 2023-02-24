@@ -2277,6 +2277,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                             },
+                            disambiguator: 0,
                         },
                         ast_idx: 125,
                         body: ArenaIdxRange(
@@ -3278,6 +3279,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                             },
+                            disambiguator: 0,
                         },
                         ast_idx: 200,
                         body: ArenaIdxRange(
@@ -3779,6 +3781,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                             },
+                            disambiguator: 0,
                         },
                         ast_idx: 81,
                         body: ArenaIdxRange(
@@ -3794,6 +3797,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                             },
+                            disambiguator: 0,
                         },
                         ast_idx: 84,
                         body: ArenaIdxRange(
@@ -3807,6 +3811,7 @@ Ok(
                         id: ImplBlockId {
                             module_path: `mnist_classifier::geom2d`,
                             impl_block_kind: ImplBlockKind::Err,
+                            disambiguator: 0,
                         },
                         ast_idx: 86,
                         body: ArenaIdxRange(
@@ -3814,19 +3819,21 @@ Ok(
                         ),
                         variant: ImplBlockVariant::Err(
                             ImplBlockError::MajorPath(
-                                UnrecognizedIdentifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 304,
-                                                },
+                                Original(
+                                    UnrecognizedIdentifier(
+                                        IdentifierToken {
+                                            ident: Identifier(
+                                                Word(
+                                                    Id {
+                                                        value: 304,
+                                                    },
+                                                ),
                                             ),
-                                        ),
-                                        token_idx: TokenIdx(
-                                            500,
-                                        ),
-                                    },
+                                            token_idx: TokenIdx(
+                                                500,
+                                            ),
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -3837,6 +3844,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                             },
+                            disambiguator: 0,
                         },
                         ast_idx: 89,
                         body: ArenaIdxRange(
@@ -3852,6 +3860,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                             },
+                            disambiguator: 0,
                         },
                         ast_idx: 91,
                         body: ArenaIdxRange(
@@ -4405,6 +4414,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                             },
+                            disambiguator: 0,
                         },
                         ast_idx: 170,
                         body: ArenaIdxRange(
@@ -4420,6 +4430,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                             },
+                            disambiguator: 0,
                         },
                         ast_idx: 172,
                         body: ArenaIdxRange(
@@ -6450,6 +6461,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                             },
+                            disambiguator: 0,
                         },
                         ast_idx: 75,
                         body: ArenaIdxRange(
@@ -7932,6 +7944,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                             },
+                            disambiguator: 0,
                         },
                         ast_idx: 4,
                         body: ArenaIdxRange(
@@ -9487,6 +9500,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                             },
+                            disambiguator: 0,
                         },
                         ast_idx: 17,
                         body: ArenaIdxRange(
@@ -10608,6 +10622,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                             },
+                            disambiguator: 0,
                         },
                         ast_idx: 23,
                         body: ArenaIdxRange(

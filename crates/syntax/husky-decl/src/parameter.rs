@@ -80,11 +80,11 @@ impl ImplicitParameterDeclList {
 }
 
 impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDeclList {
-    type Error = DeclError;
+    type Error = DeclExprError;
 
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> DeclResult<Option<Self>> {
+    ) -> DeclExprResult<Option<Self>> {
         let Some(langle) = ctx.parse::< LeftAngleBracketOrLessThanToken>()? else {
             return Ok(None)
         };
@@ -118,11 +118,11 @@ impl ParameterDeclList {
 }
 
 impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ParameterDeclList {
-    type Error = ExprError;
+    type Error = DeclExprError;
 
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> ExprResult<Option<Self>> {
+    ) -> DeclExprResult<Option<Self>> {
         let Some(lpar) = ctx.parse::<LeftParenthesisToken>()? else {
             return Ok(None)
         };

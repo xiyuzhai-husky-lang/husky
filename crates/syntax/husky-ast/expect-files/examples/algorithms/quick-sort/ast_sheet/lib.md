@@ -349,7 +349,9 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         25,
                     ),
-                    error: UnexpectedStmtInsideModule,
+                    error: Original(
+                        UnexpectedStmtInsideModule,
+                    ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -390,7 +392,9 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         30,
                     ),
-                    error: UnexpectedStmtInsideModule,
+                    error: Original(
+                        UnexpectedStmtInsideModule,
+                    ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(

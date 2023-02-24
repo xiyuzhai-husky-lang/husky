@@ -17,6 +17,12 @@ DiagnosticSheet {
             },
         ],
     },
+    decl_diagnostic_sheet: DeclDiagnosticSheet {
+        diagnostics: [],
+    },
+    defn_diagnostic_sheet: DefnDiagnosticSheet {
+        diagnostics: [],
+    },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [
             Diagnostic {
@@ -67,6 +73,11 @@ DiagnosticSheet {
                 message: "Type Error: original `todo` in term Ref 'eval LineSegmentSketch",
                 severity: Error,
                 range: [101:17, 101:36),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError::Todo: todo",
+                severity: Error,
+                range: [55:16, 55:27),
             },
             Diagnostic {
                 message: "OriginalLocalTermExpectationError::Todo: todo",

@@ -22,6 +22,12 @@ DiagnosticSheet {
             },
         ],
     },
+    decl_diagnostic_sheet: DeclDiagnosticSheet {
+        diagnostics: [],
+    },
+    defn_diagnostic_sheet: DefnDiagnosticSheet {
+        diagnostics: [],
+    },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [],
     },
@@ -96,6 +102,16 @@ DiagnosticSheet {
                 message: "TypeError: todo",
                 severity: Error,
                 range: [68:26, 68:38),
+            },
+            Diagnostic {
+                message: "TypeError: todo",
+                severity: Error,
+                range: [108:40, 108:52),
+            },
+            Diagnostic {
+                message: "TypeError: todo",
+                severity: Error,
+                range: [109:40, 109:52),
             },
             Diagnostic {
                 message: "OriginalLocalTermExpectationError::Todo: todo",
