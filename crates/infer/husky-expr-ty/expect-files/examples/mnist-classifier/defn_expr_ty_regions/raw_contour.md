@@ -14825,9 +14825,9 @@
         path: RegionPath::Defn(
             DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_block_id: ImplBlockId {
+                    impl_id: ImplId {
                         module_path: `mnist_classifier::raw_contour`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         },
                         disambiguator: 0,
@@ -14968,9 +14968,9 @@
         path: RegionPath::Defn(
             DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_block_id: ImplBlockId {
+                    impl_id: ImplId {
                         module_path: `mnist_classifier::raw_contour`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         },
                         disambiguator: 0,
@@ -16617,9 +16617,9 @@
         path: RegionPath::Defn(
             DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_block_id: ImplBlockId {
+                    impl_id: ImplId {
                         module_path: `mnist_classifier::raw_contour`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         },
                         disambiguator: 0,
@@ -16897,9 +16897,9 @@
         path: RegionPath::Defn(
             DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_block_id: ImplBlockId {
+                    impl_id: ImplId {
                         module_path: `mnist_classifier::raw_contour`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         },
                         disambiguator: 0,
@@ -18468,9 +18468,9 @@
         path: RegionPath::Defn(
             DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_block_id: ImplBlockId {
+                    impl_id: ImplId {
                         module_path: `mnist_classifier::raw_contour`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         },
                         disambiguator: 0,

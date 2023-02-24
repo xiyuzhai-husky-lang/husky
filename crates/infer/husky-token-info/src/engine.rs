@@ -111,7 +111,7 @@ impl<'a> InferEngine<'a> {
             Defn::Form(defn) => self.visit_form(defn),
             Defn::AssociatedItem(defn) => self.visit_associated_item(defn),
             Defn::Variant(_) => todo!(),
-            Defn::ImplBlock(_) => (),
+            Defn::Impl(_) => (),
         }
     }
 

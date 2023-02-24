@@ -59,11 +59,11 @@ pub struct SignatureJar(
     type_alias_signature,
     TypeAliasSignature,
     // impl block
-    // impl_block_signature,
-    ty_impl_block_signature,
-    TypeImplBlockSignature,
-    ty_as_trai_impl_block_signature,
-    TypeAsTraitImplBlockSignature,
+    // im_signature,
+    ty_im_signature,
+    TypeImplSignature,
+    ty_as_trai_im_signature,
+    TypeAsTraitImplSignature,
     // variant
     UnitVariantSignature,
     PropsVariantSignature,

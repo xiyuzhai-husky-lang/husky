@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_tree::{AssociatedItem, EntityTreeDb, EntityTreeResult, ImplBlock};
+use husky_entity_tree::{AssociatedItem, EntityTreeDb, EntityTreeResult, Impl};
 use husky_vfs::{CratePath, ModulePath, VfsResult};
 use salsa::DbWithJar;
 
@@ -8,7 +8,7 @@ pub trait DeclDb: DbWithJar<DeclJar> + ExprDb {
     fn ty_decl(&self, path: TypePath) -> DeclResultRef<TypeDecl>;
     fn trai_decl(&self, path: TraitPath) -> DeclResultRef<TraitDecl>;
     fn form_decl(&self, path: FormPath) -> DeclResultRef<FormDecl>;
-    fn impl_block_decl(&self, impl_block: ImplBlock) -> DeclResultRef<ImplBlockDecl>;
+    fn impl_decl(&self, im: Impl) -> DeclResultRef<ImplDecl>;
     fn associated_item_decl(
         &self,
         associated_item: AssociatedItem,
@@ -40,8 +40,8 @@ where
         decl_sheet(self, module_path)
     }
 
-    fn impl_block_decl(&self, impl_block: ImplBlock) -> DeclResultRef<ImplBlockDecl> {
-        impl_block_decl(self, impl_block).as_ref().copied()
+    fn impl_decl(&self, im: Impl) -> DeclResultRef<ImplDecl> {
+        impl_decl(self, im).as_ref().copied()
     }
 
     fn associated_item_decl(

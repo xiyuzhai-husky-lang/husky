@@ -48,7 +48,13 @@ DiagnosticSheet {
         ],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Syntax Error: expect `}`",
+                severity: Error,
+                range: [16:20, 16:22),
+            },
+        ],
     },
     defn_diagnostic_sheet: DefnDiagnosticSheet {
         diagnostics: [],

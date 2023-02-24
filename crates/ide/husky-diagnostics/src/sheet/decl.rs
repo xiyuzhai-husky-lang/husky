@@ -1,5 +1,6 @@
 use super::*;
 use husky_decl::*;
+use husky_expr::ExprError;
 use husky_print_utils::p;
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]
@@ -61,39 +62,46 @@ impl Diagnose for OriginalDeclExprError {
     type Context<'a> = RegionDiagnosticsContext<'a>;
 
     fn message(&self, ctx: &Self::Context<'_>) -> String {
-        // chatgpt wrote this
         match self {
-            OriginalDeclExprError::Expr(e) => {
-                // TODO: Handle the error by displaying the error message.
-                e.message(ctx)
-            }
+            OriginalDeclExprError::Expr(e) => e.message(ctx),
             OriginalDeclExprError::ExpectOutputType(_) => {
-                // TODO: Handle the error by displaying the error message.
                 format!("Syntax Error: expect output type")
             }
             OriginalDeclExprError::ExpectCurry(_) => {
-                // TODO: Handle the error by displaying the error message.
                 format!("Syntax Error: expect `->`",)
             }
             OriginalDeclExprError::ExpectEolColon(e) => {
-                // TODO: Handle the error by displaying the error message.
                 format!("Syntax Error: expect end-of-line colon",)
             }
-            OriginalDeclExprError::ExpectRightCurlyBrace(_) => todo!(),
+            OriginalDeclExprError::ExpectRightCurlyBrace(_) => {
+                format!("Syntax Error: expect `}}`",)
+            }
             OriginalDeclExprError::ExpectRightAngleBracketForImplicitParameterDeclList {
-                langle_token_idx,
-                current_token_idx,
-            } => todo!(),
+                ..
+            } => {
+                format!("Syntax Error: expect `>` for implicit parameter decl list",)
+            }
             OriginalDeclExprError::ExpectParameterDeclList(_) => todo!(),
         }
     }
 
     fn severity(&self) -> DiagnosticSeverity {
-        todo!()
+        DiagnosticSeverity::Error
     }
 
     fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
-        todo!()
+        match self {
+            OriginalDeclExprError::Expr(error) => error.range(ctx),
+            OriginalDeclExprError::ExpectOutputType(token_idx)
+            | OriginalDeclExprError::ExpectCurry(token_idx)
+            | OriginalDeclExprError::ExpectEolColon(token_idx)
+            | OriginalDeclExprError::ExpectRightCurlyBrace(token_idx)
+            | OriginalDeclExprError::ExpectRightAngleBracketForImplicitParameterDeclList {
+                current_token_idx: token_idx,
+                ..
+            } => ctx.ranged_token_sheet().token_text_range(*token_idx),
+            OriginalDeclExprError::ExpectParameterDeclList(_) => todo!(),
+        }
     }
 }
 
@@ -101,21 +109,165 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
     fn visit_decl(&mut self, decl: Decl) {
         match decl {
             Decl::Type(decl) => match decl {
-                TypeDecl::Enum(decl) => (),
-                TypeDecl::RegularStruct(decl) => (),
-                TypeDecl::UnitStruct(decl) => (),
-                TypeDecl::TupleStruct(decl) => (),
-                TypeDecl::Record(decl) => (),
-                TypeDecl::Inductive(decl) => (),
-                TypeDecl::Structure(decl) => (),
-                TypeDecl::Alien(decl) => (),
-                TypeDecl::Union(decl) => (),
+                TypeDecl::Enum(decl) => self.visit_enum_decl(decl),
+                TypeDecl::RegularStruct(decl) => self.visit_regular_struct_decl(decl),
+                TypeDecl::UnitStruct(decl) => self.visit_unit_struct_decl(decl),
+                TypeDecl::TupleStruct(decl) => self.visit_tuple_struct_decl(decl),
+                TypeDecl::Record(decl) => self.visit_record_decl(decl),
+                TypeDecl::Inductive(decl) => self.visit_inductive_decl(decl),
+                TypeDecl::Structure(decl) => self.visit_structure_decl(decl),
+                TypeDecl::Alien(decl) => self.visit_alien_decl(decl),
+                TypeDecl::Union(decl) => self.visit_union_decl(decl),
             },
-            Decl::Form(decl) => (),
-            Decl::Trait(decl) => (),
-            Decl::ImplBlock(decl) => (),
-            Decl::AssociatedItem(decl) => (),
-            Decl::Variant(decl) => (),
+            Decl::Form(decl) => self.visit_form_decl(decl),
+            Decl::Trait(decl) => self.visit_trait_decl(decl),
+            Decl::Impl(decl) => self.visit_impl_decl(decl),
+            Decl::AssociatedItem(decl) => self.visit_associated_item_decl(decl),
+            Decl::Variant(decl) => self.visit_variant_decl(decl),
         }
+    }
+
+    fn visit_regular_struct_decl(&mut self, decl: RegularStructTypeDecl) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+            self.visit_atom(e)
+        } else if let Err(ExprError::Original(e)) = decl.field_comma_list(self.db()) {
+            self.visit_atom(e)
+        } else if let Err(DeclExprError::Original(e)) = decl.rcurl(self.db()) {
+            self.visit_atom(e)
+        }
+    }
+
+    fn visit_unit_struct_decl(&mut self, decl: UnitStructTypeDecl) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+            self.visit_atom(e)
+        }
+        // todo!()
+    }
+
+    fn visit_tuple_struct_decl(&mut self, decl: TupleStructTypeDecl) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+            self.visit_atom(e)
+        }
+        // todo!()
+    }
+
+    fn visit_record_decl(&mut self, decl: RecordTypeDecl) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+            self.visit_atom(e)
+        }
+        // todo!()
+    }
+
+    fn visit_inductive_decl(&mut self, decl: InductiveTypeDecl) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+            self.visit_atom(e)
+        }
+        // todo!()
+    }
+
+    fn visit_structure_decl(&mut self, decl: StructureTypeDecl) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+            self.visit_atom(e)
+        }
+        // todo!()
+    }
+
+    fn visit_alien_decl(&mut self, decl: AlienTypeDecl) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+            self.visit_atom(e)
+        }
+    }
+
+    fn visit_union_decl(&mut self, decl: UnionTypeDecl) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+            self.visit_atom(e)
+        }
+    }
+
+    fn visit_enum_decl(&mut self, decl: EnumTypeDecl) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+            self.visit_atom(e)
+        }
+    }
+
+    fn visit_form_decl(&mut self, decl: FormDecl) {
+        match decl {
+            FormDecl::Function(decl) => self.visit_function_decl(decl),
+            FormDecl::Feature(decl) => self.visit_feature_decl(decl),
+            FormDecl::Morphism(decl) => self.visit_morphism_decl(decl),
+            FormDecl::Value(decl) => self.visit_value_decl(decl),
+        }
+    }
+
+    fn visit_function_decl(&mut self, decl: FunctionDecl) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+            self.visit_atom(e)
+        } else if let Err(DeclExprError::Original(e)) = decl.parameter_decl_list(self.db()) {
+            self.visit_atom(e)
+        } else if let Err(DeclExprError::Original(e)) = decl.curry_token(self.db()) {
+            self.visit_atom(e)
+        } else if let Err(DeclExprError::Original(e)) = decl.return_ty(self.db()) {
+            self.visit_atom(e)
+        } else if let Err(DeclExprError::Original(e)) = decl.eol_colon(self.db()) {
+            self.visit_atom(e)
+        }
+    }
+
+    fn visit_feature_decl(&mut self, decl: FeatureDecl) {
+        if let Err(DeclExprError::Original(e)) = decl.curry_token(self.db()) {
+            self.visit_atom(e)
+        } else if let Err(DeclExprError::Original(e)) = decl.return_ty(self.db()) {
+            self.visit_atom(e)
+        } else if let Err(DeclExprError::Original(e)) = decl.eol_colon(self.db()) {
+            self.visit_atom(e)
+        }
+    }
+
+    fn visit_morphism_decl(&mut self, decl: MorphismDecl) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+            self.visit_atom(e)
+        }
+        // todo!()
+    }
+
+    fn visit_value_decl(&mut self, decl: ValueDecl) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+            self.visit_atom(e)
+        }
+        // todo!()
+    }
+
+    fn visit_trait_decl(&mut self, decl: TraitDecl) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+            self.visit_atom(e)
+        }
+        // todo!()
+    }
+
+    fn visit_impl_decl(&mut self, decl: ImplDecl) {
+        match decl {
+            ImplDecl::Type(decl) => self.visit_ty_impl_decl(decl),
+            ImplDecl::TypeAsTrait(decl) => self.visit_ty_as_trai_impl_decl(decl),
+        }
+    }
+
+    fn visit_ty_impl_decl(&mut self, decl: TypeImplDecl) {
+        if let Err(DeclExprError::Original(e)) = decl.implicit_parameter_decl_list(self.db()) {
+            self.visit_atom(e)
+        } else if let Err(DeclExprError::Original(e)) = decl.eol_colon(self.db()) {
+            self.visit_atom(e)
+        }
+    }
+
+    fn visit_ty_as_trai_impl_decl(&mut self, decl: TypeAsTraitImplDecl) {
+        // todo!()
+    }
+
+    fn visit_associated_item_decl(&mut self, decl: AssociatedItemDecl) {
+        // todo!()
+    }
+
+    fn visit_variant_decl(&mut self, decl: VariantDecl) {
+        // todo!()
     }
 }

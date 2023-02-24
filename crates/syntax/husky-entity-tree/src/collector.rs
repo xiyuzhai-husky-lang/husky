@@ -8,14 +8,14 @@ pub(crate) struct EntityTreeCollector<'a> {
     db: &'a dyn EntityTreeDb,
     crate_path: CratePath,
     crate_root: ModulePath,
-    impl_block_registry: ImplBlockRegistry,
+    impl_registry: ImplRegistry,
     presheets: VecMap<EntityTreePresheetMut<'a>>,
     core_prelude_module: ModulePath,
     // can't use `crate_prelude` here because it might not be available
     opt_universal_prelude: Option<EntitySymbolTableRef<'a>>,
     crate_specific_prelude: EntitySymbolTableRef<'a>,
     major_path_expr_arena: MajorPathExprArena,
-    impl_blocks: Vec<ImplBlock>,
+    impls: Vec<Impl>,
 }
 
 impl<'a> EntityTreeCollector<'a> {
@@ -60,7 +60,7 @@ impl<'a> EntityTreeCollector<'a> {
             db,
             crate_path,
             crate_root,
-            impl_block_registry: ImplBlockRegistry::default(),
+            impl_registry: ImplRegistry::default(),
             presheets,
             core_prelude_module,
             opt_universal_prelude: universal_prelude,
@@ -69,7 +69,7 @@ impl<'a> EntityTreeCollector<'a> {
                 .map(|table| table.as_ref())
                 .map_err(|e| e.clone())?,
             major_path_expr_arena: Default::default(),
-            impl_blocks: Default::default(),
+            impls: Default::default(),
         })
     }
 
@@ -94,19 +94,19 @@ impl<'a> EntityTreeCollector<'a> {
         for presheet in self.presheets.iter() {
             presheet.check_done(self.db)
         }
-        let impl_blockss = self.collect_impl_blockss();
-        let sheets = std::iter::zip(self.presheets.into_iter(), impl_blockss.into_iter())
-            .map(|(presheet, impl_blocks)| presheet.into_sheet(impl_blocks))
+        let implss = self.collect_implss();
+        let sheets = std::iter::zip(self.presheets.into_iter(), implss.into_iter())
+            .map(|(presheet, impls)| presheet.into_sheet(impls))
             .collect();
-        EntityTreeCrateBundle::new(sheets, self.major_path_expr_arena, self.impl_blocks)
+        EntityTreeCrateBundle::new(sheets, self.major_path_expr_arena, self.impls)
     }
 
-    fn collect_impl_blockss(&mut self) -> Vec<Vec<ImplBlock>> {
-        let mut impl_blockss = vec![];
+    fn collect_implss(&mut self) -> Vec<Vec<Impl>> {
+        let mut implss = vec![];
         for presheet in self.presheets.iter() {
             let module_path = presheet.module_path();
             let ast_sheet = self.db.ast_sheet(module_path).unwrap();
-            let impl_blocks = ast_sheet
+            let impls = ast_sheet
                 .all_ast_indexed_iter()
                 .filter_map(|(ast_idx, ast)| match ast {
                     Ast::Impl {
@@ -123,9 +123,9 @@ impl<'a> EntityTreeCollector<'a> {
                             crate_prelude,
                             presheet.module_specific_symbols(),
                         );
-                        Some(ImplBlock::parse_from_token_group(
+                        Some(Impl::parse_from_token_group(
                             self.db,
-                            &mut self.impl_block_registry,
+                            &mut self.impl_registry,
                             module_symbol_context,
                             module_path,
                             ast_idx,
@@ -140,9 +140,9 @@ impl<'a> EntityTreeCollector<'a> {
                     _ => None,
                 })
                 .collect::<Vec<_>>();
-            impl_blockss.push(impl_blocks);
+            implss.push(impls);
         }
-        impl_blockss
+        implss
     }
 
     fn exec(&mut self, action: PresheetAction) {

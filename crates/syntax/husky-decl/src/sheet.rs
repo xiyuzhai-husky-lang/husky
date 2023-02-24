@@ -32,15 +32,14 @@ impl<'a> DeclSheet<'a> {
                 ))
                 .unwrap()
         }
-        for impl_block in entity_tree_sheet.impl_blocks() {
-            let impl_block = *impl_block;
+        for im in entity_tree_sheet.ims().iter().copied() {
             decls
                 .insert_new((
-                    DeclRegionPath::ImplBlock(impl_block.id(db)),
-                    db.impl_block_decl(impl_block).map(|decl| decl.into()),
+                    DeclRegionPath::Impl(im.id(db)),
+                    db.impl_decl(im).map(|decl| decl.into()),
                 ))
                 .unwrap();
-            for (_, associated_item) in db.impl_block_associated_items(impl_block).iter().copied() {
+            for (_, associated_item) in db.impl_associated_items(im).iter().copied() {
                 decls
                     .insert_new((
                         DeclRegionPath::AssociatedItem(associated_item.id(db)),

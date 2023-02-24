@@ -806,24 +806,24 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::ImplBlock(
-                    ImplBlockId {
+                DeclRegionPath::Impl(
+                    ImplId {
                         module_path: `core::num`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`core::num::i8`, `Alien`),
                         },
                         disambiguator: 0,
                     },
                 ),
                 Ok(
-                    Decl::ImplBlock(
-                        ImplBlockDecl::TypeImplBlock(
-                            TypeImplBlockDecl {
+                    Decl::Impl(
+                        ImplDecl::Type(
+                            TypeImplDecl {
                                 ast_idx: 28,
-                                impl_block: ImplBlock {
-                                    id: ImplBlockId {
+                                im: Impl {
+                                    id: ImplId {
                                         module_path: `core::num`,
-                                        impl_block_kind: ImplBlockKind::Type {
+                                        impl_kind: ImplKind::Type {
                                             ty: TypePath(`core::num::i8`, `Alien`),
                                         },
                                         disambiguator: 0,
@@ -832,7 +832,7 @@ Ok(
                                     body: ArenaIdxRange(
                                         0..1,
                                     ),
-                                    variant: ImplBlockVariant::Type {
+                                    variant: ImplVariant::Type {
                                         ty: TypePath(`core::num::i8`, `Alien`),
                                     },
                                 },
@@ -858,10 +858,10 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::ImplBlock(
-                                                ImplBlockId {
+                                            DeclRegionPath::Impl(
+                                                ImplId {
                                                     module_path: `core::num`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`core::num::i8`, `Alien`),
                                                     },
                                                     disambiguator: 0,
@@ -937,9 +937,9 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`core::num::i8`, `Alien`),
                             },
                             disambiguator: 0,
@@ -954,9 +954,9 @@ Ok(
                                 TypeMethodDecl {
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_block_id: ImplBlockId {
+                                            impl_id: ImplId {
                                                 module_path: `core::num`,
-                                                impl_block_kind: ImplBlockKind::Type {
+                                                impl_kind: ImplKind::Type {
                                                     ty: TypePath(`core::num::i8`, `Alien`),
                                                 },
                                                 disambiguator: 0,
@@ -972,10 +972,10 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        impl_block: ImplBlock {
-                                            id: ImplBlockId {
+                                        im: Impl {
+                                            id: ImplId {
                                                 module_path: `core::num`,
-                                                impl_block_kind: ImplBlockKind::Type {
+                                                impl_kind: ImplKind::Type {
                                                     ty: TypePath(`core::num::i8`, `Alien`),
                                                 },
                                                 disambiguator: 0,
@@ -984,7 +984,7 @@ Ok(
                                             body: ArenaIdxRange(
                                                 0..1,
                                             ),
-                                            variant: ImplBlockVariant::Type {
+                                            variant: ImplVariant::Type {
                                                 ty: TypePath(`core::num::i8`, `Alien`),
                                             },
                                         },
@@ -1011,10 +1011,10 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::ImplBlock(
-                                                                ImplBlockId {
+                                                            DeclRegionPath::Impl(
+                                                                ImplId {
                                                                     module_path: `core::num`,
-                                                                    impl_block_kind: ImplBlockKind::Type {
+                                                                    impl_kind: ImplKind::Type {
                                                                         ty: TypePath(`core::num::i8`, `Alien`),
                                                                     },
                                                                     disambiguator: 0,
@@ -1086,9 +1086,9 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `core::num`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`core::num::i8`, `Alien`),
                                                             },
                                                             disambiguator: 0,
@@ -1205,25 +1205,25 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::ImplBlock(
-                    ImplBlockId {
+                DeclRegionPath::Impl(
+                    ImplId {
                         module_path: `core::num`,
-                        impl_block_kind: ImplBlockKind::Err,
+                        impl_kind: ImplKind::Err,
                         disambiguator: 0,
                     },
                 ),
                 Err(
                     Derived(
-                        ImplBlockErr,
+                        ImplErr,
                     ),
                 ),
             ),
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 0,
                         },
                         ident: `add`,
@@ -1231,29 +1231,29 @@ Ok(
                 ),
                 Err(
                     Derived(
-                        UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                        UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),
             (
-                DeclRegionPath::ImplBlock(
-                    ImplBlockId {
+                DeclRegionPath::Impl(
+                    ImplId {
                         module_path: `core::num`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`core::num::i16`, `Alien`),
                         },
                         disambiguator: 0,
                     },
                 ),
                 Ok(
-                    Decl::ImplBlock(
-                        ImplBlockDecl::TypeImplBlock(
-                            TypeImplBlockDecl {
+                    Decl::Impl(
+                        ImplDecl::Type(
+                            TypeImplDecl {
                                 ast_idx: 33,
-                                impl_block: ImplBlock {
-                                    id: ImplBlockId {
+                                im: Impl {
+                                    id: ImplId {
                                         module_path: `core::num`,
-                                        impl_block_kind: ImplBlockKind::Type {
+                                        impl_kind: ImplKind::Type {
                                             ty: TypePath(`core::num::i16`, `Alien`),
                                         },
                                         disambiguator: 0,
@@ -1262,7 +1262,7 @@ Ok(
                                     body: ArenaIdxRange(
                                         2..3,
                                     ),
-                                    variant: ImplBlockVariant::Type {
+                                    variant: ImplVariant::Type {
                                         ty: TypePath(`core::num::i16`, `Alien`),
                                     },
                                 },
@@ -1288,10 +1288,10 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::ImplBlock(
-                                                ImplBlockId {
+                                            DeclRegionPath::Impl(
+                                                ImplId {
                                                     module_path: `core::num`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`core::num::i16`, `Alien`),
                                                     },
                                                     disambiguator: 0,
@@ -1367,9 +1367,9 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`core::num::i16`, `Alien`),
                             },
                             disambiguator: 0,
@@ -1384,9 +1384,9 @@ Ok(
                                 TypeMethodDecl {
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_block_id: ImplBlockId {
+                                            impl_id: ImplId {
                                                 module_path: `core::num`,
-                                                impl_block_kind: ImplBlockKind::Type {
+                                                impl_kind: ImplKind::Type {
                                                     ty: TypePath(`core::num::i16`, `Alien`),
                                                 },
                                                 disambiguator: 0,
@@ -1402,10 +1402,10 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        impl_block: ImplBlock {
-                                            id: ImplBlockId {
+                                        im: Impl {
+                                            id: ImplId {
                                                 module_path: `core::num`,
-                                                impl_block_kind: ImplBlockKind::Type {
+                                                impl_kind: ImplKind::Type {
                                                     ty: TypePath(`core::num::i16`, `Alien`),
                                                 },
                                                 disambiguator: 0,
@@ -1414,7 +1414,7 @@ Ok(
                                             body: ArenaIdxRange(
                                                 2..3,
                                             ),
-                                            variant: ImplBlockVariant::Type {
+                                            variant: ImplVariant::Type {
                                                 ty: TypePath(`core::num::i16`, `Alien`),
                                             },
                                         },
@@ -1441,10 +1441,10 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::ImplBlock(
-                                                                ImplBlockId {
+                                                            DeclRegionPath::Impl(
+                                                                ImplId {
                                                                     module_path: `core::num`,
-                                                                    impl_block_kind: ImplBlockKind::Type {
+                                                                    impl_kind: ImplKind::Type {
                                                                         ty: TypePath(`core::num::i16`, `Alien`),
                                                                     },
                                                                     disambiguator: 0,
@@ -1516,9 +1516,9 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `core::num`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`core::num::i16`, `Alien`),
                                                             },
                                                             disambiguator: 0,
@@ -1635,25 +1635,25 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::ImplBlock(
-                    ImplBlockId {
+                DeclRegionPath::Impl(
+                    ImplId {
                         module_path: `core::num`,
-                        impl_block_kind: ImplBlockKind::Err,
+                        impl_kind: ImplKind::Err,
                         disambiguator: 1,
                     },
                 ),
                 Err(
                     Derived(
-                        ImplBlockErr,
+                        ImplErr,
                     ),
                 ),
             ),
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 1,
                         },
                         ident: `add`,
@@ -1661,29 +1661,29 @@ Ok(
                 ),
                 Err(
                     Derived(
-                        UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                        UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),
             (
-                DeclRegionPath::ImplBlock(
-                    ImplBlockId {
+                DeclRegionPath::Impl(
+                    ImplId {
                         module_path: `core::num`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`core::num::i32`, `Alien`),
                         },
                         disambiguator: 0,
                     },
                 ),
                 Ok(
-                    Decl::ImplBlock(
-                        ImplBlockDecl::TypeImplBlock(
-                            TypeImplBlockDecl {
+                    Decl::Impl(
+                        ImplDecl::Type(
+                            TypeImplDecl {
                                 ast_idx: 38,
-                                impl_block: ImplBlock {
-                                    id: ImplBlockId {
+                                im: Impl {
+                                    id: ImplId {
                                         module_path: `core::num`,
-                                        impl_block_kind: ImplBlockKind::Type {
+                                        impl_kind: ImplKind::Type {
                                             ty: TypePath(`core::num::i32`, `Alien`),
                                         },
                                         disambiguator: 0,
@@ -1692,7 +1692,7 @@ Ok(
                                     body: ArenaIdxRange(
                                         4..5,
                                     ),
-                                    variant: ImplBlockVariant::Type {
+                                    variant: ImplVariant::Type {
                                         ty: TypePath(`core::num::i32`, `Alien`),
                                     },
                                 },
@@ -1718,10 +1718,10 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::ImplBlock(
-                                                ImplBlockId {
+                                            DeclRegionPath::Impl(
+                                                ImplId {
                                                     module_path: `core::num`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`core::num::i32`, `Alien`),
                                                     },
                                                     disambiguator: 0,
@@ -1797,9 +1797,9 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`core::num::i32`, `Alien`),
                             },
                             disambiguator: 0,
@@ -1814,9 +1814,9 @@ Ok(
                                 TypeMethodDecl {
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_block_id: ImplBlockId {
+                                            impl_id: ImplId {
                                                 module_path: `core::num`,
-                                                impl_block_kind: ImplBlockKind::Type {
+                                                impl_kind: ImplKind::Type {
                                                     ty: TypePath(`core::num::i32`, `Alien`),
                                                 },
                                                 disambiguator: 0,
@@ -1832,10 +1832,10 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        impl_block: ImplBlock {
-                                            id: ImplBlockId {
+                                        im: Impl {
+                                            id: ImplId {
                                                 module_path: `core::num`,
-                                                impl_block_kind: ImplBlockKind::Type {
+                                                impl_kind: ImplKind::Type {
                                                     ty: TypePath(`core::num::i32`, `Alien`),
                                                 },
                                                 disambiguator: 0,
@@ -1844,7 +1844,7 @@ Ok(
                                             body: ArenaIdxRange(
                                                 4..5,
                                             ),
-                                            variant: ImplBlockVariant::Type {
+                                            variant: ImplVariant::Type {
                                                 ty: TypePath(`core::num::i32`, `Alien`),
                                             },
                                         },
@@ -1871,10 +1871,10 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::ImplBlock(
-                                                                ImplBlockId {
+                                                            DeclRegionPath::Impl(
+                                                                ImplId {
                                                                     module_path: `core::num`,
-                                                                    impl_block_kind: ImplBlockKind::Type {
+                                                                    impl_kind: ImplKind::Type {
                                                                         ty: TypePath(`core::num::i32`, `Alien`),
                                                                     },
                                                                     disambiguator: 0,
@@ -1946,9 +1946,9 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `core::num`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`core::num::i32`, `Alien`),
                                                             },
                                                             disambiguator: 0,
@@ -2065,25 +2065,25 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::ImplBlock(
-                    ImplBlockId {
+                DeclRegionPath::Impl(
+                    ImplId {
                         module_path: `core::num`,
-                        impl_block_kind: ImplBlockKind::Err,
+                        impl_kind: ImplKind::Err,
                         disambiguator: 2,
                     },
                 ),
                 Err(
                     Derived(
-                        ImplBlockErr,
+                        ImplErr,
                     ),
                 ),
             ),
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 2,
                         },
                         ident: `add`,
@@ -2091,29 +2091,29 @@ Ok(
                 ),
                 Err(
                     Derived(
-                        UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                        UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),
             (
-                DeclRegionPath::ImplBlock(
-                    ImplBlockId {
+                DeclRegionPath::Impl(
+                    ImplId {
                         module_path: `core::num`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`core::num::i64`, `Alien`),
                         },
                         disambiguator: 0,
                     },
                 ),
                 Ok(
-                    Decl::ImplBlock(
-                        ImplBlockDecl::TypeImplBlock(
-                            TypeImplBlockDecl {
+                    Decl::Impl(
+                        ImplDecl::Type(
+                            TypeImplDecl {
                                 ast_idx: 43,
-                                impl_block: ImplBlock {
-                                    id: ImplBlockId {
+                                im: Impl {
+                                    id: ImplId {
                                         module_path: `core::num`,
-                                        impl_block_kind: ImplBlockKind::Type {
+                                        impl_kind: ImplKind::Type {
                                             ty: TypePath(`core::num::i64`, `Alien`),
                                         },
                                         disambiguator: 0,
@@ -2122,7 +2122,7 @@ Ok(
                                     body: ArenaIdxRange(
                                         6..7,
                                     ),
-                                    variant: ImplBlockVariant::Type {
+                                    variant: ImplVariant::Type {
                                         ty: TypePath(`core::num::i64`, `Alien`),
                                     },
                                 },
@@ -2148,10 +2148,10 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::ImplBlock(
-                                                ImplBlockId {
+                                            DeclRegionPath::Impl(
+                                                ImplId {
                                                     module_path: `core::num`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`core::num::i64`, `Alien`),
                                                     },
                                                     disambiguator: 0,
@@ -2227,9 +2227,9 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`core::num::i64`, `Alien`),
                             },
                             disambiguator: 0,
@@ -2244,9 +2244,9 @@ Ok(
                                 TypeMethodDecl {
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_block_id: ImplBlockId {
+                                            impl_id: ImplId {
                                                 module_path: `core::num`,
-                                                impl_block_kind: ImplBlockKind::Type {
+                                                impl_kind: ImplKind::Type {
                                                     ty: TypePath(`core::num::i64`, `Alien`),
                                                 },
                                                 disambiguator: 0,
@@ -2262,10 +2262,10 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        impl_block: ImplBlock {
-                                            id: ImplBlockId {
+                                        im: Impl {
+                                            id: ImplId {
                                                 module_path: `core::num`,
-                                                impl_block_kind: ImplBlockKind::Type {
+                                                impl_kind: ImplKind::Type {
                                                     ty: TypePath(`core::num::i64`, `Alien`),
                                                 },
                                                 disambiguator: 0,
@@ -2274,7 +2274,7 @@ Ok(
                                             body: ArenaIdxRange(
                                                 6..7,
                                             ),
-                                            variant: ImplBlockVariant::Type {
+                                            variant: ImplVariant::Type {
                                                 ty: TypePath(`core::num::i64`, `Alien`),
                                             },
                                         },
@@ -2301,10 +2301,10 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::ImplBlock(
-                                                                ImplBlockId {
+                                                            DeclRegionPath::Impl(
+                                                                ImplId {
                                                                     module_path: `core::num`,
-                                                                    impl_block_kind: ImplBlockKind::Type {
+                                                                    impl_kind: ImplKind::Type {
                                                                         ty: TypePath(`core::num::i64`, `Alien`),
                                                                     },
                                                                     disambiguator: 0,
@@ -2376,9 +2376,9 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `core::num`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`core::num::i64`, `Alien`),
                                                             },
                                                             disambiguator: 0,
@@ -2495,25 +2495,25 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::ImplBlock(
-                    ImplBlockId {
+                DeclRegionPath::Impl(
+                    ImplId {
                         module_path: `core::num`,
-                        impl_block_kind: ImplBlockKind::Err,
+                        impl_kind: ImplKind::Err,
                         disambiguator: 3,
                     },
                 ),
                 Err(
                     Derived(
-                        ImplBlockErr,
+                        ImplErr,
                     ),
                 ),
             ),
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 3,
                         },
                         ident: `add`,
@@ -2521,29 +2521,29 @@ Ok(
                 ),
                 Err(
                     Derived(
-                        UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                        UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),
             (
-                DeclRegionPath::ImplBlock(
-                    ImplBlockId {
+                DeclRegionPath::Impl(
+                    ImplId {
                         module_path: `core::num`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`core::num::u8`, `Alien`),
                         },
                         disambiguator: 0,
                     },
                 ),
                 Ok(
-                    Decl::ImplBlock(
-                        ImplBlockDecl::TypeImplBlock(
-                            TypeImplBlockDecl {
+                    Decl::Impl(
+                        ImplDecl::Type(
+                            TypeImplDecl {
                                 ast_idx: 48,
-                                impl_block: ImplBlock {
-                                    id: ImplBlockId {
+                                im: Impl {
+                                    id: ImplId {
                                         module_path: `core::num`,
-                                        impl_block_kind: ImplBlockKind::Type {
+                                        impl_kind: ImplKind::Type {
                                             ty: TypePath(`core::num::u8`, `Alien`),
                                         },
                                         disambiguator: 0,
@@ -2552,7 +2552,7 @@ Ok(
                                     body: ArenaIdxRange(
                                         8..9,
                                     ),
-                                    variant: ImplBlockVariant::Type {
+                                    variant: ImplVariant::Type {
                                         ty: TypePath(`core::num::u8`, `Alien`),
                                     },
                                 },
@@ -2578,10 +2578,10 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::ImplBlock(
-                                                ImplBlockId {
+                                            DeclRegionPath::Impl(
+                                                ImplId {
                                                     module_path: `core::num`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`core::num::u8`, `Alien`),
                                                     },
                                                     disambiguator: 0,
@@ -2657,9 +2657,9 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`core::num::u8`, `Alien`),
                             },
                             disambiguator: 0,
@@ -2674,9 +2674,9 @@ Ok(
                                 TypeMethodDecl {
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_block_id: ImplBlockId {
+                                            impl_id: ImplId {
                                                 module_path: `core::num`,
-                                                impl_block_kind: ImplBlockKind::Type {
+                                                impl_kind: ImplKind::Type {
                                                     ty: TypePath(`core::num::u8`, `Alien`),
                                                 },
                                                 disambiguator: 0,
@@ -2692,10 +2692,10 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        impl_block: ImplBlock {
-                                            id: ImplBlockId {
+                                        im: Impl {
+                                            id: ImplId {
                                                 module_path: `core::num`,
-                                                impl_block_kind: ImplBlockKind::Type {
+                                                impl_kind: ImplKind::Type {
                                                     ty: TypePath(`core::num::u8`, `Alien`),
                                                 },
                                                 disambiguator: 0,
@@ -2704,7 +2704,7 @@ Ok(
                                             body: ArenaIdxRange(
                                                 8..9,
                                             ),
-                                            variant: ImplBlockVariant::Type {
+                                            variant: ImplVariant::Type {
                                                 ty: TypePath(`core::num::u8`, `Alien`),
                                             },
                                         },
@@ -2731,10 +2731,10 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::ImplBlock(
-                                                                ImplBlockId {
+                                                            DeclRegionPath::Impl(
+                                                                ImplId {
                                                                     module_path: `core::num`,
-                                                                    impl_block_kind: ImplBlockKind::Type {
+                                                                    impl_kind: ImplKind::Type {
                                                                         ty: TypePath(`core::num::u8`, `Alien`),
                                                                     },
                                                                     disambiguator: 0,
@@ -2806,9 +2806,9 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `core::num`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`core::num::u8`, `Alien`),
                                                             },
                                                             disambiguator: 0,
@@ -2925,25 +2925,25 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::ImplBlock(
-                    ImplBlockId {
+                DeclRegionPath::Impl(
+                    ImplId {
                         module_path: `core::num`,
-                        impl_block_kind: ImplBlockKind::Err,
+                        impl_kind: ImplKind::Err,
                         disambiguator: 4,
                     },
                 ),
                 Err(
                     Derived(
-                        ImplBlockErr,
+                        ImplErr,
                     ),
                 ),
             ),
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 4,
                         },
                         ident: `add`,
@@ -2951,29 +2951,29 @@ Ok(
                 ),
                 Err(
                     Derived(
-                        UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                        UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),
             (
-                DeclRegionPath::ImplBlock(
-                    ImplBlockId {
+                DeclRegionPath::Impl(
+                    ImplId {
                         module_path: `core::num`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`core::num::u16`, `Alien`),
                         },
                         disambiguator: 0,
                     },
                 ),
                 Ok(
-                    Decl::ImplBlock(
-                        ImplBlockDecl::TypeImplBlock(
-                            TypeImplBlockDecl {
+                    Decl::Impl(
+                        ImplDecl::Type(
+                            TypeImplDecl {
                                 ast_idx: 53,
-                                impl_block: ImplBlock {
-                                    id: ImplBlockId {
+                                im: Impl {
+                                    id: ImplId {
                                         module_path: `core::num`,
-                                        impl_block_kind: ImplBlockKind::Type {
+                                        impl_kind: ImplKind::Type {
                                             ty: TypePath(`core::num::u16`, `Alien`),
                                         },
                                         disambiguator: 0,
@@ -2982,7 +2982,7 @@ Ok(
                                     body: ArenaIdxRange(
                                         10..11,
                                     ),
-                                    variant: ImplBlockVariant::Type {
+                                    variant: ImplVariant::Type {
                                         ty: TypePath(`core::num::u16`, `Alien`),
                                     },
                                 },
@@ -3008,10 +3008,10 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::ImplBlock(
-                                                ImplBlockId {
+                                            DeclRegionPath::Impl(
+                                                ImplId {
                                                     module_path: `core::num`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`core::num::u16`, `Alien`),
                                                     },
                                                     disambiguator: 0,
@@ -3087,9 +3087,9 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`core::num::u16`, `Alien`),
                             },
                             disambiguator: 0,
@@ -3104,9 +3104,9 @@ Ok(
                                 TypeMethodDecl {
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_block_id: ImplBlockId {
+                                            impl_id: ImplId {
                                                 module_path: `core::num`,
-                                                impl_block_kind: ImplBlockKind::Type {
+                                                impl_kind: ImplKind::Type {
                                                     ty: TypePath(`core::num::u16`, `Alien`),
                                                 },
                                                 disambiguator: 0,
@@ -3122,10 +3122,10 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        impl_block: ImplBlock {
-                                            id: ImplBlockId {
+                                        im: Impl {
+                                            id: ImplId {
                                                 module_path: `core::num`,
-                                                impl_block_kind: ImplBlockKind::Type {
+                                                impl_kind: ImplKind::Type {
                                                     ty: TypePath(`core::num::u16`, `Alien`),
                                                 },
                                                 disambiguator: 0,
@@ -3134,7 +3134,7 @@ Ok(
                                             body: ArenaIdxRange(
                                                 10..11,
                                             ),
-                                            variant: ImplBlockVariant::Type {
+                                            variant: ImplVariant::Type {
                                                 ty: TypePath(`core::num::u16`, `Alien`),
                                             },
                                         },
@@ -3161,10 +3161,10 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::ImplBlock(
-                                                                ImplBlockId {
+                                                            DeclRegionPath::Impl(
+                                                                ImplId {
                                                                     module_path: `core::num`,
-                                                                    impl_block_kind: ImplBlockKind::Type {
+                                                                    impl_kind: ImplKind::Type {
                                                                         ty: TypePath(`core::num::u16`, `Alien`),
                                                                     },
                                                                     disambiguator: 0,
@@ -3236,9 +3236,9 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `core::num`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`core::num::u16`, `Alien`),
                                                             },
                                                             disambiguator: 0,
@@ -3355,25 +3355,25 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::ImplBlock(
-                    ImplBlockId {
+                DeclRegionPath::Impl(
+                    ImplId {
                         module_path: `core::num`,
-                        impl_block_kind: ImplBlockKind::Err,
+                        impl_kind: ImplKind::Err,
                         disambiguator: 5,
                     },
                 ),
                 Err(
                     Derived(
-                        ImplBlockErr,
+                        ImplErr,
                     ),
                 ),
             ),
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 5,
                         },
                         ident: `add`,
@@ -3381,29 +3381,29 @@ Ok(
                 ),
                 Err(
                     Derived(
-                        UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                        UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),
             (
-                DeclRegionPath::ImplBlock(
-                    ImplBlockId {
+                DeclRegionPath::Impl(
+                    ImplId {
                         module_path: `core::num`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`core::num::u32`, `Alien`),
                         },
                         disambiguator: 0,
                     },
                 ),
                 Ok(
-                    Decl::ImplBlock(
-                        ImplBlockDecl::TypeImplBlock(
-                            TypeImplBlockDecl {
+                    Decl::Impl(
+                        ImplDecl::Type(
+                            TypeImplDecl {
                                 ast_idx: 58,
-                                impl_block: ImplBlock {
-                                    id: ImplBlockId {
+                                im: Impl {
+                                    id: ImplId {
                                         module_path: `core::num`,
-                                        impl_block_kind: ImplBlockKind::Type {
+                                        impl_kind: ImplKind::Type {
                                             ty: TypePath(`core::num::u32`, `Alien`),
                                         },
                                         disambiguator: 0,
@@ -3412,7 +3412,7 @@ Ok(
                                     body: ArenaIdxRange(
                                         12..13,
                                     ),
-                                    variant: ImplBlockVariant::Type {
+                                    variant: ImplVariant::Type {
                                         ty: TypePath(`core::num::u32`, `Alien`),
                                     },
                                 },
@@ -3438,10 +3438,10 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::ImplBlock(
-                                                ImplBlockId {
+                                            DeclRegionPath::Impl(
+                                                ImplId {
                                                     module_path: `core::num`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`core::num::u32`, `Alien`),
                                                     },
                                                     disambiguator: 0,
@@ -3517,9 +3517,9 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`core::num::u32`, `Alien`),
                             },
                             disambiguator: 0,
@@ -3534,9 +3534,9 @@ Ok(
                                 TypeMethodDecl {
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_block_id: ImplBlockId {
+                                            impl_id: ImplId {
                                                 module_path: `core::num`,
-                                                impl_block_kind: ImplBlockKind::Type {
+                                                impl_kind: ImplKind::Type {
                                                     ty: TypePath(`core::num::u32`, `Alien`),
                                                 },
                                                 disambiguator: 0,
@@ -3552,10 +3552,10 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        impl_block: ImplBlock {
-                                            id: ImplBlockId {
+                                        im: Impl {
+                                            id: ImplId {
                                                 module_path: `core::num`,
-                                                impl_block_kind: ImplBlockKind::Type {
+                                                impl_kind: ImplKind::Type {
                                                     ty: TypePath(`core::num::u32`, `Alien`),
                                                 },
                                                 disambiguator: 0,
@@ -3564,7 +3564,7 @@ Ok(
                                             body: ArenaIdxRange(
                                                 12..13,
                                             ),
-                                            variant: ImplBlockVariant::Type {
+                                            variant: ImplVariant::Type {
                                                 ty: TypePath(`core::num::u32`, `Alien`),
                                             },
                                         },
@@ -3591,10 +3591,10 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::ImplBlock(
-                                                                ImplBlockId {
+                                                            DeclRegionPath::Impl(
+                                                                ImplId {
                                                                     module_path: `core::num`,
-                                                                    impl_block_kind: ImplBlockKind::Type {
+                                                                    impl_kind: ImplKind::Type {
                                                                         ty: TypePath(`core::num::u32`, `Alien`),
                                                                     },
                                                                     disambiguator: 0,
@@ -3666,9 +3666,9 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `core::num`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`core::num::u32`, `Alien`),
                                                             },
                                                             disambiguator: 0,
@@ -3785,25 +3785,25 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::ImplBlock(
-                    ImplBlockId {
+                DeclRegionPath::Impl(
+                    ImplId {
                         module_path: `core::num`,
-                        impl_block_kind: ImplBlockKind::Err,
+                        impl_kind: ImplKind::Err,
                         disambiguator: 6,
                     },
                 ),
                 Err(
                     Derived(
-                        ImplBlockErr,
+                        ImplErr,
                     ),
                 ),
             ),
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 6,
                         },
                         ident: `add`,
@@ -3811,29 +3811,29 @@ Ok(
                 ),
                 Err(
                     Derived(
-                        UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                        UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),
             (
-                DeclRegionPath::ImplBlock(
-                    ImplBlockId {
+                DeclRegionPath::Impl(
+                    ImplId {
                         module_path: `core::num`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`core::num::u64`, `Alien`),
                         },
                         disambiguator: 0,
                     },
                 ),
                 Ok(
-                    Decl::ImplBlock(
-                        ImplBlockDecl::TypeImplBlock(
-                            TypeImplBlockDecl {
+                    Decl::Impl(
+                        ImplDecl::Type(
+                            TypeImplDecl {
                                 ast_idx: 63,
-                                impl_block: ImplBlock {
-                                    id: ImplBlockId {
+                                im: Impl {
+                                    id: ImplId {
                                         module_path: `core::num`,
-                                        impl_block_kind: ImplBlockKind::Type {
+                                        impl_kind: ImplKind::Type {
                                             ty: TypePath(`core::num::u64`, `Alien`),
                                         },
                                         disambiguator: 0,
@@ -3842,7 +3842,7 @@ Ok(
                                     body: ArenaIdxRange(
                                         14..15,
                                     ),
-                                    variant: ImplBlockVariant::Type {
+                                    variant: ImplVariant::Type {
                                         ty: TypePath(`core::num::u64`, `Alien`),
                                     },
                                 },
@@ -3868,10 +3868,10 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::ImplBlock(
-                                                ImplBlockId {
+                                            DeclRegionPath::Impl(
+                                                ImplId {
                                                     module_path: `core::num`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`core::num::u64`, `Alien`),
                                                     },
                                                     disambiguator: 0,
@@ -3947,9 +3947,9 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`core::num::u64`, `Alien`),
                             },
                             disambiguator: 0,
@@ -3964,9 +3964,9 @@ Ok(
                                 TypeMethodDecl {
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_block_id: ImplBlockId {
+                                            impl_id: ImplId {
                                                 module_path: `core::num`,
-                                                impl_block_kind: ImplBlockKind::Type {
+                                                impl_kind: ImplKind::Type {
                                                     ty: TypePath(`core::num::u64`, `Alien`),
                                                 },
                                                 disambiguator: 0,
@@ -3982,10 +3982,10 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        impl_block: ImplBlock {
-                                            id: ImplBlockId {
+                                        im: Impl {
+                                            id: ImplId {
                                                 module_path: `core::num`,
-                                                impl_block_kind: ImplBlockKind::Type {
+                                                impl_kind: ImplKind::Type {
                                                     ty: TypePath(`core::num::u64`, `Alien`),
                                                 },
                                                 disambiguator: 0,
@@ -3994,7 +3994,7 @@ Ok(
                                             body: ArenaIdxRange(
                                                 14..15,
                                             ),
-                                            variant: ImplBlockVariant::Type {
+                                            variant: ImplVariant::Type {
                                                 ty: TypePath(`core::num::u64`, `Alien`),
                                             },
                                         },
@@ -4021,10 +4021,10 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::ImplBlock(
-                                                                ImplBlockId {
+                                                            DeclRegionPath::Impl(
+                                                                ImplId {
                                                                     module_path: `core::num`,
-                                                                    impl_block_kind: ImplBlockKind::Type {
+                                                                    impl_kind: ImplKind::Type {
                                                                         ty: TypePath(`core::num::u64`, `Alien`),
                                                                     },
                                                                     disambiguator: 0,
@@ -4096,9 +4096,9 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `core::num`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`core::num::u64`, `Alien`),
                                                             },
                                                             disambiguator: 0,
@@ -4215,25 +4215,25 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::ImplBlock(
-                    ImplBlockId {
+                DeclRegionPath::Impl(
+                    ImplId {
                         module_path: `core::num`,
-                        impl_block_kind: ImplBlockKind::Err,
+                        impl_kind: ImplKind::Err,
                         disambiguator: 7,
                     },
                 ),
                 Err(
                     Derived(
-                        ImplBlockErr,
+                        ImplErr,
                     ),
                 ),
             ),
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 7,
                         },
                         ident: `add`,
@@ -4241,29 +4241,29 @@ Ok(
                 ),
                 Err(
                     Derived(
-                        UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                        UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),
             (
-                DeclRegionPath::ImplBlock(
-                    ImplBlockId {
+                DeclRegionPath::Impl(
+                    ImplId {
                         module_path: `core::num`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`core::num::u128`, `Alien`),
                         },
                         disambiguator: 0,
                     },
                 ),
                 Ok(
-                    Decl::ImplBlock(
-                        ImplBlockDecl::TypeImplBlock(
-                            TypeImplBlockDecl {
+                    Decl::Impl(
+                        ImplDecl::Type(
+                            TypeImplDecl {
                                 ast_idx: 68,
-                                impl_block: ImplBlock {
-                                    id: ImplBlockId {
+                                im: Impl {
+                                    id: ImplId {
                                         module_path: `core::num`,
-                                        impl_block_kind: ImplBlockKind::Type {
+                                        impl_kind: ImplKind::Type {
                                             ty: TypePath(`core::num::u128`, `Alien`),
                                         },
                                         disambiguator: 0,
@@ -4272,7 +4272,7 @@ Ok(
                                     body: ArenaIdxRange(
                                         16..17,
                                     ),
-                                    variant: ImplBlockVariant::Type {
+                                    variant: ImplVariant::Type {
                                         ty: TypePath(`core::num::u128`, `Alien`),
                                     },
                                 },
@@ -4298,10 +4298,10 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::ImplBlock(
-                                                ImplBlockId {
+                                            DeclRegionPath::Impl(
+                                                ImplId {
                                                     module_path: `core::num`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`core::num::u128`, `Alien`),
                                                     },
                                                     disambiguator: 0,
@@ -4377,9 +4377,9 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`core::num::u128`, `Alien`),
                             },
                             disambiguator: 0,
@@ -4394,9 +4394,9 @@ Ok(
                                 TypeMethodDecl {
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_block_id: ImplBlockId {
+                                            impl_id: ImplId {
                                                 module_path: `core::num`,
-                                                impl_block_kind: ImplBlockKind::Type {
+                                                impl_kind: ImplKind::Type {
                                                     ty: TypePath(`core::num::u128`, `Alien`),
                                                 },
                                                 disambiguator: 0,
@@ -4412,10 +4412,10 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        impl_block: ImplBlock {
-                                            id: ImplBlockId {
+                                        im: Impl {
+                                            id: ImplId {
                                                 module_path: `core::num`,
-                                                impl_block_kind: ImplBlockKind::Type {
+                                                impl_kind: ImplKind::Type {
                                                     ty: TypePath(`core::num::u128`, `Alien`),
                                                 },
                                                 disambiguator: 0,
@@ -4424,7 +4424,7 @@ Ok(
                                             body: ArenaIdxRange(
                                                 16..17,
                                             ),
-                                            variant: ImplBlockVariant::Type {
+                                            variant: ImplVariant::Type {
                                                 ty: TypePath(`core::num::u128`, `Alien`),
                                             },
                                         },
@@ -4451,10 +4451,10 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::ImplBlock(
-                                                                ImplBlockId {
+                                                            DeclRegionPath::Impl(
+                                                                ImplId {
                                                                     module_path: `core::num`,
-                                                                    impl_block_kind: ImplBlockKind::Type {
+                                                                    impl_kind: ImplKind::Type {
                                                                         ty: TypePath(`core::num::u128`, `Alien`),
                                                                     },
                                                                     disambiguator: 0,
@@ -4526,9 +4526,9 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `core::num`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`core::num::u128`, `Alien`),
                                                             },
                                                             disambiguator: 0,
@@ -4645,25 +4645,25 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::ImplBlock(
-                    ImplBlockId {
+                DeclRegionPath::Impl(
+                    ImplId {
                         module_path: `core::num`,
-                        impl_block_kind: ImplBlockKind::Err,
+                        impl_kind: ImplKind::Err,
                         disambiguator: 8,
                     },
                 ),
                 Err(
                     Derived(
-                        ImplBlockErr,
+                        ImplErr,
                     ),
                 ),
             ),
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 8,
                         },
                         ident: `add`,
@@ -4671,29 +4671,29 @@ Ok(
                 ),
                 Err(
                     Derived(
-                        UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                        UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),
             (
-                DeclRegionPath::ImplBlock(
-                    ImplBlockId {
+                DeclRegionPath::Impl(
+                    ImplId {
                         module_path: `core::num`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`core::num::usize`, `Alien`),
                         },
                         disambiguator: 0,
                     },
                 ),
                 Ok(
-                    Decl::ImplBlock(
-                        ImplBlockDecl::TypeImplBlock(
-                            TypeImplBlockDecl {
+                    Decl::Impl(
+                        ImplDecl::Type(
+                            TypeImplDecl {
                                 ast_idx: 73,
-                                impl_block: ImplBlock {
-                                    id: ImplBlockId {
+                                im: Impl {
+                                    id: ImplId {
                                         module_path: `core::num`,
-                                        impl_block_kind: ImplBlockKind::Type {
+                                        impl_kind: ImplKind::Type {
                                             ty: TypePath(`core::num::usize`, `Alien`),
                                         },
                                         disambiguator: 0,
@@ -4702,7 +4702,7 @@ Ok(
                                     body: ArenaIdxRange(
                                         18..19,
                                     ),
-                                    variant: ImplBlockVariant::Type {
+                                    variant: ImplVariant::Type {
                                         ty: TypePath(`core::num::usize`, `Alien`),
                                     },
                                 },
@@ -4728,10 +4728,10 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::ImplBlock(
-                                                ImplBlockId {
+                                            DeclRegionPath::Impl(
+                                                ImplId {
                                                     module_path: `core::num`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`core::num::usize`, `Alien`),
                                                     },
                                                     disambiguator: 0,
@@ -4807,9 +4807,9 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`core::num::usize`, `Alien`),
                             },
                             disambiguator: 0,
@@ -4824,9 +4824,9 @@ Ok(
                                 TypeMethodDecl {
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_block_id: ImplBlockId {
+                                            impl_id: ImplId {
                                                 module_path: `core::num`,
-                                                impl_block_kind: ImplBlockKind::Type {
+                                                impl_kind: ImplKind::Type {
                                                     ty: TypePath(`core::num::usize`, `Alien`),
                                                 },
                                                 disambiguator: 0,
@@ -4842,10 +4842,10 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        impl_block: ImplBlock {
-                                            id: ImplBlockId {
+                                        im: Impl {
+                                            id: ImplId {
                                                 module_path: `core::num`,
-                                                impl_block_kind: ImplBlockKind::Type {
+                                                impl_kind: ImplKind::Type {
                                                     ty: TypePath(`core::num::usize`, `Alien`),
                                                 },
                                                 disambiguator: 0,
@@ -4854,7 +4854,7 @@ Ok(
                                             body: ArenaIdxRange(
                                                 18..19,
                                             ),
-                                            variant: ImplBlockVariant::Type {
+                                            variant: ImplVariant::Type {
                                                 ty: TypePath(`core::num::usize`, `Alien`),
                                             },
                                         },
@@ -4881,10 +4881,10 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::ImplBlock(
-                                                                ImplBlockId {
+                                                            DeclRegionPath::Impl(
+                                                                ImplId {
                                                                     module_path: `core::num`,
-                                                                    impl_block_kind: ImplBlockKind::Type {
+                                                                    impl_kind: ImplKind::Type {
                                                                         ty: TypePath(`core::num::usize`, `Alien`),
                                                                     },
                                                                     disambiguator: 0,
@@ -4956,9 +4956,9 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `core::num`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`core::num::usize`, `Alien`),
                                                             },
                                                             disambiguator: 0,
@@ -5075,25 +5075,25 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::ImplBlock(
-                    ImplBlockId {
+                DeclRegionPath::Impl(
+                    ImplId {
                         module_path: `core::num`,
-                        impl_block_kind: ImplBlockKind::Err,
+                        impl_kind: ImplKind::Err,
                         disambiguator: 9,
                     },
                 ),
                 Err(
                     Derived(
-                        ImplBlockErr,
+                        ImplErr,
                     ),
                 ),
             ),
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 9,
                         },
                         ident: `add`,
@@ -5101,29 +5101,29 @@ Ok(
                 ),
                 Err(
                     Derived(
-                        UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                        UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),
             (
-                DeclRegionPath::ImplBlock(
-                    ImplBlockId {
+                DeclRegionPath::Impl(
+                    ImplId {
                         module_path: `core::num`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`core::num::f32`, `Alien`),
                         },
                         disambiguator: 0,
                     },
                 ),
                 Ok(
-                    Decl::ImplBlock(
-                        ImplBlockDecl::TypeImplBlock(
-                            TypeImplBlockDecl {
+                    Decl::Impl(
+                        ImplDecl::Type(
+                            TypeImplDecl {
                                 ast_idx: 78,
-                                impl_block: ImplBlock {
-                                    id: ImplBlockId {
+                                im: Impl {
+                                    id: ImplId {
                                         module_path: `core::num`,
-                                        impl_block_kind: ImplBlockKind::Type {
+                                        impl_kind: ImplKind::Type {
                                             ty: TypePath(`core::num::f32`, `Alien`),
                                         },
                                         disambiguator: 0,
@@ -5132,7 +5132,7 @@ Ok(
                                     body: ArenaIdxRange(
                                         20..21,
                                     ),
-                                    variant: ImplBlockVariant::Type {
+                                    variant: ImplVariant::Type {
                                         ty: TypePath(`core::num::f32`, `Alien`),
                                     },
                                 },
@@ -5158,10 +5158,10 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::ImplBlock(
-                                                ImplBlockId {
+                                            DeclRegionPath::Impl(
+                                                ImplId {
                                                     module_path: `core::num`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`core::num::f32`, `Alien`),
                                                     },
                                                     disambiguator: 0,
@@ -5237,9 +5237,9 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`core::num::f32`, `Alien`),
                             },
                             disambiguator: 0,
@@ -5254,9 +5254,9 @@ Ok(
                                 TypeMethodDecl {
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_block_id: ImplBlockId {
+                                            impl_id: ImplId {
                                                 module_path: `core::num`,
-                                                impl_block_kind: ImplBlockKind::Type {
+                                                impl_kind: ImplKind::Type {
                                                     ty: TypePath(`core::num::f32`, `Alien`),
                                                 },
                                                 disambiguator: 0,
@@ -5272,10 +5272,10 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        impl_block: ImplBlock {
-                                            id: ImplBlockId {
+                                        im: Impl {
+                                            id: ImplId {
                                                 module_path: `core::num`,
-                                                impl_block_kind: ImplBlockKind::Type {
+                                                impl_kind: ImplKind::Type {
                                                     ty: TypePath(`core::num::f32`, `Alien`),
                                                 },
                                                 disambiguator: 0,
@@ -5284,7 +5284,7 @@ Ok(
                                             body: ArenaIdxRange(
                                                 20..21,
                                             ),
-                                            variant: ImplBlockVariant::Type {
+                                            variant: ImplVariant::Type {
                                                 ty: TypePath(`core::num::f32`, `Alien`),
                                             },
                                         },
@@ -5311,10 +5311,10 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::ImplBlock(
-                                                                ImplBlockId {
+                                                            DeclRegionPath::Impl(
+                                                                ImplId {
                                                                     module_path: `core::num`,
-                                                                    impl_block_kind: ImplBlockKind::Type {
+                                                                    impl_kind: ImplKind::Type {
                                                                         ty: TypePath(`core::num::f32`, `Alien`),
                                                                     },
                                                                     disambiguator: 0,
@@ -5386,9 +5386,9 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `core::num`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`core::num::f32`, `Alien`),
                                                             },
                                                             disambiguator: 0,
@@ -5505,25 +5505,25 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::ImplBlock(
-                    ImplBlockId {
+                DeclRegionPath::Impl(
+                    ImplId {
                         module_path: `core::num`,
-                        impl_block_kind: ImplBlockKind::Err,
+                        impl_kind: ImplKind::Err,
                         disambiguator: 10,
                     },
                 ),
                 Err(
                     Derived(
-                        ImplBlockErr,
+                        ImplErr,
                     ),
                 ),
             ),
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 10,
                         },
                         ident: `add`,
@@ -5531,29 +5531,29 @@ Ok(
                 ),
                 Err(
                     Derived(
-                        UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                        UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),
             (
-                DeclRegionPath::ImplBlock(
-                    ImplBlockId {
+                DeclRegionPath::Impl(
+                    ImplId {
                         module_path: `core::num`,
-                        impl_block_kind: ImplBlockKind::Type {
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`core::num::f64`, `Alien`),
                         },
                         disambiguator: 0,
                     },
                 ),
                 Ok(
-                    Decl::ImplBlock(
-                        ImplBlockDecl::TypeImplBlock(
-                            TypeImplBlockDecl {
+                    Decl::Impl(
+                        ImplDecl::Type(
+                            TypeImplDecl {
                                 ast_idx: 83,
-                                impl_block: ImplBlock {
-                                    id: ImplBlockId {
+                                im: Impl {
+                                    id: ImplId {
                                         module_path: `core::num`,
-                                        impl_block_kind: ImplBlockKind::Type {
+                                        impl_kind: ImplKind::Type {
                                             ty: TypePath(`core::num::f64`, `Alien`),
                                         },
                                         disambiguator: 0,
@@ -5562,7 +5562,7 @@ Ok(
                                     body: ArenaIdxRange(
                                         22..23,
                                     ),
-                                    variant: ImplBlockVariant::Type {
+                                    variant: ImplVariant::Type {
                                         ty: TypePath(`core::num::f64`, `Alien`),
                                     },
                                 },
@@ -5588,10 +5588,10 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::ImplBlock(
-                                                ImplBlockId {
+                                            DeclRegionPath::Impl(
+                                                ImplId {
                                                     module_path: `core::num`,
-                                                    impl_block_kind: ImplBlockKind::Type {
+                                                    impl_kind: ImplKind::Type {
                                                         ty: TypePath(`core::num::f64`, `Alien`),
                                                     },
                                                     disambiguator: 0,
@@ -5667,9 +5667,9 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`core::num::f64`, `Alien`),
                             },
                             disambiguator: 0,
@@ -5684,9 +5684,9 @@ Ok(
                                 TypeMethodDecl {
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_block_id: ImplBlockId {
+                                            impl_id: ImplId {
                                                 module_path: `core::num`,
-                                                impl_block_kind: ImplBlockKind::Type {
+                                                impl_kind: ImplKind::Type {
                                                     ty: TypePath(`core::num::f64`, `Alien`),
                                                 },
                                                 disambiguator: 0,
@@ -5702,10 +5702,10 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        impl_block: ImplBlock {
-                                            id: ImplBlockId {
+                                        im: Impl {
+                                            id: ImplId {
                                                 module_path: `core::num`,
-                                                impl_block_kind: ImplBlockKind::Type {
+                                                impl_kind: ImplKind::Type {
                                                     ty: TypePath(`core::num::f64`, `Alien`),
                                                 },
                                                 disambiguator: 0,
@@ -5714,7 +5714,7 @@ Ok(
                                             body: ArenaIdxRange(
                                                 22..23,
                                             ),
-                                            variant: ImplBlockVariant::Type {
+                                            variant: ImplVariant::Type {
                                                 ty: TypePath(`core::num::f64`, `Alien`),
                                             },
                                         },
@@ -5741,10 +5741,10 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::ImplBlock(
-                                                                ImplBlockId {
+                                                            DeclRegionPath::Impl(
+                                                                ImplId {
                                                                     module_path: `core::num`,
-                                                                    impl_block_kind: ImplBlockKind::Type {
+                                                                    impl_kind: ImplKind::Type {
                                                                         ty: TypePath(`core::num::f64`, `Alien`),
                                                                     },
                                                                     disambiguator: 0,
@@ -5816,9 +5816,9 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_block_id: ImplBlockId {
+                                                        impl_id: ImplId {
                                                             module_path: `core::num`,
-                                                            impl_block_kind: ImplBlockKind::Type {
+                                                            impl_kind: ImplKind::Type {
                                                                 ty: TypePath(`core::num::f64`, `Alien`),
                                                             },
                                                             disambiguator: 0,
@@ -5935,25 +5935,25 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::ImplBlock(
-                    ImplBlockId {
+                DeclRegionPath::Impl(
+                    ImplId {
                         module_path: `core::num`,
-                        impl_block_kind: ImplBlockKind::Err,
+                        impl_kind: ImplKind::Err,
                         disambiguator: 11,
                     },
                 ),
                 Err(
                     Derived(
-                        ImplBlockErr,
+                        ImplErr,
                     ),
                 ),
             ),
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_block_id: ImplBlockId {
+                        impl_id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 11,
                         },
                         ident: `add`,
@@ -5961,7 +5961,7 @@ Ok(
                 ),
                 Err(
                     Derived(
-                        UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                        UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),

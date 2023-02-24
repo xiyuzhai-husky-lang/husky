@@ -7,7 +7,18 @@ DiagnosticSheet {
         diagnostics: [],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Syntax Error: expect `>` for implicit parameter decl list",
+                severity: Error,
+                range: [1:14, 1:23),
+            },
+            Diagnostic {
+                message: "Syntax Error: expect `>` for implicit parameter decl list",
+                severity: Error,
+                range: [3:17, 3:26),
+            },
+        ],
     },
     defn_diagnostic_sheet: DefnDiagnosticSheet {
         diagnostics: [],

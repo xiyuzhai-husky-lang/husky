@@ -23,9 +23,15 @@ impl<'a> SheetDiagnosticsCollector<'a> {
     pub(crate) fn finish(self) -> Vec<Diagnostic> {
         self.diagnostics
     }
+
+    pub(crate) fn db(&'a self) -> &'a dyn DiagnosticsDb {
+        self.context.db()
+    }
 }
 
 pub(crate) struct RegionDiagnosticsCollector<'a, 'b> {
+    // todo: a little redundant
+    // sheet_collector contains same fields as in context
     context: RegionDiagnosticsContext<'a>,
     sheet_collector: &'b mut SheetDiagnosticsCollector<'a>,
 }
@@ -49,5 +55,9 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
         self.sheet_collector
             .diagnostics
             .push(atom.to_diagnostic(&self.context))
+    }
+
+    pub(crate) fn db(&self) -> &'a dyn DiagnosticsDb {
+        self.context.db()
     }
 }

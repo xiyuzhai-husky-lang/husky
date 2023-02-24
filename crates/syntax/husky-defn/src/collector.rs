@@ -44,7 +44,7 @@ fn defn(db: &dyn DefnDb, decl: Decl) -> Defn {
         Decl::Type(decl) => ty_defn(db, decl).into(),
         Decl::Form(decl) => form_defn(db, decl).into(),
         Decl::Trait(decl) => trai_defn(db, decl).into(),
-        Decl::ImplBlock(decl) => Defn::ImplBlock(decl),
+        Decl::Impl(decl) => Defn::Impl(decl),
         Decl::AssociatedItem(decl) => associated_item_defn(db, decl).into(),
         Decl::Variant(_) => todo!(),
     }

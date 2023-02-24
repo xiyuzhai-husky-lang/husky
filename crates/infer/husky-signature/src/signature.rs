@@ -1,13 +1,13 @@
 mod associated_item;
 mod form;
-mod impl_block;
+mod im;
 mod trai;
 mod ty;
 mod variant;
 
 pub use associated_item::*;
 pub use form::*;
-pub use impl_block::*;
+pub use im::*;
 pub use trai::*;
 pub use ty::*;
 pub use variant::*;
@@ -19,7 +19,7 @@ pub(crate) fn signature(db: &dyn SignatureDb, decl: Decl) -> SignatureResultRef<
         Decl::Type(decl) => ty_signature(db, decl).map(|s| s.into()),
         Decl::Form(decl) => form_signature(db, decl).map(|s| s.into()),
         Decl::Trait(decl) => trai_signature(db, decl).as_ref().map(|s| (*s).into()),
-        Decl::ImplBlock(decl) => impl_block_signature(db, decl).map(|s| s.into()),
+        Decl::Impl(decl) => im_signature(db, decl).map(|s| s.into()),
         Decl::AssociatedItem(decl) => associated_item_signature(db, decl).map(|s| s.into()),
         Decl::Variant(decl) => variant_signature(db, decl).map(|s| s.into()),
     }
@@ -31,7 +31,7 @@ pub enum Signature {
     Type(TypeSignature),
     Form(FormSignature),
     Trait(TraitSignature),
-    ImplBlock(ImplBlockSignature),
+    Impl(ImplSignature),
     AssociatedItem(AssociatedItemSignature),
     Variant(VariantSignature),
 }
@@ -56,9 +56,9 @@ impl From<TraitSignature> for Signature {
     }
 }
 
-impl From<ImplBlockSignature> for Signature {
-    fn from(v: ImplBlockSignature) -> Self {
-        Self::ImplBlock(v)
+impl From<ImplSignature> for Signature {
+    fn from(v: ImplSignature) -> Self {
+        Self::Impl(v)
     }
 }
 

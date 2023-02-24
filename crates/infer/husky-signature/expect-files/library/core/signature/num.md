@@ -132,9 +132,9 @@
         ),
     ),
     Ok(
-        Signature::ImplBlock(
-            ImplBlockSignature::TypeImplBlock(
-                TypeImplBlockSignature {
+        Signature::Impl(
+            ImplSignature::TypeImpl(
+                TypeImplSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -161,9 +161,9 @@
         ),
     ),
     Ok(
-        Signature::ImplBlock(
-            ImplBlockSignature::TypeImplBlock(
-                TypeImplBlockSignature {
+        Signature::Impl(
+            ImplSignature::TypeImpl(
+                TypeImplSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -190,9 +190,9 @@
         ),
     ),
     Ok(
-        Signature::ImplBlock(
-            ImplBlockSignature::TypeImplBlock(
-                TypeImplBlockSignature {
+        Signature::Impl(
+            ImplSignature::TypeImpl(
+                TypeImplSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -219,9 +219,9 @@
         ),
     ),
     Ok(
-        Signature::ImplBlock(
-            ImplBlockSignature::TypeImplBlock(
-                TypeImplBlockSignature {
+        Signature::Impl(
+            ImplSignature::TypeImpl(
+                TypeImplSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -248,9 +248,9 @@
         ),
     ),
     Ok(
-        Signature::ImplBlock(
-            ImplBlockSignature::TypeImplBlock(
-                TypeImplBlockSignature {
+        Signature::Impl(
+            ImplSignature::TypeImpl(
+                TypeImplSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -277,9 +277,9 @@
         ),
     ),
     Ok(
-        Signature::ImplBlock(
-            ImplBlockSignature::TypeImplBlock(
-                TypeImplBlockSignature {
+        Signature::Impl(
+            ImplSignature::TypeImpl(
+                TypeImplSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -306,9 +306,9 @@
         ),
     ),
     Ok(
-        Signature::ImplBlock(
-            ImplBlockSignature::TypeImplBlock(
-                TypeImplBlockSignature {
+        Signature::Impl(
+            ImplSignature::TypeImpl(
+                TypeImplSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -335,9 +335,9 @@
         ),
     ),
     Ok(
-        Signature::ImplBlock(
-            ImplBlockSignature::TypeImplBlock(
-                TypeImplBlockSignature {
+        Signature::Impl(
+            ImplSignature::TypeImpl(
+                TypeImplSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -364,9 +364,9 @@
         ),
     ),
     Ok(
-        Signature::ImplBlock(
-            ImplBlockSignature::TypeImplBlock(
-                TypeImplBlockSignature {
+        Signature::Impl(
+            ImplSignature::TypeImpl(
+                TypeImplSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -393,9 +393,9 @@
         ),
     ),
     Ok(
-        Signature::ImplBlock(
-            ImplBlockSignature::TypeImplBlock(
-                TypeImplBlockSignature {
+        Signature::Impl(
+            ImplSignature::TypeImpl(
+                TypeImplSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -422,9 +422,9 @@
         ),
     ),
     Ok(
-        Signature::ImplBlock(
-            ImplBlockSignature::TypeImplBlock(
-                TypeImplBlockSignature {
+        Signature::Impl(
+            ImplSignature::TypeImpl(
+                TypeImplSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -451,9 +451,9 @@
         ),
     ),
     Ok(
-        Signature::ImplBlock(
-            ImplBlockSignature::TypeImplBlock(
-                TypeImplBlockSignature {
+        Signature::Impl(
+            ImplSignature::TypeImpl(
+                TypeImplSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },

@@ -223,7 +223,7 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impls: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -318,7 +318,7 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impls: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -381,7 +381,7 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impls: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -428,7 +428,7 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impls: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -635,11 +635,11 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [
-                    ImplBlock {
-                        id: ImplBlockId {
+                impls: [
+                    Impl {
+                        id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`core::num::i8`, `Alien`),
                             },
                             disambiguator: 0,
@@ -648,22 +648,22 @@ Ok(
                         body: ArenaIdxRange(
                             0..1,
                         ),
-                        variant: ImplBlockVariant::Type {
+                        variant: ImplVariant::Type {
                             ty: TypePath(`core::num::i8`, `Alien`),
                         },
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 0,
                         },
                         ast_idx: 29,
                         body: ArenaIdxRange(
                             1..2,
                         ),
-                        variant: ImplBlockVariant::Err(
-                            ImplBlockError::MajorPath(
+                        variant: ImplVariant::Err(
+                            ImplError::MajorPath(
                                 Original(
                                     UnrecognizedIdentifier(
                                         IdentifierToken {
@@ -683,10 +683,10 @@ Ok(
                             ),
                         ),
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`core::num::i16`, `Alien`),
                             },
                             disambiguator: 0,
@@ -695,22 +695,22 @@ Ok(
                         body: ArenaIdxRange(
                             2..3,
                         ),
-                        variant: ImplBlockVariant::Type {
+                        variant: ImplVariant::Type {
                             ty: TypePath(`core::num::i16`, `Alien`),
                         },
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 1,
                         },
                         ast_idx: 34,
                         body: ArenaIdxRange(
                             3..4,
                         ),
-                        variant: ImplBlockVariant::Err(
-                            ImplBlockError::MajorPath(
+                        variant: ImplVariant::Err(
+                            ImplError::MajorPath(
                                 Original(
                                     UnrecognizedIdentifier(
                                         IdentifierToken {
@@ -730,10 +730,10 @@ Ok(
                             ),
                         ),
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`core::num::i32`, `Alien`),
                             },
                             disambiguator: 0,
@@ -742,22 +742,22 @@ Ok(
                         body: ArenaIdxRange(
                             4..5,
                         ),
-                        variant: ImplBlockVariant::Type {
+                        variant: ImplVariant::Type {
                             ty: TypePath(`core::num::i32`, `Alien`),
                         },
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 2,
                         },
                         ast_idx: 39,
                         body: ArenaIdxRange(
                             5..6,
                         ),
-                        variant: ImplBlockVariant::Err(
-                            ImplBlockError::MajorPath(
+                        variant: ImplVariant::Err(
+                            ImplError::MajorPath(
                                 Original(
                                     UnrecognizedIdentifier(
                                         IdentifierToken {
@@ -777,10 +777,10 @@ Ok(
                             ),
                         ),
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`core::num::i64`, `Alien`),
                             },
                             disambiguator: 0,
@@ -789,22 +789,22 @@ Ok(
                         body: ArenaIdxRange(
                             6..7,
                         ),
-                        variant: ImplBlockVariant::Type {
+                        variant: ImplVariant::Type {
                             ty: TypePath(`core::num::i64`, `Alien`),
                         },
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 3,
                         },
                         ast_idx: 44,
                         body: ArenaIdxRange(
                             7..8,
                         ),
-                        variant: ImplBlockVariant::Err(
-                            ImplBlockError::MajorPath(
+                        variant: ImplVariant::Err(
+                            ImplError::MajorPath(
                                 Original(
                                     UnrecognizedIdentifier(
                                         IdentifierToken {
@@ -824,10 +824,10 @@ Ok(
                             ),
                         ),
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`core::num::u8`, `Alien`),
                             },
                             disambiguator: 0,
@@ -836,22 +836,22 @@ Ok(
                         body: ArenaIdxRange(
                             8..9,
                         ),
-                        variant: ImplBlockVariant::Type {
+                        variant: ImplVariant::Type {
                             ty: TypePath(`core::num::u8`, `Alien`),
                         },
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 4,
                         },
                         ast_idx: 49,
                         body: ArenaIdxRange(
                             9..10,
                         ),
-                        variant: ImplBlockVariant::Err(
-                            ImplBlockError::MajorPath(
+                        variant: ImplVariant::Err(
+                            ImplError::MajorPath(
                                 Original(
                                     UnrecognizedIdentifier(
                                         IdentifierToken {
@@ -871,10 +871,10 @@ Ok(
                             ),
                         ),
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`core::num::u16`, `Alien`),
                             },
                             disambiguator: 0,
@@ -883,22 +883,22 @@ Ok(
                         body: ArenaIdxRange(
                             10..11,
                         ),
-                        variant: ImplBlockVariant::Type {
+                        variant: ImplVariant::Type {
                             ty: TypePath(`core::num::u16`, `Alien`),
                         },
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 5,
                         },
                         ast_idx: 54,
                         body: ArenaIdxRange(
                             11..12,
                         ),
-                        variant: ImplBlockVariant::Err(
-                            ImplBlockError::MajorPath(
+                        variant: ImplVariant::Err(
+                            ImplError::MajorPath(
                                 Original(
                                     UnrecognizedIdentifier(
                                         IdentifierToken {
@@ -918,10 +918,10 @@ Ok(
                             ),
                         ),
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`core::num::u32`, `Alien`),
                             },
                             disambiguator: 0,
@@ -930,22 +930,22 @@ Ok(
                         body: ArenaIdxRange(
                             12..13,
                         ),
-                        variant: ImplBlockVariant::Type {
+                        variant: ImplVariant::Type {
                             ty: TypePath(`core::num::u32`, `Alien`),
                         },
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 6,
                         },
                         ast_idx: 59,
                         body: ArenaIdxRange(
                             13..14,
                         ),
-                        variant: ImplBlockVariant::Err(
-                            ImplBlockError::MajorPath(
+                        variant: ImplVariant::Err(
+                            ImplError::MajorPath(
                                 Original(
                                     UnrecognizedIdentifier(
                                         IdentifierToken {
@@ -965,10 +965,10 @@ Ok(
                             ),
                         ),
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`core::num::u64`, `Alien`),
                             },
                             disambiguator: 0,
@@ -977,22 +977,22 @@ Ok(
                         body: ArenaIdxRange(
                             14..15,
                         ),
-                        variant: ImplBlockVariant::Type {
+                        variant: ImplVariant::Type {
                             ty: TypePath(`core::num::u64`, `Alien`),
                         },
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 7,
                         },
                         ast_idx: 64,
                         body: ArenaIdxRange(
                             15..16,
                         ),
-                        variant: ImplBlockVariant::Err(
-                            ImplBlockError::MajorPath(
+                        variant: ImplVariant::Err(
+                            ImplError::MajorPath(
                                 Original(
                                     UnrecognizedIdentifier(
                                         IdentifierToken {
@@ -1012,10 +1012,10 @@ Ok(
                             ),
                         ),
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`core::num::u128`, `Alien`),
                             },
                             disambiguator: 0,
@@ -1024,22 +1024,22 @@ Ok(
                         body: ArenaIdxRange(
                             16..17,
                         ),
-                        variant: ImplBlockVariant::Type {
+                        variant: ImplVariant::Type {
                             ty: TypePath(`core::num::u128`, `Alien`),
                         },
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 8,
                         },
                         ast_idx: 69,
                         body: ArenaIdxRange(
                             17..18,
                         ),
-                        variant: ImplBlockVariant::Err(
-                            ImplBlockError::MajorPath(
+                        variant: ImplVariant::Err(
+                            ImplError::MajorPath(
                                 Original(
                                     UnrecognizedIdentifier(
                                         IdentifierToken {
@@ -1059,10 +1059,10 @@ Ok(
                             ),
                         ),
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`core::num::usize`, `Alien`),
                             },
                             disambiguator: 0,
@@ -1071,22 +1071,22 @@ Ok(
                         body: ArenaIdxRange(
                             18..19,
                         ),
-                        variant: ImplBlockVariant::Type {
+                        variant: ImplVariant::Type {
                             ty: TypePath(`core::num::usize`, `Alien`),
                         },
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 9,
                         },
                         ast_idx: 74,
                         body: ArenaIdxRange(
                             19..20,
                         ),
-                        variant: ImplBlockVariant::Err(
-                            ImplBlockError::MajorPath(
+                        variant: ImplVariant::Err(
+                            ImplError::MajorPath(
                                 Original(
                                     UnrecognizedIdentifier(
                                         IdentifierToken {
@@ -1106,10 +1106,10 @@ Ok(
                             ),
                         ),
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`core::num::f32`, `Alien`),
                             },
                             disambiguator: 0,
@@ -1118,22 +1118,22 @@ Ok(
                         body: ArenaIdxRange(
                             20..21,
                         ),
-                        variant: ImplBlockVariant::Type {
+                        variant: ImplVariant::Type {
                             ty: TypePath(`core::num::f32`, `Alien`),
                         },
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 10,
                         },
                         ast_idx: 79,
                         body: ArenaIdxRange(
                             21..22,
                         ),
-                        variant: ImplBlockVariant::Err(
-                            ImplBlockError::MajorPath(
+                        variant: ImplVariant::Err(
+                            ImplError::MajorPath(
                                 Original(
                                     UnrecognizedIdentifier(
                                         IdentifierToken {
@@ -1153,10 +1153,10 @@ Ok(
                             ),
                         ),
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Type {
+                            impl_kind: ImplKind::Type {
                                 ty: TypePath(`core::num::f64`, `Alien`),
                             },
                             disambiguator: 0,
@@ -1165,22 +1165,22 @@ Ok(
                         body: ArenaIdxRange(
                             22..23,
                         ),
-                        variant: ImplBlockVariant::Type {
+                        variant: ImplVariant::Type {
                             ty: TypePath(`core::num::f64`, `Alien`),
                         },
                     },
-                    ImplBlock {
-                        id: ImplBlockId {
+                    Impl {
+                        id: ImplId {
                             module_path: `core::num`,
-                            impl_block_kind: ImplBlockKind::Err,
+                            impl_kind: ImplKind::Err,
                             disambiguator: 11,
                         },
                         ast_idx: 84,
                         body: ArenaIdxRange(
                             23..24,
                         ),
-                        variant: ImplBlockVariant::Err(
-                            ImplBlockError::MajorPath(
+                        variant: ImplVariant::Err(
+                            ImplError::MajorPath(
                                 Original(
                                     UnrecognizedIdentifier(
                                         IdentifierToken {
@@ -1501,7 +1501,7 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impls: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -2270,7 +2270,7 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impls: [],
                 use_expr_rules: UseExprRules(
                     [
                         UseExprRule {
@@ -2996,7 +2996,7 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impls: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -3027,7 +3027,7 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impls: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -3058,7 +3058,7 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impls: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -3105,7 +3105,7 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impls: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -3136,7 +3136,7 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impls: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -3215,7 +3215,7 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impls: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -3505,6 +3505,6 @@ Ok(
                 },
             ],
         },
-        impl_blocks: [],
+        impls: [],
     },
 )

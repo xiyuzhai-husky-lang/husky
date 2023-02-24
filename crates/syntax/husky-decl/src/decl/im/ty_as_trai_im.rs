@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
-pub struct TypeAsTraitImplBlockDecl {
+pub struct TypeAsTraitImplDecl {
     pub ast_idx: AstIdx,
     pub impl_token: ImplToken,
     #[return_ref]
@@ -9,7 +9,7 @@ pub struct TypeAsTraitImplBlockDecl {
     pub expr_region: ExprRegion,
 }
 
-impl TypeAsTraitImplBlockDecl {
+impl TypeAsTraitImplDecl {
     pub fn implicit_parameters<'a>(
         self,
         db: &'a dyn DeclDb,

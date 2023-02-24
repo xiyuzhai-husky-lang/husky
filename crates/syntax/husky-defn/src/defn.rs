@@ -20,7 +20,7 @@ pub enum Defn {
     Trait(TraitDefn),
     Form(FormDefn),
     Variant(VariantDefn),
-    ImplBlock(ImplBlockDecl),
+    Impl(ImplDecl),
     AssociatedItem(AssociatedItemDefn),
 }
 
@@ -37,7 +37,7 @@ impl Defn {
             Defn::Trait(defn) => defn.decl(db).into(),
             Defn::Form(defn) => defn.decl(db).into(),
             Defn::Variant(defn) => defn.decl(db).into(),
-            Defn::ImplBlock(decl) => decl.into(),
+            Defn::Impl(decl) => decl.into(),
             Defn::AssociatedItem(defn) => defn.decl(db).into(),
         }
     }
@@ -59,7 +59,7 @@ impl Defn {
             Defn::Form(defn) => Some(defn.expr_region(db)),
             Defn::AssociatedItem(defn) => defn.expr_region(db),
             Defn::Variant(defn) => None,
-            Defn::ImplBlock(_) => None,
+            Defn::Impl(_) => None,
         }
     }
 }
@@ -90,7 +90,7 @@ impl Defn {
             Defn::Form(defn) => Some(defn.path(db).into()),
             Defn::AssociatedItem(defn) => defn.path(db).map(|path| path.into()),
             Defn::Variant(defn) => Some(defn.path(db).into()),
-            Defn::ImplBlock(_) => None,
+            Defn::Impl(_) => None,
         }
     }
 }

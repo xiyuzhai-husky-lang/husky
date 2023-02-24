@@ -18,7 +18,28 @@ DiagnosticSheet {
         ],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Syntax Error: expect `->`",
+                severity: Error,
+                range: [1:43, 1:44),
+            },
+            Diagnostic {
+                message: "Syntax Error: expect `->`",
+                severity: Error,
+                range: [5:68, 5:69),
+            },
+            Diagnostic {
+                message: "Syntax Error: expect `->`",
+                severity: Error,
+                range: [31:35, 31:36),
+            },
+            Diagnostic {
+                message: "Syntax Error: expect `->`",
+                severity: Error,
+                range: [37:31, 37:32),
+            },
+        ],
     },
     defn_diagnostic_sheet: DefnDiagnosticSheet {
         diagnostics: [],

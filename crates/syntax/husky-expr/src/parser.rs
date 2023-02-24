@@ -17,7 +17,7 @@ use crate::*;
 use expr_stack::*;
 use husky_ast::{Ast, AstIdxRange, AstSheet};
 use husky_entity_tree::{
-    AssociatedItem, CrateSymbolContext, EntityTreeDb, ImplBlock, ImplBlockId, ModuleSymbolContext,
+    AssociatedItem, CrateSymbolContext, EntityTreeDb, Impl, ImplId, ModuleSymbolContext,
     PreludeResult,
 };
 use husky_token::Token;
