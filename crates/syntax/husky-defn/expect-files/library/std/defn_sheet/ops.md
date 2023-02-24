@@ -81,43 +81,45 @@ Ok(
                                         roots: [],
                                     },
                                 },
-                                implicit_parameter_decl_list: Some(
-                                    ImplicitParameterDeclList {
-                                        langle: LeftAngleBracketOrLessThanToken {
-                                            token_idx: TokenIdx(
-                                                8,
-                                            ),
-                                        },
-                                        implicit_parameters: [
-                                            ImplicitParameterDecl {
-                                                pattern: ImplicitParameterDeclPattern {
-                                                    annotated_variance_token: None,
-                                                    symbol: 0,
-                                                    variant: Type0 {
-                                                        ident_token: IdentifierToken {
-                                                            ident: Identifier(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 107,
-                                                                    },
+                                implicit_parameter_decl_list: Ok(
+                                    Some(
+                                        ImplicitParameterDeclList {
+                                            langle: LeftAngleBracketOrLessThanToken {
+                                                token_idx: TokenIdx(
+                                                    8,
+                                                ),
+                                            },
+                                            implicit_parameters: [
+                                                ImplicitParameterDecl {
+                                                    pattern: ImplicitParameterDeclPattern {
+                                                        annotated_variance_token: None,
+                                                        symbol: 0,
+                                                        variant: Type0 {
+                                                            ident_token: IdentifierToken {
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 107,
+                                                                        },
+                                                                    ),
                                                                 ),
-                                                            ),
-                                                            token_idx: TokenIdx(
-                                                                9,
-                                                            ),
+                                                                token_idx: TokenIdx(
+                                                                    9,
+                                                                ),
+                                                            },
                                                         },
                                                     },
+                                                    traits: None,
                                                 },
-                                                traits: None,
+                                            ],
+                                            commas: [],
+                                            rangle: RightAngleBracketToken {
+                                                token_idx: TokenIdx(
+                                                    10,
+                                                ),
                                             },
-                                        ],
-                                        commas: [],
-                                        rangle: RightAngleBracketToken {
-                                            token_idx: TokenIdx(
-                                                10,
-                                            ),
                                         },
-                                    },
+                                    ),
                                 ),
                             },
                         },

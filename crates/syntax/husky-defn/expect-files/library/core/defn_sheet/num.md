@@ -62,7 +62,9 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
+                                    implicit_parameter_decl_list: Ok(
+                                        None,
+                                    ),
                                 },
                             },
                         ),
@@ -130,7 +132,9 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
+                                    implicit_parameter_decl_list: Ok(
+                                        None,
+                                    ),
                                 },
                             },
                         ),
@@ -198,7 +202,9 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
+                                    implicit_parameter_decl_list: Ok(
+                                        None,
+                                    ),
                                 },
                             },
                         ),
@@ -266,7 +272,9 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
+                                    implicit_parameter_decl_list: Ok(
+                                        None,
+                                    ),
                                 },
                             },
                         ),
@@ -334,7 +342,9 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
+                                    implicit_parameter_decl_list: Ok(
+                                        None,
+                                    ),
                                 },
                             },
                         ),
@@ -402,7 +412,9 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
+                                    implicit_parameter_decl_list: Ok(
+                                        None,
+                                    ),
                                 },
                             },
                         ),
@@ -470,7 +482,9 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
+                                    implicit_parameter_decl_list: Ok(
+                                        None,
+                                    ),
                                 },
                             },
                         ),
@@ -538,7 +552,9 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
+                                    implicit_parameter_decl_list: Ok(
+                                        None,
+                                    ),
                                 },
                             },
                         ),
@@ -581,7 +597,9 @@ Ok(
                                         24,
                                     ),
                                 },
-                                implicit_parameter_decl_list: None,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 ty: TypeExpr {
                                     expr: 0,
                                 },
@@ -904,21 +922,25 @@ Ok(
                                                 ],
                                             },
                                         },
-                                        implicit_parameter_decl_list: None,
-                                        parameter_decl_list: ParameterDeclList {
-                                            lpar: LeftParenthesisToken {
-                                                token_idx: TokenIdx(
-                                                    30,
-                                                ),
+                                        implicit_parameter_decl_list: Ok(
+                                            None,
+                                        ),
+                                        parameter_decl_list: Ok(
+                                            ParameterDeclList {
+                                                lpar: LeftParenthesisToken {
+                                                    token_idx: TokenIdx(
+                                                        30,
+                                                    ),
+                                                },
+                                                parameters: [],
+                                                commas: [],
+                                                rpar: RightParenthesisToken {
+                                                    token_idx: TokenIdx(
+                                                        31,
+                                                    ),
+                                                },
                                             },
-                                            parameters: [],
-                                            commas: [],
-                                            rpar: RightParenthesisToken {
-                                                token_idx: TokenIdx(
-                                                    31,
-                                                ),
-                                            },
-                                        },
+                                        ),
                                         curry_token: Ok(
                                             CurryToken {
                                                 token_idx: TokenIdx(
@@ -932,9 +954,11 @@ Ok(
                                             },
                                         ),
                                         eol_colon: Err(
-                                            MissingEolColon(
-                                                TokenIdx(
-                                                    34,
+                                            Original(
+                                                ExpectEolColon(
+                                                    TokenIdx(
+                                                        34,
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -1145,7 +1169,9 @@ Ok(
                                         },
                                     },
                                     body: Err(
-                                        MissingBody,
+                                        Original(
+                                            ExpectBody,
+                                        ),
                                     ),
                                 },
                             ),
@@ -1162,7 +1188,9 @@ Ok(
                     },
                 ),
                 Err(
-                    ImplBlockErr,
+                    Derived(
+                        ImplBlockErr,
+                    ),
                 ),
             ),
             (
@@ -1177,7 +1205,9 @@ Ok(
                     },
                 ),
                 Err(
-                    UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                    Derived(
+                        UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                    ),
                 ),
             ),
             (
@@ -1216,7 +1246,9 @@ Ok(
                                         82,
                                     ),
                                 },
-                                implicit_parameter_decl_list: None,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 ty: TypeExpr {
                                     expr: 0,
                                 },
@@ -1539,21 +1571,25 @@ Ok(
                                                 ],
                                             },
                                         },
-                                        implicit_parameter_decl_list: None,
-                                        parameter_decl_list: ParameterDeclList {
-                                            lpar: LeftParenthesisToken {
-                                                token_idx: TokenIdx(
-                                                    88,
-                                                ),
+                                        implicit_parameter_decl_list: Ok(
+                                            None,
+                                        ),
+                                        parameter_decl_list: Ok(
+                                            ParameterDeclList {
+                                                lpar: LeftParenthesisToken {
+                                                    token_idx: TokenIdx(
+                                                        88,
+                                                    ),
+                                                },
+                                                parameters: [],
+                                                commas: [],
+                                                rpar: RightParenthesisToken {
+                                                    token_idx: TokenIdx(
+                                                        89,
+                                                    ),
+                                                },
                                             },
-                                            parameters: [],
-                                            commas: [],
-                                            rpar: RightParenthesisToken {
-                                                token_idx: TokenIdx(
-                                                    89,
-                                                ),
-                                            },
-                                        },
+                                        ),
                                         curry_token: Ok(
                                             CurryToken {
                                                 token_idx: TokenIdx(
@@ -1567,9 +1603,11 @@ Ok(
                                             },
                                         ),
                                         eol_colon: Err(
-                                            MissingEolColon(
-                                                TokenIdx(
-                                                    92,
+                                            Original(
+                                                ExpectEolColon(
+                                                    TokenIdx(
+                                                        92,
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -1780,7 +1818,9 @@ Ok(
                                         },
                                     },
                                     body: Err(
-                                        MissingBody,
+                                        Original(
+                                            ExpectBody,
+                                        ),
                                     ),
                                 },
                             ),
@@ -1797,7 +1837,9 @@ Ok(
                     },
                 ),
                 Err(
-                    ImplBlockErr,
+                    Derived(
+                        ImplBlockErr,
+                    ),
                 ),
             ),
             (
@@ -1812,7 +1854,9 @@ Ok(
                     },
                 ),
                 Err(
-                    UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                    Derived(
+                        UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                    ),
                 ),
             ),
             (
@@ -1851,7 +1895,9 @@ Ok(
                                         140,
                                     ),
                                 },
-                                implicit_parameter_decl_list: None,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 ty: TypeExpr {
                                     expr: 0,
                                 },
@@ -2174,21 +2220,25 @@ Ok(
                                                 ],
                                             },
                                         },
-                                        implicit_parameter_decl_list: None,
-                                        parameter_decl_list: ParameterDeclList {
-                                            lpar: LeftParenthesisToken {
-                                                token_idx: TokenIdx(
-                                                    146,
-                                                ),
+                                        implicit_parameter_decl_list: Ok(
+                                            None,
+                                        ),
+                                        parameter_decl_list: Ok(
+                                            ParameterDeclList {
+                                                lpar: LeftParenthesisToken {
+                                                    token_idx: TokenIdx(
+                                                        146,
+                                                    ),
+                                                },
+                                                parameters: [],
+                                                commas: [],
+                                                rpar: RightParenthesisToken {
+                                                    token_idx: TokenIdx(
+                                                        147,
+                                                    ),
+                                                },
                                             },
-                                            parameters: [],
-                                            commas: [],
-                                            rpar: RightParenthesisToken {
-                                                token_idx: TokenIdx(
-                                                    147,
-                                                ),
-                                            },
-                                        },
+                                        ),
                                         curry_token: Ok(
                                             CurryToken {
                                                 token_idx: TokenIdx(
@@ -2202,9 +2252,11 @@ Ok(
                                             },
                                         ),
                                         eol_colon: Err(
-                                            MissingEolColon(
-                                                TokenIdx(
-                                                    150,
+                                            Original(
+                                                ExpectEolColon(
+                                                    TokenIdx(
+                                                        150,
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -2415,7 +2467,9 @@ Ok(
                                         },
                                     },
                                     body: Err(
-                                        MissingBody,
+                                        Original(
+                                            ExpectBody,
+                                        ),
                                     ),
                                 },
                             ),
@@ -2432,7 +2486,9 @@ Ok(
                     },
                 ),
                 Err(
-                    ImplBlockErr,
+                    Derived(
+                        ImplBlockErr,
+                    ),
                 ),
             ),
             (
@@ -2447,7 +2503,9 @@ Ok(
                     },
                 ),
                 Err(
-                    UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                    Derived(
+                        UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                    ),
                 ),
             ),
             (
@@ -2486,7 +2544,9 @@ Ok(
                                         197,
                                     ),
                                 },
-                                implicit_parameter_decl_list: None,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 ty: TypeExpr {
                                     expr: 0,
                                 },
@@ -2809,21 +2869,25 @@ Ok(
                                                 ],
                                             },
                                         },
-                                        implicit_parameter_decl_list: None,
-                                        parameter_decl_list: ParameterDeclList {
-                                            lpar: LeftParenthesisToken {
-                                                token_idx: TokenIdx(
-                                                    203,
-                                                ),
+                                        implicit_parameter_decl_list: Ok(
+                                            None,
+                                        ),
+                                        parameter_decl_list: Ok(
+                                            ParameterDeclList {
+                                                lpar: LeftParenthesisToken {
+                                                    token_idx: TokenIdx(
+                                                        203,
+                                                    ),
+                                                },
+                                                parameters: [],
+                                                commas: [],
+                                                rpar: RightParenthesisToken {
+                                                    token_idx: TokenIdx(
+                                                        204,
+                                                    ),
+                                                },
                                             },
-                                            parameters: [],
-                                            commas: [],
-                                            rpar: RightParenthesisToken {
-                                                token_idx: TokenIdx(
-                                                    204,
-                                                ),
-                                            },
-                                        },
+                                        ),
                                         curry_token: Ok(
                                             CurryToken {
                                                 token_idx: TokenIdx(
@@ -2837,9 +2901,11 @@ Ok(
                                             },
                                         ),
                                         eol_colon: Err(
-                                            MissingEolColon(
-                                                TokenIdx(
-                                                    207,
+                                            Original(
+                                                ExpectEolColon(
+                                                    TokenIdx(
+                                                        207,
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -3050,7 +3116,9 @@ Ok(
                                         },
                                     },
                                     body: Err(
-                                        MissingBody,
+                                        Original(
+                                            ExpectBody,
+                                        ),
                                     ),
                                 },
                             ),
@@ -3067,7 +3135,9 @@ Ok(
                     },
                 ),
                 Err(
-                    ImplBlockErr,
+                    Derived(
+                        ImplBlockErr,
+                    ),
                 ),
             ),
             (
@@ -3082,7 +3152,9 @@ Ok(
                     },
                 ),
                 Err(
-                    UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                    Derived(
+                        UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                    ),
                 ),
             ),
             (
@@ -3121,7 +3193,9 @@ Ok(
                                         255,
                                     ),
                                 },
-                                implicit_parameter_decl_list: None,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 ty: TypeExpr {
                                     expr: 0,
                                 },
@@ -3444,21 +3518,25 @@ Ok(
                                                 ],
                                             },
                                         },
-                                        implicit_parameter_decl_list: None,
-                                        parameter_decl_list: ParameterDeclList {
-                                            lpar: LeftParenthesisToken {
-                                                token_idx: TokenIdx(
-                                                    261,
-                                                ),
+                                        implicit_parameter_decl_list: Ok(
+                                            None,
+                                        ),
+                                        parameter_decl_list: Ok(
+                                            ParameterDeclList {
+                                                lpar: LeftParenthesisToken {
+                                                    token_idx: TokenIdx(
+                                                        261,
+                                                    ),
+                                                },
+                                                parameters: [],
+                                                commas: [],
+                                                rpar: RightParenthesisToken {
+                                                    token_idx: TokenIdx(
+                                                        262,
+                                                    ),
+                                                },
                                             },
-                                            parameters: [],
-                                            commas: [],
-                                            rpar: RightParenthesisToken {
-                                                token_idx: TokenIdx(
-                                                    262,
-                                                ),
-                                            },
-                                        },
+                                        ),
                                         curry_token: Ok(
                                             CurryToken {
                                                 token_idx: TokenIdx(
@@ -3472,9 +3550,11 @@ Ok(
                                             },
                                         ),
                                         eol_colon: Err(
-                                            MissingEolColon(
-                                                TokenIdx(
-                                                    265,
+                                            Original(
+                                                ExpectEolColon(
+                                                    TokenIdx(
+                                                        265,
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -3685,7 +3765,9 @@ Ok(
                                         },
                                     },
                                     body: Err(
-                                        MissingBody,
+                                        Original(
+                                            ExpectBody,
+                                        ),
                                     ),
                                 },
                             ),
@@ -3702,7 +3784,9 @@ Ok(
                     },
                 ),
                 Err(
-                    ImplBlockErr,
+                    Derived(
+                        ImplBlockErr,
+                    ),
                 ),
             ),
             (
@@ -3717,7 +3801,9 @@ Ok(
                     },
                 ),
                 Err(
-                    UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                    Derived(
+                        UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                    ),
                 ),
             ),
             (
@@ -3756,7 +3842,9 @@ Ok(
                                         313,
                                     ),
                                 },
-                                implicit_parameter_decl_list: None,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 ty: TypeExpr {
                                     expr: 0,
                                 },
@@ -4079,21 +4167,25 @@ Ok(
                                                 ],
                                             },
                                         },
-                                        implicit_parameter_decl_list: None,
-                                        parameter_decl_list: ParameterDeclList {
-                                            lpar: LeftParenthesisToken {
-                                                token_idx: TokenIdx(
-                                                    319,
-                                                ),
+                                        implicit_parameter_decl_list: Ok(
+                                            None,
+                                        ),
+                                        parameter_decl_list: Ok(
+                                            ParameterDeclList {
+                                                lpar: LeftParenthesisToken {
+                                                    token_idx: TokenIdx(
+                                                        319,
+                                                    ),
+                                                },
+                                                parameters: [],
+                                                commas: [],
+                                                rpar: RightParenthesisToken {
+                                                    token_idx: TokenIdx(
+                                                        320,
+                                                    ),
+                                                },
                                             },
-                                            parameters: [],
-                                            commas: [],
-                                            rpar: RightParenthesisToken {
-                                                token_idx: TokenIdx(
-                                                    320,
-                                                ),
-                                            },
-                                        },
+                                        ),
                                         curry_token: Ok(
                                             CurryToken {
                                                 token_idx: TokenIdx(
@@ -4107,9 +4199,11 @@ Ok(
                                             },
                                         ),
                                         eol_colon: Err(
-                                            MissingEolColon(
-                                                TokenIdx(
-                                                    323,
+                                            Original(
+                                                ExpectEolColon(
+                                                    TokenIdx(
+                                                        323,
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -4320,7 +4414,9 @@ Ok(
                                         },
                                     },
                                     body: Err(
-                                        MissingBody,
+                                        Original(
+                                            ExpectBody,
+                                        ),
                                     ),
                                 },
                             ),
@@ -4337,7 +4433,9 @@ Ok(
                     },
                 ),
                 Err(
-                    ImplBlockErr,
+                    Derived(
+                        ImplBlockErr,
+                    ),
                 ),
             ),
             (
@@ -4352,7 +4450,9 @@ Ok(
                     },
                 ),
                 Err(
-                    UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                    Derived(
+                        UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                    ),
                 ),
             ),
             (
@@ -4391,7 +4491,9 @@ Ok(
                                         371,
                                     ),
                                 },
-                                implicit_parameter_decl_list: None,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 ty: TypeExpr {
                                     expr: 0,
                                 },
@@ -4714,21 +4816,25 @@ Ok(
                                                 ],
                                             },
                                         },
-                                        implicit_parameter_decl_list: None,
-                                        parameter_decl_list: ParameterDeclList {
-                                            lpar: LeftParenthesisToken {
-                                                token_idx: TokenIdx(
-                                                    377,
-                                                ),
+                                        implicit_parameter_decl_list: Ok(
+                                            None,
+                                        ),
+                                        parameter_decl_list: Ok(
+                                            ParameterDeclList {
+                                                lpar: LeftParenthesisToken {
+                                                    token_idx: TokenIdx(
+                                                        377,
+                                                    ),
+                                                },
+                                                parameters: [],
+                                                commas: [],
+                                                rpar: RightParenthesisToken {
+                                                    token_idx: TokenIdx(
+                                                        378,
+                                                    ),
+                                                },
                                             },
-                                            parameters: [],
-                                            commas: [],
-                                            rpar: RightParenthesisToken {
-                                                token_idx: TokenIdx(
-                                                    378,
-                                                ),
-                                            },
-                                        },
+                                        ),
                                         curry_token: Ok(
                                             CurryToken {
                                                 token_idx: TokenIdx(
@@ -4742,9 +4848,11 @@ Ok(
                                             },
                                         ),
                                         eol_colon: Err(
-                                            MissingEolColon(
-                                                TokenIdx(
-                                                    381,
+                                            Original(
+                                                ExpectEolColon(
+                                                    TokenIdx(
+                                                        381,
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -4955,7 +5063,9 @@ Ok(
                                         },
                                     },
                                     body: Err(
-                                        MissingBody,
+                                        Original(
+                                            ExpectBody,
+                                        ),
                                     ),
                                 },
                             ),
@@ -4972,7 +5082,9 @@ Ok(
                     },
                 ),
                 Err(
-                    ImplBlockErr,
+                    Derived(
+                        ImplBlockErr,
+                    ),
                 ),
             ),
             (
@@ -4987,7 +5099,9 @@ Ok(
                     },
                 ),
                 Err(
-                    UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                    Derived(
+                        UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                    ),
                 ),
             ),
             (
@@ -5026,7 +5140,9 @@ Ok(
                                         428,
                                     ),
                                 },
-                                implicit_parameter_decl_list: None,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 ty: TypeExpr {
                                     expr: 0,
                                 },
@@ -5349,21 +5465,25 @@ Ok(
                                                 ],
                                             },
                                         },
-                                        implicit_parameter_decl_list: None,
-                                        parameter_decl_list: ParameterDeclList {
-                                            lpar: LeftParenthesisToken {
-                                                token_idx: TokenIdx(
-                                                    434,
-                                                ),
+                                        implicit_parameter_decl_list: Ok(
+                                            None,
+                                        ),
+                                        parameter_decl_list: Ok(
+                                            ParameterDeclList {
+                                                lpar: LeftParenthesisToken {
+                                                    token_idx: TokenIdx(
+                                                        434,
+                                                    ),
+                                                },
+                                                parameters: [],
+                                                commas: [],
+                                                rpar: RightParenthesisToken {
+                                                    token_idx: TokenIdx(
+                                                        435,
+                                                    ),
+                                                },
                                             },
-                                            parameters: [],
-                                            commas: [],
-                                            rpar: RightParenthesisToken {
-                                                token_idx: TokenIdx(
-                                                    435,
-                                                ),
-                                            },
-                                        },
+                                        ),
                                         curry_token: Ok(
                                             CurryToken {
                                                 token_idx: TokenIdx(
@@ -5377,9 +5497,11 @@ Ok(
                                             },
                                         ),
                                         eol_colon: Err(
-                                            MissingEolColon(
-                                                TokenIdx(
-                                                    438,
+                                            Original(
+                                                ExpectEolColon(
+                                                    TokenIdx(
+                                                        438,
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -5590,7 +5712,9 @@ Ok(
                                         },
                                     },
                                     body: Err(
-                                        MissingBody,
+                                        Original(
+                                            ExpectBody,
+                                        ),
                                     ),
                                 },
                             ),
@@ -5607,7 +5731,9 @@ Ok(
                     },
                 ),
                 Err(
-                    ImplBlockErr,
+                    Derived(
+                        ImplBlockErr,
+                    ),
                 ),
             ),
             (
@@ -5622,7 +5748,9 @@ Ok(
                     },
                 ),
                 Err(
-                    UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                    Derived(
+                        UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+                    ),
                 ),
             ),
         ],

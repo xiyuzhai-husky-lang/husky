@@ -151,7 +151,9 @@ pub(crate) fn function_defn(db: &dyn DefnDb, decl: FunctionDecl) -> FunctionDefn
     );
     let ast_idx = decl.ast_idx(db);
     let body = match parser.ast_sheet()[ast_idx] {
-        Ast::Defn { body, .. } => parser.parse_block_expr(body).ok_or(DefnError::ExpectBody),
+        Ast::Defn { body, .. } => parser
+            .parse_block_expr(body)
+            .ok_or(OriginalDefnError::ExpectBody.into()), // todo: change this to parse expected
         _ => unreachable!(),
     };
     let expr_region = parser.finish();
@@ -170,7 +172,9 @@ pub(crate) fn feature_defn(db: &dyn DefnDb, decl: FeatureDecl) -> FeatureDefn {
     );
     let ast_idx = decl.ast_idx(db);
     let body = match parser.ast_sheet()[ast_idx] {
-        Ast::Defn { body, .. } => parser.parse_block_expr(body).ok_or(DefnError::ExpectBody),
+        Ast::Defn { body, .. } => parser
+            .parse_block_expr(body)
+            .ok_or(OriginalDefnError::ExpectBody.into()), // todo: change this to parse expected
         _ => unreachable!(),
     };
     let expr_region = parser.finish();
@@ -230,7 +234,9 @@ pub(crate) fn ty_method_defn(db: &dyn DefnDb, decl: TypeMethodDecl) -> TypeMetho
     );
     let ast_idx = decl.ast_idx(db);
     let body = match parser.ast_sheet()[ast_idx] {
-        Ast::Defn { body, .. } => parser.parse_block_expr(body).ok_or(DefnError::ExpectBody),
+        Ast::Defn { body, .. } => parser
+            .parse_block_expr(body)
+            .ok_or(OriginalDefnError::ExpectBody.into()), // todo: change this to parse expected
         _ => unreachable!(),
     };
     let expr_region = parser.finish();
@@ -265,7 +271,9 @@ pub(crate) fn ty_memo_defn(db: &dyn DefnDb, decl: TypeMemoDecl) -> TypeMemoDefn 
     );
     let ast_idx = decl.ast_idx(db);
     let body = match parser.ast_sheet()[ast_idx] {
-        Ast::Defn { body, .. } => parser.parse_block_expr(body).ok_or(DefnError::ExpectBody),
+        Ast::Defn { body, .. } => parser
+            .parse_block_expr(body)
+            .ok_or(OriginalDefnError::ExpectBody.into()), // todo: change this to parse expected
         _ => unreachable!(),
     };
     let expr_region = parser.finish();
@@ -344,7 +352,9 @@ pub(crate) fn ty_as_trai_method_defn(
     );
     let ast_idx = decl.ast_idx(db);
     let body = match parser.ast_sheet()[ast_idx] {
-        Ast::Defn { body, .. } => parser.parse_block_expr(body).ok_or(DefnError::ExpectBody),
+        Ast::Defn { body, .. } => parser
+            .parse_block_expr(body)
+            .ok_or(OriginalDefnError::ExpectBody.into()), // todo: change this to parse expected
         _ => unreachable!(),
     };
     let expr_region = parser.finish();

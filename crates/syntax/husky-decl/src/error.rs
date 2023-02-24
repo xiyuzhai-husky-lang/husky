@@ -16,19 +16,19 @@ pub enum DeclError {
 
 impl From<EntityTreeError> for DeclError {
     fn from(value: EntityTreeError) -> Self {
-        OriginalDeclExprError::Derived(value.into())
+        DeclError::Derived(value.into())
     }
 }
 
 impl From<VfsError> for DeclError {
     fn from(value: VfsError) -> Self {
-        OriginalDeclExprError::Derived(value.into())
+        DeclError::Derived(value.into())
     }
 }
 
 impl From<TokenError> for DeclError {
     fn from(value: TokenError) -> Self {
-        OriginalDeclExprError::Derived(value.into())
+        DeclError::Derived(value.into())
     }
 }
 
@@ -46,10 +46,8 @@ impl From<OriginalDeclError> for DeclError {
 
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalDeclError {
-    #[error("unable to parse impl block decl for ty as trai method decl")]
-    UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
-    #[error("unable to parse impl block decl for ty method decl")]
-    UnableToParseImplBlockDeclForTyMethodDecl,
+    #[error("expect `{{` or `(` or `;`")]
+    ExpectLCurlOrLParOrSemicolon(TokenIdx),
 }
 
 impl OriginalError for OriginalDeclError {
@@ -66,6 +64,12 @@ pub enum DerivedDeclError {
     EntityTree(#[from] EntityTreeError),
     #[error("derived {0}")]
     ExprError(#[from] DerivedExprError),
+    #[error("unable to parse impl block decl for ty as trai method decl")]
+    UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+    #[error("unable to parse impl block decl for ty method decl")]
+    UnableToParseImplBlockDeclForTyMethodDecl,
+    #[error("impl block error")]
+    ImplBlockErr,
 }
 
 pub type DeclResult<T> = Result<T, DeclError>;
@@ -91,7 +95,14 @@ pub enum DeclExprError {
     Derived(#[from] DerivedDeclExprError),
 }
 
+impl From<TokenError> for DeclExprError {
+    fn from(error: TokenError) -> Self {
+        DeclExprError::Derived(error.into())
+    }
+}
+
 pub type DeclExprResult<T> = Result<T, DeclExprError>;
+pub type DeclExprResultRef<'a, T> = Result<T, &'a DeclExprError>;
 
 impl From<ExprError> for DeclExprError {
     fn from(error: ExprError) -> Self {
@@ -106,10 +117,6 @@ impl From<ExprError> for DeclExprError {
 pub enum OriginalDeclExprError {
     #[error("derived {0}")]
     Expr(#[from] OriginalExprError),
-    #[error("expect `{{` or `(` or `;`")]
-    ExpectLCurlOrLParOrSemicolon(TokenIdx),
-    #[error("impl block error")]
-    ImplBlockErr,
     #[error("expect output type")]
     ExpectOutputType(TokenIdx),
     #[error("expect `->`")]
@@ -123,6 +130,8 @@ pub enum OriginalDeclExprError {
         langle_token_idx: TokenIdx,
         current_token_idx: TokenIdx,
     },
+    #[error("expect parameter declaration list")]
+    ExpectParameterDeclList(TokenIdx),
 }
 
 impl OriginalError for OriginalDeclExprError {
@@ -133,4 +142,6 @@ impl OriginalError for OriginalDeclExprError {
 pub enum DerivedDeclExprError {
     #[error("{0}")]
     ExprError(#[from] DerivedExprError),
+    #[error("{0}")]
+    TokenError(#[from] TokenError),
 }

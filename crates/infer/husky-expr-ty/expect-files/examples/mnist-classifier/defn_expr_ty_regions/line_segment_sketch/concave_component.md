@@ -1,7 +1,7 @@
 [
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::Entity(
+            DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
@@ -3014,13 +3014,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `norm`,
                 },
@@ -3094,13 +3095,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `rel_norm`,
                 },
@@ -3222,13 +3224,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `hausdorff_norm`,
                 },
@@ -4091,13 +4094,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `angle_change`,
                 },
@@ -5077,13 +5081,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `bounding_box`,
                 },
@@ -5815,17 +5820,6 @@
                 ),
                 Some(
                     ExprTypeInfo {
-                        ty_result: Err(
-                            Derived(
-                                EntityTypeError,
-                            ),
-                        ),
-                        expectation_rule_idx: None,
-                        resolve_progress: Unresolved,
-                    },
-                ),
-                Some(
-                    ExprTypeInfo {
                         ty_result: Ok(
                             Resolved(
                                 ReducedTerm(
@@ -5848,6 +5842,37 @@
                                     Derived(
                                         Duplication(
                                             5,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
+                            6,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Err(
+                                    Derived(
+                                        Duplication(
+                                            6,
                                         ),
                                     ),
                                 ),
@@ -5893,14 +5918,14 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            6,
+                            7,
                         ),
                         resolve_progress: Expected(
                             Resolved(
                                 Err(
                                     Derived(
                                         Duplication(
-                                            6,
+                                            7,
                                         ),
                                     ),
                                 ),
@@ -5983,7 +6008,7 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            7,
+                            8,
                         ),
                         resolve_progress: Expected(
                             Resolved(
@@ -6509,6 +6534,28 @@
                             ),
                         },
                         LocalTermExpectationEntry {
+                            src_expr_idx: 50,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: EqsRitchieCallTy,
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Todo,
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
                             src_expr_idx: 51,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -6610,13 +6657,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `relative_bounding_box`,
                 },
@@ -6738,13 +6786,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `line_segment`,
                 },
@@ -6981,13 +7030,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `start`,
                 },
@@ -7097,13 +7147,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `end`,
                 },
@@ -7213,13 +7264,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `displacement`,
                 },
@@ -7305,13 +7357,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `start_tangent`,
                 },
@@ -7409,13 +7462,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `end_tangent`,
                 },

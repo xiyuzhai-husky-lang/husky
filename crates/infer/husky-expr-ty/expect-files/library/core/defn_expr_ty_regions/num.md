@@ -1,13 +1,14 @@
 [
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `core::num`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`core::num::i8`, `Alien`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `abs`,
                 },
@@ -43,13 +44,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `core::num`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`core::num::i16`, `Alien`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `abs`,
                 },
@@ -85,13 +87,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `core::num`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`core::num::i32`, `Alien`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `abs`,
                 },
@@ -127,13 +130,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `core::num`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`core::num::i64`, `Alien`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `abs`,
                 },
@@ -169,13 +173,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `core::num`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`core::num::f8`, `Alien`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `abs`,
                 },
@@ -211,13 +216,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `core::num`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`core::num::f16`, `Alien`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `abs`,
                 },
@@ -253,13 +259,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `core::num`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`core::num::f32`, `Alien`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `abs`,
                 },
@@ -295,13 +302,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `core::num`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`core::num::f64`, `Alien`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `abs`,
                 },

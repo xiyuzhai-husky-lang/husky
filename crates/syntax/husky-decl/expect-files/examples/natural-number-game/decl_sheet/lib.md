@@ -60,7 +60,9 @@ Ok(
                                         roots: [],
                                     },
                                 },
-                                implicit_parameter_decl_list: None,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                             },
                         ),
                     ),
@@ -125,7 +127,9 @@ Ok(
                                         roots: [],
                                     },
                                 },
-                                implicit_parameter_decl_list: None,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                             },
                         ),
                     ),
@@ -190,7 +194,9 @@ Ok(
                                         roots: [],
                                     },
                                 },
-                                implicit_parameter_decl_list: None,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                             },
                         ),
                     ),
@@ -232,7 +238,9 @@ Ok(
                                         9,
                                     ),
                                 },
-                                implicit_parameter_decl_list: None,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 ty: TypeExpr {
                                     expr: 0,
                                 },
@@ -596,9 +604,11 @@ Ok(
                                         },
                                     },
                                     curry_token: Err(
-                                        MissingCurry(
-                                            TokenIdx(
-                                                14,
+                                        Original(
+                                            ExpectCurry(
+                                                TokenIdx(
+                                                    14,
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -608,9 +618,11 @@ Ok(
                                         },
                                     ),
                                     eol_colon: Err(
-                                        MissingEolColon(
-                                            TokenIdx(
-                                                18,
+                                        Original(
+                                            ExpectEolColon(
+                                                TokenIdx(
+                                                    18,
+                                                ),
                                             ),
                                         ),
                                     ),

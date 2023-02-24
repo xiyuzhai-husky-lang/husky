@@ -29,7 +29,8 @@ pub(crate) fn decl_diagnostic_sheet(
                     );
                     collector.visit_decl(decl)
                 }
-                Err(error) => sheet_collector.visit_atom(error),
+                Err(DeclError::Original(error)) => sheet_collector.visit_atom(error),
+                Err(DeclError::Derived(_)) => (),
             }
         }
     }
@@ -37,56 +38,53 @@ pub(crate) fn decl_diagnostic_sheet(
     DeclDiagnosticSheet::new(db, sheet_collector.finish())
 }
 
-impl Diagnose for DeclError {
+impl Diagnose for OriginalDeclError {
     type Context<'a> = SheetDiagnosticsContext<'a>;
 
     fn message(&self, db: &Self::Context<'_>) -> String {
         // chatgpt wrote this
         match self {
-            OriginalDeclExprError::ExpectLCurlOrLParOrSemicolon(e) => {
-                // TODO: Handle the error by displaying the error message.
-                format!("SyntaxError: expected a left curly brace, left parenthesis or semicolon")
-            }
-            OriginalDeclExprError::Token(e) => {
-                // TODO: Handle the error by displaying the error message.
-                format!("SyntaxError: {}", e)
-            }
-            OriginalDeclExprError::EntityTree(e) => {
-                // TODO: Handle the error by displaying the error message.
-                format!("Error while parsing entity tree: {}", e)
-            }
-            OriginalDeclExprError::Vfs(e) => {
-                // TODO: Handle the error by displaying the error message.
-                format!("Error while accessing virtual file system: {}", e)
-            }
+            OriginalDeclError::ExpectLCurlOrLParOrSemicolon(_) => todo!(),
+        }
+    }
+
+    fn severity(&self) -> DiagnosticSeverity {
+        todo!()
+    }
+
+    fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
+        todo!()
+    }
+}
+
+impl Diagnose for OriginalDeclExprError {
+    type Context<'a> = RegionDiagnosticsContext<'a>;
+
+    fn message(&self, ctx: &Self::Context<'_>) -> String {
+        // chatgpt wrote this
+        match self {
             OriginalDeclExprError::Expr(e) => {
                 // TODO: Handle the error by displaying the error message.
-                format!("Error while parsing expression: {}", e)
+                e.message(ctx)
             }
-            OriginalDeclExprError::ImplBlockErr => {
-                // TODO: Handle the error by displaying a generic error message.
-                format!("Error while parsing impl block")
-            }
-            OriginalDeclExprError::ExpectOutputType(e) => {
+            OriginalDeclExprError::ExpectOutputType(_) => {
                 // TODO: Handle the error by displaying the error message.
-                format!("Expect output type: {}", e)
+                format!("Syntax Error: expect output type")
             }
-            OriginalDeclExprError::ExpectCurry(e) => {
+            OriginalDeclExprError::ExpectCurry(_) => {
                 // TODO: Handle the error by displaying the error message.
-                format!("Expect curry: {}", e)
+                format!("Syntax Error: expect `->`",)
             }
             OriginalDeclExprError::ExpectEolColon(e) => {
                 // TODO: Handle the error by displaying the error message.
-                format!("Expect end-of-line colon: {}", e)
+                format!("Syntax Error: expect end-of-line colon",)
             }
-            OriginalDeclExprError::UnableToParseImplBlockDeclForTyAsTraitMethodDecl => {
-                // TODO: Handle the error by displaying a generic error message.
-                format!("Unable to parse impl block declaration as trait method declaration")
-            }
-            OriginalDeclExprError::UnableToParseImplBlockDeclForTyMethodDecl => {
-                // TODO: Handle the error by displaying a generic error message.
-                format!("Unable to parse impl block declaration as method declaration")
-            }
+            OriginalDeclExprError::ExpectRightCurlyBrace(_) => todo!(),
+            OriginalDeclExprError::ExpectRightAngleBracketForImplicitParameterDeclList {
+                langle_token_idx,
+                current_token_idx,
+            } => todo!(),
+            OriginalDeclExprError::ExpectParameterDeclList(_) => todo!(),
         }
     }
 

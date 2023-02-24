@@ -34,13 +34,17 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
-                    error: UnexpectedStmtInsideImpl,
+                    error: Original(
+                        UnexpectedStmtInsideImpl,
+                    ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
-                    error: UnexpectedStmtInsideImpl,
+                    error: Original(
+                        UnexpectedStmtInsideImpl,
+                    ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -81,13 +85,17 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    error: UnexpectedStmtInsideModule,
+                    error: Original(
+                        UnexpectedStmtInsideModule,
+                    ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    error: UnexpectedStmtInsideModule,
+                    error: Original(
+                        UnexpectedStmtInsideModule,
+                    ),
                 },
                 Ast::Impl {
                     token_group_idx: TokenGroupIdx(
@@ -101,9 +109,11 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         7,
                     ),
-                    error: ExpectIdentifier(
-                        TokenIdx(
-                            46,
+                    error: Original(
+                        ExpectIdentifier(
+                            TokenIdx(
+                                46,
+                            ),
                         ),
                     ),
                 },
@@ -111,7 +121,9 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
-                    error: ExcessiveIndent,
+                    error: Original(
+                        ExcessiveIndent,
+                    ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(

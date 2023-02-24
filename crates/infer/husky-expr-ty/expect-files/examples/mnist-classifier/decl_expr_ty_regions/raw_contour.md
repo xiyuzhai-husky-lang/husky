@@ -1,7 +1,7 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -226,7 +226,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
                         TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
@@ -262,7 +262,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
@@ -392,7 +392,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
@@ -522,7 +522,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
@@ -652,7 +652,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
@@ -787,7 +787,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
@@ -917,7 +917,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
@@ -1057,7 +1057,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
                         TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
@@ -1256,7 +1256,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
@@ -1385,7 +1385,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
@@ -1594,12 +1594,13 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::ImplBlock(
+            DeclRegionPath::ImplBlock(
                 ImplBlockId {
                     module_path: `mnist_classifier::raw_contour`,
                     impl_block_kind: ImplBlockKind::Type {
                         ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                     },
+                    disambiguator: 0,
                 },
             ),
         ),
@@ -1714,13 +1715,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::AssociatedItem(
+            DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::raw_contour`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `line_segment_sketch`,
                 },
@@ -1839,13 +1841,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::AssociatedItem(
+            DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::raw_contour`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `bounding_box`,
                 },
@@ -1855,13 +1858,43 @@
             data: [
                 Some(
                     ExprTypeInfo {
-                        ty_result: Err(
-                            Derived(
-                                EntityTypeError,
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
-                        expectation_rule_idx: None,
-                        resolve_progress: Unresolved,
+                        expectation_rule_idx: Some(
+                            0,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     },
                 ),
             ],
@@ -1883,7 +1916,46 @@
             },
             expectations: LocalTermExpectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 0,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -1895,13 +1967,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::AssociatedItem(
+            DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::raw_contour`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `relative_bounding_box`,
                 },
@@ -2020,13 +2093,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::AssociatedItem(
+            DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::raw_contour`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `contour_len`,
                 },
@@ -2145,13 +2219,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::AssociatedItem(
+            DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::raw_contour`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `displacement`,
                 },

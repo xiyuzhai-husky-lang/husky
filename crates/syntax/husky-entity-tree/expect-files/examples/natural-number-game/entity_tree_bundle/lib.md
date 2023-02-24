@@ -74,6 +74,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`natural_number_game::Nat`, `Inductive`),
                             },
+                            disambiguator: 0,
                         },
                         ast_idx: 6,
                         body: ArenaIdxRange(

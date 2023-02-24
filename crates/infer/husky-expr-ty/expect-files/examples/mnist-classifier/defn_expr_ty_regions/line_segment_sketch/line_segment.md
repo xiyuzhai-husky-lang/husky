@@ -1,13 +1,14 @@
 [
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::line_segment_sketch::line_segment`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `displacement`,
                 },
@@ -117,13 +118,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::line_segment_sketch::line_segment`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `dist_to_point`,
                 },

@@ -122,6 +122,7 @@ pub enum DerivedExprError {
 }
 
 pub type ExprResult<T> = Result<T, ExprError>;
+pub type ExprResultRef<'a, T> = Result<T, &'a ExprError>;
 
 // impl<'a, 'b> FromAbsent<RightCurlyBraceToken, ExprParseContext<'a, 'b>> for OriginalExprError {
 //     fn new_absent_error(state: <ExprParseContext<'a, 'b> as HasParseState>::State) -> Self {

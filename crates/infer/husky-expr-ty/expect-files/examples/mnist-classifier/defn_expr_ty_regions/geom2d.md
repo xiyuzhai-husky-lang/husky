@@ -1,13 +1,14 @@
 [
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::geom2d`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `from_i_shift28`,
                 },
@@ -684,13 +685,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::geom2d`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `vector`,
                 },
@@ -855,13 +857,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::geom2d`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `to`,
                 },
@@ -1272,13 +1275,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::geom2d`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `norm`,
                 },
@@ -1484,13 +1488,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::geom2d`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `dist`,
                 },
@@ -1675,13 +1680,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::geom2d`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `point`,
                 },
@@ -1846,13 +1852,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::geom2d`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `to`,
                 },
@@ -2263,13 +2270,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::geom2d`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `norm`,
                 },
@@ -2475,13 +2483,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::geom2d`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `dot`,
                 },
@@ -2838,13 +2847,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::geom2d`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `cross`,
                 },
@@ -3201,13 +3211,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::geom2d`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `angle`,
                 },
@@ -4227,13 +4238,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::geom2d`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `rotation_direction_to`,
                 },
@@ -4418,13 +4430,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::geom2d`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `angle_to`,
                 },
@@ -6183,13 +6196,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::geom2d`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `relative_bounding_box`,
                 },
@@ -6274,11 +6288,25 @@
                         ),
                         resolve_progress: Expected(
                             Resolved(
-                                Err(
-                                    Derived(
-                                        Duplication(
-                                            1,
-                                        ),
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 41,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -6288,8 +6316,10 @@
                 Some(
                     ExprTypeInfo {
                         ty_result: Err(
-                            Derived(
-                                FieldOwnerTypeNotInferred,
+                            Original(
+                                FieldTypeError(
+                                    Todo,
+                                ),
                             ),
                         ),
                         expectation_rule_idx: None,
@@ -6342,11 +6372,25 @@
                         ),
                         resolve_progress: Expected(
                             Resolved(
-                                Err(
-                                    Derived(
-                                        Duplication(
-                                            2,
-                                        ),
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 41,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -6356,8 +6400,10 @@
                 Some(
                     ExprTypeInfo {
                         ty_result: Err(
-                            Derived(
-                                FieldOwnerTypeNotInferred,
+                            Original(
+                                FieldTypeError(
+                                    Todo,
+                                ),
                             ),
                         ),
                         expectation_rule_idx: None,
@@ -6487,22 +6533,23 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                Err(
-                                    Derived(
-                                        TermTypeError {
-                                            term: Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 41,
-                                                            },
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 41,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
-                                            ),
-                                            error: Derived(
-                                                DeclError,
                                             ),
                                         },
                                     ),
@@ -6532,22 +6579,23 @@
                                 ),
                             },
                             resolve_progress: Resolved(
-                                Err(
-                                    Derived(
-                                        TermTypeError {
-                                            term: Entity(
-                                                ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 41,
-                                                            },
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 41,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
-                                            ),
-                                            error: Derived(
-                                                DeclError,
                                             ),
                                         },
                                     ),
@@ -6566,13 +6614,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::geom2d`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `relative_point`,
                 },
@@ -6983,13 +7032,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::geom2d`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `xmin`,
                 },
@@ -7075,13 +7125,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::geom2d`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `xmax`,
                 },
@@ -7167,13 +7218,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::geom2d`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `ymin`,
                 },
@@ -7259,13 +7311,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::geom2d`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `ymax`,
                 },
@@ -7351,13 +7404,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::geom2d`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `xmin`,
                 },
@@ -7443,13 +7497,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::geom2d`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `xmax`,
                 },
@@ -7535,13 +7590,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::geom2d`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `ymin`,
                 },
@@ -7627,13 +7683,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::geom2d`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `ymax`,
                 },

@@ -43,7 +43,10 @@ impl AssociatedItemDecl {
         }
     }
 
-    pub fn implicit_parameters(self, db: &dyn DeclDb) -> &[ImplicitParameterDecl] {
+    pub fn implicit_parameters<'a>(
+        self,
+        db: &'a dyn DeclDb,
+    ) -> DeclExprResultRef<'a, &'a [ImplicitParameterDecl]> {
         match self {
             AssociatedItemDecl::TypeItem(decl) => decl.implicit_parameters(db),
             AssociatedItemDecl::TraitItem(decl) => decl.implicit_parameters(db),

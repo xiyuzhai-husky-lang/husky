@@ -47,6 +47,12 @@ DiagnosticSheet {
             },
         ],
     },
+    decl_diagnostic_sheet: DeclDiagnosticSheet {
+        diagnostics: [],
+    },
+    defn_diagnostic_sheet: DefnDiagnosticSheet {
+        diagnostics: [],
+    },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [],
     },

@@ -1,1 +1,8 @@
-[]
+[
+    Err(
+        DeclExprError,
+    ),
+    Err(
+        DeclExprError,
+    ),
+]

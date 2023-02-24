@@ -1,14 +1,36 @@
+use husky_expr::ExprError;
+
 use crate::*;
 
 use std::convert::Infallible;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum SignatureError {
-    ExprError,
     TermError,
     ParameterTypeTermError(u8),
     FieldTypeTermError(u8),
     OutputTypeTermError,
+    // derived
+    DeclError,
+    DeclExprError,
+    ExprError,
+}
+
+impl From<&DeclError> for SignatureError {
+    fn from(_: &DeclError) -> Self {
+        SignatureError::DeclError
+    }
+}
+
+impl From<&DeclExprError> for SignatureError {
+    fn from(_: &DeclExprError) -> Self {
+        SignatureError::DeclExprError
+    }
+}
+impl From<&ExprError> for SignatureError {
+    fn from(_: &ExprError) -> Self {
+        SignatureError::ExprError
+    }
 }
 
 impl<DB: ?Sized + SignatureDb> salsa::DebugWithDb<DB> for SignatureError {

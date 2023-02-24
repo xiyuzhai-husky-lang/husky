@@ -19,15 +19,12 @@ pub(crate) fn defn_diagnostic_sheet(
     ) {
         let token_sheet_data = ranged_token_sheet.token_sheet_data(db);
         for (path, defn) in defn_sheet.defns() {
-            match defn {
-                Ok(defn) => {
-                    if let Some(expr_region) = defn.expr_region(db) {
-                        let mut region_collector =
-                            RegionDiagnosticsCollector::new(db, expr_region, &mut sheet_collector);
-                        region_collector.visit_defn(defn)
-                    }
+            if let Ok(defn) = defn {
+                if let Some(expr_region) = defn.expr_region(db) {
+                    let mut region_collector =
+                        RegionDiagnosticsCollector::new(db, expr_region, &mut sheet_collector);
+                    region_collector.visit_defn(defn)
                 }
-                Err(_) => todo!(),
             }
         }
     }

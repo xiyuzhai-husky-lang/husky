@@ -296,7 +296,7 @@ Ok(
                     Box,
                 ),
             ),
-            Err(
+            Error(
                 UnrecognizedChar(
                     '∀',
                 ),
@@ -319,7 +319,7 @@ Ok(
                     ),
                 ),
             ),
-            Err(
+            Error(
                 UnrecognizedChar(
                     '∊',
                 ),
@@ -392,7 +392,7 @@ Ok(
                     ),
                 ),
             ),
-            Err(
+            Error(
                 UnrecognizedChar(
                     '→',
                 ),
@@ -582,7 +582,7 @@ Ok(
             Punctuation(
                 Colon,
             ),
-            Err(
+            Error(
                 UnrecognizedChar(
                     '∃',
                 ),
@@ -596,7 +596,7 @@ Ok(
                     ),
                 ),
             ),
-            Err(
+            Error(
                 UnrecognizedChar(
                     '∊',
                 ),
@@ -763,7 +763,7 @@ Ok(
             Punctuation(
                 Colon,
             ),
-            Err(
+            Error(
                 UnrecognizedChar(
                     '∃',
                 ),
@@ -777,7 +777,7 @@ Ok(
                     ),
                 ),
             ),
-            Err(
+            Error(
                 UnrecognizedChar(
                     '∊',
                 ),

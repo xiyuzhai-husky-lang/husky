@@ -578,6 +578,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`core::num::i8`, `Alien`),
                             },
+                            disambiguator: 0,
                         },
                         ast_idx: 19,
                         body: ArenaIdxRange(
@@ -591,6 +592,7 @@ Ok(
                         id: ImplBlockId {
                             module_path: `core::num`,
                             impl_block_kind: ImplBlockKind::Err,
+                            disambiguator: 0,
                         },
                         ast_idx: 20,
                         body: ArenaIdxRange(
@@ -598,19 +600,21 @@ Ok(
                         ),
                         variant: ImplBlockVariant::Err(
                             ImplBlockError::MajorPath(
-                                UnrecognizedIdentifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 40,
-                                                },
+                                Original(
+                                    UnrecognizedIdentifier(
+                                        IdentifierToken {
+                                            ident: Identifier(
+                                                Word(
+                                                    Id {
+                                                        value: 40,
+                                                    },
+                                                ),
                                             ),
-                                        ),
-                                        token_idx: TokenIdx(
-                                            36,
-                                        ),
-                                    },
+                                            token_idx: TokenIdx(
+                                                36,
+                                            ),
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -621,6 +625,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`core::num::i16`, `Alien`),
                             },
+                            disambiguator: 0,
                         },
                         ast_idx: 24,
                         body: ArenaIdxRange(
@@ -634,6 +639,7 @@ Ok(
                         id: ImplBlockId {
                             module_path: `core::num`,
                             impl_block_kind: ImplBlockKind::Err,
+                            disambiguator: 1,
                         },
                         ast_idx: 25,
                         body: ArenaIdxRange(
@@ -641,19 +647,21 @@ Ok(
                         ),
                         variant: ImplBlockVariant::Err(
                             ImplBlockError::MajorPath(
-                                UnrecognizedIdentifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 40,
-                                                },
+                                Original(
+                                    UnrecognizedIdentifier(
+                                        IdentifierToken {
+                                            ident: Identifier(
+                                                Word(
+                                                    Id {
+                                                        value: 40,
+                                                    },
+                                                ),
                                             ),
-                                        ),
-                                        token_idx: TokenIdx(
-                                            94,
-                                        ),
-                                    },
+                                            token_idx: TokenIdx(
+                                                94,
+                                            ),
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -664,6 +672,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`core::num::i32`, `Alien`),
                             },
+                            disambiguator: 0,
                         },
                         ast_idx: 29,
                         body: ArenaIdxRange(
@@ -677,6 +686,7 @@ Ok(
                         id: ImplBlockId {
                             module_path: `core::num`,
                             impl_block_kind: ImplBlockKind::Err,
+                            disambiguator: 2,
                         },
                         ast_idx: 30,
                         body: ArenaIdxRange(
@@ -684,19 +694,21 @@ Ok(
                         ),
                         variant: ImplBlockVariant::Err(
                             ImplBlockError::MajorPath(
-                                UnrecognizedIdentifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 40,
-                                                },
+                                Original(
+                                    UnrecognizedIdentifier(
+                                        IdentifierToken {
+                                            ident: Identifier(
+                                                Word(
+                                                    Id {
+                                                        value: 40,
+                                                    },
+                                                ),
                                             ),
-                                        ),
-                                        token_idx: TokenIdx(
-                                            152,
-                                        ),
-                                    },
+                                            token_idx: TokenIdx(
+                                                152,
+                                            ),
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -707,6 +719,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`core::num::i64`, `Alien`),
                             },
+                            disambiguator: 0,
                         },
                         ast_idx: 34,
                         body: ArenaIdxRange(
@@ -720,6 +733,7 @@ Ok(
                         id: ImplBlockId {
                             module_path: `core::num`,
                             impl_block_kind: ImplBlockKind::Err,
+                            disambiguator: 3,
                         },
                         ast_idx: 35,
                         body: ArenaIdxRange(
@@ -727,19 +741,21 @@ Ok(
                         ),
                         variant: ImplBlockVariant::Err(
                             ImplBlockError::MajorPath(
-                                UnrecognizedIdentifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 40,
-                                                },
+                                Original(
+                                    UnrecognizedIdentifier(
+                                        IdentifierToken {
+                                            ident: Identifier(
+                                                Word(
+                                                    Id {
+                                                        value: 40,
+                                                    },
+                                                ),
                                             ),
-                                        ),
-                                        token_idx: TokenIdx(
-                                            209,
-                                        ),
-                                    },
+                                            token_idx: TokenIdx(
+                                                209,
+                                            ),
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -750,6 +766,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`core::num::f8`, `Alien`),
                             },
+                            disambiguator: 0,
                         },
                         ast_idx: 39,
                         body: ArenaIdxRange(
@@ -763,6 +780,7 @@ Ok(
                         id: ImplBlockId {
                             module_path: `core::num`,
                             impl_block_kind: ImplBlockKind::Err,
+                            disambiguator: 4,
                         },
                         ast_idx: 40,
                         body: ArenaIdxRange(
@@ -770,19 +788,21 @@ Ok(
                         ),
                         variant: ImplBlockVariant::Err(
                             ImplBlockError::MajorPath(
-                                UnrecognizedIdentifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 40,
-                                                },
+                                Original(
+                                    UnrecognizedIdentifier(
+                                        IdentifierToken {
+                                            ident: Identifier(
+                                                Word(
+                                                    Id {
+                                                        value: 40,
+                                                    },
+                                                ),
                                             ),
-                                        ),
-                                        token_idx: TokenIdx(
-                                            267,
-                                        ),
-                                    },
+                                            token_idx: TokenIdx(
+                                                267,
+                                            ),
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -793,6 +813,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`core::num::f16`, `Alien`),
                             },
+                            disambiguator: 0,
                         },
                         ast_idx: 44,
                         body: ArenaIdxRange(
@@ -806,6 +827,7 @@ Ok(
                         id: ImplBlockId {
                             module_path: `core::num`,
                             impl_block_kind: ImplBlockKind::Err,
+                            disambiguator: 5,
                         },
                         ast_idx: 45,
                         body: ArenaIdxRange(
@@ -813,19 +835,21 @@ Ok(
                         ),
                         variant: ImplBlockVariant::Err(
                             ImplBlockError::MajorPath(
-                                UnrecognizedIdentifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 40,
-                                                },
+                                Original(
+                                    UnrecognizedIdentifier(
+                                        IdentifierToken {
+                                            ident: Identifier(
+                                                Word(
+                                                    Id {
+                                                        value: 40,
+                                                    },
+                                                ),
                                             ),
-                                        ),
-                                        token_idx: TokenIdx(
-                                            325,
-                                        ),
-                                    },
+                                            token_idx: TokenIdx(
+                                                325,
+                                            ),
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -836,6 +860,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`core::num::f32`, `Alien`),
                             },
+                            disambiguator: 0,
                         },
                         ast_idx: 49,
                         body: ArenaIdxRange(
@@ -849,6 +874,7 @@ Ok(
                         id: ImplBlockId {
                             module_path: `core::num`,
                             impl_block_kind: ImplBlockKind::Err,
+                            disambiguator: 6,
                         },
                         ast_idx: 50,
                         body: ArenaIdxRange(
@@ -856,19 +882,21 @@ Ok(
                         ),
                         variant: ImplBlockVariant::Err(
                             ImplBlockError::MajorPath(
-                                UnrecognizedIdentifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 40,
-                                                },
+                                Original(
+                                    UnrecognizedIdentifier(
+                                        IdentifierToken {
+                                            ident: Identifier(
+                                                Word(
+                                                    Id {
+                                                        value: 40,
+                                                    },
+                                                ),
                                             ),
-                                        ),
-                                        token_idx: TokenIdx(
-                                            383,
-                                        ),
-                                    },
+                                            token_idx: TokenIdx(
+                                                383,
+                                            ),
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -879,6 +907,7 @@ Ok(
                             impl_block_kind: ImplBlockKind::Type {
                                 ty: TypePath(`core::num::f64`, `Alien`),
                             },
+                            disambiguator: 0,
                         },
                         ast_idx: 54,
                         body: ArenaIdxRange(
@@ -892,6 +921,7 @@ Ok(
                         id: ImplBlockId {
                             module_path: `core::num`,
                             impl_block_kind: ImplBlockKind::Err,
+                            disambiguator: 7,
                         },
                         ast_idx: 55,
                         body: ArenaIdxRange(
@@ -899,19 +929,21 @@ Ok(
                         ),
                         variant: ImplBlockVariant::Err(
                             ImplBlockError::MajorPath(
-                                UnrecognizedIdentifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 40,
-                                                },
+                                Original(
+                                    UnrecognizedIdentifier(
+                                        IdentifierToken {
+                                            ident: Identifier(
+                                                Word(
+                                                    Id {
+                                                        value: 40,
+                                                    },
+                                                ),
                                             ),
-                                        ),
-                                        token_idx: TokenIdx(
-                                            440,
-                                        ),
-                                    },
+                                            token_idx: TokenIdx(
+                                                440,
+                                            ),
+                                        },
+                                    ),
                                 ),
                             ),
                         ),

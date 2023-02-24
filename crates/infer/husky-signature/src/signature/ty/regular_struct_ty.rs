@@ -11,11 +11,11 @@ pub fn regular_struct_ty_signature(
     Ok(RegularStructTypeSignature::new(
         db,
         ImplicitParameterSignatures::from_decl(
-            decl.implicit_parameters(db),
+            decl.implicit_parameters(db)?,
             signature_term_region,
             term_menu,
         ),
-        decl.fields(db)
+        decl.fields(db)?
             .iter()
             .enumerate()
             .map(|(i, field)| {

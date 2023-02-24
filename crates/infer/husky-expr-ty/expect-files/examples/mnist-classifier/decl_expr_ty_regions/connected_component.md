@@ -1,7 +1,7 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
                         TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
@@ -360,7 +360,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
                         TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
@@ -729,7 +729,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
@@ -936,7 +936,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -986,7 +986,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
@@ -1116,7 +1116,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::Entity(
+            DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
@@ -1182,12 +1182,13 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::ImplBlock(
+            DeclRegionPath::ImplBlock(
                 ImplBlockId {
                     module_path: `mnist_classifier::connected_component`,
                     impl_block_kind: ImplBlockKind::Type {
                         ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                     },
+                    disambiguator: 0,
                 },
             ),
         ),
@@ -1233,13 +1234,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::AssociatedItem(
+            DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::connected_component`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `raw_contours`,
                 },
@@ -1440,13 +1442,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::AssociatedItem(
+            DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::connected_component`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `eff_holes`,
                 },
@@ -1565,13 +1568,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::AssociatedItem(
+            DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::connected_component`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `max_hole_ilen`,
                 },
@@ -1690,13 +1694,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::AssociatedItem(
+            DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::connected_component`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `max_row_span`,
                 },
@@ -1815,13 +1820,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::AssociatedItem(
+            DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::connected_component`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `row_span_sum`,
                 },
@@ -1940,13 +1946,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::AssociatedItem(
+            DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::connected_component`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `distribution`,
                 },
@@ -2065,13 +2072,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::AssociatedItem(
+            DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::connected_component`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `upper_mass`,
                 },
@@ -2190,13 +2198,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::AssociatedItem(
+            DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::connected_component`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `lower_mass`,
                 },
@@ -2315,13 +2324,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::AssociatedItem(
+            DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::connected_component`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `top_k_row_span_sum`,
                 },
@@ -2446,13 +2456,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclExprPath::AssociatedItem(
+            DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::connected_component`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `top_k_row_right_mass_sum`,
                 },

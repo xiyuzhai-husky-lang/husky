@@ -768,13 +768,17 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         62,
                     ),
-                    error: ExpectDecoratorOrEntityKeyword,
+                    error: Original(
+                        ExpectDecoratorOrEntityKeyword,
+                    ),
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         63,
                     ),
-                    error: ExpectDecoratorOrEntityKeyword,
+                    error: Original(
+                        ExpectDecoratorOrEntityKeyword,
+                    ),
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
@@ -1329,7 +1333,9 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         64,
                     ),
-                    error: UnexpectedStmtInsideModule,
+                    error: Original(
+                        UnexpectedStmtInsideModule,
+                    ),
                 },
                 Ast::Impl {
                     token_group_idx: TokenGroupIdx(

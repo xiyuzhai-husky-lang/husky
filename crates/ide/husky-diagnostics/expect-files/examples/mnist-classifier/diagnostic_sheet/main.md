@@ -6,6 +6,12 @@ DiagnosticSheet {
     ast_diagnostic_sheet: AstDiagnosticSheet {
         diagnostics: [],
     },
+    decl_diagnostic_sheet: DeclDiagnosticSheet {
+        diagnostics: [],
+    },
+    defn_diagnostic_sheet: DefnDiagnosticSheet {
+        diagnostics: [],
+    },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [],
     },

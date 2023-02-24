@@ -47,8 +47,24 @@ DiagnosticSheet {
             },
         ],
     },
+    decl_diagnostic_sheet: DeclDiagnosticSheet {
+        diagnostics: [],
+    },
+    defn_diagnostic_sheet: DefnDiagnosticSheet {
+        diagnostics: [],
+    },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [
+            Diagnostic {
+                message: "Syntax Error: no left operand for binary operator",
+                severity: Error,
+                range: [15:14, 15:15),
+            },
+            Diagnostic {
+                message: "Syntax Error: no right operand for binary operator",
+                severity: Error,
+                range: [15:14, 15:15),
+            },
             Diagnostic {
                 message: "entity tree error NoSubentity",
                 severity: Error,
@@ -347,6 +363,11 @@ DiagnosticSheet {
                 message: "Type Error: original `todo` in term List ConcaveComponent",
                 severity: Error,
                 range: [38:9, 38:38),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError::Todo: todo",
+                severity: Error,
+                range: [52:16, 52:27),
             },
             Diagnostic {
                 message: "OriginalLocalTermExpectationError::Todo: todo",

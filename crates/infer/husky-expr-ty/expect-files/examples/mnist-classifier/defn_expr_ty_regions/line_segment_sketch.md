@@ -1,7 +1,7 @@
 [
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::Entity(
+            DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
@@ -1959,7 +1959,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::Entity(
+            DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
@@ -3917,7 +3917,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::Entity(
+            DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
@@ -11591,7 +11591,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::Entity(
+            DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
@@ -20154,7 +20154,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::Entity(
+            DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
                         FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
@@ -27642,13 +27642,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::line_segment_sketch`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `new`,
                 },
@@ -28449,13 +28450,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::line_segment_sketch`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `displacement`,
                 },
@@ -28565,13 +28567,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::line_segment_sketch`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `concave_components`,
                 },
@@ -28783,13 +28786,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::line_segment_sketch`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `bounding_box`,
                 },
@@ -29508,17 +29512,6 @@
                 ),
                 Some(
                     ExprTypeInfo {
-                        ty_result: Err(
-                            Derived(
-                                EntityTypeError,
-                            ),
-                        ),
-                        expectation_rule_idx: None,
-                        resolve_progress: Unresolved,
-                    },
-                ),
-                Some(
-                    ExprTypeInfo {
                         ty_result: Ok(
                             Resolved(
                                 ReducedTerm(
@@ -29541,6 +29534,37 @@
                                     Derived(
                                         Duplication(
                                             7,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
+                            8,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Err(
+                                    Derived(
+                                        Duplication(
+                                            8,
                                         ),
                                     ),
                                 ),
@@ -29586,14 +29610,14 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            8,
+                            9,
                         ),
                         resolve_progress: Expected(
                             Resolved(
                                 Err(
                                     Derived(
                                         Duplication(
-                                            8,
+                                            9,
                                         ),
                                     ),
                                 ),
@@ -29676,7 +29700,7 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            9,
+                            10,
                         ),
                         resolve_progress: Expected(
                             Resolved(
@@ -30312,6 +30336,28 @@
                             ),
                         },
                         LocalTermExpectationEntry {
+                            src_expr_idx: 47,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: EqsRitchieCallTy,
+                            resolve_progress: Resolved(
+                                Err(
+                                    Original(
+                                        Todo,
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
                             src_expr_idx: 48,
                             expectee: Resolved(
                                 ReducedTerm(
@@ -30413,13 +30459,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnExprPath::AssociatedItem(
+            DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
                     impl_block_id: ImplBlockId {
                         module_path: `mnist_classifier::line_segment_sketch`,
                         impl_block_kind: ImplBlockKind::Type {
                             ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                         },
+                        disambiguator: 0,
                     },
                     ident: `new`,
                 },

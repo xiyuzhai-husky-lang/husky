@@ -11,7 +11,7 @@ pub fn alien_ty_signature(
     Ok(AlienTypeSignature::new(
         db,
         ImplicitParameterSignatures::from_decl(
-            decl.implicit_parameters(db),
+            decl.implicit_parameters(db)?,
             &signature_term_region,
             term_menu,
         ),

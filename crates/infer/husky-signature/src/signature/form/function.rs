@@ -10,13 +10,13 @@ pub fn function_signature(
     let term_menu = db.term_menu(expr_region.toolchain(db)).as_ref().unwrap();
 
     let implicit_parameters = ImplicitParameterSignatures::from_decl(
-        decl.implicit_parameters(db),
+        decl.implicit_parameters(db)?,
         signature_term_region,
         term_menu,
     );
 
     let parameters =
-        RegularParameterSignatures::from_decl(decl.parameters(db), signature_term_region)?;
+        RegularParameterSignatures::from_decl(decl.parameters(db)?, signature_term_region)?;
     let return_ty = match decl.return_ty(db) {
         Ok(return_ty) => match signature_term_region.expr_term(return_ty.expr()) {
             Ok(return_ty) => return_ty,

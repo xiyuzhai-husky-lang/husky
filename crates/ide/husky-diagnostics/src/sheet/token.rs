@@ -32,19 +32,19 @@ impl Diagnose for (&TextRange, &TokenError) {
 
     fn message(&self, db: &Self::Context<'_>) -> String {
         match self.1 {
-            TokenErrorKind::IncompleteStringLiteral => {
+            TokenError::IncompleteStringLiteral => {
                 format!("Syntax Error: incomplete string literal")
             }
-            TokenErrorKind::UnexpectedCharAfterBackslash => {
+            TokenError::UnexpectedCharAfterBackslash => {
                 format!("Syntax Error: unexpected char after backslash")
             }
-            TokenErrorKind::UnrecognizedChar(_) => format!("Syntax Error: unrecognized char"),
-            TokenErrorKind::IllFormedLiteral(_) => format!("Syntax Error: ill-formed literal"),
-            TokenErrorKind::NumberPseudoLiteral(_) => format!("Syntax Error: number pseudoliteral"),
-            TokenErrorKind::ParseIntError => format!("Syntax Error: parse int error"),
-            TokenErrorKind::InvalidIntegerSuffix => format!("Syntax Error: invalid integer suffix"),
-            TokenErrorKind::InvalidIdentifier => format!("Syntax Error: invalid identifier"),
-            TokenErrorKind::NothingAfterSingleQuote => format!("Syntax Error: nothing after `'`"),
+            TokenError::UnrecognizedChar(_) => format!("Syntax Error: unrecognized char"),
+            TokenError::IllFormedLiteral(_) => format!("Syntax Error: ill-formed literal"),
+            TokenError::NumberPseudoLiteral(_) => format!("Syntax Error: number pseudoliteral"),
+            TokenError::ParseIntError => format!("Syntax Error: parse int error"),
+            TokenError::InvalidIntegerSuffix => format!("Syntax Error: invalid integer suffix"),
+            TokenError::InvalidIdentifier => format!("Syntax Error: invalid identifier"),
+            TokenError::NothingAfterSingleQuote => format!("Syntax Error: nothing after `'`"),
         }
     }
 
