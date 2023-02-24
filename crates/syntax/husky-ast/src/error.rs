@@ -1,13 +1,21 @@
 use husky_token::{
     IdentifierToken, TokenError, TokenGroupIdx, TokenIdx, TokenIdxRange, TokenParseContext,
 };
-use parsec::{FromAbsent, HasParseError};
+use parsec::OriginalError;
 use thiserror::Error;
 
 use crate::{AstDb, AstIdx};
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum AstError {
+    #[error("{0}")]
+    Original(#[from] OriginalAstError),
+    #[error("{0}")]
+    Derived(#[from] DerivedAstError),
+}
+
+#[derive(Debug, Error, PartialEq, Eq, Clone)]
+pub enum OriginalAstError {
     #[error("excessive indent")]
     ExcessiveIndent,
     #[error("standalone elif")]
@@ -42,13 +50,20 @@ pub enum AstError {
     Todo,
 }
 
-impl<'a, Context> FromAbsent<IdentifierToken, Context> for AstError
-where
-    Context: TokenParseContext<'a>,
-{
-    fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
-        AstError::ExpectIdentifier(state)
+impl OriginalError for OriginalAstError {
+    type Error = AstError;
+}
+
+impl From<TokenError> for AstError {
+    fn from(value: TokenError) -> Self {
+        AstError::Derived(value.into())
     }
+}
+
+#[derive(Debug, Error, PartialEq, Eq, Clone)]
+pub enum DerivedAstError {
+    #[error("{0}")]
+    Token(#[from] TokenError),
 }
 
 impl salsa::DebugWithDb<dyn AstDb + '_> for AstError {

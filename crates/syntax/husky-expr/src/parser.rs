@@ -23,7 +23,7 @@ use husky_entity_tree::{
 use husky_token::Token;
 use husky_token::TokenStream;
 use list::*;
-use parsec::ParseContext;
+use parsec::{OriginalError, ParseContext};
 use resolve::*;
 use salsa::DebugWithDb;
 use std::ops::ControlFlow;
@@ -162,11 +162,11 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         self.finish_batch()
     }
 
-    pub fn parse_expr_expected<E>(
+    pub fn parse_expr_expected<E: OriginalError>(
         &mut self,
         env: ExprParseEnvironment,
         err: impl FnOnce(TokenIdx) -> E,
-    ) -> Result<ExprIdx, E> {
+    ) -> Result<ExprIdx, E::Error> {
         let state = self.state();
         self.env.set(env);
         loop {
@@ -186,7 +186,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         self.env.unset();
         match self.finish_batch() {
             Some(expr_idx) => Ok(expr_idx),
-            None => Err(err(state)),
+            None => Err(err(state).into()),
         }
     }
 
@@ -235,9 +235,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         env: PatternExprInfo,
     ) -> ExprResult<Option<PatternExprIdx>> {
         if let Some(mut_token) = self.parse::<MutToken>()? {
-            let ident_token = self.parse_expected2::<IdentifierToken, _>(
-                OriginalExprError::ExpectIdentifierAfterMut,
-            )?;
+            let ident_token: IdentifierToken =
+                self.parse_expected(OriginalExprError::ExpectIdentifierAfterMut)?;
             Ok(Some(self.alloc_pattern_expr(
                 PatternExpr::Identifier {
                     ident_token,
@@ -283,11 +282,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         parent_path: Option<EntityPath>,
         scope_resolution_token: ScopeResolutionToken,
     ) -> (EntityPathExprIdx, Option<EntityPath>) {
-        let ident_token = self
-            .parse_expected2::<IdentifierToken, _>(
-                OriginalEntityPathExprError::ExpectIdentifierAfterScopeResolution,
-            )
-            .map_err(|e| e.into());
+        let ident_token: EntityPathExprResult<IdentifierToken> =
+            self.parse_expected(OriginalEntityPathExprError::ExpectIdentifierAfterScopeResolution);
         let path: EntityPathExprResult<EntityPath> = match parent_path {
             Some(parent_path) => match ident_token {
                 Ok(ident_token) => {
@@ -338,10 +334,6 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub(crate) fn add_expr_root(&mut self, expr_root: ExprRoot) {
         self.parser.expr_roots.push(expr_root)
     }
-}
-
-impl<'a, 'b> parsec::HasParseError for ExprParseContext<'a, 'b> {
-    type Error = OriginalExprError;
 }
 
 impl<'a, 'b> std::ops::Deref for ExprParseContext<'a, 'b> {

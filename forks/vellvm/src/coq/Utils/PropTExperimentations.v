@@ -1690,7 +1690,7 @@ Section IterLaws.
     (* Perhaps Returns should be a coinductive proposition?  =>
        Tried short experiment above, was not working out cleanly..
        Not convinced that a coinductive definition will give us more expressive
-       power. We seem to be missing some other kind of information.
+       power. We seem to be expect some other kind of information.
      *)
 
     simpl_iter. setoid_rewrite unfold_iter.

@@ -4,9 +4,10 @@ pub trait ParseFromWithRollback<Context>: ParseFrom<Context>
 where
     Context: ParseContext + ?Sized,
 {
+    type Error;
     fn parse_from_with_rollback_when_no_error<'a>(
         stream: &mut Context,
-    ) -> Result<Option<Self>, Context::Error>;
+    ) -> Result<Option<Self>, <Self as ParseFromWithRollback<Context>>::Error>;
 
     fn try_parse_from_with_rollback<'a>(stream: &mut Context) -> Option<Self>;
 }
@@ -16,9 +17,10 @@ where
     Context: ParseContext + ?Sized,
     P: ParseFrom<Context>,
 {
+    type Error = <P as ParseFrom<Context>>::Error;
     fn parse_from_with_rollback_when_no_error<'a>(
         stream: &mut Context,
-    ) -> Result<Option<Self>, Context::Error> {
+    ) -> Result<Option<Self>, <P as ParseFrom<Context>>::Error> {
         let state = stream.save_state();
         let result = Self::parse_from_without_guaranteed_rollback(stream);
         match result {

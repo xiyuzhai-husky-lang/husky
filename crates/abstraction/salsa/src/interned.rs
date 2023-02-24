@@ -189,7 +189,7 @@ where
     ///
     /// More specifically, this is used when a query `Q` executes and we can compare the
     /// entities `E_now` that it produced in this revision vs the entities `E_prev` it
-    /// produced in the last revision. Any missing entities `E_prev - E_new` can be deleted.
+    /// produced in the last revision. Any expect entities `E_prev - E_new` can be deleted.
     ///
     /// If you are wrong about this, it should not be unsafe, but unpredictable results may occur.
     pub(crate) fn delete_index(&self, id: Id) {

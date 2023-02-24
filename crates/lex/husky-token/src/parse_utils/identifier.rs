@@ -1,5 +1,3 @@
-use parsec::HasParseError;
-
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -23,14 +21,14 @@ impl<'a, Context> parsec::ParseFrom<Context> for IdentifierToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
                 Token::Identifier(ident) => Ok(Some(IdentifierToken { ident, token_idx })),
-                Token::Err(_)
-                | Token::AuxiliaryIdentifier(_)
+                Token::Error(error) => Err(error),
+                Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)

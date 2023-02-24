@@ -126,7 +126,7 @@ impl<'a> AstParser<'a> {
                 Token::Punctuation(_) => todo!(),
                 Token::WordOpr(_) => todo!(),
                 Token::Literal(_) => todo!(),
-                Token::Err(_) => todo!(),
+                Token::Error(_) => todo!(),
             },
             None => todo!(),
         };
@@ -145,7 +145,7 @@ impl<'a> BasicAuxAstParser<'a> {
     ) -> Result<(Accessibility, EntityKind, IdentifierToken, bool, TokenIdx), AstError> {
         let accessibility = self.parse_accessibility()?;
         let kw = self.take_entity_kind_keyword()?;
-        let ident: IdentifierToken = self.parse_expected()?;
+        let ident: IdentifierToken = self.parse_expected(OriginalAstError::ExpectIdentifier)?;
         let is_generic = self.parse_is_generic();
         let entity_kind = match self.ast_context_kind() {
             AstContextKind::InsideTrait { module_item_path } => match kw {
@@ -170,15 +170,17 @@ impl<'a> BasicAuxAstParser<'a> {
                                     todo!()
                                 }
                                 unexpected_special_token => {
-                                    return Err(AstError::UnexpectedTokenForTraitItem(
+                                    return Err(OriginalAstError::UnexpectedTokenForTraitItem(
                                         self.token_stream().state(),
-                                    ))
+                                    )
+                                    .into())
                                 }
                             },
                             ref unexpected_token => {
-                                return Err(AstError::UnexpectedTokenForTraitItem(
+                                return Err(OriginalAstError::UnexpectedTokenForTraitItem(
                                     self.token_stream().state(),
-                                ))
+                                )
+                                .into())
                             }
                         }
                     } else {
@@ -252,15 +254,17 @@ impl<'a> BasicAuxAstParser<'a> {
                                     TypeItemKind::Memo
                                 }
                                 unexpected_special_token => {
-                                    return Err(AstError::UnexpectedTokenForTypeImplItem(
+                                    return Err(OriginalAstError::UnexpectedTokenForTypeImplItem(
                                         self.token_stream().state(),
-                                    ))
+                                    )
+                                    .into())
                                 }
                             },
                             ref unexpected_token => {
-                                return Err(AstError::UnexpectedTokenForTypeImplItem(
+                                return Err(OriginalAstError::UnexpectedTokenForTypeImplItem(
                                     self.token_stream().state(),
-                                ))
+                                )
+                                .into())
                             }
                         }
                     } else {
@@ -306,15 +310,17 @@ impl<'a> BasicAuxAstParser<'a> {
                                     // TraitItemKind::Memo
                                 }
                                 unexpected_special_token => {
-                                    return Err(AstError::UnexpectedTokenForTraitImplItem(
+                                    return Err(OriginalAstError::UnexpectedTokenForTraitImplItem(
                                         self.token_stream().state(),
-                                    ))
+                                    )
+                                    .into())
                                 }
                             },
                             ref unexpected_token => {
-                                return Err(AstError::UnexpectedTokenForTraitImplItem(
+                                return Err(OriginalAstError::UnexpectedTokenForTraitImplItem(
                                     self.token_stream().state(),
-                                ))
+                                )
+                                .into())
                             }
                         }
                     } else {
@@ -357,15 +363,17 @@ impl<'a> BasicAuxAstParser<'a> {
                                     FormKind::Feature
                                 }
                                 unexpected_special_token => {
-                                    return Err(AstError::UnexpectedTokenForModuleItem(
+                                    return Err(OriginalAstError::UnexpectedTokenForModuleItem(
                                         self.token_stream().state(),
-                                    ))
+                                    )
+                                    .into())
                                 }
                             },
                             ref unexpected_token => {
-                                return Err(AstError::UnexpectedTokenForModuleItem(
+                                return Err(OriginalAstError::UnexpectedTokenForModuleItem(
                                     self.token_stream().state(),
-                                ))
+                                )
+                                .into())
                             }
                         }
                     } else {
@@ -406,7 +414,7 @@ impl<'a> BasicAuxAstParser<'a> {
                 Keyword::Pronoun(_) => todo!(),
             },
             AstContextKind::InsideMatchStmt => todo!(),
-            AstContextKind::InsideNoChild => return Err(AstError::ExpectNothing),
+            AstContextKind::InsideNoChild => return Err(OriginalAstError::ExpectNothing.into()),
         };
         Ok((
             accessibility,

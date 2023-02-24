@@ -1,6 +1,6 @@
 use crate::*;
 use husky_token::*;
-use parsec::{FromAbsent, ParseContext, ParseFrom, StreamWrapper};
+use parsec::{ParseContext, ParseFrom, StreamWrapper};
 use thiserror::Error;
 
 /// mod path expr is top-down

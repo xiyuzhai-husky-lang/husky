@@ -13,9 +13,7 @@ pub use severity::DiagnosticSeverity;
 #[cfg(test)]
 pub use tests::*;
 
-use collector::{
-    RegionDiagnosticsCollector, RegionDiagnosticsCollectorCenter, SheetDiagnosticsCollector,
-};
+use collector::{RegionDiagnosticsCollector, SheetDiagnosticsCollector};
 use context::*;
 use husky_dev_utils::DevSource;
 use husky_doc::TextRange;

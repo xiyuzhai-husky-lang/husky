@@ -31,11 +31,11 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     )
                 })
                 .collect::<Vec<_>>();
-            let colon_token = self.parse::<ColonToken>();
+            let colon_token = self.parse::<ColonToken>().map_err(|e| e.into());
             let ty = match colon_token {
                 Ok(Some(_)) => Some(self.parse_expr_expected2(
                     ExprParseEnvironment::None,
-                    OriginalExprError::MissingLetVariablesType,
+                    OriginalExprError::ExpectLetVariablesType,
                 )),
                 _ => None,
             };
@@ -48,7 +48,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 ty,
             })
         } else {
-            Err(OriginalExprError::ExpectLetVariablePattern(state))
+            Err(OriginalExprError::ExpectLetVariablePattern(state).into())
         }
     }
 }

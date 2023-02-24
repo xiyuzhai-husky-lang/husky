@@ -11,7 +11,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Type(
-                        TypeDecl::Foreign(
+                        TypeDecl::Alien(
                             AlienTypeDecl {
                                 path: TypePath(`core::logic::Prop`, `Alien`),
                                 ast_idx: 0,

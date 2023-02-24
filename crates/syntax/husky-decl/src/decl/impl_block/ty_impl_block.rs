@@ -10,7 +10,7 @@ pub struct TypeImplBlockDecl {
     pub implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     pub ty: TypeExpr,
     #[return_ref]
-    pub eol_colon: ExprResult<EolColonToken>,
+    pub eol_colon: DeclResult<EolColonToken>,
     pub expr_region: ExprRegion,
 }
 

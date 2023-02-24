@@ -26,7 +26,7 @@ pub(crate) enum Pretoken {
     NewLine,
     Ambiguous(AmbiguousPretoken),
     Comment,
-    Err(TokenError),
+    Error(TokenError),
 }
 
 impl From<AmbiguousPretoken> for Pretoken {
@@ -175,7 +175,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                                 break;
                             }
                         }
-                        Some(Pretoken::Err(e))
+                        Some(Pretoken::Error(e))
                     }
                 }
             }
@@ -204,7 +204,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
     fn next_char_or_lifetime_or_label(&mut self) -> Pretoken {
         let Some((fst, snd)) = self.char_iter.peek_two()
             else {
-                return Pretoken::Err(TokenError::NothingAfterSingleQuote)
+                return Pretoken::Error(TokenError::NothingAfterSingleQuote)
             };
         match fst {
             '\\' => todo!(),
@@ -236,7 +236,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
         let word = &self.buffer;
         let pretoken = match self.db.it_auxiliary_ident_borrowed(word) {
             Some(identifier) => Token::AuxiliaryIdentifier(identifier).into(),
-            None => Pretoken::Err(TokenError::InvalidIdentifier),
+            None => Pretoken::Error(TokenError::InvalidIdentifier),
         };
         self.buffer.clear();
         pretoken
@@ -263,7 +263,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
         } else {
             match self.db.it_ident_borrowed(word) {
                 Some(identifier) => Token::Identifier(identifier).into(),
-                None => Pretoken::Err(TokenError::InvalidIdentifier),
+                None => Pretoken::Error(TokenError::InvalidIdentifier),
             }
         };
         self.buffer.clear();
@@ -297,13 +297,13 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 "i16" => todo!(),
                 "i32" => {
                     let Ok(i) = self.buffer.parse() else {
-                        return Pretoken::Err(TokenError::ParseIntError)
+                        return Pretoken::Error(TokenError::ParseIntError)
                     };
                     IntegerLikeLiteral::I32(i).into()
                 }
                 "i64" => {
                     let Ok(i) = self.buffer.parse() else {
-                        return Pretoken::Err(TokenError::ParseIntError)
+                        return Pretoken::Error(TokenError::ParseIntError)
                     };
                     IntegerLikeLiteral::I64(i).into()
                 }
@@ -313,13 +313,13 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 "r16" => todo!(),
                 "r32" => {
                     let Ok(i) = self.buffer.parse() else {
-                        return Pretoken::Err(TokenError::ParseIntError)
+                        return Pretoken::Error(TokenError::ParseIntError)
                     };
                     IntegerLikeLiteral::R32(i).into()
                 }
                 "r64" => {
                     let Ok(i) = self.buffer.parse() else {
-                        return Pretoken::Err(TokenError::ParseIntError)
+                        return Pretoken::Error(TokenError::ParseIntError)
                     };
                     IntegerLikeLiteral::R64(i).into()
                 }
@@ -331,7 +331,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 "u64" => todo!(),
                 "u128" => todo!(),
                 "u256" => todo!(),
-                invalid_integer_suffix => return Pretoken::Err(TokenError::InvalidIntegerSuffix),
+                invalid_integer_suffix => return Pretoken::Error(TokenError::InvalidIntegerSuffix),
             };
             self.buffer.clear();
             token
@@ -504,7 +504,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 },
                 '?' => Punctuation::Question,
                 '#' => Punctuation::PoundSign,
-                c => return Some(Pretoken::Err(TokenError::UnrecognizedChar(c))),
+                c => return Some(Pretoken::Error(TokenError::UnrecognizedChar(c))),
             }
             .into(),
         )

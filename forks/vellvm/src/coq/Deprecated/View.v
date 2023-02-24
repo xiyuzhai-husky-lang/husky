@@ -41,7 +41,7 @@ Definition over {A B a} {z : View A B a} (f : a ~> B) : A ~> B :=
           end.
 Arguments over {_ _ _ _} _ [_] _.
 
-(* The less informative previous Subevent relation is recovered by dismissing the `Z` parameter *)
+(* The less informative previous Subevent relation is recovered by disexpect the `Z` parameter *)
 Definition Subevent A B := forall x, View A x B.
 
 (* Should be enough to express generic lemmas as needed for swap *)

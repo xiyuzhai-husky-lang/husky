@@ -11,7 +11,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Type(
-                        TypeDecl::Foreign(
+                        TypeDecl::Alien(
                             AlienTypeDecl {
                                 path: TypePath(`core::num::i8`, `Alien`),
                                 ast_idx: 18,
@@ -76,7 +76,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Type(
-                        TypeDecl::Foreign(
+                        TypeDecl::Alien(
                             AlienTypeDecl {
                                 path: TypePath(`core::num::i16`, `Alien`),
                                 ast_idx: 23,
@@ -141,7 +141,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Type(
-                        TypeDecl::Foreign(
+                        TypeDecl::Alien(
                             AlienTypeDecl {
                                 path: TypePath(`core::num::i32`, `Alien`),
                                 ast_idx: 28,
@@ -206,7 +206,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Type(
-                        TypeDecl::Foreign(
+                        TypeDecl::Alien(
                             AlienTypeDecl {
                                 path: TypePath(`core::num::i64`, `Alien`),
                                 ast_idx: 33,
@@ -271,7 +271,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Type(
-                        TypeDecl::Foreign(
+                        TypeDecl::Alien(
                             AlienTypeDecl {
                                 path: TypePath(`core::num::f8`, `Alien`),
                                 ast_idx: 38,
@@ -336,7 +336,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Type(
-                        TypeDecl::Foreign(
+                        TypeDecl::Alien(
                             AlienTypeDecl {
                                 path: TypePath(`core::num::f16`, `Alien`),
                                 ast_idx: 43,
@@ -401,7 +401,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Type(
-                        TypeDecl::Foreign(
+                        TypeDecl::Alien(
                             AlienTypeDecl {
                                 path: TypePath(`core::num::f32`, `Alien`),
                                 ast_idx: 48,
@@ -466,7 +466,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Type(
-                        TypeDecl::Foreign(
+                        TypeDecl::Alien(
                             AlienTypeDecl {
                                 path: TypePath(`core::num::f64`, `Alien`),
                                 ast_idx: 53,

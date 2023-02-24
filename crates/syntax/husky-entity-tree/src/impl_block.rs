@@ -188,7 +188,7 @@ fn ignore_implicit_parameters<'a>(token_stream: &mut TokenStream<'a>) -> ImplBlo
     while let Some(token) = token_stream.next() {
         match token {
             Token::Punctuation(_) => todo!(),
-            Token::Err(e) => return Err(e.clone().into()),
+            Token::Error(e) => return Err(e.clone().into()),
             _ => (),
         }
     }

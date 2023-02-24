@@ -40,6 +40,7 @@ struct AccessibilityExprParser<'a, 'b> {
 }
 
 impl<'a, 'b> parsec::ParseFrom<AccessibilityExprParser<'a, 'b>> for AccessibilityExpr {
+    type Error = AccessibilityExprError;
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut AccessibilityExprParser<'a, 'b>,
     ) -> Result<Option<Self>, AccessibilityExprError> {
@@ -51,10 +52,6 @@ impl<'a, 'b> parsec::ParseFrom<AccessibilityExprParser<'a, 'b>> for Accessibilit
         };
         todo!()
     }
-}
-
-impl<'a, 'b> parsec::HasParseError for AccessibilityExprParser<'a, 'b> {
-    type Error = AccessibilityExprError;
 }
 
 impl<'a, 'b> std::ops::Deref for AccessibilityExprParser<'a, 'b> {

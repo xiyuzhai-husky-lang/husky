@@ -20,7 +20,7 @@ pub enum Token {
     Punctuation(Punctuation),
     WordOpr(WordOpr),
     Literal(Literal),
-    Err(TokenError),
+    Error(TokenError),
 }
 
 impl<Db: TokenDb + ?Sized> salsa::DebugWithDb<Db> for Token {

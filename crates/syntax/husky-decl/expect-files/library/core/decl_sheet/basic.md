@@ -11,7 +11,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Type(
-                        TypeDecl::Foreign(
+                        TypeDecl::Alien(
                             AlienTypeDecl {
                                 path: TypePath(`core::basic::bool`, `Alien`),
                                 ast_idx: 0,
@@ -76,7 +76,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Type(
-                        TypeDecl::Foreign(
+                        TypeDecl::Alien(
                             AlienTypeDecl {
                                 path: TypePath(`core::basic::never`, `Alien`),
                                 ast_idx: 1,
@@ -141,7 +141,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Type(
-                        TypeDecl::Foreign(
+                        TypeDecl::Alien(
                             AlienTypeDecl {
                                 path: TypePath(`core::basic::unit`, `Alien`),
                                 ast_idx: 2,

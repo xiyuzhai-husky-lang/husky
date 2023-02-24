@@ -206,7 +206,7 @@ EasyMark is a markup language, designed for extreme simplicity.
 
 ```
 WARNING: EasyMark is still an evolving specification,
-and is also missing some features.
+and is also expect some features.
 ```
 
 ----------------

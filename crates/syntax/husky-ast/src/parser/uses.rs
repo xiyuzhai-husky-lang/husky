@@ -1,6 +1,6 @@
 use husky_opn_syntax::{BinaryOpr, BinaryPureClosedOpr, Bracket};
 use husky_token::{TokenParseContext, TokenStream};
-use parsec::{HasParseError, StreamWrapper};
+use parsec::StreamWrapper;
 
 use super::*;
 

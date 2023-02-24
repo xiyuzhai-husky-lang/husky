@@ -190,7 +190,7 @@ impl GraphicLayers {
                 }
             }
 
-            // Also draw areas that are missing in `area_order`:
+            // Also draw areas that are expect in `area_order`:
             for shapes in order_map.values_mut() {
                 all_shapes.append(&mut shapes.0);
             }

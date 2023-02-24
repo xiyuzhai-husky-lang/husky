@@ -1,12 +1,13 @@
 use crate::*;
 
-pub fn parse_separated_list<Context, Element, Separator>(
+pub fn parse_separated_list<Context, Element, Separator, Error>(
     ctx: &mut Context,
-) -> Result<(Vec<Element>, Vec<Separator>), Context::Error>
+) -> Result<(Vec<Element>, Vec<Separator>), Error>
 where
     Context: ParseContext,
-    Element: ParseFrom<Context>,
+    Element: ParseFrom<Context, Error = Error>,
     Separator: ParseFrom<Context>,
+    Error: From<<Separator as ParseFrom<Context>>::Error>,
 {
     let mut elements = vec![];
     let mut separators = vec![];

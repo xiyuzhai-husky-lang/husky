@@ -11,7 +11,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Type(
-                        TypeDecl::Foreign(
+                        TypeDecl::Alien(
                             AlienTypeDecl {
                                 path: TypePath(`core::raw_bits::r32`, `Alien`),
                                 ast_idx: 2,

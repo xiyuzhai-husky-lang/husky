@@ -462,7 +462,7 @@ mod struct_info {
                 for f in self.included_fields() {
                     if f.builder_attr.default.is_some() {
                         // `f` is not mandatory - it does not have it's own fake `build` method, so
-                        // `field` will need to warn about missing `field`
+                        // `field` will need to warn about expect `field`
                         // whether or not `f` is set.
                         assert!(
                             f.ordinal != field.ordinal,
@@ -473,7 +473,7 @@ mod struct_info {
                             .insert(index_after_lifetime_in_generics, f.generic_ty_param());
                         builder_generics_tuple.elems.push_value(f.type_ident());
                     } else if f.ordinal < field.ordinal {
-                        // Only add a `build` method that warns about missing `field` if `f` is set.
+                        // Only add a `build` method that warns about expect `field` if `f` is set.
                         // If `f` is not set, `f`'s `build` method will
                         // warn, since it appears earlier in the argument list.
                         builder_generics_tuple
@@ -483,7 +483,7 @@ mod struct_info {
                         builder_generics_tuple.elems.push_value(empty_type());
                     } else {
                         // `f` appears later in the argument list after `field`, so if they are both
-                        // missing we will show a warning for `field` and
+                        // expect we will show a warning for `field` and
                         // not for `f` - which means this warning should appear whether
                         // or not `f` is set.
                         g.params
@@ -508,13 +508,13 @@ mod struct_info {
 
             let early_build_error_type_name = syn::Ident::new(
                 &format!(
-                    "{}_Error_Missing_required_field_{}",
+                    "{}_Error_Expect_required_field_{}",
                     builder_name,
                     strip_raw_ident_prefix(field_name.to_string())
                 ),
                 proc_macro2::Span::call_site(),
             );
-            let early_build_error_message = format!("Missing required field {}", field_name);
+            let early_build_error_message = format!("Expect required field {}", field_name);
 
             Ok(quote! {
                 #[doc(hidden)]

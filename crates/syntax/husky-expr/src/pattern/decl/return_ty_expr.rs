@@ -12,9 +12,11 @@ impl OutputTypeExpr {
 }
 
 impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for OutputTypeExpr {
+    type Error = ExprError;
+
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> Result<Option<Self>, OriginalExprError> {
+    ) -> ExprResult<Option<Self>> {
         if let Some(expr) = ctx.parse_expr(ExprParseEnvironment::None) {
             ctx.add_expr_root(ExprRoot::new(ExprRootKind::ReturnType, expr));
             Ok(Some(OutputTypeExpr { expr }))

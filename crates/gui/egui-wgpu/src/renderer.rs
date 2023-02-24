@@ -412,7 +412,7 @@ impl Renderer {
                         );
                         render_pass.draw_indexed(0..mesh.indices.len() as u32, 0, 0..1);
                     } else {
-                        tracing::warn!("Missing texture: {:?}", mesh.texture_id);
+                        tracing::warn!("Expect texture: {:?}", mesh.texture_id);
                     }
                 }
                 Primitive::Callback(callback) => {

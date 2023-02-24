@@ -43,7 +43,7 @@ pub(crate) fn ty_signature(
         TypeDecl::Structure(decl) => structure_ty_signature(db, decl)
             .as_ref()
             .map(|s| (*s).into()),
-        TypeDecl::Foreign(decl) => alien_ty_signature(db, decl).as_ref().map(|s| (*s).into()),
+        TypeDecl::Alien(decl) => alien_ty_signature(db, decl).as_ref().map(|s| (*s).into()),
         TypeDecl::Union(decl) => union_ty_signature(db, decl).as_ref().map(|s| (*s).into()),
     }
 }

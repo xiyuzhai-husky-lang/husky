@@ -315,7 +315,7 @@ impl<'a> ExprRangeCalculator<'a> {
                         ket_token_idx: token_idx,
                         ..
                     }
-                    | OriginalExprError::MissingRightAngleBracket {
+                    | OriginalExprError::ExpectRightAngleBracket {
                         langle_token_idx: token_idx,
                     }
                     | OriginalExprError::ExpectRightCurlyBrace(token_idx)
@@ -338,19 +338,19 @@ impl<'a> ExprRangeCalculator<'a> {
                         prefix_token_idx: token_idx,
                         ..
                     }
-                    | OriginalExprError::MissingItemBeforeComma {
+                    | OriginalExprError::ExpectItemBeforeComma {
                         comma_token_idx: token_idx,
                     }
-                    | OriginalExprError::MissingItemBeforeBe {
+                    | OriginalExprError::ExpectItemBeforeBe {
                         be_token_idx: token_idx,
                     }
                     | OriginalExprError::ExpectLetVariablePattern(token_idx)
-                    | OriginalExprError::ExpectAssignToken(token_idx)
-                    | OriginalExprError::MissingInitialValue(token_idx)
+                    | OriginalExprError::ExpectAssign(token_idx)
+                    | OriginalExprError::ExpectInitialValue(token_idx)
                     | OriginalExprError::UnexpectedKeyword(token_idx)
-                    | OriginalExprError::MissingResult(token_idx)
-                    | OriginalExprError::MissingCondition(token_idx)
-                    | OriginalExprError::MissingForExpr(token_idx)
+                    | OriginalExprError::ExpectResult(token_idx)
+                    | OriginalExprError::ExpectCondition(token_idx)
+                    | OriginalExprError::ExpectForExpr(token_idx)
                     | OriginalExprError::ExpectBePattern(token_idx)
                     | OriginalExprError::ExpectParameterPattern(token_idx)
                     | OriginalExprError::UnterminatedList {
@@ -363,9 +363,10 @@ impl<'a> ExprRangeCalculator<'a> {
                     | OriginalExprError::UnresolvedSubentity { token_idx, .. } => {
                         TokenIdxRange::new_single(*token_idx)
                     }
-                    OriginalExprError::MissingBlock(_) => todo!(),
-                    OriginalExprError::MissingLetVariablesType(_) => todo!(),
-                    OriginalExprError::MissingFieldType(_) => todo!(),
+                    OriginalExprError::ExpectBlock(_) => todo!(),
+                    OriginalExprError::ExpectLetVariablesType(_) => todo!(),
+                    OriginalExprError::ExpectFieldType(_) => todo!(),
+                    OriginalExprError::ExpectPatternExprAfterBe(_) => todo!(),
                 },
                 ExprError::Derived(_) => todo!(),
             },

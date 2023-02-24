@@ -59,7 +59,7 @@ fn ty_defn(db: &dyn DefnDb, decl: TypeDecl) -> TypeDefn {
         TypeDecl::Record(decl) => record_ty_defn(db, decl).into(),
         TypeDecl::Inductive(decl) => inductive_ty_defn(db, decl).into(),
         TypeDecl::Structure(decl) => structure_ty_defn(db, decl).into(),
-        TypeDecl::Foreign(decl) => alien_ty_defn(db, decl).into(),
+        TypeDecl::Alien(decl) => alien_ty_defn(db, decl).into(),
         TypeDecl::Union(decl) => union_ty_defn(db, decl).into(),
     }
 }
@@ -151,7 +151,7 @@ pub(crate) fn function_defn(db: &dyn DefnDb, decl: FunctionDecl) -> FunctionDefn
     );
     let ast_idx = decl.ast_idx(db);
     let body = match parser.ast_sheet()[ast_idx] {
-        Ast::Defn { body, .. } => parser.parse_block_expr(body).ok_or(DefnError::MissingBody),
+        Ast::Defn { body, .. } => parser.parse_block_expr(body).ok_or(DefnError::ExpectBody),
         _ => unreachable!(),
     };
     let expr_region = parser.finish();
@@ -170,7 +170,7 @@ pub(crate) fn feature_defn(db: &dyn DefnDb, decl: FeatureDecl) -> FeatureDefn {
     );
     let ast_idx = decl.ast_idx(db);
     let body = match parser.ast_sheet()[ast_idx] {
-        Ast::Defn { body, .. } => parser.parse_block_expr(body).ok_or(DefnError::MissingBody),
+        Ast::Defn { body, .. } => parser.parse_block_expr(body).ok_or(DefnError::ExpectBody),
         _ => unreachable!(),
     };
     let expr_region = parser.finish();
@@ -230,7 +230,7 @@ pub(crate) fn ty_method_defn(db: &dyn DefnDb, decl: TypeMethodDecl) -> TypeMetho
     );
     let ast_idx = decl.ast_idx(db);
     let body = match parser.ast_sheet()[ast_idx] {
-        Ast::Defn { body, .. } => parser.parse_block_expr(body).ok_or(DefnError::MissingBody),
+        Ast::Defn { body, .. } => parser.parse_block_expr(body).ok_or(DefnError::ExpectBody),
         _ => unreachable!(),
     };
     let expr_region = parser.finish();
@@ -265,7 +265,7 @@ pub(crate) fn ty_memo_defn(db: &dyn DefnDb, decl: TypeMemoDecl) -> TypeMemoDefn 
     );
     let ast_idx = decl.ast_idx(db);
     let body = match parser.ast_sheet()[ast_idx] {
-        Ast::Defn { body, .. } => parser.parse_block_expr(body).ok_or(DefnError::MissingBody),
+        Ast::Defn { body, .. } => parser.parse_block_expr(body).ok_or(DefnError::ExpectBody),
         _ => unreachable!(),
     };
     let expr_region = parser.finish();
@@ -344,7 +344,7 @@ pub(crate) fn ty_as_trai_method_defn(
     );
     let ast_idx = decl.ast_idx(db);
     let body = match parser.ast_sheet()[ast_idx] {
-        Ast::Defn { body, .. } => parser.parse_block_expr(body).ok_or(DefnError::MissingBody),
+        Ast::Defn { body, .. } => parser.parse_block_expr(body).ok_or(DefnError::ExpectBody),
         _ => unreachable!(),
     };
     let expr_region = parser.finish();

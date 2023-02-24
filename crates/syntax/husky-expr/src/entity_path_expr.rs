@@ -1,5 +1,6 @@
 use crate::*;
 use husky_entity_tree::EntityTreeError;
+use parsec::OriginalError;
 use thiserror::Error;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -29,6 +30,12 @@ pub enum EntityPathExprError {
     Derived(DerivedEntityPathExprError),
 }
 
+impl From<TokenError> for EntityPathExprError {
+    fn from(value: TokenError) -> Self {
+        EntityPathExprError::Derived(value.into())
+    }
+}
+
 impl From<OriginalEntityPathExprError> for EntityPathExprError {
     fn from(v: OriginalEntityPathExprError) -> Self {
         Self::Original(v)
@@ -52,6 +59,10 @@ pub enum OriginalEntityPathExprError {
     ExpectIdentifierAfterScopeResolution(TokenIdx),
 }
 
+impl OriginalError for OriginalEntityPathExprError {
+    type Error = EntityPathExprError;
+}
+
 impl From<OriginalExprError> for OriginalEntityPathExprError {
     fn from(value: OriginalExprError) -> Self {
         todo!()
@@ -62,6 +73,8 @@ impl From<OriginalExprError> for OriginalEntityPathExprError {
 pub enum DerivedEntityPathExprError {
     #[error("derived from expr error {0}")]
     AbortFromExprError(#[from] OriginalExprError),
+    #[error("token error {0}")]
+    TokenError(#[from] TokenError),
 }
 
 pub type EntityPathExprResult<T> = Result<T, EntityPathExprError>;

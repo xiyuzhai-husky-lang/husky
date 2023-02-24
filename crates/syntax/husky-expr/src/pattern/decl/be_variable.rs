@@ -7,9 +7,11 @@ pub struct BeVariableDeclPattern {
 }
 
 impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for BeVariableDeclPattern {
+    type Error = ExprError;
+
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> Result<Option<Self>, OriginalExprError> {
+    ) -> ExprResult<Option<Self>> {
         // ad hoc
         if let Some(ident_token) = ctx.parse::<IdentifierToken>()? {
             Ok(Some(BeVariableDeclPattern {
