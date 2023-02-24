@@ -657,10 +657,10 @@ impl<'a, G: Html, F: FnOnce(Scope<'a>) -> G + 'a> ElementBuilder<'a, G, F> {
                 "input",
                 Box::new(move |e: web_sys::Event| {
                     let val = js_sys::Reflect::get(
-                        &e.target().expect("missing target on input event"),
+                        &e.target().expect("expect target on input event"),
                         &"value".into(),
                     )
-                    .expect("missing property `value`")
+                    .expect("expect property `value`")
                     .as_string()
                     .expect("value should be a string");
                     sub.set(val);
@@ -698,10 +698,10 @@ impl<'a, G: Html, F: FnOnce(Scope<'a>) -> G + 'a> ElementBuilder<'a, G, F> {
                 "change",
                 Box::new(move |e: web_sys::Event| {
                     let val = js_sys::Reflect::get(
-                        &e.target().expect("missing target on change event"),
+                        &e.target().expect("expect target on change event"),
                         &"checked".into(),
                     )
-                    .expect("missing property `checked`")
+                    .expect("expect property `checked`")
                     .as_bool()
                     .expect("could not get property `checked` as a bool");
                     sub.set(val);

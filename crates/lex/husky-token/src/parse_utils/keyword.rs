@@ -1,5 +1,4 @@
 use super::*;
-use parsec::HasParseError;
 
 // let
 
@@ -172,16 +171,16 @@ impl<'a, Context> parsec::ParseFrom<Context> for WhileToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Stmt(StmtKeyword::While)) => {
                     Ok(Some(WhileToken { token_idx }))
                 }
-                Token::Err(_)
-                | Token::AuxiliaryIdentifier(_)
+                Token::Error(error) => Err(error),
+                Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -199,9 +198,9 @@ impl<'a, Context> parsec::ParseFrom<Context> for BasicStmtKeywordToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Stmt(StmtKeyword::Let)) => {
@@ -231,8 +230,8 @@ where
                 Token::Keyword(Keyword::Stmt(StmtKeyword::Do)) => {
                     Ok(Some(DoToken { token_idx }.into()))
                 }
-                Token::Err(_)
-                | Token::AuxiliaryIdentifier(_)
+                Token::Error(error) => Err(error),
+                Token::AuxiliaryIdentifier(_)
                 | Token::Keyword(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
@@ -261,9 +260,9 @@ impl<'a, Context> parsec::ParseFrom<Context> for MatchToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Stmt(StmtKeyword::Match)) => {
@@ -291,16 +290,16 @@ impl<'a, Context> parsec::ParseFrom<Context> for MutToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Pattern(PatternKeyword::Mut)) => {
                     Ok(Some(MutToken { token_idx }))
                 }
-                Token::Err(_)
-                | Token::AuxiliaryIdentifier(_)
+                Token::Error(error) => Err(error),
+                Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -329,14 +328,14 @@ impl<'a, Context> parsec::ParseFrom<Context> for IfToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Stmt(StmtKeyword::If)) => Ok(Some(IfToken { token_idx })),
-                Token::Err(_)
-                | Token::AuxiliaryIdentifier(_)
+                Token::Error(error) => Err(error),
+                Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -365,16 +364,16 @@ impl<'a, Context> parsec::ParseFrom<Context> for ElifToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Stmt(StmtKeyword::Elif)) => {
                     Ok(Some(ElifToken { token_idx }))
                 }
-                Token::Err(_)
-                | Token::AuxiliaryIdentifier(_)
+                Token::Error(error) => Err(error),
+                Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -403,16 +402,16 @@ impl<'a, Context> parsec::ParseFrom<Context> for ElseToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Stmt(StmtKeyword::Else)) => {
                     Ok(Some(ElseToken { token_idx }))
                 }
-                Token::Err(_)
-                | Token::AuxiliaryIdentifier(_)
+                Token::Error(error) => Err(error),
+                Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -443,14 +442,14 @@ impl<'a, Context> parsec::ParseFrom<Context> for ImplToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Impl) => Ok(Some(ImplToken { token_idx })),
-                Token::Err(_)
-                | Token::AuxiliaryIdentifier(_)
+                Token::Error(error) => Err(error),
+                Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -481,14 +480,14 @@ impl<'a, Context> parsec::ParseFrom<Context> for PubToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Attr(AttributeKeyword::Pub) => Ok(Some(PubToken { token_idx })),
-                Token::Err(_)
-                | Token::AuxiliaryIdentifier(_)
+                Token::Error(error) => Err(error),
+                Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -519,14 +518,14 @@ impl<'a, Context> parsec::ParseFrom<Context> for UseToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Use) => Ok(Some(UseToken { token_idx })),
-                Token::Err(_)
-                | Token::AuxiliaryIdentifier(_)
+                Token::Error(error) => Err(error),
+                Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -572,16 +571,16 @@ impl<'a, Context> parsec::ParseFrom<Context> for CrateToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Pronoun(PronounKeyword::Crate)) => {
                     Ok(Some(CrateToken { token_idx }))
                 }
-                Token::Err(_)
-                | Token::AuxiliaryIdentifier(_)
+                Token::Error(error) => Err(error),
+                Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -627,16 +626,16 @@ impl<'a, Context> parsec::ParseFrom<Context> for SelfValueToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Pronoun(PronounKeyword::SelfValue)) => {
                     Ok(Some(SelfValueToken { token_idx }))
                 }
-                Token::Err(_)
-                | Token::AuxiliaryIdentifier(_)
+                Token::Error(error) => Err(error),
+                Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -681,16 +680,16 @@ impl<'a, Context> parsec::ParseFrom<Context> for SelfTypeToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Pronoun(PronounKeyword::SelfType)) => {
                     Ok(Some(SelfTypeToken { token_idx }))
                 }
-                Token::Err(_)
-                | Token::AuxiliaryIdentifier(_)
+                Token::Error(error) => Err(error),
+                Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -735,16 +734,16 @@ impl<'a, Context> parsec::ParseFrom<Context> for SuperToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Pronoun(PronounKeyword::Super)) => {
                     Ok(Some(SuperToken { token_idx }))
                 }
-                Token::Err(_)
-                | Token::AuxiliaryIdentifier(_)
+                Token::Error(error) => Err(error),
+                Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -803,9 +802,9 @@ impl<'a, Context> parsec::ParseFrom<Context> for VarianceToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Pattern(PatternKeyword::Covariant)) => {
@@ -817,8 +816,8 @@ where
                 Token::Keyword(Keyword::Pattern(PatternKeyword::Invariant)) => {
                     Ok(Some(InvariantToken { token_idx }.into()))
                 }
-                Token::Err(_)
-                | Token::AuxiliaryIdentifier(_)
+                Token::Error(error) => Err(error),
+                Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)

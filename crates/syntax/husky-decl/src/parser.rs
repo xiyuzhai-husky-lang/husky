@@ -92,7 +92,7 @@ impl<'a> DeclParser<'a> {
                 use salsa::DisplayWithDb;
                 panic!(r#"
     Path `{}` is invalid!
-    This is very likely caused by missing item in standard library.
+    This is very likely caused by expect item in standard library.
 "#, path.display(self.db))
             };
         let module_item_symbol = entity_symbol.module_item_symbol().unwrap();
@@ -190,7 +190,7 @@ impl<'a> DeclParser<'a> {
                 use salsa::DisplayWithDb;
                 panic!(r#"
     Path `{}` is invalid!
-    This is very likely caused by missing item in standard library.
+    This is very likely caused by expect item in standard library.
 "#, path.display(self.db))
             };
         let module_item = entity_symbol.module_item_symbol().unwrap();
@@ -283,8 +283,8 @@ impl<'a> DeclParser<'a> {
         );
         let implicit_parameters = ctx.parse()?;
         if let Some(lcurl) = ctx.parse::<LeftCurlyBraceToken>()? {
-            let (fields, separators) = parse_separated_list(&mut ctx)?;
-            let rcurl: RightCurlyBraceToken = ctx.parse_expected()?;
+            let  fields = parse_separated_list(&mut ctx) ;
+            let rcurl: RightCurlyBraceToken = ctx.parse_expected(OriginalOriginalDeclExprError::ExpectRightCurlyBrace)?;
             Ok(RegularStructTypeDecl::new(
                 self.db,
                 path,
@@ -292,15 +292,14 @@ impl<'a> DeclParser<'a> {
                 parser.finish(),
                 implicit_parameters,
                 lcurl,
-                fields,
-                separators,
+                fields, 
                 rcurl,
             )
             .into())
         } else if let Some(lbox) = ctx.parse::<LeftBoxBracketToken>()? {
             todo!()
         } else {
-            Err(DeclError::ExpectLCurlOrLParOrSemicolon(ctx.save_state()))
+            Err(OriginalDeclExprError::ExpectLCurlOrLParOrSemicolon(ctx.save_state()))
         }
     }
 
@@ -448,9 +447,9 @@ impl<'a> DeclParser<'a> {
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
-        let curry_token = ctx.parse_expected2(DeclError::MissingCurry);
-        let return_ty = ctx.parse_expected2(DeclError::MissingOutputType);
-        let eol_colon = ctx.parse_expected2(DeclError::MissingEolColon);
+        let curry_token = ctx.parse_expected(OriginalDeclExprError::ExpectCurry);
+        let return_ty = ctx.parse_expected(OriginalDeclExprError::ExpectOutputType);
+        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);
         Ok(FeatureDecl::new(
             self.db,
             path,
@@ -485,9 +484,9 @@ impl<'a> DeclParser<'a> {
             p!(path.debug(self.db));
             todo!()
         };
-        let curry_token = ctx.parse_expected2(DeclError::MissingCurry);
-        let return_ty = ctx.parse_expected2(DeclError::MissingOutputType);
-        let eol_colon = ctx.parse_expected2(DeclError::MissingEolColon);
+        let curry_token = ctx.parse_expected(OriginalDeclExprError::ExpectCurry);
+        let return_ty = ctx.parse_expected(OriginalDeclExprError::ExpectOutputType);
+        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);
         Ok(FunctionDecl::new(
             self.db,
             path,
@@ -513,7 +512,7 @@ impl<'a> DeclParser<'a> {
                     .parse_ty_impl_block_decl(ast_idx, token_group_idx, impl_block)?
                     .into()),
                 ImplBlockKind::TypeAsTrait { ty, trai } => todo!(),
-                ImplBlockKind::Err => Err(DeclError::ImplBlockErr),
+                ImplBlockKind::Err => Err(OriginalDeclExprError::ImplBlockErr),
             },
             _ => unreachable!(),
         }
@@ -538,7 +537,7 @@ impl<'a> DeclParser<'a> {
         let impl_token = ctx.parse().unwrap().unwrap();
         let implicit_parameter_decl_list = ctx.parse()?;
         let ty = ctx.parse().unwrap().unwrap();
-        let eol_colon = ctx.parse_expected();
+        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);
         Ok(TypeImplBlockDecl::new(
             self.db,
             ast_idx,
@@ -619,7 +618,7 @@ impl<'a> DeclParser<'a> {
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeMethodDecl> {
         let Ok(impl_block_decl) = self.db.impl_block_decl(associated_item.impl_block(self.db))
-            else { return Err(DeclError::UnableToParseImplBlockDeclForTyMethodDecl) };
+            else { return Err(OriginalDeclExprError::UnableToParseImplBlockDeclForTyMethodDecl) };
         let mut parser = self.expr_parser(
             DeclRegionPath::AssociatedItem(associated_item.id(self.db)),
             Some(impl_block_decl.expr_region(self.db)),
@@ -640,9 +639,9 @@ impl<'a> DeclParser<'a> {
             p!(path.debug(self.db));
             todo!()
         };
-        let curry_token = ctx.parse_expected2(DeclError::MissingCurry);
-        let return_ty = ctx.parse_expected2(DeclError::MissingOutputType);
-        let eol_colon = ctx.parse_expected2(DeclError::MissingEolColon);
+        let curry_token = ctx.parse_expected(OriginalDeclExprError::ExpectCurry);
+        let return_ty = ctx.parse_expected(OriginalDeclExprError::ExpectOutputType);
+        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);
         Ok(TypeMethodDecl::new(
             self.db,
             associated_item,
@@ -682,9 +681,9 @@ impl<'a> DeclParser<'a> {
             None => None,
             _ => unreachable!(),
         };
-        let curry_token = ctx.parse_expected2(DeclError::MissingCurry);
-        let return_ty = ctx.parse_expected2(DeclError::MissingOutputType);
-        let eol_colon = ctx.parse_expected2(DeclError::MissingEolColon);
+        let curry_token = ctx.parse_expected(OriginalDeclExprError::ExpectCurry);
+        let return_ty = ctx.parse_expected(OriginalDeclExprError::ExpectOutputType);
+        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);
         Ok(TypeMemoDecl::new(
             self.db,
             path,
@@ -706,7 +705,7 @@ impl<'a> DeclParser<'a> {
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeAsTraitMethodDecl> {
         let Ok(impl_block_decl) = self.db.impl_block_decl(associated_item.impl_block(self.db))
-            else { return Err(DeclError::UnableToParseImplBlockDeclForTyAsTraitMethodDecl) };
+            else { return Err(OriginalDeclExprError::UnableToParseImplBlockDeclForTyAsTraitMethodDecl) };
         let mut parser = self.expr_parser(
             DeclRegionPath::AssociatedItem(associated_item.id(self.db)),
             Some(impl_block_decl.expr_region(self.db)),
@@ -727,9 +726,9 @@ impl<'a> DeclParser<'a> {
             p!(path.debug(self.db));
             todo!()
         };
-        let curry_token = ctx.parse_expected2(DeclError::MissingCurry);
-        let return_ty = ctx.parse_expected2(DeclError::MissingOutputType);
-        let eol_colon = ctx.parse_expected2(DeclError::MissingEolColon);
+        let curry_token = ctx.parse_expected(OriginalDeclExprError::ExpectCurry);
+        let return_ty = ctx.parse_expected(OriginalDeclExprError::ExpectOutputType);
+        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);
         Ok(TypeAsTraitMethodDecl::new(
             self.db,
             path,

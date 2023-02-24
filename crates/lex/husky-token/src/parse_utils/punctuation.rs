@@ -2,7 +2,7 @@ use super::*;
 use husky_opn_syntax::{BinaryOpr, Bracket};
 
 use husky_print_utils::p;
-use parsec::{HasParseError, ParseContext, ParseFrom};
+use parsec::{ParseContext, ParseFrom};
 
 // punctuation in general
 
@@ -16,13 +16,13 @@ impl<'a, Context> parsec::ParseFrom<Context> for PunctuationToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Punctuation(punc) => Ok(Some(PunctuationToken { punc, token_idx })),
-                Token::Err(_)
+                Token::Error(_)
                 | Token::AuxiliaryIdentifier(_)
                 | Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -48,7 +48,7 @@ where
     if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
         match token {
             Token::Punctuation(punc) if punc == target => Some(token_idx),
-            Token::Err(_)
+            Token::Error(_)
             | Token::AuxiliaryIdentifier(_)
             | Token::Punctuation(_)
             | Token::Identifier(_)
@@ -73,9 +73,9 @@ impl<'a, Context> parsec::ParseFrom<Context> for ColonToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         Ok(parse_specific_punctuation_from(ctx, Punctuation::Colon)
             .map(|token_idx| ColonToken { token_idx }))
     }
@@ -91,6 +91,7 @@ fn colon_token_works() {
     assert!(t(&db, ":").unwrap().is_some());
     assert!(t(&db, ",").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
+    assert!(t(&db, "'").is_err());
 }
 
 // comma
@@ -104,9 +105,9 @@ impl<'a, Context> parsec::ParseFrom<Context> for CommaToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         Ok(parse_specific_punctuation_from(ctx, Punctuation::Comma)
             .map(|token_idx| CommaToken { token_idx }))
     }
@@ -122,6 +123,7 @@ fn comma_token_works() {
     assert!(t(&db, ",").unwrap().is_some());
     assert!(t(&db, ")").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
+    assert!(t(&db, "'").is_err());
 }
 
 // assign
@@ -141,9 +143,9 @@ impl<'a, Context> parsec::ParseFrom<Context> for AssignToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         Ok(
             parse_specific_punctuation_from(ctx, BinaryOpr::Assign(None).into())
                 .map(|token_idx| AssignToken { token_idx }),
@@ -161,6 +163,7 @@ fn assign_token_works() {
     assert!(t(&db, "=").unwrap().is_some());
     assert!(t(&db, ")").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
+    assert!(t(&db, "'").is_err());
 }
 
 // left parenthesis
@@ -180,9 +183,9 @@ impl<'a, Context> parsec::ParseFrom<Context> for LeftParenthesisToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         Ok(
             parse_specific_punctuation_from(ctx, Punctuation::Bra(Bracket::Par))
                 .map(|token_idx| LeftParenthesisToken { token_idx }),
@@ -200,6 +203,7 @@ fn left_parenthesis_token_works() {
     assert!(t(&db, "(").unwrap().is_some());
     assert!(t(&db, ")").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
+    assert!(t(&db, "'").is_err());
 }
 
 // right parenthesis
@@ -213,9 +217,9 @@ impl<'a, Context> parsec::ParseFrom<Context> for RightParenthesisToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         Ok(
             parse_specific_punctuation_from(ctx, Punctuation::Ket(Bracket::Par))
                 .map(|token_idx| RightParenthesisToken { token_idx }),
@@ -233,6 +237,7 @@ fn right_parenthesis_token_works() {
     assert!(t(&db, ")").unwrap().is_some());
     assert!(t(&db, "(").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
+    assert!(t(&db, "'").is_err());
 }
 
 // left box bracket
@@ -246,9 +251,9 @@ impl<'a, Context> parsec::ParseFrom<Context> for LeftBoxBracketToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         Ok(
             parse_specific_punctuation_from(ctx, Punctuation::Bra(Bracket::Box))
                 .map(|token_idx| LeftBoxBracketToken { token_idx }),
@@ -266,6 +271,7 @@ fn left_box_bracket_token_works() {
     assert!(t(&db, "[").unwrap().is_some());
     assert!(t(&db, "]").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
+    assert!(t(&db, "'").is_err());
 }
 
 // right box bracket
@@ -285,9 +291,9 @@ impl<'a, Context> parsec::ParseFrom<Context> for RightBoxBracketToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         Ok(
             parse_specific_punctuation_from(ctx, Punctuation::Ket(Bracket::Box))
                 .map(|token_idx| RightBoxBracketToken { token_idx }),
@@ -305,6 +311,7 @@ fn right_box_bracket_token_works() {
     assert!(t(&db, "]").unwrap().is_some());
     assert!(t(&db, "[").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
+    assert!(t(&db, "'").is_err());
 }
 
 // left curly brace
@@ -318,9 +325,9 @@ impl<'a, Context> parsec::ParseFrom<Context> for LeftCurlyBraceToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         Ok(
             parse_specific_punctuation_from(ctx, Punctuation::Bra(Bracket::Curl))
                 .map(|token_idx| LeftCurlyBraceToken { token_idx }),
@@ -338,6 +345,7 @@ fn left_curly_brace_token_works() {
     assert!(t(&db, "{").unwrap().is_some());
     assert!(t(&db, "}").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
+    assert!(t(&db, "'").is_err());
 }
 
 // right curly brace
@@ -351,9 +359,9 @@ impl<'a, Context> parsec::ParseFrom<Context> for RightCurlyBraceToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         Ok(
             parse_specific_punctuation_from(ctx, Punctuation::Ket(Bracket::Curl))
                 .map(|token_idx| RightCurlyBraceToken { token_idx }),
@@ -371,6 +379,7 @@ fn right_curly_brace_token_works() {
     assert!(t(&db, "}").unwrap().is_some());
     assert!(t(&db, "{").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
+    assert!(t(&db, "'").is_err());
 }
 
 // left angle bracket
@@ -390,9 +399,9 @@ impl<'a, Context> parsec::ParseFrom<Context> for LeftAngleBracketOrLessThanToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         Ok(parse_specific_punctuation_from(ctx, Punctuation::LaOrLt)
             .map(|token_idx| LeftAngleBracketOrLessThanToken { token_idx }))
     }
@@ -409,6 +418,7 @@ fn left_angle_or_less_bracket_token_works() {
     assert!(t(&db, "::<").unwrap().is_none());
     assert!(t(&db, ">").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
+    assert!(t(&db, "'").is_err());
 }
 
 // colon colon left angle bracket
@@ -428,9 +438,9 @@ impl<'a, Context> parsec::ParseFrom<Context> for ColonColonLeftAngleBracketToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         Ok(
             parse_specific_punctuation_from(ctx, Punctuation::ColonColonLAngle)
                 .map(|token_idx| ColonColonLeftAngleBracketToken { token_idx }),
@@ -449,6 +459,7 @@ fn colon_colon_left_angle_bracket_token_works() {
     assert!(t(&db, "<").unwrap().is_none());
     assert!(t(&db, ">").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
+    assert!(t(&db, "'").is_err());
 }
 
 // right curly brace
@@ -462,9 +473,9 @@ impl<'a, Context> parsec::ParseFrom<Context> for RightAngleBracketToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         Ok(parse_specific_punctuation_from(ctx, Punctuation::RaOrGt)
             .map(|token_idx| RightAngleBracketToken { token_idx }))
     }
@@ -480,6 +491,7 @@ fn right_angle_bracket_token_works() {
     assert!(t(&db, ">").unwrap().is_some());
     assert!(t(&db, "<").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
+    assert!(t(&db, "'").is_err());
 }
 
 // vertical
@@ -493,9 +505,9 @@ impl<'a, Context> parsec::ParseFrom<Context> for VerticalToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         Ok(parse_specific_punctuation_from(ctx, Punctuation::Vertical)
             .map(|token_idx| VerticalToken { token_idx }))
     }
@@ -511,6 +523,7 @@ fn vertical_token_works() {
     assert!(t(&db, "|").unwrap().is_some());
     assert!(t(&db, "||").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
+    assert!(t(&db, "'").is_err());
 }
 
 // at
@@ -524,9 +537,9 @@ impl<'a, Context> parsec::ParseFrom<Context> for AtToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         Ok(parse_specific_punctuation_from(ctx, Punctuation::At)
             .map(|token_idx| AtToken { token_idx }))
     }
@@ -543,6 +556,7 @@ fn at_token_works() {
     assert!(t(&db, "|").unwrap().is_none());
     assert!(t(&db, "||").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
+    assert!(t(&db, "'").is_err());
 }
 
 // dotdot
@@ -556,9 +570,9 @@ impl<'a, Context> parsec::ParseFrom<Context> for DotDotToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         Ok(parse_specific_punctuation_from(ctx, Punctuation::DotDot)
             .map(|token_idx| DotDotToken { token_idx }))
     }
@@ -576,6 +590,7 @@ fn dotdot_token_works() {
     assert!(t(&db, ".").unwrap().is_none());
     assert!(t(&db, "||").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
+    assert!(t(&db, "'").is_err());
 }
 
 /// `:` at the end of line
@@ -594,9 +609,9 @@ impl<'a, Context> parsec::ParseFrom<Context> for EolColonToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         let token_stream = ctx.token_stream_mut();
         if let Some((token_idx, token)) = token_stream.next_indexed() {
             match token {
@@ -604,7 +619,7 @@ where
                     Some(_) => Ok(None),
                     None => Ok(Some(EolColonToken { token_idx })),
                 },
-                Token::Err(_)
+                Token::Error(_)
                 | Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
@@ -631,6 +646,7 @@ fn eol_colon_token_works() {
     assert!(t(&db, ".").unwrap().is_none());
     assert!(t(&db, "||").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
+    assert!(t(&db, "'").is_err());
 }
 
 /// `::`
@@ -649,16 +665,16 @@ impl<'a, Context> parsec::ParseFrom<Context> for ScopeResolutionToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         let token_stream = ctx.token_stream_mut();
         if let Some((token_idx, token)) = token_stream.next_indexed() {
             match token {
                 Token::Punctuation(Punctuation::ColonColon) => {
                     Ok(Some(ScopeResolutionToken { token_idx }))
                 }
-                Token::Err(_)
+                Token::Error(_)
                 | Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
@@ -686,6 +702,7 @@ fn scope_resolution_token_works() {
     assert!(t(&db, ".").unwrap().is_none());
     assert!(t(&db, "||").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
+    assert!(t(&db, "'").is_err());
 }
 
 /// `*`
@@ -704,14 +721,14 @@ impl<'a, Context> parsec::ParseFrom<Context> for StarToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         let token_stream = ctx.token_stream_mut();
         if let Some((token_idx, token)) = token_stream.next_indexed() {
             match token {
                 Token::Punctuation(Punctuation::Star) => Ok(Some(StarToken { token_idx })),
-                Token::Err(_)
+                Token::Error(_)
                 | Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
@@ -739,6 +756,7 @@ fn star_token_works() {
     assert!(t(&db, ".").unwrap().is_none());
     assert!(t(&db, "||").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
+    assert!(t(&db, "'").is_err());
 }
 
 /// `->`
@@ -751,16 +769,16 @@ impl<'a, Context> parsec::ParseFrom<Context> for CurryToken
 where
     Context: TokenParseContext<'a>,
 {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         let token_stream = ctx.token_stream_mut();
         if let Some((token_idx, token)) = token_stream.next_indexed() {
             match token {
                 Token::Punctuation(Punctuation::Binary(BinaryOpr::Curry)) => {
                     Ok(Some(CurryToken { token_idx }))
                 }
-                Token::Err(_)
+                Token::Error(_)
                 | Token::AuxiliaryIdentifier(_)
                 | Token::Punctuation(_)
                 | Token::Identifier(_)
@@ -788,4 +806,5 @@ fn curry_token_works() {
     assert!(t(&db, ".").unwrap().is_none());
     assert!(t(&db, "||").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
+    assert!(t(&db, "'").is_err());
 }

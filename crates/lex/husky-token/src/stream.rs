@@ -1,17 +1,12 @@
 use crate::*;
 use husky_doc::{TextPosition, TextRange};
 use husky_opn_syntax::Bracket;
-use parsec::HasParseError;
 
 #[derive(Debug, Clone)]
 pub struct TokenStream<'a> {
     base: usize,
     tokens: &'a [Token],
     next_relative: usize,
-}
-
-impl<'a> HasParseError for TokenStream<'a> {
-    type Error = TokenError;
 }
 
 impl TokenSheetData {

@@ -1,6 +1,6 @@
 use crate::*;
 use husky_token::*;
-use parsec::{FromAbsent, ParseContext, ParseFrom, StreamWrapper};
+use parsec::{OriginalError, ParseContext, ParseFrom, StreamWrapper};
 use thiserror::Error;
 
 /// use tree expr is top-down
@@ -118,47 +118,39 @@ pub(crate) fn parse_use_expr_root(
 
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum UseExprError {
+    #[error("{0}")]
+    Original(#[from] OriginalUseExprError),
+    #[error("{0}")]
+    Derived(#[from] DerivedUseExprError),
+}
+
+#[derive(Debug, Error, PartialEq, Eq)]
+pub enum OriginalUseExprError {
     #[error("expect identifier")]
     ExpectIdentifier(TokenIdx),
+    #[error("expect use expr")]
+    ExpectUseExpr(TokenIdx),
+    #[error("expect `::`")]
+    ExpectScopeResolution(TokenIdx),
+    #[error("expect `}}`")]
+    ExpectRightCurlyBrace(TokenIdx),
+    #[error("expect `use` token")]
+    ExpectUseToken(TokenIdx),
+}
+
+impl OriginalError for OriginalUseExprError {
+    type Error = UseExprError;
+}
+
+#[derive(Debug, Error, PartialEq, Eq)]
+pub enum DerivedUseExprError {
     #[error("token error")]
     Token(#[from] TokenError),
-    #[error("missing use expr")]
-    MissingUseExpr(TokenIdx),
-    #[error("missing `::`")]
-    MissingScopeResolution(TokenIdx),
-    #[error("missing `}}`")]
-    RightCurlyBrace(TokenIdx),
-    #[error("missing `use` token")]
-    MissingUseToken(TokenIdx),
 }
 
-impl<'a, 'b> FromAbsent<IdentifierToken, UseExprParser<'a, 'b>> for UseExprError {
-    fn new_absent_error(state: TokenIdx) -> Self {
-        UseExprError::ExpectIdentifier(state)
-    }
-}
-
-impl<'a, 'b> FromAbsent<RightCurlyBraceToken, UseExprParser<'a, 'b>> for UseExprError {
-    fn new_absent_error(state: TokenIdx) -> Self {
-        UseExprError::RightCurlyBrace(state)
-    }
-}
-
-impl<'a, 'b> FromAbsent<UseToken, UseExprParser<'a, 'b>> for UseExprError {
-    fn new_absent_error(state: TokenIdx) -> Self {
-        UseExprError::MissingUseToken(state)
-    }
-}
-
-impl<'a, 'b> FromAbsent<ScopeResolutionToken, UseExprParser<'a, 'b>> for UseExprError {
-    fn new_absent_error(state: TokenIdx) -> Self {
-        UseExprError::MissingScopeResolution(state)
-    }
-}
-
-impl<'a, 'b> FromAbsent<UseExpr, UseExprParser<'a, 'b>> for UseExprError {
-    fn new_absent_error(state: TokenIdx) -> Self {
-        UseExprError::MissingUseExpr(state)
+impl From<TokenError> for UseExprError {
+    fn from(value: TokenError) -> Self {
+        UseExprError::Derived(value.into())
     }
 }
 
@@ -179,10 +171,6 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
             use_expr_arena: use_expr_arena,
         }
     }
-}
-
-impl<'a, 'b> parsec::HasParseError for UseExprParser<'a, 'b> {
-    type Error = UseExprError;
 }
 
 impl<'a, 'b> std::ops::Deref for UseExprParser<'a, 'b> {
@@ -215,8 +203,8 @@ impl<'a, 'b> StreamWrapper for UseExprParser<'a, 'b> {}
 
 impl<'a, 'b> UseExprParser<'a, 'b> {
     pub(crate) fn parse_use_expr_root(&mut self) -> UseExprResult<UseExprRoot> {
-        let use_token = self.parse_expected::<UseToken>()?;
-        let use_expr = self.parse_expected()?;
+        let use_token: UseToken = self.parse_expected(OriginalUseExprError::ExpectUseToken)?;
+        let use_expr = self.parse_expected(OriginalUseExprError::ExpectUseExpr)?;
         Ok(UseExprRoot {
             use_token,
             use_expr_idx: self.use_expr_arena.alloc_one(use_expr),
@@ -239,7 +227,7 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
 
     fn parse_children(&mut self) -> UseExprResult<UseExprChildren> {
         let Some(lcurl_token) = self.parse::<LeftCurlyBraceToken>()? else {
-            let child = self.parse_expected().into();
+            let child = self.parse_expected(OriginalUseExprError::ExpectUseExpr).into();
             let child = self.use_expr_arena.alloc_one(child);
             return Ok(UseExprChildren::Single { child })
         };
@@ -249,22 +237,24 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
             lcurl_token,
             children,
             comma_tokens,
-            rcurl_token: self.parse_expected(),
+            rcurl_token: self.parse_expected(OriginalUseExprError::ExpectRightCurlyBrace),
         })
     }
 }
 
 impl<'a, 'b> ParseFrom<UseExprParser<'a, 'b>> for UseExpr {
+    type Error = UseExprError;
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut UseExprParser<'a, 'b>,
-    ) -> Result<Option<Self>, UseExprError> {
+    ) -> UseExprResult<Option<Self>> {
         if let Some(star_token) = ctx.parse::<StarToken>()? {
             return Ok(Some(UseExpr::All { star_token }));
         }
         if let Some(crate_token) = ctx.parse::<CrateToken>()? {
             return Ok(Some(UseExpr::Parent {
                 parent_name_token: ParentNameToken::Crate(crate_token),
-                scope_resolution_token: ctx.parse_expected(),
+                scope_resolution_token: ctx
+                    .parse_expected(OriginalUseExprError::ExpectScopeResolution),
                 children: ctx.parse_children(),
             }));
         }

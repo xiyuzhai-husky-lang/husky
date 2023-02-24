@@ -8,7 +8,7 @@ mod specs;
 mod tests;
 mod use_expr;
 
-pub use crate::error::{AstError, AstResult};
+pub use crate::error::*;
 pub use db::AstDb;
 use husky_accessibility::Accessibility;
 pub use range::*;

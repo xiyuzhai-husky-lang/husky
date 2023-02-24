@@ -1,4 +1,5 @@
 use super::*;
+use husky_defn::*;
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]
 pub struct DefnDiagnosticSheet {
@@ -11,16 +12,48 @@ pub(crate) fn defn_diagnostic_sheet(
     db: &dyn DiagnosticsDb,
     module_path: ModulePath,
 ) -> DefnDiagnosticSheet {
-    let mut diagnostics = vec![];
+    let mut sheet_collector = SheetDiagnosticsCollector::new(db, module_path);
     if let (Ok(ranged_token_sheet), Ok(defn_sheet)) = (
         db.ranged_token_sheet(module_path),
         db.collect_defns(module_path),
     ) {
         let token_sheet_data = ranged_token_sheet.token_sheet_data(db);
-        for defn in defn_sheet.defns() {
-            todo!()
+        for (path, defn) in defn_sheet.defns() {
+            match defn {
+                Ok(defn) => {
+                    if let Some(expr_region) = defn.expr_region(db) {
+                        let mut region_collector =
+                            RegionDiagnosticsCollector::new(db, expr_region, &mut sheet_collector);
+                        region_collector.visit_defn(defn)
+                    }
+                }
+                Err(_) => todo!(),
+            }
         }
     }
     // todo
-    DefnDiagnosticSheet::new(db, diagnostics)
+    DefnDiagnosticSheet::new(db, sheet_collector.finish())
+}
+
+impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
+    fn visit_defn(&mut self, defn: Defn) {
+        match defn {
+            Defn::Type(Defn) => match Defn {
+                TypeDefn::Enum(Defn) => (),
+                TypeDefn::RegularStruct(Defn) => (),
+                TypeDefn::UnitStruct(Defn) => (),
+                TypeDefn::TupleStruct(Defn) => (),
+                TypeDefn::Record(Defn) => (),
+                TypeDefn::Inductive(Defn) => (),
+                TypeDefn::Structure(Defn) => (),
+                TypeDefn::Alien(Defn) => (),
+                TypeDefn::Union(Defn) => (),
+            },
+            Defn::Form(Defn) => (),
+            Defn::Trait(Defn) => (),
+            Defn::ImplBlock(Defn) => (),
+            Defn::AssociatedItem(Defn) => (),
+            Defn::Variant(Defn) => (),
+        }
+    }
 }

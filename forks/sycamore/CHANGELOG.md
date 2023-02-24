@@ -331,7 +331,7 @@ Release post:
 
 -   #### 🛠 Fixes
 
-    -   Implement missing operations on `SsrNode` [[@lukechu10],
+    -   Implement expect operations on `SsrNode` [[@lukechu10],
         [#82](https://github.com/sycamore-rs/sycamore/pull/82),
         [#138](https://github.com/sycamore-rs/sycamore/pull/138)]
     -   Remove warning when effects are created outside of a reactive scope [[@JuanMarchetto],

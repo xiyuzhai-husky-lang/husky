@@ -16,9 +16,7 @@ pub struct RegularStructTypeDecl {
     pub implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     pub lcurl: LeftCurlyBraceToken,
     #[return_ref]
-    pub fields: Vec<RegularStructFieldPattern>,
-    #[return_ref]
-    pub separators: Vec<CommaToken>,
+    pub fields: ExprResult<(Vec<RegularStructFieldPattern>, Vec<CommaToken>)>,
     pub rcurl: RightCurlyBraceToken,
 }
 

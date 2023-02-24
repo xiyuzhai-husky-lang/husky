@@ -10,9 +10,11 @@ pub struct RegularParameterDeclPattern {
 }
 
 impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for RegularParameterDeclPattern {
+    type Error = ExprError;
+
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> Result<Option<Self>, OriginalExprError> {
+    ) -> ExprResult<Option<Self>> {
         if let Some(pattern) = ctx.parse_pattern_expr(PatternExprInfo::Parameter)? {
             let symbols = ctx.pattern_expr_region().pattern_symbol_map(pattern);
             let access_start = ctx.state();
@@ -29,7 +31,7 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for RegularParameterDeclPattern
                     )
                 })
                 .collect::<Vec<_>>();
-            let colon = ctx.parse_expected::<ColonToken>()?;
+            let colon = ctx.parse_expected(OriginalExprError::ExpectColon)?;
             let Some(ty) = ctx.parse_expr(ExprParseEnvironment::WithinBracket(Bracket::Par)) else {
                 todo!()
             };

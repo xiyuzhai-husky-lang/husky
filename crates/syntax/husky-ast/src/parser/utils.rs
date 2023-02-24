@@ -2,7 +2,7 @@ use super::*;
 use husky_entity_taxonomy::{ModuleItemKind, TypeKind};
 use husky_opn_syntax::Bracket;
 use husky_token::*;
-use parsec::{HasParseError, StreamWrapper};
+use parsec::StreamWrapper;
 use std::iter::Peekable;
 
 pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a> {
@@ -16,7 +16,9 @@ pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a> {
                 AttributeKeyword::Pub => {
                     token_stream.next();
                     match token_stream.peek().ok_or(
-                        AstError::UnexpectedEndOfTokenGroupAfterPubKeyword(token_stream.state()),
+                        OriginalAstError::UnexpectedEndOfTokenGroupAfterPubKeyword(
+                            token_stream.state(),
+                        ),
                     )? {
                         Token::Punctuation(Punctuation::Bra(Bracket::Par)) => todo!(),
                         _ => Accessibility::Public,
@@ -35,11 +37,11 @@ pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a> {
         let (idx, token) = self
             .borrow_mut()
             .next_indexed()
-            .ok_or(AstError::ExpectEntityKeyword)?;
+            .ok_or(OriginalAstError::ExpectEntityKeyword)?;
         Ok(match token {
             Token::Attr(_) => self.take_entity_kind_keyword()?,
             Token::Keyword(kw) => kw,
-            _ => return Err(AstError::ExpectEntityKeyword),
+            _ => return Err(OriginalAstError::ExpectEntityKeyword.into()),
         })
     }
 
@@ -97,10 +99,6 @@ pub(crate) struct BasicAuxAstParser<'a> {
     ast_parent: AstContextKind,
     module_path: ModulePath,
     token_iter: TokenStream<'a>,
-}
-
-impl<'a> HasParseError for BasicAuxAstParser<'a> {
-    type Error = AstError;
 }
 
 impl<'a> BasicAuxAstParser<'a> {

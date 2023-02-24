@@ -87,8 +87,8 @@ impl Diagnose for OriginalExprError {
             OriginalExprError::MismatchingBracket { .. } => {
                 format!("Syntax Error: mismatching bracket")
             }
-            OriginalExprError::MissingRightAngleBracket { .. } => {
-                format!("Syntax Error: missing `>`")
+            OriginalExprError::ExpectRightAngleBracket { .. } => {
+                format!("Syntax Error: expect `>`")
             }
             OriginalExprError::ExpectRightCurlyBrace(_) => format!("Syntax Error: expect `}}`"),
             OriginalExprError::ExpectIdentifier(_) => format!("Syntax Error: expect identifier"),
@@ -107,23 +107,23 @@ impl Diagnose for OriginalExprError {
             OriginalExprError::NoOperandForPrefixOperator { .. } => {
                 format!("Syntax Error:no operand for prefix operator")
             }
-            OriginalExprError::MissingItemBeforeComma { .. } => {
-                format!("Syntax Error: missing item before `,`")
+            OriginalExprError::ExpectItemBeforeComma { .. } => {
+                format!("Syntax Error: expect item before `,`")
             }
-            OriginalExprError::MissingItemBeforeBe { .. } => {
-                format!("Syntax Error: missing item before `be`")
+            OriginalExprError::ExpectItemBeforeBe { .. } => {
+                format!("Syntax Error: expect item before `be`")
             }
             OriginalExprError::ExpectLetVariablePattern(_) => {
                 format!("Syntax Error: expect variable pattern")
             }
-            OriginalExprError::ExpectAssignToken(_) => format!("Syntax Error: expect `=`"),
-            OriginalExprError::MissingInitialValue(_) => {
-                format!("Syntax Error: missing initial value")
+            OriginalExprError::ExpectAssign(_) => format!("Syntax Error: expect `=`"),
+            OriginalExprError::ExpectInitialValue(_) => {
+                format!("Syntax Error: expect initial value")
             }
             OriginalExprError::UnexpectedKeyword(_) => format!("Syntax Error: unexpected keyword"),
-            OriginalExprError::MissingResult(_) => format!("Syntax Error: missing result"),
-            OriginalExprError::MissingCondition(_) => format!("Syntax Error: missing condition"),
-            OriginalExprError::MissingForExpr(_) => format!("Syntax Error: expect for expr"),
+            OriginalExprError::ExpectResult(_) => format!("Syntax Error: expect result"),
+            OriginalExprError::ExpectCondition(_) => format!("Syntax Error: expect condition"),
+            OriginalExprError::ExpectForExpr(_) => format!("Syntax Error: expect for expr"),
             OriginalExprError::ExpectBePattern(_) => format!("Syntax Error: expect be pattern"),
             OriginalExprError::ExpectParameterPattern(_) => {
                 format!("Syntax Error: expect paramter pattern")
@@ -137,7 +137,7 @@ impl Diagnose for OriginalExprError {
             OriginalExprError::ExpectIdentifierAfterMut(_) => {
                 format!("Syntax Error: expect identifier after `mut`")
             }
-            OriginalExprError::MissingBlock(_) => format!("Syntax Error: missing block"),
+            OriginalExprError::ExpectBlock(_) => format!("Syntax Error: expect block"),
             OriginalExprError::UnexpectedSheba(_) => format!("Syntax Error: unexpected `$`"),
             OriginalExprError::UnrecognizedIdentifier { token_idx, ident } => {
                 format!("Syntax Error: unrecognized identifier")
@@ -145,8 +145,9 @@ impl Diagnose for OriginalExprError {
             OriginalExprError::UnresolvedSubentity { token_idx, ident } => {
                 format!("Syntax Error: unresolved subentity")
             }
-            OriginalExprError::MissingLetVariablesType(_) => todo!(),
-            OriginalExprError::MissingFieldType(_) => todo!(),
+            OriginalExprError::ExpectLetVariablesType(_) => todo!(),
+            OriginalExprError::ExpectFieldType(_) => todo!(),
+            OriginalExprError::ExpectPatternExprAfterBe(_) => todo!(),
         }
     }
 
@@ -160,7 +161,7 @@ impl Diagnose for OriginalExprError {
                 ket_token_idx: token_idx,
                 ..
             }
-            | OriginalExprError::MissingRightAngleBracket {
+            | OriginalExprError::ExpectRightAngleBracket {
                 langle_token_idx: token_idx,
             }
             | OriginalExprError::ExpectRightCurlyBrace(token_idx)
@@ -183,19 +184,19 @@ impl Diagnose for OriginalExprError {
                 prefix_token_idx: token_idx,
                 ..
             }
-            | OriginalExprError::MissingItemBeforeComma {
+            | OriginalExprError::ExpectItemBeforeComma {
                 comma_token_idx: token_idx,
             }
-            | OriginalExprError::MissingItemBeforeBe {
+            | OriginalExprError::ExpectItemBeforeBe {
                 be_token_idx: token_idx,
             }
             | OriginalExprError::ExpectLetVariablePattern(token_idx)
-            | OriginalExprError::ExpectAssignToken(token_idx)
-            | OriginalExprError::MissingInitialValue(token_idx)
+            | OriginalExprError::ExpectAssign(token_idx)
+            | OriginalExprError::ExpectInitialValue(token_idx)
             | OriginalExprError::UnexpectedKeyword(token_idx)
-            | OriginalExprError::MissingResult(token_idx)
-            | OriginalExprError::MissingCondition(token_idx)
-            | OriginalExprError::MissingForExpr(token_idx)
+            | OriginalExprError::ExpectResult(token_idx)
+            | OriginalExprError::ExpectCondition(token_idx)
+            | OriginalExprError::ExpectForExpr(token_idx)
             | OriginalExprError::ExpectBePattern(token_idx)
             | OriginalExprError::ExpectParameterPattern(token_idx)
             | OriginalExprError::UnterminatedList {
@@ -208,9 +209,10 @@ impl Diagnose for OriginalExprError {
             | OriginalExprError::UnresolvedSubentity { token_idx, .. } => {
                 ctx.ranged_token_sheet().token_text_range(*token_idx)
             }
-            OriginalExprError::MissingBlock(_) => todo!(),
-            OriginalExprError::MissingLetVariablesType(_) => todo!(),
-            OriginalExprError::MissingFieldType(_) => todo!(),
+            OriginalExprError::ExpectBlock(_) => todo!(),
+            OriginalExprError::ExpectLetVariablesType(_) => todo!(),
+            OriginalExprError::ExpectFieldType(_) => todo!(),
+            OriginalExprError::ExpectPatternExprAfterBe(_) => todo!(),
         }
     }
 }

@@ -22,9 +22,11 @@ impl ImplicitParameterDecl {
 }
 
 impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDecl {
+    type Error = ExprError;
+
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> Result<Option<Self>, OriginalExprError> {
+    ) -> ExprResult<Option<Self>> {
         let Some(pattern) = ctx.parse::<ImplicitParameterDeclPattern>()? else {
             return Ok(None)
         };
@@ -78,9 +80,11 @@ impl ImplicitParameterDeclList {
 }
 
 impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDeclList {
+    type Error = DeclError;
+
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> Result<Option<Self>, OriginalExprError> {
+    ) -> DeclResult<Option<Self>> {
         let Some(langle) = ctx.parse::< LeftAngleBracketOrLessThanToken>()? else {
             return Ok(None)
         };
@@ -89,11 +93,12 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDeclList {
             langle,
             implicit_parameters: decls,
             commas,
-            rangle: ctx
-                .parse()?
-                .ok_or(OriginalExprError::MissingRightAngleBracket {
+            rangle: ctx.parse_expected(|current_token_idx| {
+                OriginalDeclExprError::ExpectRightAngleBracketForImplicitParameterDeclList {
                     langle_token_idx: langle.token_idx(),
-                })?,
+                    current_token_idx,
+                }
+            })?,
         }))
     }
 }
@@ -113,17 +118,19 @@ impl ParameterDeclList {
 }
 
 impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ParameterDeclList {
+    type Error = ExprError;
+
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> Result<Option<Self>, OriginalExprError> {
+    ) -> ExprResult<Option<Self>> {
         let Some(lpar) = ctx.parse::<LeftParenthesisToken>()? else {
             return Ok(None)
         };
-        let (decls, commas) = parse_separated_list(ctx)?;
-        let rpar = ctx.parse_expected::<RightParenthesisToken>()?;
+        let (parameters, commas) = parse_separated_list(ctx)?;
+        let rpar = ctx.parse_expected(OriginalExprError::ExpectRightParenthesis)?;
         Ok(Some(Self {
             lpar,
-            parameters: decls,
+            parameters,
             commas,
             rpar,
         }))

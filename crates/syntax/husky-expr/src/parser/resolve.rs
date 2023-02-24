@@ -206,8 +206,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 WordOpr::Be => ResolvedToken::Be(token_idx),
             },
             Token::Literal(_) => ResolvedToken::AtomicExpr(Expr::Literal(token_idx)),
-            Token::Err(ref error) => {
-                ResolvedToken::AtomicExpr(Expr::Err(DerivedExprError::Token(token_idx).into()))
+            Token::Error(error) => {
+                ResolvedToken::AtomicExpr(Expr::Err(DerivedExprError::Token(error).into()))
             }
         })
     }

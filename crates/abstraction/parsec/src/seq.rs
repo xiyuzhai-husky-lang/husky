@@ -1,10 +1,10 @@
 use crate::*;
 
-pub fn parse_seq2<'a, Context, A, B>(stream: &mut Context) -> Result<Option<(A, B)>, Context::Error>
+pub fn parse_seq2<'a, Context, A, B, Error>(stream: &mut Context) -> Result<Option<(A, B)>, Error>
 where
     Context: ParseContext,
-    A: ParseFrom<Context>,
-    B: ParseFrom<Context>,
+    A: ParseFrom<Context, Error = Error>,
+    B: ParseFrom<Context, Error = Error>,
 {
     let a = match A::parse_from_without_guaranteed_rollback(stream)? {
         Some(a) => a,
@@ -26,14 +26,14 @@ fn parse_seq2_works() {
     assert_eq!(t("ba"), Ok(None));
 }
 
-pub fn parse_seq3<'a, Context, A, B, C>(
+pub fn parse_seq3<'a, Context, A, B, C, Error>(
     stream: &mut Context,
-) -> Result<Option<(A, B, C)>, Context::Error>
+) -> Result<Option<(A, B, C)>, Error>
 where
     Context: ParseContext,
-    A: ParseFrom<Context>,
-    B: ParseFrom<Context>,
-    C: ParseFrom<Context>,
+    A: ParseFrom<Context, Error = Error>,
+    B: ParseFrom<Context, Error = Error>,
+    C: ParseFrom<Context, Error = Error>,
 {
     let a = match A::parse_from_without_guaranteed_rollback(stream)? {
         Some(a) => a,

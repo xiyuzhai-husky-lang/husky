@@ -90,7 +90,7 @@ impl<'token> Tokenizer<'token> {
                 },
             },
             Pretoken::Comment => TokenizerAction::Comment(ranged_pretoken.range),
-            Pretoken::Err(e) => TokenizerAction::Push((Token::Err(e), ranged_pretoken.range)),
+            Pretoken::Error(e) => TokenizerAction::Push((Token::Error(e), ranged_pretoken.range)),
         }
     }
 

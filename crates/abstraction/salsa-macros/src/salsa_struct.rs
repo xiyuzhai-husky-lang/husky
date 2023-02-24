@@ -314,7 +314,7 @@ impl<A: AllowedOptions> SalsaStruct<A> {
                 #db_trai
             },
             None => quote! {
-                MissingDbArgument
+                ExpectDbArgument
             },
         };
         let db_dyn_ty = self.db_dyn_ty();

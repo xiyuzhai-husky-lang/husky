@@ -19,7 +19,7 @@ pub(crate) fn token_diagnostic_sheet(
     let mut diagnostics = vec![];
     if let Ok(ranged_token_sheet) = db.ranged_token_sheet(module_path) {
         for (range, token) in ranged_token_sheet.ranged_token_iter(db) {
-            if let Token::Err(e) = token {
+            if let Token::Error(e) = token {
                 diagnostics.push((range, e).to_diagnostic(&ctx))
             }
         }
@@ -32,19 +32,19 @@ impl Diagnose for (&TextRange, &TokenError) {
 
     fn message(&self, db: &Self::Context<'_>) -> String {
         match self.1 {
-            TokenError::IncompleteStringLiteral => {
+            TokenErrorKind::IncompleteStringLiteral => {
                 format!("Syntax Error: incomplete string literal")
             }
-            TokenError::UnexpectedCharAfterBackslash => {
+            TokenErrorKind::UnexpectedCharAfterBackslash => {
                 format!("Syntax Error: unexpected char after backslash")
             }
-            TokenError::UnrecognizedChar(_) => format!("Syntax Error: unrecognized char"),
-            TokenError::IllFormedLiteral(_) => format!("Syntax Error: ill-formed literal"),
-            TokenError::NumberPseudoLiteral(_) => format!("Syntax Error: number pseudoliteral"),
-            TokenError::ParseIntError => format!("Syntax Error: parse int error"),
-            TokenError::InvalidIntegerSuffix => format!("Syntax Error: invalid integer suffix"),
-            TokenError::InvalidIdentifier => format!("Syntax Error: invalid identifier"),
-            TokenError::NothingAfterSingleQuote => format!("Syntax Error: nothing after `'`"),
+            TokenErrorKind::UnrecognizedChar(_) => format!("Syntax Error: unrecognized char"),
+            TokenErrorKind::IllFormedLiteral(_) => format!("Syntax Error: ill-formed literal"),
+            TokenErrorKind::NumberPseudoLiteral(_) => format!("Syntax Error: number pseudoliteral"),
+            TokenErrorKind::ParseIntError => format!("Syntax Error: parse int error"),
+            TokenErrorKind::InvalidIntegerSuffix => format!("Syntax Error: invalid integer suffix"),
+            TokenErrorKind::InvalidIdentifier => format!("Syntax Error: invalid identifier"),
+            TokenErrorKind::NothingAfterSingleQuote => format!("Syntax Error: nothing after `'`"),
         }
     }
 

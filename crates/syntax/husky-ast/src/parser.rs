@@ -61,7 +61,7 @@ impl<'a> AstParser<'a> {
         if token_group.indent() > context.indent() {
             return Some(Ast::Err {
                 token_group_idx,
-                error: AstError::ExcessiveIndent,
+                error: OriginalAstError::ExcessiveIndent.into(),
             });
         }
         Some(match first_noncomment_token {
@@ -71,11 +71,11 @@ impl<'a> AstParser<'a> {
                     StmtKeyword::If => self.parse_if_else_stmts(token_group_idx, &context),
                     StmtKeyword::Elif => Ast::Err {
                         token_group_idx,
-                        error: AstError::StandaloneElif,
+                        error: OriginalAstError::StandaloneElif.into(),
                     },
                     StmtKeyword::Else => Ast::Err {
                         token_group_idx,
-                        error: AstError::StandaloneElse,
+                        error: OriginalAstError::StandaloneElse.into(),
                     },
                     StmtKeyword::Match => self.parse_match_stmts(token_group_idx, &context),
                     StmtKeyword::While
@@ -124,7 +124,7 @@ impl<'a> AstParser<'a> {
             | Token::AuxiliaryIdentifier(_)
             | Token::WordOpr(_)
             | Token::Literal(_) => self.parse_stmt(token_group_idx, &context),
-            Token::Err(_) => todo!(),
+            Token::Error(_) => todo!(),
         })
     }
 
@@ -193,7 +193,7 @@ impl<'a> AstParser<'a> {
             AstContextKind::InsideTrait { module_item_path } => {
                 return Ast::Err {
                     token_group_idx,
-                    error: AstError::Todo,
+                    error: OriginalAstError::Todo.into(),
                 }
             }
             AstContextKind::InsideEnumLikeType { module_item_path } => todo!(),
@@ -201,20 +201,20 @@ impl<'a> AstParser<'a> {
             AstContextKind::InsideTypeImpl | AstContextKind::InsideTraitImpl => {
                 return Ast::Err {
                     token_group_idx,
-                    error: AstError::UnexpectedStmtInsideImpl,
+                    error: OriginalAstError::UnexpectedStmtInsideImpl.into(),
                 }
             }
             AstContextKind::InsideModule => {
                 return Ast::Err {
                     token_group_idx,
-                    error: AstError::UnexpectedStmtInsideModule,
+                    error: OriginalAstError::UnexpectedStmtInsideModule.into(),
                 }
             }
             AstContextKind::InsideMatchStmt => (),
             AstContextKind::InsideNoChild => {
                 return Ast::Err {
                     token_group_idx,
-                    error: AstError::ExpectNothing,
+                    error: OriginalAstError::ExpectNothing.into(),
                 }
             }
         }
@@ -257,15 +257,15 @@ impl<'a> AstParser<'a> {
                 | Token::Literal(_) => {
                     return Ast::Err {
                         token_group_idx,
-                        error: AstError::ExpectDecoratorOrEntityKeyword,
+                        error: OriginalAstError::ExpectDecoratorOrEntityKeyword.into(),
                     }
                 }
-                Token::Err(_) => todo!(),
+                Token::Error(_) => todo!(),
             }
         }
         Ast::Err {
             token_group_idx,
-            error: AstError::InvalidAstForDefinitionOrUse,
+            error: OriginalAstError::InvalidAstForDefinitionOrUse.into(),
         }
     }
 }

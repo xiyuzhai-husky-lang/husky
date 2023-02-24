@@ -8,28 +8,64 @@ use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum DeclError {
-    #[error("expect `{{` or `(` or `;`")]
-    ExpectLCurlOrLParOrSemicolon(TokenIdx),
-    #[error("token error")]
-    Token(#[from] TokenError),
-    #[error("derived {0}")]
-    EntityTree(#[from] EntityTreeError),
-    #[error("derived {0}")]
-    Vfs(#[from] VfsError),
-    #[error("derived {0}")]
-    Expr(#[from] OriginalExprError),
-    #[error("impl block error")]
-    ImplBlockErr,
-    #[error("missing output type")]
-    MissingOutputType(TokenIdx),
-    #[error("missing `->`")]
-    MissingCurry(TokenIdx),
-    #[error("missing `:` at end of line")]
-    MissingEolColon(TokenIdx),
+    #[error("{0}")]
+    Original(OriginalDeclError),
+    #[error("{0}")]
+    Derived(DerivedDeclError),
+}
+
+impl From<EntityTreeError> for DeclError {
+    fn from(value: EntityTreeError) -> Self {
+        OriginalDeclExprError::Derived(value.into())
+    }
+}
+
+impl From<VfsError> for DeclError {
+    fn from(value: VfsError) -> Self {
+        OriginalDeclExprError::Derived(value.into())
+    }
+}
+
+impl From<TokenError> for DeclError {
+    fn from(value: TokenError) -> Self {
+        OriginalDeclExprError::Derived(value.into())
+    }
+}
+
+impl From<DerivedDeclError> for DeclError {
+    fn from(v: DerivedDeclError) -> Self {
+        Self::Derived(v)
+    }
+}
+
+impl From<OriginalDeclError> for DeclError {
+    fn from(v: OriginalDeclError) -> Self {
+        Self::Original(v)
+    }
+}
+
+#[derive(Debug, Error, PartialEq, Eq)]
+pub enum OriginalDeclError {
     #[error("unable to parse impl block decl for ty as trai method decl")]
     UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
     #[error("unable to parse impl block decl for ty method decl")]
     UnableToParseImplBlockDeclForTyMethodDecl,
+}
+
+impl OriginalError for OriginalDeclError {
+    type Error = DeclError;
+}
+
+#[derive(Debug, Error, PartialEq, Eq)]
+pub enum DerivedDeclError {
+    #[error("token error")]
+    Token(#[from] TokenError),
+    #[error("derived {0}")]
+    Vfs(#[from] VfsError),
+    #[error("derived {0}")]
+    EntityTree(#[from] EntityTreeError),
+    #[error("derived {0}")]
+    ExprError(#[from] DerivedExprError),
 }
 
 pub type DeclResult<T> = Result<T, DeclError>;
@@ -45,4 +81,56 @@ impl<Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for DeclError {
         // ad hoc
         std::fmt::Debug::fmt(&self, f)
     }
+}
+
+#[derive(Debug, Error, PartialEq, Eq)]
+pub enum DeclExprError {
+    #[error("{0}")]
+    Original(#[from] OriginalDeclExprError),
+    #[error("{0}")]
+    Derived(#[from] DerivedDeclExprError),
+}
+
+pub type DeclExprResult<T> = Result<T, DeclExprError>;
+
+impl From<ExprError> for DeclExprError {
+    fn from(error: ExprError) -> Self {
+        match error {
+            ExprError::Original(error) => DeclExprError::Original(error.into()),
+            ExprError::Derived(error) => DeclExprError::Derived(error.into()),
+        }
+    }
+}
+
+#[derive(Debug, Error, PartialEq, Eq)]
+pub enum OriginalDeclExprError {
+    #[error("derived {0}")]
+    Expr(#[from] OriginalExprError),
+    #[error("expect `{{` or `(` or `;`")]
+    ExpectLCurlOrLParOrSemicolon(TokenIdx),
+    #[error("impl block error")]
+    ImplBlockErr,
+    #[error("expect output type")]
+    ExpectOutputType(TokenIdx),
+    #[error("expect `->`")]
+    ExpectCurry(TokenIdx),
+    #[error("expect `:` at end of line")]
+    ExpectEolColon(TokenIdx),
+    #[error("expect `}}`")]
+    ExpectRightCurlyBrace(TokenIdx),
+    #[error("expect `>` for implicit parameters")]
+    ExpectRightAngleBracketForImplicitParameterDeclList {
+        langle_token_idx: TokenIdx,
+        current_token_idx: TokenIdx,
+    },
+}
+
+impl OriginalError for OriginalDeclExprError {
+    type Error = DeclExprError;
+}
+
+#[derive(Debug, Error, PartialEq, Eq)]
+pub enum DerivedDeclExprError {
+    #[error("{0}")]
+    ExprError(#[from] DerivedExprError),
 }

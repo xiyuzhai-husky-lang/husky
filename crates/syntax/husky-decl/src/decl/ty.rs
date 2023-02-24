@@ -31,7 +31,7 @@ pub enum TypeDecl {
     Record(RecordTypeDecl),
     Inductive(InductiveTypeDecl),
     Structure(StructureTypeDecl),
-    Foreign(AlienTypeDecl),
+    Alien(AlienTypeDecl),
     Union(UnionTypeDecl),
 }
 
@@ -51,7 +51,7 @@ impl TypeDecl {
             TypeDecl::Record(decl) => decl.ast_idx(db),
             TypeDecl::Inductive(decl) => decl.ast_idx(db),
             TypeDecl::Structure(decl) => decl.ast_idx(db),
-            TypeDecl::Foreign(decl) => decl.ast_idx(db),
+            TypeDecl::Alien(decl) => decl.ast_idx(db),
             TypeDecl::Union(decl) => decl.ast_idx(db),
         }
     }
@@ -65,7 +65,7 @@ impl TypeDecl {
             TypeDecl::Record(decl) => decl.implicit_parameters(db),
             TypeDecl::Inductive(decl) => decl.implicit_parameters(db),
             TypeDecl::Structure(decl) => decl.implicit_parameters(db),
-            TypeDecl::Foreign(decl) => decl.implicit_parameters(db),
+            TypeDecl::Alien(decl) => decl.implicit_parameters(db),
             TypeDecl::Union(decl) => decl.implicit_parameters(db),
         }
     }
@@ -79,7 +79,7 @@ impl TypeDecl {
             TypeDecl::Record(decl) => decl.expr_region(db),
             TypeDecl::Inductive(decl) => decl.expr_region(db),
             TypeDecl::Structure(decl) => decl.expr_region(db),
-            TypeDecl::Foreign(decl) => decl.expr_region(db),
+            TypeDecl::Alien(decl) => decl.expr_region(db),
             TypeDecl::Union(decl) => decl.expr_region(db),
         }
     }
@@ -93,7 +93,7 @@ impl TypeDecl {
             TypeDecl::RegularStruct(decl) => decl.path(db),
             TypeDecl::TupleStruct(decl) => decl.path(db),
             TypeDecl::Structure(decl) => decl.path(db),
-            TypeDecl::Foreign(decl) => decl.path(db),
+            TypeDecl::Alien(decl) => decl.path(db),
             TypeDecl::Union(decl) => decl.path(db),
         }
     }
@@ -147,6 +147,6 @@ impl From<StructureTypeDecl> for TypeDecl {
 
 impl From<AlienTypeDecl> for TypeDecl {
     fn from(v: AlienTypeDecl) -> Self {
-        Self::Foreign(v)
+        Self::Alien(v)
     }
 }

@@ -246,7 +246,7 @@ fn opt_linkage_wrapper(
         if opt_linkage.is_none() {
             use husky_print_utils::*;
             println!(
-                "{YELLOW}[warning] {RED}missing linkage{RESET} for {GREEN}{}{RESET}",
+                "{YELLOW}[warning] {RED}expect linkage{RESET} for {GREEN}{}{RESET}",
                 message()
             )
         }

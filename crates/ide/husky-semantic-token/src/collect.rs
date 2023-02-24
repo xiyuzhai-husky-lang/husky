@@ -35,7 +35,7 @@ fn token_to_semantic_token(
             Token::Punctuation(_) => SemanticToken::Special,
             Token::WordOpr(_) => SemanticToken::WordOpr,
             Token::Literal(_) => SemanticToken::Literal,
-            Token::Err(_) => return None,
+            Token::Error(_) => return None,
         },
         TokenInfo::Entity(path, kind) => {
             if let Some(path) = path {

@@ -1,4 +1,4 @@
-use parsec::{HasParseError, ParseContext};
+use parsec::ParseContext;
 
 use super::*;
 
