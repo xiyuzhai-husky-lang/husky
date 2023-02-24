@@ -51,7 +51,7 @@ fn module_signatures_works() {
 }
 
 #[test]
-fn menu_entity_signatures_works() {
+fn menu_ty_signatures_works() {
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
     let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
@@ -82,4 +82,11 @@ fn menu_entity_signatures_works() {
     assert!(db
         .ty_signature(db.ty_decl(entity_path_menu.f64_ty_path()).unwrap())
         .is_ok());
+    assert!(db
+        .ty_signature(db.ty_decl(entity_path_menu.trai_ty_path()).unwrap())
+        .is_ok());
+    // todo: uncomment
+    // assert!(db
+    //     .ty_signature(db.ty_decl(entity_path_menu.ref_ty_path()).unwrap())
+    //     .is_ok());
 }
