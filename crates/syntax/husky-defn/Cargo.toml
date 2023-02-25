@@ -9,6 +9,7 @@ thiserror = "1.0.37"
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
 vec-like = { path = "../../abstraction/vec-like" }
+enum-class = { path = "../../abstraction/enum-class" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # infer

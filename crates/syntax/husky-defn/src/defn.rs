@@ -15,6 +15,7 @@ use husky_ast::AstIdx;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = DefnDb)]
+#[enum_class::from_variants]
 pub enum Defn {
     Type(TypeDefn),
     Trait(TraitDefn),
@@ -22,12 +23,6 @@ pub enum Defn {
     Variant(VariantDefn),
     Impl(ImplDecl),
     AssociatedItem(AssociatedItemDefn),
-}
-
-impl From<AssociatedItemDefn> for Defn {
-    fn from(v: AssociatedItemDefn) -> Self {
-        Self::AssociatedItem(v)
-    }
 }
 
 impl Defn {
@@ -61,24 +56,6 @@ impl Defn {
             Defn::Variant(defn) => None,
             Defn::Impl(_) => None,
         }
-    }
-}
-
-impl From<FormDefn> for Defn {
-    fn from(v: FormDefn) -> Self {
-        Self::Form(v)
-    }
-}
-
-impl From<TraitDefn> for Defn {
-    fn from(v: TraitDefn) -> Self {
-        Self::Trait(v)
-    }
-}
-
-impl From<TypeDefn> for Defn {
-    fn from(v: TypeDefn) -> Self {
-        Self::Type(v)
     }
 }
 

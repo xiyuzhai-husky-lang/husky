@@ -22,6 +22,7 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = DefnDb)]
+#[enum_class::from_variants]
 pub enum TypeDefn {
     Enum(EnumTypeDefn),
     Inductive(InductiveTypeDefn),
@@ -32,36 +33,6 @@ pub enum TypeDefn {
     Structure(StructureTypeDefn),
     Extern(ExternTypeDefn),
     Union(UnionTypeDefn),
-}
-
-impl From<ExternTypeDefn> for TypeDefn {
-    fn from(v: ExternTypeDefn) -> Self {
-        Self::Extern(v)
-    }
-}
-
-impl From<UnionTypeDefn> for TypeDefn {
-    fn from(v: UnionTypeDefn) -> Self {
-        Self::Union(v)
-    }
-}
-
-impl From<UnitStructTypeDefn> for TypeDefn {
-    fn from(v: UnitStructTypeDefn) -> Self {
-        Self::UnitStruct(v)
-    }
-}
-
-impl From<TupleStructTypeDefn> for TypeDefn {
-    fn from(v: TupleStructTypeDefn) -> Self {
-        Self::TupleStruct(v)
-    }
-}
-
-impl From<RegularStructTypeDefn> for TypeDefn {
-    fn from(v: RegularStructTypeDefn) -> Self {
-        Self::RegularStruct(v)
-    }
 }
 
 impl TypeDefn {
@@ -91,29 +62,5 @@ impl TypeDefn {
             TypeDefn::Extern(defn) => defn.path(db),
             TypeDefn::Union(defn) => defn.path(db),
         }
-    }
-}
-
-impl From<EnumTypeDefn> for TypeDefn {
-    fn from(v: EnumTypeDefn) -> Self {
-        Self::Enum(v)
-    }
-}
-
-impl From<InductiveTypeDefn> for TypeDefn {
-    fn from(v: InductiveTypeDefn) -> Self {
-        Self::Inductive(v)
-    }
-}
-
-impl From<RecordTypeDefn> for TypeDefn {
-    fn from(v: RecordTypeDefn) -> Self {
-        Self::Record(v)
-    }
-}
-
-impl From<StructureTypeDefn> for TypeDefn {
-    fn from(v: StructureTypeDefn) -> Self {
-        Self::Structure(v)
     }
 }

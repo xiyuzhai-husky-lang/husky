@@ -15,6 +15,7 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
+#[enum_class::from_variants]
 pub enum FormDecl {
     Function(FunctionDecl),
     Feature(FeatureDecl),
@@ -60,29 +61,5 @@ impl FormDecl {
             FormDecl::Morphism(decl) => decl.path(db),
             FormDecl::Value(decl) => decl.path(db),
         }
-    }
-}
-
-impl From<ValueDecl> for FormDecl {
-    fn from(v: ValueDecl) -> Self {
-        Self::Value(v)
-    }
-}
-
-impl From<MorphismDecl> for FormDecl {
-    fn from(v: MorphismDecl) -> Self {
-        Self::Morphism(v)
-    }
-}
-
-impl From<FeatureDecl> for FormDecl {
-    fn from(v: FeatureDecl) -> Self {
-        Self::Feature(v)
-    }
-}
-
-impl From<FunctionDecl> for FormDecl {
-    fn from(v: FunctionDecl) -> Self {
-        Self::Function(v)
     }
 }

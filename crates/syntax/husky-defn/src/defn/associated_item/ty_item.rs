@@ -15,42 +15,13 @@ use husky_entity_path::AssociatedItemPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DefnDb)]
+#[enum_class::from_variants]
 pub enum TypeItemDefn {
     Function(TypeAssociatedFunctionDefn),
     Method(TypeMethodDefn),
     ExternType(TypeAssociatedTypeDefn),
     Value(TypeAssociatedValueDefn),
     Memo(TypeMemoDefn),
-}
-
-impl From<TypeMemoDefn> for TypeItemDefn {
-    fn from(v: TypeMemoDefn) -> Self {
-        Self::Memo(v)
-    }
-}
-
-impl From<TypeAssociatedValueDefn> for TypeItemDefn {
-    fn from(v: TypeAssociatedValueDefn) -> Self {
-        Self::Value(v)
-    }
-}
-
-impl From<TypeAssociatedTypeDefn> for TypeItemDefn {
-    fn from(v: TypeAssociatedTypeDefn) -> Self {
-        Self::ExternType(v)
-    }
-}
-
-impl From<TypeMethodDefn> for TypeItemDefn {
-    fn from(v: TypeMethodDefn) -> Self {
-        Self::Method(v)
-    }
-}
-
-impl From<TypeAssociatedFunctionDefn> for TypeItemDefn {
-    fn from(v: TypeAssociatedFunctionDefn) -> Self {
-        Self::Function(v)
-    }
 }
 
 impl TypeItemDefn {

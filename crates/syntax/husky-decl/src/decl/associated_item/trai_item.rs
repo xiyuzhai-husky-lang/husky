@@ -13,6 +13,7 @@ use husky_ast::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
+#[enum_class::from_variants]
 pub enum TraitItemDecl {
     AssociatedFunction(TraitAssociatedFunctionDecl),
     Method(TraitMethodDecl),

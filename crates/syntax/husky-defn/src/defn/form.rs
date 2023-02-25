@@ -14,6 +14,7 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = DefnDb)]
+#[enum_class::from_variants]
 pub enum FormDefn {
     Function(FunctionDefn),
     Feature(FeatureDefn),
@@ -46,29 +47,5 @@ impl FormDefn {
             FormDefn::Morphism(defn) => defn.expr_region(db),
             FormDefn::Value(defn) => defn.expr_region(db),
         }
-    }
-}
-
-impl From<ValueDefn> for FormDefn {
-    fn from(v: ValueDefn) -> Self {
-        Self::Value(v)
-    }
-}
-
-impl From<MorphismDefn> for FormDefn {
-    fn from(v: MorphismDefn) -> Self {
-        Self::Morphism(v)
-    }
-}
-
-impl From<FeatureDefn> for FormDefn {
-    fn from(v: FeatureDefn) -> Self {
-        Self::Feature(v)
-    }
-}
-
-impl From<FunctionDefn> for FormDefn {
-    fn from(v: FunctionDefn) -> Self {
-        Self::Function(v)
     }
 }
