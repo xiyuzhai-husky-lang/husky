@@ -130,14 +130,14 @@ impl SymbolRegion {
                     Some(access_end) => access_end.token_idx() > token_idx,
                     None => true,
                 };
-                symbol.ident == ident && accessible
+                symbol.ident() == Some(ident) && accessible
             })
             .map(|(current_symbol_idx, current_symbol)| {
                 Symbol::Local(current_symbol_idx, current_symbol.kind())
             })
             .or_else(|| {
                 self.inherited_symbol_arena
-                    .find_rev_indexed(|symbol| symbol.ident == ident)
+                    .find_rev_indexed(|symbol| symbol.ident() == Some(ident))
                     .map(|(inherited_symbol_idx, inherited_symbol)| {
                         Symbol::Inherited(inherited_symbol_idx, inherited_symbol.kind)
                     })
@@ -171,17 +171,16 @@ impl SymbolRegion {
         }
         for (current_symbol_idx, current_symbol) in self.indexed_current_symbol_iter() {
             let kind = match current_symbol.variant {
-                CurrentSymbolVariant::RegularParameter { .. } => {
-                    InheritedSymbolKind::RegularParameter
+                CurrentSymbolVariant::RegularParameter { ident, .. } => {
+                    InheritedSymbolKind::RegularParameter { ident }
                 }
                 CurrentSymbolVariant::LetVariable { .. } => todo!(),
-                CurrentSymbolVariant::FrameVariable(_) => todo!(),
+                CurrentSymbolVariant::FrameVariable { .. } => todo!(),
                 CurrentSymbolVariant::ImplicitParameter {
                     ref implicit_parameter_variant,
-                } => InheritedSymbolKind::ImplicitParameter,
+                } => InheritedSymbolKind::ImplicitParameter(implicit_parameter_variant.bequeath()),
             };
             inherited_symbol_arena.alloc_one(InheritedSymbol {
-                ident: current_symbol.ident,
                 kind,
                 parent_symbol_idx: current_symbol_idx.into(),
             });

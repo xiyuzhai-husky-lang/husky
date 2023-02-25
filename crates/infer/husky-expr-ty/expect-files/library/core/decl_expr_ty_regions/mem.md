@@ -16,7 +16,14 @@
             data: [],
         },
         inherited_symbol_tys: [],
-        current_symbol_tys: [],
+        current_symbol_tys: [
+            LocalTerm::Resolved(
+                Term(`core::basic::Lifetime`),
+            ),
+            LocalTerm::Resolved(
+                Term(`Type`),
+            ),
+        ],
         local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,
@@ -52,7 +59,14 @@
             data: [],
         },
         inherited_symbol_tys: [],
-        current_symbol_tys: [],
+        current_symbol_tys: [
+            LocalTerm::Resolved(
+                Term(`core::basic::Lifetime`),
+            ),
+            LocalTerm::Resolved(
+                Term(`Type`),
+            ),
+        ],
         local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
                 next: 0,

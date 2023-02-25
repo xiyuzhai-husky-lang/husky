@@ -13,13 +13,7 @@ DiagnosticSheet {
         diagnostics: [],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: expect implicit parameter declaration",
-                severity: Error,
-                range: [1:15, 1:24),
-            },
-        ],
+        diagnostics: [],
     },
     defn_diagnostic_sheet: DefnDiagnosticSheet {
         diagnostics: [],

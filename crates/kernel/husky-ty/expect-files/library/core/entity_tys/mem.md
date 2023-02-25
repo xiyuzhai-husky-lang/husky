@@ -5,10 +5,8 @@
                 TypePath(`core::mem::Ref`, `Alien`),
             ),
         ),
-        Err(
-            Derived(
-                SignatureError,
-            ),
+        Ok(
+            Term(`covariant Lifetime -> covariant Type -> Type`),
         ),
     ),
     (
@@ -17,10 +15,8 @@
                 TypePath(`core::mem::RefMut`, `Alien`),
             ),
         ),
-        Err(
-            Derived(
-                SignatureError,
-            ),
+        Ok(
+            Term(`covariant Lifetime -> invariant Type -> Type`),
         ),
     ),
 ]

@@ -53,13 +53,12 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `E`,
                                                         access_start: TokenIdx(
                                                             6,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
-                                                            implicit_parameter_variant: ImplicitParameterVariant::Type {
+                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentifierToken {
                                                                     ident: `E`,
                                                                     token_idx: TokenIdx(

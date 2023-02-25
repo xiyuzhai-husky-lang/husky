@@ -382,8 +382,16 @@ impl<'a> AuxInferEngine<'a> {
             CurrentSymbolKind::ImplicitParameter {
                 implicit_parameter_kind,
             } => match implicit_parameter_kind {
-                ImplicitParameterKind::Type { ident_token } => self.sheet.add(
+                CurrentImplicitParameterSymbolKind::Type { ident_token } => self.sheet.add(
                     ident_token.token_idx(),
+                    TokenInfo::CurrentSymbol {
+                        current_symbol_idx,
+                        expr_region: self.expr_region,
+                        current_symbol_kind,
+                    },
+                ),
+                CurrentImplicitParameterSymbolKind::Lifetime { label_token } => self.sheet.add(
+                    label_token.token_idx(),
                     TokenInfo::CurrentSymbol {
                         current_symbol_idx,
                         expr_region: self.expr_region,

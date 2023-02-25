@@ -610,12 +610,12 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
-                                                            ident: `ct`,
                                                             access_start: TokenIdx(
                                                                 56,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `ct`,
                                                                 pattern_symbol_idx: 0,
                                                             },
                                                         },
@@ -823,12 +823,12 @@ Ok(
                                                         current_symbol_arena: Arena {
                                                             data: [
                                                                 CurrentSymbol {
-                                                                    ident: `ct`,
                                                                     access_start: TokenIdx(
                                                                         56,
                                                                     ),
                                                                     access_end: None,
                                                                     variant: CurrentSymbolVariant::RegularParameter {
+                                                                        ident: `ct`,
                                                                         pattern_symbol_idx: 0,
                                                                     },
                                                                 },
@@ -869,7 +869,9 @@ Ok(
                                                         67,
                                                     ),
                                                     inherited_symbol_idx: 0,
-                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
+                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                                                        ident: `ct`,
+                                                    },
                                                 },
                                                 Expr::Field {
                                                     owner: 0,
@@ -1032,18 +1034,18 @@ Ok(
                                             inherited_symbol_arena: Arena {
                                                 data: [
                                                     InheritedSymbol {
-                                                        ident: `ct`,
                                                         parent_symbol_idx: Current(
                                                             0,
                                                         ),
-                                                        kind: InheritedSymbolKind::RegularParameter,
+                                                        kind: InheritedSymbolKind::RegularParameter {
+                                                            ident: `ct`,
+                                                        },
                                                     },
                                                 ],
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `len`,
                                                         access_start: TokenIdx(
                                                             66,
                                                         ),
@@ -1055,6 +1057,7 @@ Ok(
                                                             ),
                                                         ),
                                                         variant: CurrentSymbolVariant::LetVariable {
+                                                            ident: `len`,
                                                             pattern_symbol_idx: 0,
                                                         },
                                                     },
@@ -1379,22 +1382,22 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
-                                                            ident: `a`,
                                                             access_start: TokenIdx(
                                                                 562,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `a`,
                                                                 pattern_symbol_idx: 0,
                                                             },
                                                         },
                                                         CurrentSymbol {
-                                                            ident: `x`,
                                                             access_start: TokenIdx(
                                                                 566,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `x`,
                                                                 pattern_symbol_idx: 1,
                                                             },
                                                         },
@@ -1656,22 +1659,22 @@ Ok(
                                                         current_symbol_arena: Arena {
                                                             data: [
                                                                 CurrentSymbol {
-                                                                    ident: `a`,
                                                                     access_start: TokenIdx(
                                                                         562,
                                                                     ),
                                                                     access_end: None,
                                                                     variant: CurrentSymbolVariant::RegularParameter {
+                                                                        ident: `a`,
                                                                         pattern_symbol_idx: 0,
                                                                     },
                                                                 },
                                                                 CurrentSymbol {
-                                                                    ident: `x`,
                                                                     access_start: TokenIdx(
                                                                         566,
                                                                     ),
                                                                     access_end: None,
                                                                     variant: CurrentSymbolVariant::RegularParameter {
+                                                                        ident: `x`,
                                                                         pattern_symbol_idx: 1,
                                                                     },
                                                                 },
@@ -1716,7 +1719,9 @@ Ok(
                                                         582,
                                                     ),
                                                     inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
+                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                                                        ident: `x`,
+                                                    },
                                                 },
                                                 Expr::Literal(
                                                     TokenIdx(
@@ -1739,7 +1744,9 @@ Ok(
                                                         579,
                                                     ),
                                                     inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
+                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                                                        ident: `x`,
+                                                    },
                                                 },
                                                 Expr::Bracketed {
                                                     lpar_token_idx: TokenIdx(
@@ -1756,7 +1763,9 @@ Ok(
                                                         588,
                                                     ),
                                                     inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
+                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                                                        ident: `x`,
+                                                    },
                                                 },
                                                 Expr::Literal(
                                                     TokenIdx(
@@ -1808,7 +1817,9 @@ Ok(
                                                         576,
                                                     ),
                                                     inherited_symbol_idx: 0,
-                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
+                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                                                        ident: `a`,
+                                                    },
                                                 },
                                                 Expr::Bracketed {
                                                     lpar_token_idx: TokenIdx(
@@ -1933,7 +1944,9 @@ Ok(
                                                         597,
                                                     ),
                                                     inherited_symbol_idx: 0,
-                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
+                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                                                        ident: `a`,
+                                                    },
                                                 },
                                                 Expr::Bracketed {
                                                     lpar_token_idx: TokenIdx(
@@ -2118,7 +2131,9 @@ Ok(
                                                         624,
                                                     ),
                                                     inherited_symbol_idx: 0,
-                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
+                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                                                        ident: `a`,
+                                                    },
                                                 },
                                                 Expr::Bracketed {
                                                     lpar_token_idx: TokenIdx(
@@ -2347,25 +2362,26 @@ Ok(
                                             inherited_symbol_arena: Arena {
                                                 data: [
                                                     InheritedSymbol {
-                                                        ident: `a`,
                                                         parent_symbol_idx: Current(
                                                             0,
                                                         ),
-                                                        kind: InheritedSymbolKind::RegularParameter,
+                                                        kind: InheritedSymbolKind::RegularParameter {
+                                                            ident: `a`,
+                                                        },
                                                     },
                                                     InheritedSymbol {
-                                                        ident: `x`,
                                                         parent_symbol_idx: Current(
                                                             1,
                                                         ),
-                                                        kind: InheritedSymbolKind::RegularParameter,
+                                                        kind: InheritedSymbolKind::RegularParameter {
+                                                            ident: `x`,
+                                                        },
                                                     },
                                                 ],
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `y`,
                                                         access_start: TokenIdx(
                                                             575,
                                                         ),
@@ -2377,11 +2393,11 @@ Ok(
                                                             ),
                                                         ),
                                                         variant: CurrentSymbolVariant::LetVariable {
+                                                            ident: `y`,
                                                             pattern_symbol_idx: 0,
                                                         },
                                                     },
                                                     CurrentSymbol {
-                                                        ident: `z`,
                                                         access_start: TokenIdx(
                                                             596,
                                                         ),
@@ -2393,6 +2409,7 @@ Ok(
                                                             ),
                                                         ),
                                                         variant: CurrentSymbolVariant::LetVariable {
+                                                            ident: `z`,
                                                             pattern_symbol_idx: 1,
                                                         },
                                                     },
@@ -2550,12 +2567,12 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
-                                                            ident: `img`,
                                                             access_start: TokenIdx(
                                                                 648,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `img`,
                                                                 pattern_symbol_idx: 0,
                                                             },
                                                         },
@@ -2754,12 +2771,12 @@ Ok(
                                                         current_symbol_arena: Arena {
                                                             data: [
                                                                 CurrentSymbol {
-                                                                    ident: `img`,
                                                                     access_start: TokenIdx(
                                                                         648,
                                                                     ),
                                                                     access_end: None,
                                                                     variant: CurrentSymbolVariant::RegularParameter {
+                                                                        ident: `img`,
                                                                         pattern_symbol_idx: 0,
                                                                     },
                                                                 },
@@ -2839,7 +2856,9 @@ Ok(
                                                         669,
                                                     ),
                                                     inherited_symbol_idx: 0,
-                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
+                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                                                        ident: `img`,
+                                                    },
                                                 },
                                                 Expr::MethodCall {
                                                     self_argument: 4,
@@ -3235,7 +3254,9 @@ Ok(
                                                         760,
                                                     ),
                                                     inherited_symbol_idx: 0,
-                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
+                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                                                        ident: `img`,
+                                                    },
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `i`,
@@ -3534,7 +3555,9 @@ Ok(
                                                         812,
                                                     ),
                                                     inherited_symbol_idx: 0,
-                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
+                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                                                        ident: `img`,
+                                                    },
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `i`,
@@ -4949,18 +4972,18 @@ Ok(
                                             inherited_symbol_arena: Arena {
                                                 data: [
                                                     InheritedSymbol {
-                                                        ident: `img`,
                                                         parent_symbol_idx: Current(
                                                             0,
                                                         ),
-                                                        kind: InheritedSymbolKind::RegularParameter,
+                                                        kind: InheritedSymbolKind::RegularParameter {
+                                                            ident: `img`,
+                                                        },
                                                     },
                                                 ],
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `result`,
                                                         access_start: TokenIdx(
                                                             659,
                                                         ),
@@ -4972,11 +4995,11 @@ Ok(
                                                             ),
                                                         ),
                                                         variant: CurrentSymbolVariant::LetVariable {
+                                                            ident: `result`,
                                                             pattern_symbol_idx: 0,
                                                         },
                                                     },
                                                     CurrentSymbol {
-                                                        ident: `unsearched`,
                                                         access_start: TokenIdx(
                                                             668,
                                                         ),
@@ -4988,11 +5011,11 @@ Ok(
                                                             ),
                                                         ),
                                                         variant: CurrentSymbolVariant::LetVariable {
+                                                            ident: `unsearched`,
                                                             pattern_symbol_idx: 1,
                                                         },
                                                     },
                                                     CurrentSymbol {
-                                                        ident: `j`,
                                                         access_start: TokenIdx(
                                                             679,
                                                         ),
@@ -5003,12 +5026,12 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSymbolVariant::FrameVariable(
-                                                            6,
-                                                        ),
+                                                        variant: CurrentSymbolVariant::FrameVariable {
+                                                            ident: `j`,
+                                                            expr_idx: 6,
+                                                        },
                                                     },
                                                     CurrentSymbol {
-                                                        ident: `a`,
                                                         access_start: TokenIdx(
                                                             687,
                                                         ),
@@ -5020,11 +5043,11 @@ Ok(
                                                             ),
                                                         ),
                                                         variant: CurrentSymbolVariant::LetVariable {
+                                                            ident: `a`,
                                                             pattern_symbol_idx: 2,
                                                         },
                                                     },
                                                     CurrentSymbol {
-                                                        ident: `shift`,
                                                         access_start: TokenIdx(
                                                             694,
                                                         ),
@@ -5036,11 +5059,11 @@ Ok(
                                                             ),
                                                         ),
                                                         variant: CurrentSymbolVariant::LetVariable {
+                                                            ident: `shift`,
                                                             pattern_symbol_idx: 3,
                                                         },
                                                     },
                                                     CurrentSymbol {
-                                                        ident: `mask`,
                                                         access_start: TokenIdx(
                                                             703,
                                                         ),
@@ -5052,11 +5075,11 @@ Ok(
                                                             ),
                                                         ),
                                                         variant: CurrentSymbolVariant::LetVariable {
+                                                            ident: `mask`,
                                                             pattern_symbol_idx: 4,
                                                         },
                                                     },
                                                     CurrentSymbol {
-                                                        ident: `flag`,
                                                         access_start: TokenIdx(
                                                             723,
                                                         ),
@@ -5068,11 +5091,11 @@ Ok(
                                                             ),
                                                         ),
                                                         variant: CurrentSymbolVariant::LetVariable {
+                                                            ident: `flag`,
                                                             pattern_symbol_idx: 5,
                                                         },
                                                     },
                                                     CurrentSymbol {
-                                                        ident: `i`,
                                                         access_start: TokenIdx(
                                                             735,
                                                         ),
@@ -5084,11 +5107,11 @@ Ok(
                                                             ),
                                                         ),
                                                         variant: CurrentSymbolVariant::LetVariable {
+                                                            ident: `i`,
                                                             pattern_symbol_idx: 6,
                                                         },
                                                     },
                                                     CurrentSymbol {
-                                                        ident: `old_row`,
                                                         access_start: TokenIdx(
                                                             746,
                                                         ),
@@ -5100,11 +5123,11 @@ Ok(
                                                             ),
                                                         ),
                                                         variant: CurrentSymbolVariant::LetVariable {
+                                                            ident: `old_row`,
                                                             pattern_symbol_idx: 7,
                                                         },
                                                     },
                                                     CurrentSymbol {
-                                                        ident: `new_row`,
                                                         access_start: TokenIdx(
                                                             755,
                                                         ),
@@ -5116,11 +5139,11 @@ Ok(
                                                             ),
                                                         ),
                                                         variant: CurrentSymbolVariant::LetVariable {
+                                                            ident: `new_row`,
                                                             pattern_symbol_idx: 8,
                                                         },
                                                     },
                                                     CurrentSymbol {
-                                                        ident: `old_row`,
                                                         access_start: TokenIdx(
                                                             800,
                                                         ),
@@ -5132,11 +5155,11 @@ Ok(
                                                             ),
                                                         ),
                                                         variant: CurrentSymbolVariant::LetVariable {
+                                                            ident: `old_row`,
                                                             pattern_symbol_idx: 9,
                                                         },
                                                     },
                                                     CurrentSymbol {
-                                                        ident: `new_row`,
                                                         access_start: TokenIdx(
                                                             807,
                                                         ),
@@ -5148,11 +5171,11 @@ Ok(
                                                             ),
                                                         ),
                                                         variant: CurrentSymbolVariant::LetVariable {
+                                                            ident: `new_row`,
                                                             pattern_symbol_idx: 10,
                                                         },
                                                     },
                                                     CurrentSymbol {
-                                                        ident: `k`,
                                                         access_start: TokenIdx(
                                                             845,
                                                         ),
@@ -5163,9 +5186,10 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSymbolVariant::FrameVariable(
-                                                            95,
-                                                        ),
+                                                        variant: CurrentSymbolVariant::FrameVariable {
+                                                            ident: `k`,
+                                                            expr_idx: 95,
+                                                        },
                                                     },
                                                 ],
                                             },
@@ -6831,7 +6855,6 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
-                                                            ident: `raw_contours`,
                                                             access_start: TokenIdx(
                                                                 107,
                                                             ),
@@ -6843,11 +6866,11 @@ Ok(
                                                                 ),
                                                             ),
                                                             variant: CurrentSymbolVariant::LetVariable {
+                                                                ident: `raw_contours`,
                                                                 pattern_symbol_idx: 0,
                                                             },
                                                         },
                                                         CurrentSymbol {
-                                                            ident: `matches`,
                                                             access_start: TokenIdx(
                                                                 118,
                                                             ),
@@ -6859,6 +6882,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             variant: CurrentSymbolVariant::LetVariable {
+                                                                ident: `matches`,
                                                                 pattern_symbol_idx: 1,
                                                             },
                                                         },
@@ -7856,7 +7880,6 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
-                                                            ident: `max_hole_ilen`,
                                                             access_start: TokenIdx(
                                                                 168,
                                                             ),
@@ -7868,11 +7891,11 @@ Ok(
                                                                 ),
                                                             ),
                                                             variant: CurrentSymbolVariant::LetVariable {
+                                                                ident: `max_hole_ilen`,
                                                                 pattern_symbol_idx: 0,
                                                             },
                                                         },
                                                         CurrentSymbol {
-                                                            ident: `raw_contours`,
                                                             access_start: TokenIdx(
                                                                 172,
                                                             ),
@@ -7884,11 +7907,11 @@ Ok(
                                                                 ),
                                                             ),
                                                             variant: CurrentSymbolVariant::LetVariable {
+                                                                ident: `raw_contours`,
                                                                 pattern_symbol_idx: 1,
                                                             },
                                                         },
                                                         CurrentSymbol {
-                                                            ident: `i`,
                                                             access_start: TokenIdx(
                                                                 187,
                                                             ),
@@ -7899,12 +7922,12 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            variant: CurrentSymbolVariant::FrameVariable(
-                                                                4,
-                                                            ),
+                                                            variant: CurrentSymbolVariant::FrameVariable {
+                                                                ident: `i`,
+                                                                expr_idx: 4,
+                                                            },
                                                         },
                                                         CurrentSymbol {
-                                                            ident: `hole_ilen`,
                                                             access_start: TokenIdx(
                                                                 189,
                                                             ),
@@ -7916,6 +7939,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             variant: CurrentSymbolVariant::LetVariable {
+                                                                ident: `hole_ilen`,
                                                                 pattern_symbol_idx: 2,
                                                             },
                                                         },
@@ -8724,7 +8748,6 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
-                                                            ident: `max_row`,
                                                             access_start: TokenIdx(
                                                                 220,
                                                             ),
@@ -8736,11 +8759,11 @@ Ok(
                                                                 ),
                                                             ),
                                                             variant: CurrentSymbolVariant::LetVariable {
+                                                                ident: `max_row`,
                                                                 pattern_symbol_idx: 0,
                                                             },
                                                         },
                                                         CurrentSymbol {
-                                                            ident: `i`,
                                                             access_start: TokenIdx(
                                                                 229,
                                                             ),
@@ -8751,9 +8774,10 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            variant: CurrentSymbolVariant::FrameVariable(
-                                                                2,
-                                                            ),
+                                                            variant: CurrentSymbolVariant::FrameVariable {
+                                                                ident: `i`,
+                                                                expr_idx: 2,
+                                                            },
                                                         },
                                                     ],
                                                 },
@@ -9530,7 +9554,6 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
-                                                            ident: `row_span_sum`,
                                                             access_start: TokenIdx(
                                                                 258,
                                                             ),
@@ -9542,11 +9565,11 @@ Ok(
                                                                 ),
                                                             ),
                                                             variant: CurrentSymbolVariant::LetVariable {
+                                                                ident: `row_span_sum`,
                                                                 pattern_symbol_idx: 0,
                                                             },
                                                         },
                                                         CurrentSymbol {
-                                                            ident: `i`,
                                                             access_start: TokenIdx(
                                                                 267,
                                                             ),
@@ -9557,9 +9580,10 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            variant: CurrentSymbolVariant::FrameVariable(
-                                                                2,
-                                                            ),
+                                                            variant: CurrentSymbolVariant::FrameVariable {
+                                                                ident: `i`,
+                                                                expr_idx: 2,
+                                                            },
                                                         },
                                                     ],
                                                 },
@@ -11166,7 +11190,6 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
-                                                            ident: `row_start`,
                                                             access_start: TokenIdx(
                                                                 291,
                                                             ),
@@ -11178,11 +11201,11 @@ Ok(
                                                                 ),
                                                             ),
                                                             variant: CurrentSymbolVariant::LetVariable {
+                                                                ident: `row_start`,
                                                                 pattern_symbol_idx: 0,
                                                             },
                                                         },
                                                         CurrentSymbol {
-                                                            ident: `row_end`,
                                                             access_start: TokenIdx(
                                                                 310,
                                                             ),
@@ -11194,11 +11217,11 @@ Ok(
                                                                 ),
                                                             ),
                                                             variant: CurrentSymbolVariant::LetVariable {
+                                                                ident: `row_end`,
                                                                 pattern_symbol_idx: 1,
                                                             },
                                                         },
                                                         CurrentSymbol {
-                                                            ident: `height`,
                                                             access_start: TokenIdx(
                                                                 331,
                                                             ),
@@ -11210,11 +11233,11 @@ Ok(
                                                                 ),
                                                             ),
                                                             variant: CurrentSymbolVariant::LetVariable {
+                                                                ident: `height`,
                                                                 pattern_symbol_idx: 2,
                                                             },
                                                         },
                                                         CurrentSymbol {
-                                                            ident: `half_height`,
                                                             access_start: TokenIdx(
                                                                 337,
                                                             ),
@@ -11226,11 +11249,11 @@ Ok(
                                                                 ),
                                                             ),
                                                             variant: CurrentSymbolVariant::LetVariable {
+                                                                ident: `half_height`,
                                                                 pattern_symbol_idx: 3,
                                                             },
                                                         },
                                                         CurrentSymbol {
-                                                            ident: `upper_mass`,
                                                             access_start: TokenIdx(
                                                                 344,
                                                             ),
@@ -11242,11 +11265,11 @@ Ok(
                                                                 ),
                                                             ),
                                                             variant: CurrentSymbolVariant::LetVariable {
+                                                                ident: `upper_mass`,
                                                                 pattern_symbol_idx: 4,
                                                             },
                                                         },
                                                         CurrentSymbol {
-                                                            ident: `i1`,
                                                             access_start: TokenIdx(
                                                                 355,
                                                             ),
@@ -11257,12 +11280,12 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            variant: CurrentSymbolVariant::FrameVariable(
-                                                                21,
-                                                            ),
+                                                            variant: CurrentSymbolVariant::FrameVariable {
+                                                                ident: `i1`,
+                                                                expr_idx: 21,
+                                                            },
                                                         },
                                                         CurrentSymbol {
-                                                            ident: `lower_mass`,
                                                             access_start: TokenIdx(
                                                                 370,
                                                             ),
@@ -11274,11 +11297,11 @@ Ok(
                                                                 ),
                                                             ),
                                                             variant: CurrentSymbolVariant::LetVariable {
+                                                                ident: `lower_mass`,
                                                                 pattern_symbol_idx: 5,
                                                             },
                                                         },
                                                         CurrentSymbol {
-                                                            ident: `i2`,
                                                             access_start: TokenIdx(
                                                                 381,
                                                             ),
@@ -11289,9 +11312,10 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            variant: CurrentSymbolVariant::FrameVariable(
-                                                                36,
-                                                            ),
+                                                            variant: CurrentSymbolVariant::FrameVariable {
+                                                                ident: `i2`,
+                                                                expr_idx: 36,
+                                                            },
                                                         },
                                                     ],
                                                 },
@@ -12675,12 +12699,12 @@ Ok(
                                                     current_symbol_arena: Arena {
                                                         data: [
                                                             CurrentSymbol {
-                                                                ident: `k`,
                                                                 access_start: TokenIdx(
                                                                     433,
                                                                 ),
                                                                 access_end: None,
                                                                 variant: CurrentSymbolVariant::RegularParameter {
+                                                                    ident: `k`,
                                                                     pattern_symbol_idx: 0,
                                                                 },
                                                             },
@@ -12955,12 +12979,12 @@ Ok(
                                                             current_symbol_arena: Arena {
                                                                 data: [
                                                                     CurrentSymbol {
-                                                                        ident: `k`,
                                                                         access_start: TokenIdx(
                                                                             433,
                                                                         ),
                                                                         access_end: None,
                                                                         variant: CurrentSymbolVariant::RegularParameter {
+                                                                            ident: `k`,
                                                                             pattern_symbol_idx: 0,
                                                                         },
                                                                     },
@@ -13011,7 +13035,9 @@ Ok(
                                                             445,
                                                         ),
                                                         inherited_symbol_idx: 0,
-                                                        inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
+                                                        inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                                                            ident: `k`,
+                                                        },
                                                     },
                                                     Expr::Literal(
                                                         TokenIdx(
@@ -13110,7 +13136,9 @@ Ok(
                                                             474,
                                                         ),
                                                         inherited_symbol_idx: 0,
-                                                        inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
+                                                        inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                                                            ident: `k`,
+                                                        },
                                                     },
                                                     Expr::BinaryOpn {
                                                         lopd: 9,
@@ -13534,18 +13562,18 @@ Ok(
                                                 inherited_symbol_arena: Arena {
                                                     data: [
                                                         InheritedSymbol {
-                                                            ident: `k`,
                                                             parent_symbol_idx: Current(
                                                                 0,
                                                             ),
-                                                            kind: InheritedSymbolKind::RegularParameter,
+                                                            kind: InheritedSymbolKind::RegularParameter {
+                                                                ident: `k`,
+                                                            },
                                                         },
                                                     ],
                                                 },
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
-                                                            ident: `top_k_row_span_sum`,
                                                             access_start: TokenIdx(
                                                                 442,
                                                             ),
@@ -13557,11 +13585,11 @@ Ok(
                                                                 ),
                                                             ),
                                                             variant: CurrentSymbolVariant::LetVariable {
+                                                                ident: `top_k_row_span_sum`,
                                                                 pattern_symbol_idx: 0,
                                                             },
                                                         },
                                                         CurrentSymbol {
-                                                            ident: `i`,
                                                             access_start: TokenIdx(
                                                                 451,
                                                             ),
@@ -13573,11 +13601,11 @@ Ok(
                                                                 ),
                                                             ),
                                                             variant: CurrentSymbolVariant::LetVariable {
+                                                                ident: `i`,
                                                                 pattern_symbol_idx: 1,
                                                             },
                                                         },
                                                         CurrentSymbol {
-                                                            ident: `j`,
                                                             access_start: TokenIdx(
                                                                 476,
                                                             ),
@@ -13588,9 +13616,10 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            variant: CurrentSymbolVariant::FrameVariable(
-                                                                10,
-                                                            ),
+                                                            variant: CurrentSymbolVariant::FrameVariable {
+                                                                ident: `j`,
+                                                                expr_idx: 10,
+                                                            },
                                                         },
                                                     ],
                                                 },
@@ -13889,12 +13918,12 @@ Ok(
                                                     current_symbol_arena: Arena {
                                                         data: [
                                                             CurrentSymbol {
-                                                                ident: `k`,
                                                                 access_start: TokenIdx(
                                                                     496,
                                                                 ),
                                                                 access_end: None,
                                                                 variant: CurrentSymbolVariant::RegularParameter {
+                                                                    ident: `k`,
                                                                     pattern_symbol_idx: 0,
                                                                 },
                                                             },
@@ -14169,12 +14198,12 @@ Ok(
                                                             current_symbol_arena: Arena {
                                                                 data: [
                                                                     CurrentSymbol {
-                                                                        ident: `k`,
                                                                         access_start: TokenIdx(
                                                                             496,
                                                                         ),
                                                                         access_end: None,
                                                                         variant: CurrentSymbolVariant::RegularParameter {
+                                                                            ident: `k`,
                                                                             pattern_symbol_idx: 0,
                                                                         },
                                                                     },
@@ -14225,7 +14254,9 @@ Ok(
                                                             508,
                                                         ),
                                                         inherited_symbol_idx: 0,
-                                                        inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
+                                                        inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                                                            ident: `k`,
+                                                        },
                                                     },
                                                     Expr::Literal(
                                                         TokenIdx(
@@ -14324,7 +14355,9 @@ Ok(
                                                             537,
                                                         ),
                                                         inherited_symbol_idx: 0,
-                                                        inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
+                                                        inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                                                            ident: `k`,
+                                                        },
                                                     },
                                                     Expr::BinaryOpn {
                                                         lopd: 9,
@@ -14748,18 +14781,18 @@ Ok(
                                                 inherited_symbol_arena: Arena {
                                                     data: [
                                                         InheritedSymbol {
-                                                            ident: `k`,
                                                             parent_symbol_idx: Current(
                                                                 0,
                                                             ),
-                                                            kind: InheritedSymbolKind::RegularParameter,
+                                                            kind: InheritedSymbolKind::RegularParameter {
+                                                                ident: `k`,
+                                                            },
                                                         },
                                                     ],
                                                 },
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
-                                                            ident: `top_k_row_span_sum`,
                                                             access_start: TokenIdx(
                                                                 505,
                                                             ),
@@ -14771,11 +14804,11 @@ Ok(
                                                                 ),
                                                             ),
                                                             variant: CurrentSymbolVariant::LetVariable {
+                                                                ident: `top_k_row_span_sum`,
                                                                 pattern_symbol_idx: 0,
                                                             },
                                                         },
                                                         CurrentSymbol {
-                                                            ident: `i`,
                                                             access_start: TokenIdx(
                                                                 514,
                                                             ),
@@ -14787,11 +14820,11 @@ Ok(
                                                                 ),
                                                             ),
                                                             variant: CurrentSymbolVariant::LetVariable {
+                                                                ident: `i`,
                                                                 pattern_symbol_idx: 1,
                                                             },
                                                         },
                                                         CurrentSymbol {
-                                                            ident: `j`,
                                                             access_start: TokenIdx(
                                                                 539,
                                                             ),
@@ -14802,9 +14835,10 @@ Ok(
                                                                     ),
                                                                 ),
                                                             ),
-                                                            variant: CurrentSymbolVariant::FrameVariable(
-                                                                10,
-                                                            ),
+                                                            variant: CurrentSymbolVariant::FrameVariable {
+                                                                ident: `j`,
+                                                                expr_idx: 10,
+                                                            },
                                                         },
                                                     ],
                                                 },

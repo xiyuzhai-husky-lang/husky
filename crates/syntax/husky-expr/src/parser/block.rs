@@ -226,19 +226,17 @@ impl<'a> BlockExprParser<'a> {
                 ropd,
             } => {
                 let particulars = self.parse_for_between_particulars(lopd, ropd, comparison_opr)?;
-                let current_symbol_variant =
-                    CurrentSymbolVariant::FrameVariable(particulars.frame_var_expr_idx);
+                let current_symbol_variant = CurrentSymbolVariant::FrameVariable {
+                    expr_idx: particulars.frame_var_expr_idx,
+                    ident: particulars.frame_var_ident,
+                };
                 let current_symbol_kind = current_symbol_variant.kind();
                 let access_start = self.ast_token_idx_range_sheet[body.start()]
                     .start()
                     .token_idx();
                 let access_end = self.ast_token_idx_range_sheet[body.end() - 1].end();
-                let frame_var_symbol = CurrentSymbol::new(
-                    particulars.frame_var_ident,
-                    access_start,
-                    Some(access_end),
-                    current_symbol_variant,
-                );
+                let frame_var_symbol =
+                    CurrentSymbol::new(access_start, Some(access_end), current_symbol_variant);
                 let frame_var_symbol_idx = self
                     .define_symbols(
                         vec![frame_var_symbol],

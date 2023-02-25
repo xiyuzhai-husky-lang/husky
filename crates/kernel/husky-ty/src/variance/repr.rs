@@ -89,7 +89,7 @@ pub(crate) fn ty_entity_variance_reprs(
     for (repr, implicit_parameter) in std::iter::zip(reprs.iter(), implicit_parameters.iter()) {
         if let Some(annotated_variance) = implicit_parameter.annotated_variance() {
             // verify the calculated is the same as the annotated
-            todo!()
+            // todo!()
         }
     }
     Ok(reprs)

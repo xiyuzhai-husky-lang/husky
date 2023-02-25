@@ -396,12 +396,12 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
-                                                            ident: `cc`,
                                                             access_start: TokenIdx(
                                                                 81,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `cc`,
                                                                 pattern_symbol_idx: 0,
                                                             },
                                                         },
@@ -609,12 +609,12 @@ Ok(
                                                         current_symbol_arena: Arena {
                                                             data: [
                                                                 CurrentSymbol {
-                                                                    ident: `cc`,
                                                                     access_start: TokenIdx(
                                                                         81,
                                                                     ),
                                                                     access_end: None,
                                                                     variant: CurrentSymbolVariant::RegularParameter {
+                                                                        ident: `cc`,
                                                                         pattern_symbol_idx: 0,
                                                                     },
                                                                 },
@@ -655,7 +655,9 @@ Ok(
                                                         90,
                                                     ),
                                                     inherited_symbol_idx: 0,
-                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
+                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                                                        ident: `cc`,
+                                                    },
                                                 },
                                                 Expr::Field {
                                                     owner: 0,
@@ -712,7 +714,9 @@ Ok(
                                                         99,
                                                     ),
                                                     inherited_symbol_idx: 0,
-                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter,
+                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                                                        ident: `cc`,
+                                                    },
                                                 },
                                                 Expr::Field {
                                                     owner: 7,
@@ -789,11 +793,12 @@ Ok(
                                             inherited_symbol_arena: Arena {
                                                 data: [
                                                     InheritedSymbol {
-                                                        ident: `cc`,
                                                         parent_symbol_idx: Current(
                                                             0,
                                                         ),
-                                                        kind: InheritedSymbolKind::RegularParameter,
+                                                        kind: InheritedSymbolKind::RegularParameter {
+                                                            ident: `cc`,
+                                                        },
                                                     },
                                                 ],
                                             },

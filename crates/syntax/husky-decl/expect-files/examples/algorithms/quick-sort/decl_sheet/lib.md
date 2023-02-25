@@ -60,7 +60,7 @@ Ok(
                                                     ),
                                                     current_symbol_idx: 0,
                                                     current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                        implicit_parameter_kind: ImplicitParameterKind::Type {
+                                                        implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                                                             ident_token: IdentifierToken {
                                                                 ident: `T`,
                                                                 token_idx: TokenIdx(
@@ -140,13 +140,12 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `T`,
                                                         access_start: TokenIdx(
                                                             5,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
-                                                            implicit_parameter_variant: ImplicitParameterVariant::Type {
+                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentifierToken {
                                                                     ident: `T`,
                                                                     token_idx: TokenIdx(
@@ -157,12 +156,12 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
-                                                        ident: `arr`,
                                                         access_start: TokenIdx(
                                                             11,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::RegularParameter {
+                                                            ident: `arr`,
                                                             pattern_symbol_idx: 0,
                                                         },
                                                     },
@@ -360,7 +359,7 @@ Ok(
                                                     ),
                                                     current_symbol_idx: 0,
                                                     current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                        implicit_parameter_kind: ImplicitParameterKind::Type {
+                                                        implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                                                             ident_token: IdentifierToken {
                                                                 ident: `T`,
                                                                 token_idx: TokenIdx(
@@ -510,13 +509,12 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `T`,
                                                         access_start: TokenIdx(
                                                             44,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
-                                                            implicit_parameter_variant: ImplicitParameterVariant::Type {
+                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentifierToken {
                                                                     ident: `T`,
                                                                     token_idx: TokenIdx(
@@ -527,32 +525,32 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
-                                                        ident: `arr`,
                                                         access_start: TokenIdx(
                                                             50,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::RegularParameter {
+                                                            ident: `arr`,
                                                             pattern_symbol_idx: 0,
                                                         },
                                                     },
                                                     CurrentSymbol {
-                                                        ident: `low`,
                                                         access_start: TokenIdx(
                                                             57,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::RegularParameter {
+                                                            ident: `low`,
                                                             pattern_symbol_idx: 1,
                                                         },
                                                     },
                                                     CurrentSymbol {
-                                                        ident: `high`,
                                                         access_start: TokenIdx(
                                                             61,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::RegularParameter {
+                                                            ident: `high`,
                                                             pattern_symbol_idx: 2,
                                                         },
                                                     },
@@ -793,7 +791,7 @@ Ok(
                                                     ),
                                                     current_symbol_idx: 0,
                                                     current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                        implicit_parameter_kind: ImplicitParameterKind::Type {
+                                                        implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                                                             ident_token: IdentifierToken {
                                                                 ident: `T`,
                                                                 token_idx: TokenIdx(
@@ -953,13 +951,12 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `T`,
                                                         access_start: TokenIdx(
                                                             105,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
-                                                            implicit_parameter_variant: ImplicitParameterVariant::Type {
+                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentifierToken {
                                                                     ident: `T`,
                                                                     token_idx: TokenIdx(
@@ -970,32 +967,32 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
-                                                        ident: `arr`,
                                                         access_start: TokenIdx(
                                                             111,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::RegularParameter {
+                                                            ident: `arr`,
                                                             pattern_symbol_idx: 0,
                                                         },
                                                     },
                                                     CurrentSymbol {
-                                                        ident: `low`,
                                                         access_start: TokenIdx(
                                                             118,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::RegularParameter {
+                                                            ident: `low`,
                                                             pattern_symbol_idx: 1,
                                                         },
                                                     },
                                                     CurrentSymbol {
-                                                        ident: `high`,
                                                         access_start: TokenIdx(
                                                             122,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::RegularParameter {
+                                                            ident: `high`,
                                                             pattern_symbol_idx: 2,
                                                         },
                                                     },

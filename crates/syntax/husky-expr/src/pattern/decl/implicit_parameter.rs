@@ -41,11 +41,12 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDeclPatter
             let access_start = ctx.state();
             let symbols = ctx.define_symbols(
                 [CurrentSymbol::new(
-                    ident_token.ident(),
                     access_start,
                     None,
                     CurrentSymbolVariant::ImplicitParameter {
-                        implicit_parameter_variant: ImplicitParameterVariant::Type { ident_token },
+                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                            ident_token,
+                        },
                     },
                 )],
                 Some(PatternTypeConstraint::ImplicitTypeParameter),
@@ -56,10 +57,22 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDeclPatter
                 variant: ImplicitParameterDeclPatternVariant::Type0 { ident_token },
             }))
         } else if let Some(label_token) = ctx.parse::<LifetimeLabelToken>()? {
-            let symbol = todo!();
+            let access_start = ctx.state();
+            let symbols = ctx.define_symbols(
+                [CurrentSymbol::new(
+                    access_start,
+                    None,
+                    CurrentSymbolVariant::ImplicitParameter {
+                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Lifetime {
+                            label_token,
+                        },
+                    },
+                )],
+                Some(PatternTypeConstraint::ImplicitTypeParameter),
+            );
             Ok(Some(ImplicitParameterDeclPattern {
                 annotated_variance_token,
-                symbol,
+                symbol: symbols.start(),
                 variant: ImplicitParameterDeclPatternVariant::Lifetime { label_token },
             }))
         } else if let Some(label_token) = ctx.parse::<BindingLabelToken>()? {
