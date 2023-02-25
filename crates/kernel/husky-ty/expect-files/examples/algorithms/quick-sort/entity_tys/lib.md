@@ -29,10 +29,8 @@
                 FormPath(`quick_sort::partition`, `Function`),
             ),
         ),
-        Err(
-            Derived(
-                SignatureError,
-            ),
+        Ok(
+            Term(`independent Type -> Fp(Slice $0, isize, isize) -> isize`),
         ),
     ),
     (

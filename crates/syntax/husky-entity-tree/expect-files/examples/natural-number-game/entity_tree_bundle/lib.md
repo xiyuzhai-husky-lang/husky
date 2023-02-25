@@ -14,7 +14,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 136,
+                                    [salsa id]: 138,
                                     path: ModuleItemPath::Type(
                                         TypePath(`natural_number_game::Nat`, `Inductive`),
                                     ),
@@ -34,7 +34,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 137,
+                                    [salsa id]: 139,
                                     path: ModuleItemPath::Type(
                                         TypePath(`natural_number_game::OddNat`, `Structure`),
                                     ),
@@ -54,7 +54,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 138,
+                                    [salsa id]: 140,
                                     path: ModuleItemPath::Type(
                                         TypePath(`natural_number_game::EvenNat`, `Structure`),
                                     ),
@@ -113,7 +113,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 43,
+                                    value: 45,
                                 },
                             ),
                         ),

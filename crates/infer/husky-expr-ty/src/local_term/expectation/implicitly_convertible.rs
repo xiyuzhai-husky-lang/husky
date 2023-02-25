@@ -36,7 +36,7 @@ impl ExpectLocalTermResolvedOk for ExpectImplicitlyConvertibleResolvedOk {
 
 impl From<ExpectImplicitlyConvertible> for LocalTermExpectation {
     fn from(value: ExpectImplicitlyConvertible) -> Self {
-        LocalTermExpectation::ImplicitlyConversion {
+        LocalTermExpectation::ImplicitlyConvertible {
             destination: value.destination,
         }
     }

@@ -61,7 +61,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 136,
+                                value: 138,
                             },
                         ),
                     ),
@@ -109,7 +109,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 131,
+                                value: 133,
                             },
                         ),
                     ),
@@ -475,7 +475,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 129,
+                        value: 137,
                     },
                 ),
             },
@@ -600,7 +600,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 127,
+                        value: 135,
                     },
                 ),
             },
@@ -612,7 +612,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 39,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -629,7 +629,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 21,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -652,7 +652,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 130,
+                        value: 138,
                     },
                 ),
             },
@@ -679,7 +679,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 130,
+                        value: 138,
                     },
                 ),
             },
@@ -707,7 +707,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 130,
+                        value: 138,
                     },
                 ),
             },
@@ -734,7 +734,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 130,
+                        value: 138,
                     },
                 ),
             },

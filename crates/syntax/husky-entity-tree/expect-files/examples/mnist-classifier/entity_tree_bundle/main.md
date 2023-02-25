@@ -140,10 +140,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 26,
+                                    [salsa id]: 28,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 69,
+                                            [salsa id]: 71,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
                                             ),
@@ -175,10 +175,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 27,
+                                    [salsa id]: 29,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 129,
+                                            [salsa id]: 131,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                             ),
@@ -208,10 +208,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 28,
+                                    [salsa id]: 30,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 130,
+                                            [salsa id]: 132,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
@@ -241,10 +241,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 29,
+                                    [salsa id]: 31,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 131,
+                                            [salsa id]: 133,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                             ),
@@ -274,10 +274,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 30,
+                                    [salsa id]: 32,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 132,
+                                            [salsa id]: 134,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                             ),
@@ -307,10 +307,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 31,
+                                    [salsa id]: 33,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 133,
+                                            [salsa id]: 135,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                             ),
@@ -340,10 +340,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 32,
+                                    [salsa id]: 34,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 134,
+                                            [salsa id]: 136,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                             ),
@@ -373,10 +373,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 33,
+                                    [salsa id]: 35,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 135,
+                                            [salsa id]: 137,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
@@ -406,10 +406,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 45,
+                                    [salsa id]: 47,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 89,
+                                            [salsa id]: 91,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
@@ -439,10 +439,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 50,
+                                    [salsa id]: 52,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 76,
+                                            [salsa id]: 78,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             ),
@@ -472,10 +472,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 51,
+                                    [salsa id]: 53,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 77,
+                                            [salsa id]: 79,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             ),
@@ -505,13 +505,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 153,
+                                    [salsa id]: 155,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 116,
+                                            [salsa id]: 118,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 94,
+                                                    [salsa id]: 96,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                                     ),
@@ -551,13 +551,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 177,
+                                    [salsa id]: 179,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 75,
+                                            [salsa id]: 77,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 83,
+                                                    [salsa id]: 85,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ),
@@ -597,13 +597,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 178,
+                                    [salsa id]: 180,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 76,
+                                            [salsa id]: 78,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 84,
+                                                    [salsa id]: 86,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                                     ),
@@ -643,13 +643,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 179,
+                                    [salsa id]: 181,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 78,
+                                            [salsa id]: 80,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 87,
+                                                    [salsa id]: 89,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                     ),
@@ -1004,7 +1004,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 69,
+                                        [salsa id]: 71,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
                                         ),
@@ -1147,7 +1147,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 53,
+                                    [salsa id]: 55,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                     ),
@@ -1163,7 +1163,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 54,
+                                    [salsa id]: 56,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                     ),
@@ -1181,7 +1181,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 55,
+                                    [salsa id]: 57,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
                                     ),
@@ -1199,7 +1199,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 56,
+                                    [salsa id]: 58,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
@@ -1217,7 +1217,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 57,
+                                    [salsa id]: 59,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
                                     ),
@@ -1235,7 +1235,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 58,
+                                    [salsa id]: 60,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
                                     ),
@@ -1253,7 +1253,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 57,
+                                    [salsa id]: 59,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 15,
@@ -1284,7 +1284,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 58,
+                                    [salsa id]: 60,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 16,
@@ -1315,7 +1315,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 59,
+                                    [salsa id]: 61,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 17,
@@ -1346,7 +1346,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 60,
+                                    [salsa id]: 62,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 18,
@@ -1377,7 +1377,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 61,
+                                    [salsa id]: 63,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 19,
@@ -1408,7 +1408,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 62,
+                                    [salsa id]: 64,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 20,
@@ -1439,7 +1439,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 63,
+                                    [salsa id]: 65,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 21,
@@ -1470,13 +1470,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 64,
+                                    [salsa id]: 66,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 26,
+                                            [salsa id]: 28,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 69,
+                                                    [salsa id]: 71,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
                                                     ),
@@ -1520,13 +1520,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 65,
+                                    [salsa id]: 67,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 27,
+                                            [salsa id]: 29,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 129,
+                                                    [salsa id]: 131,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                                     ),
@@ -1568,13 +1568,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 66,
+                                    [salsa id]: 68,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 28,
+                                            [salsa id]: 30,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 130,
+                                                    [salsa id]: 132,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                                     ),
@@ -1616,13 +1616,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 67,
+                                    [salsa id]: 69,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 29,
+                                            [salsa id]: 31,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 131,
+                                                    [salsa id]: 133,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                                     ),
@@ -1664,13 +1664,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 68,
+                                    [salsa id]: 70,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 30,
+                                            [salsa id]: 32,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 132,
+                                                    [salsa id]: 134,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                                     ),
@@ -1712,13 +1712,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 69,
+                                    [salsa id]: 71,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 31,
+                                            [salsa id]: 33,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 133,
+                                                    [salsa id]: 135,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                                     ),
@@ -1760,13 +1760,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 70,
+                                    [salsa id]: 72,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 32,
+                                            [salsa id]: 34,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 134,
+                                                    [salsa id]: 136,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                                     ),
@@ -1808,13 +1808,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 71,
+                                    [salsa id]: 73,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 33,
+                                            [salsa id]: 35,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 135,
+                                                    [salsa id]: 137,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                                     ),
@@ -1856,13 +1856,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 72,
+                                    [salsa id]: 74,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 45,
+                                            [salsa id]: 47,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 89,
+                                                    [salsa id]: 91,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                                     ),
@@ -1904,13 +1904,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 73,
+                                    [salsa id]: 75,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 50,
+                                            [salsa id]: 52,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 76,
+                                                    [salsa id]: 78,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                     ),
@@ -1952,13 +1952,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 74,
+                                    [salsa id]: 76,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 51,
+                                            [salsa id]: 53,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 77,
+                                                    [salsa id]: 79,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                     ),
@@ -2000,10 +2000,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 180,
+                                    [salsa id]: 182,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 59,
+                                            [salsa id]: 61,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             ),
@@ -2033,16 +2033,16 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 780,
+                                    [salsa id]: 782,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 153,
+                                            [salsa id]: 155,
                                             original_symbol: Use(
                                                 UseSymbol {
-                                                    [salsa id]: 116,
+                                                    [salsa id]: 118,
                                                     original_symbol: ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 94,
+                                                            [salsa id]: 96,
                                                             path: ModuleItemPath::Form(
                                                                 FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                                             ),
@@ -2094,16 +2094,16 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 781,
+                                    [salsa id]: 783,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 177,
+                                            [salsa id]: 179,
                                             original_symbol: Use(
                                                 UseSymbol {
-                                                    [salsa id]: 75,
+                                                    [salsa id]: 77,
                                                     original_symbol: ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 83,
+                                                            [salsa id]: 85,
                                                             path: ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                             ),
@@ -2155,16 +2155,16 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 782,
+                                    [salsa id]: 784,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 178,
+                                            [salsa id]: 180,
                                             original_symbol: Use(
                                                 UseSymbol {
-                                                    [salsa id]: 76,
+                                                    [salsa id]: 78,
                                                     original_symbol: ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 84,
+                                                            [salsa id]: 86,
                                                             path: ModuleItemPath::Form(
                                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                                             ),
@@ -2216,16 +2216,16 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 783,
+                                    [salsa id]: 785,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 179,
+                                            [salsa id]: 181,
                                             original_symbol: Use(
                                                 UseSymbol {
-                                                    [salsa id]: 78,
+                                                    [salsa id]: 80,
                                                     original_symbol: ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 87,
+                                                            [salsa id]: 89,
                                                             path: ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                             ),
@@ -2527,7 +2527,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 59,
+                                    [salsa id]: 61,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                     ),
@@ -2545,7 +2545,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 60,
+                                    [salsa id]: 62,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                     ),
@@ -2565,7 +2565,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 61,
+                                    [salsa id]: 63,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
                                     ),
@@ -2585,7 +2585,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 62,
+                                    [salsa id]: 64,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
                                     ),
@@ -2605,7 +2605,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 63,
+                                    [salsa id]: 65,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
                                     ),
@@ -2625,7 +2625,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 64,
+                                    [salsa id]: 66,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
                                     ),
@@ -2645,7 +2645,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 65,
+                                    [salsa id]: 67,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
                                     ),
@@ -2665,7 +2665,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 66,
+                                    [salsa id]: 68,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
                                     ),
@@ -2685,7 +2685,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 67,
+                                    [salsa id]: 69,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                                     ),
@@ -2705,7 +2705,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 68,
+                                    [salsa id]: 70,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
                                     ),
@@ -2725,7 +2725,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 69,
+                                    [salsa id]: 71,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
                                     ),
@@ -2745,10 +2745,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 191,
+                                    [salsa id]: 193,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 70,
+                                            [salsa id]: 72,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             ),
@@ -2778,10 +2778,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 192,
+                                    [salsa id]: 194,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 71,
+                                            [salsa id]: 73,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                             ),
@@ -2811,10 +2811,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 193,
+                                    [salsa id]: 195,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 72,
+                                            [salsa id]: 74,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             ),
@@ -2844,10 +2844,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 194,
+                                    [salsa id]: 196,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 73,
+                                            [salsa id]: 75,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             ),
@@ -2877,10 +2877,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 195,
+                                    [salsa id]: 197,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 74,
+                                            [salsa id]: 76,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                             ),
@@ -2910,10 +2910,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 196,
+                                    [salsa id]: 198,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 75,
+                                            [salsa id]: 77,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                             ),
@@ -2943,10 +2943,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 197,
+                                    [salsa id]: 199,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 53,
+                                            [salsa id]: 55,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                             ),
@@ -2976,10 +2976,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 198,
+                                    [salsa id]: 200,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 54,
+                                            [salsa id]: 56,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                             ),
@@ -3009,10 +3009,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 200,
+                                    [salsa id]: 202,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 56,
+                                            [salsa id]: 58,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ),
@@ -3042,10 +3042,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 202,
+                                    [salsa id]: 204,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 58,
+                                            [salsa id]: 60,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
                                             ),
@@ -3075,10 +3075,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 226,
+                                    [salsa id]: 228,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 76,
+                                            [salsa id]: 78,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             ),
@@ -3108,10 +3108,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 227,
+                                    [salsa id]: 229,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 77,
+                                            [salsa id]: 79,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             ),
@@ -3141,13 +3141,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 233,
+                                    [salsa id]: 235,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 75,
+                                            [salsa id]: 77,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 83,
+                                                    [salsa id]: 85,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ),
@@ -3187,13 +3187,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 234,
+                                    [salsa id]: 236,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 76,
+                                            [salsa id]: 78,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 84,
+                                                    [salsa id]: 86,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                                     ),
@@ -3233,13 +3233,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 235,
+                                    [salsa id]: 237,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 78,
+                                            [salsa id]: 80,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 87,
+                                                    [salsa id]: 89,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                     ),
@@ -3683,7 +3683,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 70,
+                                    [salsa id]: 72,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                     ),
@@ -3699,7 +3699,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 71,
+                                    [salsa id]: 73,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                     ),
@@ -3715,7 +3715,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 72,
+                                    [salsa id]: 74,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                     ),
@@ -3731,7 +3731,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 73,
+                                    [salsa id]: 75,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                     ),
@@ -3747,7 +3747,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 74,
+                                    [salsa id]: 76,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                     ),
@@ -3763,7 +3763,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 75,
+                                    [salsa id]: 77,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                     ),
@@ -3962,7 +3962,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 76,
+                                    [salsa id]: 78,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                     ),
@@ -3978,7 +3978,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 77,
+                                    [salsa id]: 79,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                     ),
@@ -3996,7 +3996,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 78,
+                                    [salsa id]: 80,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
                                     ),
@@ -4016,7 +4016,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 79,
+                                    [salsa id]: 81,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
                                     ),
@@ -4036,7 +4036,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 80,
+                                    [salsa id]: 82,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
                                     ),
@@ -4056,7 +4056,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 81,
+                                    [salsa id]: 83,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
                                     ),
@@ -4076,7 +4076,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 82,
+                                    [salsa id]: 84,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
                                     ),
@@ -4094,10 +4094,10 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 75,
+                                    [salsa id]: 77,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 83,
+                                            [salsa id]: 85,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
@@ -4123,10 +4123,10 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 76,
+                                    [salsa id]: 78,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 84,
+                                            [salsa id]: 86,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
@@ -4152,10 +4152,10 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 78,
+                                    [salsa id]: 80,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 87,
+                                            [salsa id]: 89,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                             ),
@@ -4183,10 +4183,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 236,
+                                    [salsa id]: 238,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 59,
+                                            [salsa id]: 61,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             ),
@@ -4216,10 +4216,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 255,
+                                    [salsa id]: 257,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 70,
+                                            [salsa id]: 72,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             ),
@@ -4249,10 +4249,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 256,
+                                    [salsa id]: 258,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 71,
+                                            [salsa id]: 73,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                             ),
@@ -4282,10 +4282,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 257,
+                                    [salsa id]: 259,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 72,
+                                            [salsa id]: 74,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             ),
@@ -4315,10 +4315,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 258,
+                                    [salsa id]: 260,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 73,
+                                            [salsa id]: 75,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             ),
@@ -4348,10 +4348,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 259,
+                                    [salsa id]: 261,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 74,
+                                            [salsa id]: 76,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                             ),
@@ -4381,10 +4381,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 260,
+                                    [salsa id]: 262,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 75,
+                                            [salsa id]: 77,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                             ),
@@ -4809,7 +4809,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 59,
+                                        [salsa id]: 61,
                                         path: ModuleItemPath::Type(
                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                         ),
@@ -4905,7 +4905,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 83,
+                                    [salsa id]: 85,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
@@ -4921,7 +4921,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 84,
+                                    [salsa id]: 86,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                     ),
@@ -4939,7 +4939,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 80,
+                                    [salsa id]: 82,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 15,
@@ -4970,7 +4970,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 81,
+                                    [salsa id]: 83,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 16,
@@ -5001,7 +5001,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 82,
+                                    [salsa id]: 84,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 17,
@@ -5032,7 +5032,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 83,
+                                    [salsa id]: 85,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 18,
@@ -5063,7 +5063,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 84,
+                                    [salsa id]: 86,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 19,
@@ -5094,7 +5094,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 85,
+                                    [salsa id]: 87,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 20,
@@ -5125,7 +5125,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 86,
+                                    [salsa id]: 88,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 21,
@@ -5156,13 +5156,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 87,
+                                    [salsa id]: 89,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 26,
+                                            [salsa id]: 28,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 69,
+                                                    [salsa id]: 71,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
                                                     ),
@@ -5206,13 +5206,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 88,
+                                    [salsa id]: 90,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 27,
+                                            [salsa id]: 29,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 129,
+                                                    [salsa id]: 131,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                                     ),
@@ -5254,13 +5254,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 89,
+                                    [salsa id]: 91,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 28,
+                                            [salsa id]: 30,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 130,
+                                                    [salsa id]: 132,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                                     ),
@@ -5302,13 +5302,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 90,
+                                    [salsa id]: 92,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 29,
+                                            [salsa id]: 31,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 131,
+                                                    [salsa id]: 133,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                                     ),
@@ -5350,13 +5350,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 91,
+                                    [salsa id]: 93,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 30,
+                                            [salsa id]: 32,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 132,
+                                                    [salsa id]: 134,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                                     ),
@@ -5398,13 +5398,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 92,
+                                    [salsa id]: 94,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 31,
+                                            [salsa id]: 33,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 133,
+                                                    [salsa id]: 135,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                                     ),
@@ -5446,13 +5446,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 93,
+                                    [salsa id]: 95,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 32,
+                                            [salsa id]: 34,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 134,
+                                                    [salsa id]: 136,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                                     ),
@@ -5494,13 +5494,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 94,
+                                    [salsa id]: 96,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 33,
+                                            [salsa id]: 35,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 135,
+                                                    [salsa id]: 137,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                                     ),
@@ -5542,13 +5542,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 95,
+                                    [salsa id]: 97,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 45,
+                                            [salsa id]: 47,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 89,
+                                                    [salsa id]: 91,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                                     ),
@@ -5590,13 +5590,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 96,
+                                    [salsa id]: 98,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 50,
+                                            [salsa id]: 52,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 76,
+                                                    [salsa id]: 78,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                     ),
@@ -5638,13 +5638,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 97,
+                                    [salsa id]: 99,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 51,
+                                            [salsa id]: 53,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 77,
+                                                    [salsa id]: 79,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                     ),
@@ -5686,7 +5686,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 261,
+                                    [salsa id]: 263,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 22,
@@ -5717,7 +5717,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 262,
+                                    [salsa id]: 264,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 23,
@@ -5748,7 +5748,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 263,
+                                    [salsa id]: 265,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 24,
@@ -5779,7 +5779,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 264,
+                                    [salsa id]: 266,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 25,
@@ -5810,10 +5810,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 267,
+                                    [salsa id]: 269,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 78,
+                                            [salsa id]: 80,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
                                             ),
@@ -5845,10 +5845,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 268,
+                                    [salsa id]: 270,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 79,
+                                            [salsa id]: 81,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
                                             ),
@@ -5880,10 +5880,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 269,
+                                    [salsa id]: 271,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 80,
+                                            [salsa id]: 82,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
                                             ),
@@ -5915,10 +5915,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 270,
+                                    [salsa id]: 272,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 81,
+                                            [salsa id]: 83,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
                                             ),
@@ -5950,10 +5950,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 271,
+                                    [salsa id]: 273,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 82,
+                                            [salsa id]: 84,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
                                             ),
@@ -5985,13 +5985,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 274,
+                                    [salsa id]: 276,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 78,
+                                            [salsa id]: 80,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 87,
+                                                    [salsa id]: 89,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                     ),
@@ -6031,13 +6031,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 275,
+                                    [salsa id]: 277,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 236,
+                                            [salsa id]: 238,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 59,
+                                                    [salsa id]: 61,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     ),
@@ -6079,13 +6079,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 276,
+                                    [salsa id]: 278,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 255,
+                                            [salsa id]: 257,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 70,
+                                                    [salsa id]: 72,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                     ),
@@ -6127,13 +6127,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 277,
+                                    [salsa id]: 279,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 256,
+                                            [salsa id]: 258,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 71,
+                                                    [salsa id]: 73,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                                     ),
@@ -6175,13 +6175,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 278,
+                                    [salsa id]: 280,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 257,
+                                            [salsa id]: 259,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 72,
+                                                    [salsa id]: 74,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     ),
@@ -6223,13 +6223,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 279,
+                                    [salsa id]: 281,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 258,
+                                            [salsa id]: 260,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 73,
+                                                    [salsa id]: 75,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                     ),
@@ -6271,13 +6271,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 280,
+                                    [salsa id]: 282,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 259,
+                                            [salsa id]: 261,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 74,
+                                                    [salsa id]: 76,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     ),
@@ -6319,13 +6319,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 281,
+                                    [salsa id]: 283,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 260,
+                                            [salsa id]: 262,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 75,
+                                                    [salsa id]: 77,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                     ),
@@ -6367,16 +6367,16 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 856,
+                                    [salsa id]: 858,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 153,
+                                            [salsa id]: 155,
                                             original_symbol: Use(
                                                 UseSymbol {
-                                                    [salsa id]: 116,
+                                                    [salsa id]: 118,
                                                     original_symbol: ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 94,
+                                                            [salsa id]: 96,
                                                             path: ModuleItemPath::Form(
                                                                 FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                                             ),
@@ -6428,10 +6428,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 867,
+                                    [salsa id]: 869,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 86,
+                                            [salsa id]: 88,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
                                             ),
@@ -7085,7 +7085,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 85,
+                                    [salsa id]: 87,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                     ),
@@ -7105,7 +7105,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 288,
+                                    [salsa id]: 290,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 22,
@@ -7136,7 +7136,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 289,
+                                    [salsa id]: 291,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 23,
@@ -7167,7 +7167,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 290,
+                                    [salsa id]: 292,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 24,
@@ -7198,7 +7198,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 291,
+                                    [salsa id]: 293,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 25,
@@ -7229,10 +7229,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 292,
+                                    [salsa id]: 294,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 76,
+                                            [salsa id]: 78,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             ),
@@ -7262,10 +7262,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 293,
+                                    [salsa id]: 295,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 77,
+                                            [salsa id]: 79,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             ),
@@ -7295,10 +7295,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 294,
+                                    [salsa id]: 296,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 78,
+                                            [salsa id]: 80,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
                                             ),
@@ -7330,10 +7330,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 295,
+                                    [salsa id]: 297,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 79,
+                                            [salsa id]: 81,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
                                             ),
@@ -7365,10 +7365,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 296,
+                                    [salsa id]: 298,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 80,
+                                            [salsa id]: 82,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
                                             ),
@@ -7400,10 +7400,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 297,
+                                    [salsa id]: 299,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 81,
+                                            [salsa id]: 83,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
                                             ),
@@ -7435,10 +7435,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 298,
+                                    [salsa id]: 300,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 82,
+                                            [salsa id]: 84,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
                                             ),
@@ -7470,13 +7470,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 299,
+                                    [salsa id]: 301,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 75,
+                                            [salsa id]: 77,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 83,
+                                                    [salsa id]: 85,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ),
@@ -7516,13 +7516,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 300,
+                                    [salsa id]: 302,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 76,
+                                            [salsa id]: 78,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 84,
+                                                    [salsa id]: 86,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                                     ),
@@ -7562,13 +7562,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 301,
+                                    [salsa id]: 303,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 78,
+                                            [salsa id]: 80,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 87,
+                                                    [salsa id]: 89,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                     ),
@@ -7608,13 +7608,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 302,
+                                    [salsa id]: 304,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 236,
+                                            [salsa id]: 238,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 59,
+                                                    [salsa id]: 61,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     ),
@@ -7656,13 +7656,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 303,
+                                    [salsa id]: 305,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 255,
+                                            [salsa id]: 257,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 70,
+                                                    [salsa id]: 72,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                     ),
@@ -7704,13 +7704,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 304,
+                                    [salsa id]: 306,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 256,
+                                            [salsa id]: 258,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 71,
+                                                    [salsa id]: 73,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                                     ),
@@ -7752,13 +7752,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 305,
+                                    [salsa id]: 307,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 257,
+                                            [salsa id]: 259,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 72,
+                                                    [salsa id]: 74,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     ),
@@ -7800,13 +7800,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 306,
+                                    [salsa id]: 308,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 258,
+                                            [salsa id]: 260,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 73,
+                                                    [salsa id]: 75,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                     ),
@@ -7848,13 +7848,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 307,
+                                    [salsa id]: 309,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 259,
+                                            [salsa id]: 261,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 74,
+                                                    [salsa id]: 76,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     ),
@@ -7896,13 +7896,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 308,
+                                    [salsa id]: 310,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 260,
+                                            [salsa id]: 262,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 75,
+                                                    [salsa id]: 77,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                     ),
@@ -8085,7 +8085,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 86,
+                                    [salsa id]: 88,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
                                     ),
@@ -8103,7 +8103,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 309,
+                                    [salsa id]: 311,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 22,
@@ -8134,7 +8134,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 310,
+                                    [salsa id]: 312,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 23,
@@ -8165,7 +8165,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 311,
+                                    [salsa id]: 313,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 24,
@@ -8196,7 +8196,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 312,
+                                    [salsa id]: 314,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 25,
@@ -8227,10 +8227,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 313,
+                                    [salsa id]: 315,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 76,
+                                            [salsa id]: 78,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             ),
@@ -8260,10 +8260,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 314,
+                                    [salsa id]: 316,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 77,
+                                            [salsa id]: 79,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             ),
@@ -8293,10 +8293,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 315,
+                                    [salsa id]: 317,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 78,
+                                            [salsa id]: 80,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
                                             ),
@@ -8328,10 +8328,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 316,
+                                    [salsa id]: 318,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 79,
+                                            [salsa id]: 81,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
                                             ),
@@ -8363,10 +8363,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 317,
+                                    [salsa id]: 319,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 80,
+                                            [salsa id]: 82,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
                                             ),
@@ -8398,10 +8398,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 318,
+                                    [salsa id]: 320,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 81,
+                                            [salsa id]: 83,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
                                             ),
@@ -8433,10 +8433,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 319,
+                                    [salsa id]: 321,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 82,
+                                            [salsa id]: 84,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
                                             ),
@@ -8468,13 +8468,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 320,
+                                    [salsa id]: 322,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 75,
+                                            [salsa id]: 77,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 83,
+                                                    [salsa id]: 85,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ),
@@ -8514,13 +8514,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 321,
+                                    [salsa id]: 323,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 76,
+                                            [salsa id]: 78,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 84,
+                                                    [salsa id]: 86,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                                     ),
@@ -8560,13 +8560,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 322,
+                                    [salsa id]: 324,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 78,
+                                            [salsa id]: 80,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 87,
+                                                    [salsa id]: 89,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                     ),
@@ -8606,13 +8606,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 323,
+                                    [salsa id]: 325,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 236,
+                                            [salsa id]: 238,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 59,
+                                                    [salsa id]: 61,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     ),
@@ -8654,13 +8654,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 324,
+                                    [salsa id]: 326,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 255,
+                                            [salsa id]: 257,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 70,
+                                                    [salsa id]: 72,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                     ),
@@ -8702,13 +8702,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 325,
+                                    [salsa id]: 327,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 256,
+                                            [salsa id]: 258,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 71,
+                                                    [salsa id]: 73,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                                     ),
@@ -8750,13 +8750,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 326,
+                                    [salsa id]: 328,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 257,
+                                            [salsa id]: 259,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 72,
+                                                    [salsa id]: 74,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     ),
@@ -8798,13 +8798,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 327,
+                                    [salsa id]: 329,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 258,
+                                            [salsa id]: 260,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 73,
+                                                    [salsa id]: 75,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                     ),
@@ -8846,13 +8846,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 328,
+                                    [salsa id]: 330,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 259,
+                                            [salsa id]: 261,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 74,
+                                                    [salsa id]: 76,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     ),
@@ -8894,13 +8894,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 329,
+                                    [salsa id]: 331,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 260,
+                                            [salsa id]: 262,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 75,
+                                                    [salsa id]: 77,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                     ),
@@ -9284,7 +9284,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 87,
+                                    [salsa id]: 89,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                     ),
@@ -9302,10 +9302,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 362,
+                                    [salsa id]: 364,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 70,
+                                            [salsa id]: 72,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             ),
@@ -9335,10 +9335,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 363,
+                                    [salsa id]: 365,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 71,
+                                            [salsa id]: 73,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                             ),
@@ -9368,10 +9368,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 364,
+                                    [salsa id]: 366,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 72,
+                                            [salsa id]: 74,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             ),
@@ -9401,10 +9401,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 365,
+                                    [salsa id]: 367,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 73,
+                                            [salsa id]: 75,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             ),
@@ -9434,10 +9434,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 366,
+                                    [salsa id]: 368,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 74,
+                                            [salsa id]: 76,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                             ),
@@ -9467,10 +9467,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 367,
+                                    [salsa id]: 369,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 75,
+                                            [salsa id]: 77,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                             ),
@@ -9643,7 +9643,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 88,
+                                    [salsa id]: 90,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                     ),
@@ -9661,7 +9661,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 89,
+                                    [salsa id]: 91,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                     ),
@@ -9679,7 +9679,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 98,
+                                    [salsa id]: 100,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 15,
@@ -9710,7 +9710,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 99,
+                                    [salsa id]: 101,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 16,
@@ -9741,7 +9741,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 100,
+                                    [salsa id]: 102,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 17,
@@ -9772,7 +9772,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 101,
+                                    [salsa id]: 103,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 18,
@@ -9803,7 +9803,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 102,
+                                    [salsa id]: 104,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 19,
@@ -9834,7 +9834,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 103,
+                                    [salsa id]: 105,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 20,
@@ -9865,7 +9865,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 104,
+                                    [salsa id]: 106,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 21,
@@ -9896,13 +9896,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 105,
+                                    [salsa id]: 107,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 26,
+                                            [salsa id]: 28,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 69,
+                                                    [salsa id]: 71,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
                                                     ),
@@ -9946,13 +9946,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 106,
+                                    [salsa id]: 108,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 27,
+                                            [salsa id]: 29,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 129,
+                                                    [salsa id]: 131,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                                     ),
@@ -9994,13 +9994,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 107,
+                                    [salsa id]: 109,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 28,
+                                            [salsa id]: 30,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 130,
+                                                    [salsa id]: 132,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                                     ),
@@ -10042,13 +10042,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 108,
+                                    [salsa id]: 110,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 29,
+                                            [salsa id]: 31,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 131,
+                                                    [salsa id]: 133,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                                     ),
@@ -10090,13 +10090,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 109,
+                                    [salsa id]: 111,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 30,
+                                            [salsa id]: 32,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 132,
+                                                    [salsa id]: 134,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                                     ),
@@ -10138,13 +10138,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 110,
+                                    [salsa id]: 112,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 31,
+                                            [salsa id]: 33,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 133,
+                                                    [salsa id]: 135,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                                     ),
@@ -10186,13 +10186,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 111,
+                                    [salsa id]: 113,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 32,
+                                            [salsa id]: 34,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 134,
+                                                    [salsa id]: 136,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                                     ),
@@ -10234,13 +10234,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 112,
+                                    [salsa id]: 114,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 33,
+                                            [salsa id]: 35,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 135,
+                                                    [salsa id]: 137,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                                     ),
@@ -10282,13 +10282,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 114,
+                                    [salsa id]: 116,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 50,
+                                            [salsa id]: 52,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 76,
+                                                    [salsa id]: 78,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                     ),
@@ -10330,13 +10330,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 115,
+                                    [salsa id]: 117,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 51,
+                                            [salsa id]: 53,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 77,
+                                                    [salsa id]: 79,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                     ),
@@ -10378,16 +10378,16 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 889,
+                                    [salsa id]: 891,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 153,
+                                            [salsa id]: 155,
                                             original_symbol: Use(
                                                 UseSymbol {
-                                                    [salsa id]: 116,
+                                                    [salsa id]: 118,
                                                     original_symbol: ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 94,
+                                                            [salsa id]: 96,
                                                             path: ModuleItemPath::Form(
                                                                 FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                                             ),
@@ -10439,16 +10439,16 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 890,
+                                    [salsa id]: 892,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 177,
+                                            [salsa id]: 179,
                                             original_symbol: Use(
                                                 UseSymbol {
-                                                    [salsa id]: 75,
+                                                    [salsa id]: 77,
                                                     original_symbol: ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 83,
+                                                            [salsa id]: 85,
                                                             path: ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                             ),
@@ -10500,16 +10500,16 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 891,
+                                    [salsa id]: 893,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 178,
+                                            [salsa id]: 180,
                                             original_symbol: Use(
                                                 UseSymbol {
-                                                    [salsa id]: 76,
+                                                    [salsa id]: 78,
                                                     original_symbol: ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 84,
+                                                            [salsa id]: 86,
                                                             path: ModuleItemPath::Form(
                                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                                             ),
@@ -10561,16 +10561,16 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 892,
+                                    [salsa id]: 894,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 179,
+                                            [salsa id]: 181,
                                             original_symbol: Use(
                                                 UseSymbol {
-                                                    [salsa id]: 78,
+                                                    [salsa id]: 80,
                                                     original_symbol: ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 87,
+                                                            [salsa id]: 89,
                                                             path: ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                             ),
@@ -10898,10 +10898,10 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 116,
+                                    [salsa id]: 118,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 94,
+                                            [salsa id]: 96,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                             ),
@@ -10929,10 +10929,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 117,
+                                    [salsa id]: 119,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 100,
+                                            [salsa id]: 102,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
                                             ),
@@ -10964,10 +10964,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 118,
+                                    [salsa id]: 120,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 92,
+                                            [salsa id]: 94,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
                                             ),
@@ -10999,10 +10999,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 119,
+                                    [salsa id]: 121,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 104,
+                                            [salsa id]: 106,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
                                             ),
@@ -11034,10 +11034,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 121,
+                                    [salsa id]: 123,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 120,
+                                            [salsa id]: 122,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
                                             ),
@@ -11069,10 +11069,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 122,
+                                    [salsa id]: 124,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 122,
+                                            [salsa id]: 124,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
                                             ),
@@ -11104,10 +11104,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 123,
+                                    [salsa id]: 125,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 126,
+                                            [salsa id]: 128,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
                                             ),
@@ -11554,7 +11554,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 94,
+                                        [salsa id]: 96,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                         ),
@@ -11588,7 +11588,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 100,
+                                        [salsa id]: 102,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
                                         ),
@@ -11624,7 +11624,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 92,
+                                        [salsa id]: 94,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
                                         ),
@@ -11660,7 +11660,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 104,
+                                        [salsa id]: 106,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
                                         ),
@@ -11719,7 +11719,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 100,
+                                        [salsa id]: 102,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
                                         ),
@@ -11755,7 +11755,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 120,
+                                        [salsa id]: 122,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
                                         ),
@@ -11791,7 +11791,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 122,
+                                        [salsa id]: 124,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
                                         ),
@@ -11827,7 +11827,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 126,
+                                        [salsa id]: 128,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
                                         ),
@@ -11895,7 +11895,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 90,
+                                    [salsa id]: 92,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
                                     ),
@@ -11915,7 +11915,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 91,
+                                    [salsa id]: 93,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::zero::almost_closed`, `Function`),
                                     ),
@@ -11935,7 +11935,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 92,
+                                    [salsa id]: 94,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
                                     ),
@@ -11955,10 +11955,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 368,
+                                    [salsa id]: 370,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 129,
+                                            [salsa id]: 131,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                             ),
@@ -11988,10 +11988,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 369,
+                                    [salsa id]: 371,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 130,
+                                            [salsa id]: 132,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
@@ -12021,10 +12021,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 370,
+                                    [salsa id]: 372,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 131,
+                                            [salsa id]: 133,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                             ),
@@ -12054,10 +12054,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 371,
+                                    [salsa id]: 373,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 132,
+                                            [salsa id]: 134,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                             ),
@@ -12087,10 +12087,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 372,
+                                    [salsa id]: 374,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 133,
+                                            [salsa id]: 135,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                             ),
@@ -12120,10 +12120,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 373,
+                                    [salsa id]: 375,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 134,
+                                            [salsa id]: 136,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                             ),
@@ -12153,10 +12153,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 374,
+                                    [salsa id]: 376,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 135,
+                                            [salsa id]: 137,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
@@ -12186,10 +12186,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 387,
+                                    [salsa id]: 389,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 89,
+                                            [salsa id]: 91,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
@@ -12219,10 +12219,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 901,
+                                    [salsa id]: 903,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 83,
+                                            [salsa id]: 85,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
@@ -12252,10 +12252,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 902,
+                                    [salsa id]: 904,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 84,
+                                            [salsa id]: 86,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
@@ -12947,7 +12947,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 93,
+                                    [salsa id]: 95,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Feature`),
                                     ),
@@ -12965,7 +12965,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 94,
+                                    [salsa id]: 96,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                     ),
@@ -12983,7 +12983,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 95,
+                                    [salsa id]: 97,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::one::upmost`, `Function`),
                                     ),
@@ -13003,7 +13003,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 96,
+                                    [salsa id]: 98,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::one::downmost`, `Function`),
                                     ),
@@ -13023,7 +13023,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 97,
+                                    [salsa id]: 99,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::one::hat`, `Function`),
                                     ),
@@ -13043,10 +13043,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 405,
+                                    [salsa id]: 407,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 129,
+                                            [salsa id]: 131,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                             ),
@@ -13076,10 +13076,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 406,
+                                    [salsa id]: 408,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 130,
+                                            [salsa id]: 132,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
@@ -13109,10 +13109,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 407,
+                                    [salsa id]: 409,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 131,
+                                            [salsa id]: 133,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                             ),
@@ -13142,10 +13142,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 408,
+                                    [salsa id]: 410,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 132,
+                                            [salsa id]: 134,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                             ),
@@ -13175,10 +13175,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 409,
+                                    [salsa id]: 411,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 133,
+                                            [salsa id]: 135,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                             ),
@@ -13208,10 +13208,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 410,
+                                    [salsa id]: 412,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 134,
+                                            [salsa id]: 136,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                             ),
@@ -13241,10 +13241,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 411,
+                                    [salsa id]: 413,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 135,
+                                            [salsa id]: 137,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
@@ -13274,10 +13274,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 424,
+                                    [salsa id]: 426,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 89,
+                                            [salsa id]: 91,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
@@ -13307,10 +13307,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 948,
+                                    [salsa id]: 950,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 83,
+                                            [salsa id]: 85,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
@@ -13340,10 +13340,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 949,
+                                    [salsa id]: 951,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 84,
+                                            [salsa id]: 86,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
@@ -13940,7 +13940,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 98,
+                                    [salsa id]: 100,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::six::six_match`, `Feature`),
                                     ),
@@ -13960,7 +13960,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 99,
+                                    [salsa id]: 101,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Feature`),
                                     ),
@@ -13980,7 +13980,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 100,
+                                    [salsa id]: 102,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
                                     ),
@@ -14000,7 +14000,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 101,
+                                    [salsa id]: 103,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::six::upmost`, `Function`),
                                     ),
@@ -14020,7 +14020,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 102,
+                                    [salsa id]: 104,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::six::bottom1`, `Function`),
                                     ),
@@ -14040,10 +14040,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 442,
+                                    [salsa id]: 444,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 129,
+                                            [salsa id]: 131,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                             ),
@@ -14073,10 +14073,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 443,
+                                    [salsa id]: 445,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 130,
+                                            [salsa id]: 132,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
@@ -14106,10 +14106,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 444,
+                                    [salsa id]: 446,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 131,
+                                            [salsa id]: 133,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                             ),
@@ -14139,10 +14139,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 445,
+                                    [salsa id]: 447,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 132,
+                                            [salsa id]: 134,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                             ),
@@ -14172,10 +14172,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 446,
+                                    [salsa id]: 448,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 133,
+                                            [salsa id]: 135,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                             ),
@@ -14205,10 +14205,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 447,
+                                    [salsa id]: 449,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 134,
+                                            [salsa id]: 136,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                             ),
@@ -14238,10 +14238,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 448,
+                                    [salsa id]: 450,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 135,
+                                            [salsa id]: 137,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
@@ -14271,10 +14271,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 461,
+                                    [salsa id]: 463,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 89,
+                                            [salsa id]: 91,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
@@ -14304,10 +14304,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 995,
+                                    [salsa id]: 997,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 83,
+                                            [salsa id]: 85,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
@@ -14337,10 +14337,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 996,
+                                    [salsa id]: 998,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 84,
+                                            [salsa id]: 86,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
@@ -15032,7 +15032,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 103,
+                                    [salsa id]: 105,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Feature`),
                                     ),
@@ -15052,7 +15052,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 104,
+                                    [salsa id]: 106,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
                                     ),
@@ -15072,7 +15072,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 105,
+                                    [salsa id]: 107,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::three::uparc`, `Function`),
                                     ),
@@ -15092,7 +15092,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 106,
+                                    [salsa id]: 108,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::three::downarc`, `Function`),
                                     ),
@@ -15112,7 +15112,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 107,
+                                    [salsa id]: 109,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::three::back`, `Function`),
                                     ),
@@ -15132,10 +15132,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 479,
+                                    [salsa id]: 481,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 129,
+                                            [salsa id]: 131,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                             ),
@@ -15165,10 +15165,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 480,
+                                    [salsa id]: 482,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 130,
+                                            [salsa id]: 132,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
@@ -15198,10 +15198,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 481,
+                                    [salsa id]: 483,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 131,
+                                            [salsa id]: 133,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                             ),
@@ -15231,10 +15231,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 482,
+                                    [salsa id]: 484,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 132,
+                                            [salsa id]: 134,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                             ),
@@ -15264,10 +15264,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 483,
+                                    [salsa id]: 485,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 133,
+                                            [salsa id]: 135,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                             ),
@@ -15297,10 +15297,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 484,
+                                    [salsa id]: 486,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 134,
+                                            [salsa id]: 136,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                             ),
@@ -15330,10 +15330,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 485,
+                                    [salsa id]: 487,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 135,
+                                            [salsa id]: 137,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
@@ -15363,10 +15363,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 498,
+                                    [salsa id]: 500,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 89,
+                                            [salsa id]: 91,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
@@ -15396,10 +15396,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 1042,
+                                    [salsa id]: 1044,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 83,
+                                            [salsa id]: 85,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
@@ -15429,10 +15429,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 1043,
+                                    [salsa id]: 1045,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 84,
+                                            [salsa id]: 86,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
@@ -16029,7 +16029,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 108,
+                                    [salsa id]: 110,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::four::left_components`, `Feature`),
                                     ),
@@ -16049,7 +16049,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 109,
+                                    [salsa id]: 111,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Function`),
                                     ),
@@ -16069,7 +16069,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 110,
+                                    [salsa id]: 112,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Feature`),
                                     ),
@@ -16089,7 +16089,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 111,
+                                    [salsa id]: 113,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::four::components_max_heights`, `Feature`),
                                     ),
@@ -16109,7 +16109,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 112,
+                                    [salsa id]: 114,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
                                     ),
@@ -16129,7 +16129,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 113,
+                                    [salsa id]: 115,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Function`),
                                     ),
@@ -16149,7 +16149,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 114,
+                                    [salsa id]: 116,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Function`),
                                     ),
@@ -16169,10 +16169,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 516,
+                                    [salsa id]: 518,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 129,
+                                            [salsa id]: 131,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                             ),
@@ -16202,10 +16202,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 517,
+                                    [salsa id]: 519,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 130,
+                                            [salsa id]: 132,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
@@ -16235,10 +16235,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 518,
+                                    [salsa id]: 520,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 131,
+                                            [salsa id]: 133,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                             ),
@@ -16268,10 +16268,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 519,
+                                    [salsa id]: 521,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 132,
+                                            [salsa id]: 134,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                             ),
@@ -16301,10 +16301,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 520,
+                                    [salsa id]: 522,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 133,
+                                            [salsa id]: 135,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                             ),
@@ -16334,10 +16334,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 521,
+                                    [salsa id]: 523,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 134,
+                                            [salsa id]: 136,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                             ),
@@ -16367,10 +16367,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 522,
+                                    [salsa id]: 524,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 135,
+                                            [salsa id]: 137,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
@@ -16400,10 +16400,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 535,
+                                    [salsa id]: 537,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 89,
+                                            [salsa id]: 91,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
@@ -16433,10 +16433,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 1089,
+                                    [salsa id]: 1091,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 83,
+                                            [salsa id]: 85,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
@@ -16466,10 +16466,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 1090,
+                                    [salsa id]: 1092,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 84,
+                                            [salsa id]: 86,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
@@ -17080,7 +17080,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 115,
+                                    [salsa id]: 117,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Feature`),
                                     ),
@@ -17100,7 +17100,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 116,
+                                    [salsa id]: 118,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Function`),
                                     ),
@@ -17120,7 +17120,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 117,
+                                    [salsa id]: 119,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Feature`),
                                     ),
@@ -17140,7 +17140,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 118,
+                                    [salsa id]: 120,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Function`),
                                     ),
@@ -17160,7 +17160,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 119,
+                                    [salsa id]: 121,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Function`),
                                     ),
@@ -17180,7 +17180,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 120,
+                                    [salsa id]: 122,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
                                     ),
@@ -17200,10 +17200,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 553,
+                                    [salsa id]: 555,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 135,
+                                            [salsa id]: 137,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
@@ -17233,10 +17233,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 554,
+                                    [salsa id]: 556,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 130,
+                                            [salsa id]: 132,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
@@ -17266,10 +17266,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 555,
+                                    [salsa id]: 557,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 129,
+                                            [salsa id]: 131,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                             ),
@@ -17299,10 +17299,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 557,
+                                    [salsa id]: 559,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 131,
+                                            [salsa id]: 133,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                             ),
@@ -17332,10 +17332,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 558,
+                                    [salsa id]: 560,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 132,
+                                            [salsa id]: 134,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                             ),
@@ -17365,10 +17365,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 559,
+                                    [salsa id]: 561,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 133,
+                                            [salsa id]: 135,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                             ),
@@ -17398,10 +17398,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 560,
+                                    [salsa id]: 562,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 134,
+                                            [salsa id]: 136,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                             ),
@@ -17431,10 +17431,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 574,
+                                    [salsa id]: 576,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 89,
+                                            [salsa id]: 91,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
@@ -17464,7 +17464,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 592,
+                                    [salsa id]: 594,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 26,
@@ -17495,7 +17495,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 593,
+                                    [salsa id]: 595,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 27,
@@ -17526,7 +17526,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 594,
+                                    [salsa id]: 596,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 28,
@@ -17557,7 +17557,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 595,
+                                    [salsa id]: 597,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 29,
@@ -17588,7 +17588,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 596,
+                                    [salsa id]: 598,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 30,
@@ -17619,7 +17619,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 597,
+                                    [salsa id]: 599,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 31,
@@ -17650,7 +17650,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 599,
+                                    [salsa id]: 601,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 33,
@@ -17681,7 +17681,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 600,
+                                    [salsa id]: 602,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 34,
@@ -17712,7 +17712,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 601,
+                                    [salsa id]: 603,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 35,
@@ -17743,13 +17743,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 602,
+                                    [salsa id]: 604,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 116,
+                                            [salsa id]: 118,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 94,
+                                                    [salsa id]: 96,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                                     ),
@@ -17789,13 +17789,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 603,
+                                    [salsa id]: 605,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 117,
+                                            [salsa id]: 119,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 100,
+                                                    [salsa id]: 102,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
                                                     ),
@@ -17839,13 +17839,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 604,
+                                    [salsa id]: 606,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 118,
+                                            [salsa id]: 120,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 92,
+                                                    [salsa id]: 94,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
                                                     ),
@@ -17889,13 +17889,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 605,
+                                    [salsa id]: 607,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 119,
+                                            [salsa id]: 121,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 104,
+                                                    [salsa id]: 106,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
                                                     ),
@@ -17939,13 +17939,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 607,
+                                    [salsa id]: 609,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 122,
+                                            [salsa id]: 124,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 122,
+                                                    [salsa id]: 124,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
                                                     ),
@@ -17989,13 +17989,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 608,
+                                    [salsa id]: 610,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 123,
+                                            [salsa id]: 125,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 126,
+                                                    [salsa id]: 128,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
                                                     ),
@@ -18039,10 +18039,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 1136,
+                                    [salsa id]: 1138,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 83,
+                                            [salsa id]: 85,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
@@ -18072,10 +18072,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 1137,
+                                    [salsa id]: 1139,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 84,
+                                            [salsa id]: 86,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
@@ -18737,7 +18737,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 135,
+                                        [salsa id]: 137,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                         ),
@@ -18771,7 +18771,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 130,
+                                        [salsa id]: 132,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                         ),
@@ -18945,7 +18945,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 121,
+                                    [salsa id]: 123,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Feature`),
                                     ),
@@ -18965,7 +18965,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 122,
+                                    [salsa id]: 124,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
                                     ),
@@ -18985,7 +18985,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 123,
+                                    [salsa id]: 125,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::eight::big_mouth`, `Function`),
                                     ),
@@ -19005,10 +19005,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 609,
+                                    [salsa id]: 611,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 135,
+                                            [salsa id]: 137,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
@@ -19038,10 +19038,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 610,
+                                    [salsa id]: 612,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 130,
+                                            [salsa id]: 132,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
@@ -19071,10 +19071,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 612,
+                                    [salsa id]: 614,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 89,
+                                            [salsa id]: 91,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
@@ -19104,10 +19104,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 630,
+                                    [salsa id]: 632,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 59,
+                                            [salsa id]: 61,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             ),
@@ -19137,10 +19137,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 1175,
+                                    [salsa id]: 1177,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 83,
+                                            [salsa id]: 85,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
@@ -19170,10 +19170,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 1176,
+                                    [salsa id]: 1178,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 84,
+                                            [salsa id]: 86,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
@@ -20067,7 +20067,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 135,
+                                        [salsa id]: 137,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                         ),
@@ -20101,7 +20101,7 @@ Ok(
                             state: UseExprRuleState::Resolved {
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 130,
+                                        [salsa id]: 132,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                         ),
@@ -20314,7 +20314,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 124,
+                                    [salsa id]: 126,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::nine::nine_match`, `Feature`),
                                     ),
@@ -20334,7 +20334,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 125,
+                                    [salsa id]: 127,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Feature`),
                                     ),
@@ -20354,7 +20354,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 126,
+                                    [salsa id]: 128,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
                                     ),
@@ -20374,7 +20374,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 127,
+                                    [salsa id]: 129,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::nine::downmost`, `Function`),
                                     ),
@@ -20394,7 +20394,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 128,
+                                    [salsa id]: 130,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::nine::big_cc`, `Function`),
                                     ),
@@ -20414,10 +20414,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 656,
+                                    [salsa id]: 658,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 129,
+                                            [salsa id]: 131,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                             ),
@@ -20447,10 +20447,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 657,
+                                    [salsa id]: 659,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 130,
+                                            [salsa id]: 132,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
@@ -20480,10 +20480,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 658,
+                                    [salsa id]: 660,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 131,
+                                            [salsa id]: 133,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                             ),
@@ -20513,10 +20513,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 659,
+                                    [salsa id]: 661,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 132,
+                                            [salsa id]: 134,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                             ),
@@ -20546,10 +20546,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 660,
+                                    [salsa id]: 662,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 133,
+                                            [salsa id]: 135,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                             ),
@@ -20579,10 +20579,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 661,
+                                    [salsa id]: 663,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 134,
+                                            [salsa id]: 136,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                             ),
@@ -20612,10 +20612,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 662,
+                                    [salsa id]: 664,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 135,
+                                            [salsa id]: 137,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
@@ -20645,10 +20645,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 675,
+                                    [salsa id]: 677,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 89,
+                                            [salsa id]: 91,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
@@ -20678,10 +20678,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 1222,
+                                    [salsa id]: 1224,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 83,
+                                            [salsa id]: 85,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
@@ -20711,10 +20711,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 1223,
+                                    [salsa id]: 1225,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 84,
+                                            [salsa id]: 86,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
@@ -21499,7 +21499,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 129,
+                                    [salsa id]: 131,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                     ),
@@ -21515,7 +21515,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 130,
+                                    [salsa id]: 132,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                     ),
@@ -21531,7 +21531,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 131,
+                                    [salsa id]: 133,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                     ),
@@ -21547,7 +21547,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 132,
+                                    [salsa id]: 134,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                     ),
@@ -21563,7 +21563,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 133,
+                                    [salsa id]: 135,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                     ),
@@ -21579,7 +21579,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 134,
+                                    [salsa id]: 136,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                     ),
@@ -21595,7 +21595,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 135,
+                                    [salsa id]: 137,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                     ),
@@ -21613,7 +21613,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 124,
+                                    [salsa id]: 126,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 15,
@@ -21644,7 +21644,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 125,
+                                    [salsa id]: 127,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 16,
@@ -21675,7 +21675,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 126,
+                                    [salsa id]: 128,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 17,
@@ -21706,7 +21706,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 127,
+                                    [salsa id]: 129,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 18,
@@ -21737,7 +21737,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 128,
+                                    [salsa id]: 130,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 19,
@@ -21768,7 +21768,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 129,
+                                    [salsa id]: 131,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 20,
@@ -21799,7 +21799,7 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 130,
+                                    [salsa id]: 132,
                                     original_symbol: Submodule(
                                         SubmoduleSymbol {
                                             [salsa id]: 21,
@@ -21830,13 +21830,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 131,
+                                    [salsa id]: 133,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 26,
+                                            [salsa id]: 28,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 69,
+                                                    [salsa id]: 71,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
                                                     ),
@@ -21880,13 +21880,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 139,
+                                    [salsa id]: 141,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 45,
+                                            [salsa id]: 47,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 89,
+                                                    [salsa id]: 91,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                                     ),
@@ -21928,13 +21928,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 140,
+                                    [salsa id]: 142,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 50,
+                                            [salsa id]: 52,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 76,
+                                                    [salsa id]: 78,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                     ),
@@ -21976,13 +21976,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 141,
+                                    [salsa id]: 143,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 51,
+                                            [salsa id]: 53,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 77,
+                                                    [salsa id]: 79,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                     ),
@@ -22024,10 +22024,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 693,
+                                    [salsa id]: 695,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 53,
+                                            [salsa id]: 55,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                             ),
@@ -22057,10 +22057,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 694,
+                                    [salsa id]: 696,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 54,
+                                            [salsa id]: 56,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                             ),
@@ -22090,10 +22090,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 696,
+                                    [salsa id]: 698,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 56,
+                                            [salsa id]: 58,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ),
@@ -22123,10 +22123,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 698,
+                                    [salsa id]: 700,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 58,
+                                            [salsa id]: 60,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
                                             ),
@@ -22156,10 +22156,10 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 718,
+                                    [salsa id]: 720,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 59,
+                                            [salsa id]: 61,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             ),
@@ -22189,13 +22189,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 755,
+                                    [salsa id]: 757,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 75,
+                                            [salsa id]: 77,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 83,
+                                                    [salsa id]: 85,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ),
@@ -22235,13 +22235,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 756,
+                                    [salsa id]: 758,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 76,
+                                            [salsa id]: 78,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 84,
+                                                    [salsa id]: 86,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                                     ),
@@ -22281,13 +22281,13 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 757,
+                                    [salsa id]: 759,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 78,
+                                            [salsa id]: 80,
                                             original_symbol: ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 87,
+                                                    [salsa id]: 89,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                     ),
@@ -22327,16 +22327,16 @@ Ok(
                             ),
                             symbol: Use(
                                 UseSymbol {
-                                    [salsa id]: 1261,
+                                    [salsa id]: 1263,
                                     original_symbol: Use(
                                         UseSymbol {
-                                            [salsa id]: 153,
+                                            [salsa id]: 155,
                                             original_symbol: Use(
                                                 UseSymbol {
-                                                    [salsa id]: 116,
+                                                    [salsa id]: 118,
                                                     original_symbol: ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 94,
+                                                            [salsa id]: 96,
                                                             path: ModuleItemPath::Form(
                                                                 FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                                             ),
@@ -22959,7 +22959,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 27,
+                                    value: 29,
                                 },
                             ),
                         ),
@@ -22982,7 +22982,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                         ),
@@ -23005,7 +23005,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 31,
+                                    value: 33,
                                 },
                             ),
                         ),
@@ -23028,7 +23028,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 33,
+                                    value: 35,
                                 },
                             ),
                         ),
@@ -23051,7 +23051,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 35,
+                                    value: 37,
                                 },
                             ),
                         ),
@@ -23074,7 +23074,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 36,
+                                    value: 38,
                                 },
                             ),
                         ),
@@ -23097,7 +23097,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 37,
+                                    value: 39,
                                 },
                             ),
                         ),
@@ -23120,7 +23120,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 38,
+                                    value: 40,
                                 },
                             ),
                         ),
@@ -23143,7 +23143,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 39,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -23166,7 +23166,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 40,
+                                    value: 42,
                                 },
                             ),
                         ),
@@ -23189,7 +23189,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 41,
+                                    value: 43,
                                 },
                             ),
                         ),
@@ -23212,7 +23212,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 42,
+                                    value: 44,
                                 },
                             ),
                         ),

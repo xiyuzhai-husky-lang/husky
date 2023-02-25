@@ -275,7 +275,7 @@ impl<'a> ExprTypeEngine<'a> {
             LocalTermExpectation::ExplicitlyConvertible(ref expect) => {
                 self.resolve_explicitly_convertible(rule.expectee, expect.destination, level)
             }
-            LocalTermExpectation::ImplicitlyConversion { destination } => {
+            LocalTermExpectation::ImplicitlyConvertible { destination } => {
                 self.resolve_implicitly_convertible(rule.expectee, destination, level)
             }
             LocalTermExpectation::EqsSort { smallest_universe } => {
@@ -303,7 +303,7 @@ impl<'a> ExprTypeEngine<'a> {
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) enum LocalTermExpectation {
     ExplicitlyConvertible(ExpectExplicitlyConvertible),
-    ImplicitlyConversion {
+    ImplicitlyConvertible {
         destination: LocalTerm,
     },
     /// expect term to be an instance of Type u for some universe

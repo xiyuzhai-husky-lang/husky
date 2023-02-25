@@ -195,7 +195,7 @@ impl UnresolvedTerms {
         dependencies
     }
 
-    fn try_substitute_local_term(
+    pub(super) fn try_substitute_local_term(
         &self,
         local_term: LocalTerm,
     ) -> Result<Option<LocalTerm>, &LocalTermResolveError> {
@@ -212,15 +212,15 @@ impl UnresolvedTerms {
         }
     }
 
-    fn try_substitute_expectation_rule_variant(
-        &self,
+    fn try_substitute_expectation_rule_variant<'a>(
+        &'a self,
         expectation_rule_variant: &LocalTermExpectation,
-    ) -> Result<Option<LocalTermExpectation>, &LocalTermResolveError> {
+    ) -> Result<Option<LocalTermExpectation>, &'a LocalTermResolveError> {
         match expectation_rule_variant {
-            LocalTermExpectation::ImplicitlyConversion { destination: dst } => {
-                match self.try_substitute_local_term(*dst)? {
-                    Some(dst) => Ok(Some(LocalTermExpectation::ImplicitlyConversion {
-                        destination: dst,
+            LocalTermExpectation::ImplicitlyConvertible { destination } => {
+                match self.try_substitute_local_term(*destination)? {
+                    Some(destination) => Ok(Some(LocalTermExpectation::ImplicitlyConvertible {
+                        destination,
                     })),
                     None => Ok(None),
                 }
@@ -231,7 +231,9 @@ impl UnresolvedTerms {
             LocalTermExpectation::EqsRitchieCallTy => todo!(),
             LocalTermExpectation::InsSort { .. } => Ok(None),
             LocalTermExpectation::EqsExactly { destination } => todo!(),
-            LocalTermExpectation::ExplicitlyConvertible(_) => todo!(),
+            LocalTermExpectation::ExplicitlyConvertible(exp) => {
+                exp.try_substitute_unresolved_local_term(&self)
+            }
         }
     }
 }

@@ -98,7 +98,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -122,7 +122,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -180,7 +180,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -204,7 +204,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -299,7 +299,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -323,7 +323,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -405,7 +405,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -429,7 +429,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -474,7 +474,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -498,7 +498,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -572,7 +572,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -596,7 +596,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -621,7 +621,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -645,7 +645,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -670,7 +670,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -694,7 +694,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -719,7 +719,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -743,7 +743,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -768,7 +768,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -792,7 +792,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -845,7 +845,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -869,7 +869,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -937,7 +937,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -961,7 +961,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -983,7 +983,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -1007,7 +1007,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -1029,7 +1029,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -1053,7 +1053,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -1075,7 +1075,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -1099,7 +1099,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -1121,7 +1121,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -1145,7 +1145,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -1267,7 +1267,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -1291,7 +1291,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -1349,7 +1349,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -1373,7 +1373,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -1468,7 +1468,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -1492,7 +1492,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -1574,7 +1574,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -1598,7 +1598,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -1641,7 +1641,7 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 12,
+                                                value: 13,
                                             },
                                         ),
                                     ),
@@ -1661,7 +1661,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 12,
+                                                                value: 13,
                                                             },
                                                         ),
                                                     ),
@@ -1686,7 +1686,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -1711,7 +1711,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -1726,7 +1726,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -1816,7 +1816,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -1840,7 +1840,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -1863,7 +1863,7 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 12,
+                                                value: 13,
                                             },
                                         ),
                                     ),
@@ -1883,7 +1883,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 12,
+                                                                value: 13,
                                                             },
                                                         ),
                                                     ),
@@ -1908,7 +1908,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -1933,7 +1933,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -1948,7 +1948,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -2038,7 +2038,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -2062,7 +2062,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -2134,7 +2134,7 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 12,
+                                                value: 13,
                                             },
                                         ),
                                     ),
@@ -2150,7 +2150,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 12,
+                                                                value: 13,
                                                             },
                                                         ),
                                                     ),
@@ -2172,7 +2172,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -2180,7 +2180,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -2188,7 +2188,7 @@
                                                 Type(
                                                     TypePath(
                                                         Id {
-                                                            value: 23,
+                                                            value: 25,
                                                         },
                                                     ),
                                                 ),
@@ -2209,7 +2209,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -2224,7 +2224,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -2254,7 +2254,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -2320,7 +2320,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -2344,7 +2344,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -2364,7 +2364,7 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 12,
+                                                value: 13,
                                             },
                                         ),
                                     ),
@@ -2380,7 +2380,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 12,
+                                                                value: 13,
                                                             },
                                                         ),
                                                     ),
@@ -2402,7 +2402,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -2410,7 +2410,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -2418,7 +2418,7 @@
                                                 Type(
                                                     TypePath(
                                                         Id {
-                                                            value: 23,
+                                                            value: 25,
                                                         },
                                                     ),
                                                 ),
@@ -2439,7 +2439,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -2454,7 +2454,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -2484,7 +2484,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -2550,7 +2550,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -2574,7 +2574,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -2619,7 +2619,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -2698,7 +2698,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -2972,7 +2972,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 23,
+                                                    value: 25,
                                                 },
                                             ),
                                         ),
@@ -3107,7 +3107,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -3183,7 +3183,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -3256,7 +3256,7 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 12,
+                                                value: 13,
                                             },
                                         ),
                                     ),
@@ -3276,7 +3276,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 12,
+                                                                value: 13,
                                                             },
                                                         ),
                                                     ),
@@ -3301,7 +3301,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -3326,7 +3326,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -3341,7 +3341,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -3431,7 +3431,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -3455,7 +3455,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -3478,7 +3478,7 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 12,
+                                                value: 13,
                                             },
                                         ),
                                     ),
@@ -3498,7 +3498,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 12,
+                                                                value: 13,
                                                             },
                                                         ),
                                                     ),
@@ -3523,7 +3523,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -3548,7 +3548,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -3563,7 +3563,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -3653,7 +3653,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -3677,7 +3677,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -3750,7 +3750,7 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 12,
+                                                value: 13,
                                             },
                                         ),
                                     ),
@@ -3766,7 +3766,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 12,
+                                                                value: 13,
                                                             },
                                                         ),
                                                     ),
@@ -3788,7 +3788,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -3796,7 +3796,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -3804,7 +3804,7 @@
                                                 Type(
                                                     TypePath(
                                                         Id {
-                                                            value: 23,
+                                                            value: 25,
                                                         },
                                                     ),
                                                 ),
@@ -3825,7 +3825,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -3840,7 +3840,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -3870,7 +3870,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -3936,7 +3936,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -3960,7 +3960,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -3980,7 +3980,7 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 12,
+                                                value: 13,
                                             },
                                         ),
                                     ),
@@ -3996,7 +3996,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 12,
+                                                                value: 13,
                                                             },
                                                         ),
                                                     ),
@@ -4018,7 +4018,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -4026,7 +4026,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -4034,7 +4034,7 @@
                                                 Type(
                                                     TypePath(
                                                         Id {
-                                                            value: 23,
+                                                            value: 25,
                                                         },
                                                     ),
                                                 ),
@@ -4055,7 +4055,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -4070,7 +4070,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -4100,7 +4100,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -4166,7 +4166,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 23,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -4190,7 +4190,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 25,
                                                                     },
                                                                 ),
                                                             ),
@@ -4706,7 +4706,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -4763,7 +4763,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -5851,7 +5851,7 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 13,
+                                                value: 14,
                                             },
                                         ),
                                     ),
@@ -5871,7 +5871,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 13,
+                                                                value: 14,
                                                             },
                                                         ),
                                                     ),
@@ -5929,7 +5929,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -5953,7 +5953,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 37,
+                                                                        value: 39,
                                                                     },
                                                                 ),
                                                             ),
@@ -6000,7 +6000,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -6024,7 +6024,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 37,
+                                                                        value: 39,
                                                                     },
                                                                 ),
                                                             ),
@@ -6358,7 +6358,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -6382,7 +6382,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 37,
+                                                                        value: 39,
                                                                     },
                                                                 ),
                                                             ),
@@ -6407,7 +6407,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -6432,7 +6432,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 37,
+                                                                        value: 39,
                                                                     },
                                                                 ),
                                                             ),
@@ -6447,7 +6447,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 37,
+                                                                        value: 39,
                                                                     },
                                                                 ),
                                                             ),
@@ -6795,196 +6795,6 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                        expectation_rule_idx: Some(
-                            36,
-                        ),
-                        resolve_progress: Expected(
-                            Resolved(
-                                Ok(
-                                    EqsRitchieCallType(
-                                        ExpectEqsRitchieCallTypeResolvedOk {
-                                            destination: Resolved(
-                                                ReducedTerm(
-                                                    Ritchie(
-                                                        TermRitchie(
-                                                            Id {
-                                                                value: 14,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            parameter_liasoned_tys: (),
-                                            return_ty: (),
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    },
-                ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                        expectation_rule_idx: None,
-                        resolve_progress: Unresolved,
-                    },
-                ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                        expectation_rule_idx: None,
-                        resolve_progress: Unresolved,
-                    },
-                ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                        expectation_rule_idx: None,
-                        resolve_progress: Unresolved,
-                    },
-                ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Ok(
-                            Resolved(
-                                ReducedTerm(
-                                    Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 37,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                        expectation_rule_idx: Some(
-                            37,
-                        ),
-                        resolve_progress: Expected(
-                            Resolved(
-                                Ok(
-                                    ImplicitlyConvertible(
-                                        ExpectImplicitlyConvertibleResolvedOk {
-                                            implicit_conversion: None,
-                                            expectee: Resolved(
-                                                ReducedTerm(
-                                                    Entity(
-                                                        ModuleItem(
-                                                            Type(
-                                                                TypePath(
-                                                                    Id {
-                                                                        value: 37,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                ReducedTerm(
-                                                    Entity(
-                                                        ModuleItem(
-                                                            Type(
-                                                                TypePath(
-                                                                    Id {
-                                                                        value: 37,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    },
-                ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Ok(
-                            Resolved(
-                                ReducedTerm(
-                                    Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 37,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                        expectation_rule_idx: Some(
-                            38,
-                        ),
-                        resolve_progress: Expected(
-                            Resolved(
-                                Ok(
-                                    InsSort(
-                                        ExpectInsSortResolvedOk {
-                                            destination: Resolved(
-                                                ReducedTerm(
-                                                    Entity(
-                                                        ModuleItem(
-                                                            Type(
-                                                                TypePath(
-                                                                    Id {
-                                                                        value: 37,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    },
-                ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Ok(
-                            Resolved(
-                                ReducedTerm(
-                                    Ritchie(
-                                        TermRitchie(
-                                            Id {
                                                 value: 15,
                                             },
                                         ),
@@ -6993,7 +6803,7 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            39,
+                            36,
                         ),
                         resolve_progress: Expected(
                             Resolved(
@@ -7022,6 +6832,39 @@
                 ),
                 Some(
                     ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                        expectation_rule_idx: None,
+                        resolve_progress: Unresolved,
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
                         ty_result: Ok(
                             Resolved(
                                 ReducedTerm(
@@ -7030,7 +6873,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -7040,7 +6883,7 @@
                             ),
                         ),
                         expectation_rule_idx: Some(
-                            40,
+                            37,
                         ),
                         resolve_progress: Expected(
                             Resolved(
@@ -7055,7 +6898,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 37,
+                                                                        value: 39,
                                                                     },
                                                                 ),
                                                             ),
@@ -7070,7 +6913,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 37,
+                                                                        value: 39,
                                                                     },
                                                                 ),
                                                             ),
@@ -7095,7 +6938,164 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 39,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
+                            38,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 39,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Ritchie(
+                                        TermRitchie(
+                                            Id {
+                                                value: 16,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
+                            39,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    EqsRitchieCallType(
+                                        ExpectEqsRitchieCallTypeResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Ritchie(
+                                                        TermRitchie(
+                                                            Id {
+                                                                value: 16,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            parameter_liasoned_tys: (),
+                                            return_ty: (),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expectation_rule_idx: Some(
+                            40,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 39,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 39,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+                Some(
+                    ExprTypeInfo {
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -7120,7 +7120,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 37,
+                                                                        value: 39,
                                                                     },
                                                                 ),
                                                             ),
@@ -7135,7 +7135,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 37,
+                                                                        value: 39,
                                                                     },
                                                                 ),
                                                             ),
@@ -8160,7 +8160,7 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 16,
+                                                value: 17,
                                             },
                                         ),
                                     ),
@@ -8180,7 +8180,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 16,
+                                                                value: 17,
                                                             },
                                                         ),
                                                     ),
@@ -8225,7 +8225,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 39,
+                                                        value: 41,
                                                     },
                                                 ),
                                             ),
@@ -8249,7 +8249,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 39,
+                                                                        value: 41,
                                                                     },
                                                                 ),
                                                             ),
@@ -8918,7 +8918,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -8953,7 +8953,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -8977,7 +8977,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 37,
+                                                                        value: 39,
                                                                     },
                                                                 ),
                                                             ),
@@ -10094,7 +10094,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -10135,7 +10135,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -10224,7 +10224,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -10297,7 +10297,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -10338,7 +10338,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -10395,7 +10395,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -10436,7 +10436,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -10589,7 +10589,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -10630,7 +10630,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -11119,7 +11119,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -11211,7 +11211,7 @@
                                     15,
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -11321,7 +11321,7 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 13,
+                                                value: 14,
                                             },
                                         ),
                                     ),
@@ -11337,7 +11337,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 13,
+                                                                value: 14,
                                                             },
                                                         ),
                                                     ),
@@ -11359,7 +11359,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -11383,7 +11383,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 37,
+                                                                        value: 39,
                                                                     },
                                                                 ),
                                                             ),
@@ -11405,7 +11405,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -11429,7 +11429,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 37,
+                                                                        value: 39,
                                                                     },
                                                                 ),
                                                             ),
@@ -11543,7 +11543,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -11617,7 +11617,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -11691,7 +11691,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -11757,7 +11757,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -11781,7 +11781,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 37,
+                                                                        value: 39,
                                                                     },
                                                                 ),
                                                             ),
@@ -11803,7 +11803,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -11811,7 +11811,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -11819,7 +11819,7 @@
                                                 Type(
                                                     TypePath(
                                                         Id {
-                                                            value: 37,
+                                                            value: 39,
                                                         },
                                                     ),
                                                 ),
@@ -11840,7 +11840,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 37,
+                                                                        value: 39,
                                                                     },
                                                                 ),
                                                             ),
@@ -11855,7 +11855,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 37,
+                                                                        value: 39,
                                                                     },
                                                                 ),
                                                             ),
@@ -11885,7 +11885,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -11959,7 +11959,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -12033,7 +12033,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -12107,7 +12107,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -12171,162 +12171,6 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            expectation: EqsRitchieCallTy,
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsRitchieCallType(
-                                        ExpectEqsRitchieCallTypeResolvedOk {
-                                            destination: Resolved(
-                                                ReducedTerm(
-                                                    Ritchie(
-                                                        TermRitchie(
-                                                            Id {
-                                                                value: 14,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            parameter_liasoned_tys: (),
-                                            return_ty: (),
-                                        },
-                                    ),
-                                ),
-                            ),
-                        },
-                        LocalTermExpectationEntry {
-                            src_expr_idx: 111,
-                            expectee: Resolved(
-                                ReducedTerm(
-                                    Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 37,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            expectation: ImplicitlyConversion {
-                                destination: Resolved(
-                                    ReducedTerm(
-                                        Entity(
-                                            ModuleItem(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 37,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            resolve_progress: Resolved(
-                                Ok(
-                                    ImplicitlyConvertible(
-                                        ExpectImplicitlyConvertibleResolvedOk {
-                                            implicit_conversion: None,
-                                            expectee: Resolved(
-                                                ReducedTerm(
-                                                    Entity(
-                                                        ModuleItem(
-                                                            Type(
-                                                                TypePath(
-                                                                    Id {
-                                                                        value: 37,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                ReducedTerm(
-                                                    Entity(
-                                                        ModuleItem(
-                                                            Type(
-                                                                TypePath(
-                                                                    Id {
-                                                                        value: 37,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
-                        },
-                        LocalTermExpectationEntry {
-                            src_expr_idx: 112,
-                            expectee: Resolved(
-                                ReducedTerm(
-                                    Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 37,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            expectation: InsSort {
-                                smallest_universe: TermUniverse(
-                                    0,
-                                ),
-                            },
-                            resolve_progress: Resolved(
-                                Ok(
-                                    InsSort(
-                                        ExpectInsSortResolvedOk {
-                                            destination: Resolved(
-                                                ReducedTerm(
-                                                    Entity(
-                                                        ModuleItem(
-                                                            Type(
-                                                                TypePath(
-                                                                    Id {
-                                                                        value: 37,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
-                        },
-                        LocalTermExpectationEntry {
-                            src_expr_idx: 113,
-                            expectee: Resolved(
-                                ReducedTerm(
-                                    Ritchie(
-                                        TermRitchie(
-                                            Id {
                                                 value: 15,
                                             },
                                         ),
@@ -12357,7 +12201,7 @@
                             ),
                         },
                         LocalTermExpectationEntry {
-                            src_expr_idx: 114,
+                            src_expr_idx: 111,
                             expectee: Resolved(
                                 ReducedTerm(
                                     Entity(
@@ -12365,7 +12209,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -12373,7 +12217,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -12381,7 +12225,7 @@
                                                 Type(
                                                     TypePath(
                                                         Id {
-                                                            value: 37,
+                                                            value: 39,
                                                         },
                                                     ),
                                                 ),
@@ -12402,7 +12246,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 37,
+                                                                        value: 39,
                                                                     },
                                                                 ),
                                                             ),
@@ -12417,7 +12261,163 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 37,
+                                                                        value: 39,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 112,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 39,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 113,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Ritchie(
+                                        TermRitchie(
+                                            Id {
+                                                value: 16,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: EqsRitchieCallTy,
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsRitchieCallType(
+                                        ExpectEqsRitchieCallTypeResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Ritchie(
+                                                        TermRitchie(
+                                                            Id {
+                                                                value: 16,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            parameter_liasoned_tys: (),
+                                            return_ty: (),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 114,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: ImplicitlyConvertible {
+                                destination: Resolved(
+                                    ReducedTerm(
+                                        Entity(
+                                            ModuleItem(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 39,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        ExpectImplicitlyConvertibleResolvedOk {
+                                            implicit_conversion: None,
+                                            expectee: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 39,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Entity(
+                                                        ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 39,
                                                                     },
                                                                 ),
                                                             ),
@@ -12439,7 +12439,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -12447,7 +12447,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -12455,7 +12455,7 @@
                                                 Type(
                                                     TypePath(
                                                         Id {
-                                                            value: 37,
+                                                            value: 39,
                                                         },
                                                     ),
                                                 ),
@@ -12476,7 +12476,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 37,
+                                                                        value: 39,
                                                                     },
                                                                 ),
                                                             ),
@@ -12491,7 +12491,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 37,
+                                                                        value: 39,
                                                                     },
                                                                 ),
                                                             ),
@@ -12603,7 +12603,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -12677,7 +12677,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -12733,7 +12733,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -12821,7 +12821,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -12895,7 +12895,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -12983,7 +12983,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -13057,7 +13057,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -13145,7 +13145,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -13219,7 +13219,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -13307,7 +13307,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -13381,7 +13381,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -13445,7 +13445,7 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 16,
+                                                value: 17,
                                             },
                                         ),
                                     ),
@@ -13465,7 +13465,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 16,
+                                                                value: 17,
                                                             },
                                                         ),
                                                     ),
@@ -13485,7 +13485,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 39,
+                                                        value: 41,
                                                     },
                                                 ),
                                             ),
@@ -13509,7 +13509,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 39,
+                                                                        value: 41,
                                                                     },
                                                                 ),
                                                             ),
@@ -13539,7 +13539,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -13627,7 +13627,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -13715,7 +13715,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -13803,7 +13803,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -13877,7 +13877,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -13997,7 +13997,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -14063,7 +14063,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -14095,7 +14095,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 37,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -14119,7 +14119,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 37,
+                                                                        value: 39,
                                                                     },
                                                                 ),
                                                             ),
@@ -14149,7 +14149,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -14237,7 +14237,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -14325,7 +14325,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -14413,7 +14413,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -14487,7 +14487,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -14575,7 +14575,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -14649,7 +14649,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -16002,7 +16002,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -16043,7 +16043,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -16140,7 +16140,7 @@
                                     1,
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Unresolved(
                                     UnresolvedTermIdx(
                                         0,
@@ -16212,7 +16212,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -16286,7 +16286,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -16360,7 +16360,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -16434,7 +16434,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -16809,7 +16809,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -16842,7 +16842,7 @@
                                     1,
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Unresolved(
                                     UnresolvedTermIdx(
                                         0,
@@ -17893,7 +17893,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -17934,7 +17934,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -18007,7 +18007,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -18072,7 +18072,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -18201,7 +18201,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -18293,7 +18293,7 @@
                                     12,
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Unresolved(
                                     UnresolvedTermIdx(
                                         11,
@@ -18351,7 +18351,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -18795,7 +18795,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -18836,7 +18836,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [

@@ -42,6 +42,26 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Type(
+                TypePath(`core::num::i128`, `Extern`),
+            ),
+        ),
+        Ok(
+            Term(`Type`),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Type(
+                TypePath(`core::num::isize`, `Extern`),
+            ),
+        ),
+        Ok(
+            Term(`Type`),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Type(
                 TypePath(`core::num::u8`, `Extern`),
             ),
         ),

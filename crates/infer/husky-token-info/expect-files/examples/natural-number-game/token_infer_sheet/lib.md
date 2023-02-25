@@ -8,7 +8,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 43,
+                                    value: 45,
                                 },
                             ),
                         ),
@@ -37,7 +37,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 43,
+                                    value: 45,
                                 },
                             ),
                         ),
@@ -53,7 +53,7 @@ Ok(
                         TypeItem(
                             TypeItemPath(
                                 Id {
-                                    value: 73,
+                                    value: 75,
                                 },
                             ),
                         ),
@@ -74,7 +74,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 43,
+                                    value: 45,
                                 },
                             ),
                         ),
@@ -89,7 +89,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 43,
+                                    value: 45,
                                 },
                             ),
                         ),
@@ -170,7 +170,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 44,
+                                    value: 46,
                                 },
                             ),
                         ),
@@ -219,7 +219,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 45,
+                                    value: 47,
                                 },
                             ),
                         ),

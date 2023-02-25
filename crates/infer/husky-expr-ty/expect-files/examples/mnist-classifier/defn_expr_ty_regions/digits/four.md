@@ -19,7 +19,7 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 4,
+                                                value: 5,
                                             },
                                         ),
                                     ),
@@ -39,7 +39,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 4,
+                                                                value: 5,
                                                             },
                                                         ),
                                                     ),
@@ -62,7 +62,7 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 5,
+                                                value: 6,
                                             },
                                         ),
                                     ),
@@ -83,7 +83,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 5,
+                                                                value: 6,
                                                             },
                                                         ),
                                                     ),
@@ -94,7 +94,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 5,
+                                                                value: 6,
                                                             },
                                                         ),
                                                     ),
@@ -115,7 +115,7 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 5,
+                                                value: 6,
                                             },
                                         ),
                                     ),
@@ -136,7 +136,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 5,
+                                                                value: 6,
                                                             },
                                                         ),
                                                     ),
@@ -147,7 +147,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 5,
+                                                                value: 6,
                                                             },
                                                         ),
                                                     ),
@@ -226,7 +226,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 50,
+                                                        value: 52,
                                                     },
                                                 ),
                                             ),
@@ -250,7 +250,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 50,
+                                                                        value: 52,
                                                                     },
                                                                 ),
                                                             ),
@@ -275,7 +275,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 50,
+                                                        value: 52,
                                                     },
                                                 ),
                                             ),
@@ -299,7 +299,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 50,
+                                                                        value: 52,
                                                                     },
                                                                 ),
                                                             ),
@@ -354,7 +354,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 5,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -366,7 +366,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -399,7 +399,7 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 4,
+                                                value: 5,
                                             },
                                         ),
                                     ),
@@ -415,7 +415,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 4,
+                                                                value: 5,
                                                             },
                                                         ),
                                                     ),
@@ -441,7 +441,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Application(
@@ -469,13 +469,13 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 5,
+                                                value: 6,
                                             },
                                         ),
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Unresolved(
                                     UnresolvedTermIdx(
                                         0,
@@ -492,7 +492,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 5,
+                                                                value: 6,
                                                             },
                                                         ),
                                                     ),
@@ -503,7 +503,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 5,
+                                                                value: 6,
                                                             },
                                                         ),
                                                     ),
@@ -521,13 +521,13 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 5,
+                                                value: 6,
                                             },
                                         ),
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Unresolved(
                                     UnresolvedTermIdx(
                                         0,
@@ -544,7 +544,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 5,
+                                                                value: 6,
                                                             },
                                                         ),
                                                     ),
@@ -555,7 +555,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 5,
+                                                                value: 6,
                                                             },
                                                         ),
                                                     ),
@@ -573,7 +573,7 @@
                                     1,
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Application(
@@ -603,7 +603,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 50,
+                                                        value: 52,
                                                     },
                                                 ),
                                             ),
@@ -627,7 +627,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 50,
+                                                                        value: 52,
                                                                     },
                                                                 ),
                                                             ),
@@ -649,7 +649,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 50,
+                                                        value: 52,
                                                     },
                                                 ),
                                             ),
@@ -673,7 +673,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 50,
+                                                                        value: 52,
                                                                     },
                                                                 ),
                                                             ),
@@ -862,7 +862,7 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 4,
+                                                value: 5,
                                             },
                                         ),
                                     ),
@@ -882,7 +882,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 4,
+                                                                value: 5,
                                                             },
                                                         ),
                                                     ),
@@ -905,7 +905,7 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 5,
+                                                value: 6,
                                             },
                                         ),
                                     ),
@@ -926,7 +926,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 5,
+                                                                value: 6,
                                                             },
                                                         ),
                                                     ),
@@ -937,7 +937,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 5,
+                                                                value: 6,
                                                             },
                                                         ),
                                                     ),
@@ -1016,7 +1016,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 50,
+                                                        value: 52,
                                                     },
                                                 ),
                                             ),
@@ -1040,7 +1040,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 50,
+                                                                        value: 52,
                                                                     },
                                                                 ),
                                                             ),
@@ -1065,7 +1065,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 50,
+                                                        value: 52,
                                                     },
                                                 ),
                                             ),
@@ -1089,7 +1089,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 50,
+                                                                        value: 52,
                                                                     },
                                                                 ),
                                                             ),
@@ -1143,7 +1143,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 5,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -1155,7 +1155,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -1188,7 +1188,7 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 4,
+                                                value: 5,
                                             },
                                         ),
                                     ),
@@ -1204,7 +1204,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 4,
+                                                                value: 5,
                                                             },
                                                         ),
                                                     ),
@@ -1230,7 +1230,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Application(
@@ -1258,13 +1258,13 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 5,
+                                                value: 6,
                                             },
                                         ),
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Unresolved(
                                     UnresolvedTermIdx(
                                         0,
@@ -1281,7 +1281,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 5,
+                                                                value: 6,
                                                             },
                                                         ),
                                                     ),
@@ -1292,7 +1292,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 5,
+                                                                value: 6,
                                                             },
                                                         ),
                                                     ),
@@ -1310,7 +1310,7 @@
                                     1,
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Application(
@@ -1340,7 +1340,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 50,
+                                                        value: 52,
                                                     },
                                                 ),
                                             ),
@@ -1364,7 +1364,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 50,
+                                                                        value: 52,
                                                                     },
                                                                 ),
                                                             ),
@@ -1386,7 +1386,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 50,
+                                                        value: 52,
                                                     },
                                                 ),
                                             ),
@@ -1410,7 +1410,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 50,
+                                                                        value: 52,
                                                                     },
                                                                 ),
                                                             ),
@@ -1451,7 +1451,7 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 4,
+                                                value: 5,
                                             },
                                         ),
                                     ),
@@ -1471,7 +1471,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 4,
+                                                                value: 5,
                                                             },
                                                         ),
                                                     ),
@@ -1494,7 +1494,7 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 5,
+                                                value: 6,
                                             },
                                         ),
                                     ),
@@ -1515,7 +1515,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 5,
+                                                                value: 6,
                                                             },
                                                         ),
                                                     ),
@@ -1526,7 +1526,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 5,
+                                                                value: 6,
                                                             },
                                                         ),
                                                     ),
@@ -1605,7 +1605,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 50,
+                                                        value: 52,
                                                     },
                                                 ),
                                             ),
@@ -1629,7 +1629,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 50,
+                                                                        value: 52,
                                                                     },
                                                                 ),
                                                             ),
@@ -1654,7 +1654,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 50,
+                                                        value: 52,
                                                     },
                                                 ),
                                             ),
@@ -1678,7 +1678,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 50,
+                                                                        value: 52,
                                                                     },
                                                                 ),
                                                             ),
@@ -1732,7 +1732,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 5,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -1744,7 +1744,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -1777,7 +1777,7 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 4,
+                                                value: 5,
                                             },
                                         ),
                                     ),
@@ -1793,7 +1793,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 4,
+                                                                value: 5,
                                                             },
                                                         ),
                                                     ),
@@ -1819,7 +1819,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Application(
@@ -1847,13 +1847,13 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 5,
+                                                value: 6,
                                             },
                                         ),
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Unresolved(
                                     UnresolvedTermIdx(
                                         0,
@@ -1870,7 +1870,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 5,
+                                                                value: 6,
                                                             },
                                                         ),
                                                     ),
@@ -1881,7 +1881,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 5,
+                                                                value: 6,
                                                             },
                                                         ),
                                                     ),
@@ -1899,7 +1899,7 @@
                                     1,
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Application(
@@ -1929,7 +1929,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 50,
+                                                        value: 52,
                                                     },
                                                 ),
                                             ),
@@ -1953,7 +1953,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 50,
+                                                                        value: 52,
                                                                     },
                                                                 ),
                                                             ),
@@ -1975,7 +1975,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 50,
+                                                        value: 52,
                                                     },
                                                 ),
                                             ),
@@ -1999,7 +1999,7 @@
                                                             Type(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 50,
+                                                                        value: 52,
                                                                     },
                                                                 ),
                                                             ),
@@ -2280,7 +2280,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 35,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -2608,7 +2608,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 35,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -2643,7 +2643,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 35,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -3281,7 +3281,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 35,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -3316,7 +3316,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 35,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -3848,7 +3848,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 35,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -4277,7 +4277,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -4342,7 +4342,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -4407,7 +4407,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -4472,7 +4472,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -4553,7 +4553,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -4634,7 +4634,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -4715,7 +4715,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -4844,7 +4844,7 @@
                                     1,
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Unresolved(
                                     UnresolvedTermIdx(
                                         0,
@@ -4902,7 +4902,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -4966,7 +4966,7 @@
                                     4,
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Unresolved(
                                     UnresolvedTermIdx(
                                         3,
@@ -5024,7 +5024,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -5090,7 +5090,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 35,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -5112,7 +5112,7 @@
                                                     Type(
                                                         TypePath(
                                                             Id {
-                                                                value: 35,
+                                                                value: 37,
                                                             },
                                                         ),
                                                     ),
@@ -5133,7 +5133,7 @@
                                     7,
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Unresolved(
                                     UnresolvedTermIdx(
                                         6,
@@ -5191,7 +5191,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -5255,7 +5255,7 @@
                                     10,
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Unresolved(
                                     UnresolvedTermIdx(
                                         9,
@@ -5313,7 +5313,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -5379,7 +5379,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 35,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -5401,7 +5401,7 @@
                                                     Type(
                                                         TypePath(
                                                             Id {
-                                                                value: 35,
+                                                                value: 37,
                                                             },
                                                         ),
                                                     ),
@@ -5424,7 +5424,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 35,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -5446,7 +5446,7 @@
                                                     Type(
                                                         TypePath(
                                                             Id {
-                                                                value: 35,
+                                                                value: 37,
                                                             },
                                                         ),
                                                     ),
@@ -5491,7 +5491,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -5555,7 +5555,7 @@
                                     14,
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Unresolved(
                                     UnresolvedTermIdx(
                                         13,
@@ -5613,7 +5613,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -5738,7 +5738,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -5802,7 +5802,7 @@
                                     18,
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Unresolved(
                                     UnresolvedTermIdx(
                                         17,
@@ -5860,7 +5860,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -5948,7 +5948,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -6014,7 +6014,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 35,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -6036,7 +6036,7 @@
                                                     Type(
                                                         TypePath(
                                                             Id {
-                                                                value: 35,
+                                                                value: 37,
                                                             },
                                                         ),
                                                     ),
@@ -6059,7 +6059,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 35,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -6081,7 +6081,7 @@
                                                     Type(
                                                         TypePath(
                                                             Id {
-                                                                value: 35,
+                                                                value: 37,
                                                             },
                                                         ),
                                                     ),
@@ -6102,7 +6102,7 @@
                                     22,
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Unresolved(
                                     UnresolvedTermIdx(
                                         21,
@@ -6160,7 +6160,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -6248,7 +6248,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -6336,7 +6336,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -6424,7 +6424,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -6490,7 +6490,7 @@
                                             Type(
                                                 TypePath(
                                                     Id {
-                                                        value: 35,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -6512,7 +6512,7 @@
                                                     Type(
                                                         TypePath(
                                                             Id {
-                                                                value: 35,
+                                                                value: 37,
                                                             },
                                                         ),
                                                     ),
@@ -6571,7 +6571,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -6659,7 +6659,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -7030,7 +7030,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -7591,7 +7591,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -7716,7 +7716,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(

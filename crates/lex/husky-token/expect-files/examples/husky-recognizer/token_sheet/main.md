@@ -13,18 +13,6 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 111,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                ColonColon,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
                             value: 112,
                         },
                     ),
@@ -38,6 +26,18 @@ Ok(
                     Word(
                         Id {
                             value: 113,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                ColonColon,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 114,
                         },
                     ),
                 ),

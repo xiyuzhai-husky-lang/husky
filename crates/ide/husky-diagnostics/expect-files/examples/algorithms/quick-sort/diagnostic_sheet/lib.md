@@ -10,38 +10,7 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [3:41, 3:46),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [5:49, 5:54),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [5:62, 5:67),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [11:44, 11:49),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [11:57, 11:62),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [11:67, 11:72),
-            },
-        ],
+        diagnostics: [],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
         diagnostics: [
@@ -83,6 +52,11 @@ DiagnosticSheet {
                 range: [3:20, 3:23),
             },
             Diagnostic {
+                message: "OriginalLocalTermExpectationError::Todo: todo",
+                severity: Error,
+                range: [7:17, 7:26),
+            },
+            Diagnostic {
                 message: "Type Error: original `todo` in term Slice $0",
                 severity: Error,
                 range: [7:27, 7:30),
@@ -96,6 +70,16 @@ DiagnosticSheet {
                 message: "Type Error: original `todo` in term Slice $0",
                 severity: Error,
                 range: [9:24, 9:27),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError::Todo: todo",
+                severity: Error,
+                range: [20:9, 20:19),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError::Todo: todo",
+                severity: Error,
+                range: [22:13, 22:23),
             },
             Diagnostic {
                 message: "Type Error: original `todo` in term Slice $0",
