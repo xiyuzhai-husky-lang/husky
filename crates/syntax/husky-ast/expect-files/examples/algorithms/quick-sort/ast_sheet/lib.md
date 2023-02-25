@@ -345,12 +345,9 @@ Ok(
                         103,
                     ),
                 },
-                Ast::Err {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         25,
-                    ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {
@@ -388,12 +385,9 @@ Ok(
                         228,
                     ),
                 },
-                Ast::Err {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         30,
-                    ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {

@@ -176,161 +176,161 @@ impl EntityPathMenu {
             core_mem,
             db.it_ident_borrowed("Ref").unwrap(),
             ModuleItemConnection::Connected,
-            TypeKind::Alien,
+            TypeKind::Extern,
         );
         let ref_mut_ty_path = TypePath::new(
             db,
             core_mem,
             db.it_ident_borrowed("RefMut").unwrap(),
             ModuleItemConnection::Connected,
-            TypeKind::Alien,
+            TypeKind::Extern,
         );
         let slice_ty_path = TypePath::new(
             db,
             core_slice,
             db.it_ident_borrowed("Slice").unwrap(),
             ModuleItemConnection::Connected,
-            TypeKind::Alien,
+            TypeKind::Extern,
         );
         let str_ty_path = TypePath::new(
             db,
             core_str,
             db.it_ident_borrowed("str").unwrap(),
             ModuleItemConnection::Connected,
-            TypeKind::Alien,
+            TypeKind::Extern,
         );
         let list_ty = TypePath::new(
             db,
             core_vec,
             db.it_ident_borrowed("List").unwrap(),
             ModuleItemConnection::Connected,
-            TypeKind::Alien,
+            TypeKind::Extern,
         );
         let i8_ty_path = TypePath::new(
             db,
             core_num,
             word_menu.i8(),
             ModuleItemConnection::Connected,
-            TypeKind::Alien,
+            TypeKind::Extern,
         );
         let i16_ty_path = TypePath::new(
             db,
             core_num,
             word_menu.i16(),
             ModuleItemConnection::Connected,
-            TypeKind::Alien,
+            TypeKind::Extern,
         );
         let i32_ty_path = TypePath::new(
             db,
             core_num,
             word_menu.i32(),
             ModuleItemConnection::Connected,
-            TypeKind::Alien,
+            TypeKind::Extern,
         );
         let i64_ty_path = TypePath::new(
             db,
             core_num,
             word_menu.i64(),
             ModuleItemConnection::Connected,
-            TypeKind::Alien,
+            TypeKind::Extern,
         );
         let unit = TypePath::new(
             db,
             core_basic,
             word_menu.unit(),
             ModuleItemConnection::Connected,
-            TypeKind::Alien,
+            TypeKind::Extern,
         );
         let never = TypePath::new(
             db,
             core_basic,
             word_menu.never(),
             ModuleItemConnection::Connected,
-            TypeKind::Alien,
+            TypeKind::Extern,
         );
         let bool = TypePath::new(
             db,
             core_basic,
             word_menu.bool(),
             ModuleItemConnection::Connected,
-            TypeKind::Alien,
+            TypeKind::Extern,
         );
         let f32_ty_path = TypePath::new(
             db,
             core_num,
             word_menu.f32(),
             ModuleItemConnection::Connected,
-            TypeKind::Alien,
+            TypeKind::Extern,
         );
         let f64_ty_path = TypePath::new(
             db,
             core_num,
             word_menu.f64(),
             ModuleItemConnection::Connected,
-            TypeKind::Alien,
+            TypeKind::Extern,
         );
         let r32_ty_path = TypePath::new(
             db,
             core_raw_bits,
             word_menu.r32(),
             ModuleItemConnection::Connected,
-            TypeKind::Alien,
+            TypeKind::Extern,
         );
         let r64_ty_path = TypePath::new(
             db,
             core_raw_bits,
             word_menu.r64(),
             ModuleItemConnection::Connected,
-            TypeKind::Alien,
+            TypeKind::Extern,
         );
         let u8_ty_path = TypePath::new(
             db,
             core_num,
             word_menu.u8(),
             ModuleItemConnection::Connected,
-            TypeKind::Alien,
+            TypeKind::Extern,
         );
         let u16_ty_path = TypePath::new(
             db,
             core_num,
             word_menu.u16(),
             ModuleItemConnection::Connected,
-            TypeKind::Alien,
+            TypeKind::Extern,
         );
         let u32_ty_path = TypePath::new(
             db,
             core_num,
             word_menu.u32(),
             ModuleItemConnection::Connected,
-            TypeKind::Alien,
+            TypeKind::Extern,
         );
         let u64_ty_path = TypePath::new(
             db,
             core_num,
             word_menu.u64(),
             ModuleItemConnection::Connected,
-            TypeKind::Alien,
+            TypeKind::Extern,
         );
         let trai_ty_path = TypePath::new(
             db,
             core_basic,
             word_menu.trai_ty(),
             ModuleItemConnection::Connected,
-            TypeKind::Alien,
+            TypeKind::Extern,
         );
         let lifetime = TypePath::new(
             db,
             core_basic,
             word_menu.lifetime_ty(),
             ModuleItemConnection::Connected,
-            TypeKind::Alien,
+            TypeKind::Extern,
         );
         let module = TypePath::new(
             db,
             core_basic,
             word_menu.module(),
             ModuleItemConnection::Connected,
-            TypeKind::Alien,
+            TypeKind::Extern,
         );
         Ok(Self {
             core_ops_add,

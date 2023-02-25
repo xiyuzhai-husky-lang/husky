@@ -124,7 +124,7 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
                 TypeDecl::Record(decl) => self.visit_record_decl(decl),
                 TypeDecl::Inductive(decl) => self.visit_inductive_decl(decl),
                 TypeDecl::Structure(decl) => self.visit_structure_decl(decl),
-                TypeDecl::Alien(decl) => self.visit_alien_decl(decl),
+                TypeDecl::Extern(decl) => self.visit_alien_decl(decl),
                 TypeDecl::Union(decl) => self.visit_union_decl(decl),
             },
             Decl::Form(decl) => self.visit_form_decl(decl),
@@ -180,7 +180,7 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
         // todo!()
     }
 
-    fn visit_alien_decl(&mut self, decl: AlienTypeDecl) {
+    fn visit_alien_decl(&mut self, decl: ExternTypeDecl) {
         if let Err(DeclExprError::Original(e)) = decl.implicit_parameters(self.db()) {
             self.visit_atom(e)
         }

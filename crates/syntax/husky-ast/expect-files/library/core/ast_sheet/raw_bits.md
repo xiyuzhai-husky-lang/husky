@@ -2,17 +2,14 @@ Ok(
     AstSheet {
         ast_arena: Arena {
             data: [
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
                 },
-                Ast::Err {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         1,
-                    ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {
@@ -25,14 +22,14 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Alien,
+                            Extern,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::raw_bits::r32`, `Alien`),
+                                TypePath(`core::raw_bits::r32`, `Extern`),
                             ),
                         ),
                     ),

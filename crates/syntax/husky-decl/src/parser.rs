@@ -152,7 +152,7 @@ impl<'a> DeclParser<'a> {
                 body,
                 saved_stream_state,
             ),
-            TypeKind::Alien => {
+            TypeKind::Extern => {
                 self.parse_foreign_ty_decl(ast_idx, path, token_group_idx, body, saved_stream_state)
             }
         }
@@ -374,7 +374,7 @@ impl<'a> DeclParser<'a> {
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
         let implicit_parameters = ctx.parse();
-        Ok(AlienTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters).into())
+        Ok(ExternTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters).into())
     }
 
     fn parse_form_decl(&self, path: FormPath) -> DeclResult<FormDecl> {

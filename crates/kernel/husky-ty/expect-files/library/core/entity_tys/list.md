@@ -2,7 +2,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Type(
-                TypePath(`core::list::List`, `Alien`),
+                TypePath(`core::list::List`, `Extern`),
             ),
         ),
         Ok(

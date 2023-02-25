@@ -12,14 +12,14 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Alien,
+                            Extern,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::basic::bool`, `Alien`),
+                                TypePath(`core::basic::bool`, `Extern`),
                             ),
                         ),
                     ),
@@ -45,14 +45,14 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Alien,
+                            Extern,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::basic::never`, `Alien`),
+                                TypePath(`core::basic::never`, `Extern`),
                             ),
                         ),
                     ),
@@ -78,14 +78,14 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Alien,
+                            Extern,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::basic::unit`, `Alien`),
+                                TypePath(`core::basic::unit`, `Extern`),
                             ),
                         ),
                     ),

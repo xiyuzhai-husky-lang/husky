@@ -2673,7 +2673,7 @@ Ok(
                                                     entity_path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::usize`, `Alien`),
+                                                                TypePath(`core::num::usize`, `Extern`),
                                                             ),
                                                         ),
                                                     ),
@@ -2778,7 +2778,7 @@ Ok(
                                                     entity_path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::usize`, `Alien`),
+                                                                TypePath(`core::num::usize`, `Extern`),
                                                             ),
                                                         ),
                                                     ),
@@ -2943,7 +2943,7 @@ Ok(
                                                     entity_path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::usize`, `Alien`),
+                                                                TypePath(`core::num::usize`, `Extern`),
                                                             ),
                                                         ),
                                                     ),
@@ -3116,7 +3116,7 @@ Ok(
                                                     entity_path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::usize`, `Alien`),
+                                                                TypePath(`core::num::usize`, `Extern`),
                                                             ),
                                                         ),
                                                     ),
@@ -3136,7 +3136,7 @@ Ok(
                                                     entity_path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::usize`, `Alien`),
+                                                                TypePath(`core::num::usize`, `Extern`),
                                                             ),
                                                         ),
                                                     ),
@@ -3204,7 +3204,7 @@ Ok(
                                                     entity_path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::usize`, `Alien`),
+                                                                TypePath(`core::num::usize`, `Extern`),
                                                             ),
                                                         ),
                                                     ),
@@ -3224,7 +3224,7 @@ Ok(
                                                     entity_path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::usize`, `Alien`),
+                                                                TypePath(`core::num::usize`, `Extern`),
                                                             ),
                                                         ),
                                                     ),
@@ -3293,7 +3293,7 @@ Ok(
                                                     ident: `usize`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::usize`, `Alien`),
+                                                            TypePath(`core::num::usize`, `Extern`),
                                                         ),
                                                     ),
                                                 },
@@ -3304,7 +3304,7 @@ Ok(
                                                     ident: `usize`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::usize`, `Alien`),
+                                                            TypePath(`core::num::usize`, `Extern`),
                                                         ),
                                                     ),
                                                 },
@@ -3315,7 +3315,7 @@ Ok(
                                                     ident: `usize`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::usize`, `Alien`),
+                                                            TypePath(`core::num::usize`, `Extern`),
                                                         ),
                                                     ),
                                                 },
@@ -3326,7 +3326,7 @@ Ok(
                                                     ident: `usize`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::usize`, `Alien`),
+                                                            TypePath(`core::num::usize`, `Extern`),
                                                         ),
                                                     ),
                                                 },
@@ -3337,7 +3337,7 @@ Ok(
                                                     ident: `usize`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::usize`, `Alien`),
+                                                            TypePath(`core::num::usize`, `Extern`),
                                                         ),
                                                     ),
                                                 },
@@ -3348,7 +3348,7 @@ Ok(
                                                     ident: `usize`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::usize`, `Alien`),
+                                                            TypePath(`core::num::usize`, `Extern`),
                                                         ),
                                                     ),
                                                 },
@@ -3359,7 +3359,7 @@ Ok(
                                                     ident: `usize`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::usize`, `Alien`),
+                                                            TypePath(`core::num::usize`, `Extern`),
                                                         ),
                                                     ),
                                                 },

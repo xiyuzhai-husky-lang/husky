@@ -35,7 +35,7 @@ pub struct DeclJar(
     RecordTypeDecl,
     InductiveTypeDecl,
     StructureTypeDecl,
-    AlienTypeDecl,
+    ExternTypeDecl,
     UnionTypeDecl,
     // trait
     trai_decl,

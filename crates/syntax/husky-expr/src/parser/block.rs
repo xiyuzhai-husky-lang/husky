@@ -107,7 +107,8 @@ impl<'a> BlockExprParser<'a> {
             }
             Ast::Err { .. }
             | Ast::Use { .. }
-            | Ast::Decor { .. }
+            | Ast::Extern { .. }
+            | Ast::Decr { .. }
             | Ast::Defn { .. }
             | Ast::ModuleItemVariant { .. }
             | Ast::Impl { .. }

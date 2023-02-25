@@ -5,17 +5,17 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Type(
-                            TypePath(`core::num::i8`, `Alien`),
+                            TypePath(`core::num::i8`, `Extern`),
                         ),
                     ),
                 ),
                 Ok(
                     Defn::Type(
-                        TypeDefn::Alien(
-                            AlienTypeDefn {
-                                path: TypePath(`core::num::i8`, `Alien`),
-                                decl: AlienTypeDecl {
-                                    path: TypePath(`core::num::i8`, `Alien`),
+                        TypeDefn::Extern(
+                            ExternTypeDefn {
+                                path: TypePath(`core::num::i8`, `Extern`),
+                                decl: ExternTypeDecl {
+                                    path: TypePath(`core::num::i8`, `Extern`),
                                     ast_idx: 27,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -24,7 +24,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::i8`, `Alien`),
+                                                            TypePath(`core::num::i8`, `Extern`),
                                                         ),
                                                     ),
                                                 ),
@@ -75,17 +75,17 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Type(
-                            TypePath(`core::num::i16`, `Alien`),
+                            TypePath(`core::num::i16`, `Extern`),
                         ),
                     ),
                 ),
                 Ok(
                     Defn::Type(
-                        TypeDefn::Alien(
-                            AlienTypeDefn {
-                                path: TypePath(`core::num::i16`, `Alien`),
-                                decl: AlienTypeDecl {
-                                    path: TypePath(`core::num::i16`, `Alien`),
+                        TypeDefn::Extern(
+                            ExternTypeDefn {
+                                path: TypePath(`core::num::i16`, `Extern`),
+                                decl: ExternTypeDecl {
+                                    path: TypePath(`core::num::i16`, `Extern`),
                                     ast_idx: 32,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -94,7 +94,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::i16`, `Alien`),
+                                                            TypePath(`core::num::i16`, `Extern`),
                                                         ),
                                                     ),
                                                 ),
@@ -145,17 +145,17 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Type(
-                            TypePath(`core::num::i32`, `Alien`),
+                            TypePath(`core::num::i32`, `Extern`),
                         ),
                     ),
                 ),
                 Ok(
                     Defn::Type(
-                        TypeDefn::Alien(
-                            AlienTypeDefn {
-                                path: TypePath(`core::num::i32`, `Alien`),
-                                decl: AlienTypeDecl {
-                                    path: TypePath(`core::num::i32`, `Alien`),
+                        TypeDefn::Extern(
+                            ExternTypeDefn {
+                                path: TypePath(`core::num::i32`, `Extern`),
+                                decl: ExternTypeDecl {
+                                    path: TypePath(`core::num::i32`, `Extern`),
                                     ast_idx: 37,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -164,7 +164,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::i32`, `Alien`),
+                                                            TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
                                                 ),
@@ -215,17 +215,17 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Type(
-                            TypePath(`core::num::i64`, `Alien`),
+                            TypePath(`core::num::i64`, `Extern`),
                         ),
                     ),
                 ),
                 Ok(
                     Defn::Type(
-                        TypeDefn::Alien(
-                            AlienTypeDefn {
-                                path: TypePath(`core::num::i64`, `Alien`),
-                                decl: AlienTypeDecl {
-                                    path: TypePath(`core::num::i64`, `Alien`),
+                        TypeDefn::Extern(
+                            ExternTypeDefn {
+                                path: TypePath(`core::num::i64`, `Extern`),
+                                decl: ExternTypeDecl {
+                                    path: TypePath(`core::num::i64`, `Extern`),
                                     ast_idx: 42,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -234,7 +234,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::i64`, `Alien`),
+                                                            TypePath(`core::num::i64`, `Extern`),
                                                         ),
                                                     ),
                                                 ),
@@ -285,17 +285,17 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Type(
-                            TypePath(`core::num::u8`, `Alien`),
+                            TypePath(`core::num::u8`, `Extern`),
                         ),
                     ),
                 ),
                 Ok(
                     Defn::Type(
-                        TypeDefn::Alien(
-                            AlienTypeDefn {
-                                path: TypePath(`core::num::u8`, `Alien`),
-                                decl: AlienTypeDecl {
-                                    path: TypePath(`core::num::u8`, `Alien`),
+                        TypeDefn::Extern(
+                            ExternTypeDefn {
+                                path: TypePath(`core::num::u8`, `Extern`),
+                                decl: ExternTypeDecl {
+                                    path: TypePath(`core::num::u8`, `Extern`),
                                     ast_idx: 47,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -304,7 +304,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::u8`, `Alien`),
+                                                            TypePath(`core::num::u8`, `Extern`),
                                                         ),
                                                     ),
                                                 ),
@@ -355,17 +355,17 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Type(
-                            TypePath(`core::num::u16`, `Alien`),
+                            TypePath(`core::num::u16`, `Extern`),
                         ),
                     ),
                 ),
                 Ok(
                     Defn::Type(
-                        TypeDefn::Alien(
-                            AlienTypeDefn {
-                                path: TypePath(`core::num::u16`, `Alien`),
-                                decl: AlienTypeDecl {
-                                    path: TypePath(`core::num::u16`, `Alien`),
+                        TypeDefn::Extern(
+                            ExternTypeDefn {
+                                path: TypePath(`core::num::u16`, `Extern`),
+                                decl: ExternTypeDecl {
+                                    path: TypePath(`core::num::u16`, `Extern`),
                                     ast_idx: 52,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -374,7 +374,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::u16`, `Alien`),
+                                                            TypePath(`core::num::u16`, `Extern`),
                                                         ),
                                                     ),
                                                 ),
@@ -425,17 +425,17 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Type(
-                            TypePath(`core::num::u32`, `Alien`),
+                            TypePath(`core::num::u32`, `Extern`),
                         ),
                     ),
                 ),
                 Ok(
                     Defn::Type(
-                        TypeDefn::Alien(
-                            AlienTypeDefn {
-                                path: TypePath(`core::num::u32`, `Alien`),
-                                decl: AlienTypeDecl {
-                                    path: TypePath(`core::num::u32`, `Alien`),
+                        TypeDefn::Extern(
+                            ExternTypeDefn {
+                                path: TypePath(`core::num::u32`, `Extern`),
+                                decl: ExternTypeDecl {
+                                    path: TypePath(`core::num::u32`, `Extern`),
                                     ast_idx: 57,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -444,7 +444,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::u32`, `Alien`),
+                                                            TypePath(`core::num::u32`, `Extern`),
                                                         ),
                                                     ),
                                                 ),
@@ -495,17 +495,17 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Type(
-                            TypePath(`core::num::u64`, `Alien`),
+                            TypePath(`core::num::u64`, `Extern`),
                         ),
                     ),
                 ),
                 Ok(
                     Defn::Type(
-                        TypeDefn::Alien(
-                            AlienTypeDefn {
-                                path: TypePath(`core::num::u64`, `Alien`),
-                                decl: AlienTypeDecl {
-                                    path: TypePath(`core::num::u64`, `Alien`),
+                        TypeDefn::Extern(
+                            ExternTypeDefn {
+                                path: TypePath(`core::num::u64`, `Extern`),
+                                decl: ExternTypeDecl {
+                                    path: TypePath(`core::num::u64`, `Extern`),
                                     ast_idx: 62,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -514,7 +514,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::u64`, `Alien`),
+                                                            TypePath(`core::num::u64`, `Extern`),
                                                         ),
                                                     ),
                                                 ),
@@ -565,17 +565,17 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Type(
-                            TypePath(`core::num::u128`, `Alien`),
+                            TypePath(`core::num::u128`, `Extern`),
                         ),
                     ),
                 ),
                 Ok(
                     Defn::Type(
-                        TypeDefn::Alien(
-                            AlienTypeDefn {
-                                path: TypePath(`core::num::u128`, `Alien`),
-                                decl: AlienTypeDecl {
-                                    path: TypePath(`core::num::u128`, `Alien`),
+                        TypeDefn::Extern(
+                            ExternTypeDefn {
+                                path: TypePath(`core::num::u128`, `Extern`),
+                                decl: ExternTypeDecl {
+                                    path: TypePath(`core::num::u128`, `Extern`),
                                     ast_idx: 67,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -584,7 +584,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::u128`, `Alien`),
+                                                            TypePath(`core::num::u128`, `Extern`),
                                                         ),
                                                     ),
                                                 ),
@@ -635,17 +635,17 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Type(
-                            TypePath(`core::num::usize`, `Alien`),
+                            TypePath(`core::num::usize`, `Extern`),
                         ),
                     ),
                 ),
                 Ok(
                     Defn::Type(
-                        TypeDefn::Alien(
-                            AlienTypeDefn {
-                                path: TypePath(`core::num::usize`, `Alien`),
-                                decl: AlienTypeDecl {
-                                    path: TypePath(`core::num::usize`, `Alien`),
+                        TypeDefn::Extern(
+                            ExternTypeDefn {
+                                path: TypePath(`core::num::usize`, `Extern`),
+                                decl: ExternTypeDecl {
+                                    path: TypePath(`core::num::usize`, `Extern`),
                                     ast_idx: 72,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -654,7 +654,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::usize`, `Alien`),
+                                                            TypePath(`core::num::usize`, `Extern`),
                                                         ),
                                                     ),
                                                 ),
@@ -705,17 +705,17 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Alien`),
+                            TypePath(`core::num::f32`, `Extern`),
                         ),
                     ),
                 ),
                 Ok(
                     Defn::Type(
-                        TypeDefn::Alien(
-                            AlienTypeDefn {
-                                path: TypePath(`core::num::f32`, `Alien`),
-                                decl: AlienTypeDecl {
-                                    path: TypePath(`core::num::f32`, `Alien`),
+                        TypeDefn::Extern(
+                            ExternTypeDefn {
+                                path: TypePath(`core::num::f32`, `Extern`),
+                                decl: ExternTypeDecl {
+                                    path: TypePath(`core::num::f32`, `Extern`),
                                     ast_idx: 77,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -724,7 +724,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::f32`, `Alien`),
+                                                            TypePath(`core::num::f32`, `Extern`),
                                                         ),
                                                     ),
                                                 ),
@@ -775,17 +775,17 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Type(
-                            TypePath(`core::num::f64`, `Alien`),
+                            TypePath(`core::num::f64`, `Extern`),
                         ),
                     ),
                 ),
                 Ok(
                     Defn::Type(
-                        TypeDefn::Alien(
-                            AlienTypeDefn {
-                                path: TypePath(`core::num::f64`, `Alien`),
-                                decl: AlienTypeDecl {
-                                    path: TypePath(`core::num::f64`, `Alien`),
+                        TypeDefn::Extern(
+                            ExternTypeDefn {
+                                path: TypePath(`core::num::f64`, `Extern`),
+                                decl: ExternTypeDecl {
+                                    path: TypePath(`core::num::f64`, `Extern`),
                                     ast_idx: 82,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -794,7 +794,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::f64`, `Alien`),
+                                                            TypePath(`core::num::f64`, `Extern`),
                                                         ),
                                                     ),
                                                 ),
@@ -846,7 +846,7 @@ Ok(
                     ImplId {
                         module_path: `core::num`,
                         impl_kind: ImplKind::Type {
-                            ty: TypePath(`core::num::i8`, `Alien`),
+                            ty: TypePath(`core::num::i8`, `Extern`),
                         },
                         disambiguator: 0,
                     },
@@ -860,7 +860,7 @@ Ok(
                                     id: ImplId {
                                         module_path: `core::num`,
                                         impl_kind: ImplKind::Type {
-                                            ty: TypePath(`core::num::i8`, `Alien`),
+                                            ty: TypePath(`core::num::i8`, `Extern`),
                                         },
                                         disambiguator: 0,
                                     },
@@ -869,7 +869,7 @@ Ok(
                                         0..1,
                                     ),
                                     variant: ImplVariant::Type {
-                                        ty: TypePath(`core::num::i8`, `Alien`),
+                                        ty: TypePath(`core::num::i8`, `Extern`),
                                     },
                                 },
                                 impl_token: ImplToken {
@@ -898,7 +898,7 @@ Ok(
                                                 ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::i8`, `Alien`),
+                                                        ty: TypePath(`core::num::i8`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -911,7 +911,7 @@ Ok(
                                                     entity_path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::i8`, `Alien`),
+                                                                TypePath(`core::num::i8`, `Extern`),
                                                             ),
                                                         ),
                                                     ),
@@ -927,7 +927,7 @@ Ok(
                                                     ident: `i8`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::i8`, `Alien`),
+                                                            TypePath(`core::num::i8`, `Extern`),
                                                         ),
                                                     ),
                                                 },
@@ -976,7 +976,7 @@ Ok(
                         impl_id: ImplId {
                             module_path: `core::num`,
                             impl_kind: ImplKind::Type {
-                                ty: TypePath(`core::num::i8`, `Alien`),
+                                ty: TypePath(`core::num::i8`, `Extern`),
                             },
                             disambiguator: 0,
                         },
@@ -990,7 +990,7 @@ Ok(
                                 TypeMethodDefn {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`core::num::i8`, `Alien`),
+                                            ty: TypePath(`core::num::i8`, `Extern`),
                                             ident: `abs`,
                                             ty_item_kind: Method,
                                         },
@@ -1001,7 +1001,7 @@ Ok(
                                                 impl_id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::i8`, `Alien`),
+                                                        ty: TypePath(`core::num::i8`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -1010,7 +1010,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`core::num::i8`, `Alien`),
+                                                        ty: TypePath(`core::num::i8`, `Extern`),
                                                         ident: `abs`,
                                                         ty_item_kind: Method,
                                                     },
@@ -1020,7 +1020,7 @@ Ok(
                                                 id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::i8`, `Alien`),
+                                                        ty: TypePath(`core::num::i8`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -1029,7 +1029,7 @@ Ok(
                                                     0..1,
                                                 ),
                                                 variant: ImplVariant::Type {
-                                                    ty: TypePath(`core::num::i8`, `Alien`),
+                                                    ty: TypePath(`core::num::i8`, `Extern`),
                                                 },
                                             },
                                             ast_idx: 0,
@@ -1042,7 +1042,7 @@ Ok(
                                         },
                                         path: Some(
                                             TypeItemPath {
-                                                ty: TypePath(`core::num::i8`, `Alien`),
+                                                ty: TypePath(`core::num::i8`, `Extern`),
                                                 ident: `abs`,
                                                 ty_item_kind: Method,
                                             },
@@ -1059,7 +1059,7 @@ Ok(
                                                                     ImplId {
                                                                         module_path: `core::num`,
                                                                         impl_kind: ImplKind::Type {
-                                                                            ty: TypePath(`core::num::i8`, `Alien`),
+                                                                            ty: TypePath(`core::num::i8`, `Extern`),
                                                                         },
                                                                         disambiguator: 0,
                                                                     },
@@ -1072,7 +1072,7 @@ Ok(
                                                                         entity_path: Some(
                                                                             EntityPath::ModuleItem(
                                                                                 ModuleItemPath::Type(
-                                                                                    TypePath(`core::num::i8`, `Alien`),
+                                                                                    TypePath(`core::num::i8`, `Extern`),
                                                                                 ),
                                                                             ),
                                                                         ),
@@ -1088,7 +1088,7 @@ Ok(
                                                                         ident: `i8`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::i8`, `Alien`),
+                                                                                TypePath(`core::num::i8`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     },
@@ -1133,7 +1133,7 @@ Ok(
                                                             impl_id: ImplId {
                                                                 module_path: `core::num`,
                                                                 impl_kind: ImplKind::Type {
-                                                                    ty: TypePath(`core::num::i8`, `Alien`),
+                                                                    ty: TypePath(`core::num::i8`, `Extern`),
                                                                 },
                                                                 disambiguator: 0,
                                                             },
@@ -1148,7 +1148,7 @@ Ok(
                                                             entity_path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::num::i8`, `Alien`),
+                                                                        TypePath(`core::num::i8`, `Extern`),
                                                                     ),
                                                                 ),
                                                             ),
@@ -1164,7 +1164,7 @@ Ok(
                                                             ident: `i8`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::num::i8`, `Alien`),
+                                                                    TypePath(`core::num::i8`, `Extern`),
                                                                 ),
                                                             ),
                                                         },
@@ -1262,7 +1262,7 @@ Ok(
                                                                             ImplId {
                                                                                 module_path: `core::num`,
                                                                                 impl_kind: ImplKind::Type {
-                                                                                    ty: TypePath(`core::num::i8`, `Alien`),
+                                                                                    ty: TypePath(`core::num::i8`, `Extern`),
                                                                                 },
                                                                                 disambiguator: 0,
                                                                             },
@@ -1275,7 +1275,7 @@ Ok(
                                                                                 entity_path: Some(
                                                                                     EntityPath::ModuleItem(
                                                                                         ModuleItemPath::Type(
-                                                                                            TypePath(`core::num::i8`, `Alien`),
+                                                                                            TypePath(`core::num::i8`, `Extern`),
                                                                                         ),
                                                                                     ),
                                                                                 ),
@@ -1291,7 +1291,7 @@ Ok(
                                                                                 ident: `i8`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
-                                                                                        TypePath(`core::num::i8`, `Alien`),
+                                                                                        TypePath(`core::num::i8`, `Extern`),
                                                                                     ),
                                                                                 ),
                                                                             },
@@ -1336,7 +1336,7 @@ Ok(
                                                                     impl_id: ImplId {
                                                                         module_path: `core::num`,
                                                                         impl_kind: ImplKind::Type {
-                                                                            ty: TypePath(`core::num::i8`, `Alien`),
+                                                                            ty: TypePath(`core::num::i8`, `Extern`),
                                                                         },
                                                                         disambiguator: 0,
                                                                     },
@@ -1351,7 +1351,7 @@ Ok(
                                                                     entity_path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::i8`, `Alien`),
+                                                                                TypePath(`core::num::i8`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     ),
@@ -1367,7 +1367,7 @@ Ok(
                                                                     ident: `i8`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::num::i8`, `Alien`),
+                                                                            TypePath(`core::num::i8`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 },
@@ -1412,7 +1412,7 @@ Ok(
                                                         impl_id: ImplId {
                                                             module_path: `core::num`,
                                                             impl_kind: ImplKind::Type {
-                                                                ty: TypePath(`core::num::i8`, `Alien`),
+                                                                ty: TypePath(`core::num::i8`, `Extern`),
                                                             },
                                                             disambiguator: 0,
                                                         },
@@ -1500,7 +1500,7 @@ Ok(
                     ImplId {
                         module_path: `core::num`,
                         impl_kind: ImplKind::Type {
-                            ty: TypePath(`core::num::i16`, `Alien`),
+                            ty: TypePath(`core::num::i16`, `Extern`),
                         },
                         disambiguator: 0,
                     },
@@ -1514,7 +1514,7 @@ Ok(
                                     id: ImplId {
                                         module_path: `core::num`,
                                         impl_kind: ImplKind::Type {
-                                            ty: TypePath(`core::num::i16`, `Alien`),
+                                            ty: TypePath(`core::num::i16`, `Extern`),
                                         },
                                         disambiguator: 0,
                                     },
@@ -1523,7 +1523,7 @@ Ok(
                                         2..3,
                                     ),
                                     variant: ImplVariant::Type {
-                                        ty: TypePath(`core::num::i16`, `Alien`),
+                                        ty: TypePath(`core::num::i16`, `Extern`),
                                     },
                                 },
                                 impl_token: ImplToken {
@@ -1552,7 +1552,7 @@ Ok(
                                                 ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::i16`, `Alien`),
+                                                        ty: TypePath(`core::num::i16`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -1565,7 +1565,7 @@ Ok(
                                                     entity_path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::i16`, `Alien`),
+                                                                TypePath(`core::num::i16`, `Extern`),
                                                             ),
                                                         ),
                                                     ),
@@ -1581,7 +1581,7 @@ Ok(
                                                     ident: `i16`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::i16`, `Alien`),
+                                                            TypePath(`core::num::i16`, `Extern`),
                                                         ),
                                                     ),
                                                 },
@@ -1630,7 +1630,7 @@ Ok(
                         impl_id: ImplId {
                             module_path: `core::num`,
                             impl_kind: ImplKind::Type {
-                                ty: TypePath(`core::num::i16`, `Alien`),
+                                ty: TypePath(`core::num::i16`, `Extern`),
                             },
                             disambiguator: 0,
                         },
@@ -1644,7 +1644,7 @@ Ok(
                                 TypeMethodDefn {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`core::num::i16`, `Alien`),
+                                            ty: TypePath(`core::num::i16`, `Extern`),
                                             ident: `abs`,
                                             ty_item_kind: Method,
                                         },
@@ -1655,7 +1655,7 @@ Ok(
                                                 impl_id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::i16`, `Alien`),
+                                                        ty: TypePath(`core::num::i16`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -1664,7 +1664,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`core::num::i16`, `Alien`),
+                                                        ty: TypePath(`core::num::i16`, `Extern`),
                                                         ident: `abs`,
                                                         ty_item_kind: Method,
                                                     },
@@ -1674,7 +1674,7 @@ Ok(
                                                 id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::i16`, `Alien`),
+                                                        ty: TypePath(`core::num::i16`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -1683,7 +1683,7 @@ Ok(
                                                     2..3,
                                                 ),
                                                 variant: ImplVariant::Type {
-                                                    ty: TypePath(`core::num::i16`, `Alien`),
+                                                    ty: TypePath(`core::num::i16`, `Extern`),
                                                 },
                                             },
                                             ast_idx: 2,
@@ -1696,7 +1696,7 @@ Ok(
                                         },
                                         path: Some(
                                             TypeItemPath {
-                                                ty: TypePath(`core::num::i16`, `Alien`),
+                                                ty: TypePath(`core::num::i16`, `Extern`),
                                                 ident: `abs`,
                                                 ty_item_kind: Method,
                                             },
@@ -1713,7 +1713,7 @@ Ok(
                                                                     ImplId {
                                                                         module_path: `core::num`,
                                                                         impl_kind: ImplKind::Type {
-                                                                            ty: TypePath(`core::num::i16`, `Alien`),
+                                                                            ty: TypePath(`core::num::i16`, `Extern`),
                                                                         },
                                                                         disambiguator: 0,
                                                                     },
@@ -1726,7 +1726,7 @@ Ok(
                                                                         entity_path: Some(
                                                                             EntityPath::ModuleItem(
                                                                                 ModuleItemPath::Type(
-                                                                                    TypePath(`core::num::i16`, `Alien`),
+                                                                                    TypePath(`core::num::i16`, `Extern`),
                                                                                 ),
                                                                             ),
                                                                         ),
@@ -1742,7 +1742,7 @@ Ok(
                                                                         ident: `i16`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::i16`, `Alien`),
+                                                                                TypePath(`core::num::i16`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     },
@@ -1787,7 +1787,7 @@ Ok(
                                                             impl_id: ImplId {
                                                                 module_path: `core::num`,
                                                                 impl_kind: ImplKind::Type {
-                                                                    ty: TypePath(`core::num::i16`, `Alien`),
+                                                                    ty: TypePath(`core::num::i16`, `Extern`),
                                                                 },
                                                                 disambiguator: 0,
                                                             },
@@ -1802,7 +1802,7 @@ Ok(
                                                             entity_path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::num::i16`, `Alien`),
+                                                                        TypePath(`core::num::i16`, `Extern`),
                                                                     ),
                                                                 ),
                                                             ),
@@ -1818,7 +1818,7 @@ Ok(
                                                             ident: `i16`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::num::i16`, `Alien`),
+                                                                    TypePath(`core::num::i16`, `Extern`),
                                                                 ),
                                                             ),
                                                         },
@@ -1916,7 +1916,7 @@ Ok(
                                                                             ImplId {
                                                                                 module_path: `core::num`,
                                                                                 impl_kind: ImplKind::Type {
-                                                                                    ty: TypePath(`core::num::i16`, `Alien`),
+                                                                                    ty: TypePath(`core::num::i16`, `Extern`),
                                                                                 },
                                                                                 disambiguator: 0,
                                                                             },
@@ -1929,7 +1929,7 @@ Ok(
                                                                                 entity_path: Some(
                                                                                     EntityPath::ModuleItem(
                                                                                         ModuleItemPath::Type(
-                                                                                            TypePath(`core::num::i16`, `Alien`),
+                                                                                            TypePath(`core::num::i16`, `Extern`),
                                                                                         ),
                                                                                     ),
                                                                                 ),
@@ -1945,7 +1945,7 @@ Ok(
                                                                                 ident: `i16`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
-                                                                                        TypePath(`core::num::i16`, `Alien`),
+                                                                                        TypePath(`core::num::i16`, `Extern`),
                                                                                     ),
                                                                                 ),
                                                                             },
@@ -1990,7 +1990,7 @@ Ok(
                                                                     impl_id: ImplId {
                                                                         module_path: `core::num`,
                                                                         impl_kind: ImplKind::Type {
-                                                                            ty: TypePath(`core::num::i16`, `Alien`),
+                                                                            ty: TypePath(`core::num::i16`, `Extern`),
                                                                         },
                                                                         disambiguator: 0,
                                                                     },
@@ -2005,7 +2005,7 @@ Ok(
                                                                     entity_path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::i16`, `Alien`),
+                                                                                TypePath(`core::num::i16`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     ),
@@ -2021,7 +2021,7 @@ Ok(
                                                                     ident: `i16`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::num::i16`, `Alien`),
+                                                                            TypePath(`core::num::i16`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 },
@@ -2066,7 +2066,7 @@ Ok(
                                                         impl_id: ImplId {
                                                             module_path: `core::num`,
                                                             impl_kind: ImplKind::Type {
-                                                                ty: TypePath(`core::num::i16`, `Alien`),
+                                                                ty: TypePath(`core::num::i16`, `Extern`),
                                                             },
                                                             disambiguator: 0,
                                                         },
@@ -2154,7 +2154,7 @@ Ok(
                     ImplId {
                         module_path: `core::num`,
                         impl_kind: ImplKind::Type {
-                            ty: TypePath(`core::num::i32`, `Alien`),
+                            ty: TypePath(`core::num::i32`, `Extern`),
                         },
                         disambiguator: 0,
                     },
@@ -2168,7 +2168,7 @@ Ok(
                                     id: ImplId {
                                         module_path: `core::num`,
                                         impl_kind: ImplKind::Type {
-                                            ty: TypePath(`core::num::i32`, `Alien`),
+                                            ty: TypePath(`core::num::i32`, `Extern`),
                                         },
                                         disambiguator: 0,
                                     },
@@ -2177,7 +2177,7 @@ Ok(
                                         4..5,
                                     ),
                                     variant: ImplVariant::Type {
-                                        ty: TypePath(`core::num::i32`, `Alien`),
+                                        ty: TypePath(`core::num::i32`, `Extern`),
                                     },
                                 },
                                 impl_token: ImplToken {
@@ -2206,7 +2206,7 @@ Ok(
                                                 ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::i32`, `Alien`),
+                                                        ty: TypePath(`core::num::i32`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -2219,7 +2219,7 @@ Ok(
                                                     entity_path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::i32`, `Alien`),
+                                                                TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
                                                     ),
@@ -2235,7 +2235,7 @@ Ok(
                                                     ident: `i32`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::i32`, `Alien`),
+                                                            TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
                                                 },
@@ -2284,7 +2284,7 @@ Ok(
                         impl_id: ImplId {
                             module_path: `core::num`,
                             impl_kind: ImplKind::Type {
-                                ty: TypePath(`core::num::i32`, `Alien`),
+                                ty: TypePath(`core::num::i32`, `Extern`),
                             },
                             disambiguator: 0,
                         },
@@ -2298,7 +2298,7 @@ Ok(
                                 TypeMethodDefn {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`core::num::i32`, `Alien`),
+                                            ty: TypePath(`core::num::i32`, `Extern`),
                                             ident: `abs`,
                                             ty_item_kind: Method,
                                         },
@@ -2309,7 +2309,7 @@ Ok(
                                                 impl_id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::i32`, `Alien`),
+                                                        ty: TypePath(`core::num::i32`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -2318,7 +2318,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`core::num::i32`, `Alien`),
+                                                        ty: TypePath(`core::num::i32`, `Extern`),
                                                         ident: `abs`,
                                                         ty_item_kind: Method,
                                                     },
@@ -2328,7 +2328,7 @@ Ok(
                                                 id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::i32`, `Alien`),
+                                                        ty: TypePath(`core::num::i32`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -2337,7 +2337,7 @@ Ok(
                                                     4..5,
                                                 ),
                                                 variant: ImplVariant::Type {
-                                                    ty: TypePath(`core::num::i32`, `Alien`),
+                                                    ty: TypePath(`core::num::i32`, `Extern`),
                                                 },
                                             },
                                             ast_idx: 4,
@@ -2350,7 +2350,7 @@ Ok(
                                         },
                                         path: Some(
                                             TypeItemPath {
-                                                ty: TypePath(`core::num::i32`, `Alien`),
+                                                ty: TypePath(`core::num::i32`, `Extern`),
                                                 ident: `abs`,
                                                 ty_item_kind: Method,
                                             },
@@ -2367,7 +2367,7 @@ Ok(
                                                                     ImplId {
                                                                         module_path: `core::num`,
                                                                         impl_kind: ImplKind::Type {
-                                                                            ty: TypePath(`core::num::i32`, `Alien`),
+                                                                            ty: TypePath(`core::num::i32`, `Extern`),
                                                                         },
                                                                         disambiguator: 0,
                                                                     },
@@ -2380,7 +2380,7 @@ Ok(
                                                                         entity_path: Some(
                                                                             EntityPath::ModuleItem(
                                                                                 ModuleItemPath::Type(
-                                                                                    TypePath(`core::num::i32`, `Alien`),
+                                                                                    TypePath(`core::num::i32`, `Extern`),
                                                                                 ),
                                                                             ),
                                                                         ),
@@ -2396,7 +2396,7 @@ Ok(
                                                                         ident: `i32`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::i32`, `Alien`),
+                                                                                TypePath(`core::num::i32`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     },
@@ -2441,7 +2441,7 @@ Ok(
                                                             impl_id: ImplId {
                                                                 module_path: `core::num`,
                                                                 impl_kind: ImplKind::Type {
-                                                                    ty: TypePath(`core::num::i32`, `Alien`),
+                                                                    ty: TypePath(`core::num::i32`, `Extern`),
                                                                 },
                                                                 disambiguator: 0,
                                                             },
@@ -2456,7 +2456,7 @@ Ok(
                                                             entity_path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::num::i32`, `Alien`),
+                                                                        TypePath(`core::num::i32`, `Extern`),
                                                                     ),
                                                                 ),
                                                             ),
@@ -2472,7 +2472,7 @@ Ok(
                                                             ident: `i32`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::num::i32`, `Alien`),
+                                                                    TypePath(`core::num::i32`, `Extern`),
                                                                 ),
                                                             ),
                                                         },
@@ -2570,7 +2570,7 @@ Ok(
                                                                             ImplId {
                                                                                 module_path: `core::num`,
                                                                                 impl_kind: ImplKind::Type {
-                                                                                    ty: TypePath(`core::num::i32`, `Alien`),
+                                                                                    ty: TypePath(`core::num::i32`, `Extern`),
                                                                                 },
                                                                                 disambiguator: 0,
                                                                             },
@@ -2583,7 +2583,7 @@ Ok(
                                                                                 entity_path: Some(
                                                                                     EntityPath::ModuleItem(
                                                                                         ModuleItemPath::Type(
-                                                                                            TypePath(`core::num::i32`, `Alien`),
+                                                                                            TypePath(`core::num::i32`, `Extern`),
                                                                                         ),
                                                                                     ),
                                                                                 ),
@@ -2599,7 +2599,7 @@ Ok(
                                                                                 ident: `i32`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
-                                                                                        TypePath(`core::num::i32`, `Alien`),
+                                                                                        TypePath(`core::num::i32`, `Extern`),
                                                                                     ),
                                                                                 ),
                                                                             },
@@ -2644,7 +2644,7 @@ Ok(
                                                                     impl_id: ImplId {
                                                                         module_path: `core::num`,
                                                                         impl_kind: ImplKind::Type {
-                                                                            ty: TypePath(`core::num::i32`, `Alien`),
+                                                                            ty: TypePath(`core::num::i32`, `Extern`),
                                                                         },
                                                                         disambiguator: 0,
                                                                     },
@@ -2659,7 +2659,7 @@ Ok(
                                                                     entity_path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::i32`, `Alien`),
+                                                                                TypePath(`core::num::i32`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     ),
@@ -2675,7 +2675,7 @@ Ok(
                                                                     ident: `i32`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::num::i32`, `Alien`),
+                                                                            TypePath(`core::num::i32`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 },
@@ -2720,7 +2720,7 @@ Ok(
                                                         impl_id: ImplId {
                                                             module_path: `core::num`,
                                                             impl_kind: ImplKind::Type {
-                                                                ty: TypePath(`core::num::i32`, `Alien`),
+                                                                ty: TypePath(`core::num::i32`, `Extern`),
                                                             },
                                                             disambiguator: 0,
                                                         },
@@ -2808,7 +2808,7 @@ Ok(
                     ImplId {
                         module_path: `core::num`,
                         impl_kind: ImplKind::Type {
-                            ty: TypePath(`core::num::i64`, `Alien`),
+                            ty: TypePath(`core::num::i64`, `Extern`),
                         },
                         disambiguator: 0,
                     },
@@ -2822,7 +2822,7 @@ Ok(
                                     id: ImplId {
                                         module_path: `core::num`,
                                         impl_kind: ImplKind::Type {
-                                            ty: TypePath(`core::num::i64`, `Alien`),
+                                            ty: TypePath(`core::num::i64`, `Extern`),
                                         },
                                         disambiguator: 0,
                                     },
@@ -2831,7 +2831,7 @@ Ok(
                                         6..7,
                                     ),
                                     variant: ImplVariant::Type {
-                                        ty: TypePath(`core::num::i64`, `Alien`),
+                                        ty: TypePath(`core::num::i64`, `Extern`),
                                     },
                                 },
                                 impl_token: ImplToken {
@@ -2860,7 +2860,7 @@ Ok(
                                                 ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::i64`, `Alien`),
+                                                        ty: TypePath(`core::num::i64`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -2873,7 +2873,7 @@ Ok(
                                                     entity_path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::i64`, `Alien`),
+                                                                TypePath(`core::num::i64`, `Extern`),
                                                             ),
                                                         ),
                                                     ),
@@ -2889,7 +2889,7 @@ Ok(
                                                     ident: `i64`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::i64`, `Alien`),
+                                                            TypePath(`core::num::i64`, `Extern`),
                                                         ),
                                                     ),
                                                 },
@@ -2938,7 +2938,7 @@ Ok(
                         impl_id: ImplId {
                             module_path: `core::num`,
                             impl_kind: ImplKind::Type {
-                                ty: TypePath(`core::num::i64`, `Alien`),
+                                ty: TypePath(`core::num::i64`, `Extern`),
                             },
                             disambiguator: 0,
                         },
@@ -2952,7 +2952,7 @@ Ok(
                                 TypeMethodDefn {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`core::num::i64`, `Alien`),
+                                            ty: TypePath(`core::num::i64`, `Extern`),
                                             ident: `abs`,
                                             ty_item_kind: Method,
                                         },
@@ -2963,7 +2963,7 @@ Ok(
                                                 impl_id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::i64`, `Alien`),
+                                                        ty: TypePath(`core::num::i64`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -2972,7 +2972,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`core::num::i64`, `Alien`),
+                                                        ty: TypePath(`core::num::i64`, `Extern`),
                                                         ident: `abs`,
                                                         ty_item_kind: Method,
                                                     },
@@ -2982,7 +2982,7 @@ Ok(
                                                 id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::i64`, `Alien`),
+                                                        ty: TypePath(`core::num::i64`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -2991,7 +2991,7 @@ Ok(
                                                     6..7,
                                                 ),
                                                 variant: ImplVariant::Type {
-                                                    ty: TypePath(`core::num::i64`, `Alien`),
+                                                    ty: TypePath(`core::num::i64`, `Extern`),
                                                 },
                                             },
                                             ast_idx: 6,
@@ -3004,7 +3004,7 @@ Ok(
                                         },
                                         path: Some(
                                             TypeItemPath {
-                                                ty: TypePath(`core::num::i64`, `Alien`),
+                                                ty: TypePath(`core::num::i64`, `Extern`),
                                                 ident: `abs`,
                                                 ty_item_kind: Method,
                                             },
@@ -3021,7 +3021,7 @@ Ok(
                                                                     ImplId {
                                                                         module_path: `core::num`,
                                                                         impl_kind: ImplKind::Type {
-                                                                            ty: TypePath(`core::num::i64`, `Alien`),
+                                                                            ty: TypePath(`core::num::i64`, `Extern`),
                                                                         },
                                                                         disambiguator: 0,
                                                                     },
@@ -3034,7 +3034,7 @@ Ok(
                                                                         entity_path: Some(
                                                                             EntityPath::ModuleItem(
                                                                                 ModuleItemPath::Type(
-                                                                                    TypePath(`core::num::i64`, `Alien`),
+                                                                                    TypePath(`core::num::i64`, `Extern`),
                                                                                 ),
                                                                             ),
                                                                         ),
@@ -3050,7 +3050,7 @@ Ok(
                                                                         ident: `i64`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::i64`, `Alien`),
+                                                                                TypePath(`core::num::i64`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     },
@@ -3095,7 +3095,7 @@ Ok(
                                                             impl_id: ImplId {
                                                                 module_path: `core::num`,
                                                                 impl_kind: ImplKind::Type {
-                                                                    ty: TypePath(`core::num::i64`, `Alien`),
+                                                                    ty: TypePath(`core::num::i64`, `Extern`),
                                                                 },
                                                                 disambiguator: 0,
                                                             },
@@ -3110,7 +3110,7 @@ Ok(
                                                             entity_path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::num::i64`, `Alien`),
+                                                                        TypePath(`core::num::i64`, `Extern`),
                                                                     ),
                                                                 ),
                                                             ),
@@ -3126,7 +3126,7 @@ Ok(
                                                             ident: `i64`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::num::i64`, `Alien`),
+                                                                    TypePath(`core::num::i64`, `Extern`),
                                                                 ),
                                                             ),
                                                         },
@@ -3224,7 +3224,7 @@ Ok(
                                                                             ImplId {
                                                                                 module_path: `core::num`,
                                                                                 impl_kind: ImplKind::Type {
-                                                                                    ty: TypePath(`core::num::i64`, `Alien`),
+                                                                                    ty: TypePath(`core::num::i64`, `Extern`),
                                                                                 },
                                                                                 disambiguator: 0,
                                                                             },
@@ -3237,7 +3237,7 @@ Ok(
                                                                                 entity_path: Some(
                                                                                     EntityPath::ModuleItem(
                                                                                         ModuleItemPath::Type(
-                                                                                            TypePath(`core::num::i64`, `Alien`),
+                                                                                            TypePath(`core::num::i64`, `Extern`),
                                                                                         ),
                                                                                     ),
                                                                                 ),
@@ -3253,7 +3253,7 @@ Ok(
                                                                                 ident: `i64`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
-                                                                                        TypePath(`core::num::i64`, `Alien`),
+                                                                                        TypePath(`core::num::i64`, `Extern`),
                                                                                     ),
                                                                                 ),
                                                                             },
@@ -3298,7 +3298,7 @@ Ok(
                                                                     impl_id: ImplId {
                                                                         module_path: `core::num`,
                                                                         impl_kind: ImplKind::Type {
-                                                                            ty: TypePath(`core::num::i64`, `Alien`),
+                                                                            ty: TypePath(`core::num::i64`, `Extern`),
                                                                         },
                                                                         disambiguator: 0,
                                                                     },
@@ -3313,7 +3313,7 @@ Ok(
                                                                     entity_path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::i64`, `Alien`),
+                                                                                TypePath(`core::num::i64`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     ),
@@ -3329,7 +3329,7 @@ Ok(
                                                                     ident: `i64`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::num::i64`, `Alien`),
+                                                                            TypePath(`core::num::i64`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 },
@@ -3374,7 +3374,7 @@ Ok(
                                                         impl_id: ImplId {
                                                             module_path: `core::num`,
                                                             impl_kind: ImplKind::Type {
-                                                                ty: TypePath(`core::num::i64`, `Alien`),
+                                                                ty: TypePath(`core::num::i64`, `Extern`),
                                                             },
                                                             disambiguator: 0,
                                                         },
@@ -3462,7 +3462,7 @@ Ok(
                     ImplId {
                         module_path: `core::num`,
                         impl_kind: ImplKind::Type {
-                            ty: TypePath(`core::num::u8`, `Alien`),
+                            ty: TypePath(`core::num::u8`, `Extern`),
                         },
                         disambiguator: 0,
                     },
@@ -3476,7 +3476,7 @@ Ok(
                                     id: ImplId {
                                         module_path: `core::num`,
                                         impl_kind: ImplKind::Type {
-                                            ty: TypePath(`core::num::u8`, `Alien`),
+                                            ty: TypePath(`core::num::u8`, `Extern`),
                                         },
                                         disambiguator: 0,
                                     },
@@ -3485,7 +3485,7 @@ Ok(
                                         8..9,
                                     ),
                                     variant: ImplVariant::Type {
-                                        ty: TypePath(`core::num::u8`, `Alien`),
+                                        ty: TypePath(`core::num::u8`, `Extern`),
                                     },
                                 },
                                 impl_token: ImplToken {
@@ -3514,7 +3514,7 @@ Ok(
                                                 ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::u8`, `Alien`),
+                                                        ty: TypePath(`core::num::u8`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -3527,7 +3527,7 @@ Ok(
                                                     entity_path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::u8`, `Alien`),
+                                                                TypePath(`core::num::u8`, `Extern`),
                                                             ),
                                                         ),
                                                     ),
@@ -3543,7 +3543,7 @@ Ok(
                                                     ident: `u8`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::u8`, `Alien`),
+                                                            TypePath(`core::num::u8`, `Extern`),
                                                         ),
                                                     ),
                                                 },
@@ -3592,7 +3592,7 @@ Ok(
                         impl_id: ImplId {
                             module_path: `core::num`,
                             impl_kind: ImplKind::Type {
-                                ty: TypePath(`core::num::u8`, `Alien`),
+                                ty: TypePath(`core::num::u8`, `Extern`),
                             },
                             disambiguator: 0,
                         },
@@ -3606,7 +3606,7 @@ Ok(
                                 TypeMethodDefn {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`core::num::u8`, `Alien`),
+                                            ty: TypePath(`core::num::u8`, `Extern`),
                                             ident: `abs`,
                                             ty_item_kind: Method,
                                         },
@@ -3617,7 +3617,7 @@ Ok(
                                                 impl_id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::u8`, `Alien`),
+                                                        ty: TypePath(`core::num::u8`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -3626,7 +3626,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`core::num::u8`, `Alien`),
+                                                        ty: TypePath(`core::num::u8`, `Extern`),
                                                         ident: `abs`,
                                                         ty_item_kind: Method,
                                                     },
@@ -3636,7 +3636,7 @@ Ok(
                                                 id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::u8`, `Alien`),
+                                                        ty: TypePath(`core::num::u8`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -3645,7 +3645,7 @@ Ok(
                                                     8..9,
                                                 ),
                                                 variant: ImplVariant::Type {
-                                                    ty: TypePath(`core::num::u8`, `Alien`),
+                                                    ty: TypePath(`core::num::u8`, `Extern`),
                                                 },
                                             },
                                             ast_idx: 8,
@@ -3658,7 +3658,7 @@ Ok(
                                         },
                                         path: Some(
                                             TypeItemPath {
-                                                ty: TypePath(`core::num::u8`, `Alien`),
+                                                ty: TypePath(`core::num::u8`, `Extern`),
                                                 ident: `abs`,
                                                 ty_item_kind: Method,
                                             },
@@ -3675,7 +3675,7 @@ Ok(
                                                                     ImplId {
                                                                         module_path: `core::num`,
                                                                         impl_kind: ImplKind::Type {
-                                                                            ty: TypePath(`core::num::u8`, `Alien`),
+                                                                            ty: TypePath(`core::num::u8`, `Extern`),
                                                                         },
                                                                         disambiguator: 0,
                                                                     },
@@ -3688,7 +3688,7 @@ Ok(
                                                                         entity_path: Some(
                                                                             EntityPath::ModuleItem(
                                                                                 ModuleItemPath::Type(
-                                                                                    TypePath(`core::num::u8`, `Alien`),
+                                                                                    TypePath(`core::num::u8`, `Extern`),
                                                                                 ),
                                                                             ),
                                                                         ),
@@ -3704,7 +3704,7 @@ Ok(
                                                                         ident: `u8`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::u8`, `Alien`),
+                                                                                TypePath(`core::num::u8`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     },
@@ -3749,7 +3749,7 @@ Ok(
                                                             impl_id: ImplId {
                                                                 module_path: `core::num`,
                                                                 impl_kind: ImplKind::Type {
-                                                                    ty: TypePath(`core::num::u8`, `Alien`),
+                                                                    ty: TypePath(`core::num::u8`, `Extern`),
                                                                 },
                                                                 disambiguator: 0,
                                                             },
@@ -3764,7 +3764,7 @@ Ok(
                                                             entity_path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::num::u8`, `Alien`),
+                                                                        TypePath(`core::num::u8`, `Extern`),
                                                                     ),
                                                                 ),
                                                             ),
@@ -3780,7 +3780,7 @@ Ok(
                                                             ident: `u8`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::num::u8`, `Alien`),
+                                                                    TypePath(`core::num::u8`, `Extern`),
                                                                 ),
                                                             ),
                                                         },
@@ -3878,7 +3878,7 @@ Ok(
                                                                             ImplId {
                                                                                 module_path: `core::num`,
                                                                                 impl_kind: ImplKind::Type {
-                                                                                    ty: TypePath(`core::num::u8`, `Alien`),
+                                                                                    ty: TypePath(`core::num::u8`, `Extern`),
                                                                                 },
                                                                                 disambiguator: 0,
                                                                             },
@@ -3891,7 +3891,7 @@ Ok(
                                                                                 entity_path: Some(
                                                                                     EntityPath::ModuleItem(
                                                                                         ModuleItemPath::Type(
-                                                                                            TypePath(`core::num::u8`, `Alien`),
+                                                                                            TypePath(`core::num::u8`, `Extern`),
                                                                                         ),
                                                                                     ),
                                                                                 ),
@@ -3907,7 +3907,7 @@ Ok(
                                                                                 ident: `u8`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
-                                                                                        TypePath(`core::num::u8`, `Alien`),
+                                                                                        TypePath(`core::num::u8`, `Extern`),
                                                                                     ),
                                                                                 ),
                                                                             },
@@ -3952,7 +3952,7 @@ Ok(
                                                                     impl_id: ImplId {
                                                                         module_path: `core::num`,
                                                                         impl_kind: ImplKind::Type {
-                                                                            ty: TypePath(`core::num::u8`, `Alien`),
+                                                                            ty: TypePath(`core::num::u8`, `Extern`),
                                                                         },
                                                                         disambiguator: 0,
                                                                     },
@@ -3967,7 +3967,7 @@ Ok(
                                                                     entity_path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::u8`, `Alien`),
+                                                                                TypePath(`core::num::u8`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     ),
@@ -3983,7 +3983,7 @@ Ok(
                                                                     ident: `u8`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::num::u8`, `Alien`),
+                                                                            TypePath(`core::num::u8`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 },
@@ -4028,7 +4028,7 @@ Ok(
                                                         impl_id: ImplId {
                                                             module_path: `core::num`,
                                                             impl_kind: ImplKind::Type {
-                                                                ty: TypePath(`core::num::u8`, `Alien`),
+                                                                ty: TypePath(`core::num::u8`, `Extern`),
                                                             },
                                                             disambiguator: 0,
                                                         },
@@ -4116,7 +4116,7 @@ Ok(
                     ImplId {
                         module_path: `core::num`,
                         impl_kind: ImplKind::Type {
-                            ty: TypePath(`core::num::u16`, `Alien`),
+                            ty: TypePath(`core::num::u16`, `Extern`),
                         },
                         disambiguator: 0,
                     },
@@ -4130,7 +4130,7 @@ Ok(
                                     id: ImplId {
                                         module_path: `core::num`,
                                         impl_kind: ImplKind::Type {
-                                            ty: TypePath(`core::num::u16`, `Alien`),
+                                            ty: TypePath(`core::num::u16`, `Extern`),
                                         },
                                         disambiguator: 0,
                                     },
@@ -4139,7 +4139,7 @@ Ok(
                                         10..11,
                                     ),
                                     variant: ImplVariant::Type {
-                                        ty: TypePath(`core::num::u16`, `Alien`),
+                                        ty: TypePath(`core::num::u16`, `Extern`),
                                     },
                                 },
                                 impl_token: ImplToken {
@@ -4168,7 +4168,7 @@ Ok(
                                                 ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::u16`, `Alien`),
+                                                        ty: TypePath(`core::num::u16`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -4181,7 +4181,7 @@ Ok(
                                                     entity_path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::u16`, `Alien`),
+                                                                TypePath(`core::num::u16`, `Extern`),
                                                             ),
                                                         ),
                                                     ),
@@ -4197,7 +4197,7 @@ Ok(
                                                     ident: `u16`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::u16`, `Alien`),
+                                                            TypePath(`core::num::u16`, `Extern`),
                                                         ),
                                                     ),
                                                 },
@@ -4246,7 +4246,7 @@ Ok(
                         impl_id: ImplId {
                             module_path: `core::num`,
                             impl_kind: ImplKind::Type {
-                                ty: TypePath(`core::num::u16`, `Alien`),
+                                ty: TypePath(`core::num::u16`, `Extern`),
                             },
                             disambiguator: 0,
                         },
@@ -4260,7 +4260,7 @@ Ok(
                                 TypeMethodDefn {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`core::num::u16`, `Alien`),
+                                            ty: TypePath(`core::num::u16`, `Extern`),
                                             ident: `abs`,
                                             ty_item_kind: Method,
                                         },
@@ -4271,7 +4271,7 @@ Ok(
                                                 impl_id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::u16`, `Alien`),
+                                                        ty: TypePath(`core::num::u16`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -4280,7 +4280,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`core::num::u16`, `Alien`),
+                                                        ty: TypePath(`core::num::u16`, `Extern`),
                                                         ident: `abs`,
                                                         ty_item_kind: Method,
                                                     },
@@ -4290,7 +4290,7 @@ Ok(
                                                 id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::u16`, `Alien`),
+                                                        ty: TypePath(`core::num::u16`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -4299,7 +4299,7 @@ Ok(
                                                     10..11,
                                                 ),
                                                 variant: ImplVariant::Type {
-                                                    ty: TypePath(`core::num::u16`, `Alien`),
+                                                    ty: TypePath(`core::num::u16`, `Extern`),
                                                 },
                                             },
                                             ast_idx: 10,
@@ -4312,7 +4312,7 @@ Ok(
                                         },
                                         path: Some(
                                             TypeItemPath {
-                                                ty: TypePath(`core::num::u16`, `Alien`),
+                                                ty: TypePath(`core::num::u16`, `Extern`),
                                                 ident: `abs`,
                                                 ty_item_kind: Method,
                                             },
@@ -4329,7 +4329,7 @@ Ok(
                                                                     ImplId {
                                                                         module_path: `core::num`,
                                                                         impl_kind: ImplKind::Type {
-                                                                            ty: TypePath(`core::num::u16`, `Alien`),
+                                                                            ty: TypePath(`core::num::u16`, `Extern`),
                                                                         },
                                                                         disambiguator: 0,
                                                                     },
@@ -4342,7 +4342,7 @@ Ok(
                                                                         entity_path: Some(
                                                                             EntityPath::ModuleItem(
                                                                                 ModuleItemPath::Type(
-                                                                                    TypePath(`core::num::u16`, `Alien`),
+                                                                                    TypePath(`core::num::u16`, `Extern`),
                                                                                 ),
                                                                             ),
                                                                         ),
@@ -4358,7 +4358,7 @@ Ok(
                                                                         ident: `u16`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::u16`, `Alien`),
+                                                                                TypePath(`core::num::u16`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     },
@@ -4403,7 +4403,7 @@ Ok(
                                                             impl_id: ImplId {
                                                                 module_path: `core::num`,
                                                                 impl_kind: ImplKind::Type {
-                                                                    ty: TypePath(`core::num::u16`, `Alien`),
+                                                                    ty: TypePath(`core::num::u16`, `Extern`),
                                                                 },
                                                                 disambiguator: 0,
                                                             },
@@ -4418,7 +4418,7 @@ Ok(
                                                             entity_path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::num::u16`, `Alien`),
+                                                                        TypePath(`core::num::u16`, `Extern`),
                                                                     ),
                                                                 ),
                                                             ),
@@ -4434,7 +4434,7 @@ Ok(
                                                             ident: `u16`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::num::u16`, `Alien`),
+                                                                    TypePath(`core::num::u16`, `Extern`),
                                                                 ),
                                                             ),
                                                         },
@@ -4532,7 +4532,7 @@ Ok(
                                                                             ImplId {
                                                                                 module_path: `core::num`,
                                                                                 impl_kind: ImplKind::Type {
-                                                                                    ty: TypePath(`core::num::u16`, `Alien`),
+                                                                                    ty: TypePath(`core::num::u16`, `Extern`),
                                                                                 },
                                                                                 disambiguator: 0,
                                                                             },
@@ -4545,7 +4545,7 @@ Ok(
                                                                                 entity_path: Some(
                                                                                     EntityPath::ModuleItem(
                                                                                         ModuleItemPath::Type(
-                                                                                            TypePath(`core::num::u16`, `Alien`),
+                                                                                            TypePath(`core::num::u16`, `Extern`),
                                                                                         ),
                                                                                     ),
                                                                                 ),
@@ -4561,7 +4561,7 @@ Ok(
                                                                                 ident: `u16`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
-                                                                                        TypePath(`core::num::u16`, `Alien`),
+                                                                                        TypePath(`core::num::u16`, `Extern`),
                                                                                     ),
                                                                                 ),
                                                                             },
@@ -4606,7 +4606,7 @@ Ok(
                                                                     impl_id: ImplId {
                                                                         module_path: `core::num`,
                                                                         impl_kind: ImplKind::Type {
-                                                                            ty: TypePath(`core::num::u16`, `Alien`),
+                                                                            ty: TypePath(`core::num::u16`, `Extern`),
                                                                         },
                                                                         disambiguator: 0,
                                                                     },
@@ -4621,7 +4621,7 @@ Ok(
                                                                     entity_path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::u16`, `Alien`),
+                                                                                TypePath(`core::num::u16`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     ),
@@ -4637,7 +4637,7 @@ Ok(
                                                                     ident: `u16`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::num::u16`, `Alien`),
+                                                                            TypePath(`core::num::u16`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 },
@@ -4682,7 +4682,7 @@ Ok(
                                                         impl_id: ImplId {
                                                             module_path: `core::num`,
                                                             impl_kind: ImplKind::Type {
-                                                                ty: TypePath(`core::num::u16`, `Alien`),
+                                                                ty: TypePath(`core::num::u16`, `Extern`),
                                                             },
                                                             disambiguator: 0,
                                                         },
@@ -4770,7 +4770,7 @@ Ok(
                     ImplId {
                         module_path: `core::num`,
                         impl_kind: ImplKind::Type {
-                            ty: TypePath(`core::num::u32`, `Alien`),
+                            ty: TypePath(`core::num::u32`, `Extern`),
                         },
                         disambiguator: 0,
                     },
@@ -4784,7 +4784,7 @@ Ok(
                                     id: ImplId {
                                         module_path: `core::num`,
                                         impl_kind: ImplKind::Type {
-                                            ty: TypePath(`core::num::u32`, `Alien`),
+                                            ty: TypePath(`core::num::u32`, `Extern`),
                                         },
                                         disambiguator: 0,
                                     },
@@ -4793,7 +4793,7 @@ Ok(
                                         12..13,
                                     ),
                                     variant: ImplVariant::Type {
-                                        ty: TypePath(`core::num::u32`, `Alien`),
+                                        ty: TypePath(`core::num::u32`, `Extern`),
                                     },
                                 },
                                 impl_token: ImplToken {
@@ -4822,7 +4822,7 @@ Ok(
                                                 ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::u32`, `Alien`),
+                                                        ty: TypePath(`core::num::u32`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -4835,7 +4835,7 @@ Ok(
                                                     entity_path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::u32`, `Alien`),
+                                                                TypePath(`core::num::u32`, `Extern`),
                                                             ),
                                                         ),
                                                     ),
@@ -4851,7 +4851,7 @@ Ok(
                                                     ident: `u32`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::u32`, `Alien`),
+                                                            TypePath(`core::num::u32`, `Extern`),
                                                         ),
                                                     ),
                                                 },
@@ -4900,7 +4900,7 @@ Ok(
                         impl_id: ImplId {
                             module_path: `core::num`,
                             impl_kind: ImplKind::Type {
-                                ty: TypePath(`core::num::u32`, `Alien`),
+                                ty: TypePath(`core::num::u32`, `Extern`),
                             },
                             disambiguator: 0,
                         },
@@ -4914,7 +4914,7 @@ Ok(
                                 TypeMethodDefn {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`core::num::u32`, `Alien`),
+                                            ty: TypePath(`core::num::u32`, `Extern`),
                                             ident: `abs`,
                                             ty_item_kind: Method,
                                         },
@@ -4925,7 +4925,7 @@ Ok(
                                                 impl_id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::u32`, `Alien`),
+                                                        ty: TypePath(`core::num::u32`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -4934,7 +4934,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`core::num::u32`, `Alien`),
+                                                        ty: TypePath(`core::num::u32`, `Extern`),
                                                         ident: `abs`,
                                                         ty_item_kind: Method,
                                                     },
@@ -4944,7 +4944,7 @@ Ok(
                                                 id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::u32`, `Alien`),
+                                                        ty: TypePath(`core::num::u32`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -4953,7 +4953,7 @@ Ok(
                                                     12..13,
                                                 ),
                                                 variant: ImplVariant::Type {
-                                                    ty: TypePath(`core::num::u32`, `Alien`),
+                                                    ty: TypePath(`core::num::u32`, `Extern`),
                                                 },
                                             },
                                             ast_idx: 12,
@@ -4966,7 +4966,7 @@ Ok(
                                         },
                                         path: Some(
                                             TypeItemPath {
-                                                ty: TypePath(`core::num::u32`, `Alien`),
+                                                ty: TypePath(`core::num::u32`, `Extern`),
                                                 ident: `abs`,
                                                 ty_item_kind: Method,
                                             },
@@ -4983,7 +4983,7 @@ Ok(
                                                                     ImplId {
                                                                         module_path: `core::num`,
                                                                         impl_kind: ImplKind::Type {
-                                                                            ty: TypePath(`core::num::u32`, `Alien`),
+                                                                            ty: TypePath(`core::num::u32`, `Extern`),
                                                                         },
                                                                         disambiguator: 0,
                                                                     },
@@ -4996,7 +4996,7 @@ Ok(
                                                                         entity_path: Some(
                                                                             EntityPath::ModuleItem(
                                                                                 ModuleItemPath::Type(
-                                                                                    TypePath(`core::num::u32`, `Alien`),
+                                                                                    TypePath(`core::num::u32`, `Extern`),
                                                                                 ),
                                                                             ),
                                                                         ),
@@ -5012,7 +5012,7 @@ Ok(
                                                                         ident: `u32`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::u32`, `Alien`),
+                                                                                TypePath(`core::num::u32`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     },
@@ -5057,7 +5057,7 @@ Ok(
                                                             impl_id: ImplId {
                                                                 module_path: `core::num`,
                                                                 impl_kind: ImplKind::Type {
-                                                                    ty: TypePath(`core::num::u32`, `Alien`),
+                                                                    ty: TypePath(`core::num::u32`, `Extern`),
                                                                 },
                                                                 disambiguator: 0,
                                                             },
@@ -5072,7 +5072,7 @@ Ok(
                                                             entity_path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::num::u32`, `Alien`),
+                                                                        TypePath(`core::num::u32`, `Extern`),
                                                                     ),
                                                                 ),
                                                             ),
@@ -5088,7 +5088,7 @@ Ok(
                                                             ident: `u32`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::num::u32`, `Alien`),
+                                                                    TypePath(`core::num::u32`, `Extern`),
                                                                 ),
                                                             ),
                                                         },
@@ -5186,7 +5186,7 @@ Ok(
                                                                             ImplId {
                                                                                 module_path: `core::num`,
                                                                                 impl_kind: ImplKind::Type {
-                                                                                    ty: TypePath(`core::num::u32`, `Alien`),
+                                                                                    ty: TypePath(`core::num::u32`, `Extern`),
                                                                                 },
                                                                                 disambiguator: 0,
                                                                             },
@@ -5199,7 +5199,7 @@ Ok(
                                                                                 entity_path: Some(
                                                                                     EntityPath::ModuleItem(
                                                                                         ModuleItemPath::Type(
-                                                                                            TypePath(`core::num::u32`, `Alien`),
+                                                                                            TypePath(`core::num::u32`, `Extern`),
                                                                                         ),
                                                                                     ),
                                                                                 ),
@@ -5215,7 +5215,7 @@ Ok(
                                                                                 ident: `u32`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
-                                                                                        TypePath(`core::num::u32`, `Alien`),
+                                                                                        TypePath(`core::num::u32`, `Extern`),
                                                                                     ),
                                                                                 ),
                                                                             },
@@ -5260,7 +5260,7 @@ Ok(
                                                                     impl_id: ImplId {
                                                                         module_path: `core::num`,
                                                                         impl_kind: ImplKind::Type {
-                                                                            ty: TypePath(`core::num::u32`, `Alien`),
+                                                                            ty: TypePath(`core::num::u32`, `Extern`),
                                                                         },
                                                                         disambiguator: 0,
                                                                     },
@@ -5275,7 +5275,7 @@ Ok(
                                                                     entity_path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::u32`, `Alien`),
+                                                                                TypePath(`core::num::u32`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     ),
@@ -5291,7 +5291,7 @@ Ok(
                                                                     ident: `u32`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::num::u32`, `Alien`),
+                                                                            TypePath(`core::num::u32`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 },
@@ -5336,7 +5336,7 @@ Ok(
                                                         impl_id: ImplId {
                                                             module_path: `core::num`,
                                                             impl_kind: ImplKind::Type {
-                                                                ty: TypePath(`core::num::u32`, `Alien`),
+                                                                ty: TypePath(`core::num::u32`, `Extern`),
                                                             },
                                                             disambiguator: 0,
                                                         },
@@ -5424,7 +5424,7 @@ Ok(
                     ImplId {
                         module_path: `core::num`,
                         impl_kind: ImplKind::Type {
-                            ty: TypePath(`core::num::u64`, `Alien`),
+                            ty: TypePath(`core::num::u64`, `Extern`),
                         },
                         disambiguator: 0,
                     },
@@ -5438,7 +5438,7 @@ Ok(
                                     id: ImplId {
                                         module_path: `core::num`,
                                         impl_kind: ImplKind::Type {
-                                            ty: TypePath(`core::num::u64`, `Alien`),
+                                            ty: TypePath(`core::num::u64`, `Extern`),
                                         },
                                         disambiguator: 0,
                                     },
@@ -5447,7 +5447,7 @@ Ok(
                                         14..15,
                                     ),
                                     variant: ImplVariant::Type {
-                                        ty: TypePath(`core::num::u64`, `Alien`),
+                                        ty: TypePath(`core::num::u64`, `Extern`),
                                     },
                                 },
                                 impl_token: ImplToken {
@@ -5476,7 +5476,7 @@ Ok(
                                                 ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::u64`, `Alien`),
+                                                        ty: TypePath(`core::num::u64`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -5489,7 +5489,7 @@ Ok(
                                                     entity_path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::u64`, `Alien`),
+                                                                TypePath(`core::num::u64`, `Extern`),
                                                             ),
                                                         ),
                                                     ),
@@ -5505,7 +5505,7 @@ Ok(
                                                     ident: `u64`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::u64`, `Alien`),
+                                                            TypePath(`core::num::u64`, `Extern`),
                                                         ),
                                                     ),
                                                 },
@@ -5554,7 +5554,7 @@ Ok(
                         impl_id: ImplId {
                             module_path: `core::num`,
                             impl_kind: ImplKind::Type {
-                                ty: TypePath(`core::num::u64`, `Alien`),
+                                ty: TypePath(`core::num::u64`, `Extern`),
                             },
                             disambiguator: 0,
                         },
@@ -5568,7 +5568,7 @@ Ok(
                                 TypeMethodDefn {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`core::num::u64`, `Alien`),
+                                            ty: TypePath(`core::num::u64`, `Extern`),
                                             ident: `abs`,
                                             ty_item_kind: Method,
                                         },
@@ -5579,7 +5579,7 @@ Ok(
                                                 impl_id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::u64`, `Alien`),
+                                                        ty: TypePath(`core::num::u64`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -5588,7 +5588,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`core::num::u64`, `Alien`),
+                                                        ty: TypePath(`core::num::u64`, `Extern`),
                                                         ident: `abs`,
                                                         ty_item_kind: Method,
                                                     },
@@ -5598,7 +5598,7 @@ Ok(
                                                 id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::u64`, `Alien`),
+                                                        ty: TypePath(`core::num::u64`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -5607,7 +5607,7 @@ Ok(
                                                     14..15,
                                                 ),
                                                 variant: ImplVariant::Type {
-                                                    ty: TypePath(`core::num::u64`, `Alien`),
+                                                    ty: TypePath(`core::num::u64`, `Extern`),
                                                 },
                                             },
                                             ast_idx: 14,
@@ -5620,7 +5620,7 @@ Ok(
                                         },
                                         path: Some(
                                             TypeItemPath {
-                                                ty: TypePath(`core::num::u64`, `Alien`),
+                                                ty: TypePath(`core::num::u64`, `Extern`),
                                                 ident: `abs`,
                                                 ty_item_kind: Method,
                                             },
@@ -5637,7 +5637,7 @@ Ok(
                                                                     ImplId {
                                                                         module_path: `core::num`,
                                                                         impl_kind: ImplKind::Type {
-                                                                            ty: TypePath(`core::num::u64`, `Alien`),
+                                                                            ty: TypePath(`core::num::u64`, `Extern`),
                                                                         },
                                                                         disambiguator: 0,
                                                                     },
@@ -5650,7 +5650,7 @@ Ok(
                                                                         entity_path: Some(
                                                                             EntityPath::ModuleItem(
                                                                                 ModuleItemPath::Type(
-                                                                                    TypePath(`core::num::u64`, `Alien`),
+                                                                                    TypePath(`core::num::u64`, `Extern`),
                                                                                 ),
                                                                             ),
                                                                         ),
@@ -5666,7 +5666,7 @@ Ok(
                                                                         ident: `u64`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::u64`, `Alien`),
+                                                                                TypePath(`core::num::u64`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     },
@@ -5711,7 +5711,7 @@ Ok(
                                                             impl_id: ImplId {
                                                                 module_path: `core::num`,
                                                                 impl_kind: ImplKind::Type {
-                                                                    ty: TypePath(`core::num::u64`, `Alien`),
+                                                                    ty: TypePath(`core::num::u64`, `Extern`),
                                                                 },
                                                                 disambiguator: 0,
                                                             },
@@ -5726,7 +5726,7 @@ Ok(
                                                             entity_path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::num::u64`, `Alien`),
+                                                                        TypePath(`core::num::u64`, `Extern`),
                                                                     ),
                                                                 ),
                                                             ),
@@ -5742,7 +5742,7 @@ Ok(
                                                             ident: `u64`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::num::u64`, `Alien`),
+                                                                    TypePath(`core::num::u64`, `Extern`),
                                                                 ),
                                                             ),
                                                         },
@@ -5840,7 +5840,7 @@ Ok(
                                                                             ImplId {
                                                                                 module_path: `core::num`,
                                                                                 impl_kind: ImplKind::Type {
-                                                                                    ty: TypePath(`core::num::u64`, `Alien`),
+                                                                                    ty: TypePath(`core::num::u64`, `Extern`),
                                                                                 },
                                                                                 disambiguator: 0,
                                                                             },
@@ -5853,7 +5853,7 @@ Ok(
                                                                                 entity_path: Some(
                                                                                     EntityPath::ModuleItem(
                                                                                         ModuleItemPath::Type(
-                                                                                            TypePath(`core::num::u64`, `Alien`),
+                                                                                            TypePath(`core::num::u64`, `Extern`),
                                                                                         ),
                                                                                     ),
                                                                                 ),
@@ -5869,7 +5869,7 @@ Ok(
                                                                                 ident: `u64`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
-                                                                                        TypePath(`core::num::u64`, `Alien`),
+                                                                                        TypePath(`core::num::u64`, `Extern`),
                                                                                     ),
                                                                                 ),
                                                                             },
@@ -5914,7 +5914,7 @@ Ok(
                                                                     impl_id: ImplId {
                                                                         module_path: `core::num`,
                                                                         impl_kind: ImplKind::Type {
-                                                                            ty: TypePath(`core::num::u64`, `Alien`),
+                                                                            ty: TypePath(`core::num::u64`, `Extern`),
                                                                         },
                                                                         disambiguator: 0,
                                                                     },
@@ -5929,7 +5929,7 @@ Ok(
                                                                     entity_path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::u64`, `Alien`),
+                                                                                TypePath(`core::num::u64`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     ),
@@ -5945,7 +5945,7 @@ Ok(
                                                                     ident: `u64`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::num::u64`, `Alien`),
+                                                                            TypePath(`core::num::u64`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 },
@@ -5990,7 +5990,7 @@ Ok(
                                                         impl_id: ImplId {
                                                             module_path: `core::num`,
                                                             impl_kind: ImplKind::Type {
-                                                                ty: TypePath(`core::num::u64`, `Alien`),
+                                                                ty: TypePath(`core::num::u64`, `Extern`),
                                                             },
                                                             disambiguator: 0,
                                                         },
@@ -6078,7 +6078,7 @@ Ok(
                     ImplId {
                         module_path: `core::num`,
                         impl_kind: ImplKind::Type {
-                            ty: TypePath(`core::num::u128`, `Alien`),
+                            ty: TypePath(`core::num::u128`, `Extern`),
                         },
                         disambiguator: 0,
                     },
@@ -6092,7 +6092,7 @@ Ok(
                                     id: ImplId {
                                         module_path: `core::num`,
                                         impl_kind: ImplKind::Type {
-                                            ty: TypePath(`core::num::u128`, `Alien`),
+                                            ty: TypePath(`core::num::u128`, `Extern`),
                                         },
                                         disambiguator: 0,
                                     },
@@ -6101,7 +6101,7 @@ Ok(
                                         16..17,
                                     ),
                                     variant: ImplVariant::Type {
-                                        ty: TypePath(`core::num::u128`, `Alien`),
+                                        ty: TypePath(`core::num::u128`, `Extern`),
                                     },
                                 },
                                 impl_token: ImplToken {
@@ -6130,7 +6130,7 @@ Ok(
                                                 ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::u128`, `Alien`),
+                                                        ty: TypePath(`core::num::u128`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -6143,7 +6143,7 @@ Ok(
                                                     entity_path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::u128`, `Alien`),
+                                                                TypePath(`core::num::u128`, `Extern`),
                                                             ),
                                                         ),
                                                     ),
@@ -6159,7 +6159,7 @@ Ok(
                                                     ident: `u128`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::u128`, `Alien`),
+                                                            TypePath(`core::num::u128`, `Extern`),
                                                         ),
                                                     ),
                                                 },
@@ -6208,7 +6208,7 @@ Ok(
                         impl_id: ImplId {
                             module_path: `core::num`,
                             impl_kind: ImplKind::Type {
-                                ty: TypePath(`core::num::u128`, `Alien`),
+                                ty: TypePath(`core::num::u128`, `Extern`),
                             },
                             disambiguator: 0,
                         },
@@ -6222,7 +6222,7 @@ Ok(
                                 TypeMethodDefn {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`core::num::u128`, `Alien`),
+                                            ty: TypePath(`core::num::u128`, `Extern`),
                                             ident: `abs`,
                                             ty_item_kind: Method,
                                         },
@@ -6233,7 +6233,7 @@ Ok(
                                                 impl_id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::u128`, `Alien`),
+                                                        ty: TypePath(`core::num::u128`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -6242,7 +6242,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`core::num::u128`, `Alien`),
+                                                        ty: TypePath(`core::num::u128`, `Extern`),
                                                         ident: `abs`,
                                                         ty_item_kind: Method,
                                                     },
@@ -6252,7 +6252,7 @@ Ok(
                                                 id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::u128`, `Alien`),
+                                                        ty: TypePath(`core::num::u128`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -6261,7 +6261,7 @@ Ok(
                                                     16..17,
                                                 ),
                                                 variant: ImplVariant::Type {
-                                                    ty: TypePath(`core::num::u128`, `Alien`),
+                                                    ty: TypePath(`core::num::u128`, `Extern`),
                                                 },
                                             },
                                             ast_idx: 16,
@@ -6274,7 +6274,7 @@ Ok(
                                         },
                                         path: Some(
                                             TypeItemPath {
-                                                ty: TypePath(`core::num::u128`, `Alien`),
+                                                ty: TypePath(`core::num::u128`, `Extern`),
                                                 ident: `abs`,
                                                 ty_item_kind: Method,
                                             },
@@ -6291,7 +6291,7 @@ Ok(
                                                                     ImplId {
                                                                         module_path: `core::num`,
                                                                         impl_kind: ImplKind::Type {
-                                                                            ty: TypePath(`core::num::u128`, `Alien`),
+                                                                            ty: TypePath(`core::num::u128`, `Extern`),
                                                                         },
                                                                         disambiguator: 0,
                                                                     },
@@ -6304,7 +6304,7 @@ Ok(
                                                                         entity_path: Some(
                                                                             EntityPath::ModuleItem(
                                                                                 ModuleItemPath::Type(
-                                                                                    TypePath(`core::num::u128`, `Alien`),
+                                                                                    TypePath(`core::num::u128`, `Extern`),
                                                                                 ),
                                                                             ),
                                                                         ),
@@ -6320,7 +6320,7 @@ Ok(
                                                                         ident: `u128`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::u128`, `Alien`),
+                                                                                TypePath(`core::num::u128`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     },
@@ -6365,7 +6365,7 @@ Ok(
                                                             impl_id: ImplId {
                                                                 module_path: `core::num`,
                                                                 impl_kind: ImplKind::Type {
-                                                                    ty: TypePath(`core::num::u128`, `Alien`),
+                                                                    ty: TypePath(`core::num::u128`, `Extern`),
                                                                 },
                                                                 disambiguator: 0,
                                                             },
@@ -6380,7 +6380,7 @@ Ok(
                                                             entity_path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::num::u128`, `Alien`),
+                                                                        TypePath(`core::num::u128`, `Extern`),
                                                                     ),
                                                                 ),
                                                             ),
@@ -6396,7 +6396,7 @@ Ok(
                                                             ident: `u128`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::num::u128`, `Alien`),
+                                                                    TypePath(`core::num::u128`, `Extern`),
                                                                 ),
                                                             ),
                                                         },
@@ -6494,7 +6494,7 @@ Ok(
                                                                             ImplId {
                                                                                 module_path: `core::num`,
                                                                                 impl_kind: ImplKind::Type {
-                                                                                    ty: TypePath(`core::num::u128`, `Alien`),
+                                                                                    ty: TypePath(`core::num::u128`, `Extern`),
                                                                                 },
                                                                                 disambiguator: 0,
                                                                             },
@@ -6507,7 +6507,7 @@ Ok(
                                                                                 entity_path: Some(
                                                                                     EntityPath::ModuleItem(
                                                                                         ModuleItemPath::Type(
-                                                                                            TypePath(`core::num::u128`, `Alien`),
+                                                                                            TypePath(`core::num::u128`, `Extern`),
                                                                                         ),
                                                                                     ),
                                                                                 ),
@@ -6523,7 +6523,7 @@ Ok(
                                                                                 ident: `u128`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
-                                                                                        TypePath(`core::num::u128`, `Alien`),
+                                                                                        TypePath(`core::num::u128`, `Extern`),
                                                                                     ),
                                                                                 ),
                                                                             },
@@ -6568,7 +6568,7 @@ Ok(
                                                                     impl_id: ImplId {
                                                                         module_path: `core::num`,
                                                                         impl_kind: ImplKind::Type {
-                                                                            ty: TypePath(`core::num::u128`, `Alien`),
+                                                                            ty: TypePath(`core::num::u128`, `Extern`),
                                                                         },
                                                                         disambiguator: 0,
                                                                     },
@@ -6583,7 +6583,7 @@ Ok(
                                                                     entity_path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::u128`, `Alien`),
+                                                                                TypePath(`core::num::u128`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     ),
@@ -6599,7 +6599,7 @@ Ok(
                                                                     ident: `u128`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::num::u128`, `Alien`),
+                                                                            TypePath(`core::num::u128`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 },
@@ -6644,7 +6644,7 @@ Ok(
                                                         impl_id: ImplId {
                                                             module_path: `core::num`,
                                                             impl_kind: ImplKind::Type {
-                                                                ty: TypePath(`core::num::u128`, `Alien`),
+                                                                ty: TypePath(`core::num::u128`, `Extern`),
                                                             },
                                                             disambiguator: 0,
                                                         },
@@ -6732,7 +6732,7 @@ Ok(
                     ImplId {
                         module_path: `core::num`,
                         impl_kind: ImplKind::Type {
-                            ty: TypePath(`core::num::usize`, `Alien`),
+                            ty: TypePath(`core::num::usize`, `Extern`),
                         },
                         disambiguator: 0,
                     },
@@ -6746,7 +6746,7 @@ Ok(
                                     id: ImplId {
                                         module_path: `core::num`,
                                         impl_kind: ImplKind::Type {
-                                            ty: TypePath(`core::num::usize`, `Alien`),
+                                            ty: TypePath(`core::num::usize`, `Extern`),
                                         },
                                         disambiguator: 0,
                                     },
@@ -6755,7 +6755,7 @@ Ok(
                                         18..19,
                                     ),
                                     variant: ImplVariant::Type {
-                                        ty: TypePath(`core::num::usize`, `Alien`),
+                                        ty: TypePath(`core::num::usize`, `Extern`),
                                     },
                                 },
                                 impl_token: ImplToken {
@@ -6784,7 +6784,7 @@ Ok(
                                                 ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::usize`, `Alien`),
+                                                        ty: TypePath(`core::num::usize`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -6797,7 +6797,7 @@ Ok(
                                                     entity_path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::usize`, `Alien`),
+                                                                TypePath(`core::num::usize`, `Extern`),
                                                             ),
                                                         ),
                                                     ),
@@ -6813,7 +6813,7 @@ Ok(
                                                     ident: `usize`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::usize`, `Alien`),
+                                                            TypePath(`core::num::usize`, `Extern`),
                                                         ),
                                                     ),
                                                 },
@@ -6862,7 +6862,7 @@ Ok(
                         impl_id: ImplId {
                             module_path: `core::num`,
                             impl_kind: ImplKind::Type {
-                                ty: TypePath(`core::num::usize`, `Alien`),
+                                ty: TypePath(`core::num::usize`, `Extern`),
                             },
                             disambiguator: 0,
                         },
@@ -6876,7 +6876,7 @@ Ok(
                                 TypeMethodDefn {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`core::num::usize`, `Alien`),
+                                            ty: TypePath(`core::num::usize`, `Extern`),
                                             ident: `abs`,
                                             ty_item_kind: Method,
                                         },
@@ -6887,7 +6887,7 @@ Ok(
                                                 impl_id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::usize`, `Alien`),
+                                                        ty: TypePath(`core::num::usize`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -6896,7 +6896,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`core::num::usize`, `Alien`),
+                                                        ty: TypePath(`core::num::usize`, `Extern`),
                                                         ident: `abs`,
                                                         ty_item_kind: Method,
                                                     },
@@ -6906,7 +6906,7 @@ Ok(
                                                 id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::usize`, `Alien`),
+                                                        ty: TypePath(`core::num::usize`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -6915,7 +6915,7 @@ Ok(
                                                     18..19,
                                                 ),
                                                 variant: ImplVariant::Type {
-                                                    ty: TypePath(`core::num::usize`, `Alien`),
+                                                    ty: TypePath(`core::num::usize`, `Extern`),
                                                 },
                                             },
                                             ast_idx: 18,
@@ -6928,7 +6928,7 @@ Ok(
                                         },
                                         path: Some(
                                             TypeItemPath {
-                                                ty: TypePath(`core::num::usize`, `Alien`),
+                                                ty: TypePath(`core::num::usize`, `Extern`),
                                                 ident: `abs`,
                                                 ty_item_kind: Method,
                                             },
@@ -6945,7 +6945,7 @@ Ok(
                                                                     ImplId {
                                                                         module_path: `core::num`,
                                                                         impl_kind: ImplKind::Type {
-                                                                            ty: TypePath(`core::num::usize`, `Alien`),
+                                                                            ty: TypePath(`core::num::usize`, `Extern`),
                                                                         },
                                                                         disambiguator: 0,
                                                                     },
@@ -6958,7 +6958,7 @@ Ok(
                                                                         entity_path: Some(
                                                                             EntityPath::ModuleItem(
                                                                                 ModuleItemPath::Type(
-                                                                                    TypePath(`core::num::usize`, `Alien`),
+                                                                                    TypePath(`core::num::usize`, `Extern`),
                                                                                 ),
                                                                             ),
                                                                         ),
@@ -6974,7 +6974,7 @@ Ok(
                                                                         ident: `usize`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::usize`, `Alien`),
+                                                                                TypePath(`core::num::usize`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     },
@@ -7019,7 +7019,7 @@ Ok(
                                                             impl_id: ImplId {
                                                                 module_path: `core::num`,
                                                                 impl_kind: ImplKind::Type {
-                                                                    ty: TypePath(`core::num::usize`, `Alien`),
+                                                                    ty: TypePath(`core::num::usize`, `Extern`),
                                                                 },
                                                                 disambiguator: 0,
                                                             },
@@ -7034,7 +7034,7 @@ Ok(
                                                             entity_path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::num::usize`, `Alien`),
+                                                                        TypePath(`core::num::usize`, `Extern`),
                                                                     ),
                                                                 ),
                                                             ),
@@ -7050,7 +7050,7 @@ Ok(
                                                             ident: `usize`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::num::usize`, `Alien`),
+                                                                    TypePath(`core::num::usize`, `Extern`),
                                                                 ),
                                                             ),
                                                         },
@@ -7148,7 +7148,7 @@ Ok(
                                                                             ImplId {
                                                                                 module_path: `core::num`,
                                                                                 impl_kind: ImplKind::Type {
-                                                                                    ty: TypePath(`core::num::usize`, `Alien`),
+                                                                                    ty: TypePath(`core::num::usize`, `Extern`),
                                                                                 },
                                                                                 disambiguator: 0,
                                                                             },
@@ -7161,7 +7161,7 @@ Ok(
                                                                                 entity_path: Some(
                                                                                     EntityPath::ModuleItem(
                                                                                         ModuleItemPath::Type(
-                                                                                            TypePath(`core::num::usize`, `Alien`),
+                                                                                            TypePath(`core::num::usize`, `Extern`),
                                                                                         ),
                                                                                     ),
                                                                                 ),
@@ -7177,7 +7177,7 @@ Ok(
                                                                                 ident: `usize`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
-                                                                                        TypePath(`core::num::usize`, `Alien`),
+                                                                                        TypePath(`core::num::usize`, `Extern`),
                                                                                     ),
                                                                                 ),
                                                                             },
@@ -7222,7 +7222,7 @@ Ok(
                                                                     impl_id: ImplId {
                                                                         module_path: `core::num`,
                                                                         impl_kind: ImplKind::Type {
-                                                                            ty: TypePath(`core::num::usize`, `Alien`),
+                                                                            ty: TypePath(`core::num::usize`, `Extern`),
                                                                         },
                                                                         disambiguator: 0,
                                                                     },
@@ -7237,7 +7237,7 @@ Ok(
                                                                     entity_path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::usize`, `Alien`),
+                                                                                TypePath(`core::num::usize`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     ),
@@ -7253,7 +7253,7 @@ Ok(
                                                                     ident: `usize`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::num::usize`, `Alien`),
+                                                                            TypePath(`core::num::usize`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 },
@@ -7298,7 +7298,7 @@ Ok(
                                                         impl_id: ImplId {
                                                             module_path: `core::num`,
                                                             impl_kind: ImplKind::Type {
-                                                                ty: TypePath(`core::num::usize`, `Alien`),
+                                                                ty: TypePath(`core::num::usize`, `Extern`),
                                                             },
                                                             disambiguator: 0,
                                                         },
@@ -7386,7 +7386,7 @@ Ok(
                     ImplId {
                         module_path: `core::num`,
                         impl_kind: ImplKind::Type {
-                            ty: TypePath(`core::num::f32`, `Alien`),
+                            ty: TypePath(`core::num::f32`, `Extern`),
                         },
                         disambiguator: 0,
                     },
@@ -7400,7 +7400,7 @@ Ok(
                                     id: ImplId {
                                         module_path: `core::num`,
                                         impl_kind: ImplKind::Type {
-                                            ty: TypePath(`core::num::f32`, `Alien`),
+                                            ty: TypePath(`core::num::f32`, `Extern`),
                                         },
                                         disambiguator: 0,
                                     },
@@ -7409,7 +7409,7 @@ Ok(
                                         20..21,
                                     ),
                                     variant: ImplVariant::Type {
-                                        ty: TypePath(`core::num::f32`, `Alien`),
+                                        ty: TypePath(`core::num::f32`, `Extern`),
                                     },
                                 },
                                 impl_token: ImplToken {
@@ -7438,7 +7438,7 @@ Ok(
                                                 ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::f32`, `Alien`),
+                                                        ty: TypePath(`core::num::f32`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -7451,7 +7451,7 @@ Ok(
                                                     entity_path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                TypePath(`core::num::f32`, `Extern`),
                                                             ),
                                                         ),
                                                     ),
@@ -7467,7 +7467,7 @@ Ok(
                                                     ident: `f32`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::f32`, `Alien`),
+                                                            TypePath(`core::num::f32`, `Extern`),
                                                         ),
                                                     ),
                                                 },
@@ -7516,7 +7516,7 @@ Ok(
                         impl_id: ImplId {
                             module_path: `core::num`,
                             impl_kind: ImplKind::Type {
-                                ty: TypePath(`core::num::f32`, `Alien`),
+                                ty: TypePath(`core::num::f32`, `Extern`),
                             },
                             disambiguator: 0,
                         },
@@ -7530,7 +7530,7 @@ Ok(
                                 TypeMethodDefn {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`core::num::f32`, `Alien`),
+                                            ty: TypePath(`core::num::f32`, `Extern`),
                                             ident: `abs`,
                                             ty_item_kind: Method,
                                         },
@@ -7541,7 +7541,7 @@ Ok(
                                                 impl_id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::f32`, `Alien`),
+                                                        ty: TypePath(`core::num::f32`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -7550,7 +7550,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`core::num::f32`, `Alien`),
+                                                        ty: TypePath(`core::num::f32`, `Extern`),
                                                         ident: `abs`,
                                                         ty_item_kind: Method,
                                                     },
@@ -7560,7 +7560,7 @@ Ok(
                                                 id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::f32`, `Alien`),
+                                                        ty: TypePath(`core::num::f32`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -7569,7 +7569,7 @@ Ok(
                                                     20..21,
                                                 ),
                                                 variant: ImplVariant::Type {
-                                                    ty: TypePath(`core::num::f32`, `Alien`),
+                                                    ty: TypePath(`core::num::f32`, `Extern`),
                                                 },
                                             },
                                             ast_idx: 20,
@@ -7582,7 +7582,7 @@ Ok(
                                         },
                                         path: Some(
                                             TypeItemPath {
-                                                ty: TypePath(`core::num::f32`, `Alien`),
+                                                ty: TypePath(`core::num::f32`, `Extern`),
                                                 ident: `abs`,
                                                 ty_item_kind: Method,
                                             },
@@ -7599,7 +7599,7 @@ Ok(
                                                                     ImplId {
                                                                         module_path: `core::num`,
                                                                         impl_kind: ImplKind::Type {
-                                                                            ty: TypePath(`core::num::f32`, `Alien`),
+                                                                            ty: TypePath(`core::num::f32`, `Extern`),
                                                                         },
                                                                         disambiguator: 0,
                                                                     },
@@ -7612,7 +7612,7 @@ Ok(
                                                                         entity_path: Some(
                                                                             EntityPath::ModuleItem(
                                                                                 ModuleItemPath::Type(
-                                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                                    TypePath(`core::num::f32`, `Extern`),
                                                                                 ),
                                                                             ),
                                                                         ),
@@ -7628,7 +7628,7 @@ Ok(
                                                                         ident: `f32`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                                TypePath(`core::num::f32`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     },
@@ -7673,7 +7673,7 @@ Ok(
                                                             impl_id: ImplId {
                                                                 module_path: `core::num`,
                                                                 impl_kind: ImplKind::Type {
-                                                                    ty: TypePath(`core::num::f32`, `Alien`),
+                                                                    ty: TypePath(`core::num::f32`, `Extern`),
                                                                 },
                                                                 disambiguator: 0,
                                                             },
@@ -7688,7 +7688,7 @@ Ok(
                                                             entity_path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                        TypePath(`core::num::f32`, `Extern`),
                                                                     ),
                                                                 ),
                                                             ),
@@ -7704,7 +7704,7 @@ Ok(
                                                             ident: `f32`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                    TypePath(`core::num::f32`, `Extern`),
                                                                 ),
                                                             ),
                                                         },
@@ -7802,7 +7802,7 @@ Ok(
                                                                             ImplId {
                                                                                 module_path: `core::num`,
                                                                                 impl_kind: ImplKind::Type {
-                                                                                    ty: TypePath(`core::num::f32`, `Alien`),
+                                                                                    ty: TypePath(`core::num::f32`, `Extern`),
                                                                                 },
                                                                                 disambiguator: 0,
                                                                             },
@@ -7815,7 +7815,7 @@ Ok(
                                                                                 entity_path: Some(
                                                                                     EntityPath::ModuleItem(
                                                                                         ModuleItemPath::Type(
-                                                                                            TypePath(`core::num::f32`, `Alien`),
+                                                                                            TypePath(`core::num::f32`, `Extern`),
                                                                                         ),
                                                                                     ),
                                                                                 ),
@@ -7831,7 +7831,7 @@ Ok(
                                                                                 ident: `f32`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
-                                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                                        TypePath(`core::num::f32`, `Extern`),
                                                                                     ),
                                                                                 ),
                                                                             },
@@ -7876,7 +7876,7 @@ Ok(
                                                                     impl_id: ImplId {
                                                                         module_path: `core::num`,
                                                                         impl_kind: ImplKind::Type {
-                                                                            ty: TypePath(`core::num::f32`, `Alien`),
+                                                                            ty: TypePath(`core::num::f32`, `Extern`),
                                                                         },
                                                                         disambiguator: 0,
                                                                     },
@@ -7891,7 +7891,7 @@ Ok(
                                                                     entity_path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                                TypePath(`core::num::f32`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     ),
@@ -7907,7 +7907,7 @@ Ok(
                                                                     ident: `f32`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::num::f32`, `Alien`),
+                                                                            TypePath(`core::num::f32`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 },
@@ -7952,7 +7952,7 @@ Ok(
                                                         impl_id: ImplId {
                                                             module_path: `core::num`,
                                                             impl_kind: ImplKind::Type {
-                                                                ty: TypePath(`core::num::f32`, `Alien`),
+                                                                ty: TypePath(`core::num::f32`, `Extern`),
                                                             },
                                                             disambiguator: 0,
                                                         },
@@ -8040,7 +8040,7 @@ Ok(
                     ImplId {
                         module_path: `core::num`,
                         impl_kind: ImplKind::Type {
-                            ty: TypePath(`core::num::f64`, `Alien`),
+                            ty: TypePath(`core::num::f64`, `Extern`),
                         },
                         disambiguator: 0,
                     },
@@ -8054,7 +8054,7 @@ Ok(
                                     id: ImplId {
                                         module_path: `core::num`,
                                         impl_kind: ImplKind::Type {
-                                            ty: TypePath(`core::num::f64`, `Alien`),
+                                            ty: TypePath(`core::num::f64`, `Extern`),
                                         },
                                         disambiguator: 0,
                                     },
@@ -8063,7 +8063,7 @@ Ok(
                                         22..23,
                                     ),
                                     variant: ImplVariant::Type {
-                                        ty: TypePath(`core::num::f64`, `Alien`),
+                                        ty: TypePath(`core::num::f64`, `Extern`),
                                     },
                                 },
                                 impl_token: ImplToken {
@@ -8092,7 +8092,7 @@ Ok(
                                                 ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::f64`, `Alien`),
+                                                        ty: TypePath(`core::num::f64`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -8105,7 +8105,7 @@ Ok(
                                                     entity_path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::f64`, `Alien`),
+                                                                TypePath(`core::num::f64`, `Extern`),
                                                             ),
                                                         ),
                                                     ),
@@ -8121,7 +8121,7 @@ Ok(
                                                     ident: `f64`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::f64`, `Alien`),
+                                                            TypePath(`core::num::f64`, `Extern`),
                                                         ),
                                                     ),
                                                 },
@@ -8170,7 +8170,7 @@ Ok(
                         impl_id: ImplId {
                             module_path: `core::num`,
                             impl_kind: ImplKind::Type {
-                                ty: TypePath(`core::num::f64`, `Alien`),
+                                ty: TypePath(`core::num::f64`, `Extern`),
                             },
                             disambiguator: 0,
                         },
@@ -8184,7 +8184,7 @@ Ok(
                                 TypeMethodDefn {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`core::num::f64`, `Alien`),
+                                            ty: TypePath(`core::num::f64`, `Extern`),
                                             ident: `abs`,
                                             ty_item_kind: Method,
                                         },
@@ -8195,7 +8195,7 @@ Ok(
                                                 impl_id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::f64`, `Alien`),
+                                                        ty: TypePath(`core::num::f64`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -8204,7 +8204,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`core::num::f64`, `Alien`),
+                                                        ty: TypePath(`core::num::f64`, `Extern`),
                                                         ident: `abs`,
                                                         ty_item_kind: Method,
                                                     },
@@ -8214,7 +8214,7 @@ Ok(
                                                 id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
-                                                        ty: TypePath(`core::num::f64`, `Alien`),
+                                                        ty: TypePath(`core::num::f64`, `Extern`),
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -8223,7 +8223,7 @@ Ok(
                                                     22..23,
                                                 ),
                                                 variant: ImplVariant::Type {
-                                                    ty: TypePath(`core::num::f64`, `Alien`),
+                                                    ty: TypePath(`core::num::f64`, `Extern`),
                                                 },
                                             },
                                             ast_idx: 22,
@@ -8236,7 +8236,7 @@ Ok(
                                         },
                                         path: Some(
                                             TypeItemPath {
-                                                ty: TypePath(`core::num::f64`, `Alien`),
+                                                ty: TypePath(`core::num::f64`, `Extern`),
                                                 ident: `abs`,
                                                 ty_item_kind: Method,
                                             },
@@ -8253,7 +8253,7 @@ Ok(
                                                                     ImplId {
                                                                         module_path: `core::num`,
                                                                         impl_kind: ImplKind::Type {
-                                                                            ty: TypePath(`core::num::f64`, `Alien`),
+                                                                            ty: TypePath(`core::num::f64`, `Extern`),
                                                                         },
                                                                         disambiguator: 0,
                                                                     },
@@ -8266,7 +8266,7 @@ Ok(
                                                                         entity_path: Some(
                                                                             EntityPath::ModuleItem(
                                                                                 ModuleItemPath::Type(
-                                                                                    TypePath(`core::num::f64`, `Alien`),
+                                                                                    TypePath(`core::num::f64`, `Extern`),
                                                                                 ),
                                                                             ),
                                                                         ),
@@ -8282,7 +8282,7 @@ Ok(
                                                                         ident: `f64`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::f64`, `Alien`),
+                                                                                TypePath(`core::num::f64`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     },
@@ -8327,7 +8327,7 @@ Ok(
                                                             impl_id: ImplId {
                                                                 module_path: `core::num`,
                                                                 impl_kind: ImplKind::Type {
-                                                                    ty: TypePath(`core::num::f64`, `Alien`),
+                                                                    ty: TypePath(`core::num::f64`, `Extern`),
                                                                 },
                                                                 disambiguator: 0,
                                                             },
@@ -8342,7 +8342,7 @@ Ok(
                                                             entity_path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::num::f64`, `Alien`),
+                                                                        TypePath(`core::num::f64`, `Extern`),
                                                                     ),
                                                                 ),
                                                             ),
@@ -8358,7 +8358,7 @@ Ok(
                                                             ident: `f64`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::num::f64`, `Alien`),
+                                                                    TypePath(`core::num::f64`, `Extern`),
                                                                 ),
                                                             ),
                                                         },
@@ -8456,7 +8456,7 @@ Ok(
                                                                             ImplId {
                                                                                 module_path: `core::num`,
                                                                                 impl_kind: ImplKind::Type {
-                                                                                    ty: TypePath(`core::num::f64`, `Alien`),
+                                                                                    ty: TypePath(`core::num::f64`, `Extern`),
                                                                                 },
                                                                                 disambiguator: 0,
                                                                             },
@@ -8469,7 +8469,7 @@ Ok(
                                                                                 entity_path: Some(
                                                                                     EntityPath::ModuleItem(
                                                                                         ModuleItemPath::Type(
-                                                                                            TypePath(`core::num::f64`, `Alien`),
+                                                                                            TypePath(`core::num::f64`, `Extern`),
                                                                                         ),
                                                                                     ),
                                                                                 ),
@@ -8485,7 +8485,7 @@ Ok(
                                                                                 ident: `f64`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
-                                                                                        TypePath(`core::num::f64`, `Alien`),
+                                                                                        TypePath(`core::num::f64`, `Extern`),
                                                                                     ),
                                                                                 ),
                                                                             },
@@ -8530,7 +8530,7 @@ Ok(
                                                                     impl_id: ImplId {
                                                                         module_path: `core::num`,
                                                                         impl_kind: ImplKind::Type {
-                                                                            ty: TypePath(`core::num::f64`, `Alien`),
+                                                                            ty: TypePath(`core::num::f64`, `Extern`),
                                                                         },
                                                                         disambiguator: 0,
                                                                     },
@@ -8545,7 +8545,7 @@ Ok(
                                                                     entity_path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::f64`, `Alien`),
+                                                                                TypePath(`core::num::f64`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     ),
@@ -8561,7 +8561,7 @@ Ok(
                                                                     ident: `f64`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::num::f64`, `Alien`),
+                                                                            TypePath(`core::num::f64`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 },
@@ -8606,7 +8606,7 @@ Ok(
                                                         impl_id: ImplId {
                                                             module_path: `core::num`,
                                                             impl_kind: ImplKind::Type {
-                                                                ty: TypePath(`core::num::f64`, `Alien`),
+                                                                ty: TypePath(`core::num::f64`, `Extern`),
                                                             },
                                                             disambiguator: 0,
                                                         },

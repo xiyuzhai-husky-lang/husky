@@ -15,7 +15,7 @@ use husky_entity_path::AssociatedItemPath;
 pub enum TraitItemDefn {
     Function(TraitAssociatedFunctionDefn),
     Method(TraitMethodDefn),
-    AlienType(TraitAssociatedTypeDefn),
+    ExternType(TraitAssociatedTypeDefn),
     Value(TraitAssociatedValueDefn),
 }
 

@@ -11,7 +11,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
-                                TypePath(`core::list::List`, `Alien`),
+                                TypePath(`core::list::List`, `Extern`),
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 0,

@@ -5,15 +5,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Type(
-                            TypePath(`core::raw_bits::r32`, `Alien`),
+                            TypePath(`core::raw_bits::r32`, `Extern`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Type(
-                        TypeDecl::Alien(
-                            AlienTypeDecl {
-                                path: TypePath(`core::raw_bits::r32`, `Alien`),
+                        TypeDecl::Extern(
+                            ExternTypeDecl {
+                                path: TypePath(`core::raw_bits::r32`, `Extern`),
                                 ast_idx: 2,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -22,7 +22,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Type(
-                                                        TypePath(`core::raw_bits::r32`, `Alien`),
+                                                        TypePath(`core::raw_bits::r32`, `Extern`),
                                                     ),
                                                 ),
                                             ),

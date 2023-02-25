@@ -2,7 +2,7 @@
     Ok(
         Signature::Type(
             TypeSignature::Foreign(
-                AlienTypeSignature {
+                ExternTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -13,7 +13,7 @@
     Ok(
         Signature::Type(
             TypeSignature::Foreign(
-                AlienTypeSignature {
+                ExternTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -24,7 +24,7 @@
     Ok(
         Signature::Type(
             TypeSignature::Foreign(
-                AlienTypeSignature {
+                ExternTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -35,7 +35,7 @@
     Ok(
         Signature::Type(
             TypeSignature::Foreign(
-                AlienTypeSignature {
+                ExternTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -46,7 +46,7 @@
     Ok(
         Signature::Type(
             TypeSignature::Foreign(
-                AlienTypeSignature {
+                ExternTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -57,7 +57,7 @@
     Ok(
         Signature::Type(
             TypeSignature::Foreign(
-                AlienTypeSignature {
+                ExternTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -68,7 +68,7 @@
     Ok(
         Signature::Type(
             TypeSignature::Foreign(
-                AlienTypeSignature {
+                ExternTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -79,7 +79,7 @@
     Ok(
         Signature::Type(
             TypeSignature::Foreign(
-                AlienTypeSignature {
+                ExternTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -90,7 +90,7 @@
     Ok(
         Signature::Type(
             TypeSignature::Foreign(
-                AlienTypeSignature {
+                ExternTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -101,7 +101,7 @@
     Ok(
         Signature::Type(
             TypeSignature::Foreign(
-                AlienTypeSignature {
+                ExternTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -112,7 +112,7 @@
     Ok(
         Signature::Type(
             TypeSignature::Foreign(
-                AlienTypeSignature {
+                ExternTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -123,7 +123,7 @@
     Ok(
         Signature::Type(
             TypeSignature::Foreign(
-                AlienTypeSignature {
+                ExternTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },

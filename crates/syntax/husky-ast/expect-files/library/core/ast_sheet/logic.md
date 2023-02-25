@@ -12,14 +12,14 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Alien,
+                            Extern,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::logic::Prop`, `Alien`),
+                                TypePath(`core::logic::Prop`, `Extern`),
                             ),
                         ),
                     ),

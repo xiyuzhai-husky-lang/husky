@@ -1,5 +1,5 @@
-mod alien_ty;
 mod enum_ty;
+mod extern_ty;
 mod inductive_ty;
 mod record_ty;
 mod regular_struct_ty;
@@ -8,8 +8,8 @@ mod tuple_struct_ty;
 mod union_ty;
 mod unit_struct_ty;
 
-pub use alien_ty::*;
 pub use enum_ty::*;
+pub use extern_ty::*;
 pub use inductive_ty::*;
 pub use record_ty::*;
 pub use regular_struct_ty::*;
@@ -31,7 +31,7 @@ pub enum TypeDecl {
     Record(RecordTypeDecl),
     Inductive(InductiveTypeDecl),
     Structure(StructureTypeDecl),
-    Alien(AlienTypeDecl),
+    Extern(ExternTypeDecl),
     Union(UnionTypeDecl),
 }
 
@@ -51,7 +51,7 @@ impl TypeDecl {
             TypeDecl::Record(decl) => decl.ast_idx(db),
             TypeDecl::Inductive(decl) => decl.ast_idx(db),
             TypeDecl::Structure(decl) => decl.ast_idx(db),
-            TypeDecl::Alien(decl) => decl.ast_idx(db),
+            TypeDecl::Extern(decl) => decl.ast_idx(db),
             TypeDecl::Union(decl) => decl.ast_idx(db),
         }
     }
@@ -68,7 +68,7 @@ impl TypeDecl {
             TypeDecl::Record(decl) => decl.implicit_parameters(db),
             TypeDecl::Inductive(decl) => decl.implicit_parameters(db),
             TypeDecl::Structure(decl) => decl.implicit_parameters(db),
-            TypeDecl::Alien(decl) => decl.implicit_parameters(db),
+            TypeDecl::Extern(decl) => decl.implicit_parameters(db),
             TypeDecl::Union(decl) => decl.implicit_parameters(db),
         }
     }
@@ -82,7 +82,7 @@ impl TypeDecl {
             TypeDecl::Record(decl) => decl.expr_region(db),
             TypeDecl::Inductive(decl) => decl.expr_region(db),
             TypeDecl::Structure(decl) => decl.expr_region(db),
-            TypeDecl::Alien(decl) => decl.expr_region(db),
+            TypeDecl::Extern(decl) => decl.expr_region(db),
             TypeDecl::Union(decl) => decl.expr_region(db),
         }
     }
@@ -96,7 +96,7 @@ impl TypeDecl {
             TypeDecl::RegularStruct(decl) => decl.path(db),
             TypeDecl::TupleStruct(decl) => decl.path(db),
             TypeDecl::Structure(decl) => decl.path(db),
-            TypeDecl::Alien(decl) => decl.path(db),
+            TypeDecl::Extern(decl) => decl.path(db),
             TypeDecl::Union(decl) => decl.path(db),
         }
     }
@@ -148,8 +148,8 @@ impl From<StructureTypeDecl> for TypeDecl {
     }
 }
 
-impl From<AlienTypeDecl> for TypeDecl {
-    fn from(v: AlienTypeDecl) -> Self {
-        Self::Alien(v)
+impl From<ExternTypeDecl> for TypeDecl {
+    fn from(v: ExternTypeDecl) -> Self {
+        Self::Extern(v)
     }
 }

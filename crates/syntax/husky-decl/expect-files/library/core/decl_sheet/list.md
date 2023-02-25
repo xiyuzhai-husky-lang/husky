@@ -5,15 +5,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Type(
-                            TypePath(`core::list::List`, `Alien`),
+                            TypePath(`core::list::List`, `Extern`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Type(
-                        TypeDecl::Alien(
-                            AlienTypeDecl {
-                                path: TypePath(`core::list::List`, `Alien`),
+                        TypeDecl::Extern(
+                            ExternTypeDecl {
+                                path: TypePath(`core::list::List`, `Extern`),
                                 ast_idx: 0,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -22,7 +22,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Type(
-                                                        TypePath(`core::list::List`, `Alien`),
+                                                        TypePath(`core::list::List`, `Extern`),
                                                     ),
                                                 ),
                                             ),

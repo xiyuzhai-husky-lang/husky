@@ -30,13 +30,13 @@ pub enum TypeDefn {
     TupleStruct(TupleStructTypeDefn),
     UnitStruct(UnitStructTypeDefn),
     Structure(StructureTypeDefn),
-    Alien(AlienTypeDefn),
+    Extern(ExternTypeDefn),
     Union(UnionTypeDefn),
 }
 
-impl From<AlienTypeDefn> for TypeDefn {
-    fn from(v: AlienTypeDefn) -> Self {
-        Self::Alien(v)
+impl From<ExternTypeDefn> for TypeDefn {
+    fn from(v: ExternTypeDefn) -> Self {
+        Self::Extern(v)
     }
 }
 
@@ -74,7 +74,7 @@ impl TypeDefn {
             TypeDefn::TupleStruct(defn) => defn.decl(db).into(),
             TypeDefn::RegularStruct(defn) => defn.decl(db).into(),
             TypeDefn::Structure(defn) => defn.decl(db).into(),
-            TypeDefn::Alien(defn) => defn.decl(db).into(),
+            TypeDefn::Extern(defn) => defn.decl(db).into(),
             TypeDefn::Union(defn) => defn.decl(db).into(),
         }
     }
@@ -88,7 +88,7 @@ impl TypeDefn {
             TypeDefn::TupleStruct(defn) => defn.path(db),
             TypeDefn::RegularStruct(defn) => defn.path(db),
             TypeDefn::Structure(defn) => defn.path(db),
-            TypeDefn::Alien(defn) => defn.path(db),
+            TypeDefn::Extern(defn) => defn.path(db),
             TypeDefn::Union(defn) => defn.path(db),
         }
     }

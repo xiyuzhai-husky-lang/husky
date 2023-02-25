@@ -39,7 +39,7 @@ pub(crate) fn ty_as_trai_associated_item_signature(
 pub enum TypeAsTraitItemSignature {
     Function(TypeAsTraitAssociatedFunctionSignature),
     Method(TypeAsTraitMethodSignature),
-    AlienType(TypeAsTraitAssociatedTypeSignature),
+    ExternType(TypeAsTraitAssociatedTypeSignature),
     Value(TypeAsTraitAssociatedValueSignature),
 }
 
@@ -51,7 +51,7 @@ impl From<TypeAsTraitAssociatedValueSignature> for TypeAsTraitItemSignature {
 
 impl From<TypeAsTraitAssociatedTypeSignature> for TypeAsTraitItemSignature {
     fn from(v: TypeAsTraitAssociatedTypeSignature) -> Self {
-        Self::AlienType(v)
+        Self::ExternType(v)
     }
 }
 
@@ -72,7 +72,7 @@ impl TypeAsTraitItemSignature {
         match self {
             TypeAsTraitItemSignature::Function(_) => todo!(),
             TypeAsTraitItemSignature::Method(_) => todo!(),
-            TypeAsTraitItemSignature::AlienType(_) => todo!(),
+            TypeAsTraitItemSignature::ExternType(_) => todo!(),
             TypeAsTraitItemSignature::Value(_) => todo!(),
         }
     }

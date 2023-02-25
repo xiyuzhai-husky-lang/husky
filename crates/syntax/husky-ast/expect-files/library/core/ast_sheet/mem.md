@@ -12,14 +12,14 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Alien,
+                            Extern,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::mem::Ref`, `Alien`),
+                                TypePath(`core::mem::Ref`, `Extern`),
                             ),
                         ),
                     ),
@@ -45,14 +45,14 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Alien,
+                            Extern,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::mem::RefMut`, `Alien`),
+                                TypePath(`core::mem::RefMut`, `Extern`),
                             ),
                         ),
                     ),

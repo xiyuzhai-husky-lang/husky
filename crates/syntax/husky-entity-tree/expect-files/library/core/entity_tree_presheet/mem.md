@@ -11,7 +11,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
-                                TypePath(`core::mem::Ref`, `Alien`),
+                                TypePath(`core::mem::Ref`, `Extern`),
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 0,
@@ -26,7 +26,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
-                                TypePath(`core::mem::RefMut`, `Alien`),
+                                TypePath(`core::mem::RefMut`, `Extern`),
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 1,

@@ -58,7 +58,7 @@ Ok(
                         17,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),

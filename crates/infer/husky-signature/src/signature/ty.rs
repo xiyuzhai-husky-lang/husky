@@ -43,7 +43,7 @@ pub(crate) fn ty_signature(
         TypeDecl::Structure(decl) => structure_ty_signature(db, decl)
             .as_ref()
             .map(|s| (*s).into()),
-        TypeDecl::Alien(decl) => alien_ty_signature(db, decl).as_ref().map(|s| (*s).into()),
+        TypeDecl::Extern(decl) => alien_ty_signature(db, decl).as_ref().map(|s| (*s).into()),
         TypeDecl::Union(decl) => union_ty_signature(db, decl).as_ref().map(|s| (*s).into()),
     }
 }
@@ -58,7 +58,7 @@ pub enum TypeSignature {
     Record(RecordTypeSignature),
     Inductive(InductiveTypeSignature),
     Structure(StructureTypeSignature),
-    Foreign(AlienTypeSignature),
+    Foreign(ExternTypeSignature),
     Union(UnionTypeSignature),
 }
 
@@ -126,8 +126,8 @@ impl From<StructureTypeSignature> for TypeSignature {
     }
 }
 
-impl From<AlienTypeSignature> for TypeSignature {
-    fn from(v: AlienTypeSignature) -> Self {
+impl From<ExternTypeSignature> for TypeSignature {
+    fn from(v: ExternTypeSignature) -> Self {
         Self::Foreign(v)
     }
 }

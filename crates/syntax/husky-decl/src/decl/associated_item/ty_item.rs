@@ -18,7 +18,7 @@ use husky_ast::*;
 pub enum TypeItemDecl {
     Function(TypeAssociatedFunctionDecl),
     Method(TypeMethodDecl),
-    AlienType(TypeAssociatedTypeDecl),
+    ExternType(TypeAssociatedTypeDecl),
     Value(TypeAssociatedValueDecl),
     Memo(TypeMemoDecl),
 }
@@ -43,7 +43,7 @@ impl From<TypeAssociatedValueDecl> for TypeItemDecl {
 
 impl From<TypeAssociatedTypeDecl> for TypeItemDecl {
     fn from(v: TypeAssociatedTypeDecl) -> Self {
-        Self::AlienType(v)
+        Self::ExternType(v)
     }
 }
 
@@ -58,7 +58,7 @@ impl TypeItemDecl {
         match self {
             TypeItemDecl::Function(decl) => decl.ast_idx(db),
             TypeItemDecl::Method(decl) => decl.ast_idx(db),
-            TypeItemDecl::AlienType(decl) => decl.ast_idx(db),
+            TypeItemDecl::ExternType(decl) => decl.ast_idx(db),
             TypeItemDecl::Value(decl) => decl.ast_idx(db),
             TypeItemDecl::Memo(decl) => decl.ast_idx(db),
         }
@@ -71,7 +71,7 @@ impl TypeItemDecl {
         match self {
             TypeItemDecl::Function(_) => todo!(),
             TypeItemDecl::Method(_) => todo!(),
-            TypeItemDecl::AlienType(_) => todo!(),
+            TypeItemDecl::ExternType(_) => todo!(),
             TypeItemDecl::Value(_) => todo!(),
             TypeItemDecl::Memo(_) => todo!(),
         }
@@ -81,7 +81,7 @@ impl TypeItemDecl {
         match self {
             TypeItemDecl::Function(defn) => defn.expr_region(db),
             TypeItemDecl::Method(defn) => defn.expr_region(db),
-            TypeItemDecl::AlienType(defn) => defn.expr_region(db),
+            TypeItemDecl::ExternType(defn) => defn.expr_region(db),
             TypeItemDecl::Value(defn) => defn.expr_region(db),
             TypeItemDecl::Memo(defn) => defn.expr_region(db),
         }
@@ -91,7 +91,7 @@ impl TypeItemDecl {
         match self {
             TypeItemDecl::Function(_) => todo!(),
             TypeItemDecl::Method(defn) => defn.path(db),
-            TypeItemDecl::AlienType(_) => todo!(),
+            TypeItemDecl::ExternType(_) => todo!(),
             TypeItemDecl::Value(_) => todo!(),
             TypeItemDecl::Memo(defn) => defn.path(db),
         }

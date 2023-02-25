@@ -2,7 +2,7 @@
     Ok(
         Signature::Type(
             TypeSignature::Foreign(
-                AlienTypeSignature {
+                ExternTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [
                             ImplicitParameterSignature {
@@ -54,7 +54,7 @@
     Ok(
         Signature::Type(
             TypeSignature::Foreign(
-                AlienTypeSignature {
+                ExternTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [
                             ImplicitParameterSignature {

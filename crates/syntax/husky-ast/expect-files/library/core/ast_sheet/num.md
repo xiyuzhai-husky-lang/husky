@@ -635,17 +635,14 @@ Ok(
                         0,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
                 },
-                Ast::Err {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         2,
-                    ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {
@@ -658,14 +655,14 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Alien,
+                            Extern,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::num::i8`, `Alien`),
+                                TypePath(`core::num::i8`, `Extern`),
                             ),
                         ),
                     ),
@@ -697,17 +694,14 @@ Ok(
                         1..2,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
                 },
-                Ast::Err {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         9,
-                    ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {
@@ -720,14 +714,14 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Alien,
+                            Extern,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::num::i16`, `Alien`),
+                                TypePath(`core::num::i16`, `Extern`),
                             ),
                         ),
                     ),
@@ -759,17 +753,14 @@ Ok(
                         3..4,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         15,
                     ),
                 },
-                Ast::Err {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         16,
-                    ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {
@@ -782,14 +773,14 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Alien,
+                            Extern,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::num::i32`, `Alien`),
+                                TypePath(`core::num::i32`, `Extern`),
                             ),
                         ),
                     ),
@@ -821,17 +812,14 @@ Ok(
                         5..6,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         22,
                     ),
                 },
-                Ast::Err {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         23,
-                    ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {
@@ -844,14 +832,14 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Alien,
+                            Extern,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::num::i64`, `Alien`),
+                                TypePath(`core::num::i64`, `Extern`),
                             ),
                         ),
                     ),
@@ -883,17 +871,14 @@ Ok(
                         7..8,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         29,
                     ),
                 },
-                Ast::Err {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         30,
-                    ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {
@@ -906,14 +891,14 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Alien,
+                            Extern,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::num::u8`, `Alien`),
+                                TypePath(`core::num::u8`, `Extern`),
                             ),
                         ),
                     ),
@@ -945,17 +930,14 @@ Ok(
                         9..10,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         36,
                     ),
                 },
-                Ast::Err {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         37,
-                    ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {
@@ -968,14 +950,14 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Alien,
+                            Extern,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::num::u16`, `Alien`),
+                                TypePath(`core::num::u16`, `Extern`),
                             ),
                         ),
                     ),
@@ -1007,17 +989,14 @@ Ok(
                         11..12,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         43,
                     ),
                 },
-                Ast::Err {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         44,
-                    ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {
@@ -1030,14 +1009,14 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Alien,
+                            Extern,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::num::u32`, `Alien`),
+                                TypePath(`core::num::u32`, `Extern`),
                             ),
                         ),
                     ),
@@ -1069,17 +1048,14 @@ Ok(
                         13..14,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         50,
                     ),
                 },
-                Ast::Err {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         51,
-                    ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {
@@ -1092,14 +1068,14 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Alien,
+                            Extern,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::num::u64`, `Alien`),
+                                TypePath(`core::num::u64`, `Extern`),
                             ),
                         ),
                     ),
@@ -1131,17 +1107,14 @@ Ok(
                         15..16,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         57,
                     ),
                 },
-                Ast::Err {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         58,
-                    ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {
@@ -1154,14 +1127,14 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Alien,
+                            Extern,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::num::u128`, `Alien`),
+                                TypePath(`core::num::u128`, `Extern`),
                             ),
                         ),
                     ),
@@ -1193,17 +1166,14 @@ Ok(
                         17..18,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         64,
                     ),
                 },
-                Ast::Err {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         65,
-                    ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {
@@ -1216,14 +1186,14 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Alien,
+                            Extern,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::num::usize`, `Alien`),
+                                TypePath(`core::num::usize`, `Extern`),
                             ),
                         ),
                     ),
@@ -1255,17 +1225,14 @@ Ok(
                         19..20,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         71,
                     ),
                 },
-                Ast::Err {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         72,
-                    ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {
@@ -1278,14 +1245,14 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Alien,
+                            Extern,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::num::f32`, `Alien`),
+                                TypePath(`core::num::f32`, `Extern`),
                             ),
                         ),
                     ),
@@ -1317,17 +1284,14 @@ Ok(
                         21..22,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         78,
                     ),
                 },
-                Ast::Err {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         79,
-                    ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideModule,
                     ),
                 },
                 Ast::Defn {
@@ -1340,14 +1304,14 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Alien,
+                            Extern,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::num::f64`, `Alien`),
+                                TypePath(`core::num::f64`, `Extern`),
                             ),
                         ),
                     ),

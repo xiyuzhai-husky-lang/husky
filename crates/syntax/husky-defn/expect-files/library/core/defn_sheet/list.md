@@ -5,17 +5,17 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Type(
-                            TypePath(`core::list::List`, `Alien`),
+                            TypePath(`core::list::List`, `Extern`),
                         ),
                     ),
                 ),
                 Ok(
                     Defn::Type(
-                        TypeDefn::Alien(
-                            AlienTypeDefn {
-                                path: TypePath(`core::list::List`, `Alien`),
-                                decl: AlienTypeDecl {
-                                    path: TypePath(`core::list::List`, `Alien`),
+                        TypeDefn::Extern(
+                            ExternTypeDefn {
+                                path: TypePath(`core::list::List`, `Extern`),
+                                decl: ExternTypeDecl {
+                                    path: TypePath(`core::list::List`, `Extern`),
                                     ast_idx: 0,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -24,7 +24,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::list::List`, `Alien`),
+                                                            TypePath(`core::list::List`, `Extern`),
                                                         ),
                                                     ),
                                                 ),

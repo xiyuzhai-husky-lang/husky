@@ -245,7 +245,7 @@ Ok(
                                 ModuleItemSymbol {
                                     [salsa id]: 0,
                                     path: ModuleItemPath::Type(
-                                        TypePath(`core::basic::bool`, `Alien`),
+                                        TypePath(`core::basic::bool`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 0,
@@ -261,7 +261,7 @@ Ok(
                                 ModuleItemSymbol {
                                     [salsa id]: 1,
                                     path: ModuleItemPath::Type(
-                                        TypePath(`core::basic::never`, `Alien`),
+                                        TypePath(`core::basic::never`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 1,
@@ -277,7 +277,7 @@ Ok(
                                 ModuleItemSymbol {
                                     [salsa id]: 2,
                                     path: ModuleItemPath::Type(
-                                        TypePath(`core::basic::unit`, `Alien`),
+                                        TypePath(`core::basic::unit`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 2,
@@ -340,7 +340,7 @@ Ok(
                                 ModuleItemSymbol {
                                     [salsa id]: 5,
                                     path: ModuleItemPath::Type(
-                                        TypePath(`core::logic::Prop`, `Alien`),
+                                        TypePath(`core::logic::Prop`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 0,
@@ -403,7 +403,7 @@ Ok(
                                 ModuleItemSymbol {
                                     [salsa id]: 8,
                                     path: ModuleItemPath::Type(
-                                        TypePath(`core::mem::Ref`, `Alien`),
+                                        TypePath(`core::mem::Ref`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 0,
@@ -419,7 +419,7 @@ Ok(
                                 ModuleItemSymbol {
                                     [salsa id]: 9,
                                     path: ModuleItemPath::Type(
-                                        TypePath(`core::mem::RefMut`, `Alien`),
+                                        TypePath(`core::mem::RefMut`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 1,
@@ -450,7 +450,7 @@ Ok(
                                 ModuleItemSymbol {
                                     [salsa id]: 10,
                                     path: ModuleItemPath::Type(
-                                        TypePath(`core::num::i8`, `Alien`),
+                                        TypePath(`core::num::i8`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 27,
@@ -466,7 +466,7 @@ Ok(
                                 ModuleItemSymbol {
                                     [salsa id]: 11,
                                     path: ModuleItemPath::Type(
-                                        TypePath(`core::num::i16`, `Alien`),
+                                        TypePath(`core::num::i16`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 32,
@@ -482,7 +482,7 @@ Ok(
                                 ModuleItemSymbol {
                                     [salsa id]: 12,
                                     path: ModuleItemPath::Type(
-                                        TypePath(`core::num::i32`, `Alien`),
+                                        TypePath(`core::num::i32`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 37,
@@ -498,7 +498,7 @@ Ok(
                                 ModuleItemSymbol {
                                     [salsa id]: 13,
                                     path: ModuleItemPath::Type(
-                                        TypePath(`core::num::i64`, `Alien`),
+                                        TypePath(`core::num::i64`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 42,
@@ -514,7 +514,7 @@ Ok(
                                 ModuleItemSymbol {
                                     [salsa id]: 14,
                                     path: ModuleItemPath::Type(
-                                        TypePath(`core::num::u8`, `Alien`),
+                                        TypePath(`core::num::u8`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 47,
@@ -530,7 +530,7 @@ Ok(
                                 ModuleItemSymbol {
                                     [salsa id]: 15,
                                     path: ModuleItemPath::Type(
-                                        TypePath(`core::num::u16`, `Alien`),
+                                        TypePath(`core::num::u16`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 52,
@@ -546,7 +546,7 @@ Ok(
                                 ModuleItemSymbol {
                                     [salsa id]: 16,
                                     path: ModuleItemPath::Type(
-                                        TypePath(`core::num::u32`, `Alien`),
+                                        TypePath(`core::num::u32`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 57,
@@ -562,7 +562,7 @@ Ok(
                                 ModuleItemSymbol {
                                     [salsa id]: 17,
                                     path: ModuleItemPath::Type(
-                                        TypePath(`core::num::u64`, `Alien`),
+                                        TypePath(`core::num::u64`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 62,
@@ -578,7 +578,7 @@ Ok(
                                 ModuleItemSymbol {
                                     [salsa id]: 18,
                                     path: ModuleItemPath::Type(
-                                        TypePath(`core::num::u128`, `Alien`),
+                                        TypePath(`core::num::u128`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 67,
@@ -594,7 +594,7 @@ Ok(
                                 ModuleItemSymbol {
                                     [salsa id]: 19,
                                     path: ModuleItemPath::Type(
-                                        TypePath(`core::num::usize`, `Alien`),
+                                        TypePath(`core::num::usize`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 72,
@@ -610,7 +610,7 @@ Ok(
                                 ModuleItemSymbol {
                                     [salsa id]: 20,
                                     path: ModuleItemPath::Type(
-                                        TypePath(`core::num::f32`, `Alien`),
+                                        TypePath(`core::num::f32`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 77,
@@ -626,7 +626,7 @@ Ok(
                                 ModuleItemSymbol {
                                     [salsa id]: 21,
                                     path: ModuleItemPath::Type(
-                                        TypePath(`core::num::f64`, `Alien`),
+                                        TypePath(`core::num::f64`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 82,
@@ -640,7 +640,7 @@ Ok(
                         id: ImplId {
                             module_path: `core::num`,
                             impl_kind: ImplKind::Type {
-                                ty: TypePath(`core::num::i8`, `Alien`),
+                                ty: TypePath(`core::num::i8`, `Extern`),
                             },
                             disambiguator: 0,
                         },
@@ -649,7 +649,7 @@ Ok(
                             0..1,
                         ),
                         variant: ImplVariant::Type {
-                            ty: TypePath(`core::num::i8`, `Alien`),
+                            ty: TypePath(`core::num::i8`, `Extern`),
                         },
                     },
                     Impl {
@@ -687,7 +687,7 @@ Ok(
                         id: ImplId {
                             module_path: `core::num`,
                             impl_kind: ImplKind::Type {
-                                ty: TypePath(`core::num::i16`, `Alien`),
+                                ty: TypePath(`core::num::i16`, `Extern`),
                             },
                             disambiguator: 0,
                         },
@@ -696,7 +696,7 @@ Ok(
                             2..3,
                         ),
                         variant: ImplVariant::Type {
-                            ty: TypePath(`core::num::i16`, `Alien`),
+                            ty: TypePath(`core::num::i16`, `Extern`),
                         },
                     },
                     Impl {
@@ -734,7 +734,7 @@ Ok(
                         id: ImplId {
                             module_path: `core::num`,
                             impl_kind: ImplKind::Type {
-                                ty: TypePath(`core::num::i32`, `Alien`),
+                                ty: TypePath(`core::num::i32`, `Extern`),
                             },
                             disambiguator: 0,
                         },
@@ -743,7 +743,7 @@ Ok(
                             4..5,
                         ),
                         variant: ImplVariant::Type {
-                            ty: TypePath(`core::num::i32`, `Alien`),
+                            ty: TypePath(`core::num::i32`, `Extern`),
                         },
                     },
                     Impl {
@@ -781,7 +781,7 @@ Ok(
                         id: ImplId {
                             module_path: `core::num`,
                             impl_kind: ImplKind::Type {
-                                ty: TypePath(`core::num::i64`, `Alien`),
+                                ty: TypePath(`core::num::i64`, `Extern`),
                             },
                             disambiguator: 0,
                         },
@@ -790,7 +790,7 @@ Ok(
                             6..7,
                         ),
                         variant: ImplVariant::Type {
-                            ty: TypePath(`core::num::i64`, `Alien`),
+                            ty: TypePath(`core::num::i64`, `Extern`),
                         },
                     },
                     Impl {
@@ -828,7 +828,7 @@ Ok(
                         id: ImplId {
                             module_path: `core::num`,
                             impl_kind: ImplKind::Type {
-                                ty: TypePath(`core::num::u8`, `Alien`),
+                                ty: TypePath(`core::num::u8`, `Extern`),
                             },
                             disambiguator: 0,
                         },
@@ -837,7 +837,7 @@ Ok(
                             8..9,
                         ),
                         variant: ImplVariant::Type {
-                            ty: TypePath(`core::num::u8`, `Alien`),
+                            ty: TypePath(`core::num::u8`, `Extern`),
                         },
                     },
                     Impl {
@@ -875,7 +875,7 @@ Ok(
                         id: ImplId {
                             module_path: `core::num`,
                             impl_kind: ImplKind::Type {
-                                ty: TypePath(`core::num::u16`, `Alien`),
+                                ty: TypePath(`core::num::u16`, `Extern`),
                             },
                             disambiguator: 0,
                         },
@@ -884,7 +884,7 @@ Ok(
                             10..11,
                         ),
                         variant: ImplVariant::Type {
-                            ty: TypePath(`core::num::u16`, `Alien`),
+                            ty: TypePath(`core::num::u16`, `Extern`),
                         },
                     },
                     Impl {
@@ -922,7 +922,7 @@ Ok(
                         id: ImplId {
                             module_path: `core::num`,
                             impl_kind: ImplKind::Type {
-                                ty: TypePath(`core::num::u32`, `Alien`),
+                                ty: TypePath(`core::num::u32`, `Extern`),
                             },
                             disambiguator: 0,
                         },
@@ -931,7 +931,7 @@ Ok(
                             12..13,
                         ),
                         variant: ImplVariant::Type {
-                            ty: TypePath(`core::num::u32`, `Alien`),
+                            ty: TypePath(`core::num::u32`, `Extern`),
                         },
                     },
                     Impl {
@@ -969,7 +969,7 @@ Ok(
                         id: ImplId {
                             module_path: `core::num`,
                             impl_kind: ImplKind::Type {
-                                ty: TypePath(`core::num::u64`, `Alien`),
+                                ty: TypePath(`core::num::u64`, `Extern`),
                             },
                             disambiguator: 0,
                         },
@@ -978,7 +978,7 @@ Ok(
                             14..15,
                         ),
                         variant: ImplVariant::Type {
-                            ty: TypePath(`core::num::u64`, `Alien`),
+                            ty: TypePath(`core::num::u64`, `Extern`),
                         },
                     },
                     Impl {
@@ -1016,7 +1016,7 @@ Ok(
                         id: ImplId {
                             module_path: `core::num`,
                             impl_kind: ImplKind::Type {
-                                ty: TypePath(`core::num::u128`, `Alien`),
+                                ty: TypePath(`core::num::u128`, `Extern`),
                             },
                             disambiguator: 0,
                         },
@@ -1025,7 +1025,7 @@ Ok(
                             16..17,
                         ),
                         variant: ImplVariant::Type {
-                            ty: TypePath(`core::num::u128`, `Alien`),
+                            ty: TypePath(`core::num::u128`, `Extern`),
                         },
                     },
                     Impl {
@@ -1063,7 +1063,7 @@ Ok(
                         id: ImplId {
                             module_path: `core::num`,
                             impl_kind: ImplKind::Type {
-                                ty: TypePath(`core::num::usize`, `Alien`),
+                                ty: TypePath(`core::num::usize`, `Extern`),
                             },
                             disambiguator: 0,
                         },
@@ -1072,7 +1072,7 @@ Ok(
                             18..19,
                         ),
                         variant: ImplVariant::Type {
-                            ty: TypePath(`core::num::usize`, `Alien`),
+                            ty: TypePath(`core::num::usize`, `Extern`),
                         },
                     },
                     Impl {
@@ -1110,7 +1110,7 @@ Ok(
                         id: ImplId {
                             module_path: `core::num`,
                             impl_kind: ImplKind::Type {
-                                ty: TypePath(`core::num::f32`, `Alien`),
+                                ty: TypePath(`core::num::f32`, `Extern`),
                             },
                             disambiguator: 0,
                         },
@@ -1119,7 +1119,7 @@ Ok(
                             20..21,
                         ),
                         variant: ImplVariant::Type {
-                            ty: TypePath(`core::num::f32`, `Alien`),
+                            ty: TypePath(`core::num::f32`, `Extern`),
                         },
                     },
                     Impl {
@@ -1157,7 +1157,7 @@ Ok(
                         id: ImplId {
                             module_path: `core::num`,
                             impl_kind: ImplKind::Type {
-                                ty: TypePath(`core::num::f64`, `Alien`),
+                                ty: TypePath(`core::num::f64`, `Extern`),
                             },
                             disambiguator: 0,
                         },
@@ -1166,7 +1166,7 @@ Ok(
                             22..23,
                         ),
                         variant: ImplVariant::Type {
-                            ty: TypePath(`core::num::f64`, `Alien`),
+                            ty: TypePath(`core::num::f64`, `Extern`),
                         },
                     },
                     Impl {
@@ -1526,7 +1526,7 @@ Ok(
                                         ModuleItemSymbol {
                                             [salsa id]: 0,
                                             path: ModuleItemPath::Type(
-                                                TypePath(`core::basic::bool`, `Alien`),
+                                                TypePath(`core::basic::bool`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 0,
@@ -1534,7 +1534,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
-                                            TypePath(`core::basic::bool`, `Alien`),
+                                            TypePath(`core::basic::bool`, `Extern`),
                                         ),
                                     ),
                                     accessibility: Accessibility::Public,
@@ -1555,7 +1555,7 @@ Ok(
                                         ModuleItemSymbol {
                                             [salsa id]: 1,
                                             path: ModuleItemPath::Type(
-                                                TypePath(`core::basic::never`, `Alien`),
+                                                TypePath(`core::basic::never`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 1,
@@ -1563,7 +1563,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
-                                            TypePath(`core::basic::never`, `Alien`),
+                                            TypePath(`core::basic::never`, `Extern`),
                                         ),
                                     ),
                                     accessibility: Accessibility::Public,
@@ -1584,7 +1584,7 @@ Ok(
                                         ModuleItemSymbol {
                                             [salsa id]: 2,
                                             path: ModuleItemPath::Type(
-                                                TypePath(`core::basic::unit`, `Alien`),
+                                                TypePath(`core::basic::unit`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 2,
@@ -1592,7 +1592,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
-                                            TypePath(`core::basic::unit`, `Alien`),
+                                            TypePath(`core::basic::unit`, `Extern`),
                                         ),
                                     ),
                                     accessibility: Accessibility::Public,
@@ -1671,7 +1671,7 @@ Ok(
                                         ModuleItemSymbol {
                                             [salsa id]: 10,
                                             path: ModuleItemPath::Type(
-                                                TypePath(`core::num::i8`, `Alien`),
+                                                TypePath(`core::num::i8`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 27,
@@ -1679,7 +1679,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
-                                            TypePath(`core::num::i8`, `Alien`),
+                                            TypePath(`core::num::i8`, `Extern`),
                                         ),
                                     ),
                                     accessibility: Accessibility::Public,
@@ -1700,7 +1700,7 @@ Ok(
                                         ModuleItemSymbol {
                                             [salsa id]: 11,
                                             path: ModuleItemPath::Type(
-                                                TypePath(`core::num::i16`, `Alien`),
+                                                TypePath(`core::num::i16`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 32,
@@ -1708,7 +1708,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
-                                            TypePath(`core::num::i16`, `Alien`),
+                                            TypePath(`core::num::i16`, `Extern`),
                                         ),
                                     ),
                                     accessibility: Accessibility::Public,
@@ -1729,7 +1729,7 @@ Ok(
                                         ModuleItemSymbol {
                                             [salsa id]: 12,
                                             path: ModuleItemPath::Type(
-                                                TypePath(`core::num::i32`, `Alien`),
+                                                TypePath(`core::num::i32`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 37,
@@ -1737,7 +1737,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
-                                            TypePath(`core::num::i32`, `Alien`),
+                                            TypePath(`core::num::i32`, `Extern`),
                                         ),
                                     ),
                                     accessibility: Accessibility::Public,
@@ -1758,7 +1758,7 @@ Ok(
                                         ModuleItemSymbol {
                                             [salsa id]: 13,
                                             path: ModuleItemPath::Type(
-                                                TypePath(`core::num::i64`, `Alien`),
+                                                TypePath(`core::num::i64`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 42,
@@ -1766,7 +1766,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
-                                            TypePath(`core::num::i64`, `Alien`),
+                                            TypePath(`core::num::i64`, `Extern`),
                                         ),
                                     ),
                                     accessibility: Accessibility::Public,
@@ -1787,7 +1787,7 @@ Ok(
                                         ModuleItemSymbol {
                                             [salsa id]: 14,
                                             path: ModuleItemPath::Type(
-                                                TypePath(`core::num::u8`, `Alien`),
+                                                TypePath(`core::num::u8`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 47,
@@ -1795,7 +1795,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
-                                            TypePath(`core::num::u8`, `Alien`),
+                                            TypePath(`core::num::u8`, `Extern`),
                                         ),
                                     ),
                                     accessibility: Accessibility::Public,
@@ -1816,7 +1816,7 @@ Ok(
                                         ModuleItemSymbol {
                                             [salsa id]: 15,
                                             path: ModuleItemPath::Type(
-                                                TypePath(`core::num::u16`, `Alien`),
+                                                TypePath(`core::num::u16`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 52,
@@ -1824,7 +1824,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
-                                            TypePath(`core::num::u16`, `Alien`),
+                                            TypePath(`core::num::u16`, `Extern`),
                                         ),
                                     ),
                                     accessibility: Accessibility::Public,
@@ -1845,7 +1845,7 @@ Ok(
                                         ModuleItemSymbol {
                                             [salsa id]: 16,
                                             path: ModuleItemPath::Type(
-                                                TypePath(`core::num::u32`, `Alien`),
+                                                TypePath(`core::num::u32`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 57,
@@ -1853,7 +1853,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
-                                            TypePath(`core::num::u32`, `Alien`),
+                                            TypePath(`core::num::u32`, `Extern`),
                                         ),
                                     ),
                                     accessibility: Accessibility::Public,
@@ -1874,7 +1874,7 @@ Ok(
                                         ModuleItemSymbol {
                                             [salsa id]: 17,
                                             path: ModuleItemPath::Type(
-                                                TypePath(`core::num::u64`, `Alien`),
+                                                TypePath(`core::num::u64`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 62,
@@ -1882,7 +1882,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
-                                            TypePath(`core::num::u64`, `Alien`),
+                                            TypePath(`core::num::u64`, `Extern`),
                                         ),
                                     ),
                                     accessibility: Accessibility::Public,
@@ -1903,7 +1903,7 @@ Ok(
                                         ModuleItemSymbol {
                                             [salsa id]: 18,
                                             path: ModuleItemPath::Type(
-                                                TypePath(`core::num::u128`, `Alien`),
+                                                TypePath(`core::num::u128`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 67,
@@ -1911,7 +1911,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
-                                            TypePath(`core::num::u128`, `Alien`),
+                                            TypePath(`core::num::u128`, `Extern`),
                                         ),
                                     ),
                                     accessibility: Accessibility::Public,
@@ -1932,7 +1932,7 @@ Ok(
                                         ModuleItemSymbol {
                                             [salsa id]: 19,
                                             path: ModuleItemPath::Type(
-                                                TypePath(`core::num::usize`, `Alien`),
+                                                TypePath(`core::num::usize`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 72,
@@ -1940,7 +1940,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
-                                            TypePath(`core::num::usize`, `Alien`),
+                                            TypePath(`core::num::usize`, `Extern`),
                                         ),
                                     ),
                                     accessibility: Accessibility::Public,
@@ -1961,7 +1961,7 @@ Ok(
                                         ModuleItemSymbol {
                                             [salsa id]: 20,
                                             path: ModuleItemPath::Type(
-                                                TypePath(`core::num::f32`, `Alien`),
+                                                TypePath(`core::num::f32`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 77,
@@ -1969,7 +1969,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
-                                            TypePath(`core::num::f32`, `Alien`),
+                                            TypePath(`core::num::f32`, `Extern`),
                                         ),
                                     ),
                                     accessibility: Accessibility::Public,
@@ -1990,7 +1990,7 @@ Ok(
                                         ModuleItemSymbol {
                                             [salsa id]: 21,
                                             path: ModuleItemPath::Type(
-                                                TypePath(`core::num::f64`, `Alien`),
+                                                TypePath(`core::num::f64`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 82,
@@ -1998,7 +1998,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
-                                            TypePath(`core::num::f64`, `Alien`),
+                                            TypePath(`core::num::f64`, `Extern`),
                                         ),
                                     ),
                                     accessibility: Accessibility::Public,
@@ -2019,7 +2019,7 @@ Ok(
                                         ModuleItemSymbol {
                                             [salsa id]: 37,
                                             path: ModuleItemPath::Type(
-                                                TypePath(`core::raw_bits::r32`, `Alien`),
+                                                TypePath(`core::raw_bits::r32`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 2,
@@ -2027,7 +2027,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
-                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                            TypePath(`core::raw_bits::r32`, `Extern`),
                                         ),
                                     ),
                                     accessibility: Accessibility::Public,
@@ -2987,7 +2987,7 @@ Ok(
                                 ModuleItemSymbol {
                                     [salsa id]: 37,
                                     path: ModuleItemPath::Type(
-                                        TypePath(`core::raw_bits::r32`, `Alien`),
+                                        TypePath(`core::raw_bits::r32`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 2,
@@ -3127,7 +3127,7 @@ Ok(
                                 ModuleItemSymbol {
                                     [salsa id]: 42,
                                     path: ModuleItemPath::Type(
-                                        TypePath(`core::list::List`, `Alien`),
+                                        TypePath(`core::list::List`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 0,

@@ -11,7 +11,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
-                                TypePath(`core::basic::bool`, `Alien`),
+                                TypePath(`core::basic::bool`, `Extern`),
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 0,
@@ -26,7 +26,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
-                                TypePath(`core::basic::never`, `Alien`),
+                                TypePath(`core::basic::never`, `Extern`),
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 1,
@@ -41,7 +41,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
-                                TypePath(`core::basic::unit`, `Alien`),
+                                TypePath(`core::basic::unit`, `Extern`),
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 2,

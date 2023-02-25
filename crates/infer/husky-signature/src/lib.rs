@@ -40,7 +40,7 @@ pub struct SignatureJar(
     structure_ty_signature,
     StructureTypeSignature,
     alien_ty_signature,
-    AlienTypeSignature,
+    ExternTypeSignature,
     union_ty_signature,
     UnionTypeSignature,
     // trait

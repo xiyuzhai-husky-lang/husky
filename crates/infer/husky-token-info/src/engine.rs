@@ -136,7 +136,7 @@ impl<'a> InferEngine<'a> {
             TypeDefn::TupleStruct(defn) => self.visit_tuple_struct_ty(defn),
             TypeDefn::RegularStruct(defn) => self.visit_props_struct_ty(defn),
             TypeDefn::Structure(defn) => self.visit_structure_ty(defn),
-            TypeDefn::Alien(defn) => self.visit_alias_ty(defn),
+            TypeDefn::Extern(defn) => self.visit_alias_ty(defn),
             TypeDefn::Union(_) => todo!(),
         }
     }
@@ -169,7 +169,7 @@ impl<'a> InferEngine<'a> {
         // todo!()
     }
 
-    fn visit_alias_ty(&mut self, defn: AlienTypeDefn) {
+    fn visit_alias_ty(&mut self, defn: ExternTypeDefn) {
         // todo!()
     }
 

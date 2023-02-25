@@ -702,7 +702,7 @@ Ok(
                         395,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
@@ -738,7 +738,7 @@ Ok(
                         10,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
@@ -774,7 +774,7 @@ Ok(
                         39,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
@@ -810,7 +810,7 @@ Ok(
                         68,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         12,
                     ),
@@ -846,7 +846,7 @@ Ok(
                         97,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         15,
                     ),
@@ -882,7 +882,7 @@ Ok(
                         122,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         19,
                     ),
@@ -918,7 +918,7 @@ Ok(
                         151,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         22,
                     ),
@@ -954,7 +954,7 @@ Ok(
                         176,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         26,
                     ),
@@ -990,7 +990,7 @@ Ok(
                         205,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         29,
                     ),
@@ -1026,7 +1026,7 @@ Ok(
                         230,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         33,
                     ),
@@ -1062,7 +1062,7 @@ Ok(
                         259,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         36,
                     ),
@@ -1098,7 +1098,7 @@ Ok(
                         284,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         40,
                     ),
@@ -1134,7 +1134,7 @@ Ok(
                         313,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         43,
                     ),
@@ -1170,7 +1170,7 @@ Ok(
                         338,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         47,
                     ),
@@ -1206,7 +1206,7 @@ Ok(
                         362,
                     ),
                 },
-                Ast::Decor {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         51,
                     ),
