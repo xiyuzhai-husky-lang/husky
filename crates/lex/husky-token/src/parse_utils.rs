@@ -1,11 +1,13 @@
 mod context;
 mod identifier;
 mod keyword;
+mod label;
 mod punctuation;
 
 pub use context::*;
 pub use identifier::*;
 pub use keyword::*;
+pub use label::*;
 pub use punctuation::*;
 
 use crate::*;

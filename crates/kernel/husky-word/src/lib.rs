@@ -1,6 +1,7 @@
 mod db;
 mod ident;
 mod jar;
+mod label;
 mod menu;
 mod style;
 #[cfg(test)]
@@ -9,6 +10,7 @@ mod tests;
 pub use db::*;
 pub use ident::*;
 pub use jar::*;
+pub use label::*;
 pub use menu::*;
 pub use style::*;
 

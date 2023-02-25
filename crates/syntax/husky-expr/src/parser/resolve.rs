@@ -39,7 +39,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 OriginalExprError::UnexpectedKeyword(token_idx).into(),
             )),
             Token::Identifier(ident) => self.resolve_ident(token_idx, ident),
-            Token::AuxiliaryIdentifier(_) => todo!(),
+            Token::Label(_) => todo!(),
             Token::Punctuation(punc) => match punc {
                 Punctuation::Binary(binary) => ResolvedToken::BinaryOpr(token_idx, binary),
                 Punctuation::Bra(bra) => ResolvedToken::Bra(token_idx, bra),

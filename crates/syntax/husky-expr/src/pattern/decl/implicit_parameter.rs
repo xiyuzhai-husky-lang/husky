@@ -25,9 +25,9 @@ impl ImplicitParameterDeclPattern {
 #[derive(Debug, PartialEq, Eq)]
 pub enum ImplicitParameterDeclPatternVariant {
     Type0 { ident_token: IdentifierToken },
-    Constant,
-    Lifetime,
-    Binding,
+    Constant { ident_token: IdentifierToken },
+    Lifetime { label_token: LifetimeLabelToken },
+    Binding { label_token: BindingLabelToken },
 }
 
 impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDeclPattern {
@@ -36,8 +36,8 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDeclPatter
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> ExprResult<Option<Self>> {
+        let annotated_variance_token = ctx.try_parse();
         if let Some(ident_token) = ctx.parse::<IdentifierToken>()? {
-            let annotated_variance_token = ctx.try_parse();
             let access_start = ctx.state();
             let symbols = ctx.define_symbols(
                 [CurrentSymbol::new(
@@ -55,8 +55,25 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDeclPatter
                 symbol: symbols.start(),
                 variant: ImplicitParameterDeclPatternVariant::Type0 { ident_token },
             }))
+        } else if let Some(label_token) = ctx.parse::<LifetimeLabelToken>()? {
+            let symbol = todo!();
+            Ok(Some(ImplicitParameterDeclPattern {
+                annotated_variance_token,
+                symbol,
+                variant: ImplicitParameterDeclPatternVariant::Lifetime { label_token },
+            }))
+        } else if let Some(label_token) = ctx.parse::<BindingLabelToken>()? {
+            let symbol = todo!();
+            Ok(Some(ImplicitParameterDeclPattern {
+                annotated_variance_token,
+                symbol,
+                variant: ImplicitParameterDeclPatternVariant::Binding { label_token },
+            }))
         } else {
-            Ok(None)
+            match annotated_variance_token {
+                Some(_) => todo!(),
+                None => Ok(None),
+            }
         }
     }
 }

@@ -29,7 +29,7 @@ impl Token {
         match self {
             Token::Attr(_) => todo!(),
             Token::Keyword(_) => todo!(),
-            Token::Identifier(_) | Token::AuxiliaryIdentifier(_) => Some(Convexity::Convex),
+            Token::Identifier(_) | Token::Label(_) => Some(Convexity::Convex),
             Token::Punctuation(punc) => punc.left_convexity(),
             Token::WordOpr(_) => todo!(),
             Token::Literal(_) => Some(Convexity::Convex),
@@ -41,7 +41,7 @@ impl Token {
         match self {
             Token::Attr(_) => todo!(),
             Token::Keyword(_) => Convexity::Concave,
-            Token::Identifier(_) | Token::AuxiliaryIdentifier(_) => Convexity::Convex,
+            Token::Identifier(_) | Token::Label(_) => Convexity::Convex,
             Token::Punctuation(special) => match special {
                 Punctuation::Binary(_) => Convexity::Concave,
                 Punctuation::Suffix(_) => todo!(),

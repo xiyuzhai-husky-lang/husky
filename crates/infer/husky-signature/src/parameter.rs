@@ -19,24 +19,24 @@ impl ImplicitParameterSignature {
     ) -> ImplicitParameterSignature {
         let pattern = &parameter_decl.pattern();
         let symbol = pattern.symbol();
-        let variant = parameter_decl.pattern().variant();
-        match variant {
+        let annotated_variance = pattern.annotated_variance_token().map(|t| match t {
+            VarianceToken::Covariant(_) => Variance::Covariant,
+            VarianceToken::Contravariant(_) => Variance::Contravariant,
+            VarianceToken::Invariant(_) => Variance::Invariant,
+        });
+        match parameter_decl.pattern().variant() {
             ImplicitParameterDeclPatternVariant::Type0 { .. } => {
                 ImplicitParameterSignature {
                     term_symbol: region.current_symbol_term(symbol).expect("not none"),
                     ty: term_menu.ty0().into(),
                     // ad hoc
                     traits: vec![],
-                    annotated_variance: pattern.annotated_variance_token().map(|t| match t {
-                        VarianceToken::Covariant(_) => Variance::Covariant,
-                        VarianceToken::Contravariant(_) => Variance::Contravariant,
-                        VarianceToken::Invariant(_) => Variance::Invariant,
-                    }),
+                    annotated_variance,
                 }
             }
-            ImplicitParameterDeclPatternVariant::Constant => todo!(),
-            ImplicitParameterDeclPatternVariant::Lifetime => todo!(),
-            ImplicitParameterDeclPatternVariant::Binding => todo!(),
+            ImplicitParameterDeclPatternVariant::Constant { .. } => todo!(),
+            ImplicitParameterDeclPatternVariant::Lifetime { .. } => todo!(),
+            ImplicitParameterDeclPatternVariant::Binding { .. } => todo!(),
         }
     }
 

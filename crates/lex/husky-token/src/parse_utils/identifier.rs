@@ -1,3 +1,5 @@
+use husky_word::Label;
+
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -28,7 +30,7 @@ where
             match token {
                 Token::Identifier(ident) => Ok(Some(IdentifierToken { ident, token_idx })),
                 Token::Error(error) => Err(error),
-                Token::AuxiliaryIdentifier(_)
+                Token::Label(_)
                 | Token::Punctuation(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
@@ -39,4 +41,9 @@ where
             Ok(None)
         }
     }
+}
+
+#[test]
+fn ident_token_works() {
+    // todo
 }

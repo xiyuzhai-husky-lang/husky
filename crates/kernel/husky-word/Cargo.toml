@@ -12,3 +12,4 @@ salsa = { path = "../../abstraction/salsa" }
 vec-like = { path = "../../abstraction/vec-like" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
+husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
