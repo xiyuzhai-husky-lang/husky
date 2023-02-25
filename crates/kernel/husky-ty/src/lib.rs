@@ -1,4 +1,7 @@
 #![feature(trait_upcasting)]
+#![feature(const_trait_impl)]
+#![feature(const_default_impls)]
+mod context;
 mod db;
 mod entity;
 mod error;
@@ -11,7 +14,9 @@ mod tests;
 mod ty_call;
 mod variance;
 
+pub use context::*;
 pub use db::*;
+pub use entity::entity_path_ty;
 pub use error::*;
 pub use intrinsic_ty::*;
 pub use term::*;

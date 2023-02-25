@@ -6,6 +6,12 @@ pub(crate) struct ExpectInsSort {
     smallest_universe: TermUniverse,
 }
 
+impl const ProvideTypeContext for ExpectInsSort {
+    fn ty_context(&self) -> TypeContext {
+        Default::default()
+    }
+}
+
 impl ExpectInsSort {
     pub(crate) fn new(u: u8) -> Self {
         ExpectInsSort {
@@ -86,7 +92,9 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Option<LocalTermExpectationResolvedOkM> {
         match expectee {
             LocalTerm::Resolved(resolved_expectee) => {
-                let expectee_ty = self.db().term_ty(
+                let expectee_ty = term_ty(
+                    self.db(),
+                    Default::default(),
                     resolved_expectee,
                     self.toolchain(),
                     self.reduced_term_menu(),

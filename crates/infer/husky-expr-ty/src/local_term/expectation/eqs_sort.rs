@@ -5,6 +5,12 @@ pub(crate) struct ExpectEqsSort {
     pub(crate) smallest_universe: TermUniverse,
 }
 
+impl const ProvideTypeContext for ExpectEqsSort {
+    fn ty_context(&self) -> TypeContext {
+        Default::default()
+    }
+}
+
 impl ExpectLocalTerm for ExpectEqsSort {
     type ResolvedOk = ExpectEqsSortResolvedOk;
 

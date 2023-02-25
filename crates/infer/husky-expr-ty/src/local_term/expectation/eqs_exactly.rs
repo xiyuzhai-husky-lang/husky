@@ -6,6 +6,12 @@ pub(crate) struct ExpectEqsExactly {
     destination: LocalTerm,
 }
 
+impl ProvideTypeContext for ExpectEqsExactly {
+    fn ty_context(&self) -> TypeContext {
+        todo!()
+    }
+}
+
 impl ExpectLocalTerm for ExpectEqsExactly {
     type ResolvedOk = ExpectEqsExactlyResolvedOk;
 

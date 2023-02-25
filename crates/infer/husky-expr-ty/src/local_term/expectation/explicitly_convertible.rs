@@ -7,6 +7,12 @@ pub(crate) struct ExpectExplicitlyConvertible {
     pub(crate) destination: LocalTerm,
 }
 
+impl const ProvideTypeContext for ExpectExplicitlyConvertible {
+    fn ty_context(&self) -> TypeContext {
+        Default::default()
+    }
+}
+
 impl ExpectExplicitlyConvertible {
     pub(in super::super) fn try_substitute_unresolved_local_term<'a>(
         &self,

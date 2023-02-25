@@ -19,7 +19,9 @@ use husky_print_utils::p;
 use idx_arena::Arena;
 use thiserror::Error;
 
-pub(crate) trait ExpectLocalTerm: Clone + Into<LocalTermExpectation> {
+pub(crate) trait ExpectLocalTerm:
+    ProvideTypeContext + Clone + Into<LocalTermExpectation>
+{
     type ResolvedOk: ExpectLocalTermResolvedOk;
 
     fn destination(&self) -> Option<LocalTerm>;

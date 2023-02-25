@@ -41,7 +41,12 @@ fn entity_tys(db: &DB, module_path: ModulePath) -> Vec<(EntityPath, TypeResult<R
     };
     entity_tree_sheet
         .module_item_path_iter(db)
-        .map(|path| (path.into(), db.entity_path_ty(path.into())))
+        .map(|path| {
+            (
+                path.into(),
+                entity_path_ty(db, Default::default(), path.into()),
+            )
+        })
         .collect()
 }
 

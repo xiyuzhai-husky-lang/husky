@@ -3,6 +3,13 @@ use super::*;
 #[derive(Debug, Clone)]
 pub(crate) struct ExpectEqsRitchieCallType;
 
+impl const ProvideTypeContext for ExpectEqsRitchieCallType {
+    #[inline(always)]
+    fn ty_context(&self) -> TypeContext {
+        TypeContext::new_expect_applicable_or_callable()
+    }
+}
+
 impl ExpectLocalTerm for ExpectEqsRitchieCallType {
     type ResolvedOk = ExpectEqsRitchieCallTypeResolvedOk;
 
@@ -73,11 +80,14 @@ impl<'a> ExprTypeEngine<'a> {
                 actions: vec![],
             }),
             Term::Universe(_) => todo!(),
-            Term::Curry(_) => Some(LocalTermExpectationResolvedOkM {
-                // ad hoc
-                result: Err(todo!()),
-                actions: vec![],
-            }),
+            Term::Curry(_) => {
+                p!(expectee.debug(self.db()));
+                Some(LocalTermExpectationResolvedOkM {
+                    // ad hoc
+                    result: Err(todo!()),
+                    actions: vec![],
+                })
+            }
             Term::Ritchie(term) => {
                 let result = match term.ritchie_kind(self.db()) {
                     TermRitchieKind::Fp => Ok(ExpectEqsRitchieCallTypeResolvedOk {
