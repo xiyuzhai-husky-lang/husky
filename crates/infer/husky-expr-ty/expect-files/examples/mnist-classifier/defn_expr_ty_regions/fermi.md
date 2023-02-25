@@ -1028,23 +1028,25 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Resolved(
-                                    ReducedTerm(
-                                        Entity(
-                                            ModuleItem(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 3,
-                                                        },
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -1564,23 +1566,25 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Resolved(
-                                    ReducedTerm(
-                                        Entity(
-                                            ModuleItem(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 3,
-                                                        },
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -2112,23 +2116,25 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Resolved(
-                                    ReducedTerm(
-                                        Entity(
-                                            ModuleItem(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 3,
-                                                        },
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(

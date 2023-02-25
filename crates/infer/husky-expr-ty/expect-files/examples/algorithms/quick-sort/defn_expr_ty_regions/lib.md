@@ -1268,23 +1268,25 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Resolved(
-                                    ReducedTerm(
-                                        Entity(
-                                            ModuleItem(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 16,
-                                                        },
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 16,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -1342,23 +1344,25 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Resolved(
-                                    ReducedTerm(
-                                        Entity(
-                                            ModuleItem(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 1,
-                                                        },
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -4308,23 +4312,25 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Resolved(
-                                    ReducedTerm(
-                                        Entity(
-                                            ModuleItem(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 1,
-                                                        },
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -4396,23 +4402,25 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Resolved(
-                                    ReducedTerm(
-                                        Entity(
-                                            ModuleItem(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 3,
-                                                        },
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -4536,23 +4544,25 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Resolved(
-                                    ReducedTerm(
-                                        Entity(
-                                            ModuleItem(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 1,
-                                                        },
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -4624,23 +4634,25 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Resolved(
-                                    ReducedTerm(
-                                        Entity(
-                                            ModuleItem(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 3,
-                                                        },
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -4744,23 +4756,25 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Resolved(
-                                    ReducedTerm(
-                                        Entity(
-                                            ModuleItem(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 3,
-                                                        },
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -4854,23 +4868,25 @@
                                     11,
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Resolved(
-                                    ReducedTerm(
-                                        Entity(
-                                            ModuleItem(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 16,
-                                                        },
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 16,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -4928,23 +4944,25 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Resolved(
-                                    ReducedTerm(
-                                        Entity(
-                                            ModuleItem(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 1,
-                                                        },
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -5106,23 +5124,25 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Resolved(
-                                    ReducedTerm(
-                                        Entity(
-                                            ModuleItem(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 1,
-                                                        },
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -5180,23 +5200,25 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Resolved(
-                                    ReducedTerm(
-                                        Entity(
-                                            ModuleItem(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 1,
-                                                        },
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -5300,23 +5322,25 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Resolved(
-                                    ReducedTerm(
-                                        Entity(
-                                            ModuleItem(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 3,
-                                                        },
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -5420,23 +5444,25 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Resolved(
-                                    ReducedTerm(
-                                        Entity(
-                                            ModuleItem(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 1,
-                                                        },
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -7244,13 +7270,15 @@
                                     1,
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        0,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -7278,13 +7306,15 @@
                                     2,
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        0,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -7312,13 +7342,15 @@
                                     3,
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        0,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -7360,13 +7392,15 @@
                                     5,
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        0,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -7394,13 +7428,15 @@
                                     6,
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        0,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -7428,13 +7464,15 @@
                                     7,
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        0,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -7462,13 +7500,15 @@
                                     8,
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        0,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -7496,13 +7536,15 @@
                                     9,
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        0,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -7530,13 +7572,15 @@
                                     10,
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        0,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -7592,13 +7636,15 @@
                                     14,
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        12,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -7626,13 +7672,15 @@
                                     15,
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        12,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -7660,13 +7708,15 @@
                                     16,
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        12,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -7694,13 +7744,15 @@
                                     17,
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        12,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -7728,13 +7780,15 @@
                                     18,
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        12,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -7762,13 +7816,15 @@
                                     19,
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        12,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -7796,13 +7852,15 @@
                                     20,
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        12,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -7830,13 +7888,15 @@
                                     21,
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        12,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -7864,13 +7924,15 @@
                                     22,
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        12,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            12,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -7922,23 +7984,25 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Resolved(
-                                    ReducedTerm(
-                                        Entity(
-                                            ModuleItem(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 1,
-                                                        },
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -9028,13 +9092,15 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        0,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -9080,13 +9146,15 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        0,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -9132,13 +9200,15 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        0,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -9184,13 +9254,15 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        0,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -9236,13 +9308,15 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        0,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -9288,13 +9362,15 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        0,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -9354,13 +9430,15 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        2,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            2,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -9406,13 +9484,15 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        2,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            2,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -9458,13 +9538,15 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        2,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            2,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -9510,13 +9592,15 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        2,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            2,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -9562,13 +9646,15 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        2,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            2,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -9614,13 +9700,15 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Unresolved(
-                                    UnresolvedTermIdx(
-                                        2,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Unresolved(
+                                        UnresolvedTermIdx(
+                                            2,
+                                        ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
@@ -9684,23 +9772,25 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible {
-                                destination: Resolved(
-                                    ReducedTerm(
-                                        Entity(
-                                            ModuleItem(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 1,
-                                                        },
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Resolved(
+                                        ReducedTerm(
+                                            Entity(
+                                                ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
