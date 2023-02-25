@@ -51,3 +51,14 @@ pub const GREEK_LETTER_UPPERCASE_PHI: char = 'Φ';
 pub const GREEK_LETTER_UPPERCASE_CHI: char = 'Χ';
 pub const GREEK_LETTER_UPPERCASE_PSI: char = 'Ψ';
 pub const GREEK_LETTER_UPPERCASE_OMEGA: char = 'Ω';
+
+pub fn is_greek(c: char) -> bool {
+    let c = c as u32;
+    if c >= 0x0370 && c <= 0x03FF {
+        true
+    } else if c >= 0x1F00 && c <= 0x1FFF {
+        true
+    } else {
+        false
+    }
+}

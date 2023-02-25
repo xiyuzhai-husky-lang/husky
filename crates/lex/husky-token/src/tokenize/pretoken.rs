@@ -235,7 +235,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
         assert!(self.buffer.len() > 0);
         let word = &self.buffer;
         let pretoken = match self.db.it_auxiliary_ident_borrowed(word) {
-            Some(identifier) => Token::AuxiliaryIdentifier(identifier).into(),
+            Some(identifier) => Token::Label(identifier).into(),
             None => Pretoken::Error(TokenError::InvalidIdentifier),
         };
         self.buffer.clear();

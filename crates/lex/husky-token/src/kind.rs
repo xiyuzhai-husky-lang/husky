@@ -4,7 +4,7 @@ mod punctuation;
 mod wordopr;
 
 pub use attribute::*;
-use husky_word::AuxiliaryIdentifier;
+use husky_word::Label;
 pub use keyword::*;
 pub use punctuation::*;
 pub use wordopr::*;
@@ -16,7 +16,7 @@ pub enum Token {
     Attr(AttributeKeyword),
     Keyword(Keyword),
     Identifier(Identifier),
-    AuxiliaryIdentifier(AuxiliaryIdentifier),
+    Label(Label),
     Punctuation(Punctuation),
     WordOpr(WordOpr),
     Literal(Literal),
