@@ -72,7 +72,11 @@ impl<'a> ExprTypeEngine<'a> {
                 actions: vec![],
             }),
             Term::Universe(_) => todo!(),
-            Term::Curry(_) => todo!(),
+            Term::Curry(_) => Some(LocalTermExpectationResolvedOkM {
+                // ad hoc
+                result: Err(OriginalLocalTermExpectationError::Todo.into()),
+                actions: vec![],
+            }),
             Term::Ritchie(term) => {
                 let result = match term.ritchie_kind(self.db()) {
                     TermRitchieKind::Fp => Ok(ExpectEqsRitchieCallTypeResolvedOk {

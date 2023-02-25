@@ -40,6 +40,26 @@ impl i64:
 impl Add i64 for i64:
     pub fn add(other: i64) -> i64;
 
+#[rust(i128)]
+@derive(Debug, PartialEq, Eq, Clone, Copy)
+pub type i128;
+
+impl i128:
+    pub fn abs() -> i128;
+
+impl Add i128 for i128:
+    pub fn add(other: i128) -> i128;
+
+#[rust(isize)]
+@derive(Debug, PartialEq, Eq, Clone, Copy)
+pub type isize;
+
+impl isize:
+    pub fn abs() -> isize;
+
+impl Add isize for isize:
+    pub fn add(other: isize) -> isize;
+
 #[rust(u8)]
 @derive(Debug, PartialEq, Eq, Clone, Copy)
 pub type u8;

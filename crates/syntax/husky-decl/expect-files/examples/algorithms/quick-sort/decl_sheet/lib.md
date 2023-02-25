@@ -373,26 +373,26 @@ Ok(
                                                     function: 1,
                                                     argument: 2,
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdentifier {
-                                                            token_idx: TokenIdx(
-                                                                58,
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    entity_path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::isize`, `Extern`),
                                                             ),
-                                                            ident: `isize`,
-                                                        },
+                                                        ),
                                                     ),
-                                                ),
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdentifier {
-                                                            token_idx: TokenIdx(
-                                                                62,
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 2,
+                                                    entity_path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::isize`, `Extern`),
                                                             ),
-                                                            ident: `isize`,
-                                                        },
+                                                        ),
                                                     ),
-                                                ),
+                                                },
                                             ],
                                         },
                                         entity_path_expr_arena: Arena {
@@ -405,6 +405,28 @@ Ok(
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Trait(
                                                             TraitPath(`core::cmp::Ord`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        58,
+                                                    ),
+                                                    ident: `isize`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::isize`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        62,
+                                                    ),
+                                                    ident: `isize`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::isize`, `Extern`),
                                                         ),
                                                     ),
                                                 },
@@ -805,36 +827,36 @@ Ok(
                                                     function: 1,
                                                     argument: 2,
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdentifier {
-                                                            token_idx: TokenIdx(
-                                                                119,
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    entity_path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::isize`, `Extern`),
                                                             ),
-                                                            ident: `isize`,
-                                                        },
+                                                        ),
                                                     ),
-                                                ),
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdentifier {
-                                                            token_idx: TokenIdx(
-                                                                123,
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 2,
+                                                    entity_path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::isize`, `Extern`),
                                                             ),
-                                                            ident: `isize`,
-                                                        },
+                                                        ),
                                                     ),
-                                                ),
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdentifier {
-                                                            token_idx: TokenIdx(
-                                                                126,
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 3,
+                                                    entity_path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::isize`, `Extern`),
                                                             ),
-                                                            ident: `isize`,
-                                                        },
+                                                        ),
                                                     ),
-                                                ),
+                                                },
                                             ],
                                         },
                                         entity_path_expr_arena: Arena {
@@ -847,6 +869,39 @@ Ok(
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Trait(
                                                             TraitPath(`core::cmp::Ord`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        119,
+                                                    ),
+                                                    ident: `isize`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::isize`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        123,
+                                                    ),
+                                                    ident: `isize`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::isize`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        126,
+                                                    ),
+                                                    ident: `isize`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::isize`, `Extern`),
                                                         ),
                                                     ),
                                                 },

@@ -557,9 +557,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::PublicUnder(
-                        `core::num`,
-                    ),
+                    accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
                             Method,
@@ -569,13 +567,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `add`,
                         token_idx: TokenIdx(
-                            567,
+                            568,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        568,
+                        569,
                     ),
                 },
                 Ast::Defn {
@@ -595,13 +593,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `abs`,
                         token_idx: TokenIdx(
-                            605,
+                            606,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        606,
+                        607,
                     ),
                 },
                 Ast::Defn {
@@ -621,13 +619,119 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `add`,
                         token_idx: TokenIdx(
-                            619,
+                            620,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        620,
+                        621,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        89,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::Public,
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `abs`,
+                        token_idx: TokenIdx(
+                            658,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        659,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        91,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `core::num`,
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeAsTraitItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `add`,
+                        token_idx: TokenIdx(
+                            671,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        672,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        96,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::Public,
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `abs`,
+                        token_idx: TokenIdx(
+                            709,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        710,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        98,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::Public,
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeAsTraitItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `add`,
+                        token_idx: TokenIdx(
+                            723,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        724,
                     ),
                 },
                 Ast::Use {
@@ -898,12 +1002,12 @@ Ok(
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::num::u8`, `Extern`),
+                                TypePath(`core::num::i128`, `Extern`),
                             ),
                         ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `u8`,
+                        ident: `i128`,
                         token_idx: TokenIdx(
                             235,
                         ),
@@ -957,12 +1061,12 @@ Ok(
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::num::u16`, `Extern`),
+                                TypePath(`core::num::isize`, `Extern`),
                             ),
                         ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `u16`,
+                        ident: `isize`,
                         token_idx: TokenIdx(
                             287,
                         ),
@@ -1016,12 +1120,12 @@ Ok(
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::num::u32`, `Extern`),
+                                TypePath(`core::num::u8`, `Extern`),
                             ),
                         ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `u32`,
+                        ident: `u8`,
                         token_idx: TokenIdx(
                             339,
                         ),
@@ -1075,12 +1179,12 @@ Ok(
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::num::u64`, `Extern`),
+                                TypePath(`core::num::u16`, `Extern`),
                             ),
                         ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `u64`,
+                        ident: `u16`,
                         token_idx: TokenIdx(
                             391,
                         ),
@@ -1134,12 +1238,12 @@ Ok(
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::num::u128`, `Extern`),
+                                TypePath(`core::num::u32`, `Extern`),
                             ),
                         ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `u128`,
+                        ident: `u32`,
                         token_idx: TokenIdx(
                             443,
                         ),
@@ -1193,12 +1297,12 @@ Ok(
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::num::usize`, `Extern`),
+                                TypePath(`core::num::u64`, `Extern`),
                             ),
                         ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `usize`,
+                        ident: `u64`,
                         token_idx: TokenIdx(
                             495,
                         ),
@@ -1252,12 +1356,12 @@ Ok(
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::num::f32`, `Extern`),
+                                TypePath(`core::num::u128`, `Extern`),
                             ),
                         ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `f32`,
+                        ident: `u128`,
                         token_idx: TokenIdx(
                             547,
                         ),
@@ -1311,20 +1415,20 @@ Ok(
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Type(
-                                TypePath(`core::num::f64`, `Extern`),
+                                TypePath(`core::num::usize`, `Extern`),
                             ),
                         ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `f64`,
+                        ident: `usize`,
                         token_idx: TokenIdx(
-                            598,
+                            599,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        599,
+                        600,
                     ),
                 },
                 Ast::Impl {
@@ -1343,10 +1447,128 @@ Ok(
                         23..24,
                     ),
                 },
+                Ast::Decr {
+                    token_group_idx: TokenGroupIdx(
+                        85,
+                    ),
+                },
+                Ast::Decr {
+                    token_group_idx: TokenGroupIdx(
+                        86,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        87,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::Public,
+                    entity_kind: ModuleItem {
+                        module_item_kind: Type(
+                            Extern,
+                        ),
+                        connection: Connected,
+                    },
+                    entity_path: Some(
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`core::num::f32`, `Extern`),
+                            ),
+                        ),
+                    ),
+                    ident_token: IdentifierToken {
+                        ident: `f32`,
+                        token_idx: TokenIdx(
+                            651,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        652,
+                    ),
+                },
+                Ast::Impl {
+                    token_group_idx: TokenGroupIdx(
+                        88,
+                    ),
+                    body: ArenaIdxRange(
+                        24..25,
+                    ),
+                },
+                Ast::Impl {
+                    token_group_idx: TokenGroupIdx(
+                        90,
+                    ),
+                    body: ArenaIdxRange(
+                        25..26,
+                    ),
+                },
+                Ast::Decr {
+                    token_group_idx: TokenGroupIdx(
+                        92,
+                    ),
+                },
+                Ast::Decr {
+                    token_group_idx: TokenGroupIdx(
+                        93,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        94,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::Public,
+                    entity_kind: ModuleItem {
+                        module_item_kind: Type(
+                            Extern,
+                        ),
+                        connection: Connected,
+                    },
+                    entity_path: Some(
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`core::num::f64`, `Extern`),
+                            ),
+                        ),
+                    ),
+                    ident_token: IdentifierToken {
+                        ident: `f64`,
+                        token_idx: TokenIdx(
+                            702,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        703,
+                    ),
+                },
+                Ast::Impl {
+                    token_group_idx: TokenGroupIdx(
+                        95,
+                    ),
+                    body: ArenaIdxRange(
+                        26..27,
+                    ),
+                },
+                Ast::Impl {
+                    token_group_idx: TokenGroupIdx(
+                        97,
+                    ),
+                    body: ArenaIdxRange(
+                        27..28,
+                    ),
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            24..85,
+            28..99,
         ),
     },
 )
