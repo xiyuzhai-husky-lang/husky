@@ -18,7 +18,7 @@ use husky_entity_path::AssociatedItemPath;
 pub enum TypeItemDefn {
     Function(TypeAssociatedFunctionDefn),
     Method(TypeMethodDefn),
-    AlienType(TypeAssociatedTypeDefn),
+    ExternType(TypeAssociatedTypeDefn),
     Value(TypeAssociatedValueDefn),
     Memo(TypeMemoDefn),
 }
@@ -37,7 +37,7 @@ impl From<TypeAssociatedValueDefn> for TypeItemDefn {
 
 impl From<TypeAssociatedTypeDefn> for TypeItemDefn {
     fn from(v: TypeAssociatedTypeDefn) -> Self {
-        Self::AlienType(v)
+        Self::ExternType(v)
     }
 }
 
@@ -58,7 +58,7 @@ impl TypeItemDefn {
         match self {
             TypeItemDefn::Function(defn) => defn.decl(db).into(),
             TypeItemDefn::Method(defn) => defn.decl(db).into(),
-            TypeItemDefn::AlienType(defn) => defn.decl(db).into(),
+            TypeItemDefn::ExternType(defn) => defn.decl(db).into(),
             TypeItemDefn::Value(defn) => defn.decl(db).into(),
             TypeItemDefn::Memo(defn) => defn.decl(db).into(),
         }
@@ -71,7 +71,7 @@ impl TypeItemDefn {
         match self {
             TypeItemDefn::Function(defn) => defn.expr_region(db).into(),
             TypeItemDefn::Method(defn) => defn.expr_region(db).into(),
-            TypeItemDefn::AlienType(defn) => defn.expr_region(db).into(),
+            TypeItemDefn::ExternType(defn) => defn.expr_region(db).into(),
             TypeItemDefn::Value(defn) => defn.expr_region(db).into(),
             TypeItemDefn::Memo(defn) => defn.expr_region(db).into(),
         }

@@ -73,7 +73,10 @@ impl<'a> AstRangeCalculator<'a> {
             | Ast::Use {
                 token_group_idx, ..
             }
-            | Ast::Decor {
+            | Ast::Extern {
+                token_group_idx, ..
+            }
+            | Ast::Decr {
                 token_group_idx, ..
             }
             | Ast::ModuleItemVariant {

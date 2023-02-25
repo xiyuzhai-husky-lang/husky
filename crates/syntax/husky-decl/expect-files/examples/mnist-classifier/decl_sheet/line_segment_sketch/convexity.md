@@ -44,7 +44,7 @@ Ok(
                                                     entity_path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::i32`, `Alien`),
+                                                                TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
                                                     ),
@@ -54,7 +54,7 @@ Ok(
                                                     entity_path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::basic::bool`, `Alien`),
+                                                                TypePath(`core::basic::bool`, `Extern`),
                                                             ),
                                                         ),
                                                     ),
@@ -81,7 +81,7 @@ Ok(
                                                     ident: `i32`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::i32`, `Alien`),
+                                                            TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
                                                 },
@@ -92,7 +92,7 @@ Ok(
                                                     ident: `bool`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::basic::bool`, `Alien`),
+                                                            TypePath(`core::basic::bool`, `Extern`),
                                                         ),
                                                     ),
                                                 },

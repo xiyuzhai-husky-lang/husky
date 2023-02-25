@@ -307,7 +307,7 @@ Ok(
                                                         entity_path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                    TypePath(`core::num::f32`, `Extern`),
                                                                 ),
                                                             ),
                                                         ),
@@ -341,7 +341,7 @@ Ok(
                                                         ident: `f32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                TypePath(`core::num::f32`, `Extern`),
                                                             ),
                                                         ),
                                                     },
@@ -520,7 +520,7 @@ Ok(
                                                                 entity_path: Some(
                                                                     EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::num::f32`, `Alien`),
+                                                                            TypePath(`core::num::f32`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -554,7 +554,7 @@ Ok(
                                                                 ident: `f32`,
                                                                 entity_path: EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                        TypePath(`core::num::f32`, `Extern`),
                                                                     ),
                                                                 ),
                                                             },
@@ -1222,7 +1222,7 @@ Ok(
                                                         entity_path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                    TypePath(`core::num::f32`, `Extern`),
                                                                 ),
                                                             ),
                                                         ),
@@ -1256,7 +1256,7 @@ Ok(
                                                         ident: `f32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                TypePath(`core::num::f32`, `Extern`),
                                                             ),
                                                         ),
                                                     },
@@ -1435,7 +1435,7 @@ Ok(
                                                                 entity_path: Some(
                                                                     EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::num::f32`, `Alien`),
+                                                                            TypePath(`core::num::f32`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -1469,7 +1469,7 @@ Ok(
                                                                 ident: `f32`,
                                                                 entity_path: EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                        TypePath(`core::num::f32`, `Extern`),
                                                                     ),
                                                                 ),
                                                             },
@@ -1946,7 +1946,7 @@ Ok(
                                                         entity_path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                    TypePath(`core::num::f32`, `Extern`),
                                                                 ),
                                                             ),
                                                         ),
@@ -1980,7 +1980,7 @@ Ok(
                                                         ident: `f32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                TypePath(`core::num::f32`, `Extern`),
                                                             ),
                                                         ),
                                                     },
@@ -2159,7 +2159,7 @@ Ok(
                                                                 entity_path: Some(
                                                                     EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::num::f32`, `Alien`),
+                                                                            TypePath(`core::num::f32`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -2193,7 +2193,7 @@ Ok(
                                                                 ident: `f32`,
                                                                 entity_path: EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                        TypePath(`core::num::f32`, `Extern`),
                                                                     ),
                                                                 ),
                                                             },

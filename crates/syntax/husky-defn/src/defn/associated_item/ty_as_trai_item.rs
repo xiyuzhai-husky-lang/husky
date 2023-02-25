@@ -16,7 +16,7 @@ use husky_entity_path::AssociatedItemPath;
 pub enum TypeAsTraitItemDefn {
     Function(TypeAsTraitAssociatedFunctionDefn),
     Method(TypeAsTraitMethodDefn),
-    AlienType(TypeAsTraitAssociatedTypeDefn),
+    ExternType(TypeAsTraitAssociatedTypeDefn),
     Value(TypeAsTraitAssociatedValueDefn),
 }
 
@@ -28,7 +28,7 @@ impl From<TypeAsTraitAssociatedValueDefn> for TypeAsTraitItemDefn {
 
 impl From<TypeAsTraitAssociatedTypeDefn> for TypeAsTraitItemDefn {
     fn from(v: TypeAsTraitAssociatedTypeDefn) -> Self {
-        Self::AlienType(v)
+        Self::ExternType(v)
     }
 }
 
@@ -49,7 +49,7 @@ impl TypeAsTraitItemDefn {
         match self {
             TypeAsTraitItemDefn::Function(defn) => defn.decl(db).into(),
             TypeAsTraitItemDefn::Method(defn) => defn.decl(db).into(),
-            TypeAsTraitItemDefn::AlienType(defn) => defn.decl(db).into(),
+            TypeAsTraitItemDefn::ExternType(defn) => defn.decl(db).into(),
             TypeAsTraitItemDefn::Value(defn) => defn.decl(db).into(),
         }
     }
@@ -61,7 +61,7 @@ impl TypeAsTraitItemDefn {
         match self {
             TypeAsTraitItemDefn::Function(defn) => defn.expr_region(db),
             TypeAsTraitItemDefn::Method(defn) => defn.expr_region(db),
-            TypeAsTraitItemDefn::AlienType(defn) => defn.expr_region(db),
+            TypeAsTraitItemDefn::ExternType(defn) => defn.expr_region(db),
             TypeAsTraitItemDefn::Value(defn) => defn.expr_region(db),
         }
     }

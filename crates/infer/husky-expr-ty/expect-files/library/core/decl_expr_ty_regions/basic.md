@@ -4,7 +4,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
-                        TypePath(`core::basic::bool`, `Alien`),
+                        TypePath(`core::basic::bool`, `Extern`),
                     ),
                 ),
             ),
@@ -40,7 +40,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
-                        TypePath(`core::basic::never`, `Alien`),
+                        TypePath(`core::basic::never`, `Extern`),
                     ),
                 ),
             ),
@@ -76,7 +76,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
-                        TypePath(`core::basic::unit`, `Alien`),
+                        TypePath(`core::basic::unit`, `Extern`),
                     ),
                 ),
             ),

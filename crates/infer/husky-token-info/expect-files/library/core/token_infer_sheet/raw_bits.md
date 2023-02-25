@@ -38,7 +38,7 @@ Ok(
                 Some(
                     ModuleItem {
                         module_item_kind: Type(
-                            Alien,
+                            Extern,
                         ),
                         connection: Connected,
                     },

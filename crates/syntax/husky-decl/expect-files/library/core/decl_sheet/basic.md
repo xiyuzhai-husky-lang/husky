@@ -5,15 +5,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Type(
-                            TypePath(`core::basic::bool`, `Alien`),
+                            TypePath(`core::basic::bool`, `Extern`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Type(
-                        TypeDecl::Alien(
-                            AlienTypeDecl {
-                                path: TypePath(`core::basic::bool`, `Alien`),
+                        TypeDecl::Extern(
+                            ExternTypeDecl {
+                                path: TypePath(`core::basic::bool`, `Extern`),
                                 ast_idx: 0,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -22,7 +22,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Type(
-                                                        TypePath(`core::basic::bool`, `Alien`),
+                                                        TypePath(`core::basic::bool`, `Extern`),
                                                     ),
                                                 ),
                                             ),
@@ -72,15 +72,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Type(
-                            TypePath(`core::basic::never`, `Alien`),
+                            TypePath(`core::basic::never`, `Extern`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Type(
-                        TypeDecl::Alien(
-                            AlienTypeDecl {
-                                path: TypePath(`core::basic::never`, `Alien`),
+                        TypeDecl::Extern(
+                            ExternTypeDecl {
+                                path: TypePath(`core::basic::never`, `Extern`),
                                 ast_idx: 1,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -89,7 +89,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Type(
-                                                        TypePath(`core::basic::never`, `Alien`),
+                                                        TypePath(`core::basic::never`, `Extern`),
                                                     ),
                                                 ),
                                             ),
@@ -139,15 +139,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Type(
-                            TypePath(`core::basic::unit`, `Alien`),
+                            TypePath(`core::basic::unit`, `Extern`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Type(
-                        TypeDecl::Alien(
-                            AlienTypeDecl {
-                                path: TypePath(`core::basic::unit`, `Alien`),
+                        TypeDecl::Extern(
+                            ExternTypeDecl {
+                                path: TypePath(`core::basic::unit`, `Extern`),
                                 ast_idx: 2,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -156,7 +156,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Type(
-                                                        TypePath(`core::basic::unit`, `Alien`),
+                                                        TypePath(`core::basic::unit`, `Extern`),
                                                     ),
                                                 ),
                                             ),

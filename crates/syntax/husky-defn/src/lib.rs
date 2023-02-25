@@ -38,7 +38,7 @@ pub struct DefnJar(
     inductive_ty_defn,
     StructureTypeDefn,
     structure_ty_defn,
-    AlienTypeDefn,
+    ExternTypeDefn,
     alien_ty_defn,
     UnionTypeDefn,
     union_ty_defn,

@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
-pub struct AlienTypeDecl {
+pub struct ExternTypeDecl {
     #[id]
     pub path: TypePath,
     pub ast_idx: AstIdx,
@@ -10,7 +10,7 @@ pub struct AlienTypeDecl {
     implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
 }
 
-impl AlienTypeDecl {
+impl ExternTypeDecl {
     pub fn implicit_parameters<'a>(
         self,
         db: &'a dyn DeclDb,

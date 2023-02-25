@@ -2,7 +2,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Type(
-                TypePath(`core::logic::Prop`, `Alien`),
+                TypePath(`core::logic::Prop`, `Extern`),
             ),
         ),
         Ok(

@@ -39,7 +39,12 @@ pub enum Ast {
     Use {
         token_group_idx: TokenGroupIdx,
     },
-    Decor {
+    /// specify how to link with extern language
+    Extern {
+        token_group_idx: TokenGroupIdx,
+    },
+    /// decoration, used for deriving trait implementations, etc.
+    Decr {
         token_group_idx: TokenGroupIdx,
     },
     BasicStmtOrBranch {

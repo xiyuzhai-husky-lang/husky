@@ -21,7 +21,7 @@ pub(crate) fn ty_associated_item_signature(
             .as_ref()
             .map(|s| (*s).into()),
         TypeItemDecl::Method(decl) => ty_method_signature(db, decl).as_ref().map(|s| (*s).into()),
-        TypeItemDecl::AlienType(decl) => ty_associated_ty_signature(db, decl)
+        TypeItemDecl::ExternType(decl) => ty_associated_ty_signature(db, decl)
             .as_ref()
             .map(|s| (*s).into()),
         TypeItemDecl::Value(decl) => ty_associated_value_signature(db, decl)
@@ -39,7 +39,7 @@ pub(crate) fn ty_associated_item_signature(
 pub enum TypeItemSignature {
     Function(TypeAssociatedFunctionSignature),
     Method(TypeMethodSignature),
-    AlienType(TypeAssociatedTypeSignature),
+    ExternType(TypeAssociatedTypeSignature),
     Value(TypeAssociatedValueSignature),
     Memo(TypeMemoSignature),
 }
@@ -64,7 +64,7 @@ impl From<TypeAssociatedValueSignature> for TypeItemSignature {
 
 impl From<TypeAssociatedTypeSignature> for TypeItemSignature {
     fn from(v: TypeAssociatedTypeSignature) -> Self {
-        Self::AlienType(v)
+        Self::ExternType(v)
     }
 }
 
@@ -79,7 +79,7 @@ impl TypeItemSignature {
         match self {
             TypeItemSignature::Function(_) => todo!(),
             TypeItemSignature::Method(_) => todo!(),
-            TypeItemSignature::AlienType(_) => todo!(),
+            TypeItemSignature::ExternType(_) => todo!(),
             TypeItemSignature::Value(_) => todo!(),
             TypeItemSignature::Memo(_) => todo!(),
         }

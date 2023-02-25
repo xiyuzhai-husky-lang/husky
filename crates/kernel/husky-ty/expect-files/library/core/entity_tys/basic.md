@@ -2,7 +2,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Type(
-                TypePath(`core::basic::bool`, `Alien`),
+                TypePath(`core::basic::bool`, `Extern`),
             ),
         ),
         Ok(
@@ -12,7 +12,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Type(
-                TypePath(`core::basic::never`, `Alien`),
+                TypePath(`core::basic::never`, `Extern`),
             ),
         ),
         Ok(
@@ -22,7 +22,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Type(
-                TypePath(`core::basic::unit`, `Alien`),
+                TypePath(`core::basic::unit`, `Extern`),
             ),
         ),
         Ok(

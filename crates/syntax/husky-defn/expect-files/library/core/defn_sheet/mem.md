@@ -5,17 +5,17 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Type(
-                            TypePath(`core::mem::Ref`, `Alien`),
+                            TypePath(`core::mem::Ref`, `Extern`),
                         ),
                     ),
                 ),
                 Ok(
                     Defn::Type(
-                        TypeDefn::Alien(
-                            AlienTypeDefn {
-                                path: TypePath(`core::mem::Ref`, `Alien`),
-                                decl: AlienTypeDecl {
-                                    path: TypePath(`core::mem::Ref`, `Alien`),
+                        TypeDefn::Extern(
+                            ExternTypeDefn {
+                                path: TypePath(`core::mem::Ref`, `Extern`),
+                                decl: ExternTypeDecl {
+                                    path: TypePath(`core::mem::Ref`, `Extern`),
                                     ast_idx: 0,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -24,7 +24,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::mem::Ref`, `Alien`),
+                                                            TypePath(`core::mem::Ref`, `Extern`),
                                                         ),
                                                     ),
                                                 ),
@@ -208,17 +208,17 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Type(
-                            TypePath(`core::mem::RefMut`, `Alien`),
+                            TypePath(`core::mem::RefMut`, `Extern`),
                         ),
                     ),
                 ),
                 Ok(
                     Defn::Type(
-                        TypeDefn::Alien(
-                            AlienTypeDefn {
-                                path: TypePath(`core::mem::RefMut`, `Alien`),
-                                decl: AlienTypeDecl {
-                                    path: TypePath(`core::mem::RefMut`, `Alien`),
+                        TypeDefn::Extern(
+                            ExternTypeDefn {
+                                path: TypePath(`core::mem::RefMut`, `Extern`),
+                                decl: ExternTypeDecl {
+                                    path: TypePath(`core::mem::RefMut`, `Extern`),
                                     ast_idx: 1,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -227,7 +227,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::mem::RefMut`, `Alien`),
+                                                            TypePath(`core::mem::RefMut`, `Extern`),
                                                         ),
                                                     ),
                                                 ),

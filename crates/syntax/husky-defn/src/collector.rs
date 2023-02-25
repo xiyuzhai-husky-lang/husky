@@ -59,7 +59,7 @@ fn ty_defn(db: &dyn DefnDb, decl: TypeDecl) -> TypeDefn {
         TypeDecl::Record(decl) => record_ty_defn(db, decl).into(),
         TypeDecl::Inductive(decl) => inductive_ty_defn(db, decl).into(),
         TypeDecl::Structure(decl) => structure_ty_defn(db, decl).into(),
-        TypeDecl::Alien(decl) => alien_ty_defn(db, decl).into(),
+        TypeDecl::Extern(decl) => alien_ty_defn(db, decl).into(),
         TypeDecl::Union(decl) => union_ty_defn(db, decl).into(),
     }
 }
@@ -107,9 +107,9 @@ pub(crate) fn structure_ty_defn(db: &dyn DefnDb, decl: StructureTypeDecl) -> Str
 }
 
 #[salsa::tracked(jar = DefnJar)]
-pub(crate) fn alien_ty_defn(db: &dyn DefnDb, decl: AlienTypeDecl) -> AlienTypeDefn {
+pub(crate) fn alien_ty_defn(db: &dyn DefnDb, decl: ExternTypeDecl) -> ExternTypeDefn {
     let path = decl.path(db);
-    AlienTypeDefn::new(db, path, decl)
+    ExternTypeDefn::new(db, path, decl)
 }
 
 #[salsa::tracked(jar = DefnJar)]
@@ -208,7 +208,7 @@ fn ty_item_defn(db: &dyn DefnDb, decl: TypeItemDecl) -> TypeItemDefn {
     match decl {
         TypeItemDecl::Function(_) => todo!(),
         TypeItemDecl::Method(decl) => ty_method_defn(db, decl).into(),
-        TypeItemDecl::AlienType(_) => todo!(),
+        TypeItemDecl::ExternType(_) => todo!(),
         TypeItemDecl::Value(_) => todo!(),
         TypeItemDecl::Memo(decl) => ty_memo_defn(db, decl).into(),
     }

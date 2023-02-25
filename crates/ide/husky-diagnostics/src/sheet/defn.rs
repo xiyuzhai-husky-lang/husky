@@ -43,7 +43,7 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
                 TypeDefn::Record(Defn) => (),
                 TypeDefn::Inductive(Defn) => (),
                 TypeDefn::Structure(Defn) => (),
-                TypeDefn::Alien(Defn) => (),
+                TypeDefn::Extern(Defn) => (),
                 TypeDefn::Union(Defn) => (),
             },
             Defn::Form(Defn) => (),

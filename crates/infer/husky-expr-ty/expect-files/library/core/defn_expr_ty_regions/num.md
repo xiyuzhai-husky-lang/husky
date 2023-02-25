@@ -6,7 +6,7 @@
                     impl_id: ImplId {
                         module_path: `core::num`,
                         impl_kind: ImplKind::Type {
-                            ty: TypePath(`core::num::i8`, `Alien`),
+                            ty: TypePath(`core::num::i8`, `Extern`),
                         },
                         disambiguator: 0,
                     },
@@ -49,7 +49,7 @@
                     impl_id: ImplId {
                         module_path: `core::num`,
                         impl_kind: ImplKind::Type {
-                            ty: TypePath(`core::num::i16`, `Alien`),
+                            ty: TypePath(`core::num::i16`, `Extern`),
                         },
                         disambiguator: 0,
                     },
@@ -92,7 +92,7 @@
                     impl_id: ImplId {
                         module_path: `core::num`,
                         impl_kind: ImplKind::Type {
-                            ty: TypePath(`core::num::i32`, `Alien`),
+                            ty: TypePath(`core::num::i32`, `Extern`),
                         },
                         disambiguator: 0,
                     },
@@ -135,7 +135,7 @@
                     impl_id: ImplId {
                         module_path: `core::num`,
                         impl_kind: ImplKind::Type {
-                            ty: TypePath(`core::num::i64`, `Alien`),
+                            ty: TypePath(`core::num::i64`, `Extern`),
                         },
                         disambiguator: 0,
                     },
@@ -178,7 +178,7 @@
                     impl_id: ImplId {
                         module_path: `core::num`,
                         impl_kind: ImplKind::Type {
-                            ty: TypePath(`core::num::u8`, `Alien`),
+                            ty: TypePath(`core::num::u8`, `Extern`),
                         },
                         disambiguator: 0,
                     },
@@ -221,7 +221,7 @@
                     impl_id: ImplId {
                         module_path: `core::num`,
                         impl_kind: ImplKind::Type {
-                            ty: TypePath(`core::num::u16`, `Alien`),
+                            ty: TypePath(`core::num::u16`, `Extern`),
                         },
                         disambiguator: 0,
                     },
@@ -264,7 +264,7 @@
                     impl_id: ImplId {
                         module_path: `core::num`,
                         impl_kind: ImplKind::Type {
-                            ty: TypePath(`core::num::u32`, `Alien`),
+                            ty: TypePath(`core::num::u32`, `Extern`),
                         },
                         disambiguator: 0,
                     },
@@ -307,7 +307,7 @@
                     impl_id: ImplId {
                         module_path: `core::num`,
                         impl_kind: ImplKind::Type {
-                            ty: TypePath(`core::num::u64`, `Alien`),
+                            ty: TypePath(`core::num::u64`, `Extern`),
                         },
                         disambiguator: 0,
                     },
@@ -350,7 +350,7 @@
                     impl_id: ImplId {
                         module_path: `core::num`,
                         impl_kind: ImplKind::Type {
-                            ty: TypePath(`core::num::u128`, `Alien`),
+                            ty: TypePath(`core::num::u128`, `Extern`),
                         },
                         disambiguator: 0,
                     },
@@ -393,7 +393,7 @@
                     impl_id: ImplId {
                         module_path: `core::num`,
                         impl_kind: ImplKind::Type {
-                            ty: TypePath(`core::num::usize`, `Alien`),
+                            ty: TypePath(`core::num::usize`, `Extern`),
                         },
                         disambiguator: 0,
                     },
@@ -436,7 +436,7 @@
                     impl_id: ImplId {
                         module_path: `core::num`,
                         impl_kind: ImplKind::Type {
-                            ty: TypePath(`core::num::f32`, `Alien`),
+                            ty: TypePath(`core::num::f32`, `Extern`),
                         },
                         disambiguator: 0,
                     },
@@ -479,7 +479,7 @@
                     impl_id: ImplId {
                         module_path: `core::num`,
                         impl_kind: ImplKind::Type {
-                            ty: TypePath(`core::num::f64`, `Alien`),
+                            ty: TypePath(`core::num::f64`, `Extern`),
                         },
                         disambiguator: 0,
                     },

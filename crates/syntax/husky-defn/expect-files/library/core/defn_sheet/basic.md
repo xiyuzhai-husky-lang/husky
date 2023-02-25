@@ -5,17 +5,17 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Type(
-                            TypePath(`core::basic::bool`, `Alien`),
+                            TypePath(`core::basic::bool`, `Extern`),
                         ),
                     ),
                 ),
                 Ok(
                     Defn::Type(
-                        TypeDefn::Alien(
-                            AlienTypeDefn {
-                                path: TypePath(`core::basic::bool`, `Alien`),
-                                decl: AlienTypeDecl {
-                                    path: TypePath(`core::basic::bool`, `Alien`),
+                        TypeDefn::Extern(
+                            ExternTypeDefn {
+                                path: TypePath(`core::basic::bool`, `Extern`),
+                                decl: ExternTypeDecl {
+                                    path: TypePath(`core::basic::bool`, `Extern`),
                                     ast_idx: 0,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -24,7 +24,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::basic::bool`, `Alien`),
+                                                            TypePath(`core::basic::bool`, `Extern`),
                                                         ),
                                                     ),
                                                 ),
@@ -75,17 +75,17 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Type(
-                            TypePath(`core::basic::never`, `Alien`),
+                            TypePath(`core::basic::never`, `Extern`),
                         ),
                     ),
                 ),
                 Ok(
                     Defn::Type(
-                        TypeDefn::Alien(
-                            AlienTypeDefn {
-                                path: TypePath(`core::basic::never`, `Alien`),
-                                decl: AlienTypeDecl {
-                                    path: TypePath(`core::basic::never`, `Alien`),
+                        TypeDefn::Extern(
+                            ExternTypeDefn {
+                                path: TypePath(`core::basic::never`, `Extern`),
+                                decl: ExternTypeDecl {
+                                    path: TypePath(`core::basic::never`, `Extern`),
                                     ast_idx: 1,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -94,7 +94,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::basic::never`, `Alien`),
+                                                            TypePath(`core::basic::never`, `Extern`),
                                                         ),
                                                     ),
                                                 ),
@@ -145,17 +145,17 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Type(
-                            TypePath(`core::basic::unit`, `Alien`),
+                            TypePath(`core::basic::unit`, `Extern`),
                         ),
                     ),
                 ),
                 Ok(
                     Defn::Type(
-                        TypeDefn::Alien(
-                            AlienTypeDefn {
-                                path: TypePath(`core::basic::unit`, `Alien`),
-                                decl: AlienTypeDecl {
-                                    path: TypePath(`core::basic::unit`, `Alien`),
+                        TypeDefn::Extern(
+                            ExternTypeDefn {
+                                path: TypePath(`core::basic::unit`, `Extern`),
+                                decl: ExternTypeDecl {
+                                    path: TypePath(`core::basic::unit`, `Extern`),
                                     ast_idx: 2,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -164,7 +164,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::basic::unit`, `Alien`),
+                                                            TypePath(`core::basic::unit`, `Extern`),
                                                         ),
                                                     ),
                                                 ),

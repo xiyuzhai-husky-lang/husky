@@ -118,7 +118,8 @@ impl<'a> AstParser<'a> {
                 Keyword::End(_) => unreachable!(),
                 Keyword::Connection(_) => todo!(),
             },
-            Token::Punctuation(Punctuation::PoundSign) => Ast::Decor { token_group_idx },
+            Token::Punctuation(Punctuation::PoundSign) => Ast::Decr { token_group_idx },
+            Token::Punctuation(Punctuation::At) => Ast::Decr { token_group_idx },
             Token::Punctuation(_)
             | Token::Identifier(_)
             | Token::Label(_)

@@ -4,7 +4,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
-                        TypePath(`core::raw_bits::r32`, `Alien`),
+                        TypePath(`core::raw_bits::r32`, `Extern`),
                     ),
                 ),
             ),

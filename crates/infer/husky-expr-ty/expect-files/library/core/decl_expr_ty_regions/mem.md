@@ -4,7 +4,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
-                        TypePath(`core::mem::Ref`, `Alien`),
+                        TypePath(`core::mem::Ref`, `Extern`),
                     ),
                 ),
             ),
@@ -47,7 +47,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
-                        TypePath(`core::mem::RefMut`, `Alien`),
+                        TypePath(`core::mem::RefMut`, `Extern`),
                     ),
                 ),
             ),

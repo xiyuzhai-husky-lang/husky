@@ -323,7 +323,7 @@ Ok(
                                                         entity_path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                                                 ),
                                                             ),
                                                         ),
@@ -333,7 +333,7 @@ Ok(
                                                         entity_path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::num::i32`, `Alien`),
+                                                                    TypePath(`core::num::i32`, `Extern`),
                                                                 ),
                                                             ),
                                                         ),
@@ -343,7 +343,7 @@ Ok(
                                                         entity_path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                                                 ),
                                                             ),
                                                         ),
@@ -359,7 +359,7 @@ Ok(
                                                         ident: `r32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                TypePath(`core::raw_bits::r32`, `Extern`),
                                                             ),
                                                         ),
                                                     },
@@ -370,7 +370,7 @@ Ok(
                                                         ident: `i32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::i32`, `Alien`),
+                                                                TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
                                                     },
@@ -381,7 +381,7 @@ Ok(
                                                         ident: `r32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                TypePath(`core::raw_bits::r32`, `Extern`),
                                                             ),
                                                         ),
                                                     },
@@ -600,7 +600,7 @@ Ok(
                                                                 entity_path: Some(
                                                                     EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                            TypePath(`core::raw_bits::r32`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -610,7 +610,7 @@ Ok(
                                                                 entity_path: Some(
                                                                     EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::num::i32`, `Alien`),
+                                                                            TypePath(`core::num::i32`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -620,7 +620,7 @@ Ok(
                                                                 entity_path: Some(
                                                                     EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                            TypePath(`core::raw_bits::r32`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -636,7 +636,7 @@ Ok(
                                                                 ident: `r32`,
                                                                 entity_path: EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                        TypePath(`core::raw_bits::r32`, `Extern`),
                                                                     ),
                                                                 ),
                                                             },
@@ -647,7 +647,7 @@ Ok(
                                                                 ident: `i32`,
                                                                 entity_path: EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::num::i32`, `Alien`),
+                                                                        TypePath(`core::num::i32`, `Extern`),
                                                                     ),
                                                                 ),
                                                             },
@@ -658,7 +658,7 @@ Ok(
                                                                 ident: `r32`,
                                                                 entity_path: EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                        TypePath(`core::raw_bits::r32`, `Extern`),
                                                                     ),
                                                                 ),
                                                             },
@@ -976,7 +976,7 @@ Ok(
                                                         entity_path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                                                 ),
                                                             ),
                                                         ),
@@ -986,7 +986,7 @@ Ok(
                                                         entity_path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::num::i32`, `Alien`),
+                                                                    TypePath(`core::num::i32`, `Extern`),
                                                                 ),
                                                             ),
                                                         ),
@@ -996,7 +996,7 @@ Ok(
                                                         entity_path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                                                 ),
                                                             ),
                                                         ),
@@ -1012,7 +1012,7 @@ Ok(
                                                         ident: `r32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                TypePath(`core::raw_bits::r32`, `Extern`),
                                                             ),
                                                         ),
                                                     },
@@ -1023,7 +1023,7 @@ Ok(
                                                         ident: `i32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::i32`, `Alien`),
+                                                                TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
                                                     },
@@ -1034,7 +1034,7 @@ Ok(
                                                         ident: `r32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                TypePath(`core::raw_bits::r32`, `Extern`),
                                                             ),
                                                         ),
                                                     },
@@ -1253,7 +1253,7 @@ Ok(
                                                                 entity_path: Some(
                                                                     EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                            TypePath(`core::raw_bits::r32`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -1263,7 +1263,7 @@ Ok(
                                                                 entity_path: Some(
                                                                     EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::num::i32`, `Alien`),
+                                                                            TypePath(`core::num::i32`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -1273,7 +1273,7 @@ Ok(
                                                                 entity_path: Some(
                                                                     EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                            TypePath(`core::raw_bits::r32`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -1289,7 +1289,7 @@ Ok(
                                                                 ident: `r32`,
                                                                 entity_path: EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                        TypePath(`core::raw_bits::r32`, `Extern`),
                                                                     ),
                                                                 ),
                                                             },
@@ -1300,7 +1300,7 @@ Ok(
                                                                 ident: `i32`,
                                                                 entity_path: EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::num::i32`, `Alien`),
+                                                                        TypePath(`core::num::i32`, `Extern`),
                                                                     ),
                                                                 ),
                                                             },
@@ -1311,7 +1311,7 @@ Ok(
                                                                 ident: `r32`,
                                                                 entity_path: EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                        TypePath(`core::raw_bits::r32`, `Extern`),
                                                                     ),
                                                                 ),
                                                             },
@@ -1605,7 +1605,7 @@ Ok(
                                                         entity_path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                                                 ),
                                                             ),
                                                         ),
@@ -1615,7 +1615,7 @@ Ok(
                                                         entity_path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::num::i32`, `Alien`),
+                                                                    TypePath(`core::num::i32`, `Extern`),
                                                                 ),
                                                             ),
                                                         ),
@@ -1625,7 +1625,7 @@ Ok(
                                                         entity_path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                                                 ),
                                                             ),
                                                         ),
@@ -1641,7 +1641,7 @@ Ok(
                                                         ident: `r32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                TypePath(`core::raw_bits::r32`, `Extern`),
                                                             ),
                                                         ),
                                                     },
@@ -1652,7 +1652,7 @@ Ok(
                                                         ident: `i32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::i32`, `Alien`),
+                                                                TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
                                                     },
@@ -1663,7 +1663,7 @@ Ok(
                                                         ident: `r32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                TypePath(`core::raw_bits::r32`, `Extern`),
                                                             ),
                                                         ),
                                                     },
@@ -1882,7 +1882,7 @@ Ok(
                                                                 entity_path: Some(
                                                                     EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                            TypePath(`core::raw_bits::r32`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -1892,7 +1892,7 @@ Ok(
                                                                 entity_path: Some(
                                                                     EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::num::i32`, `Alien`),
+                                                                            TypePath(`core::num::i32`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -1902,7 +1902,7 @@ Ok(
                                                                 entity_path: Some(
                                                                     EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                            TypePath(`core::raw_bits::r32`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -1918,7 +1918,7 @@ Ok(
                                                                 ident: `r32`,
                                                                 entity_path: EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                        TypePath(`core::raw_bits::r32`, `Extern`),
                                                                     ),
                                                                 ),
                                                             },
@@ -1929,7 +1929,7 @@ Ok(
                                                                 ident: `i32`,
                                                                 entity_path: EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::num::i32`, `Alien`),
+                                                                        TypePath(`core::num::i32`, `Extern`),
                                                                     ),
                                                                 ),
                                                             },
@@ -1940,7 +1940,7 @@ Ok(
                                                                 ident: `r32`,
                                                                 entity_path: EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                        TypePath(`core::raw_bits::r32`, `Extern`),
                                                                     ),
                                                                 ),
                                                             },
@@ -2258,7 +2258,7 @@ Ok(
                                                         entity_path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                                                 ),
                                                             ),
                                                         ),
@@ -2268,7 +2268,7 @@ Ok(
                                                         entity_path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                                                 ),
                                                             ),
                                                         ),
@@ -2278,7 +2278,7 @@ Ok(
                                                         entity_path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::num::i32`, `Alien`),
+                                                                    TypePath(`core::num::i32`, `Extern`),
                                                                 ),
                                                             ),
                                                         ),
@@ -2304,7 +2304,7 @@ Ok(
                                                         ident: `r32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                TypePath(`core::raw_bits::r32`, `Extern`),
                                                             ),
                                                         ),
                                                     },
@@ -2315,7 +2315,7 @@ Ok(
                                                         ident: `r32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                TypePath(`core::raw_bits::r32`, `Extern`),
                                                             ),
                                                         ),
                                                     },
@@ -2326,7 +2326,7 @@ Ok(
                                                         ident: `i32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::i32`, `Alien`),
+                                                                TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
                                                     },
@@ -2617,7 +2617,7 @@ Ok(
                                                                 entity_path: Some(
                                                                     EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                            TypePath(`core::raw_bits::r32`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -2627,7 +2627,7 @@ Ok(
                                                                 entity_path: Some(
                                                                     EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                            TypePath(`core::raw_bits::r32`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -2637,7 +2637,7 @@ Ok(
                                                                 entity_path: Some(
                                                                     EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::num::i32`, `Alien`),
+                                                                            TypePath(`core::num::i32`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -2663,7 +2663,7 @@ Ok(
                                                                 ident: `r32`,
                                                                 entity_path: EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                        TypePath(`core::raw_bits::r32`, `Extern`),
                                                                     ),
                                                                 ),
                                                             },
@@ -2674,7 +2674,7 @@ Ok(
                                                                 ident: `r32`,
                                                                 entity_path: EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                        TypePath(`core::raw_bits::r32`, `Extern`),
                                                                     ),
                                                                 ),
                                                             },
@@ -2685,7 +2685,7 @@ Ok(
                                                                 ident: `i32`,
                                                                 entity_path: EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::num::i32`, `Alien`),
+                                                                        TypePath(`core::num::i32`, `Extern`),
                                                                     ),
                                                                 ),
                                                             },
@@ -3261,7 +3261,7 @@ Ok(
                                                         entity_path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::num::i32`, `Alien`),
+                                                                    TypePath(`core::num::i32`, `Extern`),
                                                                 ),
                                                             ),
                                                         ),
@@ -3299,7 +3299,7 @@ Ok(
                                                         ident: `i32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::i32`, `Alien`),
+                                                                TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
                                                     },
@@ -3538,7 +3538,7 @@ Ok(
                                                                 entity_path: Some(
                                                                     EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::num::i32`, `Alien`),
+                                                                            TypePath(`core::num::i32`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -3576,7 +3576,7 @@ Ok(
                                                                 ident: `i32`,
                                                                 entity_path: EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::num::i32`, `Alien`),
+                                                                        TypePath(`core::num::i32`, `Extern`),
                                                                     ),
                                                                 ),
                                                             },
@@ -3725,7 +3725,7 @@ Ok(
                                                     entity_path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::i32`, `Alien`),
+                                                                TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
                                                     ),
@@ -3753,7 +3753,7 @@ Ok(
                                                     entity_path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::i32`, `Alien`),
+                                                                TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
                                                     ),
@@ -3808,7 +3808,7 @@ Ok(
                                                     entity_path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                TypePath(`core::raw_bits::r32`, `Extern`),
                                                             ),
                                                         ),
                                                     ),
@@ -3873,7 +3873,7 @@ Ok(
                                                     ident: `i32`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::i32`, `Alien`),
+                                                            TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
                                                 },
@@ -3884,7 +3884,7 @@ Ok(
                                                     ident: `i32`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::num::i32`, `Alien`),
+                                                            TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
                                                 },
@@ -3895,7 +3895,7 @@ Ok(
                                                     ident: `r32`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                                            TypePath(`core::raw_bits::r32`, `Extern`),
                                                         ),
                                                     ),
                                                 },
@@ -4076,7 +4076,7 @@ Ok(
                                                         entity_path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                                                 ),
                                                             ),
                                                         ),
@@ -4086,7 +4086,7 @@ Ok(
                                                         entity_path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                                                 ),
                                                             ),
                                                         ),
@@ -4096,7 +4096,7 @@ Ok(
                                                         entity_path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::num::i32`, `Alien`),
+                                                                    TypePath(`core::num::i32`, `Extern`),
                                                                 ),
                                                             ),
                                                         ),
@@ -4132,7 +4132,7 @@ Ok(
                                                         ident: `r32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                TypePath(`core::raw_bits::r32`, `Extern`),
                                                             ),
                                                         ),
                                                     },
@@ -4143,7 +4143,7 @@ Ok(
                                                         ident: `r32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                TypePath(`core::raw_bits::r32`, `Extern`),
                                                             ),
                                                         ),
                                                     },
@@ -4154,7 +4154,7 @@ Ok(
                                                         ident: `i32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::i32`, `Alien`),
+                                                                TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
                                                     },
@@ -4512,7 +4512,7 @@ Ok(
                                                                 entity_path: Some(
                                                                     EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                            TypePath(`core::raw_bits::r32`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -4522,7 +4522,7 @@ Ok(
                                                                 entity_path: Some(
                                                                     EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                            TypePath(`core::raw_bits::r32`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -4532,7 +4532,7 @@ Ok(
                                                                 entity_path: Some(
                                                                     EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::num::i32`, `Alien`),
+                                                                            TypePath(`core::num::i32`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -4568,7 +4568,7 @@ Ok(
                                                                 ident: `r32`,
                                                                 entity_path: EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                        TypePath(`core::raw_bits::r32`, `Extern`),
                                                                     ),
                                                                 ),
                                                             },
@@ -4579,7 +4579,7 @@ Ok(
                                                                 ident: `r32`,
                                                                 entity_path: EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::raw_bits::r32`, `Alien`),
+                                                                        TypePath(`core::raw_bits::r32`, `Extern`),
                                                                     ),
                                                                 ),
                                                             },
@@ -4590,7 +4590,7 @@ Ok(
                                                                 ident: `i32`,
                                                                 entity_path: EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::num::i32`, `Alien`),
+                                                                        TypePath(`core::num::i32`, `Extern`),
                                                                     ),
                                                                 ),
                                                             },
@@ -5204,7 +5204,7 @@ Ok(
                                                         entity_path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::num::i32`, `Alien`),
+                                                                    TypePath(`core::num::i32`, `Extern`),
                                                                 ),
                                                             ),
                                                         ),
@@ -5214,7 +5214,7 @@ Ok(
                                                         entity_path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::num::i32`, `Alien`),
+                                                                    TypePath(`core::num::i32`, `Extern`),
                                                                 ),
                                                             ),
                                                         ),
@@ -5230,7 +5230,7 @@ Ok(
                                                         ident: `i32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::i32`, `Alien`),
+                                                                TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
                                                     },
@@ -5241,7 +5241,7 @@ Ok(
                                                         ident: `i32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
-                                                                TypePath(`core::num::i32`, `Alien`),
+                                                                TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
                                                     },
@@ -14075,7 +14075,7 @@ Ok(
                                                             entity_path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::num::f32`, `Alien`),
+                                                                        TypePath(`core::num::f32`, `Extern`),
                                                                     ),
                                                                 ),
                                                             ),
@@ -14091,7 +14091,7 @@ Ok(
                                                             ident: `f32`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                    TypePath(`core::num::f32`, `Extern`),
                                                                 ),
                                                             ),
                                                         },
@@ -14252,7 +14252,7 @@ Ok(
                                                                     entity_path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::f32`, `Alien`),
+                                                                                TypePath(`core::num::f32`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     ),
@@ -14268,7 +14268,7 @@ Ok(
                                                                     ident: `f32`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::num::f32`, `Alien`),
+                                                                            TypePath(`core::num::f32`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 },
@@ -15705,7 +15705,7 @@ Ok(
                                                             entity_path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::num::i32`, `Alien`),
+                                                                        TypePath(`core::num::i32`, `Extern`),
                                                                     ),
                                                                 ),
                                                             ),
@@ -15715,7 +15715,7 @@ Ok(
                                                             entity_path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
-                                                                        TypePath(`core::num::i32`, `Alien`),
+                                                                        TypePath(`core::num::i32`, `Extern`),
                                                                     ),
                                                                 ),
                                                             ),
@@ -15741,7 +15741,7 @@ Ok(
                                                             ident: `i32`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::num::i32`, `Alien`),
+                                                                    TypePath(`core::num::i32`, `Extern`),
                                                                 ),
                                                             ),
                                                         },
@@ -15752,7 +15752,7 @@ Ok(
                                                             ident: `i32`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
-                                                                    TypePath(`core::num::i32`, `Alien`),
+                                                                    TypePath(`core::num::i32`, `Extern`),
                                                                 ),
                                                             ),
                                                         },
@@ -16063,7 +16063,7 @@ Ok(
                                                                     entity_path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::i32`, `Alien`),
+                                                                                TypePath(`core::num::i32`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     ),
@@ -16073,7 +16073,7 @@ Ok(
                                                                     entity_path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
-                                                                                TypePath(`core::num::i32`, `Alien`),
+                                                                                TypePath(`core::num::i32`, `Extern`),
                                                                             ),
                                                                         ),
                                                                     ),
@@ -16099,7 +16099,7 @@ Ok(
                                                                     ident: `i32`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::num::i32`, `Alien`),
+                                                                            TypePath(`core::num::i32`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 },
@@ -16110,7 +16110,7 @@ Ok(
                                                                     ident: `i32`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
-                                                                            TypePath(`core::num::i32`, `Alien`),
+                                                                            TypePath(`core::num::i32`, `Extern`),
                                                                         ),
                                                                     ),
                                                                 },

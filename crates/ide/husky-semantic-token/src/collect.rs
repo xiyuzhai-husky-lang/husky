@@ -70,7 +70,7 @@ fn token_to_semantic_token(
         TokenInfo::Method => SemanticToken::Method,
         TokenInfo::BoxColon | TokenInfo::BoxPrefix => {
             SemanticToken::Entity(EntityKind::ModuleItem {
-                module_item_kind: ModuleItemKind::Type(TypeKind::Alien),
+                module_item_kind: ModuleItemKind::Type(TypeKind::Extern),
                 connection: ModuleItemConnectionKind::Connected,
             })
         }
