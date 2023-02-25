@@ -234,7 +234,7 @@ impl<'a> EntityTreePresheetBuilder<'a> {
                 }
             }
             Ast::Err { .. }
-            | Ast::Extern { .. }
+            | Ast::Attr { .. }
             | Ast::Decr { .. }
             | Ast::BasicStmtOrBranch { .. }
             | Ast::IfElseStmts { .. }
