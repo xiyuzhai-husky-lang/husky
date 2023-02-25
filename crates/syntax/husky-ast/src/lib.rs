@@ -39,11 +39,13 @@ pub enum Ast {
     Use {
         token_group_idx: TokenGroupIdx,
     },
-    /// specify how to link with extern language
-    Extern {
+    /// specify internal attributes
+    /// doesn't need to be processed until comptime
+    Attr {
         token_group_idx: TokenGroupIdx,
     },
     /// decoration, used for deriving trait implementations, etc.
+    /// needs to be processed before inference
     Decr {
         token_group_idx: TokenGroupIdx,
     },
