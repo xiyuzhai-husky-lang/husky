@@ -12,6 +12,7 @@ use crate::*;
 use husky_entity_path::AssociatedItemPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = DefnDb)]
 #[enum_class::from_variants]
 pub enum TraitItemDefn {
     Function(TraitAssociatedFunctionDefn),
@@ -29,17 +30,6 @@ impl TraitItemDefn {
         todo!()
     }
     pub fn expr_region(self, db: &dyn DefnDb) -> ExprRegion {
-        todo!()
-    }
-}
-
-impl<Db: DefnDb + ?Sized> salsa::DebugWithDb<Db> for TraitItemDefn {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
         todo!()
     }
 }

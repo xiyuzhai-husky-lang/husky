@@ -9,6 +9,7 @@ pub use unit::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = DefnDb)]
 #[enum_class::from_variants]
 pub enum VariantDefn {
     Unit(UnitVariantDefn),
@@ -22,17 +23,6 @@ impl VariantDefn {
     }
 
     pub fn path(self, db: &dyn DefnDb) -> VariantPath {
-        todo!()
-    }
-}
-
-impl<Db: DefnDb + ?Sized> salsa::DebugWithDb<Db> for VariantDefn {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
         todo!()
     }
 }
