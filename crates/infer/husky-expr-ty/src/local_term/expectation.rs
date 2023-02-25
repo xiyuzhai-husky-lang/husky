@@ -102,8 +102,8 @@ pub type LocalTermExpectationResult<T> = Result<T, LocalTermExpectationError>;
 pub enum OriginalLocalTermExpectationError {
     #[error("{term:?} {error}")]
     TermTypeError { term: Term, error: TypeError },
-    #[error("todo")]
-    Todo,
+    // #[error("todo")]
+    // Todo,
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]

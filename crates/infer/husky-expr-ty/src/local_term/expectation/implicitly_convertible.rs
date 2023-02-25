@@ -119,7 +119,7 @@ impl<'a> ExprTypeEngine<'a> {
         }
         // ad hoc
         Some(LocalTermExpectationResolvedOkM {
-            result: Err(OriginalLocalTermExpectationError::Todo.into()),
+            result: Err(todo!()),
             actions: vec![],
         })
     }
@@ -189,7 +189,7 @@ impl<'a> ExprTypeEngine<'a> {
                             Some(destination_ty_path) if destination_ty_path==ty_path =>(),
                             Some(destination_ty_path) /* if destination_ty_path!=ty_path */ => {
                                 return Some(LocalTermExpectationResolvedOkM {
-                                    result: Err(OriginalLocalTermExpectationError::Todo.into()),
+                                    result: Err(todo!()),
                                     actions: vec![],
                                 })
                             },
@@ -198,13 +198,13 @@ impl<'a> ExprTypeEngine<'a> {
                         let destination_arguments = &destination_expansion.arguments(self.db());
                         if arguments.len() != destination_arguments.len() {
                             return Some(LocalTermExpectationResolvedOkM {
-                                result: Err(OriginalLocalTermExpectationError::Todo.into()),
+                                result: Err(todo!()),
                                 actions: vec![],
                             });
                         };
                         // ad hoc
                         return Some(LocalTermExpectationResolvedOkM {
-                            result: Err(OriginalLocalTermExpectationError::Todo.into()),
+                            result: Err(todo!()),
                             actions: vec![],
                         });
                         let ty_path_variances = todo!();
@@ -215,7 +215,7 @@ impl<'a> ExprTypeEngine<'a> {
                         .map(|(argument, destination)| todo!())
                         .collect();
                         Some(LocalTermExpectationResolvedOkM {
-                            result: Err(OriginalLocalTermExpectationError::Todo.into()),
+                            result: Err(todo!()),
                             actions,
                         })
                     }

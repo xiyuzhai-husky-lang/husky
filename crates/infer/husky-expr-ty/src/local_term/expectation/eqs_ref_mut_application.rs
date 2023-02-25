@@ -59,7 +59,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Option<LocalTermExpectationResolvedOkM> {
         match expectee {
             LocalTerm::Resolved(expectee) => Some(LocalTermExpectationResolvedOkM {
-                result: Err(OriginalLocalTermExpectationError::Todo.into()),
+                result: Err(todo!()),
                 actions: vec![],
             }),
             LocalTerm::Unresolved(unresolved_expectee) => {
@@ -72,7 +72,7 @@ impl<'a> ExprTypeEngine<'a> {
                     }
                     UnresolvedTerm::TypeApplication { ty, arguments } => {
                         Some(LocalTermExpectationResolvedOkM {
-                            result: Err(OriginalLocalTermExpectationError::Todo.into()),
+                            result: Err(todo!()),
                             actions: vec![],
                         })
                     }
@@ -85,7 +85,7 @@ impl<'a> ExprTypeEngine<'a> {
 // LocalTermExpectationRuleVariant::RefMut { lifetime } => {
 //     // ad hoc
 //     LocalTermExpectationResolveProgress::Resolved(LocalTermExpectationResolvedOk::Err(
-//         OriginalLocalTermExpectationError::Todo.into(),
+//         todo!(),
 //     ))
 // }
 
@@ -100,7 +100,7 @@ impl<'a> ExprTypeEngine<'a> {
 //         UnresolvedTerm::TypeApplication { ty, arguments } => {
 //             LocalTermExpectationResolveProgress::Resolved(
 //                 LocalTermExpectationResolvedOk::Err(
-//                     OriginalLocalTermExpectationError::Todo.into(),
+//                     todo!(),
 //                 ),
 //             )
 //         }

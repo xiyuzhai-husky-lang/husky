@@ -158,9 +158,6 @@ impl Diagnose for (ExprIdx, &'_ OriginalLocalTermExpectationError) {
             OriginalLocalTermExpectationError::TermTypeError { term, error } => {
                 format!("Type Error: {error} in term {}", term.display(ctx.db()))
             }
-            OriginalLocalTermExpectationError::Todo => {
-                format!("OriginalLocalTermExpectationError::Todo: todo")
-            }
         }
     }
 

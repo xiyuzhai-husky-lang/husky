@@ -61,6 +61,7 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
+    /// resolve the expectation that a resolved ty is equal to a ritchie call type
     fn res_to(&self, expectee: ReducedTerm) -> Option<LocalTermExpectationResolvedOkM> {
         match expectee.term() {
             Term::Literal(_) => todo!(),
@@ -68,13 +69,13 @@ impl<'a> ExprTypeEngine<'a> {
             Term::Entity(_) => todo!(),
             Term::Category(_) => Some(LocalTermExpectationResolvedOkM {
                 // ad hoc
-                result: Err(OriginalLocalTermExpectationError::Todo.into()),
+                result: Err(todo!()),
                 actions: vec![],
             }),
             Term::Universe(_) => todo!(),
             Term::Curry(_) => Some(LocalTermExpectationResolvedOkM {
                 // ad hoc
-                result: Err(OriginalLocalTermExpectationError::Todo.into()),
+                result: Err(todo!()),
                 actions: vec![],
             }),
             Term::Ritchie(term) => {
