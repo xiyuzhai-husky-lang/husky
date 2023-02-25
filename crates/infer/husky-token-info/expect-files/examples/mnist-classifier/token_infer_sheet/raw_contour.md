@@ -1260,7 +1260,15 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 241,
+                            },
+                        ),
+                    ),
+                },
                 expr_region: ExprRegion(
                     Id {
                         value: 374,
@@ -1299,7 +1307,15 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 242,
+                            },
+                        ),
+                    ),
+                },
                 expr_region: ExprRegion(
                     Id {
                         value: 374,
@@ -1483,7 +1499,15 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 256,
+                            },
+                        ),
+                    ),
+                },
                 expr_region: ExprRegion(
                     Id {
                         value: 362,
@@ -1494,7 +1518,15 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 206,
+                            },
+                        ),
+                    ),
+                },
                 expr_region: ExprRegion(
                     Id {
                         value: 362,
@@ -1603,7 +1635,15 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 256,
+                            },
+                        ),
+                    ),
+                },
                 expr_region: ExprRegion(
                     Id {
                         value: 363,
@@ -1613,7 +1653,15 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 206,
+                            },
+                        ),
+                    ),
+                },
                 expr_region: ExprRegion(
                     Id {
                         value: 363,
@@ -1719,7 +1767,15 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 256,
+                            },
+                        ),
+                    ),
+                },
                 expr_region: ExprRegion(
                     Id {
                         value: 364,
@@ -1730,7 +1786,15 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 206,
+                            },
+                        ),
+                    ),
+                },
                 expr_region: ExprRegion(
                     Id {
                         value: 364,
@@ -1894,7 +1958,15 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 260,
+                            },
+                        ),
+                    ),
+                },
                 expr_region: ExprRegion(
                     Id {
                         value: 365,
@@ -1904,7 +1976,15 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 2,
-                inherited_symbol_kind: RegularParameter,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 206,
+                            },
+                        ),
+                    ),
+                },
                 expr_region: ExprRegion(
                     Id {
                         value: 365,
@@ -1942,7 +2022,15 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 261,
+                            },
+                        ),
+                    ),
+                },
                 expr_region: ExprRegion(
                     Id {
                         value: 365,
@@ -1952,7 +2040,15 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 2,
-                inherited_symbol_kind: RegularParameter,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 206,
+                            },
+                        ),
+                    ),
+                },
                 expr_region: ExprRegion(
                     Id {
                         value: 365,
@@ -2180,7 +2276,15 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 268,
+                            },
+                        ),
+                    ),
+                },
                 expr_region: ExprRegion(
                     Id {
                         value: 366,
@@ -2207,7 +2311,15 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 267,
+                            },
+                        ),
+                    ),
+                },
                 expr_region: ExprRegion(
                     Id {
                         value: 366,
@@ -2455,7 +2567,15 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 260,
+                            },
+                        ),
+                    ),
+                },
                 expr_region: ExprRegion(
                     Id {
                         value: 367,
@@ -2465,7 +2585,15 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 2,
-                inherited_symbol_kind: RegularParameter,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 206,
+                            },
+                        ),
+                    ),
+                },
                 expr_region: ExprRegion(
                     Id {
                         value: 367,
@@ -2503,7 +2631,15 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 261,
+                            },
+                        ),
+                    ),
+                },
                 expr_region: ExprRegion(
                     Id {
                         value: 367,
@@ -2513,7 +2649,15 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 2,
-                inherited_symbol_kind: RegularParameter,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 206,
+                            },
+                        ),
+                    ),
+                },
                 expr_region: ExprRegion(
                     Id {
                         value: 367,
@@ -2848,7 +2992,15 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 192,
+                            },
+                        ),
+                    ),
+                },
                 expr_region: ExprRegion(
                     Id {
                         value: 368,
@@ -2874,7 +3026,15 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 192,
+                            },
+                        ),
+                    ),
+                },
                 expr_region: ExprRegion(
                     Id {
                         value: 368,
@@ -2911,7 +3071,15 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 192,
+                            },
+                        ),
+                    ),
+                },
                 expr_region: ExprRegion(
                     Id {
                         value: 368,
@@ -3163,7 +3331,15 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 223,
+                            },
+                        ),
+                    ),
+                },
                 expr_region: ExprRegion(
                     Id {
                         value: 369,
@@ -3202,7 +3378,15 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 223,
+                            },
+                        ),
+                    ),
+                },
                 expr_region: ExprRegion(
                     Id {
                         value: 369,
@@ -3561,7 +3745,15 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 223,
+                            },
+                        ),
+                    ),
+                },
                 expr_region: ExprRegion(
                     Id {
                         value: 369,
@@ -3601,7 +3793,15 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 223,
+                            },
+                        ),
+                    ),
+                },
                 expr_region: ExprRegion(
                     Id {
                         value: 369,
@@ -4710,7 +4910,15 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 223,
+                            },
+                        ),
+                    ),
+                },
                 expr_region: ExprRegion(
                     Id {
                         value: 369,

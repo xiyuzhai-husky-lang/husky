@@ -172,22 +172,22 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `line_segment_sketch`,
                                                         access_start: TokenIdx(
                                                             23,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::RegularParameter {
+                                                            ident: `line_segment_sketch`,
                                                             pattern_symbol_idx: 0,
                                                         },
                                                     },
                                                     CurrentSymbol {
-                                                        ident: `index`,
                                                         access_start: TokenIdx(
                                                             27,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::RegularParameter {
+                                                            ident: `index`,
                                                             pattern_symbol_idx: 1,
                                                         },
                                                     },

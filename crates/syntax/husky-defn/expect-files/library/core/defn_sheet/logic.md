@@ -169,13 +169,12 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
-                                                            ident: `P`,
                                                             access_start: TokenIdx(
                                                                 9,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::ImplicitParameter {
-                                                                implicit_parameter_variant: ImplicitParameterVariant::Type {
+                                                                implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                     ident_token: IdentifierToken {
                                                                         ident: `P`,
                                                                         token_idx: TokenIdx(
@@ -186,13 +185,12 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
-                                                            ident: `Q`,
                                                             access_start: TokenIdx(
                                                                 13,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::ImplicitParameter {
-                                                                implicit_parameter_variant: ImplicitParameterVariant::Type {
+                                                                implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                     ident_token: IdentifierToken {
                                                                         ident: `Q`,
                                                                         token_idx: TokenIdx(
@@ -412,13 +410,12 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
-                                                            ident: `P`,
                                                             access_start: TokenIdx(
                                                                 31,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::ImplicitParameter {
-                                                                implicit_parameter_variant: ImplicitParameterVariant::Type {
+                                                                implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                     ident_token: IdentifierToken {
                                                                         ident: `P`,
                                                                         token_idx: TokenIdx(
@@ -429,13 +426,12 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
-                                                            ident: `Q`,
                                                             access_start: TokenIdx(
                                                                 35,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::ImplicitParameter {
-                                                                implicit_parameter_variant: ImplicitParameterVariant::Type {
+                                                                implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                     ident_token: IdentifierToken {
                                                                         ident: `Q`,
                                                                         token_idx: TokenIdx(

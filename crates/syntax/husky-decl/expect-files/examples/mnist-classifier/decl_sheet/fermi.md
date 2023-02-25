@@ -513,22 +513,22 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `concave_components`,
                                                         access_start: TokenIdx(
                                                             149,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::RegularParameter {
+                                                            ident: `concave_components`,
                                                             pattern_symbol_idx: 0,
                                                         },
                                                     },
                                                     CurrentSymbol {
-                                                        ident: `templates`,
                                                         access_start: TokenIdx(
                                                             156,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::RegularParameter {
+                                                            ident: `templates`,
                                                             pattern_symbol_idx: 1,
                                                         },
                                                     },

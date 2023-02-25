@@ -22,10 +22,10 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for RegularParameterDeclPattern
                 .iter()
                 .map(|(ident, pattern_symbol_idx)| {
                     CurrentSymbol::new(
-                        *ident,
                         access_start,
                         None,
                         CurrentSymbolVariant::RegularParameter {
+                            ident: *ident,
                             pattern_symbol_idx: *pattern_symbol_idx,
                         },
                     )

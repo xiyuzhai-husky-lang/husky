@@ -345,12 +345,12 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `cc`,
                                                         access_start: TokenIdx(
                                                             213,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::RegularParameter {
+                                                            ident: `cc`,
                                                             pattern_symbol_idx: 0,
                                                         },
                                                     },
@@ -573,12 +573,12 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `cc`,
                                                         access_start: TokenIdx(
                                                             247,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::RegularParameter {
+                                                            ident: `cc`,
                                                             pattern_symbol_idx: 0,
                                                         },
                                                     },
@@ -801,12 +801,12 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `cc`,
                                                         access_start: TokenIdx(
                                                             281,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::RegularParameter {
+                                                            ident: `cc`,
                                                             pattern_symbol_idx: 0,
                                                         },
                                                     },

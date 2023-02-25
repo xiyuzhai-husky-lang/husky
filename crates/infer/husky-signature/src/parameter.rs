@@ -35,7 +35,15 @@ impl ImplicitParameterSignature {
                 }
             }
             ImplicitParameterDeclPatternVariant::Constant { .. } => todo!(),
-            ImplicitParameterDeclPatternVariant::Lifetime { .. } => todo!(),
+            ImplicitParameterDeclPatternVariant::Lifetime { .. } => {
+                ImplicitParameterSignature {
+                    term_symbol: region.current_symbol_term(symbol).expect("not none"),
+                    ty: term_menu.lifetime_ty().into(),
+                    // ad hoc
+                    traits: vec![],
+                    annotated_variance,
+                }
+            }
             ImplicitParameterDeclPatternVariant::Binding { .. } => todo!(),
         }
     }

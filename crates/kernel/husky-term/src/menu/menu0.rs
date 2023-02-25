@@ -293,6 +293,7 @@ impl TermMenu0 {
         self.static_lifetime.into()
     }
 
+    /// Lifetime
     pub fn lifetime_ty(&self) -> Term {
         self.lifetime_ty
     }

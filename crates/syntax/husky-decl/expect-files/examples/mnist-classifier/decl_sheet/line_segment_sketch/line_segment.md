@@ -860,12 +860,12 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
-                                                            ident: `pt`,
                                                             access_start: TokenIdx(
                                                                 43,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `pt`,
                                                                 pattern_symbol_idx: 0,
                                                             },
                                                         },

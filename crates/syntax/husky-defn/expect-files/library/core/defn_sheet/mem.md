@@ -53,11 +53,56 @@ Ok(
                                                     data: [],
                                                 },
                                                 current_symbol_arena: Arena {
-                                                    data: [],
+                                                    data: [
+                                                        CurrentSymbol {
+                                                            access_start: TokenIdx(
+                                                                6,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSymbolVariant::ImplicitParameter {
+                                                                implicit_parameter_variant: CurrentImplicitParameterSymbol::Lifetime {
+                                                                    label_token: LifetimeLabelToken {
+                                                                        label: Label {
+                                                                            ident: Identifier(
+                                                                                Word(
+                                                                                    Id {
+                                                                                        value: 28,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            kind: AllNonGreek,
+                                                                        },
+                                                                        token_idx: TokenIdx(
+                                                                            5,
+                                                                        ),
+                                                                    },
+                                                                },
+                                                            },
+                                                        },
+                                                        CurrentSymbol {
+                                                            access_start: TokenIdx(
+                                                                9,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSymbolVariant::ImplicitParameter {
+                                                                implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                                    ident_token: IdentifierToken {
+                                                                        ident: `E`,
+                                                                        token_idx: TokenIdx(
+                                                                            8,
+                                                                        ),
+                                                                    },
+                                                                },
+                                                            },
+                                                        },
+                                                    ],
                                                 },
                                                 allow_self_type: True,
                                                 allow_self_value: False,
-                                                pattern_ty_constraints: [],
+                                                pattern_ty_constraints: [
+                                                    ImplicitTypeParameter,
+                                                    ImplicitTypeParameter,
+                                                ],
                                             },
                                             roots: [],
                                         },
@@ -70,27 +115,84 @@ Ok(
                                                         3,
                                                     ),
                                                 ),
-                                                implicit_parameters: [],
-                                                commas: [],
-                                                decl_list_result: Err(
-                                                    Original(
-                                                        ExpectImplicitParameterDecl(
-                                                            TokenIdx(
-                                                                4,
+                                                implicit_parameters: [
+                                                    ImplicitParameterDecl {
+                                                        pattern: ImplicitParameterDeclPattern {
+                                                            annotated_variance_token: Some(
+                                                                Covariant(
+                                                                    CovariantToken {
+                                                                        token_idx: TokenIdx(
+                                                                            4,
+                                                                        ),
+                                                                    },
+                                                                ),
                                                             ),
+                                                            symbol: 0,
+                                                            variant: Lifetime {
+                                                                label_token: LifetimeLabelToken {
+                                                                    label: Label {
+                                                                        ident: Identifier(
+                                                                            Word(
+                                                                                Id {
+                                                                                    value: 28,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        kind: AllNonGreek,
+                                                                    },
+                                                                    token_idx: TokenIdx(
+                                                                        5,
+                                                                    ),
+                                                                },
+                                                            },
+                                                        },
+                                                        traits: None,
+                                                    },
+                                                    ImplicitParameterDecl {
+                                                        pattern: ImplicitParameterDeclPattern {
+                                                            annotated_variance_token: Some(
+                                                                Covariant(
+                                                                    CovariantToken {
+                                                                        token_idx: TokenIdx(
+                                                                            7,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            symbol: 1,
+                                                            variant: Type0 {
+                                                                ident_token: IdentifierToken {
+                                                                    ident: Identifier(
+                                                                        Word(
+                                                                            Id {
+                                                                                value: 29,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                    token_idx: TokenIdx(
+                                                                        8,
+                                                                    ),
+                                                                },
+                                                            },
+                                                        },
+                                                        traits: None,
+                                                    },
+                                                ],
+                                                commas: [
+                                                    CommaToken(
+                                                        TokenIdx(
+                                                            6,
                                                         ),
                                                     ),
+                                                ],
+                                                decl_list_result: Ok(
+                                                    (),
                                                 ),
-                                                rangle: Err(
-                                                    Original(
-                                                        ExpectRightAngleBracketForImplicitParameterDeclList {
-                                                            langle_token_idx: TokenIdx(
-                                                                3,
-                                                            ),
-                                                            current_token_idx: TokenIdx(
-                                                                4,
-                                                            ),
-                                                        },
+                                                rangle: Ok(
+                                                    RightAngleBracketToken(
+                                                        TokenIdx(
+                                                            9,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -154,11 +256,56 @@ Ok(
                                                     data: [],
                                                 },
                                                 current_symbol_arena: Arena {
-                                                    data: [],
+                                                    data: [
+                                                        CurrentSymbol {
+                                                            access_start: TokenIdx(
+                                                                17,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSymbolVariant::ImplicitParameter {
+                                                                implicit_parameter_variant: CurrentImplicitParameterSymbol::Lifetime {
+                                                                    label_token: LifetimeLabelToken {
+                                                                        label: Label {
+                                                                            ident: Identifier(
+                                                                                Word(
+                                                                                    Id {
+                                                                                        value: 28,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            kind: AllNonGreek,
+                                                                        },
+                                                                        token_idx: TokenIdx(
+                                                                            16,
+                                                                        ),
+                                                                    },
+                                                                },
+                                                            },
+                                                        },
+                                                        CurrentSymbol {
+                                                            access_start: TokenIdx(
+                                                                20,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSymbolVariant::ImplicitParameter {
+                                                                implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                                    ident_token: IdentifierToken {
+                                                                        ident: `E`,
+                                                                        token_idx: TokenIdx(
+                                                                            19,
+                                                                        ),
+                                                                    },
+                                                                },
+                                                            },
+                                                        },
+                                                    ],
                                                 },
                                                 allow_self_type: True,
                                                 allow_self_value: False,
-                                                pattern_ty_constraints: [],
+                                                pattern_ty_constraints: [
+                                                    ImplicitTypeParameter,
+                                                    ImplicitTypeParameter,
+                                                ],
                                             },
                                             roots: [],
                                         },
@@ -171,27 +318,84 @@ Ok(
                                                         14,
                                                     ),
                                                 ),
-                                                implicit_parameters: [],
-                                                commas: [],
-                                                decl_list_result: Err(
-                                                    Original(
-                                                        ExpectImplicitParameterDecl(
-                                                            TokenIdx(
-                                                                15,
+                                                implicit_parameters: [
+                                                    ImplicitParameterDecl {
+                                                        pattern: ImplicitParameterDeclPattern {
+                                                            annotated_variance_token: Some(
+                                                                Covariant(
+                                                                    CovariantToken {
+                                                                        token_idx: TokenIdx(
+                                                                            15,
+                                                                        ),
+                                                                    },
+                                                                ),
                                                             ),
+                                                            symbol: 0,
+                                                            variant: Lifetime {
+                                                                label_token: LifetimeLabelToken {
+                                                                    label: Label {
+                                                                        ident: Identifier(
+                                                                            Word(
+                                                                                Id {
+                                                                                    value: 28,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        kind: AllNonGreek,
+                                                                    },
+                                                                    token_idx: TokenIdx(
+                                                                        16,
+                                                                    ),
+                                                                },
+                                                            },
+                                                        },
+                                                        traits: None,
+                                                    },
+                                                    ImplicitParameterDecl {
+                                                        pattern: ImplicitParameterDeclPattern {
+                                                            annotated_variance_token: Some(
+                                                                Invariant(
+                                                                    InvariantToken {
+                                                                        token_idx: TokenIdx(
+                                                                            18,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            symbol: 1,
+                                                            variant: Type0 {
+                                                                ident_token: IdentifierToken {
+                                                                    ident: Identifier(
+                                                                        Word(
+                                                                            Id {
+                                                                                value: 29,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                    token_idx: TokenIdx(
+                                                                        19,
+                                                                    ),
+                                                                },
+                                                            },
+                                                        },
+                                                        traits: None,
+                                                    },
+                                                ],
+                                                commas: [
+                                                    CommaToken(
+                                                        TokenIdx(
+                                                            17,
                                                         ),
                                                     ),
+                                                ],
+                                                decl_list_result: Ok(
+                                                    (),
                                                 ),
-                                                rangle: Err(
-                                                    Original(
-                                                        ExpectRightAngleBracketForImplicitParameterDeclList {
-                                                            langle_token_idx: TokenIdx(
-                                                                14,
-                                                            ),
-                                                            current_token_idx: TokenIdx(
-                                                                15,
-                                                            ),
-                                                        },
+                                                rangle: Ok(
+                                                    RightAngleBracketToken(
+                                                        TokenIdx(
+                                                            20,
+                                                        ),
                                                     ),
                                                 ),
                                             },

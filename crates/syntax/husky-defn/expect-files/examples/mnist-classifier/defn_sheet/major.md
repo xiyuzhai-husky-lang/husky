@@ -912,7 +912,6 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `i0`,
                                                         access_start: TokenIdx(
                                                             51,
                                                         ),
@@ -924,11 +923,11 @@ Ok(
                                                             ),
                                                         ),
                                                         variant: CurrentSymbolVariant::LetVariable {
+                                                            ident: `i0`,
                                                             pattern_symbol_idx: 0,
                                                         },
                                                     },
                                                     CurrentSymbol {
-                                                        ident: `max_row_span_sum`,
                                                         access_start: TokenIdx(
                                                             56,
                                                         ),
@@ -940,11 +939,11 @@ Ok(
                                                             ),
                                                         ),
                                                         variant: CurrentSymbolVariant::LetVariable {
+                                                            ident: `max_row_span_sum`,
                                                             pattern_symbol_idx: 1,
                                                         },
                                                     },
                                                     CurrentSymbol {
-                                                        ident: `i`,
                                                         access_start: TokenIdx(
                                                             67,
                                                         ),
@@ -955,12 +954,12 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSymbolVariant::FrameVariable(
-                                                            3,
-                                                        ),
+                                                        variant: CurrentSymbolVariant::FrameVariable {
+                                                            ident: `i`,
+                                                            expr_idx: 3,
+                                                        },
                                                     },
                                                     CurrentSymbol {
-                                                        ident: `row_span_sum`,
                                                         access_start: TokenIdx(
                                                             69,
                                                         ),
@@ -972,6 +971,7 @@ Ok(
                                                             ),
                                                         ),
                                                         variant: CurrentSymbolVariant::LetVariable {
+                                                            ident: `row_span_sum`,
                                                             pattern_symbol_idx: 2,
                                                         },
                                                     },
@@ -1473,7 +1473,6 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `sum`,
                                                         access_start: TokenIdx(
                                                             101,
                                                         ),
@@ -1485,11 +1484,11 @@ Ok(
                                                             ),
                                                         ),
                                                         variant: CurrentSymbolVariant::LetVariable {
+                                                            ident: `sum`,
                                                             pattern_symbol_idx: 0,
                                                         },
                                                     },
                                                     CurrentSymbol {
-                                                        ident: `i`,
                                                         access_start: TokenIdx(
                                                             112,
                                                         ),
@@ -1500,9 +1499,10 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSymbolVariant::FrameVariable(
-                                                            2,
-                                                        ),
+                                                        variant: CurrentSymbolVariant::FrameVariable {
+                                                            ident: `i`,
+                                                            expr_idx: 2,
+                                                        },
                                                     },
                                                 ],
                                             },

@@ -94,11 +94,15 @@ impl<'a> SignatureTermEngine<'a> {
                 CurrentSymbolVariant::ImplicitParameter {
                     implicit_parameter_variant,
                 } => match implicit_parameter_variant {
-                    ImplicitParameterVariant::Type { .. } => Ok(self.term_menu.ty0().into()),
-                    ImplicitParameterVariant::Lifetime => todo!(),
+                    CurrentImplicitParameterSymbol::Type { .. } => Ok(self.term_menu.ty0().into()),
+                    CurrentImplicitParameterSymbol::Lifetime { .. } => {
+                        Ok(self.term_menu.lifetime_ty().into())
+                    }
                     _ => todo!(),
                 },
-                CurrentSymbolVariant::RegularParameter { pattern_symbol_idx } => {
+                CurrentSymbolVariant::RegularParameter {
+                    pattern_symbol_idx, ..
+                } => {
                     let pattern_symbol =
                         &self.expr_region_data.pattern_expr_region()[*pattern_symbol_idx];
                     match pattern_symbol {
@@ -116,7 +120,7 @@ impl<'a> SignatureTermEngine<'a> {
                     }
                 }
                 CurrentSymbolVariant::LetVariable { .. }
-                | CurrentSymbolVariant::FrameVariable(_) => return,
+                | CurrentSymbolVariant::FrameVariable { .. } => return,
             };
             self.term_symbol_region
                 .current_symbol_terms

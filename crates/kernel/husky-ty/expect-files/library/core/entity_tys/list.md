@@ -5,10 +5,8 @@
                 TypePath(`core::list::List`, `Alien`),
             ),
         ),
-        Err(
-            Derived(
-                SignatureError,
-            ),
+        Ok(
+            Term(`covariant Type -> Type`),
         ),
     ),
 ]

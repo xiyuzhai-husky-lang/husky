@@ -22,10 +22,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 .iter()
                 .map(|(ident, pattern_symbol)| {
                     CurrentSymbol::new(
-                        *ident,
                         access_start,
                         Some(access_end),
                         CurrentSymbolVariant::LetVariable {
+                            ident: *ident,
                             pattern_symbol_idx: *pattern_symbol,
                         },
                     )

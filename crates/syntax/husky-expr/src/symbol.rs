@@ -19,7 +19,6 @@ pub enum Symbol {
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprDb)]
 pub struct InheritedSymbol {
-    ident: Identifier,
     parent_symbol_idx: ParentSymbolIdx,
     kind: InheritedSymbolKind,
 }
@@ -33,22 +32,33 @@ impl InheritedSymbol {
         self.parent_symbol_idx
     }
 
-    pub fn ident(&self) -> Identifier {
-        self.ident
+    pub fn ident(&self) -> Option<Identifier> {
+        match self.kind {
+            InheritedSymbolKind::ImplicitParameter(kind) => match kind {
+                InheritedImplicitParameterSymbol::Lifetime { label } => None,
+                InheritedImplicitParameterSymbol::Type { ident } => Some(ident),
+            },
+            InheritedSymbolKind::RegularParameter { ident } => Some(ident),
+        }
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum InheritedSymbolKind {
-    ImplicitParameter,
-    RegularParameter,
+    ImplicitParameter(InheritedImplicitParameterSymbol),
+    RegularParameter { ident: Identifier },
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum InheritedImplicitParameterSymbol {
+    Lifetime { label: Label },
+    Type { ident: Identifier },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = ExprDb)]
 pub struct CurrentSymbol {
-    ident: Identifier,
     access_start: TokenIdx,
     /// this is none only for lambda variable
     access_end: Option<TokenIdxRangeEnd>,
@@ -57,13 +67,11 @@ pub struct CurrentSymbol {
 
 impl CurrentSymbol {
     pub fn new(
-        ident: Identifier,
         access_start: TokenIdx,
         access_end: Option<TokenIdxRangeEnd>,
         variant: CurrentSymbolVariant,
     ) -> Self {
         Self {
-            ident,
             access_start,
             access_end,
             variant,
@@ -77,13 +85,31 @@ impl CurrentSymbol {
     pub fn variant(&self) -> &CurrentSymbolVariant {
         &self.variant
     }
+
+    pub fn ident(&self) -> Option<Identifier> {
+        match self.variant {
+            CurrentSymbolVariant::ImplicitParameter {
+                implicit_parameter_variant: CurrentImplicitParameterSymbol::Type { ident_token },
+            } => Some(ident_token.ident()),
+            CurrentSymbolVariant::RegularParameter { ident, .. }
+            | CurrentSymbolVariant::LetVariable { ident, .. }
+            | CurrentSymbolVariant::FrameVariable { ident, .. } => Some(ident),
+            CurrentSymbolVariant::ImplicitParameter {
+                implicit_parameter_variant: CurrentImplicitParameterSymbol::Lifetime { .. },
+            } => None,
+        }
+    }
+
+    pub fn label(&self) -> Option<Label> {
+        todo!()
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum CurrentSymbolKind {
     ImplicitParameter {
-        implicit_parameter_kind: ImplicitParameterKind,
+        implicit_parameter_kind: CurrentImplicitParameterSymbolKind,
     },
     Parameter {
         pattern_symbol_idx: PatternSymbolIdx,
@@ -96,31 +122,54 @@ pub enum CurrentSymbolKind {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = ExprDb)]
-pub enum ImplicitParameterKind {
+pub enum CurrentImplicitParameterSymbolKind {
     Type { ident_token: IdentifierToken },
+    Lifetime { label_token: LifetimeLabelToken },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum CurrentSymbolVariant {
     ImplicitParameter {
-        implicit_parameter_variant: ImplicitParameterVariant,
+        implicit_parameter_variant: CurrentImplicitParameterSymbol,
     },
     RegularParameter {
+        ident: Identifier,
         pattern_symbol_idx: PatternSymbolIdx,
     },
     LetVariable {
+        ident: Identifier,
         pattern_symbol_idx: PatternSymbolIdx,
     },
-    FrameVariable(ExprIdx),
+    FrameVariable {
+        ident: Identifier,
+        expr_idx: ExprIdx,
+    },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = ExprDb)]
 #[non_exhaustive]
-pub enum ImplicitParameterVariant {
-    Lifetime,
+pub enum CurrentImplicitParameterSymbol {
+    Lifetime { label_token: LifetimeLabelToken },
     Type { ident_token: IdentifierToken },
+}
+
+impl CurrentImplicitParameterSymbol {
+    fn bequeath(&self) -> InheritedImplicitParameterSymbol {
+        match self {
+            CurrentImplicitParameterSymbol::Lifetime { label_token } => {
+                InheritedImplicitParameterSymbol::Lifetime {
+                    label: label_token.label(),
+                }
+            }
+            CurrentImplicitParameterSymbol::Type { ident_token } => {
+                InheritedImplicitParameterSymbol::Type {
+                    ident: ident_token.ident(),
+                }
+            }
+        }
+    }
 }
 
 impl CurrentSymbolVariant {
@@ -131,30 +180,36 @@ impl CurrentSymbolVariant {
             } => CurrentSymbolKind::ImplicitParameter {
                 implicit_parameter_kind: implicit_parameter_variant.kind(),
             },
-            CurrentSymbolVariant::RegularParameter { pattern_symbol_idx } => {
-                CurrentSymbolKind::Parameter {
-                    pattern_symbol_idx: *pattern_symbol_idx,
-                }
-            }
-            CurrentSymbolVariant::LetVariable { pattern_symbol_idx } => {
-                CurrentSymbolKind::LetVariable {
-                    pattern_symbol_idx: *pattern_symbol_idx,
-                }
-            }
-            CurrentSymbolVariant::FrameVariable(variable_idx) => {
-                CurrentSymbolKind::FrameVariable(*variable_idx)
+            CurrentSymbolVariant::RegularParameter {
+                pattern_symbol_idx, ..
+            } => CurrentSymbolKind::Parameter {
+                pattern_symbol_idx: *pattern_symbol_idx,
+            },
+            CurrentSymbolVariant::LetVariable {
+                pattern_symbol_idx, ..
+            } => CurrentSymbolKind::LetVariable {
+                pattern_symbol_idx: *pattern_symbol_idx,
+            },
+            CurrentSymbolVariant::FrameVariable { expr_idx, .. } => {
+                CurrentSymbolKind::FrameVariable(*expr_idx)
             }
         }
     }
 }
 
-impl ImplicitParameterVariant {
-    fn kind(&self) -> ImplicitParameterKind {
+impl CurrentImplicitParameterSymbol {
+    fn kind(&self) -> CurrentImplicitParameterSymbolKind {
         match self {
-            ImplicitParameterVariant::Type { ident_token } => ImplicitParameterKind::Type {
-                ident_token: *ident_token,
-            },
-            ImplicitParameterVariant::Lifetime => todo!(),
+            CurrentImplicitParameterSymbol::Type { ident_token } => {
+                CurrentImplicitParameterSymbolKind::Type {
+                    ident_token: *ident_token,
+                }
+            }
+            CurrentImplicitParameterSymbol::Lifetime { label_token } => {
+                CurrentImplicitParameterSymbolKind::Lifetime {
+                    label_token: *label_token,
+                }
+            }
         }
     }
 }

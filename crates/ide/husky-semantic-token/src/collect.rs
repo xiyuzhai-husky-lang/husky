@@ -60,8 +60,8 @@ fn token_to_semantic_token(
             inherited_symbol_kind,
             ..
         } => match inherited_symbol_kind {
-            InheritedSymbolKind::RegularParameter => SemanticToken::Parameter,
-            InheritedSymbolKind::ImplicitParameter => SemanticToken::ImplicitParameter,
+            InheritedSymbolKind::RegularParameter { .. } => SemanticToken::Parameter,
+            InheritedSymbolKind::ImplicitParameter { .. } => SemanticToken::ImplicitParameter,
         },
         TokenInfo::SelfType => todo!(),
         TokenInfo::SelfValue => SemanticToken::Variable,

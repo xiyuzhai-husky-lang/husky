@@ -54,13 +54,12 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `Rhs`,
                                                         access_start: TokenIdx(
                                                             12,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
-                                                            implicit_parameter_variant: ImplicitParameterVariant::Type {
+                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentifierToken {
                                                                     ident: `Rhs`,
                                                                     token_idx: TokenIdx(
@@ -184,13 +183,12 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `Rhs`,
                                                         access_start: TokenIdx(
                                                             41,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
-                                                            implicit_parameter_variant: ImplicitParameterVariant::Type {
+                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentifierToken {
                                                                     ident: `Rhs`,
                                                                     token_idx: TokenIdx(
@@ -314,13 +312,12 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `Rhs`,
                                                         access_start: TokenIdx(
                                                             70,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
-                                                            implicit_parameter_variant: ImplicitParameterVariant::Type {
+                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentifierToken {
                                                                     ident: `Rhs`,
                                                                     token_idx: TokenIdx(
@@ -444,13 +441,12 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `Rhs`,
                                                         access_start: TokenIdx(
                                                             99,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
-                                                            implicit_parameter_variant: ImplicitParameterVariant::Type {
+                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentifierToken {
                                                                     ident: `Rhs`,
                                                                     token_idx: TokenIdx(
@@ -574,13 +570,12 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `Rhs`,
                                                         access_start: TokenIdx(
                                                             124,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
-                                                            implicit_parameter_variant: ImplicitParameterVariant::Type {
+                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentifierToken {
                                                                     ident: `Rhs`,
                                                                     token_idx: TokenIdx(
@@ -704,13 +699,12 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `Rhs`,
                                                         access_start: TokenIdx(
                                                             153,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
-                                                            implicit_parameter_variant: ImplicitParameterVariant::Type {
+                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentifierToken {
                                                                     ident: `Rhs`,
                                                                     token_idx: TokenIdx(
@@ -834,13 +828,12 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `Rhs`,
                                                         access_start: TokenIdx(
                                                             178,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
-                                                            implicit_parameter_variant: ImplicitParameterVariant::Type {
+                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentifierToken {
                                                                     ident: `Rhs`,
                                                                     token_idx: TokenIdx(
@@ -964,13 +957,12 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `Rhs`,
                                                         access_start: TokenIdx(
                                                             207,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
-                                                            implicit_parameter_variant: ImplicitParameterVariant::Type {
+                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentifierToken {
                                                                     ident: `Rhs`,
                                                                     token_idx: TokenIdx(
@@ -1094,13 +1086,12 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `Rhs`,
                                                         access_start: TokenIdx(
                                                             232,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
-                                                            implicit_parameter_variant: ImplicitParameterVariant::Type {
+                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentifierToken {
                                                                     ident: `Rhs`,
                                                                     token_idx: TokenIdx(
@@ -1224,13 +1215,12 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `Rhs`,
                                                         access_start: TokenIdx(
                                                             261,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
-                                                            implicit_parameter_variant: ImplicitParameterVariant::Type {
+                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentifierToken {
                                                                     ident: `Rhs`,
                                                                     token_idx: TokenIdx(
@@ -1354,13 +1344,12 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `Rhs`,
                                                         access_start: TokenIdx(
                                                             286,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
-                                                            implicit_parameter_variant: ImplicitParameterVariant::Type {
+                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentifierToken {
                                                                     ident: `Rhs`,
                                                                     token_idx: TokenIdx(
@@ -1484,13 +1473,12 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `Rhs`,
                                                         access_start: TokenIdx(
                                                             315,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
-                                                            implicit_parameter_variant: ImplicitParameterVariant::Type {
+                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentifierToken {
                                                                     ident: `Rhs`,
                                                                     token_idx: TokenIdx(
@@ -1750,13 +1738,12 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `Rhs`,
                                                         access_start: TokenIdx(
                                                             388,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
-                                                            implicit_parameter_variant: ImplicitParameterVariant::Type {
+                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentifierToken {
                                                                     ident: `Rhs`,
                                                                     token_idx: TokenIdx(

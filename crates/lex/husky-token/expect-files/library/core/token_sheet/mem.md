@@ -26,16 +26,17 @@ Ok(
                     Covariant,
                 ),
             ),
-            AuxiliaryIdentifier(
-                AuxiliaryIdentifier(
-                    Identifier(
+            Label(
+                Label {
+                    ident: Identifier(
                         Word(
                             Id {
                                 value: 38,
                             },
                         ),
                     ),
-                ),
+                    kind: AllNonGreek,
+                },
             ),
             Punctuation(
                 Comma,
@@ -85,16 +86,17 @@ Ok(
                     Covariant,
                 ),
             ),
-            AuxiliaryIdentifier(
-                AuxiliaryIdentifier(
-                    Identifier(
+            Label(
+                Label {
+                    ident: Identifier(
                         Word(
                             Id {
                                 value: 38,
                             },
                         ),
                     ),
-                ),
+                    kind: AllNonGreek,
+                },
             ),
             Punctuation(
                 Comma,

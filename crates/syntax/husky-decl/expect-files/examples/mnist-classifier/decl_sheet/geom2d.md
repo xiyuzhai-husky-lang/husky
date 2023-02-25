@@ -1481,22 +1481,22 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
-                                                            ident: `i`,
                                                             access_start: TokenIdx(
                                                                 21,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `i`,
                                                                 pattern_symbol_idx: 0,
                                                             },
                                                         },
                                                         CurrentSymbol {
-                                                            ident: `shift`,
                                                             access_start: TokenIdx(
                                                                 25,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `shift`,
                                                                 pattern_symbol_idx: 1,
                                                             },
                                                         },
@@ -2142,12 +2142,12 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
-                                                            ident: `other`,
                                                             access_start: TokenIdx(
                                                                 70,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `other`,
                                                                 pattern_symbol_idx: 0,
                                                             },
                                                         },
@@ -2771,12 +2771,12 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
-                                                            ident: `other`,
                                                             access_start: TokenIdx(
                                                                 126,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `other`,
                                                                 pattern_symbol_idx: 0,
                                                             },
                                                         },
@@ -3525,12 +3525,12 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
-                                                            ident: `other`,
                                                             access_start: TokenIdx(
                                                                 194,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `other`,
                                                                 pattern_symbol_idx: 0,
                                                             },
                                                         },
@@ -4154,12 +4154,12 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
-                                                            ident: `other`,
                                                             access_start: TokenIdx(
                                                                 250,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `other`,
                                                                 pattern_symbol_idx: 0,
                                                             },
                                                         },
@@ -4508,12 +4508,12 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
-                                                            ident: `other`,
                                                             access_start: TokenIdx(
                                                                 275,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `other`,
                                                                 pattern_symbol_idx: 0,
                                                             },
                                                         },
@@ -4862,12 +4862,12 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
-                                                            ident: `is_branch_cut_positive`,
                                                             access_start: TokenIdx(
                                                                 300,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `is_branch_cut_positive`,
                                                                 pattern_symbol_idx: 0,
                                                             },
                                                         },
@@ -5216,12 +5216,12 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
-                                                            ident: `other`,
                                                             access_start: TokenIdx(
                                                                 369,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `other`,
                                                                 pattern_symbol_idx: 0,
                                                             },
                                                         },
@@ -5616,22 +5616,22 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
-                                                            ident: `other`,
                                                             access_start: TokenIdx(
                                                                 389,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `other`,
                                                                 pattern_symbol_idx: 0,
                                                             },
                                                         },
                                                         CurrentSymbol {
-                                                            ident: `is_branch_cut_positive`,
                                                             access_start: TokenIdx(
                                                                 393,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `is_branch_cut_positive`,
                                                                 pattern_symbol_idx: 1,
                                                             },
                                                         },
@@ -6179,12 +6179,12 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
-                                                            ident: `other`,
                                                             access_start: TokenIdx(
                                                                 616,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `other`,
                                                                 pattern_symbol_idx: 0,
                                                             },
                                                         },
@@ -6533,12 +6533,12 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
-                                                            ident: `point`,
                                                             access_start: TokenIdx(
                                                                 651,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `point`,
                                                                 pattern_symbol_idx: 0,
                                                             },
                                                         },

@@ -385,12 +385,12 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
-                                                        ident: `line_segment_sketch`,
                                                         access_start: TokenIdx(
                                                             519,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::RegularParameter {
+                                                            ident: `line_segment_sketch`,
                                                             pattern_symbol_idx: 0,
                                                         },
                                                     },
