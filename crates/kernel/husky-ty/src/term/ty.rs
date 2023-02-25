@@ -1,8 +1,10 @@
 use super::*;
 use husky_vfs::Toolchain;
 
-pub(crate) fn term_ty(
+#[inline(always)]
+pub fn term_ty(
     db: &dyn TypeDb,
+    context: TypeContext,
     reduced_term: ReducedTerm,
     toolchain: Toolchain,
     reduced_term_menu: ReducedTermMenu,
@@ -10,7 +12,7 @@ pub(crate) fn term_ty(
     match reduced_term.term() {
         Term::Literal(_) => todo!(),
         Term::Symbol(_) => todo!(),
-        Term::Entity(path) => entity_path_ty(db, path),
+        Term::Entity(path) => entity_path_ty(db, context, path),
         Term::Category(cat) => cat
             .ty()
             .map(Into::into)

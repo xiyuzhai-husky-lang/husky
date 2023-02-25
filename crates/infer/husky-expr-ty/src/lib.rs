@@ -1,4 +1,5 @@
 #![feature(trait_upcasting)]
+#![feature(const_trait_impl)]
 mod db;
 mod engine;
 mod error;

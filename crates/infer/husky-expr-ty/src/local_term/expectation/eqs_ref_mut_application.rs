@@ -9,6 +9,12 @@ pub(crate) struct ExpectEqsRefMutApplication {
     pub(crate) lifetime: LocalTerm,
 }
 
+impl const ProvideTypeContext for ExpectEqsRefMutApplication {
+    fn ty_context(&self) -> TypeContext {
+        Default::default()
+    }
+}
+
 impl ExpectLocalTerm for ExpectEqsRefMutApplication {
     type ResolvedOk = ExpectEqsRefMutApplicationResolvedOk;
 
