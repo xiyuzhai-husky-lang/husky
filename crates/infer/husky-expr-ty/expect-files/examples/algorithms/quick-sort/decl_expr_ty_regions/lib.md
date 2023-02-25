@@ -90,6 +90,12 @@
             LocalTerm::Resolved(
                 Term(`Slice $0`),
             ),
+            LocalTerm::Resolved(
+                Term(`core::num::isize`),
+            ),
+            LocalTerm::Resolved(
+                Term(`core::num::isize`),
+            ),
         ],
         local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
@@ -129,13 +135,43 @@
                 None,
                 Some(
                     ExprTypeInfo {
-                        ty_result: Err(
-                            Derived(
-                                ExprError,
+                        ty_result: Ok(
+                            Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
-                        expectation_rule_idx: None,
-                        resolve_progress: Unresolved,
+                        expectation_rule_idx: Some(
+                            0,
+                        ),
+                        resolve_progress: Expected(
+                            Resolved(
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     },
                 ),
             ],
@@ -159,6 +195,12 @@
             LocalTerm::Resolved(
                 Term(`Slice $0`),
             ),
+            LocalTerm::Resolved(
+                Term(`core::num::isize`),
+            ),
+            LocalTerm::Resolved(
+                Term(`core::num::isize`),
+            ),
         ],
         local_term_table: LocalTermTable {
             implicit_symbol_registry: ImplicitSymbolRegistry {
@@ -170,7 +212,46 @@
             },
             expectations: LocalTermExpectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        LocalTermExpectationEntry {
+                            src_expr_idx: 6,
+                            expectee: Resolved(
+                                ReducedTerm(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: InsSort {
+                                smallest_universe: TermUniverse(
+                                    0,
+                                ),
+                            },
+                            resolve_progress: Resolved(
+                                Ok(
+                                    InsSort(
+                                        ExpectInsSortResolvedOk {
+                                            destination: Resolved(
+                                                ReducedTerm(
+                                                    Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },

@@ -7,6 +7,18 @@ pub(crate) struct ExpectExplicitlyConvertible {
     pub(crate) destination: LocalTerm,
 }
 
+impl ExpectExplicitlyConvertible {
+    pub(in super::super) fn try_substitute_unresolved_local_term<'a>(
+        &self,
+        unresolved_terms: &'a UnresolvedTerms,
+    ) -> Result<Option<LocalTermExpectation>, &'a LocalTermResolveError> {
+        match unresolved_terms.try_substitute_local_term(self.destination)? {
+            Some(destination) => Ok(Some(ExpectExplicitlyConvertible { destination }.into())),
+            None => Ok(None),
+        }
+    }
+}
+
 #[derive(Debug, Clone, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) struct ExpectExplicitlyConvertibleResolvedOk {

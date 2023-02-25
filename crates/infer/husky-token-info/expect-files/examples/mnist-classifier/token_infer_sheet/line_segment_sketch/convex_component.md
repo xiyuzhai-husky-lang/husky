@@ -42,7 +42,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 40,
+                                    value: 42,
                                 },
                             ),
                         ),
@@ -67,44 +67,44 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 38,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            BoxPrefix,
-            None,
-            BoxPrefix,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 37,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
                                     value: 40,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            BoxPrefix,
+            None,
+            BoxPrefix,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 39,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 42,
                                 },
                             ),
                         ),

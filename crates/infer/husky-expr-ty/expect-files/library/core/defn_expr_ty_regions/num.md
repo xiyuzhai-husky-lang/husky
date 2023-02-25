@@ -178,6 +178,92 @@
                     impl_id: ImplId {
                         module_path: `core::num`,
                         impl_kind: ImplKind::Type {
+                            ty: TypePath(`core::num::i128`, `Extern`),
+                        },
+                        disambiguator: 0,
+                    },
+                    ident: `abs`,
+                },
+            ),
+        ),
+        expr_ty_infos: ArenaMap {
+            data: [],
+        },
+        expr_local_terms: ArenaMap {
+            data: [],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
+        local_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
+            },
+            expectations: LocalTermExpectations {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`core::num::i128`),
+        ),
+        self_ty: None,
+    },
+    ExprTypeRegion {
+        path: RegionPath::Defn(
+            DefnRegionPath::AssociatedItem(
+                AssociatedItemId {
+                    impl_id: ImplId {
+                        module_path: `core::num`,
+                        impl_kind: ImplKind::Type {
+                            ty: TypePath(`core::num::isize`, `Extern`),
+                        },
+                        disambiguator: 0,
+                    },
+                    ident: `abs`,
+                },
+            ),
+        ),
+        expr_ty_infos: ArenaMap {
+            data: [],
+        },
+        expr_local_terms: ArenaMap {
+            data: [],
+        },
+        inherited_symbol_tys: [],
+        current_symbol_tys: [],
+        local_term_table: LocalTermTable {
+            implicit_symbol_registry: ImplicitSymbolRegistry {
+                next: 0,
+            },
+            unresolved_terms: UnresolvedTerms {
+                arena: [],
+                first_unresolved_term: 0,
+            },
+            expectations: LocalTermExpectations {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            Term(`core::num::isize`),
+        ),
+        self_ty: None,
+    },
+    ExprTypeRegion {
+        path: RegionPath::Defn(
+            DefnRegionPath::AssociatedItem(
+                AssociatedItemId {
+                    impl_id: ImplId {
+                        module_path: `core::num`,
+                        impl_kind: ImplKind::Type {
                             ty: TypePath(`core::num::u8`, `Extern`),
                         },
                         disambiguator: 0,

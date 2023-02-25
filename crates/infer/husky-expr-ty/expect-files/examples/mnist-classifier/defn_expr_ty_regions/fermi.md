@@ -413,7 +413,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -957,7 +957,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -1028,7 +1028,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -1493,7 +1493,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -1564,7 +1564,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -2041,7 +2041,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -2112,7 +2112,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(

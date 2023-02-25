@@ -40,7 +40,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 17;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 404,\n            },\n        ),\n    ),\n);\n\ntoken_info = UseExpr {\n    use_expr_idx: 6,\n    rule_idx: UseExprRuleIdx(\n        14,\n    ),\n    state: Resolved {\n        original_symbol: ModuleItem(\n            ModuleItemSymbol(\n                Id {\n                    value: 136,\n                },\n            ),\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 17;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 404,\n            },\n        ),\n    ),\n);\n\ntoken_info = UseExpr {\n    use_expr_idx: 6,\n    rule_idx: UseExprRuleIdx(\n        14,\n    ),\n    state: Resolved {\n        original_symbol: ModuleItem(\n            ModuleItemSymbol(\n                Id {\n                    value: 138,\n                },\n            ),\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(

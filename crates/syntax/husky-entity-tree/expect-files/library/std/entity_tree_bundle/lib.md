@@ -155,7 +155,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 47,
+                                    [salsa id]: 49,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`std::ops::Add`),
                                     ),

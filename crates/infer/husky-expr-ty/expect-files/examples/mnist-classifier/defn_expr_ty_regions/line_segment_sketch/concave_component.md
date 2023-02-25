@@ -173,7 +173,7 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 6,
+                                                value: 7,
                                             },
                                         ),
                                     ),
@@ -193,7 +193,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 6,
+                                                                value: 7,
                                                             },
                                                         ),
                                                     ),
@@ -694,7 +694,7 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 6,
+                                                value: 7,
                                             },
                                         ),
                                     ),
@@ -714,7 +714,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 6,
+                                                                value: 7,
                                                             },
                                                         ),
                                                     ),
@@ -1835,7 +1835,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -1899,7 +1899,7 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 6,
+                                                value: 7,
                                             },
                                         ),
                                     ),
@@ -1915,7 +1915,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 6,
+                                                                value: 7,
                                                             },
                                                         ),
                                                     ),
@@ -1941,7 +1941,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -1949,7 +1949,7 @@
                                                 Type(
                                                     TypePath(
                                                         Id {
-                                                            value: 46,
+                                                            value: 48,
                                                         },
                                                     ),
                                                 ),
@@ -1983,7 +1983,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -2057,7 +2057,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -2131,7 +2131,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -2205,7 +2205,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -2279,7 +2279,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -2343,7 +2343,7 @@
                                     Ritchie(
                                         TermRitchie(
                                             Id {
-                                                value: 6,
+                                                value: 7,
                                             },
                                         ),
                                     ),
@@ -2359,7 +2359,7 @@
                                                     Ritchie(
                                                         TermRitchie(
                                                             Id {
-                                                                value: 6,
+                                                                value: 7,
                                                             },
                                                         ),
                                                     ),
@@ -2385,7 +2385,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -2393,7 +2393,7 @@
                                                 Type(
                                                     TypePath(
                                                         Id {
-                                                            value: 46,
+                                                            value: 48,
                                                         },
                                                     ),
                                                 ),
@@ -2427,7 +2427,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -2501,7 +2501,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -2575,7 +2575,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -2663,7 +2663,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -2811,7 +2811,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -2899,7 +2899,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -3818,7 +3818,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -3905,7 +3905,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -3979,7 +3979,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -4688,7 +4688,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -4729,7 +4729,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -4892,7 +4892,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -4966,7 +4966,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -6133,7 +6133,7 @@
                         unresolved_term: TypeApplication {
                             ty: TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 30,
                                 },
                             ),
                             arguments: [
@@ -6254,7 +6254,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -6328,7 +6328,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -6402,7 +6402,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(
@@ -6476,7 +6476,7 @@
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConversion {
+                            expectation: ImplicitlyConvertible {
                                 destination: Resolved(
                                     ReducedTerm(
                                         Entity(

@@ -309,7 +309,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 198,
+                        value: 206,
                     },
                 ),
             },
@@ -321,7 +321,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 39,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -338,7 +338,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 21,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -361,7 +361,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 201,
+                        value: 209,
                     },
                 ),
             },
@@ -386,7 +386,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 201,
+                        value: 209,
                     },
                 ),
             },
