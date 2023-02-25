@@ -16,6 +16,7 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
+#[enum_class::from_variants]
 pub enum Decl {
     Type(TypeDecl),
     Form(FormDecl),
@@ -23,18 +24,6 @@ pub enum Decl {
     Impl(ImplDecl),
     AssociatedItem(AssociatedItemDecl),
     Variant(VariantDecl),
-}
-
-impl From<AssociatedItemDecl> for Decl {
-    fn from(v: AssociatedItemDecl) -> Self {
-        Self::AssociatedItem(v)
-    }
-}
-
-impl From<ImplDecl> for Decl {
-    fn from(v: ImplDecl) -> Self {
-        Self::Impl(v)
-    }
 }
 
 impl Decl {
@@ -83,35 +72,5 @@ impl Decl {
             Decl::AssociatedItem(decl) => decl.path(db).map(|path| path.into()),
             Decl::Variant(decl) => todo!(),
         }
-    }
-}
-
-impl From<TraitDecl> for Decl {
-    fn from(v: TraitDecl) -> Self {
-        Self::Trait(v)
-    }
-}
-
-impl From<FormDecl> for Decl {
-    fn from(v: FormDecl) -> Self {
-        Self::Form(v)
-    }
-}
-
-impl From<TypeDecl> for Decl {
-    fn from(v: TypeDecl) -> Self {
-        Self::Type(v)
-    }
-}
-
-impl From<TraitItemDecl> for Decl {
-    fn from(v: TraitItemDecl) -> Self {
-        Self::AssociatedItem(v.into())
-    }
-}
-
-impl From<TypeItemDecl> for Decl {
-    fn from(v: TypeItemDecl) -> Self {
-        Self::AssociatedItem(v.into())
     }
 }

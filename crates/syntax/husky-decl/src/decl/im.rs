@@ -10,21 +10,10 @@ use husky_token::ImplToken;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
+#[enum_class::from_variants]
 pub enum ImplDecl {
     Type(TypeImplDecl),
     TypeAsTrait(TypeAsTraitImplDecl),
-}
-
-impl From<TypeAsTraitImplDecl> for ImplDecl {
-    fn from(v: TypeAsTraitImplDecl) -> Self {
-        Self::TypeAsTrait(v)
-    }
-}
-
-impl From<TypeImplDecl> for ImplDecl {
-    fn from(v: TypeImplDecl) -> Self {
-        Self::Type(v)
-    }
 }
 
 impl ImplDecl {

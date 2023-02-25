@@ -10,28 +10,11 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = DefnDb)]
+#[enum_class::from_variants]
 pub enum AssociatedItemDefn {
     TypeItem(TypeItemDefn),
     TraitItem(TraitItemDefn),
     TypeAsTraitItem(TypeAsTraitItemDefn),
-}
-
-impl From<TypeAsTraitItemDefn> for AssociatedItemDefn {
-    fn from(v: TypeAsTraitItemDefn) -> Self {
-        Self::TypeAsTraitItem(v)
-    }
-}
-
-impl From<TraitItemDefn> for AssociatedItemDefn {
-    fn from(v: TraitItemDefn) -> Self {
-        Self::TraitItem(v)
-    }
-}
-
-impl From<TypeItemDefn> for AssociatedItemDefn {
-    fn from(v: TypeItemDefn) -> Self {
-        Self::TypeItem(v)
-    }
 }
 
 impl AssociatedItemDefn {

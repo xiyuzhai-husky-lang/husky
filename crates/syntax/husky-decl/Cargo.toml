@@ -8,6 +8,7 @@ edition = "2021"
 thiserror = "1.0.37"
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
+enum-class = { path = "../../abstraction/enum-class" }
 vec-like = { path = "../../abstraction/vec-like" }
 parsec = { path = "../../abstraction/parsec" }
 # fs

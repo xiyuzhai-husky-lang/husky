@@ -9,6 +9,7 @@ pub use unit::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[enum_class::from_variants]
 pub enum VariantDefn {
     Unit(UnitVariantDefn),
     Tuple(TupleVariantDefn),

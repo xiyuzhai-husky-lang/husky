@@ -23,6 +23,7 @@ use salsa::DbWithJar;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
+#[enum_class::from_variants]
 pub enum TypeDecl {
     Enum(EnumTypeDecl),
     RegularStruct(RegularStructTypeDecl),
@@ -33,12 +34,6 @@ pub enum TypeDecl {
     Structure(StructureTypeDecl),
     Extern(ExternTypeDecl),
     Union(UnionTypeDecl),
-}
-
-impl From<UnionTypeDecl> for TypeDecl {
-    fn from(v: UnionTypeDecl) -> Self {
-        Self::Union(v)
-    }
 }
 
 impl TypeDecl {
@@ -103,53 +98,5 @@ impl TypeDecl {
 
     pub fn entity_path(self, db: &dyn DeclDb) -> EntityPath {
         self.path(db).into()
-    }
-}
-
-impl From<EnumTypeDecl> for TypeDecl {
-    fn from(v: EnumTypeDecl) -> Self {
-        Self::Enum(v)
-    }
-}
-
-impl From<TupleStructTypeDecl> for TypeDecl {
-    fn from(v: TupleStructTypeDecl) -> Self {
-        Self::TupleStruct(v)
-    }
-}
-
-impl From<UnitStructTypeDecl> for TypeDecl {
-    fn from(v: UnitStructTypeDecl) -> Self {
-        Self::UnitStruct(v)
-    }
-}
-
-impl From<RegularStructTypeDecl> for TypeDecl {
-    fn from(v: RegularStructTypeDecl) -> Self {
-        Self::RegularStruct(v)
-    }
-}
-
-impl From<RecordTypeDecl> for TypeDecl {
-    fn from(v: RecordTypeDecl) -> Self {
-        Self::Record(v)
-    }
-}
-
-impl From<InductiveTypeDecl> for TypeDecl {
-    fn from(v: InductiveTypeDecl) -> Self {
-        Self::Inductive(v)
-    }
-}
-
-impl From<StructureTypeDecl> for TypeDecl {
-    fn from(v: StructureTypeDecl) -> Self {
-        Self::Structure(v)
-    }
-}
-
-impl From<ExternTypeDecl> for TypeDecl {
-    fn from(v: ExternTypeDecl) -> Self {
-        Self::Extern(v)
     }
 }

@@ -15,42 +15,13 @@ use husky_ast::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
+#[enum_class::from_variants]
 pub enum TypeItemDecl {
     Function(TypeAssociatedFunctionDecl),
     Method(TypeMethodDecl),
     ExternType(TypeAssociatedTypeDecl),
     Value(TypeAssociatedValueDecl),
     Memo(TypeMemoDecl),
-}
-
-impl From<TypeMemoDecl> for TypeItemDecl {
-    fn from(v: TypeMemoDecl) -> Self {
-        Self::Memo(v)
-    }
-}
-
-impl From<TypeAssociatedFunctionDecl> for TypeItemDecl {
-    fn from(v: TypeAssociatedFunctionDecl) -> Self {
-        Self::Function(v)
-    }
-}
-
-impl From<TypeAssociatedValueDecl> for TypeItemDecl {
-    fn from(v: TypeAssociatedValueDecl) -> Self {
-        Self::Value(v)
-    }
-}
-
-impl From<TypeAssociatedTypeDecl> for TypeItemDecl {
-    fn from(v: TypeAssociatedTypeDecl) -> Self {
-        Self::ExternType(v)
-    }
-}
-
-impl From<TypeMethodDecl> for TypeItemDecl {
-    fn from(v: TypeMethodDecl) -> Self {
-        Self::Method(v)
-    }
 }
 
 impl TypeItemDecl {

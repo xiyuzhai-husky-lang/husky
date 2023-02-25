@@ -12,23 +12,12 @@ use crate::*;
 use husky_entity_path::AssociatedItemPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[enum_class::from_variants]
 pub enum TraitItemDefn {
     Function(TraitAssociatedFunctionDefn),
     Method(TraitMethodDefn),
     ExternType(TraitAssociatedTypeDefn),
     Value(TraitAssociatedValueDefn),
-}
-
-impl From<TraitMethodDefn> for TraitItemDefn {
-    fn from(v: TraitMethodDefn) -> Self {
-        Self::Method(v)
-    }
-}
-
-impl From<TraitAssociatedFunctionDefn> for TraitItemDefn {
-    fn from(v: TraitAssociatedFunctionDefn) -> Self {
-        Self::Function(v)
-    }
 }
 
 impl TraitItemDefn {

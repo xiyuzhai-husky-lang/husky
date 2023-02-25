@@ -13,35 +13,12 @@ use husky_ast::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
+#[enum_class::from_variants]
 pub enum TypeAsTraitItemDecl {
     AssociatedFunction(TypeAsTraitAssociatedFunctionDecl),
     Method(TypeAsTraitMethodDecl),
     AssociatedType(TypeAsTraitAssociatedTypeDecl),
     AssociatedValue(TypeAsTraitAssociatedValueDecl),
-}
-
-impl From<TypeAsTraitAssociatedValueDecl> for TypeAsTraitItemDecl {
-    fn from(v: TypeAsTraitAssociatedValueDecl) -> Self {
-        Self::AssociatedValue(v)
-    }
-}
-
-impl From<TypeAsTraitAssociatedTypeDecl> for TypeAsTraitItemDecl {
-    fn from(v: TypeAsTraitAssociatedTypeDecl) -> Self {
-        Self::AssociatedType(v)
-    }
-}
-
-impl From<TypeAsTraitMethodDecl> for TypeAsTraitItemDecl {
-    fn from(v: TypeAsTraitMethodDecl) -> Self {
-        Self::Method(v)
-    }
-}
-
-impl From<TypeAsTraitAssociatedFunctionDecl> for TypeAsTraitItemDecl {
-    fn from(v: TypeAsTraitAssociatedFunctionDecl) -> Self {
-        Self::AssociatedFunction(v)
-    }
 }
 
 impl TypeAsTraitItemDecl {
