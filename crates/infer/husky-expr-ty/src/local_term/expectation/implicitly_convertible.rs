@@ -24,7 +24,7 @@ impl ExpectImplicitlyConvertible {
         &self,
         unresolved_terms: &'a UnresolvedTerms,
     ) -> Result<Option<LocalTermExpectation>, &'a LocalTermResolveError> {
-        match unresolved_terms.try_substitute_local_term(self.destination)? {
+        match unresolved_terms.try_reduce_local_term(self.destination)? {
             Some(destination) => Ok(Some(ExpectImplicitlyConvertible { destination }.into())),
             None => Ok(None),
         }

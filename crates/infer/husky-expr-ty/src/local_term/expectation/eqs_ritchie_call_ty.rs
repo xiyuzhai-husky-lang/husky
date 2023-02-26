@@ -22,6 +22,7 @@ impl ExpectLocalTerm for ExpectEqsRitchieCallType {
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) struct ExpectEqsRitchieCallTypeResolvedOk {
     destination: LocalTerm,
+    implicit_symbols: Vec<LocalTerm>,
     parameter_liasoned_tys: (),
     return_ty: (),
 }
@@ -68,7 +69,9 @@ impl<'a> ExprTypeEngine<'a> {
             LocalTerm::Resolved(expectee) => {
                 self.resolved_expectee_to(src_expr_idx, expectee, unresolved_terms)
             }
-            LocalTerm::Unresolved(_) => todo!(),
+            LocalTerm::Unresolved(expectee) => {
+                self.unresolved_expectee_to(src_expr_idx, expectee, unresolved_terms)
+            }
         }
     }
 
@@ -96,6 +99,7 @@ impl<'a> ExprTypeEngine<'a> {
                 let result = match term.ritchie_kind(self.db()) {
                     TermRitchieKind::Fp => Ok(ExpectEqsRitchieCallTypeResolvedOk {
                         destination: expectee.into(),
+                        implicit_symbols: vec![],
                         parameter_liasoned_tys: (),
                         return_ty: (),
                     }
@@ -131,10 +135,22 @@ impl<'a> ExprTypeEngine<'a> {
             src_expr_idx,
             input_symbol,
         );
-        Some(LocalTermExpectationEffect {
-            // ad hoc
-            result: Err(todo!()),
-            actions: vec![],
-        })
+        self.unresolved_expectee_to(
+            src_expr_idx,
+            unresolved_terms.substitute_local_term(
+                self.db().reduced_term(expectee.return_ty(self.db())),
+                todo!(),
+            ),
+            unresolved_terms,
+        )
+    }
+
+    fn unresolved_expectee_to(
+        &self,
+        src_expr_idx: ExprIdx,
+        expectee: UnresolvedTermIdx,
+        unresolved_terms: &mut UnresolvedTerms,
+    ) -> Option<LocalTermExpectationEffect> {
+        todo!()
     }
 }
