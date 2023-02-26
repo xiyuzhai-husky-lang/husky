@@ -22,14 +22,13 @@ pub enum TermLiteral {
     StaticLifetime,
 }
 
-impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermLiteral {
-    fn display_with_db_fmt(
-        &self,
+impl TermLiteral {
+    pub(crate) fn show_with_db_fmt(
+        self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DisplayFormatLevel,
+        db: &dyn TermDb,
+        ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
         match self {
             TermLiteral::Unit => f.write_str("unit"),
             TermLiteral::I32(_) => todo!(),
@@ -47,6 +46,18 @@ impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermLiteral {
             TermLiteral::EvalLifetime => f.write_str("'eval"),
             TermLiteral::StaticLifetime => f.write_str("'static"),
         }
+    }
+}
+
+impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermLiteral {
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        level: salsa::DisplayFormatLevel,
+    ) -> std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
+        self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }
 

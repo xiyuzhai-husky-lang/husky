@@ -7,9 +7,14 @@ pub struct TermSubentity {
     ident: Identifier,
 }
 
-impl From<TermSubentity> for Term {
-    fn from(val: TermSubentity) -> Self {
-        Term::Subentity(val)
+impl TermSubentity {
+    pub(crate) fn show_with_db_fmt(
+        self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &dyn TermDb,
+        ctx: &mut TermShowContext,
+    ) -> std::fmt::Result {
+        todo!()
     }
 }
 

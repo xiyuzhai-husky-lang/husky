@@ -3,12 +3,6 @@ use crate::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct TermUniverse(u8);
 
-impl From<TermUniverse> for Term {
-    fn from(val: TermUniverse) -> Self {
-        Term::Universe(val)
-    }
-}
-
 impl From<u8> for TermUniverse {
     fn from(value: u8) -> Self {
         TermUniverse::new(value)

@@ -6,14 +6,19 @@ pub struct TermTraitConstraint {
     trai: Term,
 }
 
-impl TermRewriteCopy for TermTraitConstraint {
-    fn substitute_copy(self, db: &dyn TermDb, substituation: &TermSubstitution) -> Self {
+impl TermTraitConstraint {
+    pub(crate) fn show_with_db_fmt(
+        self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &dyn TermDb,
+        ctx: &mut TermShowContext,
+    ) -> std::fmt::Result {
         todo!()
     }
 }
 
-impl From<TermTraitConstraint> for Term {
-    fn from(v: TermTraitConstraint) -> Self {
-        Self::TraitConstraint(v)
+impl TermRewriteCopy for TermTraitConstraint {
+    fn substitute_copy(self, db: &dyn TermDb, substituation: &TermSubstitution) -> Self {
+        todo!()
     }
 }

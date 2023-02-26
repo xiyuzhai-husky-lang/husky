@@ -10,6 +10,25 @@ pub struct TermCurry {
     pub y: Term,
 }
 
+impl TermCurry {
+    pub(crate) fn show_with_db_fmt(
+        self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &dyn TermDb,
+        ctx: &mut TermShowContext,
+    ) -> std::fmt::Result {
+        f.write_str(match self.variance(db) {
+            Independent => "independent ",
+            Covariant => "covariant ",
+            Contravariant => "contravariant ",
+            Invariant => "invariant ",
+        })?;
+        self.x(db).show_with_db_fmt(f, db, ctx)?;
+        f.write_str(" -> ")?;
+        self.y(db).show_with_db_fmt(f, db, ctx)
+    }
+}
+
 impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermCurry {
     fn display_with_db_fmt(
         &self,
@@ -18,15 +37,7 @@ impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermCurry {
         level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
-        f.write_str(match self.variance(db) {
-            Independent => "independent ",
-            Covariant => "covariant ",
-            Contravariant => "contravariant ",
-            Invariant => "invariant ",
-        })?;
-        self.x(db).display_with_db_fmt(f, db, level.next())?;
-        f.write_str(" -> ")?;
-        self.y(db).display_with_db_fmt(f, db, level.next())
+        self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }
 

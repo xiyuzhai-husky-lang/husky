@@ -1,6 +1,9 @@
-use husky_entity_path::EntityPath;
+mod entry;
 
 use crate::*;
+use entry::*;
+use husky_entity_path::EntityPath;
+use vec_like::{VecMap, VecPairMap, VecSet};
 
 pub struct TermContext<'a> {
     pub(crate) db: &'a dyn TermDb,
@@ -55,5 +58,20 @@ pub trait ProvideTermContext<'a> {
         todo!()
         // let ctx = TermContext::from_provider(self);
         // ctx.curry(curry_kind, x, y)
+    }
+}
+
+#[derive(Default)]
+pub(crate) struct TermShowContext {
+    entries: VecMap<TermSymbolShowEntry>,
+}
+
+impl TermShowContext {
+    pub(crate) fn show(
+        &mut self,
+        symbol: TermSymbol,
+        f: &mut std::fmt::Formatter<'_>,
+    ) -> std::fmt::Result {
+        todo!()
     }
 }

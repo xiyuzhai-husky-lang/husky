@@ -10,6 +10,10 @@ pub struct TypePath {
 }
 
 impl TypePath {
+    pub fn is_lifetime_ty(self, db: &dyn EntityPathDb) -> bool {
+        todo!()
+    }
+
     pub fn show_aux(
         self,
         f: &mut std::fmt::Formatter<'_>,
