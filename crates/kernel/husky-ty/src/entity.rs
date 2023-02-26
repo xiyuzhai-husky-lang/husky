@@ -278,6 +278,7 @@ fn curry_from_implicit_parameter_tys(
         std::iter::zip(variances.iter(), implicit_parameters.iter()).rev()
     {
         let symbol = implicit_parameter.symbol();
+        assert_eq!(symbol.ty(db), Ok(implicit_parameter.ty()));
         let symbol = db.term_contains_symbol(term, symbol).then_some(symbol);
         term = TermCurry::new(db, *variance, symbol, implicit_parameter.ty(), term).into()
     }

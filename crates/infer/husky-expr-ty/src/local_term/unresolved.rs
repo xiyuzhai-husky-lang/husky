@@ -273,7 +273,7 @@ impl UnresolvedTerms {
         dependencies
     }
 
-    pub(super) fn try_substitute_local_term(
+    pub(super) fn try_reduce_local_term(
         &self,
         local_term: LocalTerm,
     ) -> Result<Option<LocalTerm>, &LocalTermResolveError> {
@@ -335,18 +335,16 @@ impl LocalTermRegion {
         }
         let new_expectation_rules: Vec<LocalTermExpectationEntry> = Default::default();
         for (idx, rule) in self.expectations.unresolved_indexed_iter_mut() {
-            let target_substitution = match self
-                .unresolved_terms
-                .try_substitute_local_term(rule.expectee())
-            {
-                Ok(target_substitution) => target_substitution,
-                Err(_) => {
-                    rule.set_resolved(Err(
-                        DerivedLocalTermExpectationError::TargetSubstitutionFailure.into(),
-                    ));
-                    continue;
-                }
-            };
+            let target_substitution =
+                match self.unresolved_terms.try_reduce_local_term(rule.expectee()) {
+                    Ok(target_substitution) => target_substitution,
+                    Err(_) => {
+                        rule.set_resolved(Err(
+                            DerivedLocalTermExpectationError::TargetSubstitutionFailure.into(),
+                        ));
+                        continue;
+                    }
+                };
             let variant_substitution = self
                 .unresolved_terms
                 .try_substitute_expectation_rule_variant(rule.variant());
