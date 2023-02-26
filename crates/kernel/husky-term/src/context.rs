@@ -69,9 +69,17 @@ pub(crate) struct TermShowContext {
 impl TermShowContext {
     pub(crate) fn show(
         &mut self,
+        db: &dyn TermDb,
         symbol: TermSymbol,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
-        todo!()
+        if let Some(entry) = self.entries.get_entry(symbol) {
+            todo!()
+        } else {
+            let new_entry = self.new_external_entry(db, symbol, None);
+            new_entry.show(db, f);
+            self.entries.insert_new(new_entry).unwrap();
+            Ok(())
+        }
     }
 }
