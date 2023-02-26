@@ -326,7 +326,7 @@ pub(crate) enum LocalTermExpectation {
     },
     FrameVariableType,
     EqsRefMutApplication {
-        lifetime: LocalTerm,
+        lifetime: UnresolvedTermIdx,
     },
     EqsExactly {
         destination: LocalTerm,

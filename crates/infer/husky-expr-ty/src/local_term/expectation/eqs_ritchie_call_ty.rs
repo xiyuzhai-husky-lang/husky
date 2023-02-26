@@ -22,7 +22,7 @@ impl ExpectLocalTerm for ExpectEqsRitchieCallType {
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) struct ExpectEqsRitchieCallTypeResolvedOk {
     destination: LocalTerm,
-    implicit_symbols: Vec<LocalTerm>,
+    implicit_symbols: Vec<UnresolvedTermIdx>,
     parameter_liasoned_tys: (),
     return_ty: (),
 }
@@ -123,24 +123,35 @@ impl<'a> ExprTypeEngine<'a> {
     fn resolved_curry_expectee_to(
         &self,
         src_expr_idx: ExprIdx,
-        expectee: TermCurry,
+        mut expectee: TermCurry,
         unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationEffect> {
-        let Some(input_symbol) = expectee.input_symbol(self.db())
+        let mut substitution_rules = vec![];
+        let destination = loop {
+            let Some(input_symbol) = expectee.input_symbol(self.db())
             else {
                 todo!("report error")
             };
-        let implicit_symbol = unresolved_terms.new_implicit_symbol_from_input_symbol(
-            self.db(),
+            let implicit_symbol = unresolved_terms.new_implicit_symbol_from_input_symbol(
+                self.db(),
+                src_expr_idx,
+                input_symbol,
+            );
+            substitution_rules.push(SubstitutionRule::new(input_symbol, implicit_symbol));
+            match expectee.return_ty(self.db()) {
+                Term::Curry(new_expectee) => expectee = new_expectee,
+                term => break term,
+            }
+        };
+        let destination = unresolved_terms
+            .substitute_into_term(self.db(), src_expr_idx, destination, &substitution_rules)
+            .unwrap()
+            .unresolved()
+            .unwrap();
+        self.unresolved_expectee_to_aux(
             src_expr_idx,
-            input_symbol,
-        );
-        self.unresolved_expectee_to(
-            src_expr_idx,
-            unresolved_terms.substitute_local_term(
-                self.db().reduced_term(expectee.return_ty(self.db())),
-                todo!(),
-            ),
+            destination,
+            substitution_rules,
             unresolved_terms,
         )
     }
@@ -151,6 +162,24 @@ impl<'a> ExprTypeEngine<'a> {
         expectee: UnresolvedTermIdx,
         unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationEffect> {
-        todo!()
+        self.unresolved_expectee_to_aux(src_expr_idx, expectee, vec![], unresolved_terms)
+    }
+
+    fn unresolved_expectee_to_aux(
+        &self,
+        src_expr_idx: ExprIdx,
+        expectee: UnresolvedTermIdx,
+        mut substitution_rules: Vec<SubstitutionRule>,
+        unresolved_terms: &mut UnresolvedTerms,
+    ) -> Option<LocalTermExpectationEffect> {
+        match unresolved_terms[expectee].unresolved_term() {
+            UnresolvedTerm::ImplicitSymbol(_) => todo!(),
+            UnresolvedTerm::TypeApplication { ty_path, arguments } => todo!(),
+            UnresolvedTerm::Ritchie {
+                ritchie_kind,
+                parameter_tys,
+                return_ty,
+            } => todo!(),
+        }
     }
 }

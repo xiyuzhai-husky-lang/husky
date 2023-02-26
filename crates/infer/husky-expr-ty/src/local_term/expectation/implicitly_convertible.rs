@@ -102,7 +102,15 @@ impl<'a> ExprTypeEngine<'a> {
                             )),
                         }),
                     },
-                    UnresolvedTerm::TypeApplication { ty, arguments } => todo!(),
+                    UnresolvedTerm::TypeApplication {
+                        ty_path: ty,
+                        arguments,
+                    } => todo!(),
+                    UnresolvedTerm::Ritchie {
+                        ritchie_kind,
+                        parameter_tys,
+                        return_ty,
+                    } => todo!(),
                 },
             },
             LocalTerm::Unresolved(expectee) => {
@@ -159,9 +167,15 @@ impl<'a> ExprTypeEngine<'a> {
                     }],
                 }),
             },
-            UnresolvedTerm::TypeApplication { ty, arguments } => {
-                self.unres_ty_app_to(*ty, arguments, destination, unresolved_terms)
-            }
+            UnresolvedTerm::TypeApplication {
+                ty_path: ty,
+                arguments,
+            } => self.unres_ty_app_to(*ty, arguments, destination, unresolved_terms),
+            UnresolvedTerm::Ritchie {
+                ritchie_kind,
+                parameter_tys,
+                return_ty,
+            } => todo!(),
         }
     }
 
@@ -192,7 +206,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Option<LocalTermExpectationEffect> {
         match destination {
             LocalTerm::Resolved(destination) => {
-                let destination_expansion = self.db().application_expansion(destination);
+                let destination_expansion = self.db().term_application_expansion(destination);
                 match destination_expansion.f() {
                     Term::Literal(_) => todo!(),
                     Term::Symbol(_) => todo!(),

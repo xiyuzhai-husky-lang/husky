@@ -1,15 +1,31 @@
+mod substitution;
+
+pub(crate) use substitution::*;
+
 use idx_arena::{Arena, ArenaIdx};
 use vec_like::VecSet;
 
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) enum UnresolvedTerm {
     ImplicitSymbol(ImplicitSymbol),
     TypeApplication {
-        ty: TypePath,
+        ty_path: TypePath,
         arguments: Vec<LocalTerm>,
     },
+    Ritchie {
+        ritchie_kind: TermRitchieKind,
+        parameter_tys: Vec<LocalTermRitchieParameter>,
+        return_ty: LocalTerm,
+    },
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
+pub struct LocalTermRitchieParameter {
+    pub(crate) ty: LocalTerm,
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -154,7 +170,7 @@ impl UnresolvedTerms {
         &mut self,
         src_expr_idx: ExprIdx,
         variant: ImplicitSymbolVariant,
-    ) -> LocalTerm {
+    ) -> UnresolvedTermIdx {
         let new_implicit_symbol = self
             .implicit_symbol_registry
             .new_implicit_symbol(src_expr_idx, variant);
@@ -162,7 +178,6 @@ impl UnresolvedTerms {
             src_expr_idx,
             UnresolvedTerm::ImplicitSymbol(new_implicit_symbol),
         )
-        .into()
     }
 
     pub(crate) fn new_implicit_symbol_from_input_symbol(
@@ -170,7 +185,7 @@ impl UnresolvedTerms {
         db: &dyn ExprTypeDb,
         src_expr_idx: ExprIdx,
         input_symbol: TermSymbol,
-    ) -> LocalTerm {
+    ) -> UnresolvedTermIdx {
         let variant = match input_symbol.ty(db) {
             Ok(term) => match term {
                 Term::Literal(_) => todo!(),
@@ -199,7 +214,9 @@ impl UnresolvedTerms {
         &mut self,
         src_expr_idx: ExprIdx,
         unresolved_term: UnresolvedTerm,
-    ) -> UnresolvedTermIdx {
+    ) -> LocalTerm {
+        // todo: check that unresolved_term is indeed unresolved;
+        // if not, return reduced term
         let position = self
             .arena
             .iter()
@@ -208,6 +225,7 @@ impl UnresolvedTerms {
             Some(idx) => UnresolvedTermIdx(idx),
             None => self.alloc_unresolved_term(src_expr_idx, unresolved_term),
         }
+        .into()
     }
 
     fn alloc_unresolved_term(
@@ -232,15 +250,25 @@ impl UnresolvedTerms {
         unresolved_term: &UnresolvedTerm,
     ) -> VecSet<UnresolvedTermIdx> {
         let mut dependencies: VecSet<UnresolvedTermIdx> = Default::default();
+        let mut f = |term: LocalTerm| {
+            self.extract_local_term_implicit_symbol_dependencies(term, &mut dependencies)
+        };
         match unresolved_term {
             UnresolvedTerm::ImplicitSymbol(_) => (),
-            UnresolvedTerm::TypeApplication { ty, arguments } => {
-                for argument in arguments {
-                    self.extract_local_term_implicit_symbol_dependencies(
-                        *argument,
-                        &mut dependencies,
-                    );
-                }
+            UnresolvedTerm::TypeApplication {
+                ty_path: ty,
+                arguments,
+            } => arguments.iter().copied().for_each(f),
+            UnresolvedTerm::Ritchie {
+                ritchie_kind,
+                parameter_tys,
+                return_ty,
+            } => {
+                f(*return_ty);
+                parameter_tys
+                    .iter()
+                    .map(|parameter_ty| parameter_ty.ty)
+                    .for_each(f);
             }
         }
         dependencies

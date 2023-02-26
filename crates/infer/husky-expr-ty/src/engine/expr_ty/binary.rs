@@ -360,9 +360,17 @@ impl<'a> ExprTypeEngine<'a> {
             },
             LocalTerm::Unresolved(lopd_ty) => match local_term_region[lopd_ty].unresolved_term() {
                 UnresolvedTerm::ImplicitSymbol(_) => todo!(),
-                UnresolvedTerm::TypeApplication { ty, arguments } => {
+                UnresolvedTerm::TypeApplication {
+                    ty_path: ty,
+                    arguments,
+                } => {
                     todo!()
                 }
+                UnresolvedTerm::Ritchie {
+                    ritchie_kind,
+                    parameter_tys,
+                    return_ty,
+                } => todo!(),
             },
         };
         let ropd_ty = match ropd_ty {
