@@ -18,6 +18,15 @@ pub enum LocalTerm {
     Unresolved(UnresolvedTermIdx),
 }
 
+impl LocalTerm {
+    pub fn unresolved(self) -> Option<UnresolvedTermIdx> {
+        match self {
+            LocalTerm::Resolved(_) => None,
+            LocalTerm::Unresolved(idx) => Some(idx),
+        }
+    }
+}
+
 #[derive(Default, Debug, PartialEq, Eq)]
 pub struct LocalTermRegion {
     unresolved_terms: UnresolvedTerms,
@@ -37,7 +46,7 @@ impl LocalTermRegion {
         &mut self,
         src_expr_idx: ExprIdx,
         variant: ImplicitSymbolVariant,
-    ) -> LocalTerm {
+    ) -> UnresolvedTermIdx {
         self.unresolved_terms
             .new_implicit_symbol(src_expr_idx, variant)
     }
@@ -46,7 +55,7 @@ impl LocalTermRegion {
         &mut self,
         src_expr_idx: ExprIdx,
         unresolved_term: UnresolvedTerm,
-    ) -> UnresolvedTermIdx {
+    ) -> LocalTerm {
         self.unresolved_terms
             .intern_unresolved_term(src_expr_idx, unresolved_term)
     }

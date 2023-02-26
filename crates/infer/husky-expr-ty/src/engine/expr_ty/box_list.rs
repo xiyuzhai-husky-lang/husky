@@ -7,8 +7,9 @@ impl<'a> ExprTypeEngine<'a> {
         items: ExprIdxRange,
         local_term_region: &mut LocalTermRegion,
     ) -> Result<LocalTerm, ExprTypeError> {
-        let element_ty =
-            local_term_region.new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ImplicitType);
+        let element_ty: LocalTerm = local_term_region
+            .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ImplicitType)
+            .into();
         for item in items {
             self.infer_new_expr_ty(
                 item,
@@ -22,7 +23,7 @@ impl<'a> ExprTypeEngine<'a> {
             .intern_unresolved_term(
                 expr_idx,
                 UnresolvedTerm::TypeApplication {
-                    ty: self.entity_path_menu.list_ty(),
+                    ty_path: self.entity_path_menu.list_ty(),
                     arguments: vec![element_ty],
                 },
             )

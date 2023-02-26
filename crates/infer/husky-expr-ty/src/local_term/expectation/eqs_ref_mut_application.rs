@@ -6,7 +6,7 @@ use super::*;
 /// T is referred to as the inner type
 #[derive(Debug, Clone)]
 pub(crate) struct ExpectEqsRefMutApplication {
-    pub(crate) lifetime: LocalTerm,
+    pub(crate) lifetime: UnresolvedTermIdx,
 }
 
 impl const ProvideTypeContext for ExpectEqsRefMutApplication {
@@ -61,7 +61,7 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn resolve_eqs_ref_mut_application_expectation(
         &self,
         expectee: LocalTerm,
-        lifetime: LocalTerm,
+        lifetime: UnresolvedTermIdx,
         unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationEffect> {
         match expectee {
@@ -72,17 +72,24 @@ impl<'a> ExprTypeEngine<'a> {
             LocalTerm::Unresolved(unresolved_expectee) => {
                 match unresolved_terms[unresolved_expectee].unresolved_term() {
                     UnresolvedTerm::ImplicitSymbol(_) => todo!(),
-                    UnresolvedTerm::TypeApplication { ty, arguments }
-                        if *ty == self.entity_path_menu().ref_mut_ty_path() =>
-                    {
+                    UnresolvedTerm::TypeApplication {
+                        ty_path: ty,
+                        arguments,
+                    } if *ty == self.entity_path_menu().ref_mut_ty_path() => {
                         todo!()
                     }
-                    UnresolvedTerm::TypeApplication { ty, arguments } => {
-                        Some(LocalTermExpectationEffect {
-                            result: Err(todo!()),
-                            actions: vec![],
-                        })
-                    }
+                    UnresolvedTerm::TypeApplication {
+                        ty_path: ty,
+                        arguments,
+                    } => Some(LocalTermExpectationEffect {
+                        result: Err(todo!()),
+                        actions: vec![],
+                    }),
+                    UnresolvedTerm::Ritchie {
+                        ritchie_kind,
+                        parameter_tys,
+                        return_ty,
+                    } => todo!(),
                 }
             }
         }
