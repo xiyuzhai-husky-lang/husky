@@ -63,7 +63,8 @@ impl<'a> ExprTypeEngine<'a> {
         &self,
         expectee: LocalTerm,
         destination: LocalTerm,
-    ) -> Option<LocalTermExpectationResolvedOkM> {
+        unresolved_terms: &mut UnresolvedTerms,
+    ) -> Option<LocalTermExpectationEffect> {
         match expectee {
             LocalTerm::Resolved(expectee) => self.eqs_exactly_res_to(expectee, destination),
             LocalTerm::Unresolved(_) => todo!(),
@@ -75,7 +76,7 @@ impl<'a> ExprTypeEngine<'a> {
         &self,
         expectee: ReducedTerm,
         destination: LocalTerm,
-    ) -> Option<LocalTermExpectationResolvedOkM> {
+    ) -> Option<LocalTermExpectationEffect> {
         match destination {
             LocalTerm::Resolved(destination) => {
                 Some(self.eqs_exactly_res_to_res(expectee, destination))
@@ -89,9 +90,9 @@ impl<'a> ExprTypeEngine<'a> {
         &self,
         expectee: ReducedTerm,
         destination: ReducedTerm,
-    ) -> LocalTermExpectationResolvedOkM {
+    ) -> LocalTermExpectationEffect {
         match expectee == destination {
-            true => LocalTermExpectationResolvedOkM {
+            true => LocalTermExpectationEffect {
                 result: Ok(LocalTermExpectationResolvedOk::EqsExactly(
                     ExpectEqsExactlyResolvedOk {
                         destination: destination.into(),

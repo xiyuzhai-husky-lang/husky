@@ -63,9 +63,9 @@ impl<'a> ExprTypeEngine<'a> {
         expectee: LocalTerm,
         lifetime: LocalTerm,
         unresolved_terms: &mut UnresolvedTerms,
-    ) -> Option<LocalTermExpectationResolvedOkM> {
+    ) -> Option<LocalTermExpectationEffect> {
         match expectee {
-            LocalTerm::Resolved(expectee) => Some(LocalTermExpectationResolvedOkM {
+            LocalTerm::Resolved(expectee) => Some(LocalTermExpectationEffect {
                 result: Err(todo!()),
                 actions: vec![],
             }),
@@ -78,7 +78,7 @@ impl<'a> ExprTypeEngine<'a> {
                         todo!()
                     }
                     UnresolvedTerm::TypeApplication { ty, arguments } => {
-                        Some(LocalTermExpectationResolvedOkM {
+                        Some(LocalTermExpectationEffect {
                             result: Err(todo!()),
                             actions: vec![],
                         })

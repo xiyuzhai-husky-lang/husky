@@ -165,6 +165,36 @@ impl UnresolvedTerms {
         .into()
     }
 
+    pub(crate) fn new_implicit_symbol_from_input_symbol(
+        &mut self,
+        db: &dyn ExprTypeDb,
+        src_expr_idx: ExprIdx,
+        input_symbol: TermSymbol,
+    ) -> LocalTerm {
+        let variant = match input_symbol.ty(db) {
+            Ok(term) => match term {
+                Term::Literal(_) => todo!(),
+                Term::Symbol(_) => todo!(),
+                Term::Entity(_) => todo!(),
+                Term::Category(cat) if cat.universe().raw() == 0 => todo!(),
+                Term::Category(cat) if cat.universe().raw() == 1 => {
+                    ImplicitSymbolVariant::ImplicitType
+                }
+                Term::Category(_) => todo!(),
+                Term::Universe(_) => todo!(),
+                Term::Curry(_) => todo!(),
+                Term::Ritchie(_) => todo!(),
+                Term::Abstraction(_) => todo!(),
+                Term::Application(_) => todo!(),
+                Term::Subentity(_) => todo!(),
+                Term::AsTraitSubentity(_) => todo!(),
+                Term::TraitConstraint(_) => todo!(),
+            },
+            _ => todo!(),
+        };
+        self.new_implicit_symbol(src_expr_idx, variant)
+    }
+
     pub(super) fn intern_unresolved_term(
         &mut self,
         src_expr_idx: ExprIdx,

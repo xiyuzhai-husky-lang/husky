@@ -186,7 +186,7 @@ impl LocalTermExpectationEntry {
     }
 }
 
-pub(super) struct LocalTermExpectationResolvedOkM {
+pub(super) struct LocalTermExpectationEffect {
     pub(super) result: LocalTermExpectationResult<LocalTermExpectationResolvedOk>,
     pub(super) actions: Vec<TermResolveAction>,
 }
@@ -242,7 +242,7 @@ impl LocalTermExpectations {
     pub(super) fn take_effect(
         &mut self,
         rule_idx: LocalTermExpectationIdx,
-        effect: LocalTermExpectationResolvedOkM,
+        effect: LocalTermExpectationEffect,
     ) -> Option<Vec<TermResolveAction>> {
         self.arena
             .update(rule_idx, |rule| rule.set_resolved(effect.result));
@@ -273,7 +273,7 @@ impl<'a> ExprTypeEngine<'a> {
         rule: &LocalTermExpectationEntry,
         level: LocalTermResolveLevel,
         unresolved_terms: &mut UnresolvedTerms,
-    ) -> Option<LocalTermExpectationResolvedOkM> {
+    ) -> Option<LocalTermExpectationEffect> {
         match rule.expectation {
             LocalTermExpectation::ExplicitlyConvertible(ref exp) => self
                 .resolve_explicitly_convertible(
@@ -300,13 +300,12 @@ impl<'a> ExprTypeEngine<'a> {
                     unresolved_terms,
                 ),
             LocalTermExpectation::EqsRitchieCallTy => {
-                self.resolve_eqs_richie_call_ty(rule.expectee)
+                self.resolve_eqs_richie_call_ty(rule.src_expr_idx, rule.expectee, unresolved_terms)
             }
-            LocalTermExpectation::InsSort { smallest_universe } => {
-                self.resolve_ins_sort_expectation(smallest_universe, rule.expectee)
-            }
+            LocalTermExpectation::InsSort { smallest_universe } => self
+                .resolve_ins_sort_expectation(smallest_universe, rule.expectee, unresolved_terms),
             LocalTermExpectation::EqsExactly { destination } => {
-                self.resolve_eqs_exactly(rule.expectee, destination)
+                self.resolve_eqs_exactly(rule.expectee, destination, unresolved_terms)
             }
         }
     }
