@@ -12,6 +12,29 @@ pub struct TermRitchie {
     // ty: Term,
 }
 
+impl TermRitchie {
+    pub(crate) fn show_with_db_fmt(
+        self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &dyn TermDb,
+        ctx: &mut TermShowContext,
+    ) -> std::fmt::Result {
+        match self.ritchie_kind(db) {
+            TermRitchieKind::Fp => f.write_str("Fp(")?,
+            TermRitchieKind::Fn => f.write_str("Fn(")?,
+            TermRitchieKind::FnMut => f.write_str("FnMut(")?,
+        }
+        for (i, parameter_ty) in self.parameter_tys(db).iter().enumerate() {
+            if i > 0 {
+                f.write_str(", ")?
+            }
+            parameter_ty.show_with_db_fmt(f, db, ctx)?
+        }
+        f.write_str(") -> ")?;
+        self.return_ty(db).show_with_db_fmt(f, db, ctx)
+    }
+}
+
 impl<Db> salsa::DisplayWithDb<Db> for TermRitchie
 where
     Db: TermDb + ?Sized,
@@ -45,6 +68,17 @@ pub struct TermRitchieParameter {
     ty: Term,
 }
 
+impl TermRitchieParameter {
+    fn show_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &dyn TermDb,
+        ctx: &mut TermShowContext,
+    ) -> std::fmt::Result {
+        self.ty.show_with_db_fmt(f, db, ctx)
+    }
+}
+
 impl<Db> salsa::DisplayWithDb<Db> for TermRitchieParameter
 where
     Db: TermDb + ?Sized,
@@ -55,7 +89,8 @@ where
         db: &Db,
         level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
-        self.ty.display_with_db_fmt(f, db, level)
+        let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
+        self.ty.show_with_db_fmt(f, db, &mut Default::default())
     }
 }
 

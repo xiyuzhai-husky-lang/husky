@@ -20,6 +20,15 @@ impl TermCategory {
     pub fn universe(&self) -> TermUniverse {
         self.universe
     }
+
+    pub(crate) fn show_with_db_fmt(
+        self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &dyn TermDb,
+        ctx: &mut TermShowContext,
+    ) -> std::fmt::Result {
+        todo!()
+    }
 }
 
 impl std::fmt::Display for TermCategory {

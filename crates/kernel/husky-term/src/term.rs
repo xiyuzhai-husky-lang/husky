@@ -30,6 +30,7 @@ use husky_entity_path::EntityPath;
 use husky_word::Identifier;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[enum_class::from_variants]
 pub enum Term {
     /// atoms
     ///
@@ -55,42 +56,6 @@ pub enum Term {
     TraitConstraint(TermTraitConstraint),
 }
 
-impl From<TermLiteral> for Term {
-    fn from(v: TermLiteral) -> Self {
-        Self::Literal(v)
-    }
-}
-
-impl From<TermRitchie> for Term {
-    fn from(v: TermRitchie) -> Self {
-        Self::Ritchie(v)
-    }
-}
-
-impl From<TermCurry> for Term {
-    fn from(v: TermCurry) -> Self {
-        Self::Curry(v)
-    }
-}
-
-impl From<EntityPath> for Term {
-    fn from(v: EntityPath) -> Self {
-        Self::Entity(v)
-    }
-}
-
-impl From<TermSymbol> for Term {
-    fn from(v: TermSymbol) -> Self {
-        Self::Symbol(v)
-    }
-}
-
-impl From<TermCategory> for Term {
-    fn from(v: TermCategory) -> Self {
-        Self::Category(v)
-    }
-}
-
 impl<Db: TermDb + ?Sized> salsa::DebugWithDb<Db> for Term {
     fn fmt(
         &self,
@@ -114,25 +79,32 @@ impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for Term {
         level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
+        self.show_with_db_fmt(f, db, &mut Default::default())
+    }
+}
+
+impl Term {
+    pub(crate) fn show_with_db_fmt(
+        self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &dyn TermDb,
+        ctx: &mut TermShowContext,
+    ) -> std::fmt::Result {
         match self {
-            Term::Literal(term) => term.display_with_db_fmt(f, db, level),
-            Term::Symbol(term) => term.display_with_db_fmt(f, db, level),
-            Term::Entity(term) => term.display_with_db_fmt(f, db, level),
+            Term::Literal(term) => term.show_with_db_fmt(f, db, ctx),
+            Term::Symbol(term) => term.show_with_db_fmt(f, db, ctx),
+            Term::Entity(term) => {
+                term.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())
+            }
             Term::Category(term) => f.write_str(&term.to_string()),
             Term::Universe(term) => f.write_str(&term.to_string()),
-            Term::Curry(term) => term.display_with_db_fmt(f, db, level),
-            Term::Ritchie(term) => term.display_with_db_fmt(f, db, level),
-            Term::Abstraction(term) => term.display_with_db_fmt(f, db, level),
-            Term::Application(term) => term.display_with_db_fmt(f, db, level),
-            Term::Subentity(term) => f.debug_tuple("Subentity").field(&term.debug(db)).finish(),
-            Term::AsTraitSubentity(term) => f
-                .debug_tuple("AsTraitSubentity")
-                .field(&term.debug(db))
-                .finish(),
-            Term::TraitConstraint(term) => f
-                .debug_tuple("TraitConstraint")
-                .field(&term.debug(db))
-                .finish(),
+            Term::Curry(term) => term.show_with_db_fmt(f, db, ctx),
+            Term::Ritchie(term) => term.show_with_db_fmt(f, db, ctx),
+            Term::Abstraction(term) => term.show_with_db_fmt(f, db, ctx),
+            Term::Application(term) => term.show_with_db_fmt(f, db, ctx),
+            Term::Subentity(term) => term.show_with_db_fmt(f, db, ctx),
+            Term::AsTraitSubentity(term) => term.show_with_db_fmt(f, db, ctx),
+            Term::TraitConstraint(term) => term.show_with_db_fmt(f, db, ctx),
         }
     }
 }

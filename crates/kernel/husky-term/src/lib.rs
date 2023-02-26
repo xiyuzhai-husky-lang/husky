@@ -1,4 +1,5 @@
 #![doc = include_str!("../README.md")]
+#![feature(trait_upcasting)]
 // #![deny(unsafe_code, missing_docs, clippy::unwrap_used)]
 
 mod context;

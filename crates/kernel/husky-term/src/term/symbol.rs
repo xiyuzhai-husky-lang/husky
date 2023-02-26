@@ -9,6 +9,17 @@ pub struct TermSymbol {
     pub idx: u8,
 }
 
+impl TermSymbol {
+    pub(crate) fn show_with_db_fmt(
+        self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &dyn TermDb,
+        ctx: &mut TermShowContext,
+    ) -> std::fmt::Result {
+        ctx.show(self, f)
+    }
+}
+
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TermSymbolTypeErrorKind {
     #[error("signature term error")]

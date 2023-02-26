@@ -8,9 +8,14 @@ pub struct TermAsTraitSubentity {
     ident: Identifier,
 }
 
-impl From<TermAsTraitSubentity> for Term {
-    fn from(val: TermAsTraitSubentity) -> Self {
-        Term::AsTraitSubentity(val)
+impl TermAsTraitSubentity {
+    pub(crate) fn show_with_db_fmt(
+        self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &dyn TermDb,
+        ctx: &mut TermShowContext,
+    ) -> std::fmt::Result {
+        todo!()
     }
 }
 

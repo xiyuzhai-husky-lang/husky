@@ -7,6 +7,19 @@ pub struct TermApplication {
     pub argument: Term,
 }
 
+impl TermApplication {
+    pub(crate) fn show_with_db_fmt(
+        self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &dyn TermDb,
+        ctx: &mut TermShowContext,
+    ) -> std::fmt::Result {
+        self.function(db).show_with_db_fmt(f, db, ctx)?;
+        f.write_str(" ")?;
+        self.argument(db).show_with_db_fmt(f, db, ctx)
+    }
+}
+
 impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermApplication {
     fn display_with_db_fmt(
         &self,
@@ -15,15 +28,7 @@ impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermApplication {
         level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
-        self.function(db).display_with(db, level.next()).fmt(f)?;
-        f.write_str(" ")?;
-        self.argument(db).display_with(db, level.next()).fmt(f)
-    }
-}
-
-impl From<TermApplication> for Term {
-    fn from(val: TermApplication) -> Self {
-        Term::Application(val)
+        self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }
 
