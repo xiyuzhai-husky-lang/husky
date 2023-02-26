@@ -57,4 +57,8 @@ pub struct TypeJar(
     application_ty_field_ty,
     application_term_ty,
     ty_path_ty_call_ty,
+    TermSymbols,
+    term_curry_symbols,
+    term_ritchie_symbols,
+    term_application_symbols,
 );

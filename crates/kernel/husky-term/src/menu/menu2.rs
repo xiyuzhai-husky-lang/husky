@@ -26,18 +26,21 @@ impl TermMenu2 {
             covariant_lifetime_to_covariant_ty0_to_ty0: TermCurry::new(
                 db,
                 Variance::Covariant,
+                None,
                 menu1.lifetime_ty().into(),
                 menu1.covariant_ty0_to_ty0().into(),
             ),
             covariant_lifetime_to_contravariant_ty0_to_ty0: TermCurry::new(
                 db,
                 Variance::Covariant,
+                None,
                 menu1.lifetime_ty().into(),
                 menu1.contravariant_ty0_to_ty0().into(),
             ),
             covariant_lifetime_to_invariant_ty0_to_ty0: TermCurry::new(
                 db,
                 Variance::Covariant,
+                None,
                 menu1.lifetime_ty().into(),
                 menu1.invariant_ty0_to_ty0().into(),
             ),

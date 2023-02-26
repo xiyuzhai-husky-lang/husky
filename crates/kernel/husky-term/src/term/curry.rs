@@ -2,12 +2,16 @@ pub use context::*;
 
 use crate::*;
 
-/// representing term `x -> y`
+/// representing term `X -> Y` or dependent form `(a: X) -> Y(a)`
 #[salsa::interned(db = TermDb, jar = TermJar)]
 pub struct TermCurry {
     pub variance: Variance,
-    pub x: Term,
-    pub y: Term,
+    /// a
+    pub input_symbol: Option<TermSymbol>,
+    /// X
+    pub input_ty: Term,
+    /// Y
+    pub return_ty: Term,
 }
 
 impl TermCurry {
@@ -17,15 +21,29 @@ impl TermCurry {
         db: &dyn TermDb,
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
+        let input_symbol = self.input_symbol(db);
+        if input_symbol.is_some() {
+            f.write_str("(")?
+        }
         f.write_str(match self.variance(db) {
             Independent => "independent ",
             Covariant => "covariant ",
             Contravariant => "contravariant ",
             Invariant => "invariant ",
         })?;
-        self.x(db).show_with_db_fmt(f, db, ctx)?;
-        f.write_str(" -> ")?;
-        self.y(db).show_with_db_fmt(f, db, ctx)
+        if let Some(input_symbol) = input_symbol {
+            ctx.fmt_with_symbol(db, input_symbol, |ctx| {
+                ctx.fmt_symbol(db, input_symbol, f);
+                f.write_str(": ")?;
+                self.input_ty(db).show_with_db_fmt(f, db, ctx)?;
+                f.write_str(") -> ")?;
+                self.return_ty(db).show_with_db_fmt(f, db, ctx)
+            })
+        } else {
+            self.input_ty(db).show_with_db_fmt(f, db, ctx)?;
+            f.write_str(" -> ")?;
+            self.return_ty(db).show_with_db_fmt(f, db, ctx)
+        }
     }
 }
 

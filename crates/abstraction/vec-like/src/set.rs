@@ -6,6 +6,12 @@ pub struct VecSet<K> {
     data: Vec<K>,
 }
 
+impl<K> VecSet<K> {
+    pub fn new_one_elem_set(elem: K) -> Self {
+        Self { data: vec![elem] }
+    }
+}
+
 impl<K> Default for VecSet<K> {
     fn default() -> Self {
         Self {
@@ -35,6 +41,12 @@ impl<K> FromIterator<K> for VecSet<K> {
         Self {
             data: t.into_iter().collect(),
         }
+    }
+}
+
+impl<const n: usize, K> From<[K; n]> for VecSet<K> {
+    fn from(value: [K; n]) -> Self {
+        Self::from_iter(value.into_iter())
     }
 }
 

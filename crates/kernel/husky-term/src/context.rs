@@ -1,5 +1,7 @@
 mod entry;
 
+pub(crate) use entry::is_ty_path_lifetime_ty;
+
 use crate::*;
 use entry::*;
 use husky_entity_path::EntityPath;
@@ -67,19 +69,31 @@ pub(crate) struct TermShowContext {
 }
 
 impl TermShowContext {
-    pub(crate) fn show(
+    pub(crate) fn fmt_symbol(
         &mut self,
         db: &dyn TermDb,
         symbol: TermSymbol,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         if let Some(entry) = self.entries.get_entry(symbol) {
-            todo!()
+            entry.show(db, f)
         } else {
             let new_entry = self.new_external_entry(db, symbol, None);
             new_entry.show(db, f);
             self.entries.insert_new(new_entry).unwrap();
             Ok(())
         }
+    }
+
+    pub(crate) fn fmt_with_symbol(
+        &mut self,
+        db: &dyn TermDb,
+        symbol: TermSymbol,
+        f: impl FnOnce(&mut Self) -> std::fmt::Result,
+    ) -> std::fmt::Result {
+        self.enter_block(db, symbol);
+        f(self)?;
+        self.exit_block(symbol);
+        Ok(())
     }
 }
