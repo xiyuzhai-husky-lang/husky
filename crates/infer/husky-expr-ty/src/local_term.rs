@@ -1,12 +1,12 @@
 mod expectation;
 mod progress;
-mod table;
+mod region;
 mod unresolved;
 
 pub use expectation::*;
 pub use progress::*;
 
-pub(crate) use table::*;
+pub(crate) use region::*;
 pub(crate) use unresolved::*;
 
 use crate::*;
@@ -19,19 +19,36 @@ pub enum LocalTerm {
 }
 
 #[derive(Default, Debug, PartialEq, Eq)]
-pub struct LocalTermTable {
-    implicit_symbol_registry: ImplicitSymbolRegistry,
+pub struct LocalTermRegion {
     unresolved_terms: UnresolvedTerms,
     expectations: LocalTermExpectations,
 }
 
-impl LocalTermTable {
+impl LocalTermRegion {
     pub fn unresolved_terms(&self) -> &UnresolvedTerms {
         &self.unresolved_terms
     }
 
     pub fn expectations(&self) -> &LocalTermExpectations {
         &self.expectations
+    }
+
+    pub(crate) fn new_implicit_symbol(
+        &mut self,
+        src_expr_idx: ExprIdx,
+        variant: ImplicitSymbolVariant,
+    ) -> LocalTerm {
+        self.unresolved_terms
+            .new_implicit_symbol(src_expr_idx, variant)
+    }
+
+    pub(crate) fn intern_unresolved_term(
+        &mut self,
+        src_expr_idx: ExprIdx,
+        unresolved_term: UnresolvedTerm,
+    ) -> UnresolvedTermIdx {
+        self.unresolved_terms
+            .intern_unresolved_term(src_expr_idx, unresolved_term)
     }
 }
 

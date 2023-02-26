@@ -256,8 +256,9 @@ impl<'a> ExprTypeEngine<'a> {
         src_expr_idx: ExprIdx,
         target: LocalTerm,
         expectation: impl ExpectLocalTerm,
+        local_term_region: &mut LocalTermRegion,
     ) -> OptionLocalTermExpectationIdx {
-        self.local_term_table_mut()
+        local_term_region
             .expectations
             .alloc_rule(LocalTermExpectationEntry {
                 src_expr_idx,
@@ -271,22 +272,33 @@ impl<'a> ExprTypeEngine<'a> {
         &self,
         rule: &LocalTermExpectationEntry,
         level: LocalTermResolveLevel,
+        unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationResolvedOkM> {
-        let table = self.local_term_table();
         match rule.expectation {
-            LocalTermExpectation::ExplicitlyConvertible(ref exp) => {
-                self.resolve_explicitly_convertible(rule.expectee, exp.destination, level)
-            }
-            LocalTermExpectation::ImplicitlyConvertible(exp) => {
-                self.resolve_implicitly_convertible(rule.expectee, exp.destination, level)
-            }
+            LocalTermExpectation::ExplicitlyConvertible(ref exp) => self
+                .resolve_explicitly_convertible(
+                    rule.expectee,
+                    exp.destination,
+                    level,
+                    unresolved_terms,
+                ),
+            LocalTermExpectation::ImplicitlyConvertible(exp) => self
+                .resolve_implicitly_convertible(
+                    rule.expectee,
+                    exp.destination,
+                    level,
+                    unresolved_terms,
+                ),
             LocalTermExpectation::EqsSort { smallest_universe } => {
                 self.resolve_eqs_sort_expectation(rule.expectee, smallest_universe)
             }
             LocalTermExpectation::FrameVariableType => todo!(),
-            LocalTermExpectation::EqsRefMutApplication { lifetime } => {
-                self.resolve_eqs_ref_mut_application_expectation(rule.expectee, lifetime)
-            }
+            LocalTermExpectation::EqsRefMutApplication { lifetime } => self
+                .resolve_eqs_ref_mut_application_expectation(
+                    rule.expectee,
+                    lifetime,
+                    unresolved_terms,
+                ),
             LocalTermExpectation::EqsRitchieCallTy => {
                 self.resolve_eqs_richie_call_ty(rule.expectee)
             }

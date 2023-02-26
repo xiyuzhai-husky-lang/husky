@@ -78,12 +78,14 @@ impl<'a> ExprTypeEngine<'a> {
         expectee: LocalTerm,
         destination: LocalTerm,
         level: LocalTermResolveLevel,
+        unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationResolvedOkM> {
-        let table = self.local_term_table();
         match expectee {
             LocalTerm::Resolved(resolved_expectee) => match destination {
-                LocalTerm::Resolved(destination) => self.res_to_res(resolved_expectee, destination),
-                LocalTerm::Unresolved(dst) => match table[dst].unresolved_term() {
+                LocalTerm::Resolved(destination) => {
+                    self.res_to_res(resolved_expectee, destination, unresolved_terms)
+                }
+                LocalTerm::Unresolved(dst) => match unresolved_terms[dst].unresolved_term() {
                     UnresolvedTerm::ImplicitSymbol(_) => match level {
                         LocalTermResolveLevel::Weak => None,
                         LocalTermResolveLevel::Strong => Some(LocalTermExpectationResolvedOkM {
@@ -103,7 +105,9 @@ impl<'a> ExprTypeEngine<'a> {
                     UnresolvedTerm::TypeApplication { ty, arguments } => todo!(),
                 },
             },
-            LocalTerm::Unresolved(expectee) => self.unres_to(expectee, destination, level),
+            LocalTerm::Unresolved(expectee) => {
+                self.unres_to(expectee, destination, level, unresolved_terms)
+            }
         }
     }
 
@@ -111,6 +115,7 @@ impl<'a> ExprTypeEngine<'a> {
         &self,
         expectee: ReducedTerm,
         destination: ReducedTerm,
+        unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationResolvedOkM> {
         if expectee == destination {
             return Some(LocalTermExpectationResolvedOkM {
@@ -135,9 +140,9 @@ impl<'a> ExprTypeEngine<'a> {
         expectee: UnresolvedTermIdx,
         destination: LocalTerm,
         level: LocalTermResolveLevel,
+        unresolved_terms: &UnresolvedTerms,
     ) -> Option<LocalTermExpectationResolvedOkM> {
-        let table = self.local_term_table();
-        match table[expectee].unresolved_term() {
+        match unresolved_terms[expectee].unresolved_term() {
             UnresolvedTerm::ImplicitSymbol(_) => match level {
                 LocalTermResolveLevel::Weak => None,
                 LocalTermResolveLevel::Strong => Some(LocalTermExpectationResolvedOkM {
@@ -155,7 +160,7 @@ impl<'a> ExprTypeEngine<'a> {
                 }),
             },
             UnresolvedTerm::TypeApplication { ty, arguments } => {
-                self.unres_ty_app_to(*ty, arguments, destination)
+                self.unres_ty_app_to(*ty, arguments, destination, unresolved_terms)
             }
         }
     }
@@ -166,6 +171,7 @@ impl<'a> ExprTypeEngine<'a> {
         ty: TypePath,
         arguments: &[LocalTerm],
         destination: LocalTerm,
+        unresolved_terms: &UnresolvedTerms,
     ) -> Option<LocalTermExpectationResolvedOkM> {
         match ty {
             ty if ty == self.entity_path_menu().ref_ty_path() => {
