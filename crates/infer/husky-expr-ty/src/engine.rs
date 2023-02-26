@@ -26,7 +26,6 @@ pub(crate) struct ExprTypeEngine<'a> {
     expr_terms: ExprMap<ExprTermResult<LocalTerm>>,
     inherited_symbol_tys: InheritedSymbolMap<ReducedTerm>,
     current_symbol_tys: CurrentSymbolMap<LocalTerm>,
-    local_term_table: LocalTermTable,
     pattern_expr_ty_infos: PatternExprMap<PatternExprTypeInfo>,
     pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
     return_ty: Option<ReducedTerm>,
@@ -83,7 +82,6 @@ impl<'a> ExprTypeEngine<'a> {
             expr_terms: ExprMap::new(expr_region_data.expr_arena()),
             inherited_symbol_tys: InheritedSymbolMap::new(symbol_region.inherited_symbol_arena()),
             current_symbol_tys: CurrentSymbolMap::new(symbol_region.current_symbol_arena()),
-            local_term_table: Default::default(),
             return_ty,
             pattern_expr_ty_infos: PatternExprMap::new(pattern_expr_region.pattern_expr_arena()),
             pattern_symbol_ty_infos: PatternSymbolMap::new(
@@ -93,20 +91,21 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    pub(crate) fn infer_all(&mut self) {
+    pub(crate) fn infer_all(&mut self, local_term_region: &mut LocalTermRegion) {
         self.infer_all_parameter_symbols();
-        self.infer_all_exprs();
+        self.infer_all_exprs(local_term_region);
     }
 
-    fn infer_all_exprs(&mut self) {
+    fn infer_all_exprs(&mut self, local_term_region: &mut LocalTermRegion) {
         for root in self.expr_region_data.roots() {
-            let ty = self.infer_new_expr_ty(root.expr(), ExpectInsSort::default());
+            let ty =
+                self.infer_new_expr_ty(root.expr(), ExpectInsSort::default(), local_term_region);
             // todo: check coherence
         }
     }
 
-    pub(crate) fn finish(mut self) -> ExprTypeRegion {
-        self.finalize_unresolved_term_table();
+    pub(crate) fn finish(mut self, mut local_term_region: LocalTermRegion) -> ExprTypeRegion {
+        self.finalize_unresolved_term_table(&mut local_term_region);
         ExprTypeRegion::new(
             self.db,
             self.reduced_term_menu,
@@ -115,7 +114,7 @@ impl<'a> ExprTypeEngine<'a> {
             self.expr_terms,
             self.inherited_symbol_tys,
             self.current_symbol_tys,
-            self.local_term_table,
+            local_term_region,
             self.return_ty,
             self.self_ty,
         )
@@ -127,14 +126,6 @@ impl<'a> ExprTypeEngine<'a> {
 
     pub(crate) fn reduced_term_menu(&self) -> ReducedTermMenu<'a> {
         self.reduced_term_menu
-    }
-
-    pub(crate) fn local_term_table(&self) -> &LocalTermTable {
-        &self.local_term_table
-    }
-
-    pub(crate) fn local_term_table_mut(&mut self) -> &mut LocalTermTable {
-        &mut self.local_term_table
     }
 
     pub(crate) fn expr_region_data(&self) -> &ExprRegionData {

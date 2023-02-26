@@ -20,11 +20,12 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: ExprIdx,
         expr_ty_expectation: impl ExpectLocalTerm,
+        local_term_region: &mut LocalTermRegion,
     ) -> Option<ReducedTerm> {
-        let ty = self.infer_new_expr_ty(expr_idx, expr_ty_expectation)?;
+        let ty = self.infer_new_expr_ty(expr_idx, expr_ty_expectation, local_term_region)?;
         match ty {
             LocalTerm::Resolved(ty) => Some(ty),
-            LocalTerm::Unresolved(ty) => self.resolve_term(ty),
+            LocalTerm::Unresolved(ty) => self.resolve_term(ty, local_term_region),
         }
     }
 
@@ -32,27 +33,35 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: ExprIdx,
         expr_ty_expectation: impl ExpectLocalTerm,
+        local_term_region: &mut LocalTermRegion,
     ) -> Option<LocalTerm> {
-        self.infer_new_expr_ty_with_expectation_rule(expr_idx, expr_ty_expectation)
-            .1
-            .map(|resolved_ok| resolved_ok.destination())
+        self.infer_new_expr_ty_with_expectation_rule(
+            expr_idx,
+            expr_ty_expectation,
+            local_term_region,
+        )
+        .1
+        .map(|resolved_ok| resolved_ok.destination())
     }
 
     #[inline(always)]
-    pub(super) fn infer_new_expr_ty_with_expectation_rule<E: ExpectLocalTerm>(
+    pub(super) fn infer_new_expr_ty_with_expectation_rule<'b, E: ExpectLocalTerm>(
         &mut self,
         expr_idx: ExprIdx,
         expr_ty_expectation: E,
-    ) -> (OptionLocalTermExpectationIdx, Option<&E::ResolvedOk>) {
-        let ty_result = self.calc_expr_ty(expr_idx, &expr_ty_expectation);
+        local_term_region: &'b mut LocalTermRegion,
+    ) -> (OptionLocalTermExpectationIdx, Option<&'b E::ResolvedOk>) {
+        let ty_result = self.calc_expr_ty(expr_idx, &expr_ty_expectation, local_term_region);
         let expectation_idx = match ty_result {
-            Ok(ty) => self.add_expectation_rule(expr_idx, ty, expr_ty_expectation),
+            Ok(ty) => {
+                self.add_expectation_rule(expr_idx, ty, expr_ty_expectation, local_term_region)
+            }
             Err(_) => Default::default(),
         };
         self.save_new_expr_ty(expr_idx, ExprTypeInfo::new(ty_result, expectation_idx));
-        self.resolve_as_much_as_possible(LocalTermResolveLevel::Weak);
+        self.resolve_as_much_as_possible(LocalTermResolveLevel::Weak, local_term_region);
         let resolved_ok = match expectation_idx.into_option() {
-            Some(expectation_idx) => self.local_term_table[expectation_idx]
+            Some(expectation_idx) => local_term_region[expectation_idx]
                 .resolve_progress()
                 .resolved_ok(),
             None => None,
@@ -68,11 +77,15 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: ExprIdx,
         expr_ty_expectation: &impl ExpectLocalTerm,
+        local_term_region: &mut LocalTermRegion,
     ) -> ExprTypeResult<LocalTerm> {
         match self.expr_region_data[expr_idx] {
-            Expr::Literal(literal_token_idx) => {
-                self.calc_literal(expr_idx, literal_token_idx, expr_ty_expectation)
-            }
+            Expr::Literal(literal_token_idx) => self.calc_literal(
+                expr_idx,
+                literal_token_idx,
+                expr_ty_expectation,
+                local_term_region,
+            ),
             Expr::EntityPath {
                 entity_path_expr,
                 entity_path,
@@ -124,11 +137,11 @@ impl<'a> ExprTypeEngine<'a> {
                 ropd,
                 opr_token_idx,
                 ..
-            } => self.calc_binary_expr_ty(expr_idx, lopd, opr, ropd),
+            } => self.calc_binary_expr_ty(expr_idx, lopd, opr, ropd, local_term_region),
             Expr::Be {
                 src, ref target, ..
             } => {
-                match self.infer_new_expr_ty(src, ExpectInsSort::default()) {
+                match self.infer_new_expr_ty(src, ExpectInsSort::default(), local_term_region) {
                     Some(src_ty) => match target {
                         Ok(target) => todo!(),
                         Err(_) => (),
@@ -137,12 +150,13 @@ impl<'a> ExprTypeEngine<'a> {
                 };
                 Ok(self.reduced_term_menu.bool().into())
             }
-            Expr::PrefixOpn { opr, opd, .. } => self.calc_prefix_ty(opr, opd),
-            Expr::SuffixOpn { opd, opr, .. } => self.calc_suffix_ty(opd, opr),
+            Expr::PrefixOpn { opr, opd, .. } => self.calc_prefix_ty(opr, opd, local_term_region),
+            Expr::SuffixOpn { opd, opr, .. } => self.calc_suffix_ty(opd, opr, local_term_region),
             Expr::ApplicationOrRitchieCall {
                 function, argument, ..
             } => {
-                let function_ty = self.infer_new_expr_ty(function, ExpectInsSort::default());
+                let function_ty =
+                    self.infer_new_expr_ty(function, ExpectInsSort::default(), local_term_region);
                 match function_ty {
                     Some(function_ty) => {
                         match function_ty {
@@ -150,7 +164,7 @@ impl<'a> ExprTypeEngine<'a> {
                                 Term::Category(_) => {
                                     let Some(ty_term) = self.infer_new_expr_term(function)
                                     else {
-                                        self.infer_new_expr_ty(argument, ExpectInsSort::default());
+                                        self.infer_new_expr_ty(argument, ExpectInsSort::default(),local_term_region);
                                         return Err(todo!())
                                     };
                                     match ty_term {
@@ -165,6 +179,7 @@ impl<'a> ExprTypeEngine<'a> {
                                                     self.infer_new_expr_ty(
                                                         argument,
                                                         ExpectInsSort::default(),
+                                                        local_term_region,
                                                     );
                                                     return Err(match error {
                                                         TypeError::Original(error) => OriginalExprTypeError::TypeCallTypeError(error).into(),
@@ -181,6 +196,7 @@ impl<'a> ExprTypeEngine<'a> {
                                     Some(function_ty.into()),
                                     None,
                                     ExprIdxRange::new_single(argument),
+                                    local_term_region,
                                 ),
                                 _ => todo!(),
                             },
@@ -188,7 +204,11 @@ impl<'a> ExprTypeEngine<'a> {
                         }
                     }
                     None => {
-                        self.infer_new_expr_ty(argument, ExpectInsSort::default());
+                        self.infer_new_expr_ty(
+                            argument,
+                            ExpectInsSort::default(),
+                            local_term_region,
+                        );
                         Err(DerivedExprTypeError::FunctionTypeNotInferredInApplicationOrFunctionCall.into())
                     }
                 }
@@ -199,13 +219,21 @@ impl<'a> ExprTypeEngine<'a> {
                 arguments,
                 ..
             } => {
-                let function_ty = self.infer_new_expr_ty(function, ExpectEqsRitchieCallType);
-                self.calc_ritchie_call_ty(function_ty, implicit_arguments.as_ref(), arguments)
+                let function_ty =
+                    self.infer_new_expr_ty(function, ExpectEqsRitchieCallType, local_term_region);
+                self.calc_ritchie_call_ty(
+                    function_ty,
+                    implicit_arguments.as_ref(),
+                    arguments,
+                    local_term_region,
+                )
             }
             Expr::Field {
                 owner, ident_token, ..
             } => {
-                if let Some(owner_ty) = self.infer_new_expr_ty(owner, ExpectInsSort::default()) {
+                if let Some(owner_ty) =
+                    self.infer_new_expr_ty(owner, ExpectInsSort::default(), local_term_region)
+                {
                     match owner_ty {
                         LocalTerm::Resolved(owner_ty) => {
                             let field_ty = self.db.field_ty(owner_ty, ident_token.ident());
@@ -235,13 +263,13 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             } => {
                 let Some(self_expr_ty) =
-                    self.infer_new_expr_ty_resolved( self_argument, ExpectInsSort::default(),)
+                    self.infer_new_expr_ty_resolved( self_argument, ExpectInsSort::default(),local_term_region)
                     else {
                         if let Some(implicit_arguments) = implicit_arguments {
                             todo!()
                         }
                         for argument in nonself_arguments {
-                            self.infer_new_expr_ty(argument, ExpectInsSort::default());
+                            self.infer_new_expr_ty(argument, ExpectInsSort::default(),local_term_region);
                         }
                         return Err(DerivedExprTypeError::MethodOwnerTypeNotInferred.into())
                     };
@@ -258,21 +286,30 @@ impl<'a> ExprTypeEngine<'a> {
                         })
                     }
                 };
-                self.calc_ritchie_call_ty(method_ty, implicit_arguments.as_ref(), nonself_arguments)
+                self.calc_ritchie_call_ty(
+                    method_ty,
+                    implicit_arguments.as_ref(),
+                    nonself_arguments,
+                    local_term_region,
+                )
             }
             Expr::TemplateInstantiation {
                 template,
                 ref implicit_arguments,
             } => todo!(),
-            Expr::Application { function, argument } => self.calc_application(function, argument),
+            Expr::Application { function, argument } => {
+                self.calc_application(function, argument, local_term_region)
+            }
             Expr::Bracketed { item, .. } => self
-                .infer_new_expr_ty(item, expr_ty_expectation.clone())
+                .infer_new_expr_ty(item, expr_ty_expectation.clone(), local_term_region)
                 .ok_or(DerivedExprTypeError::BracketedItemTypeError.into()),
             Expr::NewTuple { items, .. } => todo!(),
-            Expr::NewBoxList { caller, items, .. } => self.calc_new_box_list(expr_idx, items),
+            Expr::NewBoxList { caller, items, .. } => {
+                self.calc_new_box_list(expr_idx, items, local_term_region)
+            }
             Expr::BoxColon { caller, .. } => todo!(),
             Expr::Block { stmts } => self
-                .infer_new_block(stmts, expr_ty_expectation.clone())
+                .infer_new_block(stmts, expr_ty_expectation.clone(), local_term_region)
                 .ok_or(DerivedExprTypeError::BlockTypeError.into()),
             Expr::Err(_) => Err(DerivedExprTypeError::ExprError.into()),
         }

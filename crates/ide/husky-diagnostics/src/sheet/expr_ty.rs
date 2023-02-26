@@ -65,15 +65,15 @@ fn collect_expr_ty_diagnostics(
             _ => (),
         }
     }
-    let local_term_table = expr_ty_region.local_term_table();
-    for (expr_idx, error) in local_term_table
+    let local_term_region = expr_ty_region.local_term_region();
+    for (expr_idx, error) in local_term_region
         .unresolved_terms()
         .iter()
         .filter_map(|entry| Some((entry.src_expr_idx(), entry.original_error()?)))
     {
         diagnostics.push((expr_idx, error).to_diagnostic(&ctx))
     }
-    for (expr_idx, error) in local_term_table
+    for (expr_idx, error) in local_term_region
         .expectations()
         .iter()
         .filter_map(|entry| Some((entry.src_expr_idx(), entry.original_error()?)))

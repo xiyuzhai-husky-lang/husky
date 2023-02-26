@@ -79,6 +79,7 @@ impl UnresolvedTermRitchieParameterBookType {
 
 #[derive(Default, Debug, PartialEq, Eq)]
 pub struct UnresolvedTerms {
+    implicit_symbol_registry: ImplicitSymbolRegistry,
     arena: Vec<UnresolvedTermEntry>,
     first_unresolved_term: usize,
 }
@@ -149,6 +150,53 @@ impl UnresolvedTermEntry {
 }
 
 impl UnresolvedTerms {
+    pub(super) fn new_implicit_symbol(
+        &mut self,
+        src_expr_idx: ExprIdx,
+        variant: ImplicitSymbolVariant,
+    ) -> LocalTerm {
+        let new_implicit_symbol = self
+            .implicit_symbol_registry
+            .new_implicit_symbol(src_expr_idx, variant);
+        self.alloc_unresolved_term(
+            src_expr_idx,
+            UnresolvedTerm::ImplicitSymbol(new_implicit_symbol),
+        )
+        .into()
+    }
+
+    pub(super) fn intern_unresolved_term(
+        &mut self,
+        src_expr_idx: ExprIdx,
+        unresolved_term: UnresolvedTerm,
+    ) -> UnresolvedTermIdx {
+        let position = self
+            .arena
+            .iter()
+            .position(|entry| entry.unresolved_term == unresolved_term);
+        match position {
+            Some(idx) => UnresolvedTermIdx(idx),
+            None => self.alloc_unresolved_term(src_expr_idx, unresolved_term),
+        }
+    }
+
+    fn alloc_unresolved_term(
+        &mut self,
+        src_expr_idx: ExprIdx,
+        unresolved_term: UnresolvedTerm,
+    ) -> UnresolvedTermIdx {
+        let idx = self.arena.len();
+        let implicit_symbol_dependencies =
+            self.extract_implicit_symbol_dependencies(&unresolved_term);
+        self.arena.push(UnresolvedTermEntry {
+            src_expr_idx,
+            unresolved_term,
+            implicit_symbol_dependencies,
+            resolve_progress: LocalTermResolveProgress::Unresolved,
+        });
+        UnresolvedTermIdx(idx)
+    }
+
     fn extract_implicit_symbol_dependencies(
         &self,
         unresolved_term: &UnresolvedTerm,
@@ -233,60 +281,19 @@ impl UnresolvedTerms {
     }
 }
 
-impl<'a> ExprTypeEngine<'a> {
-    pub(crate) fn intern_unresolved_term(
-        &mut self,
-        src_expr_idx: ExprIdx,
-        unresolved_term: UnresolvedTerm,
-    ) -> UnresolvedTermIdx {
-        let position = self
-            .local_term_table()
-            .unresolved_terms
-            .arena
-            .iter()
-            .position(|entry| entry.unresolved_term == unresolved_term);
-        match position {
-            Some(idx) => UnresolvedTermIdx(idx),
-            None => self.alloc_unresolved_term(src_expr_idx, unresolved_term),
-        }
-    }
-
-    fn alloc_unresolved_term(
-        &mut self,
-        src_expr_idx: ExprIdx,
-        unresolved_term: UnresolvedTerm,
-    ) -> UnresolvedTermIdx {
-        let idx = self.local_term_table().unresolved_terms.arena.len();
-        let implicit_symbol_dependencies = self
-            .local_term_table()
-            .unresolved_terms
-            .extract_implicit_symbol_dependencies(&unresolved_term);
-        self.local_term_table_mut()
-            .unresolved_terms
-            .arena
-            .push(UnresolvedTermEntry {
-                src_expr_idx,
-                unresolved_term,
-                implicit_symbol_dependencies,
-                resolve_progress: LocalTermResolveProgress::Unresolved,
-            });
-        UnresolvedTermIdx(idx)
-    }
-
+impl LocalTermRegion {
     pub(super) fn substitute_implicit_symbol(
         &mut self,
         implicit_symbol: UnresolvedTermIdx,
         substitution: LocalTerm,
     ) {
         let substitution_implicit_symbol_dependencies = self
-            .local_term_table()
             .unresolved_terms
             .extract_local_term_implicit_symbol_dependencies_standalone(substitution);
         if substitution_implicit_symbol_dependencies.has(implicit_symbol) {
             todo!("report error of cyclic substitution")
         }
-        let table = &mut self.local_term_table_mut();
-        for entry in table.unresolved_terms.unresolved_iter_mut() {
+        for entry in self.unresolved_terms.unresolved_iter_mut() {
             if entry.implicit_symbol_dependencies.has(implicit_symbol) {
                 match entry.resolve_progress {
                     LocalTermResolveProgress::Unresolved => (),
@@ -297,8 +304,8 @@ impl<'a> ExprTypeEngine<'a> {
             }
         }
         let new_expectation_rules: Vec<LocalTermExpectationEntry> = Default::default();
-        for (idx, rule) in table.expectations.unresolved_indexed_iter_mut() {
-            let target_substitution = match table
+        for (idx, rule) in self.expectations.unresolved_indexed_iter_mut() {
+            let target_substitution = match self
                 .unresolved_terms
                 .try_substitute_local_term(rule.expectee())
             {
@@ -310,30 +317,14 @@ impl<'a> ExprTypeEngine<'a> {
                     continue;
                 }
             };
-            let variant_substitution = table
+            let variant_substitution = self
                 .unresolved_terms
                 .try_substitute_expectation_rule_variant(rule.variant());
         }
-        let implicit_symbol_entry = &mut table.unresolved_terms.arena[implicit_symbol.0];
+        let implicit_symbol_entry = &mut self.unresolved_terms.arena[implicit_symbol.0];
         implicit_symbol_entry.resolve_progress = LocalTermResolveProgress::new(substitution);
         implicit_symbol_entry.implicit_symbol_dependencies =
             substitution_implicit_symbol_dependencies;
-    }
-
-    pub(crate) fn new_implicit_symbol(
-        &mut self,
-        src_expr_idx: ExprIdx,
-        variant: ImplicitSymbolVariant,
-    ) -> LocalTerm {
-        let new_implicit_symbol = self
-            .local_term_table_mut()
-            .implicit_symbol_registry
-            .new_implicit_symbol(src_expr_idx, variant);
-        self.alloc_unresolved_term(
-            src_expr_idx,
-            UnresolvedTerm::ImplicitSymbol(new_implicit_symbol),
-        )
-        .into()
     }
 }
 

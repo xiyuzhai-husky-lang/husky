@@ -10,7 +10,7 @@ pub struct ExprTypeRegion {
     expr_local_terms: ExprMap<ExprTermResult<LocalTerm>>,
     inherited_symbol_tys: InheritedSymbolMap<ReducedTerm>,
     current_symbol_tys: CurrentSymbolMap<LocalTerm>,
-    local_term_table: LocalTermTable,
+    local_term_region: LocalTermRegion,
     return_ty: Option<ReducedTerm>,
     self_ty: Option<ReducedTerm>,
 }
@@ -24,20 +24,20 @@ impl ExprTypeRegion {
         expr_terms: ExprMap<ExprTermResult<LocalTerm>>,
         inherited_symbol_tys: InheritedSymbolMap<ReducedTerm>,
         current_symbol_tys: CurrentSymbolMap<LocalTerm>,
-        mut unresolved_term_table: LocalTermTable,
+        local_term_region: LocalTermRegion,
         return_ty: Option<ReducedTerm>,
         self_ty: Option<ReducedTerm>,
     ) -> Self {
         expr_ty_infos
             .iter_mut()
-            .for_each(|info| info.finalize(&unresolved_term_table));
+            .for_each(|info| info.finalize(&local_term_region));
         Self {
             path,
             expr_ty_infos,
             expr_local_terms: expr_terms,
             inherited_symbol_tys,
             current_symbol_tys,
-            local_term_table: unresolved_term_table,
+            local_term_region,
             return_ty,
             self_ty,
         }
@@ -63,8 +63,8 @@ impl ExprTypeRegion {
         &self.current_symbol_tys
     }
 
-    pub fn local_term_table(&self) -> &LocalTermTable {
-        &self.local_term_table
+    pub fn local_term_region(&self) -> &LocalTermRegion {
+        &self.local_term_region
     }
 
     pub fn return_ty(&self) -> Option<ReducedTerm> {
@@ -113,7 +113,7 @@ impl ExprTypeInfo {
         self.ty_result.as_ref().copied()
     }
 
-    fn finalize(&mut self, unresolved_term_table: &LocalTermTable) {
+    fn finalize(&mut self, unresolved_term_table: &LocalTermRegion) {
         let Ok(ty) = self.ty_result else { return };
         self.resolve_progress = match self.expectation_rule_idx.into_option() {
             Some(expectation_rule_idx) => unresolved_term_table[expectation_rule_idx]
@@ -141,8 +141,9 @@ impl ExprTypeInfo {
 #[salsa::tracked(jar = ExprTypeJar, return_ref)]
 pub(crate) fn expr_ty_region(db: &dyn ExprTypeDb, expr_region: ExprRegion) -> ExprTypeRegion {
     let mut engine = ExprTypeEngine::new(db, expr_region);
-    engine.infer_all();
-    engine.finish()
+    let mut local_term_region = LocalTermRegion::default();
+    engine.infer_all(&mut local_term_region);
+    engine.finish(local_term_region)
 }
 
 pub(crate) struct PatternExprTypeInfo {

@@ -6,7 +6,7 @@ use vec_like::VecSet;
 pub(crate) type LocalTermExpectationIdx = ArenaIdx<LocalTermExpectationEntry>;
 pub(crate) type OptionLocalTermExpectationIdx = OptionArenaIdx<LocalTermExpectationEntry>;
 
-impl std::ops::Index<UnresolvedTermIdx> for LocalTermTable {
+impl std::ops::Index<UnresolvedTermIdx> for LocalTermRegion {
     type Output = UnresolvedTermEntry;
 
     fn index(&self, index: UnresolvedTermIdx) -> &Self::Output {
@@ -14,7 +14,7 @@ impl std::ops::Index<UnresolvedTermIdx> for LocalTermTable {
     }
 }
 
-impl std::ops::Index<LocalTermExpectationIdx> for LocalTermTable {
+impl std::ops::Index<LocalTermExpectationIdx> for LocalTermRegion {
     type Output = LocalTermExpectationEntry;
 
     fn index(&self, index: LocalTermExpectationIdx) -> &Self::Output {
@@ -32,9 +32,12 @@ impl<'a> ExprTypeEngine<'a> {
     fn next_expectation_effect(
         &self,
         level: LocalTermResolveLevel,
+        local_term_region: &mut LocalTermRegion,
     ) -> Option<(LocalTermExpectationIdx, LocalTermExpectationResolvedOkM)> {
-        for (idx, rule) in self.local_term_table().expectations.unresolved_rule_iter() {
-            if let Some(action) = self.resolve_expectation(rule, level) {
+        for (idx, rule) in local_term_region.expectations.unresolved_rule_iter() {
+            if let Some(action) =
+                self.resolve_expectation(rule, level, &mut local_term_region.unresolved_terms)
+            {
                 return Some((idx, action));
             }
         }
@@ -46,34 +49,40 @@ impl<'a> ExprTypeEngine<'a> {
     pub(crate) fn resolve_term(
         &mut self,
         unresolved_term_idx: UnresolvedTermIdx,
+        local_term_region: &mut LocalTermRegion,
     ) -> Option<ReducedTerm> {
-        self.resolve_as_much_as_possible(LocalTermResolveLevel::Weak);
-        self.local_term_table_mut()
+        self.resolve_as_much_as_possible(LocalTermResolveLevel::Weak, local_term_region);
+        local_term_region
             .unresolved_terms
             .resolve_term(unresolved_term_idx)
     }
 
-    pub(crate) fn resolve_as_much_as_possible(&mut self, level: LocalTermResolveLevel) {
-        while let Some((rule_idx, effect)) = self.next_expectation_effect(level) {
-            if let Some(actions) = self
-                .local_term_table_mut()
-                .expectations
-                .take_effect(rule_idx, effect)
-            {
+    pub(crate) fn resolve_as_much_as_possible(
+        &mut self,
+        level: LocalTermResolveLevel,
+        local_term_region: &mut LocalTermRegion,
+    ) {
+        while let Some((rule_idx, effect)) = self.next_expectation_effect(level, local_term_region)
+        {
+            if let Some(actions) = local_term_region.expectations.take_effect(rule_idx, effect) {
                 for action in actions {
                     match action {
                         TermResolveAction::SubstituteImplicitSymbol {
                             implicit_symbol,
                             substitution,
-                        } => self.substitute_implicit_symbol(implicit_symbol, substitution),
+                        } => local_term_region
+                            .substitute_implicit_symbol(implicit_symbol, substitution),
                     }
                 }
             }
         }
     }
 
-    pub(crate) fn finalize_unresolved_term_table(&mut self) {
-        self.resolve_as_much_as_possible(LocalTermResolveLevel::Strong);
+    pub(crate) fn finalize_unresolved_term_table(
+        &mut self,
+        local_term_region: &mut LocalTermRegion,
+    ) {
+        self.resolve_as_much_as_possible(LocalTermResolveLevel::Strong, local_term_region);
         // ad hoc
         // todo!()
     }

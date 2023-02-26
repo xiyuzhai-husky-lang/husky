@@ -62,6 +62,7 @@ impl<'a> ExprTypeEngine<'a> {
         &self,
         expectee: LocalTerm,
         lifetime: LocalTerm,
+        unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationResolvedOkM> {
         match expectee {
             LocalTerm::Resolved(expectee) => Some(LocalTermExpectationResolvedOkM {
@@ -69,7 +70,7 @@ impl<'a> ExprTypeEngine<'a> {
                 actions: vec![],
             }),
             LocalTerm::Unresolved(unresolved_expectee) => {
-                match self.local_term_table()[unresolved_expectee].unresolved_term() {
+                match unresolved_terms[unresolved_expectee].unresolved_term() {
                     UnresolvedTerm::ImplicitSymbol(_) => todo!(),
                     UnresolvedTerm::TypeApplication { ty, arguments }
                         if *ty == self.entity_path_menu().ref_mut_ty_path() =>
@@ -96,7 +97,7 @@ impl<'a> ExprTypeEngine<'a> {
 // }
 
 // LocalTermExpectationRuleVariant::RefMut { lifetime } => {
-//     match self.local_term_table()[target].unresolved_term() {
+//     match local_term_region[target].unresolved_term() {
 //         UnresolvedTerm::ImplicitSymbol(_) => todo!(),
 //         UnresolvedTerm::TypeApplication { ty, arguments }
 //             if *ty == self.entity_path_menu().ref_mut_ty_path() =>

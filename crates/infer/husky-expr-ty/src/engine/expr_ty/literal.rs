@@ -7,6 +7,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: ExprIdx,
         literal_token_idx: TokenIdx,
         expectation: &impl ExpectLocalTerm,
+        local_term_region: &mut LocalTermRegion,
     ) -> Result<LocalTerm, ExprTypeError> {
         let literal_token = self.token_sheet_data[literal_token_idx];
         match literal_token {
@@ -32,7 +33,7 @@ impl<'a> ExprTypeEngine<'a> {
                         Some(term) if term == self.reduced_term_menu.i64().into() => todo!(),
                         Some(term) if term == self.reduced_term_menu.i64().into() => todo!(),
                         Some(term) if term == self.reduced_term_menu.i64().into() => todo!(),
-                        _ => Ok(self
+                        _ => Ok(local_term_region
                             .new_implicit_symbol(
                                 expr_idx,
                                 ImplicitSymbolVariant::UnspecifiedIntegerType,
@@ -67,7 +68,7 @@ impl<'a> ExprTypeEngine<'a> {
                             Ok(self.reduced_term_menu.f64().into())
                         }
                         Some(_) => todo!(),
-                        None => Ok(self
+                        None => Ok(local_term_region
                             .new_implicit_symbol(
                                 expr_idx,
                                 ImplicitSymbolVariant::UnspecifiedFloatType,

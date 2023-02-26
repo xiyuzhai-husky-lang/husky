@@ -5,6 +5,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         function: ExprIdx,
         argument: ExprIdx,
+        local_term_region: &mut LocalTermRegion,
     ) -> Result<LocalTerm, ExprTypeError> {
         let function_expr = &self[function];
         match function_expr {
@@ -16,15 +17,21 @@ impl<'a> ExprTypeEngine<'a> {
             } => {
                 match items.len() {
                     0 => {
-                        let argument_ty =
-                            self.infer_new_expr_ty(argument, ExpectInsSort::default());
+                        let argument_ty = self.infer_new_expr_ty(
+                            argument,
+                            ExpectInsSort::default(),
+                            local_term_region,
+                        );
                         // check this is type
                         argument_ty
                             .ok_or(DerivedExprTypeError::ApplicationArgumentTypeNotInferred.into())
                     }
                     1 => {
-                        let arg0_ty =
-                            self.infer_new_expr_ty(items.start(), ExpectInsSort::default());
+                        let arg0_ty = self.infer_new_expr_ty(
+                            items.start(),
+                            ExpectInsSort::default(),
+                            local_term_region,
+                        );
                         match arg0_ty {
                             Some(_) => todo!(),
                             None => {
@@ -45,7 +52,8 @@ impl<'a> ExprTypeEngine<'a> {
                 rbox_token,
             } => todo!(),
             _ => {
-                let function_ty = self.infer_new_expr_ty(function, ExpectInsSort::default());
+                let function_ty =
+                    self.infer_new_expr_ty(function, ExpectInsSort::default(), local_term_region);
                 Err(OriginalExprTypeError::TodoBoxColon.into())
             }
         }

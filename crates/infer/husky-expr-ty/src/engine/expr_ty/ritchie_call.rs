@@ -6,10 +6,11 @@ impl<'a> ExprTypeEngine<'a> {
         callable_ty: Option<LocalTerm>,
         implicit_arguments: Option<&ImplicitArgumentList>,
         nonself_arguments: ExprIdxRange,
+        local_term_region: &mut LocalTermRegion,
     ) -> ExprTypeResult<LocalTerm> {
         let Some(callable_ty) = callable_ty
             else {
-                return self.infer_err_ritchie_call_ty(implicit_arguments, nonself_arguments)
+                return self.infer_err_ritchie_call_ty(implicit_arguments, nonself_arguments,local_term_region)
             };
         if let Some(implicit_arguments) = implicit_arguments {
             todo!()
@@ -39,6 +40,7 @@ impl<'a> ExprTypeEngine<'a> {
                             }),
                         Some(self.db.reduced_term(callable_ty.return_ty(self.db)).into()),
                         nonself_arguments,
+                        local_term_region,
                     )
                 }
                 Term::Abstraction(_) => todo!(),
@@ -55,14 +57,15 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         implicit_arguments: Option<&ImplicitArgumentList>,
         nonself_arguments: idx_arena::ArenaIdxRange<Expr>,
+        local_term_region: &mut LocalTermRegion,
     ) -> Result<LocalTerm, ExprTypeError> {
         if let Some(implicit_arguments) = implicit_arguments {
             for argument in implicit_arguments.arguments() {
-                self.infer_new_expr_ty(argument, ExpectInsSort::default());
+                self.infer_new_expr_ty(argument, ExpectInsSort::default(), local_term_region);
             }
         }
         for argument in nonself_arguments {
-            self.infer_new_expr_ty(argument, ExpectInsSort::default());
+            self.infer_new_expr_ty(argument, ExpectInsSort::default(), local_term_region);
         }
         Err(DerivedExprTypeError::CallableTypeError.into())
     }
@@ -72,6 +75,7 @@ impl<'a> ExprTypeEngine<'a> {
         mut parameter_tys: impl Iterator<Item = Option<LocalTerm>>,
         return_ty: Option<LocalTerm>,
         arguments: ExprIdxRange,
+        local_term_region: &mut LocalTermRegion,
     ) -> ExprTypeResult<LocalTerm> {
         let mut arguments = arguments.into_iter();
         let mut i = 0;
@@ -86,10 +90,15 @@ impl<'a> ExprTypeEngine<'a> {
                                 ExpectImplicitlyConvertible {
                                     destination: parameter_ty,
                                 },
+                                local_term_region,
                             );
                         }
                         None => {
-                            self.infer_new_expr_ty(argument, ExpectInsSort::default());
+                            self.infer_new_expr_ty(
+                                argument,
+                                ExpectInsSort::default(),
+                                local_term_region,
+                            );
                         }
                     }
                 }
