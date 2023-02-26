@@ -181,6 +181,13 @@ where
         self.entries.iter().find(|entry| entry.key() == key)
     }
 
+    pub fn get_entry_mut(&mut self, key: K) -> Option<&mut Entry>
+    where
+        K: Copy,
+    {
+        self.entries.iter_mut().find(|entry| entry.key() == key)
+    }
+
     pub fn iget_entry(&self, key: K) -> Option<(usize, &Entry)>
     where
         K: Copy,

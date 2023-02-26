@@ -16,6 +16,7 @@ pub trait TypeDb: salsa::DbWithJar<TypeJar> + SignatureDb {
         toolchain: Toolchain,
         reduced_term_menu: ReducedTermMenu,
     ) -> TypeResult<ReducedTerm>;
+    fn term_contains_symbol(&self, term: Term, symbol: TermSymbol) -> bool;
 }
 
 impl<Db> TypeDb for Db
@@ -57,5 +58,11 @@ where
         reduced_term_menu: ReducedTermMenu,
     ) -> TypeResult<ReducedTerm> {
         ty_call_ty(self, ty_term, toolchain, reduced_term_menu)
+    }
+
+    fn term_contains_symbol(&self, term: Term, symbol: TermSymbol) -> bool {
+        calc_term_symbols(self, term)
+            .map(|term_symbols| term_symbols.contains(self, symbol))
+            .unwrap_or_default()
     }
 }

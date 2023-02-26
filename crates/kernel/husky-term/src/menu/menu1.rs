@@ -34,24 +34,28 @@ impl TermMenu1 {
             invariant_ty0_to_trai_ty: TermCurry::new(
                 db,
                 Variance::Invariant,
+                None,
                 menu0.ty0().into(),
                 menu0.trai_ty().into(),
             ),
             covariant_ty0_to_ty0: TermCurry::new(
                 db,
                 Variance::Covariant,
+                None,
                 menu0.ty0().into(),
                 menu0.ty0().into(),
             ),
             contravariant_ty0_to_ty0: TermCurry::new(
                 db,
                 Variance::Contravariant,
+                None,
                 menu0.ty0().into(),
                 menu0.ty0().into(),
             ),
             invariant_ty0_to_ty0: TermCurry::new(
                 db,
                 Variance::Invariant,
+                None,
                 menu0.ty0().into(),
                 menu0.ty0().into(),
             ),

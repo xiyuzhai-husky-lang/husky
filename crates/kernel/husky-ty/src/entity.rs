@@ -277,7 +277,9 @@ fn curry_from_implicit_parameter_tys(
     for (variance, implicit_parameter) in
         std::iter::zip(variances.iter(), implicit_parameters.iter()).rev()
     {
-        term = TermCurry::new(db, *variance, implicit_parameter.ty(), term).into()
+        let symbol = implicit_parameter.symbol();
+        let symbol = db.term_contains_symbol(term, symbol).then_some(symbol);
+        term = TermCurry::new(db, *variance, symbol, implicit_parameter.ty(), term).into()
     }
     calc_reduced_term(db, term)
 }

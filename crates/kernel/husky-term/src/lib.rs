@@ -38,6 +38,8 @@ pub struct TermJar(
     TermInteger256,
     TermNaturalNumber,
     term_menu,
+    // only use this inside crate::context::entry
+    is_ty_path_lifetime_ty,
 );
 
 #[test]

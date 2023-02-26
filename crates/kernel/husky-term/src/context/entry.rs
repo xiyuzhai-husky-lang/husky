@@ -1,4 +1,4 @@
-use husky_entity_path::ModuleItemPath;
+use husky_entity_path::{ModuleItemPath, TypePath};
 use vec_like::AsVecMapEntry;
 
 use super::*;
@@ -135,17 +135,7 @@ impl TermShowContext {
         level: u8,
         external_symbol_ident: Option<Identifier>,
     ) -> TermSymbolShowEntry {
-        let show_kind = match symbol.ty(db) {
-            Ok(Term::Entity(EntityPath::ModuleItem(ModuleItemPath::Type(ty))))
-                if ty.is_lifetime_ty(db) =>
-            {
-                TermSymbolShowKind::Lifetime
-            }
-            Ok(Term::Category(cat)) if cat.universe().raw() == 0 => TermSymbolShowKind::Prop,
-            Ok(Term::Category(cat)) if cat.universe().raw() == 1 => TermSymbolShowKind::Type,
-            Ok(Term::Category(_)) => TermSymbolShowKind::Kind,
-            _ => TermSymbolShowKind::Other,
-        };
+        let show_kind = symbol_show_kind(symbol, db);
         let idx = self.issue_idx(show_kind);
         TermSymbolShowEntry {
             symbol,
@@ -169,4 +159,43 @@ impl TermShowContext {
             None => 0,
         }
     }
+
+    // todo: put this into an internal table struct
+    pub(super) fn enter_block(&mut self, db: &dyn TermDb, symbol: TermSymbol) {
+        if let Some(entry) = self.entries.get_entry_mut(symbol) {
+            entry.level += 1
+        } else {
+            let new_entry = self.new_internal_entry(db, symbol);
+            self.entries.insert_new(new_entry).unwrap();
+        }
+    }
+
+    pub(super) fn exit_block(&mut self, symbol: TermSymbol) {
+        self.entries.get_entry_mut(symbol).unwrap().level -= 1
+    }
+}
+
+fn symbol_show_kind(symbol: TermSymbol, db: &dyn TermDb) -> TermSymbolShowKind {
+    match symbol.ty(db) {
+        Ok(Term::Entity(EntityPath::ModuleItem(ModuleItemPath::Type(ty))))
+            if is_ty_path_lifetime_ty(db, ty) =>
+        {
+            TermSymbolShowKind::Lifetime
+        }
+        Ok(Term::Category(cat)) if cat.universe().raw() == 0 => TermSymbolShowKind::Prop,
+        Ok(Term::Category(cat)) if cat.universe().raw() == 1 => TermSymbolShowKind::Type,
+        Ok(Term::Category(_)) => TermSymbolShowKind::Kind,
+        _ => TermSymbolShowKind::Other,
+    }
+}
+
+// this might be the most efficient way to do it
+// only use this in this module
+#[salsa::tracked(jar = TermJar)]
+pub(crate) fn is_ty_path_lifetime_ty(db: &dyn TermDb, ty_path: TypePath) -> bool {
+    let toolchain = ty_path.toolchain(db);
+    let Ok(entity_path_menu) = db.entity_path_menu(toolchain) else {
+        return false
+    };
+    ty_path == entity_path_menu.lifetime_ty()
 }

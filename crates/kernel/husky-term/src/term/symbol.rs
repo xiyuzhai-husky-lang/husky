@@ -16,7 +16,7 @@ impl TermSymbol {
         db: &dyn TermDb,
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
-        ctx.show(db, self, f)
+        ctx.fmt_symbol(db, self, f)
     }
 }
 
