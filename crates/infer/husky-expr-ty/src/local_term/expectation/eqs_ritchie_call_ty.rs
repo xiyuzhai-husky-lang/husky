@@ -179,7 +179,10 @@ impl<'a> ExprTypeEngine<'a> {
                 ritchie_kind,
                 parameter_tys,
                 return_ty,
-            } => todo!(),
+            } => Some(LocalTermExpectationEffect {
+                result: todo!(),
+                actions: todo!(),
+            }),
         }
     }
 }
