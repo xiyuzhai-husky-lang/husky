@@ -63,13 +63,16 @@ impl<'a> ExprTypeEngine<'a> {
         expectee: LocalTerm,
     ) -> Option<LocalTermExpectationResolvedOkM> {
         match expectee {
-            LocalTerm::Resolved(expectee) => self.res_to(expectee),
+            LocalTerm::Resolved(expectee) => self.resolved_expectee_to(expectee),
             LocalTerm::Unresolved(_) => todo!(),
         }
     }
 
     /// resolve the expectation that a resolved ty is equal to a ritchie call type
-    fn res_to(&self, expectee: ReducedTerm) -> Option<LocalTermExpectationResolvedOkM> {
+    fn resolved_expectee_to(
+        &self,
+        expectee: ReducedTerm,
+    ) -> Option<LocalTermExpectationResolvedOkM> {
         match expectee.term() {
             Term::Literal(_) => todo!(),
             Term::Symbol(_) => todo!(),
@@ -80,14 +83,7 @@ impl<'a> ExprTypeEngine<'a> {
                 actions: vec![],
             }),
             Term::Universe(_) => todo!(),
-            Term::Curry(_) => {
-                p!(expectee.debug(self.db()));
-                Some(LocalTermExpectationResolvedOkM {
-                    // ad hoc
-                    result: Err(todo!()),
-                    actions: vec![],
-                })
-            }
+            Term::Curry(expectee) => self.resolved_curry_expectee_to(expectee),
             Term::Ritchie(term) => {
                 let result = match term.ritchie_kind(self.db()) {
                     TermRitchieKind::Fp => Ok(ExpectEqsRitchieCallTypeResolvedOk {
@@ -110,5 +106,16 @@ impl<'a> ExprTypeEngine<'a> {
             Term::AsTraitSubentity(_) => todo!(),
             Term::TraitConstraint(_) => todo!(),
         }
+    }
+
+    fn resolved_curry_expectee_to(
+        &self,
+        expectee: TermCurry,
+    ) -> Option<LocalTermExpectationResolvedOkM> {
+        Some(LocalTermExpectationResolvedOkM {
+            // ad hoc
+            result: Err(todo!()),
+            actions: vec![],
+        })
     }
 }

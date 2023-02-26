@@ -53,7 +53,7 @@ impl ImplicitSymbolRegistry {
         idx
     }
 
-    pub(super) fn new_implicit_symbol(
+    fn new_implicit_symbol(
         &mut self,
         src_expr_idx: ExprIdx,
         variant: ImplicitSymbolVariant,
