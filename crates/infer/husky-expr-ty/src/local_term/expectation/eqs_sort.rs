@@ -56,12 +56,12 @@ impl<'a> ExprTypeEngine<'a> {
         &self,
         expectee: LocalTerm,
         smallest_universe: TermUniverse,
-    ) -> Option<LocalTermExpectationResolvedOkM> {
+    ) -> Option<LocalTermExpectationEffect> {
         match expectee {
             LocalTerm::Resolved(resolved_expectee) => {
                 match resolved_expectee.term() {
                     Term::Category(cat) => Some(match cat.universe() >= smallest_universe {
-                        true => LocalTermExpectationResolvedOkM {
+                        true => LocalTermExpectationEffect {
                             result: Ok(LocalTermExpectationResolvedOk::EqsSort(
                                 ExpectEqsSortResolvedOk {
                                     destination: expectee,
@@ -69,7 +69,7 @@ impl<'a> ExprTypeEngine<'a> {
                             )),
                             actions: vec![],
                         },
-                        false => LocalTermExpectationResolvedOkM {
+                        false => LocalTermExpectationEffect {
                             result: Err(todo!()),
                             actions: vec![],
                         },

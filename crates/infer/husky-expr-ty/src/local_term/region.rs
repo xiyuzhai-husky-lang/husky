@@ -33,7 +33,7 @@ impl<'a> ExprTypeEngine<'a> {
         &self,
         level: LocalTermResolveLevel,
         local_term_region: &mut LocalTermRegion,
-    ) -> Option<(LocalTermExpectationIdx, LocalTermExpectationResolvedOkM)> {
+    ) -> Option<(LocalTermExpectationIdx, LocalTermExpectationEffect)> {
         for (idx, rule) in local_term_region.expectations.unresolved_rule_iter() {
             if let Some(action) =
                 self.resolve_expectation(rule, level, &mut local_term_region.unresolved_terms)

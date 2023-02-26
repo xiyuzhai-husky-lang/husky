@@ -89,7 +89,8 @@ impl<'a> ExprTypeEngine<'a> {
         &self,
         smallest_universe: TermUniverse,
         expectee: LocalTerm,
-    ) -> Option<LocalTermExpectationResolvedOkM> {
+        unresolved_terms: &mut UnresolvedTerms,
+    ) -> Option<LocalTermExpectationEffect> {
         match expectee {
             LocalTerm::Resolved(resolved_expectee) => {
                 let expectee_ty = term_ty(
@@ -102,7 +103,7 @@ impl<'a> ExprTypeEngine<'a> {
                 Some(match expectee_ty {
                     Ok(expectee_ty) => match expectee_ty.term() {
                         Term::Category(cat) => match cat.universe() >= smallest_universe {
-                            true => LocalTermExpectationResolvedOkM {
+                            true => LocalTermExpectationEffect {
                                 result: Ok(LocalTermExpectationResolvedOk::InsSort(
                                     ExpectInsSortResolvedOk {
                                         destination: expectee,
@@ -110,17 +111,17 @@ impl<'a> ExprTypeEngine<'a> {
                                 )),
                                 actions: vec![],
                             },
-                            false => LocalTermExpectationResolvedOkM {
+                            false => LocalTermExpectationEffect {
                                 result: Err(todo!()),
                                 actions: vec![],
                             },
                         },
-                        _ => LocalTermExpectationResolvedOkM {
+                        _ => LocalTermExpectationEffect {
                             result: Err(todo!()),
                             actions: vec![],
                         },
                     },
-                    Err(error) => LocalTermExpectationResolvedOkM {
+                    Err(error) => LocalTermExpectationEffect {
                         result: Err(match error {
                             TypeError::Original(_) => {
                                 OriginalLocalTermExpectationError::TermTypeError {
