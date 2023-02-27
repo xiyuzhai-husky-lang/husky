@@ -20,6 +20,7 @@ mod watch;
 pub use cache::VfsCache;
 pub use db::VfsDb;
 pub use error::*;
+pub use file::Notebook;
 pub use jar::VfsJar;
 #[cfg(feature = "lsp_support")]
 pub use lsp_support::*;
