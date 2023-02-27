@@ -11,16 +11,16 @@ fn main() -> Result<(), eframe::Error> {
     eframe::run_native(
         "Husky Notebook",
         options,
-        Box::new(|_cc| Box::new(HuskyNotebook::default())),
+        Box::new(|_cc| Box::new(HuskyCraft::default())),
     )
 }
 
-struct HuskyNotebook {
+struct HuskyCraft {
     name: String,
     age: u32,
 }
 
-impl Default for HuskyNotebook {
+impl Default for HuskyCraft {
     fn default() -> Self {
         Self {
             name: "Arthur".to_owned(),
@@ -29,7 +29,7 @@ impl Default for HuskyNotebook {
     }
 }
 
-impl eframe::App for HuskyNotebook {
+impl eframe::App for HuskyCraft {
     fn update(&mut self, ctx: &egui::Context, frame: &mut eframe::Frame) {
         use eframe::egui::Widget;
         egui::CentralPanel::default().show(ctx, |ui| {
