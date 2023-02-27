@@ -1,3 +1,7 @@
+// mod notebook;
+
+// pub(crate) use notebook::*;
+
 use crate::*;
 use salsa::{input::InputIngredient, input_field::InputFieldIngredient, Durability};
 
@@ -8,7 +12,8 @@ pub struct File(salsa::Id);
 pub enum FileContent {
     NotExists,
     OnDisk(String),
-    Live(String),
+    LiveDoc(String),
+    // LiveNotebook(Notebook),
     Directory(Vec<DiffPath>),
     Err(VfsError),
 }
@@ -23,9 +28,10 @@ impl FileContent {
     pub(crate) fn text(&self, path: &Path) -> VfsResult<&str> {
         match self {
             FileContent::NotExists => Err(VfsError::FileNotExists(path.to_owned())),
-            FileContent::OnDisk(text) | FileContent::Live(text) => Ok(text),
+            FileContent::OnDisk(text) | FileContent::LiveDoc(text) => Ok(text),
             FileContent::Directory(_) => todo!(),
             FileContent::Err(_) => todo!(),
+            // FileContent::LiveNotebook(_) => todo!(),
         }
     }
 }

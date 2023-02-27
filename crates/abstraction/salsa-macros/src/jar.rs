@@ -146,12 +146,10 @@ fn generate_fields(input: &ItemStruct) -> FieldsUnnamed {
 
         // Convert to anonymous fields
         field.ident = None;
-
         let field_ty = &field.ty;
         field.ty =
             syn::parse2(quote!(< #field_ty as salsa::storage::IngredientsFor >::Ingredients))
                 .unwrap();
-
         output_fields.push(field);
     }
 
