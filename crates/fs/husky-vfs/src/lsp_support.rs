@@ -4,7 +4,7 @@ pub fn set_live_file<Db: VfsDb>(db: &mut Db, path: &Path, text: String) -> VfsRe
     eprintln!("set live file for path {:?}", path);
     update_live_packages(db, path);
     eprintln!("finish update live packages");
-    db.set_content(path, FileContent::Live(text))
+    db.set_content(path, FileContent::LiveDoc(text))
 }
 
 /// If range are omitted
@@ -40,6 +40,6 @@ fn update_content<T: VfsDb>(db: &mut T, path: &Path, f: impl FnOnce(&mut String)
     };
     let mut text = file.text(db).unwrap_or("").to_string();
     f(&mut text);
-    file.set_content(db).to(FileContent::Live(text));
+    file.set_content(db).to(FileContent::LiveDoc(text));
     Ok(())
 }
