@@ -1,5 +1,6 @@
 use super::*;
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub(crate) struct SubstitutionRule {
     symbol: TermSymbol,
     substitute: LocalTerm,

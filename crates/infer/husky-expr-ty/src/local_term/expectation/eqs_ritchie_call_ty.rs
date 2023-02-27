@@ -22,9 +22,10 @@ impl ExpectLocalTerm for ExpectEqsRitchieCallType {
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) struct ExpectEqsRitchieCallTypeResolvedOk {
     destination: LocalTerm,
-    implicit_symbols: Vec<UnresolvedTermIdx>,
-    parameter_liasoned_tys: (),
-    return_ty: (),
+    substitution_rules: Vec<SubstitutionRule>,
+    ritchie_kind: TermRitchieKind,
+    parameter_liasoned_tys: Vec<LocalTermRitchieParameter>,
+    return_ty: LocalTerm,
 }
 
 impl ExpectLocalTermResolvedOk for ExpectEqsRitchieCallTypeResolvedOk {
@@ -82,6 +83,7 @@ impl<'a> ExprTypeEngine<'a> {
         expectee: ReducedTerm,
         unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationEffect> {
+        let db = self.db();
         match expectee.term() {
             Term::Literal(_) => todo!(),
             Term::Symbol(_) => todo!(),
@@ -96,12 +98,18 @@ impl<'a> ExprTypeEngine<'a> {
                 self.resolved_curry_expectee_to(src_expr_idx, expectee, unresolved_terms)
             }
             Term::Ritchie(term) => {
-                let result = match term.ritchie_kind(self.db()) {
+                let ritchie_kind = term.ritchie_kind(db);
+                let result = match ritchie_kind {
                     TermRitchieKind::Fp => Ok(ExpectEqsRitchieCallTypeResolvedOk {
                         destination: expectee.into(),
-                        implicit_symbols: vec![],
-                        parameter_liasoned_tys: (),
-                        return_ty: (),
+                        substitution_rules: vec![],
+                        ritchie_kind,
+                        parameter_liasoned_tys: term
+                            .parameter_tys(db)
+                            .iter()
+                            .map(|param| todo!())
+                            .collect(),
+                        return_ty: db.reduced_term(term.return_ty(db)).into(),
                     }
                     .into()),
                     TermRitchieKind::Fn => todo!(),
@@ -180,8 +188,15 @@ impl<'a> ExprTypeEngine<'a> {
                 parameter_tys,
                 return_ty,
             } => Some(LocalTermExpectationEffect {
-                result: todo!(),
-                actions: todo!(),
+                result: Ok(ExpectEqsRitchieCallTypeResolvedOk {
+                    destination: expectee.into(),
+                    substitution_rules,
+                    ritchie_kind: *ritchie_kind,
+                    parameter_liasoned_tys: parameter_tys.clone(),
+                    return_ty: *return_ty,
+                }
+                .into()),
+                actions: vec![],
             }),
         }
     }
