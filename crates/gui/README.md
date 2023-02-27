@@ -1,3 +1,3 @@
 # GUI
 
-adapted from egui (https://github.com/emilk/egui)
+adapted from egui (<https://github.com/emilk/egui>)
