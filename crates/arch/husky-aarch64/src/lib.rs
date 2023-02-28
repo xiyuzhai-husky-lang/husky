@@ -1,3 +1,5 @@
+mod class;
+
 #[derive(Debug, Clone, Copy, PartialOrd, Ord, PartialEq, Eq)]
 pub enum AarchRegisterClass {
     GeneralPurpose,
@@ -248,55 +250,4 @@ pub enum AarchRegister {
     B29,
     B30,
     B31,
-}
-
-impl AarchRegister {
-    pub fn class(self) -> AarchRegisterClass {
-        match self {
-            r if AarchRegister::X0 <= r && r <= AarchRegister::XZR => {
-                AarchRegisterClass::GeneralPurpose
-            }
-            r if AarchRegister::W0 <= r && r <= AarchRegister::WZR => {
-                AarchRegisterClass::GeneralPurpose
-            }
-            AarchRegister::SP | AarchRegister::WSP => AarchRegisterClass::StackPointer,
-            r if AarchRegister::Q0 <= r && r <= AarchRegister::Q31
-                || AarchRegister::D0 <= r && r <= AarchRegister::D31
-                || AarchRegister::S0 <= r && r <= AarchRegister::S31
-                || AarchRegister::H0 <= r && r <= AarchRegister::H31
-                || AarchRegister::B0 <= r && r <= AarchRegister::B31 =>
-            {
-                AarchRegisterClass::FloatingPoint
-            }
-            _ => unreachable!(),
-        }
-    }
-}
-
-#[test]
-fn aarch_register_class_works() {
-    assert_eq!(
-        AarchRegister::X0.class(),
-        AarchRegisterClass::GeneralPurpose
-    );
-    assert_eq!(
-        AarchRegister::X1.class(),
-        AarchRegisterClass::GeneralPurpose
-    );
-    assert_eq!(
-        AarchRegister::X2.class(),
-        AarchRegisterClass::GeneralPurpose
-    );
-    assert_eq!(
-        AarchRegister::X3.class(),
-        AarchRegisterClass::GeneralPurpose
-    );
-    assert_eq!(
-        AarchRegister::X4.class(),
-        AarchRegisterClass::GeneralPurpose
-    );
-    assert_eq!(
-        AarchRegister::X5.class(),
-        AarchRegisterClass::GeneralPurpose
-    );
 }
