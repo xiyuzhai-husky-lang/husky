@@ -1,21 +1,23 @@
 #![feature(result_flattening)]
 #![feature(trait_upcasting)]
 mod db;
-mod entity_path_expr;
+mod entity_path;
 mod error;
 mod parser;
 mod pattern;
 mod precedence;
 mod range;
 mod region;
+mod regular;
 mod snippet;
 mod stmt;
 mod symbol;
+mod term;
 #[cfg(test)]
 mod tests;
 
 pub use db::*;
-pub use entity_path_expr::*;
+pub use entity_path::*;
 pub use error::*;
 pub use parser::*;
 pub use pattern::*;
