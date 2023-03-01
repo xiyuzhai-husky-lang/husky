@@ -96,11 +96,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     TopExprRef::None => todo!(),
                 },
                 Punctuation::ColonColonLAngle => todo!(),
-                Punctuation::RaOrGt => match (self.last_bra(), self.env()) {
+                Punctuation::RaOrGt => match (self.last_bra(), self.env().bra()) {
                     (Some(Bracket::Angle), _) => ResolvedToken::Ket(token_idx, Bracket::Angle),
-                    (None, ExprParseEnvironment::WithinBracket(Bracket::Angle)) => {
-                        return TokenResolveResult::Break(())
-                    }
+                    (None, Some(Bracket::Angle)) => return TokenResolveResult::Break(()),
                     _ => ResolvedToken::BinaryOpr(token_idx, BinaryComparisonOpr::Greater.into()),
                 },
                 Punctuation::Sheba => ResolvedToken::AtomicExpr(Expr::Err(

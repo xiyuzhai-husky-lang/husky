@@ -3,35 +3,66 @@ use husky_opn_syntax::Bracket;
 use husky_print_utils::p;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum ExprParseEnvironment {
-    None,
-    WithinBracket(Bracket),
+pub struct ExprEnvironment {
+    eval: ExprEvalEnvironment,
+    bra: Option<Bracket>,
 }
 
-impl Default for ExprParseEnvironment {
-    fn default() -> Self {
-        ExprParseEnvironment::None
+impl ExprEnvironment {
+    pub fn new(eval: ExprEvalEnvironment, bra: impl Into<Option<Bracket>>) -> Self {
+        Self {
+            eval,
+            bra: bra.into(),
+        }
+    }
+
+    pub fn eval(&self) -> ExprEvalEnvironment {
+        self.eval
+    }
+
+    pub fn bra(&self) -> Option<Bracket> {
+        self.bra
     }
 }
 
-#[derive(Debug, Default)]
-pub(super) struct ExprParseEnvironmentPlace(ExprParseEnvironment);
-impl ExprParseEnvironmentPlace {
-    pub(super) fn set(&mut self, env: ExprParseEnvironment) {
-        if self.0 != ExprParseEnvironment::None {
-            p!(self.0)
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ExprEvalEnvironment {
+    Runtime = 1,
+    Comptime = 2,
+}
+
+pub(super) struct ExprEnvironmentPlace {
+    base: ExprEnvironment,
+    /// when None, means current is base
+    current: Option<ExprEnvironment>,
+}
+impl ExprEnvironmentPlace {
+    pub(super) fn set(&mut self, env: ExprEnvironment) {
+        if self.current != None {
+            p!(self.current)
         }
-        assert!(self.0 == ExprParseEnvironment::None);
-        self.0 = env
+        assert!(self.current == None);
+        self.current = Some(env)
     }
 
     pub(super) fn unset(&mut self) {
-        self.0 = Default::default()
+        self.current = None
+    }
+
+    pub(super) fn current(&self) -> ExprEnvironment {
+        self.current.unwrap_or(self.base)
+    }
+
+    pub(crate) fn new(base: ExprEnvironment) -> ExprEnvironmentPlace {
+        ExprEnvironmentPlace {
+            base,
+            current: None,
+        }
     }
 }
 
 impl<'a, 'b> ExprParseContext<'a, 'b> {
-    pub(super) fn env(&self) -> ExprParseEnvironment {
-        self.env.0
+    pub(super) fn env(&self) -> ExprEnvironment {
+        self.env.current()
     }
 }

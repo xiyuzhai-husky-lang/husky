@@ -49,7 +49,7 @@ impl<'a> ExprTypeEngine<'a> {
                 Term::AsTraitSubentity(_) => todo!(),
                 Term::TraitConstraint(_) => todo!(),
             },
-            LocalTerm::Unresolved(_) => todo!(),
+            LocalTerm::Unresolved(callable_ty) => todo!(),
         }
     }
 

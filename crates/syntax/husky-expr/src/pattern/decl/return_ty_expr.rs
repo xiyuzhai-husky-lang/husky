@@ -17,7 +17,7 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for OutputTypeExpr {
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> ExprResult<Option<Self>> {
-        if let Some(expr) = ctx.parse_expr(ExprParseEnvironment::None) {
+        if let Some(expr) = ctx.parse_expr(None) {
             ctx.add_expr_root(ExprRoot::new(ExprRootKind::ReturnType, expr));
             Ok(Some(OutputTypeExpr { expr }))
         } else {
