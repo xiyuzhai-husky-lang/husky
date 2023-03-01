@@ -10,6 +10,7 @@ mod unfinished_expr;
 
 pub use block::*;
 pub use env::*;
+
 use husky_print_utils::p;
 use husky_vfs::{ModulePath, Toolchain};
 
@@ -47,6 +48,7 @@ pub struct ExprParser<'a> {
     token_sheet_data: &'a TokenSheetData,
     parent_expr_region: Option<ExprRegion>,
     symbol_context: SymbolContextMut<'a>,
+    base_env: ExprEnvironment,
     expr_arena: ExprArena,
     entity_path_expr_arena: EntityPathExprArena,
     pattern_expr_region: PatternExprRegion,
@@ -63,6 +65,7 @@ impl<'a> ExprParser<'a> {
         parent_expr_region: Option<ExprRegion>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
+        base_env: ExprEnvironment,
     ) -> Self {
         Self {
             db,
@@ -75,6 +78,7 @@ impl<'a> ExprParser<'a> {
                 allow_self_type,
                 allow_self_value,
             ),
+            base_env,
             expr_arena: Default::default(),
             entity_path_expr_arena: Default::default(),
             pattern_expr_region: Default::default(),
@@ -119,16 +123,17 @@ impl<'a> ExprParser<'a> {
 
 pub struct ExprParseContext<'a, 'b> {
     parser: &'b mut ExprParser<'a>,
-    env: ExprParseEnvironmentPlace,
+    env: ExprEnvironmentPlace,
     token_stream: TokenStream<'a>,
     stack: ExprStack,
 }
 
 impl<'a, 'b> ExprParseContext<'a, 'b> {
-    fn new(parser: &'b mut ExprParser<'a>, token_stream: TokenStream<'a>) -> Self {
+    pub(super) fn new(parser: &'b mut ExprParser<'a>, token_stream: TokenStream<'a>) -> Self {
+        let base = parser.base_env;
         Self {
             parser,
-            env: Default::default(),
+            env: ExprEnvironmentPlace::new(base),
             token_stream,
             stack: Default::default(),
         }
@@ -142,8 +147,12 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         &self.token_stream
     }
 
-    pub fn parse_expr(&mut self, env: ExprParseEnvironment) -> Option<ExprIdx> {
-        self.env.set(env);
+    #[inline(always)]
+    pub fn parse_expr(&mut self, env: impl Into<Option<ExprEnvironment>>) -> Option<ExprIdx> {
+        let env = env.into();
+        if let Some(env) = env {
+            self.env.set(env);
+        }
         loop {
             let Some((token_idx, token)) = self.token_stream.next_indexed()
                 else {
@@ -158,17 +167,21 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             }
         }
         self.reduce(Precedence::None);
-        self.env.unset();
+        if env.is_some() {
+            self.env.unset();
+        }
         self.finish_batch()
     }
 
     pub fn parse_expr_expected<E: OriginalError>(
         &mut self,
-        env: ExprParseEnvironment,
+        env: Option<ExprEnvironment>,
         err: impl FnOnce(TokenIdx) -> E,
     ) -> Result<ExprIdx, E::Error> {
         let state = self.state();
-        self.env.set(env);
+        if let Some(env) = env {
+            self.env.set(env);
+        }
         loop {
             let Some((token_idx, token)) = self.token_stream.next_indexed()
                 else {
@@ -183,7 +196,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             }
         }
         self.reduce(Precedence::None);
-        self.env.unset();
+        if env.is_some() {
+            self.env.unset();
+        }
         match self.finish_batch() {
             Some(expr_idx) => Ok(expr_idx),
             None => Err(err(state).into()),
@@ -192,11 +207,13 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
     pub fn parse_expr_expected2(
         &mut self,
-        env: ExprParseEnvironment,
+        env: Option<ExprEnvironment>,
         err: impl FnOnce(TokenIdx) -> OriginalExprError,
     ) -> ExprIdx {
         let state = self.state();
-        self.env.set(env);
+        if let Some(env) = env {
+            self.env.set(env);
+        }
         loop {
             let Some((token_idx, token)) = self.token_stream.next_indexed()
                 else {
@@ -211,7 +228,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             }
         }
         self.reduce(Precedence::None);
-        self.env.unset();
+        if env.is_some() {
+            self.env.unset();
+        }
         match self.finish_batch() {
             Some(expr_idx) => expr_idx,
             None => todo!(), // Err(err(state)),
@@ -333,6 +352,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
     pub(crate) fn add_expr_root(&mut self, expr_root: ExprRoot) {
         self.parser.expr_roots.push(expr_root)
+    }
+
+    fn base_env(&self) -> ExprEnvironment {
+        self.parser.base_env
     }
 }
 

@@ -1,6 +1,5 @@
 #![feature(result_flattening)]
 #![feature(trait_upcasting)]
-mod context;
 mod db;
 mod entity_path_expr;
 mod error;
@@ -15,7 +14,6 @@ mod symbol;
 #[cfg(test)]
 mod tests;
 
-pub use context::*;
 pub use db::*;
 pub use entity_path_expr::*;
 pub use error::*;
@@ -27,9 +25,9 @@ pub use stmt::*;
 pub use symbol::*;
 
 use husky_doc::*;
-use husky_entity_path::EntityPath; 
+use husky_entity_path::EntityPath;
 use husky_entity_tree::*;
-use husky_opn_syntax::*; 
+use husky_opn_syntax::*;
 use husky_token::*;
 use husky_word::*;
 use precedence::*;

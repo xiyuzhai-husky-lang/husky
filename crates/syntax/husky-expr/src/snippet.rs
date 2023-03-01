@@ -19,9 +19,8 @@ pub(crate) fn parse_expr_from_snippet(
         None,
         AllowSelfType::False,
         AllowSelfValue::False,
+        todo!(),
     );
-    let expr = expr_parser
-        .ctx(token_iter)
-        .parse_expr(ExprParseEnvironment::None);
+    let expr = expr_parser.ctx(token_iter).parse_expr(None);
     Ok((expr_parser.finish(), expr))
 }

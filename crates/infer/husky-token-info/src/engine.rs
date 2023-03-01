@@ -121,7 +121,7 @@ impl<'a> InferEngine<'a> {
             token_sheet_data: self.token_sheet_data,
             ast_sheet: self.ast_sheet,
             sheet: &mut self.sheet,
-            symbol_context: ExprContext::new(self.db, self.module_symbol_context, expr_region),
+            expr_region_data: expr_region.data(self.db),
             expr_region,
         }
         .visit_all()
@@ -225,21 +225,23 @@ struct AuxInferEngine<'a> {
     db: &'a dyn TokenInfoDb,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
-    symbol_context: ExprContext<'a>,
+    expr_region_data: &'a ExprRegionData,
     sheet: &'a mut TokenInfoSheet,
     expr_region: ExprRegion,
 }
 
 impl<'a> AuxInferEngine<'a> {
     fn visit_all(mut self) {
-        for expr in self.symbol_context.exprs() {
+        for expr in self.expr_region_data.expr_arena().iter() {
             self.visit_expr(expr)
         }
-        for entity_path_expr in self.symbol_context.entity_path_exprs() {
+        for entity_path_expr in self.expr_region_data.entity_path_expr_arena().iter() {
             self.visit_entity_path_expr(entity_path_expr)
         }
-        for (current_symbol_idx, current_symbol) in
-            self.symbol_context.indexed_current_symbol_iter()
+        for (current_symbol_idx, current_symbol) in self
+            .expr_region_data
+            .symbol_region()
+            .indexed_current_symbol_iter()
         {
             self.visit_current_symbol(current_symbol_idx, current_symbol)
         }
@@ -302,7 +304,7 @@ impl<'a> AuxInferEngine<'a> {
             | Expr::Be { .. } => (),
             Expr::BoxColon { .. } => (),
             Expr::ApplicationOrRitchieCall { function, .. }
-            | Expr::Application { function, .. } => match self.symbol_context[*function] {
+            | Expr::Application { function, .. } => match self.expr_region_data[*function] {
                 Expr::NewBoxList {
                     caller: None,
                     lbox_token_idx,
@@ -360,9 +362,9 @@ impl<'a> AuxInferEngine<'a> {
             }
             | CurrentSymbolKind::Parameter {
                 pattern_symbol_idx: pattern_symbol,
-            } => match self.symbol_context[pattern_symbol] {
+            } => match self.expr_region_data[pattern_symbol] {
                 PatternSymbol::Atom(pattern_expr_idx) => {
-                    match self.symbol_context[pattern_expr_idx] {
+                    match self.expr_region_data[pattern_expr_idx] {
                         PatternExpr::Identifier {
                             ident_token,
                             liason,
