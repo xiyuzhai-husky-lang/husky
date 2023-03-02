@@ -2,6 +2,7 @@ mod expectation;
 mod progress;
 mod region;
 mod unresolved;
+mod utils;
 
 pub use expectation::*;
 pub use progress::*;

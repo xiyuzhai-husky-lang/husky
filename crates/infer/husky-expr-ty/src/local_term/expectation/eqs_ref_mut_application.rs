@@ -10,7 +10,11 @@ pub(crate) struct ExpectEqsRefMutApplication {
 }
 
 impl const ProvideEntityPathTypeExpectation for ExpectEqsRefMutApplication {
-    fn entity_path_ty_expectation(&self) -> EntityPathTypeExpectation {
+    fn entity_path_ty_expectation(
+        &self,
+        db: &dyn ExprTypeDb,
+        unresolved_terms: &UnresolvedTerms,
+    ) -> EntityPathTypeExpectation {
         todo!()
     }
 }

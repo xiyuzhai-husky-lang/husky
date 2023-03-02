@@ -1,13 +1,34 @@
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub(crate) struct ExpectEqsFunctionType;
+pub(crate) struct ExpectEqsFunctionType {
+    return_ty_destination: Option<LocalTerm>,
+}
 
-impl const ProvideEntityPathTypeExpectation for ExpectEqsFunctionType {
+impl ExpectEqsFunctionType {
+    pub(crate) fn new(return_ty_destination: Option<LocalTerm>) -> Self {
+        Self {
+            return_ty_destination,
+        }
+    }
+}
+
+impl ProvideEntityPathTypeExpectation for ExpectEqsFunctionType {
     #[inline(always)]
-    fn entity_path_ty_expectation(&self) -> EntityPathTypeExpectation {
-        todo!()
-        // TypePathTypeExpectation::new_expect_applicable_or_callable()
+    fn entity_path_ty_expectation(
+        &self,
+        db: &dyn ExprTypeDb,
+        unresolved_terms: &UnresolvedTerms,
+    ) -> EntityPathTypeExpectation {
+        match self.return_ty_destination {
+            Some(return_ty_destination) => {
+                match return_ty_destination.curry_destination(db, unresolved_terms) {
+                    LocalTerm::Resolved(resolved_term) => todo!(),
+                    LocalTerm::Unresolved(_) => todo!(),
+                }
+            }
+            None => EntityPathTypeExpectation::Any,
+        }
     }
 }
 

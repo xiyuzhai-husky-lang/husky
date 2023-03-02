@@ -23,6 +23,16 @@ use husky_print_utils::p;
 use idx_arena::Arena;
 use thiserror::Error;
 
+#[const_trait]
+pub trait ProvideEntityPathTypeExpectation {
+    #[inline(always)]
+    fn entity_path_ty_expectation(
+        &self,
+        db: &dyn ExprTypeDb,
+        unresolved_terms: &UnresolvedTerms,
+    ) -> EntityPathTypeExpectation;
+}
+
 pub(crate) trait ExpectLocalTerm:
     ProvideEntityPathTypeExpectation + Into<LocalTermExpectation> + Clone
 {
