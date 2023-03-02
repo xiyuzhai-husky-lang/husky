@@ -1,19 +1,19 @@
 mod any_derived;
 mod any_original;
+mod eqs_category;
 mod eqs_eqs_function_ty;
 mod eqs_exactly;
 mod eqs_ref_mut_application;
-mod eqs_sort;
 mod explicitly_convertible;
 mod implicitly_convertible;
 mod ins_sort;
 
 pub(crate) use self::any_derived::*;
 pub(crate) use self::any_original::*;
+pub(crate) use self::eqs_category::*;
 pub(crate) use self::eqs_eqs_function_ty::*;
 pub(crate) use self::eqs_exactly::*;
 pub(crate) use self::eqs_ref_mut_application::*;
-pub(crate) use self::eqs_sort::*;
 pub(crate) use self::explicitly_convertible::*;
 pub(crate) use self::implicitly_convertible::*;
 pub(crate) use self::ins_sort::*;
@@ -341,7 +341,7 @@ pub(crate) enum LocalTermExpectation {
     ImplicitlyConvertible(ExpectImplicitlyConvertible),
     /// expect term to be an instance of Type u for some universe
     InsSort(ExpectInsSort),
-    EqsSort(ExpectEqsSort),
+    EqsSort(ExpectEqsCategory),
     FrameVariableType,
     EqsRefMutApplication(ExpectEqsRefMutApplication),
     EqsExactly(ExpectEqsExactly),

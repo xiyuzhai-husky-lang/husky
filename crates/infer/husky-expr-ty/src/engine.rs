@@ -102,7 +102,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ExprRootKind::SelfType | ExprRootKind::ReturnType | ExprRootKind::FieldType => self
                     .infer_new_expr_ty_discarded(
                         root.expr(),
-                        ExpectEqsSort::new_expect_eqs_ty_kind(),
+                        ExpectEqsCategory::new_expect_eqs_ty_kind(),
                         local_term_region,
                     ),
                 ExprRootKind::Trait => todo!(),

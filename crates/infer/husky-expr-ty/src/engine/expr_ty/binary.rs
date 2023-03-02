@@ -253,7 +253,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Result<LocalTerm, ExprTypeError> {
         self.infer_new_expr_ty(
             ropd,
-            ExpectEqsSort {
+            ExpectEqsCategory {
                 smallest_universe: 0.into(),
             },
             local_term_region,
@@ -277,7 +277,7 @@ impl<'a> ExprTypeEngine<'a> {
         ropd: ExprIdx,
         local_term_region: &mut LocalTermRegion,
     ) -> Result<LocalTerm, ExprTypeError> {
-        let expect_any_sort = ExpectEqsSort {
+        let expect_any_sort = ExpectEqsCategory {
             smallest_universe: 0.into(),
         };
         let Some(lopd_ty) = self.infer_new_expr_ty_resolved(lopd, expect_any_sort, local_term_region)

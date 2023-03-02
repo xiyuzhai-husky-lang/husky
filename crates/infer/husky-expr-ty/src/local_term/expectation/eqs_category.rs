@@ -1,11 +1,11 @@
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub(crate) struct ExpectEqsSort {
+pub(crate) struct ExpectEqsCategory {
     pub(crate) smallest_universe: TermUniverse,
 }
 
-impl ExpectEqsSort {
+impl ExpectEqsCategory {
     pub(crate) fn new_expect_eqs_ty_kind() -> Self {
         Self {
             smallest_universe: TermUniverse::new(1),
@@ -13,7 +13,7 @@ impl ExpectEqsSort {
     }
 }
 
-impl const ProvideEntityPathTypeExpectation for ExpectEqsSort {
+impl const ProvideEntityPathTypeExpectation for ExpectEqsCategory {
     fn entity_path_ty_expectation(
         &self,
         db: &dyn ExprTypeDb,
@@ -23,7 +23,7 @@ impl const ProvideEntityPathTypeExpectation for ExpectEqsSort {
     }
 }
 
-impl ExpectLocalTerm for ExpectEqsSort {
+impl ExpectLocalTerm for ExpectEqsCategory {
     type Outcome = ExpectEqsSortOutcome;
 
     fn destination(&self) -> Option<LocalTerm> {
@@ -53,7 +53,7 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn resolve_eqs_sort_expectation(
         &self,
         expectee: LocalTerm,
-        expectation: &ExpectEqsSort,
+        expectation: &ExpectEqsCategory,
         unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationEffect> {
         match expectee {
