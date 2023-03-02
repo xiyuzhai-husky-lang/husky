@@ -218,8 +218,9 @@ impl<'a> SignatureTermEngine<'a> {
                     BinaryOpr::ScopeResolution => todo!(),
                     BinaryOpr::Curry => Ok(TermCurry::new(
                         self.db,
-                        Variance::Invariant, // ad hoc
-                        None,                // ad hoc
+                        TermCurryKind::Explicit, // ad hoc
+                        Variance::Invariant,     // ad hoc
+                        None,                    // ad hoc
                         lopd,
                         ropd,
                     )

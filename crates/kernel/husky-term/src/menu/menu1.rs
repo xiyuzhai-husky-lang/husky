@@ -5,10 +5,10 @@ pub struct TermMenu1 {
     parent: TermMenu0,
     eval_ref_ty: Term,
     static_ref_ty: Term,
-    invariant_ty0_to_trai_ty: TermCurry,
-    covariant_ty0_to_ty0: TermCurry,
-    contravariant_ty0_to_ty0: TermCurry,
-    invariant_ty0_to_ty0: TermCurry,
+    explicit_invariant_ty0_to_trai_ty: TermCurry,
+    explicit_covariant_ty0_to_ty0: TermCurry,
+    explicit_contravariant_ty0_to_ty0: TermCurry,
+    explicit_invariant_ty0_to_ty0: TermCurry,
 }
 
 impl std::ops::Deref for TermMenu1 {
@@ -31,29 +31,33 @@ impl TermMenu1 {
             .into(),
             static_ref_ty: TermApplication::new(db, menu0.ref_ty_path(), menu0.static_lifetime())
                 .into(),
-            invariant_ty0_to_trai_ty: TermCurry::new(
+            explicit_invariant_ty0_to_trai_ty: TermCurry::new(
                 db,
+                TermCurryKind::Explicit,
                 Variance::Invariant,
                 None,
                 menu0.ty0().into(),
                 menu0.trai_ty().into(),
             ),
-            covariant_ty0_to_ty0: TermCurry::new(
+            explicit_covariant_ty0_to_ty0: TermCurry::new(
                 db,
+                TermCurryKind::Explicit,
                 Variance::Covariant,
                 None,
                 menu0.ty0().into(),
                 menu0.ty0().into(),
             ),
-            contravariant_ty0_to_ty0: TermCurry::new(
+            explicit_contravariant_ty0_to_ty0: TermCurry::new(
                 db,
+                TermCurryKind::Explicit,
                 Variance::Contravariant,
                 None,
                 menu0.ty0().into(),
                 menu0.ty0().into(),
             ),
-            invariant_ty0_to_ty0: TermCurry::new(
+            explicit_invariant_ty0_to_ty0: TermCurry::new(
                 db,
+                TermCurryKind::Explicit,
                 Variance::Invariant,
                 None,
                 menu0.ty0().into(),
@@ -72,18 +76,18 @@ impl TermMenu1 {
     }
 
     pub fn invariant_ty0_to_trai_ty(&self) -> TermCurry {
-        self.invariant_ty0_to_trai_ty
+        self.explicit_invariant_ty0_to_trai_ty
     }
 
-    pub fn covariant_ty0_to_ty0(&self) -> TermCurry {
-        self.covariant_ty0_to_ty0
+    pub fn explicit_covariant_ty0_to_ty0(&self) -> TermCurry {
+        self.explicit_covariant_ty0_to_ty0
     }
 
-    pub fn contravariant_ty0_to_ty0(&self) -> TermCurry {
-        self.contravariant_ty0_to_ty0
+    pub fn explicit_contravariant_ty0_to_ty0(&self) -> TermCurry {
+        self.explicit_contravariant_ty0_to_ty0
     }
 
-    pub fn invariant_ty0_to_ty0(&self) -> TermCurry {
-        self.invariant_ty0_to_ty0
+    pub fn ex_inv_ty0_to_ty0(&self) -> TermCurry {
+        self.explicit_invariant_ty0_to_ty0
     }
 }

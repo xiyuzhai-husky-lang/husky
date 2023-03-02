@@ -29,7 +29,7 @@ fn entity_path_path_term_ty_works() {
     let reduced_term_menu = db.reduced_term_menu(toolchain).unwrap();
     let invariant_ty0_to_trai_ty = reduced_term_menu.invariant_ty0_to_trai_ty();
     let covariant_lifetime_to_covariant_ty0_to_ty0 =
-        reduced_term_menu.covariant_lifetime_to_covariant_ty0_to_ty0();
+        reduced_term_menu.ex_co_lifetime_to_ex_co_ty0_to_ty0();
     let covariant_lifetime_to_invariant_ty0_to_ty0 =
         reduced_term_menu.covariant_lifetime_to_invariant_ty0_to_ty0();
     let trai_ty = reduced_term_menu.trai_ty();
@@ -187,6 +187,7 @@ pub(crate) fn ty_entity_ty(db: &dyn TypeDb, path: TypePath) -> TypeResult<Reduce
     };
     Ok(curry_from_implicit_parameter_tys(
         db,
+        TermCurryKind::Explicit,
         variances,
         signature.implicit_parameters(db),
         term_menu.ty0().into(),
@@ -209,6 +210,7 @@ pub(crate) fn trai_entity_ty(db: &dyn TypeDb, path: TraitPath) -> TypeResult<Red
     };
     Ok(curry_from_implicit_parameter_tys(
         db,
+        TermCurryKind::Explicit,
         variances,
         signature.implicit_parameters(db),
         term_menu.trai_ty().into(),
@@ -253,6 +255,7 @@ pub(crate) fn function_entity_ty(
     let return_ty = signature.return_ty(db);
     Ok(curry_from_implicit_parameter_tys(
         db,
+        TermCurryKind::Implicit,
         variances,
         signature.implicit_parameters(db),
         TermRitchie::new(db, TermRitchieKind::Fp, param_tys, return_ty).into(),
@@ -269,6 +272,7 @@ pub(crate) fn feature_entity_ty(
 
 fn curry_from_implicit_parameter_tys(
     db: &dyn TypeDb,
+    term_curry_kind: TermCurryKind,
     variances: &[Variance],
     implicit_parameters: &[ImplicitParameterSignature],
     mut term: Term,
@@ -280,7 +284,15 @@ fn curry_from_implicit_parameter_tys(
         let symbol = implicit_parameter.symbol();
         assert_eq!(symbol.ty(db), Ok(implicit_parameter.ty()));
         let symbol = db.term_contains_symbol(term, symbol).then_some(symbol);
-        term = TermCurry::new(db, *variance, symbol, implicit_parameter.ty(), term).into()
+        term = TermCurry::new(
+            db,
+            term_curry_kind,
+            *variance,
+            symbol,
+            implicit_parameter.ty(),
+            term,
+        )
+        .into()
     }
     calc_reduced_term(db, term)
 }

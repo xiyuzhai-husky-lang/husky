@@ -5,6 +5,7 @@ use crate::*;
 /// representing term `X -> Y` or dependent form `(a: X) -> Y(a)`
 #[salsa::interned(db = TermDb, jar = TermJar)]
 pub struct TermCurry {
+    pub curry_kind: TermCurryKind,
     pub variance: Variance,
     /// a
     pub input_symbol: Option<TermSymbol>,
@@ -12,6 +13,12 @@ pub struct TermCurry {
     pub input_ty: Term,
     /// Y
     pub return_ty: Term,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum TermCurryKind {
+    Explicit,
+    Implicit,
 }
 
 impl TermCurry {

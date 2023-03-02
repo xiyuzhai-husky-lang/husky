@@ -187,39 +187,27 @@ impl<'a> ReducedTermMenu<'a> {
     }
 
     pub fn covariant_ty0_to_ty0(&self) -> ReducedTerm {
-        ReducedTerm(self.term_menu.covariant_ty0_to_ty0().into())
+        ReducedTerm(self.term_menu.explicit_covariant_ty0_to_ty0().into())
     }
 
     pub fn contravariant_ty0_to_ty0(&self) -> ReducedTerm {
-        ReducedTerm(self.term_menu.contravariant_ty0_to_ty0().into())
+        ReducedTerm(self.term_menu.explicit_contravariant_ty0_to_ty0().into())
     }
 
     pub fn invariant_ty0_to_ty0(&self) -> ReducedTerm {
-        ReducedTerm(self.term_menu.invariant_ty0_to_ty0().into())
+        ReducedTerm(self.term_menu.ex_inv_ty0_to_ty0().into())
     }
 
-    pub fn covariant_lifetime_to_covariant_ty0_to_ty0(&self) -> ReducedTerm {
-        ReducedTerm(
-            self.term_menu
-                .covariant_lifetime_to_covariant_ty0_to_ty0()
-                .into(),
-        )
+    pub fn ex_co_lifetime_to_ex_co_ty0_to_ty0(&self) -> ReducedTerm {
+        ReducedTerm(self.term_menu.ex_co_lifetime_to_ex_co_ty0_to_ty0().into())
     }
 
-    pub fn covariant_lifetime_to_contravariant_ty0_to_ty0(&self) -> ReducedTerm {
-        ReducedTerm(
-            self.term_menu
-                .covariant_lifetime_to_contravariant_ty0_to_ty0()
-                .into(),
-        )
+    pub fn ex_co_lifetime_to_ex_ct_ty0_to_ty0(&self) -> ReducedTerm {
+        ReducedTerm(self.term_menu.ex_co_lifetime_to_ex_ct_ty0_to_ty0().into())
     }
 
     pub fn covariant_lifetime_to_invariant_ty0_to_ty0(&self) -> ReducedTerm {
-        ReducedTerm(
-            self.term_menu
-                .covariant_lifetime_to_invariant_ty0_to_ty0()
-                .into(),
-        )
+        ReducedTerm(self.term_menu.ex_co_lifetime_to_ex_inv_ty0_to_ty0().into())
     }
 
     pub fn trai_ty(&self) -> ReducedTerm {
