@@ -174,15 +174,20 @@ Ok(
                                                         77,
                                                     ),
                                                 },
-                                                Expr::RitchieCall {
+                                                Expr::ApplicationOrRitchieCall {
                                                     function: 0,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         68,
                                                     ),
-                                                    arguments: ArenaIdxRange(
+                                                    items: ArenaIdxRange(
                                                         4..6,
                                                     ),
+                                                    commas: [
+                                                        TokenIdx(
+                                                            70,
+                                                        ),
+                                                    ],
                                                     rpar_token_idx: TokenIdx(
                                                         78,
                                                     ),

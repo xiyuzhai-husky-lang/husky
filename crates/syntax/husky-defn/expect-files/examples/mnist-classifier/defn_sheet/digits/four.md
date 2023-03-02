@@ -164,15 +164,20 @@ Ok(
                                                         75,
                                                     ),
                                                 },
-                                                Expr::RitchieCall {
+                                                Expr::ApplicationOrRitchieCall {
                                                     function: 0,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         68,
                                                     ),
-                                                    arguments: ArenaIdxRange(
+                                                    items: ArenaIdxRange(
                                                         3..5,
                                                     ),
+                                                    commas: [
+                                                        TokenIdx(
+                                                            70,
+                                                        ),
+                                                    ],
                                                     rpar_token_idx: TokenIdx(
                                                         76,
                                                     ),
@@ -930,15 +935,20 @@ Ok(
                                                         107,
                                                     ),
                                                 },
-                                                Expr::RitchieCall {
+                                                Expr::ApplicationOrRitchieCall {
                                                     function: 0,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         102,
                                                     ),
-                                                    arguments: ArenaIdxRange(
+                                                    items: ArenaIdxRange(
                                                         2..4,
                                                     ),
+                                                    commas: [
+                                                        TokenIdx(
+                                                            104,
+                                                        ),
+                                                    ],
                                                     rpar_token_idx: TokenIdx(
                                                         108,
                                                     ),
@@ -1184,15 +1194,20 @@ Ok(
                                                         120,
                                                     ),
                                                 },
-                                                Expr::RitchieCall {
+                                                Expr::ApplicationOrRitchieCall {
                                                     function: 0,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         115,
                                                     ),
-                                                    arguments: ArenaIdxRange(
+                                                    items: ArenaIdxRange(
                                                         2..4,
                                                     ),
+                                                    commas: [
+                                                        TokenIdx(
+                                                            117,
+                                                        ),
+                                                    ],
                                                     rpar_token_idx: TokenIdx(
                                                         121,
                                                     ),

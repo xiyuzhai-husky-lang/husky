@@ -371,10 +371,14 @@ Ok(
                                                 },
                                                 Expr::ApplicationOrRitchieCall {
                                                     function: 4,
+                                                    implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         159,
                                                     ),
-                                                    argument: 10,
+                                                    items: ArenaIdxRange(
+                                                        10..11,
+                                                    ),
+                                                    commas: [],
                                                     rpar_token_idx: TokenIdx(
                                                         167,
                                                     ),

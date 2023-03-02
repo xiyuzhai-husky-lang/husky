@@ -63,6 +63,8 @@ pub enum DerivedExprTypeError {
     EntityTypeError,
     #[error("boxList application first argument error")]
     BoxListApplicationFirstArgumentError,
+    #[error("application or Ritchie call function type not inferred")]
+    ApplicationOrRitchieCallFunctionTypeNotInferred,
     #[error("application argument type not inferred")]
     ApplicationArgumentTypeNotInferred,
     #[error("prefix operand type not inferred")]
