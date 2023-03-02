@@ -22,10 +22,7 @@ impl ProvideEntityPathTypeExpectation for ExpectEqsFunctionType {
     ) -> EntityPathTypeExpectation {
         match self.return_ty_destination {
             Some(return_ty_destination) => {
-                match return_ty_destination.curry_destination(db, unresolved_terms) {
-                    LocalTerm::Resolved(resolved_term) => todo!(),
-                    LocalTerm::Unresolved(_) => todo!(),
-                }
+                return_ty_destination.entity_path_ty_expectation(db, unresolved_terms)
             }
             None => EntityPathTypeExpectation::Any,
         }

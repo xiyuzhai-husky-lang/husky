@@ -12,7 +12,8 @@ impl ProvideEntityPathTypeExpectation for ExpectEqsExactly {
         db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> EntityPathTypeExpectation {
-        todo!()
+        self.destination
+            .entity_path_ty_expectation(db, unresolved_terms)
     }
 }
 

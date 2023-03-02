@@ -9,7 +9,7 @@ impl const ProvideEntityPathTypeExpectation for ExpectAnyDerived {
         db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> EntityPathTypeExpectation {
-        todo!()
+        EntityPathTypeExpectation::Any
     }
 }
 

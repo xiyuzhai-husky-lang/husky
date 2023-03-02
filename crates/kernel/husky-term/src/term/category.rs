@@ -1,5 +1,6 @@
 use super::*;
 
+/// `Sort u` for some universe `u`
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TermCategory {
     universe: TermUniverse,

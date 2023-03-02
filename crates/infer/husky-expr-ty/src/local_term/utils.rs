@@ -11,6 +11,43 @@ impl LocalTerm {
             LocalTerm::Unresolved(_) => todo!(),
         }
     }
+
+    pub(crate) fn entity_path_ty_expectation(
+        self,
+        db: &dyn ExprTypeDb,
+        unresolved_terms: &UnresolvedTerms,
+    ) -> EntityPathTypeExpectation {
+        match self.curry_destination(db, unresolved_terms) {
+        LocalTerm::Resolved(resolved_term) => match resolved_term.term() {
+            Term::Literal(_) => todo!(),
+            Term::Symbol(_) => todo!(),
+            Term::Entity(path) => match path {
+                EntityPath::Module(_) => todo!(),
+                EntityPath::ModuleItem(path) => match path {
+                    ModuleItemPath::Type(ty_path) => {
+                        EntityPathTypeExpectation::FinalCurryDestinationEqsTypePathOrItsApplication {
+                            ty_path,
+                        }
+                    }
+                    ModuleItemPath::Trait(_) => todo!(),
+                    ModuleItemPath::Form(_) => todo!(),
+                },
+                EntityPath::AssociatedItem(_) => todo!(),
+                EntityPath::Variant(_) => todo!(),
+            },
+            Term::Category(_) => EntityPathTypeExpectation::FinalCurryDestinationEqsSort,
+            Term::Universe(_) => todo!(),
+            Term::Curry(_) => todo!(),
+            Term::Ritchie(_) => todo!(),
+            Term::Abstraction(_) => todo!(),
+            Term::Application(_) => todo!(),
+            Term::Subentity(_) => todo!(),
+            Term::AsTraitSubentity(_) => todo!(),
+            Term::TraitConstraint(_) => todo!(),
+        },
+        LocalTerm::Unresolved(_) => todo!(),
+    }
+    }
 }
 
 fn curry_destination(db: &dyn ExprTypeDb, resolved_term: ReducedTerm) -> LocalTerm {
@@ -27,7 +64,7 @@ fn curry_destination(db: &dyn ExprTypeDb, resolved_term: ReducedTerm) -> LocalTe
             EntityPath::AssociatedItem(_) => todo!(),
             EntityPath::Variant(_) => todo!(),
         },
-        Term::Category(_) => todo!(),
+        Term::Category(_) => resolved_term.into(),
         Term::Universe(_) => todo!(),
         Term::Curry(_) => todo!(),
         Term::Ritchie(_) => todo!(),
