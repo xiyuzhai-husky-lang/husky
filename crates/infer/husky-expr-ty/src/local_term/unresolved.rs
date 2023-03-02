@@ -323,18 +323,20 @@ impl UnresolvedTerms {
         expectation_rule_variant: &LocalTermExpectation,
     ) -> Result<Option<LocalTermExpectation>, &'a LocalTermResolveError> {
         match expectation_rule_variant {
-            LocalTermExpectation::ImplicitlyConvertible(exp) => {
-                exp.try_substitute_unresolved_local_term(&self)
+            LocalTermExpectation::ImplicitlyConvertible(expectation) => {
+                expectation.try_substitute_unresolved_local_term(&self)
             }
-            LocalTermExpectation::ExplicitlyConvertible(exp) => {
-                exp.try_substitute_unresolved_local_term(&self)
+            LocalTermExpectation::ExplicitlyConvertible(expectation) => {
+                expectation.try_substitute_unresolved_local_term(&self)
             }
-            LocalTermExpectation::EqsSort { .. } => Ok(None),
+            LocalTermExpectation::EqsSort(_) => Ok(None),
             LocalTermExpectation::FrameVariableType => todo!(),
-            LocalTermExpectation::EqsRefMutApplication { lifetime } => todo!(),
+            LocalTermExpectation::EqsRefMutApplication(_) => todo!(),
             LocalTermExpectation::EqsFunctionType(_) => todo!(),
-            LocalTermExpectation::InsSort { .. } => Ok(None),
-            LocalTermExpectation::EqsExactly { destination } => todo!(),
+            LocalTermExpectation::InsSort(_) => Ok(None),
+            LocalTermExpectation::EqsExactly(_) => todo!(),
+            LocalTermExpectation::AnyOriginal(_) => todo!(),
+            LocalTermExpectation::AnyDerived(_) => todo!(),
         }
     }
 }

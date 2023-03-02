@@ -1,7 +1,7 @@
 use super::*;
 
 /// expect term to be equal to `Type` i.e. `Sort 1`
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub(crate) struct ExpectEqsExactly {
     destination: LocalTerm,
 }
@@ -13,7 +13,7 @@ impl ProvideTypeContext for ExpectEqsExactly {
 }
 
 impl ExpectLocalTerm for ExpectEqsExactly {
-    type ResolvedOk = ExpectEqsExactlyResolvedOk;
+    type Outcome = ExpectEqsExactlyOutcome;
 
     fn destination(&self) -> Option<LocalTerm> {
         None
@@ -21,40 +21,26 @@ impl ExpectLocalTerm for ExpectEqsExactly {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub(crate) struct ExpectEqsExactlyResolvedOk {
+pub(crate) struct ExpectEqsExactlyOutcome {
     destination: LocalTerm,
 }
 
-impl ExpectLocalTermResolvedOk for ExpectEqsExactlyResolvedOk {
+impl ExpectLocalTermOutcome for ExpectEqsExactlyOutcome {
     fn destination(&self) -> LocalTerm {
         self.destination
     }
 
-    fn downcast_ref(resolved_ok: &LocalTermExpectationResolvedOk) -> &Self {
+    fn downcast_ref(resolved_ok: &LocalTermExpectationOutcome) -> &Self {
         match resolved_ok {
-            LocalTermExpectationResolvedOk::EqsExactly(resolved_ok) => resolved_ok,
+            LocalTermExpectationOutcome::EqsExactly(resolved_ok) => resolved_ok,
             _ => unreachable!(),
         }
     }
 }
 
-impl ExpectEqsExactlyResolvedOk {
+impl ExpectEqsExactlyOutcome {
     pub(crate) fn resolved(&self) -> Option<ReducedTerm> {
         todo!()
-    }
-}
-
-impl From<ExpectEqsExactlyResolvedOk> for LocalTermExpectationResolvedOk {
-    fn from(value: ExpectEqsExactlyResolvedOk) -> Self {
-        LocalTermExpectationResolvedOk::EqsExactly(value)
-    }
-}
-
-impl From<ExpectEqsExactly> for LocalTermExpectation {
-    fn from(value: ExpectEqsExactly) -> Self {
-        LocalTermExpectation::EqsExactly {
-            destination: value.destination,
-        }
     }
 }
 
@@ -62,11 +48,13 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn resolve_eqs_exactly(
         &self,
         expectee: LocalTerm,
-        destination: LocalTerm,
+        expectation: &ExpectEqsExactly,
         unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationEffect> {
         match expectee {
-            LocalTerm::Resolved(expectee) => self.eqs_exactly_res_to(expectee, destination),
+            LocalTerm::Resolved(expectee) => {
+                self.eqs_exactly_res_to(expectee, expectation.destination)
+            }
             LocalTerm::Unresolved(_) => todo!(),
         }
     }
@@ -93,8 +81,8 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> LocalTermExpectationEffect {
         match expectee == destination {
             true => LocalTermExpectationEffect {
-                result: Ok(LocalTermExpectationResolvedOk::EqsExactly(
-                    ExpectEqsExactlyResolvedOk {
+                result: Ok(LocalTermExpectationOutcome::EqsExactly(
+                    ExpectEqsExactlyOutcome {
                         destination: destination.into(),
                     },
                 )),

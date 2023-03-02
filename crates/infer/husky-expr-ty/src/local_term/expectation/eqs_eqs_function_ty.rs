@@ -11,7 +11,7 @@ impl const ProvideTypeContext for ExpectEqsFunctionType {
 }
 
 impl ExpectLocalTerm for ExpectEqsFunctionType {
-    type ResolvedOk = ExpectEqsFunctionTypeOk;
+    type Outcome = ExpectEqsFunctionTypeOk;
 
     fn destination(&self) -> Option<LocalTerm> {
         None
@@ -37,14 +37,14 @@ pub(crate) enum ExpectEqsFunctionTypeOkVariant {
     Curry {},
 }
 
-impl ExpectLocalTermResolvedOk for ExpectEqsFunctionTypeOk {
+impl ExpectLocalTermOutcome for ExpectEqsFunctionTypeOk {
     fn destination(&self) -> LocalTerm {
         self.destination
     }
 
-    fn downcast_ref(resolved_ok: &LocalTermExpectationResolvedOk) -> &Self {
+    fn downcast_ref(resolved_ok: &LocalTermExpectationOutcome) -> &Self {
         match resolved_ok {
-            LocalTermExpectationResolvedOk::EqsRitchieCallType(resolved_ok) => resolved_ok,
+            LocalTermExpectationOutcome::EqsRitchieCallType(resolved_ok) => resolved_ok,
             _ => unreachable!(),
         }
     }
@@ -61,18 +61,6 @@ impl ExpectEqsFunctionTypeOk {
 
     pub(crate) fn variant(&self) -> &ExpectEqsFunctionTypeOkVariant {
         &self.variant
-    }
-}
-
-impl From<ExpectEqsFunctionTypeOk> for LocalTermExpectationResolvedOk {
-    fn from(value: ExpectEqsFunctionTypeOk) -> Self {
-        LocalTermExpectationResolvedOk::EqsRitchieCallType(value)
-    }
-}
-
-impl From<ExpectEqsFunctionType> for LocalTermExpectation {
-    fn from(value: ExpectEqsFunctionType) -> Self {
-        LocalTermExpectation::EqsFunctionType(value)
     }
 }
 

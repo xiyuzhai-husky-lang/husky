@@ -19,7 +19,7 @@ impl<'a> ExprTypeEngine<'a> {
                     0 => {
                         let argument_ty = self.infer_new_expr_ty(
                             argument,
-                            ExpectInsSort::default(),
+                            /* ad hoc */ ExpectAnyOriginal,
                             local_term_region,
                         );
                         // check this is type
@@ -29,7 +29,7 @@ impl<'a> ExprTypeEngine<'a> {
                     1 => {
                         let arg0_ty = self.infer_new_expr_ty(
                             items.start(),
-                            ExpectInsSort::default(),
+                            /* ad hoc */ ExpectAnyOriginal,
                             local_term_region,
                         );
                         match arg0_ty {
@@ -52,8 +52,11 @@ impl<'a> ExprTypeEngine<'a> {
                 rbox_token,
             } => todo!(),
             _ => {
-                let function_ty =
-                    self.infer_new_expr_ty(function, ExpectInsSort::default(), local_term_region);
+                let function_ty = self.infer_new_expr_ty(
+                    function,
+                    /* ad hoc */ ExpectAnyOriginal,
+                    local_term_region,
+                );
                 Err(OriginalExprTypeError::TodoBoxColon.into())
             }
         }

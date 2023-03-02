@@ -98,9 +98,29 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn infer_all_exprs(&mut self, local_term_region: &mut LocalTermRegion) {
         for root in self.expr_region_data.roots() {
-            let ty =
-                self.infer_new_expr_ty(root.expr(), ExpectInsSort::default(), local_term_region);
-            // todo: check coherence
+            match root.kind() {
+                ExprRootKind::SelfType | ExprRootKind::ReturnType | ExprRootKind::FieldType => self
+                    .infer_new_expr_ty_discarded(
+                        root.expr(),
+                        ExpectEqsSort::new_expect_eqs_ty_kind(),
+                        local_term_region,
+                    ),
+                ExprRootKind::Trait => todo!(),
+                ExprRootKind::BlockExpr => match self.return_ty {
+                    Some(return_ty) => self.infer_new_expr_ty_discarded(
+                        root.expr(),
+                        ExpectImplicitlyConvertible {
+                            destination: return_ty.into(),
+                        },
+                        local_term_region,
+                    ),
+                    None => self.infer_new_expr_ty_discarded(
+                        root.expr(),
+                        ExpectAnyDerived,
+                        local_term_region,
+                    ),
+                },
+            };
         }
     }
 

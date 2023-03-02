@@ -4,7 +4,7 @@ use super::*;
 /// for some T
 ///
 /// T is referred to as the inner type
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub(crate) struct ExpectEqsRefMutApplication {
     pub(crate) lifetime: UnresolvedTermIdx,
 }
@@ -16,7 +16,7 @@ impl const ProvideTypeContext for ExpectEqsRefMutApplication {
 }
 
 impl ExpectLocalTerm for ExpectEqsRefMutApplication {
-    type ResolvedOk = ExpectEqsRefMutApplicationResolvedOk;
+    type Outcome = ExpectEqsRefMutApplicationOutcome;
 
     fn destination(&self) -> Option<LocalTerm> {
         None
@@ -24,35 +24,21 @@ impl ExpectLocalTerm for ExpectEqsRefMutApplication {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub(crate) struct ExpectEqsRefMutApplicationResolvedOk {
+pub(crate) struct ExpectEqsRefMutApplicationOutcome {
     destination: LocalTerm,
     /// T
     inner_ty: LocalTerm,
 }
 
-impl ExpectLocalTermResolvedOk for ExpectEqsRefMutApplicationResolvedOk {
+impl ExpectLocalTermOutcome for ExpectEqsRefMutApplicationOutcome {
     fn destination(&self) -> LocalTerm {
         self.destination
     }
 
-    fn downcast_ref(resolved_ok: &LocalTermExpectationResolvedOk) -> &Self {
+    fn downcast_ref(resolved_ok: &LocalTermExpectationOutcome) -> &Self {
         match resolved_ok {
-            LocalTermExpectationResolvedOk::EqsRefMutApplication(resolved_ok) => resolved_ok,
+            LocalTermExpectationOutcome::EqsRefMutApplication(resolved_ok) => resolved_ok,
             _ => unreachable!(),
-        }
-    }
-}
-
-impl From<ExpectEqsRefMutApplicationResolvedOk> for LocalTermExpectationResolvedOk {
-    fn from(value: ExpectEqsRefMutApplicationResolvedOk) -> Self {
-        LocalTermExpectationResolvedOk::EqsRefMutApplication(value)
-    }
-}
-
-impl From<ExpectEqsRefMutApplication> for LocalTermExpectation {
-    fn from(value: ExpectEqsRefMutApplication) -> Self {
-        LocalTermExpectation::EqsRefMutApplication {
-            lifetime: value.lifetime,
         }
     }
 }
@@ -61,7 +47,7 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn resolve_eqs_ref_mut_application_expectation(
         &self,
         expectee: LocalTerm,
-        lifetime: UnresolvedTermIdx,
+        expectation: &ExpectEqsRefMutApplication,
         unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationEffect> {
         match expectee {
@@ -98,7 +84,7 @@ impl<'a> ExprTypeEngine<'a> {
 
 // LocalTermExpectationRuleVariant::RefMut { lifetime } => {
 //     // ad hoc
-//     LocalTermExpectationResolveProgress::Resolved(LocalTermExpectationResolvedOk::Err(
+//     LocalTermExpectationResolveProgress::Resolved(LocalTermExpectationOutcome::Err(
 //         todo!(),
 //     ))
 // }
@@ -113,7 +99,7 @@ impl<'a> ExprTypeEngine<'a> {
 //         }
 //         UnresolvedTerm::TypeApplication { ty, arguments } => {
 //             LocalTermExpectationResolveProgress::Resolved(
-//                 LocalTermExpectationResolvedOk::Err(
+//                 LocalTermExpectationOutcome::Err(
 //                     todo!(),
 //                 ),
 //             )

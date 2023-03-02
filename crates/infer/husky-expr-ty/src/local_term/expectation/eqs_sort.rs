@@ -1,8 +1,16 @@
 use super::*;
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub(crate) struct ExpectEqsSort {
     pub(crate) smallest_universe: TermUniverse,
+}
+
+impl ExpectEqsSort {
+    pub(crate) fn new_expect_eqs_ty_kind() -> Self {
+        Self {
+            smallest_universe: TermUniverse::new(1),
+        }
+    }
 }
 
 impl const ProvideTypeContext for ExpectEqsSort {
@@ -12,7 +20,7 @@ impl const ProvideTypeContext for ExpectEqsSort {
 }
 
 impl ExpectLocalTerm for ExpectEqsSort {
-    type ResolvedOk = ExpectEqsSortResolvedOk;
+    type Outcome = ExpectEqsSortOutcome;
 
     fn destination(&self) -> Option<LocalTerm> {
         None
@@ -20,34 +28,20 @@ impl ExpectLocalTerm for ExpectEqsSort {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub(crate) struct ExpectEqsSortResolvedOk {
+pub(crate) struct ExpectEqsSortOutcome {
     destination: LocalTerm,
 }
 
-impl ExpectLocalTermResolvedOk for ExpectEqsSortResolvedOk {
+impl ExpectLocalTermOutcome for ExpectEqsSortOutcome {
     fn destination(&self) -> LocalTerm {
         self.destination
     }
 
-    fn downcast_ref(resolved_ok: &LocalTermExpectationResolvedOk) -> &Self {
+    fn downcast_ref(resolved_ok: &LocalTermExpectationOutcome) -> &Self {
         match resolved_ok {
-            LocalTermExpectationResolvedOk::EqsSort(resolved_ok) => resolved_ok,
+            LocalTermExpectationOutcome::EqsSort(resolved_ok) => resolved_ok,
             _ => unreachable!(),
         }
-    }
-}
-
-impl From<ExpectEqsSort> for LocalTermExpectation {
-    fn from(value: ExpectEqsSort) -> Self {
-        LocalTermExpectation::EqsSort {
-            smallest_universe: value.smallest_universe,
-        }
-    }
-}
-
-impl From<ExpectEqsSortResolvedOk> for LocalTermExpectationResolvedOk {
-    fn from(value: ExpectEqsSortResolvedOk) -> Self {
-        todo!()
     }
 }
 
@@ -55,25 +49,28 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn resolve_eqs_sort_expectation(
         &self,
         expectee: LocalTerm,
-        smallest_universe: TermUniverse,
+        expectation: &ExpectEqsSort,
+        unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationEffect> {
         match expectee {
             LocalTerm::Resolved(resolved_expectee) => {
                 match resolved_expectee.term() {
-                    Term::Category(cat) => Some(match cat.universe() >= smallest_universe {
-                        true => LocalTermExpectationEffect {
-                            result: Ok(LocalTermExpectationResolvedOk::EqsSort(
-                                ExpectEqsSortResolvedOk {
-                                    destination: expectee,
-                                },
-                            )),
-                            actions: vec![],
-                        },
-                        false => LocalTermExpectationEffect {
-                            result: Err(todo!()),
-                            actions: vec![],
-                        },
-                    }),
+                    Term::Category(cat) => {
+                        Some(match cat.universe() >= expectation.smallest_universe {
+                            true => LocalTermExpectationEffect {
+                                result: Ok(LocalTermExpectationOutcome::EqsSort(
+                                    ExpectEqsSortOutcome {
+                                        destination: expectee,
+                                    },
+                                )),
+                                actions: vec![],
+                            },
+                            false => LocalTermExpectationEffect {
+                                result: Err(todo!()),
+                                actions: vec![],
+                            },
+                        })
+                    }
                     _ => {
                         p!(self.path());
                         p!(resolved_expectee.debug(self.db()));
@@ -104,7 +101,7 @@ impl<'a> ExprTypeEngine<'a> {
 //         Term::Category(cat) => match cat.universe().raw() {
 //             0 => todo!(),
 //             _ => LocalTermExpectationResolveProgress::Resolved(
-//                 LocalTermExpectationResolvedOk::OkSort {
+//                 LocalTermExpectationOutcome::OkSort {
 //                     implicit_conversion: LocalTermImplicitConversion::None,
 //                     local_term: resolved_term.into(),
 //                 },
