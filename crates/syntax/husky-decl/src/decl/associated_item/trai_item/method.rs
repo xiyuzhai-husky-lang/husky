@@ -9,7 +9,7 @@ pub struct TraitMethodDecl {
     #[return_ref]
     implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
     #[return_ref]
-    parameter_decl_list: RegularParameterDeclList,
+    parameter_decl_list: ExplicitParameterDeclList,
     #[return_ref]
     pub curry_token: DeclExprResult<CurryToken>,
     #[return_ref]
@@ -22,7 +22,7 @@ impl TraitMethodDecl {
     pub fn parameters<'a>(
         self,
         db: &'a dyn DeclDb,
-    ) -> DeclExprResultRef<'a, &'a [RegularParameterDeclPattern]> {
+    ) -> DeclExprResultRef<'a, &'a [ExplicitParameterDeclPattern]> {
         self.parameter_decl_list(db).parameters()
     }
     pub fn implicit_parameters<'a>(

@@ -2794,14 +2794,14 @@ Ok(
                                         None,
                                     ),
                                     parameter_decl_list: Ok(
-                                        RegularParameterDeclList {
+                                        ExplicitParameterDeclList {
                                             lpar: LeftParenthesisToken(
                                                 TokenIdx(
                                                     274,
                                                 ),
                                             ),
                                             parameters: [
-                                                RegularParameterDeclPattern {
+                                                ExplicitParameterDeclPattern {
                                                     pattern: 0,
                                                     variables: ArenaIdxRange(
                                                         0..1,
@@ -3427,14 +3427,14 @@ Ok(
                                         None,
                                     ),
                                     parameter_decl_list: Ok(
-                                        RegularParameterDeclList {
+                                        ExplicitParameterDeclList {
                                             lpar: LeftParenthesisToken(
                                                 TokenIdx(
                                                     303,
                                                 ),
                                             ),
                                             parameters: [
-                                                RegularParameterDeclPattern {
+                                                ExplicitParameterDeclPattern {
                                                     pattern: 0,
                                                     variables: ArenaIdxRange(
                                                         0..1,

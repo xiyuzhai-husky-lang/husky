@@ -220,14 +220,14 @@ Ok(
                                         None,
                                     ),
                                     parameter_decl_list: Ok(
-                                        RegularParameterDeclList {
+                                        ExplicitParameterDeclList {
                                             lpar: LeftParenthesisToken(
                                                 TokenIdx(
                                                     21,
                                                 ),
                                             ),
                                             parameters: [
-                                                RegularParameterDeclPattern {
+                                                ExplicitParameterDeclPattern {
                                                     pattern: 0,
                                                     variables: ArenaIdxRange(
                                                         0..1,
@@ -239,7 +239,7 @@ Ok(
                                                     ),
                                                     ty: 0,
                                                 },
-                                                RegularParameterDeclPattern {
+                                                ExplicitParameterDeclPattern {
                                                     pattern: 1,
                                                     variables: ArenaIdxRange(
                                                         1..2,

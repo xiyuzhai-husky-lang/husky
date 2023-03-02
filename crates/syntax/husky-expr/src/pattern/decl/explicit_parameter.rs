@@ -2,14 +2,14 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub struct RegularParameterDeclPattern {
+pub struct ExplicitParameterDeclPattern {
     pattern: PatternExprIdx,
     variables: CurrentSymbolIdxRange,
     colon: ColonToken,
     ty: ExprIdx,
 }
 
-impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for RegularParameterDeclPattern {
+impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ExplicitParameterDeclPattern {
     type Error = ExprError;
 
     fn parse_from_without_guaranteed_rollback(
@@ -32,14 +32,14 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for RegularParameterDeclPattern
                 })
                 .collect::<Vec<_>>();
             let colon = ctx.parse_expected(OriginalExprError::ExpectColon)?;
-            let Some(ty) = ctx.parse_expr(ExprEnvironment::new(ExprEvalEnvironment::Comptime, Some(Bracket::Par))) else {
+            let Some(ty) = ctx.parse_expr(Some(Bracket::Par)) else {
                 todo!()
             };
             let variables = ctx.define_symbols(
                 variables,
                 Some(PatternTypeConstraint::RegularParameter { pattern, ty }),
             );
-            Ok(Some(RegularParameterDeclPattern {
+            Ok(Some(ExplicitParameterDeclPattern {
                 pattern,
                 variables,
                 colon,
@@ -51,7 +51,7 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for RegularParameterDeclPattern
     }
 }
 
-impl RegularParameterDeclPattern {
+impl ExplicitParameterDeclPattern {
     pub fn pattern_expr_idx(&self) -> ArenaIdx<PatternExpr> {
         self.pattern
     }

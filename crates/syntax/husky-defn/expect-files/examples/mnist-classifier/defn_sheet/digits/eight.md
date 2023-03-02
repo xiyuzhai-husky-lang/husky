@@ -1286,14 +1286,14 @@ Ok(
                                         None,
                                     ),
                                     parameter_decl_list: Ok(
-                                        RegularParameterDeclList {
+                                        ExplicitParameterDeclList {
                                             lpar: LeftParenthesisToken(
                                                 TokenIdx(
                                                     156,
                                                 ),
                                             ),
                                             parameters: [
-                                                RegularParameterDeclPattern {
+                                                ExplicitParameterDeclPattern {
                                                     pattern: 0,
                                                     variables: ArenaIdxRange(
                                                         0..1,
