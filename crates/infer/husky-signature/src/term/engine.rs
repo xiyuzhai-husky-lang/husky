@@ -256,9 +256,6 @@ impl<'a> SignatureTermEngine<'a> {
                 opr: punctuation,
                 opr_token_idx: punctuation_token_idx,
             } => todo!(),
-            Expr::RitchieCall { function, .. } => {
-                todo!()
-            }
             Expr::Field {
                 owner: self_expr,
                 dot_token_idx,
@@ -266,10 +263,8 @@ impl<'a> SignatureTermEngine<'a> {
             } => todo!(),
             Expr::MethodCall { .. } => todo!(),
             Expr::TemplateInstantiation { .. } => todo!(),
-            Expr::ApplicationOrRitchieCall {
-                function, argument, ..
-            }
-            | Expr::Application { function, argument } => {
+            Expr::ApplicationOrRitchieCall { function, .. } => todo!(),
+            Expr::Application { function, argument } => {
                 let  Ok(argument) = self.infer_new(argument) else {
                         return  Err(DerivedSignatureTermError::CannotInferArgumentTermInApplication.into())
                     };
@@ -340,19 +335,7 @@ impl<'a> SignatureTermEngine<'a> {
                                 opr: punctuation,
                                 opr_token_idx: punctuation_token_idx,
                             } => todo!(),
-                            Expr::ApplicationOrRitchieCall {
-                                function,
-                                lpar_token_idx,
-                                argument,
-                                rpar_token_idx,
-                            } => todo!(),
-                            Expr::RitchieCall {
-                                function,
-                                ref implicit_arguments,
-                                lpar_token_idx,
-                                arguments,
-                                rpar_token_idx,
-                            } => todo!(),
+                            Expr::ApplicationOrRitchieCall { .. } => todo!(),
                             Expr::Field {
                                 owner: self_expr,
                                 dot_token_idx,

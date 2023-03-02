@@ -1,17 +1,17 @@
 use super::*;
 
-#[derive(Debug, Clone)]
-pub(crate) struct ExpectEqsRitchieCallType;
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub(crate) struct ExpectEqsFunctionType;
 
-impl const ProvideTypeContext for ExpectEqsRitchieCallType {
+impl const ProvideTypeContext for ExpectEqsFunctionType {
     #[inline(always)]
     fn ty_context(&self) -> TypeContext {
         TypeContext::new_expect_applicable_or_callable()
     }
 }
 
-impl ExpectLocalTerm for ExpectEqsRitchieCallType {
-    type ResolvedOk = ExpectEqsRitchieCallTypeResolvedOk;
+impl ExpectLocalTerm for ExpectEqsFunctionType {
+    type ResolvedOk = ExpectEqsFunctionTypeOk;
 
     fn destination(&self) -> Option<LocalTerm> {
         None
@@ -20,15 +20,24 @@ impl ExpectLocalTerm for ExpectEqsRitchieCallType {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
-pub(crate) struct ExpectEqsRitchieCallTypeResolvedOk {
+pub(crate) struct ExpectEqsFunctionTypeOk {
     destination: LocalTerm,
-    substitution_rules: Vec<SubstitutionRule>,
-    ritchie_kind: TermRitchieKind,
-    parameter_liasoned_tys: Vec<LocalTermRitchieParameter>,
+    implicit_parameter_substitutions: Vec<ImplicitParameterSubstitution>,
     return_ty: LocalTerm,
+    variant: ExpectEqsFunctionTypeOkVariant,
 }
 
-impl ExpectLocalTermResolvedOk for ExpectEqsRitchieCallTypeResolvedOk {
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
+pub(crate) enum ExpectEqsFunctionTypeOkVariant {
+    Ritchie {
+        ritchie_kind: TermRitchieKind,
+        parameter_liasoned_tys: Vec<LocalTermRitchieParameter>,
+    },
+    Curry {},
+}
+
+impl ExpectLocalTermResolvedOk for ExpectEqsFunctionTypeOk {
     fn destination(&self) -> LocalTerm {
         self.destination
     }
@@ -41,26 +50,34 @@ impl ExpectLocalTermResolvedOk for ExpectEqsRitchieCallTypeResolvedOk {
     }
 }
 
-impl ExpectEqsRitchieCallTypeResolvedOk {
+impl ExpectEqsFunctionTypeOk {
     pub(crate) fn expectee(&self) -> LocalTerm {
         self.destination
     }
+
+    pub(crate) fn return_ty(&self) -> LocalTerm {
+        self.return_ty
+    }
+
+    pub(crate) fn variant(&self) -> &ExpectEqsFunctionTypeOkVariant {
+        &self.variant
+    }
 }
 
-impl From<ExpectEqsRitchieCallTypeResolvedOk> for LocalTermExpectationResolvedOk {
-    fn from(value: ExpectEqsRitchieCallTypeResolvedOk) -> Self {
+impl From<ExpectEqsFunctionTypeOk> for LocalTermExpectationResolvedOk {
+    fn from(value: ExpectEqsFunctionTypeOk) -> Self {
         LocalTermExpectationResolvedOk::EqsRitchieCallType(value)
     }
 }
 
-impl From<ExpectEqsRitchieCallType> for LocalTermExpectation {
-    fn from(value: ExpectEqsRitchieCallType) -> Self {
-        LocalTermExpectation::EqsRitchieCallTy
+impl From<ExpectEqsFunctionType> for LocalTermExpectation {
+    fn from(value: ExpectEqsFunctionType) -> Self {
+        LocalTermExpectation::EqsFunctionType(value)
     }
 }
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn resolve_eqs_richie_call_ty(
+    pub(super) fn resolve_eqs_function_ty(
         &self,
         src_expr_idx: ExprIdx,
         expectee: LocalTerm,
@@ -100,16 +117,18 @@ impl<'a> ExprTypeEngine<'a> {
             Term::Ritchie(term) => {
                 let ritchie_kind = term.ritchie_kind(db);
                 let result = match ritchie_kind {
-                    TermRitchieKind::Fp => Ok(ExpectEqsRitchieCallTypeResolvedOk {
+                    TermRitchieKind::Fp => Ok(ExpectEqsFunctionTypeOk {
                         destination: expectee.into(),
-                        substitution_rules: vec![],
-                        ritchie_kind,
-                        parameter_liasoned_tys: term
-                            .parameter_tys(db)
-                            .iter()
-                            .map(|param| todo!())
-                            .collect(),
+                        implicit_parameter_substitutions: vec![],
                         return_ty: db.reduced_term(term.return_ty(db)).into(),
+                        variant: ExpectEqsFunctionTypeOkVariant::Ritchie {
+                            ritchie_kind,
+                            parameter_liasoned_tys: term
+                                .parameter_tys(db)
+                                .iter()
+                                .map(|param| todo!())
+                                .collect(),
+                        },
                     }
                     .into()),
                     TermRitchieKind::Fn => todo!(),
@@ -145,7 +164,10 @@ impl<'a> ExprTypeEngine<'a> {
                 src_expr_idx,
                 input_symbol,
             );
-            substitution_rules.push(SubstitutionRule::new(input_symbol, implicit_symbol));
+            substitution_rules.push(ImplicitParameterSubstitution::new(
+                input_symbol,
+                implicit_symbol,
+            ));
             match expectee.return_ty(self.db()) {
                 Term::Curry(new_expectee) => expectee = new_expectee,
                 term => break term,
@@ -177,7 +199,7 @@ impl<'a> ExprTypeEngine<'a> {
         &self,
         src_expr_idx: ExprIdx,
         expectee: UnresolvedTermIdx,
-        mut substitution_rules: Vec<SubstitutionRule>,
+        mut substitution_rules: Vec<ImplicitParameterSubstitution>,
         unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationEffect> {
         match unresolved_terms[expectee].unresolved_term() {
@@ -188,12 +210,14 @@ impl<'a> ExprTypeEngine<'a> {
                 parameter_tys,
                 return_ty,
             } => Some(LocalTermExpectationEffect {
-                result: Ok(ExpectEqsRitchieCallTypeResolvedOk {
+                result: Ok(ExpectEqsFunctionTypeOk {
                     destination: expectee.into(),
-                    substitution_rules,
-                    ritchie_kind: *ritchie_kind,
-                    parameter_liasoned_tys: parameter_tys.clone(),
+                    implicit_parameter_substitutions: substitution_rules,
                     return_ty: *return_ty,
+                    variant: ExpectEqsFunctionTypeOkVariant::Ritchie {
+                        ritchie_kind: *ritchie_kind,
+                        parameter_liasoned_tys: parameter_tys.clone(),
+                    },
                 }
                 .into()),
                 actions: vec![],

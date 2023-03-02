@@ -8,11 +8,9 @@ mod pattern;
 mod precedence;
 mod range;
 mod region;
-mod regular;
 mod snippet;
 mod stmt;
 mod symbol;
-mod term;
 #[cfg(test)]
 mod tests;
 
@@ -120,17 +118,32 @@ pub enum Expr {
         opr: SuffixOpr,
         opr_token_idx: TokenIdx,
     },
+    /// we shall need the exact type of `f` to disambiguate the following:
+    /// - `f(x1, ..., xn)` can be interpreted in two ways:
+    ///   - `f` is a curry function, `(x1, ..., xn)` is a tuple, this is an application
+    ///   - `f` is a Ritchie function, `(x1, ..., xn)` is the list of arguments, this is a Ritchie function call
+    ///
+    /// - `f(x)` can be interpreted in two ways:
+    ///   - `f` is a curry function, this is an application of `f` upon `x`
+    ///   - `f` is a Ritchie function, this is a Ritchie function call with one element
+    ///
+    /// - `f(x,)` can be interpreted in two ways:
+    ///   - `f` is a curry function, this is an application of `f` upon one element tuple `(x,)`
+    ///   - `f` is a Ritchie function, this is a Ritchie function call with one element
+    ///
+    /// - `f()` can be interpreted in two ways:
+    ///   - `f` is a curry function, this is an application of `f` upon unit `()`
+    ///   - `f` is a Ritchie function, this is a Ritchie function call with zero element
+    ///
+    /// - `f(,)` can be interpreted in two ways:
+    ///   - `f` is a curry function, this is an application of `f` upon zero element tuple `(,)`
+    ///   - `f` is a Ritchie function, this is a Ritchie function call with zero element
     ApplicationOrRitchieCall {
-        function: ExprIdx,
-        lpar_token_idx: TokenIdx,
-        argument: ExprIdx,
-        rpar_token_idx: TokenIdx,
-    },
-    RitchieCall {
         function: ExprIdx,
         implicit_arguments: Option<ImplicitArgumentList>,
         lpar_token_idx: TokenIdx,
-        arguments: ExprIdxRange,
+        items: ExprIdxRange,
+        commas: Vec<TokenIdx>,
         rpar_token_idx: TokenIdx,
     },
     Field {
@@ -188,14 +201,21 @@ pub enum Expr {
 pub struct ImplicitArgumentList {
     langle: TokenIdx,
     arguments: ExprIdxRange,
+    commas: Vec<TokenIdx>,
     rangle: TokenIdx,
 }
 
 impl ImplicitArgumentList {
-    pub(crate) fn new(langle: TokenIdx, arguments: ExprIdxRange, rangle: TokenIdx) -> Self {
+    pub(crate) fn new(
+        langle: TokenIdx,
+        arguments: ExprIdxRange,
+        commas: Vec<TokenIdx>,
+        rangle: TokenIdx,
+    ) -> Self {
         Self {
             langle,
             arguments,
+            commas,
             rangle,
         }
     }

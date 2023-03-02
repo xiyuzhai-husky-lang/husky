@@ -162,10 +162,14 @@ Ok(
                                                 ),
                                                 Expr::ApplicationOrRitchieCall {
                                                     function: 0,
+                                                    implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         39,
                                                     ),
-                                                    argument: 1,
+                                                    items: ArenaIdxRange(
+                                                        1..2,
+                                                    ),
+                                                    commas: [],
                                                     rpar_token_idx: TokenIdx(
                                                         41,
                                                     ),

@@ -1,12 +1,12 @@
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub(crate) struct SubstitutionRule {
+pub(crate) struct ImplicitParameterSubstitution {
     symbol: TermSymbol,
     substitute: LocalTerm,
 }
 
-impl SubstitutionRule {
+impl ImplicitParameterSubstitution {
     pub(crate) fn new(symbol: TermSymbol, substitute: impl Into<LocalTerm>) -> Self {
         Self {
             symbol,
@@ -21,7 +21,7 @@ impl UnresolvedTerms {
         db: &dyn ExprTypeDb,
         src_expr_idx: ExprIdx,
         term: Term,
-        substitution_rules: &[SubstitutionRule],
+        substitution_rules: &[ImplicitParameterSubstitution],
     ) -> Option<LocalTerm> {
         let substituted = self.substitute_into_term_aux(db, src_expr_idx, term, substitution_rules);
         match substituted {
@@ -35,7 +35,7 @@ impl UnresolvedTerms {
         db: &dyn ExprTypeDb,
         src_expr_idx: ExprIdx,
         term: Term,
-        substitution_rules: &[SubstitutionRule],
+        substitution_rules: &[ImplicitParameterSubstitution],
     ) -> LocalTerm {
         match term {
             Term::Literal(_) => todo!(),
@@ -67,7 +67,7 @@ impl UnresolvedTerms {
         db: &dyn ExprTypeDb,
         src_expr_idx: ExprIdx,
         term: TermRitchie,
-        substitution_rules: &[SubstitutionRule],
+        substitution_rules: &[ImplicitParameterSubstitution],
     ) -> LocalTerm {
         let mut t =
             |term: Term| self.substitute_into_term_aux(db, src_expr_idx, term, substitution_rules);
@@ -90,7 +90,7 @@ impl UnresolvedTerms {
         db: &dyn ExprTypeDb,
         src_expr_idx: ExprIdx,
         term: TermApplication,
-        substitution_rules: &[SubstitutionRule],
+        substitution_rules: &[ImplicitParameterSubstitution],
     ) -> LocalTerm {
         let mut t =
             |term: Term| self.substitute_into_term_aux(db, src_expr_idx, term, substitution_rules);

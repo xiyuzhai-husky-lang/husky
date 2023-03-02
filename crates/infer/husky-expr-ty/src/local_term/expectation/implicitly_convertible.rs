@@ -102,10 +102,7 @@ impl<'a> ExprTypeEngine<'a> {
                             )),
                         }),
                     },
-                    UnresolvedTerm::TypeApplication {
-                        ty_path: ty,
-                        arguments,
-                    } => todo!(),
+                    UnresolvedTerm::TypeApplication { ty_path, arguments } => todo!(),
                     UnresolvedTerm::Ritchie {
                         ritchie_kind,
                         parameter_tys,

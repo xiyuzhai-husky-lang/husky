@@ -3,7 +3,7 @@ mod binary;
 mod box_list;
 mod literal;
 mod prefix;
-mod ritchie_call;
+mod ritchie_call_ty;
 mod suffix;
 
 use super::*;
@@ -29,28 +29,40 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    pub(super) fn infer_new_expr_ty(
-        &mut self,
-        expr_idx: ExprIdx,
-        expr_ty_expectation: impl ExpectLocalTerm,
-        local_term_region: &mut LocalTermRegion,
-    ) -> Option<LocalTerm> {
-        self.infer_new_expr_ty_with_expectation_rule(
-            expr_idx,
-            expr_ty_expectation,
-            local_term_region,
-        )
-        .1
-        .map(|resolved_ok| resolved_ok.destination())
-    }
-
-    #[inline(always)]
-    pub(super) fn infer_new_expr_ty_with_expectation_rule<'b, E: ExpectLocalTerm>(
+    pub(super) fn infer_new_expr_ty<E: ExpectLocalTerm>(
         &mut self,
         expr_idx: ExprIdx,
         expr_ty_expectation: E,
-        local_term_region: &'b mut LocalTermRegion,
-    ) -> (OptionLocalTermExpectationIdx, Option<&'b E::ResolvedOk>) {
+        local_term_region: &mut LocalTermRegion,
+    ) -> Option<LocalTerm> {
+        let ty_result = self.calc_expr_ty(expr_idx, &expr_ty_expectation, local_term_region);
+        let expectation_idx = match ty_result {
+            Ok(ty) => {
+                self.add_expectation_rule(expr_idx, ty, expr_ty_expectation, local_term_region)
+            }
+            Err(_) => Default::default(),
+        };
+        self.save_new_expr_ty(expr_idx, ExprTypeInfo::new(ty_result, expectation_idx));
+        self.resolve_as_much_as_possible(LocalTermResolveLevel::Weak, local_term_region);
+        match expectation_idx.into_option() {
+            Some(expectation_idx) => local_term_region[expectation_idx]
+                .resolve_progress()
+                .resolved_ok::<E::ResolvedOk>()
+                .map(|ok| ok.destination()),
+            None => None,
+        }
+    }
+
+    #[inline(always)]
+    pub(super) fn infer_new_expr_ty_with_expectation_returned<E: ExpectLocalTerm>(
+        &mut self,
+        expr_idx: ExprIdx,
+        expr_ty_expectation: E,
+        local_term_region: &mut LocalTermRegion,
+    ) -> (OptionLocalTermExpectationIdx, Option<E::ResolvedOk>)
+    where
+        E::ResolvedOk: Clone,
+    {
         let ty_result = self.calc_expr_ty(expr_idx, &expr_ty_expectation, local_term_region);
         let expectation_idx = match ty_result {
             Ok(ty) => {
@@ -63,7 +75,8 @@ impl<'a> ExprTypeEngine<'a> {
         let resolved_ok = match expectation_idx.into_option() {
             Some(expectation_idx) => local_term_region[expectation_idx]
                 .resolve_progress()
-                .resolved_ok(),
+                .resolved_ok()
+                .cloned(),
             None => None,
         };
         (expectation_idx, resolved_ok)
@@ -153,80 +166,105 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::PrefixOpn { opr, opd, .. } => self.calc_prefix_ty(opr, opd, local_term_region),
             Expr::SuffixOpn { opd, opr, .. } => self.calc_suffix_ty(opd, opr, local_term_region),
             Expr::ApplicationOrRitchieCall {
-                function, argument, ..
-            } => {
-                let function_ty =
-                    self.infer_new_expr_ty(function, ExpectInsSort::default(), local_term_region);
-                match function_ty {
-                    Some(function_ty) => {
-                        match function_ty {
-                            LocalTerm::Resolved(function_ty) => match function_ty.term() {
-                                Term::Category(_) => {
-                                    let Some(ty_term) = self.infer_new_expr_term(function)
-                                    else {
-                                        self.infer_new_expr_ty(argument, ExpectInsSort::default(),local_term_region);
-                                        return Err(todo!())
-                                    };
-                                    match ty_term {
-                                        LocalTerm::Resolved(ty_term) => {
-                                            let ty_call_ty = match self.db.ty_call_ty(
-                                                ty_term,
-                                                self.toolchain,
-                                                self.reduced_term_menu,
-                                            ) {
-                                                Ok(ty_call_ty) => ty_call_ty,
-                                                Err(error) => {
-                                                    self.infer_new_expr_ty(
-                                                        argument,
-                                                        ExpectInsSort::default(),
-                                                        local_term_region,
-                                                    );
-                                                    return Err(match error {
-                                                        TypeError::Original(error) => OriginalExprTypeError::TypeCallTypeError(error).into(),
-                                                        TypeError::Derived(error) => DerivedExprTypeError::TypeCallTypeError(error).into(),
-                                                    });
-                                                }
-                                            };
-                                            todo!()
-                                        }
-                                        LocalTerm::Unresolved(_) => todo!(),
-                                    }
-                                }
-                                Term::Ritchie(_) => self.calc_ritchie_call_ty(
-                                    Some(function_ty.into()),
-                                    None,
-                                    ExprIdxRange::new_single(argument),
-                                    local_term_region,
-                                ),
-                                _ => todo!(),
-                            },
-                            LocalTerm::Unresolved(_) => todo!(),
-                        }
-                    }
-                    None => {
-                        self.infer_new_expr_ty(
-                            argument,
-                            ExpectInsSort::default(),
-                            local_term_region,
-                        );
-                        Err(DerivedExprTypeError::FunctionTypeNotInferredInApplicationOrFunctionCall.into())
-                    }
-                }
-            }
-            Expr::RitchieCall {
                 function,
                 ref implicit_arguments,
-                arguments,
+                ref items,
                 ..
             } => {
-                let function_ty =
-                    self.infer_new_expr_ty(function, ExpectEqsRitchieCallType, local_term_region);
-                self.calc_ritchie_call_ty(
-                    function_ty,
-                    implicit_arguments.as_ref(),
-                    arguments,
-                    local_term_region,
-                )
+                let (expectation_idx, expectation_ok) = self
+                    .infer_new_expr_ty_with_expectation_returned(
+                        function,
+                        ExpectEqsFunctionType,
+                        local_term_region,
+                    );
+                if let Some(implicit_arguments) = implicit_arguments {
+                    todo!()
+                }
+                match expectation_ok {
+                    Some(expectation_ok) => {
+                        match expectation_ok.variant() {
+                            ExpectEqsFunctionTypeOkVariant::Ritchie {
+                                ritchie_kind,
+                                parameter_liasoned_tys,
+                            } => self.calc_ritchie_call_arguments_ty(
+                                *ritchie_kind,
+                                parameter_liasoned_tys.to_vec(),
+                                *items,
+                                local_term_region,
+                            ),
+                            ExpectEqsFunctionTypeOkVariant::Curry {} => todo!(),
+                        }
+                        Ok(expectation_ok.return_ty())
+                    }
+                    None => {
+                        for item in items {
+                            self.infer_new_expr_ty(
+                                item,
+                                ExpectInsSort::default(),
+                                local_term_region,
+                            );
+                        }
+                        Err(
+                            DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred
+                                .into(),
+                        )
+                    }
+                }
+                // match function_ty {
+                //     Some(function_ty) => {
+                //         match function_ty {
+                //             LocalTerm::Resolved(function_ty) => match function_ty.term() {
+                //                 Term::Category(_) => {
+                //                     let Some(ty_term) = self.infer_new_expr_term(function)
+                //                     else {
+                //                         self.infer_new_expr_ty(argument, ExpectInsSort::default(),local_term_region);
+                //                         return Err(todo!())
+                //                     };
+                //                     match ty_term {
+                //                         LocalTerm::Resolved(ty_term) => {
+                //                             let ty_call_ty = match self.db.ty_call_ty(
+                //                                 ty_term,
+                //                                 self.toolchain,
+                //                                 self.reduced_term_menu,
+                //                             ) {
+                //                                 Ok(ty_call_ty) => ty_call_ty,
+                //                                 Err(error) => {
+                //                                     self.infer_new_expr_ty(
+                //                                         argument,
+                //                                         ExpectInsSort::default(),
+                //                                         local_term_region,
+                //                                     );
+                //                                     return Err(match error {
+                //                                         TypeError::Original(error) => OriginalExprTypeError::TypeCallTypeError(error).into(),
+                //                                         TypeError::Derived(error) => DerivedExprTypeError::TypeCallTypeError(error).into(),
+                //                                     });
+                //                                 }
+                //                             };
+                //                             todo!()
+                //                         }
+                //                         LocalTerm::Unresolved(_) => todo!(),
+                //                     }
+                //                 }
+                //                 Term::Ritchie(_) => self.calc_ritchie_call_ty(
+                //                     Some(function_ty.into()),
+                //                     None,
+                //                     ExprIdxRange::new_single(argument),
+                //                     local_term_region,
+                //                 ),
+                //                 _ => todo!(),
+                //             },
+                //             LocalTerm::Unresolved(_) => todo!(),
+                //         }
+                //     }
+                //     None => {
+                //         self.infer_new_expr_ty(
+                //             argument,
+                //             ExpectInsSort::default(),
+                //             local_term_region,
+                //         );
+                //         Err(DerivedExprTypeError::FunctionTypeNotInferredInApplicationOrFunctionCall.into())
+                //     }
+                // }
             }
             Expr::Field {
                 owner, ident_token, ..
@@ -286,12 +324,13 @@ impl<'a> ExprTypeEngine<'a> {
                         })
                     }
                 };
-                self.calc_ritchie_call_ty(
+                self.calc_ritchie_call_arguments_ty(
                     method_ty,
-                    implicit_arguments.as_ref(),
+                    todo!(),
                     nonself_arguments,
                     local_term_region,
-                )
+                );
+                todo!()
             }
             Expr::TemplateInstantiation {
                 template,

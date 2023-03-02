@@ -311,7 +311,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Result<LocalTerm, ExprTypeError> {
         let expr_eval_lifetime = local_term_region
             .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
-        let (lopd_expectation_rule_idx, _) = self.infer_new_expr_ty_with_expectation_rule(
+        let (lopd_expectation_rule_idx, _) = self.infer_new_expr_ty_with_expectation_returned(
             lopd,
             ExpectEqsRefMutApplication {
                 lifetime: expr_eval_lifetime,

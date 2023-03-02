@@ -300,7 +300,6 @@ impl<'a> AuxInferEngine<'a> {
             | Expr::Bracketed { .. }
             | Expr::Err(_)
             | Expr::Block { .. }
-            | Expr::RitchieCall { .. }
             | Expr::Be { .. } => (),
             Expr::BoxColon { .. } => (),
             Expr::ApplicationOrRitchieCall { function, .. }

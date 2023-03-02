@@ -66,20 +66,13 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         UnfinishedListOpr::FunctionCall { function } => {
                             // ad hoc
                             let implicit_arguments: Option<ImplicitArgumentList> = None;
-                            match (items.len(), implicit_arguments) {
-                                (1, None) => Expr::ApplicationOrRitchieCall {
-                                    function,
-                                    lpar_token_idx: bra_token_idx,
-                                    argument: items.start(),
-                                    rpar_token_idx: ket_token_idx,
-                                },
-                                (_, implicit_arguments) => Expr::RitchieCall {
-                                    function,
-                                    implicit_arguments,
-                                    lpar_token_idx: bra_token_idx,
-                                    arguments: items,
-                                    rpar_token_idx: ket_token_idx,
-                                },
+                            Expr::ApplicationOrRitchieCall {
+                                function,
+                                implicit_arguments,
+                                lpar_token_idx: bra_token_idx,
+                                items,
+                                commas,
+                                rpar_token_idx: ket_token_idx,
                             }
                             .into()
                         }
@@ -105,6 +98,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                 implicit_arguments: ImplicitArgumentList::new(
                                     bra_token_idx,
                                     items,
+                                    commas,
                                     ket_token_idx,
                                 ),
                             }

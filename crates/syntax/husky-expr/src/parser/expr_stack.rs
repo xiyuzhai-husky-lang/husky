@@ -71,7 +71,6 @@ impl Expr {
             Expr::MethodCall { .. } => BaseEntityPath::None,
             Expr::Application { function, argument } => todo!(),
             Expr::ApplicationOrRitchieCall { .. } => todo!(),
-            Expr::RitchieCall { .. } => todo!(),
             Expr::NewTuple {
                 lpar_token_idx,
                 items,

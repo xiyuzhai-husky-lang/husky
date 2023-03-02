@@ -332,7 +332,7 @@ impl UnresolvedTerms {
             LocalTermExpectation::EqsSort { .. } => Ok(None),
             LocalTermExpectation::FrameVariableType => todo!(),
             LocalTermExpectation::EqsRefMutApplication { lifetime } => todo!(),
-            LocalTermExpectation::EqsRitchieCallTy => todo!(),
+            LocalTermExpectation::EqsFunctionType(_) => todo!(),
             LocalTermExpectation::InsSort { .. } => Ok(None),
             LocalTermExpectation::EqsExactly { destination } => todo!(),
         }

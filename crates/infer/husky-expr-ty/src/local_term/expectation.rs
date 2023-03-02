@@ -1,14 +1,14 @@
+mod eqs_eqs_function_ty;
 mod eqs_exactly;
 mod eqs_ref_mut_application;
-mod eqs_ritchie_call_ty;
 mod eqs_sort;
 mod explicitly_convertible;
 mod implicitly_convertible;
 mod ins_sort;
 
+pub(crate) use eqs_eqs_function_ty::*;
 pub(crate) use eqs_exactly::*;
 pub(crate) use eqs_ref_mut_application::*;
-pub(crate) use eqs_ritchie_call_ty::*;
 pub(crate) use eqs_sort::*;
 pub(crate) use explicitly_convertible::*;
 pub(crate) use implicitly_convertible::*;
@@ -52,7 +52,7 @@ pub(crate) enum LocalTermExpectationResolvedOk {
     EqsSort(ExpectEqsSortResolvedOk),
     EqsExactly(ExpectEqsExactlyResolvedOk),
     EqsRefMutApplication(ExpectEqsRefMutApplicationResolvedOk),
-    EqsRitchieCallType(ExpectEqsRitchieCallTypeResolvedOk),
+    EqsRitchieCallType(ExpectEqsFunctionTypeOk),
 }
 
 impl LocalTermExpectationResolvedOk {
@@ -299,8 +299,8 @@ impl<'a> ExprTypeEngine<'a> {
                     lifetime,
                     unresolved_terms,
                 ),
-            LocalTermExpectation::EqsRitchieCallTy => {
-                self.resolve_eqs_richie_call_ty(rule.src_expr_idx, rule.expectee, unresolved_terms)
+            LocalTermExpectation::EqsFunctionType(_) => {
+                self.resolve_eqs_function_ty(rule.src_expr_idx, rule.expectee, unresolved_terms)
             }
             LocalTermExpectation::InsSort { smallest_universe } => self
                 .resolve_ins_sort_expectation(smallest_universe, rule.expectee, unresolved_terms),
@@ -331,5 +331,5 @@ pub(crate) enum LocalTermExpectation {
     EqsExactly {
         destination: LocalTerm,
     },
-    EqsRitchieCallTy,
+    EqsFunctionType(ExpectEqsFunctionType),
 }
