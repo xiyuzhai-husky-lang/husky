@@ -35,13 +35,7 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDecl {
         Ok(Some(Self {
             pattern,
             traits: if let Some(colon) = ctx.parse::<ColonToken>()? {
-                Some((
-                    colon,
-                    ctx.parse_expr(ExprEnvironment::new(
-                        ExprEvalEnvironment::Comptime,
-                        Bracket::Angle,
-                    )),
-                ))
+                Some((colon, ctx.parse_expr(Bracket::Angle)))
             } else {
                 None
             },
@@ -104,23 +98,23 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDeclList {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct RegularParameterDeclList {
+pub struct ExplicitParameterDeclList {
     lpar: LeftParenthesisToken,
-    parameters: Vec<RegularParameterDeclPattern>,
+    parameters: Vec<ExplicitParameterDeclPattern>,
     commas: Vec<CommaToken>,
     decl_list_result: Result<(), DeclExprError>,
     rpar: DeclExprResult<RightParenthesisToken>,
 }
 
-impl RegularParameterDeclList {
-    pub fn parameters<'a>(&'a self) -> DeclExprResultRef<'a, &'a [RegularParameterDeclPattern]> {
+impl ExplicitParameterDeclList {
+    pub fn parameters<'a>(&'a self) -> DeclExprResultRef<'a, &'a [ExplicitParameterDeclPattern]> {
         self.decl_list_result.as_ref()?;
         self.rpar.as_ref()?;
         Ok(self.parameters.as_ref())
     }
 }
 
-impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for RegularParameterDeclList {
+impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ExplicitParameterDeclList {
     type Error = DeclExprError;
 
     fn parse_from_without_guaranteed_rollback(

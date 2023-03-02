@@ -412,7 +412,6 @@ fn expr_parser<'a>(
         decl_expr_region,
         allow_self_type,
         allow_self_value,
-        todo!(),
     );
     BlockExprParser::new(
         parser,

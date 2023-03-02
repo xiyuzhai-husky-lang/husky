@@ -11,7 +11,7 @@ pub struct FunctionDecl {
     #[return_ref]
     implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
     #[return_ref]
-    parameter_decl_list: DeclExprResult<RegularParameterDeclList>,
+    parameter_decl_list: DeclExprResult<ExplicitParameterDeclList>,
     #[return_ref]
     pub curry_token: DeclExprResult<CurryToken>,
     #[return_ref]
@@ -35,7 +35,7 @@ impl FunctionDecl {
     pub fn parameters<'a>(
         self,
         db: &'a dyn DeclDb,
-    ) -> DeclExprResultRef<'a, &'a [RegularParameterDeclPattern]> {
+    ) -> DeclExprResultRef<'a, &'a [ExplicitParameterDeclPattern]> {
         self.parameter_decl_list(db).as_ref()?.parameters()
     }
 }

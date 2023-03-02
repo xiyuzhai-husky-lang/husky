@@ -171,7 +171,7 @@ impl<'a> DeclParser<'a> {
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
-            ExprEnvironment::new(ExprEvalEnvironment::Runtime, None)
+            Default::default()
         );
         let mut ctx = parser.ctx(
             self.token_sheet_data
@@ -224,7 +224,7 @@ impl<'a> DeclParser<'a> {
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
-            ExprEnvironment::new(ExprEvalEnvironment::Runtime, None)
+            Default::default()
         );
         let mut ctx = parser.ctx(
             self.token_sheet_data
@@ -253,7 +253,7 @@ impl<'a> DeclParser<'a> {
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
-            ExprEnvironment::new(ExprEvalEnvironment::Runtime, None)
+            Default::default()
         );
         let mut ctx = parser.ctx(
             self.token_sheet_data
@@ -279,7 +279,7 @@ impl<'a> DeclParser<'a> {
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
-            ExprEnvironment::new(ExprEvalEnvironment::Runtime, None)
+            Default::default()
         );
         let mut ctx = parser.ctx(
             self.token_sheet_data
@@ -323,7 +323,6 @@ impl<'a> DeclParser<'a> {
             parent_expr_region,
             allow_self_type,
             allow_self_value,
-            base_expr_env,
         )
     }
 
@@ -344,7 +343,7 @@ impl<'a> DeclParser<'a> {
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
-            ExprEnvironment::new(ExprEvalEnvironment::Comptime, None)
+            Default::default()
         );
         let mut ctx = parser.ctx(
             self.token_sheet_data
@@ -375,7 +374,7 @@ impl<'a> DeclParser<'a> {
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
-            ExprEnvironment::new(ExprEvalEnvironment::Runtime, None)
+            Default::default()
         );
         let mut ctx = parser.ctx(
             self.token_sheet_data
@@ -450,7 +449,7 @@ impl<'a> DeclParser<'a> {
             None,
             AllowSelfType::False,
             AllowSelfValue::False,
-            ExprEnvironment::new(ExprEvalEnvironment::Runtime, None)
+            Default::default()
         );
         let mut ctx = parser.ctx(
             self.token_sheet_data
@@ -483,14 +482,14 @@ impl<'a> DeclParser<'a> {
             None,
             AllowSelfType::False,
             AllowSelfValue::False,
-            ExprEnvironment::new(ExprEvalEnvironment::Runtime, None)
+            Default::default()
         );
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
         let implicit_parameter_decl_list = ctx.parse();
-        let  parameter_decl_list  = ctx.parse_expected(OriginalDeclExprError::ExpectParameterDeclList) ;
+        let parameter_decl_list  = ctx.parse_expected(OriginalDeclExprError::ExpectParameterDeclList) ;
         let curry_token = ctx.parse_expected(OriginalDeclExprError::ExpectCurry);
         let return_ty = ctx.parse_expected(OriginalDeclExprError::ExpectOutputType);
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);
@@ -536,7 +535,7 @@ impl<'a> DeclParser<'a> {
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
-            ExprEnvironment::new(ExprEvalEnvironment::Runtime, None)
+            Default::default()
         );
         let mut ctx = parser.ctx(
             self.token_sheet_data
@@ -632,8 +631,7 @@ impl<'a> DeclParser<'a> {
             Some(impl_decl.expr_region(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,
-            todo!("paradigm")
-            // ExprEnvironment::new(ExprEvalEnvironment::Runtime, None)
+            Default::default()
         );
         let mut ctx = parser.ctx(
             self.token_sheet_data
@@ -678,7 +676,7 @@ impl<'a> DeclParser<'a> {
             Some(impl_decl.expr_region(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,
-            ExprEnvironment::new(ExprEvalEnvironment::Comptime, None)
+            Default::default()
         );
         let mut ctx = parser.ctx(
             self.token_sheet_data

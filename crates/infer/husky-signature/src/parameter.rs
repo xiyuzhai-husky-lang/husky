@@ -1,4 +1,4 @@
-use husky_expr::{ImplicitParameterDeclPatternVariant, RegularParameterDeclPattern};
+use husky_expr::{ExplicitParameterDeclPattern, ImplicitParameterDeclPatternVariant};
 use husky_token::VarianceToken;
 
 use crate::*;
@@ -133,7 +133,7 @@ impl std::ops::Deref for RegularParameterSignatures {
 
 impl RegularParameterSignatures {
     pub(crate) fn from_decl(
-        parameters: &[RegularParameterDeclPattern],
+        parameters: &[ExplicitParameterDeclPattern],
         sheet: &SignatureTermRegion,
     ) -> SignatureResult<Self> {
         Ok(Self {

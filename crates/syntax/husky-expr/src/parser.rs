@@ -48,7 +48,6 @@ pub struct ExprParser<'a> {
     token_sheet_data: &'a TokenSheetData,
     parent_expr_region: Option<ExprRegion>,
     symbol_context: SymbolContextMut<'a>,
-    base_env: ExprEnvironment,
     expr_arena: ExprArena,
     entity_path_expr_arena: EntityPathExprArena,
     pattern_expr_region: PatternExprRegion,
@@ -65,7 +64,6 @@ impl<'a> ExprParser<'a> {
         parent_expr_region: Option<ExprRegion>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
-        base_env: ExprEnvironment,
     ) -> Self {
         Self {
             db,
@@ -78,7 +76,6 @@ impl<'a> ExprParser<'a> {
                 allow_self_type,
                 allow_self_value,
             ),
-            base_env,
             expr_arena: Default::default(),
             entity_path_expr_arena: Default::default(),
             pattern_expr_region: Default::default(),
@@ -123,17 +120,16 @@ impl<'a> ExprParser<'a> {
 
 pub struct ExprParseContext<'a, 'b> {
     parser: &'b mut ExprParser<'a>,
-    env: ExprEnvironmentPlace,
+    env: ExprEnvironment,
     token_stream: TokenStream<'a>,
     stack: ExprStack,
 }
 
 impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub(super) fn new(parser: &'b mut ExprParser<'a>, token_stream: TokenStream<'a>) -> Self {
-        let base = parser.base_env;
         Self {
             parser,
-            env: ExprEnvironmentPlace::new(base),
+            env: Default::default(),
             token_stream,
             stack: Default::default(),
         }
@@ -148,8 +144,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     }
 
     #[inline(always)]
-    pub fn parse_expr(&mut self, env: impl Into<Option<ExprEnvironment>>) -> Option<ExprIdx> {
-        let env = env.into();
+    pub fn parse_expr(&mut self, env_bra: impl Into<Option<Bracket>>) -> Option<ExprIdx> {
+        let env = env_bra.into();
         if let Some(env) = env {
             self.env.set(env);
         }
@@ -175,12 +171,12 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
     pub fn parse_expr_expected<E: OriginalError>(
         &mut self,
-        env: Option<ExprEnvironment>,
+        env_bra: Option<Bracket>,
         err: impl FnOnce(TokenIdx) -> E,
     ) -> Result<ExprIdx, E::Error> {
         let state = self.state();
-        if let Some(env) = env {
-            self.env.set(env);
+        if let Some(env_bra) = env_bra {
+            self.env.set(env_bra);
         }
         loop {
             let Some((token_idx, token)) = self.token_stream.next_indexed()
@@ -196,7 +192,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             }
         }
         self.reduce(Precedence::None);
-        if env.is_some() {
+        if env_bra.is_some() {
             self.env.unset();
         }
         match self.finish_batch() {
@@ -207,12 +203,12 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
     pub fn parse_expr_expected2(
         &mut self,
-        env: Option<ExprEnvironment>,
+        env_bra: Option<Bracket>,
         err: impl FnOnce(TokenIdx) -> OriginalExprError,
     ) -> ExprIdx {
         let state = self.state();
-        if let Some(env) = env {
-            self.env.set(env);
+        if let Some(env_bra) = env_bra {
+            self.env.set(env_bra);
         }
         loop {
             let Some((token_idx, token)) = self.token_stream.next_indexed()
@@ -228,7 +224,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             }
         }
         self.reduce(Precedence::None);
-        if env.is_some() {
+        if env_bra.is_some() {
             self.env.unset();
         }
         match self.finish_batch() {
@@ -352,10 +348,6 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
     pub(crate) fn add_expr_root(&mut self, expr_root: ExprRoot) {
         self.parser.expr_roots.push(expr_root)
-    }
-
-    fn base_env(&self) -> ExprEnvironment {
-        self.parser.base_env
     }
 }
 
