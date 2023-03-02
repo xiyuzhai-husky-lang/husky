@@ -7,9 +7,9 @@ pub(crate) struct ExpectExplicitlyConvertible {
     pub(crate) destination: LocalTerm,
 }
 
-impl const ProvideTypeContext for ExpectExplicitlyConvertible {
-    fn ty_context(&self) -> TypeContext {
-        Default::default()
+impl const ProvideEntityPathTypeExpectation for ExpectExplicitlyConvertible {
+    fn entity_path_ty_expectation(&self) -> EntityPathTypeExpectation {
+        todo!()
     }
 }
 

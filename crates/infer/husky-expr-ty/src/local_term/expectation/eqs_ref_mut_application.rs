@@ -9,9 +9,9 @@ pub(crate) struct ExpectEqsRefMutApplication {
     pub(crate) lifetime: UnresolvedTermIdx,
 }
 
-impl const ProvideTypeContext for ExpectEqsRefMutApplication {
-    fn ty_context(&self) -> TypeContext {
-        Default::default()
+impl const ProvideEntityPathTypeExpectation for ExpectEqsRefMutApplication {
+    fn entity_path_ty_expectation(&self) -> EntityPathTypeExpectation {
+        todo!()
     }
 }
 

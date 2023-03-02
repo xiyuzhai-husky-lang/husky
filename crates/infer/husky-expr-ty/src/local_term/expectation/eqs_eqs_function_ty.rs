@@ -3,10 +3,11 @@ use super::*;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub(crate) struct ExpectEqsFunctionType;
 
-impl const ProvideTypeContext for ExpectEqsFunctionType {
+impl const ProvideEntityPathTypeExpectation for ExpectEqsFunctionType {
     #[inline(always)]
-    fn ty_context(&self) -> TypeContext {
-        TypeContext::new_expect_applicable_or_callable()
+    fn entity_path_ty_expectation(&self) -> EntityPathTypeExpectation {
+        todo!()
+        // TypePathTypeExpectation::new_expect_applicable_or_callable()
     }
 }
 

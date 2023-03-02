@@ -6,8 +6,8 @@ pub(crate) struct ExpectEqsExactly {
     destination: LocalTerm,
 }
 
-impl ProvideTypeContext for ExpectEqsExactly {
-    fn ty_context(&self) -> TypeContext {
+impl ProvideEntityPathTypeExpectation for ExpectEqsExactly {
+    fn entity_path_ty_expectation(&self) -> EntityPathTypeExpectation {
         todo!()
     }
 }

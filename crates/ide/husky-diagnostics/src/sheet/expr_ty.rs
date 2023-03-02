@@ -157,7 +157,9 @@ impl Diagnose for (ExprIdx, &'_ OriginalLocalTermExpectationError) {
         match self.1 {
             OriginalLocalTermExpectationError::TermTypeError { term, error } => {
                 format!("Type Error: {error} in term {}", term.display(ctx.db()))
-            }
+            } // OriginalLocalTermExpectationError::TypePathTypeError { ty_path, error } => {
+              //     format!("Type Error: type path type error")
+              // }
         }
     }
 

@@ -122,7 +122,7 @@ impl<'a> ExprTypeEngine<'a> {
                 Some(entity_path) => {
                     match husky_ty::entity_path_ty(
                         self.db,
-                        expr_ty_expectation.ty_context(),
+                        expr_ty_expectation.entity_path_ty_expectation(),
                         entity_path,
                     ) {
                         Ok(ty) => Ok(ty.into()),
