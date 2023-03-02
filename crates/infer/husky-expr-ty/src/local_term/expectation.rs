@@ -1,3 +1,5 @@
+mod any_derived;
+mod any_original;
 mod eqs_eqs_function_ty;
 mod eqs_exactly;
 mod eqs_ref_mut_application;
@@ -6,13 +8,15 @@ mod explicitly_convertible;
 mod implicitly_convertible;
 mod ins_sort;
 
-pub(crate) use eqs_eqs_function_ty::*;
-pub(crate) use eqs_exactly::*;
-pub(crate) use eqs_ref_mut_application::*;
-pub(crate) use eqs_sort::*;
-pub(crate) use explicitly_convertible::*;
-pub(crate) use implicitly_convertible::*;
-pub(crate) use ins_sort::*;
+pub(crate) use self::any_derived::*;
+pub(crate) use self::any_original::*;
+pub(crate) use self::eqs_eqs_function_ty::*;
+pub(crate) use self::eqs_exactly::*;
+pub(crate) use self::eqs_ref_mut_application::*;
+pub(crate) use self::eqs_sort::*;
+pub(crate) use self::explicitly_convertible::*;
+pub(crate) use self::implicitly_convertible::*;
+pub(crate) use self::ins_sort::*;
 
 use super::*;
 use husky_print_utils::p;
@@ -20,18 +24,18 @@ use idx_arena::Arena;
 use thiserror::Error;
 
 pub(crate) trait ExpectLocalTerm:
-    ProvideTypeContext + Clone + Into<LocalTermExpectation>
+    ProvideTypeContext + Into<LocalTermExpectation> + Clone
 {
-    type ResolvedOk: ExpectLocalTermResolvedOk;
+    type Outcome: ExpectLocalTermOutcome;
 
     fn destination(&self) -> Option<LocalTerm>;
 }
 
-pub(crate) trait ExpectLocalTermResolvedOk: Into<LocalTermExpectationResolvedOk> {
+pub(crate) trait ExpectLocalTermOutcome: Into<LocalTermExpectationOutcome> {
     fn destination(&self) -> LocalTerm;
 
     /// will panic if not right
-    fn downcast_ref(resolved_ok: &LocalTermExpectationResolvedOk) -> &Self;
+    fn downcast_ref(resolved_ok: &LocalTermExpectationOutcome) -> &Self;
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -45,26 +49,27 @@ pub struct LocalTermExpectationEntry {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
-pub(crate) enum LocalTermExpectationResolvedOk {
-    ExplicitlyConvertible(ExpectExplicitlyConvertibleResolvedOk),
-    ImplicitlyConvertible(ExpectImplicitlyConvertibleResolvedOk),
-    InsSort(ExpectInsSortResolvedOk),
-    EqsSort(ExpectEqsSortResolvedOk),
-    EqsExactly(ExpectEqsExactlyResolvedOk),
-    EqsRefMutApplication(ExpectEqsRefMutApplicationResolvedOk),
+#[enum_class::from_variants]
+pub(crate) enum LocalTermExpectationOutcome {
+    ExplicitlyConvertible(ExpectExplicitlyConvertibleOutcome),
+    ImplicitlyConvertible(ExpectImplicitlyConvertibleOutcome),
+    InsSort(ExpectInsSortOutcome),
+    EqsSort(ExpectEqsSortOutcome),
+    EqsExactly(ExpectEqsExactlyOutcome),
+    EqsRefMutApplication(ExpectEqsRefMutApplicationOutcome),
     EqsRitchieCallType(ExpectEqsFunctionTypeOk),
 }
 
-impl LocalTermExpectationResolvedOk {
+impl LocalTermExpectationOutcome {
     fn resolved(&self) -> Option<ReducedTerm> {
         match self {
-            LocalTermExpectationResolvedOk::ExplicitlyConvertible(_) => todo!(),
-            LocalTermExpectationResolvedOk::ImplicitlyConvertible(_) => todo!(),
-            LocalTermExpectationResolvedOk::InsSort(result) => result.resolved(),
-            LocalTermExpectationResolvedOk::EqsSort(_) => todo!(),
-            LocalTermExpectationResolvedOk::EqsExactly(result) => result.resolved(),
-            LocalTermExpectationResolvedOk::EqsRefMutApplication(_) => todo!(),
-            LocalTermExpectationResolvedOk::EqsRitchieCallType(_) => todo!(),
+            LocalTermExpectationOutcome::ExplicitlyConvertible(_) => todo!(),
+            LocalTermExpectationOutcome::ImplicitlyConvertible(_) => todo!(),
+            LocalTermExpectationOutcome::InsSort(result) => result.resolved(),
+            LocalTermExpectationOutcome::EqsSort(_) => todo!(),
+            LocalTermExpectationOutcome::EqsExactly(result) => result.resolved(),
+            LocalTermExpectationOutcome::EqsRefMutApplication(_) => todo!(),
+            LocalTermExpectationOutcome::EqsRitchieCallType(_) => todo!(),
         }
     }
 }
@@ -73,11 +78,11 @@ impl LocalTermExpectationResolvedOk {
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) enum LocalTermExpectationResolveProgress {
     Unresolved,
-    Resolved(LocalTermExpectationResult<LocalTermExpectationResolvedOk>),
+    Resolved(LocalTermExpectationResult<LocalTermExpectationOutcome>),
 }
 
 impl LocalTermExpectationResolveProgress {
-    pub(crate) fn resolved_ok<R: ExpectLocalTermResolvedOk>(&self) -> Option<&R> {
+    pub(crate) fn resolved_ok<R: ExpectLocalTermOutcome>(&self) -> Option<&R> {
         match self {
             LocalTermExpectationResolveProgress::Unresolved => None,
             LocalTermExpectationResolveProgress::Resolved(Ok(resolved_ok)) => {
@@ -180,14 +185,14 @@ impl LocalTermExpectationEntry {
 
     pub(crate) fn set_resolved(
         &mut self,
-        result: LocalTermExpectationResult<LocalTermExpectationResolvedOk>,
+        result: LocalTermExpectationResult<LocalTermExpectationOutcome>,
     ) {
         self.resolve_progress = LocalTermExpectationResolveProgress::Resolved(result)
     }
 }
 
 pub(super) struct LocalTermExpectationEffect {
-    pub(super) result: LocalTermExpectationResult<LocalTermExpectationResolvedOk>,
+    pub(super) result: LocalTermExpectationResult<LocalTermExpectationOutcome>,
     pub(super) actions: Vec<TermResolveAction>,
 }
 
@@ -275,10 +280,10 @@ impl<'a> ExprTypeEngine<'a> {
         unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationEffect> {
         match rule.expectation {
-            LocalTermExpectation::ExplicitlyConvertible(ref exp) => self
+            LocalTermExpectation::ExplicitlyConvertible(ref expectation) => self
                 .resolve_explicitly_convertible(
                     rule.expectee,
-                    exp.destination,
+                    expectation,
                     level,
                     unresolved_terms,
                 ),
@@ -289,24 +294,27 @@ impl<'a> ExprTypeEngine<'a> {
                     level,
                     unresolved_terms,
                 ),
-            LocalTermExpectation::EqsSort { smallest_universe } => {
-                self.resolve_eqs_sort_expectation(rule.expectee, smallest_universe)
+            LocalTermExpectation::EqsSort(ref expectation) => {
+                self.resolve_eqs_sort_expectation(rule.expectee, expectation, unresolved_terms)
             }
             LocalTermExpectation::FrameVariableType => todo!(),
-            LocalTermExpectation::EqsRefMutApplication { lifetime } => self
+            LocalTermExpectation::EqsRefMutApplication(ref expectation) => self
                 .resolve_eqs_ref_mut_application_expectation(
                     rule.expectee,
-                    lifetime,
+                    expectation,
                     unresolved_terms,
                 ),
-            LocalTermExpectation::EqsFunctionType(_) => {
+            LocalTermExpectation::EqsFunctionType(ref expectation) => {
                 self.resolve_eqs_function_ty(rule.src_expr_idx, rule.expectee, unresolved_terms)
             }
-            LocalTermExpectation::InsSort { smallest_universe } => self
-                .resolve_ins_sort_expectation(smallest_universe, rule.expectee, unresolved_terms),
-            LocalTermExpectation::EqsExactly { destination } => {
-                self.resolve_eqs_exactly(rule.expectee, destination, unresolved_terms)
+            LocalTermExpectation::InsSort(ref expectation) => {
+                self.resolve_ins_sort_expectation(rule.expectee, expectation, unresolved_terms)
             }
+            LocalTermExpectation::EqsExactly(ref expectation) => {
+                self.resolve_eqs_exactly(rule.expectee, expectation, unresolved_terms)
+            }
+            LocalTermExpectation::AnyOriginal(_) => todo!(),
+            LocalTermExpectation::AnyDerived(_) => todo!(),
         }
     }
 }
@@ -314,22 +322,17 @@ impl<'a> ExprTypeEngine<'a> {
 #[derive(Debug, PartialEq, Eq)]
 #[non_exhaustive]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
+#[enum_class::from_variants]
 pub(crate) enum LocalTermExpectation {
     ExplicitlyConvertible(ExpectExplicitlyConvertible),
     ImplicitlyConvertible(ExpectImplicitlyConvertible),
     /// expect term to be an instance of Type u for some universe
-    InsSort {
-        smallest_universe: TermUniverse,
-    },
-    EqsSort {
-        smallest_universe: TermUniverse,
-    },
+    InsSort(ExpectInsSort),
+    EqsSort(ExpectEqsSort),
     FrameVariableType,
-    EqsRefMutApplication {
-        lifetime: UnresolvedTermIdx,
-    },
-    EqsExactly {
-        destination: LocalTerm,
-    },
+    EqsRefMutApplication(ExpectEqsRefMutApplication),
+    EqsExactly(ExpectEqsExactly),
     EqsFunctionType(ExpectEqsFunctionType),
+    AnyOriginal(ExpectAnyOriginal),
+    AnyDerived(ExpectAnyDerived),
 }

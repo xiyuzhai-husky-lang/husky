@@ -33,39 +33,27 @@ impl ExpectImplicitlyConvertible {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
-pub(crate) struct ExpectImplicitlyConvertibleResolvedOk {
+pub(crate) struct ExpectImplicitlyConvertibleOutcome {
     implicit_conversion: ImplicitConversion,
     expectee: LocalTerm,
     destination: LocalTerm,
 }
 
-impl ExpectLocalTermResolvedOk for ExpectImplicitlyConvertibleResolvedOk {
+impl ExpectLocalTermOutcome for ExpectImplicitlyConvertibleOutcome {
     fn destination(&self) -> LocalTerm {
         self.destination
     }
 
-    fn downcast_ref(resolved_ok: &LocalTermExpectationResolvedOk) -> &Self {
+    fn downcast_ref(resolved_ok: &LocalTermExpectationOutcome) -> &Self {
         match resolved_ok {
-            LocalTermExpectationResolvedOk::ImplicitlyConvertible(resolved_ok) => resolved_ok,
+            LocalTermExpectationOutcome::ImplicitlyConvertible(resolved_ok) => resolved_ok,
             _ => unreachable!(),
         }
     }
 }
 
-impl From<ExpectImplicitlyConvertible> for LocalTermExpectation {
-    fn from(value: ExpectImplicitlyConvertible) -> Self {
-        LocalTermExpectation::ImplicitlyConvertible(value)
-    }
-}
-
-impl From<ExpectImplicitlyConvertibleResolvedOk> for LocalTermExpectationResolvedOk {
-    fn from(value: ExpectImplicitlyConvertibleResolvedOk) -> Self {
-        LocalTermExpectationResolvedOk::ImplicitlyConvertible(value)
-    }
-}
-
 impl ExpectLocalTerm for ExpectImplicitlyConvertible {
-    type ResolvedOk = ExpectImplicitlyConvertibleResolvedOk;
+    type Outcome = ExpectImplicitlyConvertibleOutcome;
 
     fn destination(&self) -> Option<LocalTerm> {
         Some(self.destination)
@@ -93,8 +81,8 @@ impl<'a> ExprTypeEngine<'a> {
                                 implicit_symbol: dst,
                                 substitution: resolved_expectee.into(),
                             }],
-                            result: Ok(LocalTermExpectationResolvedOk::ImplicitlyConvertible(
-                                ExpectImplicitlyConvertibleResolvedOk {
+                            result: Ok(LocalTermExpectationOutcome::ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleOutcome {
                                     implicit_conversion: ImplicitConversion::None,
                                     expectee,
                                     destination: expectee,
@@ -102,7 +90,10 @@ impl<'a> ExprTypeEngine<'a> {
                             )),
                         }),
                     },
-                    UnresolvedTerm::TypeApplication { ty_path, arguments } => todo!(),
+                    UnresolvedTerm::TypeApplication { ty_path, arguments } => {
+                        p!(ty_path.debug(self.db()));
+                        todo!()
+                    }
                     UnresolvedTerm::Ritchie {
                         ritchie_kind,
                         parameter_tys,
@@ -124,7 +115,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Option<LocalTermExpectationEffect> {
         if expectee == destination {
             return Some(LocalTermExpectationEffect {
-                result: Ok(ExpectImplicitlyConvertibleResolvedOk {
+                result: Ok(ExpectImplicitlyConvertibleOutcome {
                     implicit_conversion: ImplicitConversion::None,
                     expectee: expectee.into(),
                     destination: destination.into(),
@@ -151,8 +142,8 @@ impl<'a> ExprTypeEngine<'a> {
             UnresolvedTerm::ImplicitSymbol(_) => match level {
                 LocalTermResolveLevel::Weak => None,
                 LocalTermResolveLevel::Strong => Some(LocalTermExpectationEffect {
-                    result: Ok(LocalTermExpectationResolvedOk::ImplicitlyConvertible(
-                        ExpectImplicitlyConvertibleResolvedOk {
+                    result: Ok(LocalTermExpectationOutcome::ImplicitlyConvertible(
+                        ExpectImplicitlyConvertibleOutcome {
                             implicit_conversion: ImplicitConversion::None,
                             expectee: destination.into(),
                             destination: destination.into(),

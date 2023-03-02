@@ -57,11 +57,7 @@ impl<'a> ExprTypeEngine<'a> {
                             );
                         }
                         None => {
-                            self.infer_new_expr_ty(
-                                *result,
-                                ExpectInsSort::default(),
-                                local_term_region,
-                            );
+                            self.infer_new_expr_ty(*result, ExpectAnyDerived, local_term_region);
                         }
                     }
                 };
@@ -99,11 +95,7 @@ impl<'a> ExprTypeEngine<'a> {
             } => {
                 let mut expected_frame_var_ty: Option<LocalTerm> = None;
                 if let Some(bound_expr) = particulars.range.initial_boundary.bound_expr {
-                    match self.infer_new_expr_ty(
-                        bound_expr,
-                        ExpectInsSort::default(),
-                        local_term_region,
-                    ) {
+                    match self.infer_new_expr_ty(bound_expr, ExpectAnyOriginal, local_term_region) {
                         Some(bound_expr_ty) => expected_frame_var_ty = Some(bound_expr_ty),
                         None => (),
                     }
@@ -122,7 +114,7 @@ impl<'a> ExprTypeEngine<'a> {
                         None => {
                             if let Some(ty) = self.infer_new_expr_ty(
                                 bound_expr,
-                                ExpectInsSort::default(),
+                                ExpectAnyOriginal,
                                 local_term_region,
                             ) {
                                 expected_frame_var_ty = Some(ty)
@@ -212,7 +204,7 @@ impl<'a> ExprTypeEngine<'a> {
                             self.infer_new_expr_ty(
                                 *initial_value,
                                 // ad hoc
-                                ExpectInsSort::default(),
+                                ExpectAnyOriginal,
                                 local_term_region,
                             )
                         })

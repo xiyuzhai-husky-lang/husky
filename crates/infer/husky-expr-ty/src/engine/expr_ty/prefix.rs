@@ -9,8 +9,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> ExprTypeResult<LocalTerm> {
         match opr {
             PrefixOpr::Minus => {
-                let opd_ty =
-                    self.infer_new_expr_ty(opd, ExpectInsSort::default(), local_term_region);
+                let opd_ty = self.infer_new_expr_ty(opd, ExpectAnyOriginal, local_term_region);
                 match opd_ty {
                     Some(opd_ty) => match opd_ty {
                         LocalTerm::Resolved(_) => todo!(),
@@ -50,8 +49,7 @@ impl<'a> ExprTypeEngine<'a> {
                 Ok(self.reduced_term_menu.bool().into())
             }
             PrefixOpr::BitNot => {
-                match self.infer_new_expr_ty(opd, ExpectInsSort::new_expect_ty(), local_term_region)
-                {
+                match self.infer_new_expr_ty(opd, ExpectAnyOriginal, local_term_region) {
                     Some(opd_ty) => todo!(),
                     None => Err(DerivedExprTypeError::PrefixOperandTypeNotInferred.into()),
                 }
@@ -67,8 +65,7 @@ impl<'a> ExprTypeEngine<'a> {
             PrefixOpr::CyclicSlice => todo!(),
             PrefixOpr::Array(_) => todo!(),
             PrefixOpr::Option => {
-                let opd_ty =
-                    self.infer_new_expr_ty(opd, ExpectInsSort::default(), local_term_region);
+                let opd_ty = self.infer_new_expr_ty(opd, ExpectAnyOriginal, local_term_region);
                 opd_ty.ok_or(DerivedExprTypeError::PrefixOperandTypeNotInferred.into())
             }
         }

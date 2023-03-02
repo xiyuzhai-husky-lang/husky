@@ -27,37 +27,25 @@ impl ExpectExplicitlyConvertible {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
-pub(crate) struct ExpectExplicitlyConvertibleResolvedOk {
+pub(crate) struct ExpectExplicitlyConvertibleOutcome {
     destination: LocalTerm,
 }
 
-impl ExpectLocalTermResolvedOk for ExpectExplicitlyConvertibleResolvedOk {
+impl ExpectLocalTermOutcome for ExpectExplicitlyConvertibleOutcome {
     fn destination(&self) -> LocalTerm {
         self.destination
     }
 
-    fn downcast_ref(resolved_ok: &LocalTermExpectationResolvedOk) -> &Self {
+    fn downcast_ref(resolved_ok: &LocalTermExpectationOutcome) -> &Self {
         match resolved_ok {
-            LocalTermExpectationResolvedOk::ExplicitlyConvertible(resolved_ok) => resolved_ok,
+            LocalTermExpectationOutcome::ExplicitlyConvertible(resolved_ok) => resolved_ok,
             _ => unreachable!(),
         }
     }
 }
 
-impl From<ExpectExplicitlyConvertible> for LocalTermExpectation {
-    fn from(value: ExpectExplicitlyConvertible) -> Self {
-        LocalTermExpectation::ExplicitlyConvertible(value)
-    }
-}
-
-impl From<ExpectExplicitlyConvertibleResolvedOk> for LocalTermExpectationResolvedOk {
-    fn from(value: ExpectExplicitlyConvertibleResolvedOk) -> Self {
-        todo!()
-    }
-}
-
 impl ExpectLocalTerm for ExpectExplicitlyConvertible {
-    type ResolvedOk = ExpectExplicitlyConvertibleResolvedOk;
+    type Outcome = ExpectExplicitlyConvertibleOutcome;
 
     fn destination(&self) -> Option<LocalTerm> {
         Some(self.destination)
@@ -68,7 +56,7 @@ impl ExpectLocalTerm for ExpectExplicitlyConvertible {
 //     match resolved_term {
 //         term if term == reduced_term_menu.bool() => {
 //             LocalTermExpectationResolveProgress::Resolved(
-//                 LocalTermExpectationResolvedOk::OkExplicitConversion {
+//                 LocalTermExpectationOutcome::OkExplicitConversion {
 //                     local_term: term.into(),
 //                     implicit_conversion: LocalTermImplicitConversion::None,
 //                 },
@@ -85,7 +73,7 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn resolve_explicitly_convertible(
         &self,
         expectee: LocalTerm,
-        destination: LocalTerm,
+        expectation: &ExpectExplicitlyConvertible,
         level: LocalTermResolveLevel,
         unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationEffect> {
