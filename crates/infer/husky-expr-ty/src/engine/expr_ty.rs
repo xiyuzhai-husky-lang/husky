@@ -122,7 +122,10 @@ impl<'a> ExprTypeEngine<'a> {
                 Some(entity_path) => {
                     match husky_ty::entity_path_ty(
                         self.db,
-                        expr_ty_expectation.entity_path_ty_expectation(),
+                        expr_ty_expectation.entity_path_ty_expectation(
+                            self.db,
+                            local_term_region.unresolved_terms(),
+                        ),
                         entity_path,
                     ) {
                         Ok(ty) => Ok(ty.into()),
@@ -190,7 +193,7 @@ impl<'a> ExprTypeEngine<'a> {
                 let (expectation_idx, expectation_ok) = self
                     .infer_new_expr_ty_with_expectation_returned(
                         function,
-                        ExpectEqsFunctionType,
+                        ExpectEqsFunctionType::new(expr_ty_expectation.destination()),
                         local_term_region,
                     );
                 if let Some(implicit_arguments) = implicit_arguments {

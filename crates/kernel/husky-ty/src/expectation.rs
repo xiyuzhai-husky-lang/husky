@@ -1,3 +1,5 @@
+use crate::*;
+
 /// a type path can be interpreted in two different ways:
 ///
 /// - \[explicit curries to\] a type
@@ -13,15 +15,8 @@
 /// - `∀ universe u, explicit covariant (E: Sort u) -> () -> List E`,
 ///
 ///     the final curry destination is in universe `List E`
-#[const_trait]
-pub trait ProvideEntityPathTypeExpectation {
-    #[inline(always)]
-    fn entity_path_ty_expectation(&self) -> EntityPathTypeExpectation;
-}
-
 pub enum EntityPathTypeExpectation {
-    AnyDerived,
-    AnyOriginal,
+    Any,
     NoneDerived,
     NoneOriginal,
     FinalCurryDestinationEqsSort,

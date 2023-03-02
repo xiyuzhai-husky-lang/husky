@@ -37,7 +37,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::AnyOriginal,
+            EntityPathTypeExpectation::Any,
             entity_path_menu.bool().into(),
         ),
         Ok(reduced_term_menu.ty0())
@@ -46,7 +46,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::AnyOriginal,
+            EntityPathTypeExpectation::Any,
             entity_path_menu.core_ops_add().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -55,7 +55,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::AnyOriginal,
+            EntityPathTypeExpectation::Any,
             entity_path_menu.core_ops_add_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -64,7 +64,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::AnyOriginal,
+            EntityPathTypeExpectation::Any,
             entity_path_menu.core_ops_bit_and().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -73,7 +73,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::AnyOriginal,
+            EntityPathTypeExpectation::Any,
             entity_path_menu.core_ops_bit_and_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -82,7 +82,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::AnyOriginal,
+            EntityPathTypeExpectation::Any,
             entity_path_menu.core_ops_bit_or().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -91,7 +91,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::AnyOriginal,
+            EntityPathTypeExpectation::Any,
             entity_path_menu.core_ops_bit_or_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -100,7 +100,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::AnyOriginal,
+            EntityPathTypeExpectation::Any,
             entity_path_menu.core_ops_bit_xor().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -109,7 +109,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::AnyOriginal,
+            EntityPathTypeExpectation::Any,
             entity_path_menu.core_ops_bit_xor_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -118,7 +118,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::AnyOriginal,
+            EntityPathTypeExpectation::Any,
             entity_path_menu.core_ops_div().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -127,7 +127,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::AnyOriginal,
+            EntityPathTypeExpectation::Any,
             entity_path_menu.core_ops_div_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -136,7 +136,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::AnyOriginal,
+            EntityPathTypeExpectation::Any,
             entity_path_menu.core_ops_mul().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -145,7 +145,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::AnyOriginal,
+            EntityPathTypeExpectation::Any,
             entity_path_menu.core_ops_mul_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -154,7 +154,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::AnyOriginal,
+            EntityPathTypeExpectation::Any,
             entity_path_menu.core_ops_neg().into(),
         ),
         Ok(trai_ty)
@@ -163,7 +163,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::AnyOriginal,
+            EntityPathTypeExpectation::Any,
             entity_path_menu.core_ops_not().into(),
         ),
         Ok(trai_ty)
