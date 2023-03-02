@@ -1,10 +1,10 @@
 #![feature(trait_upcasting)]
 #![feature(const_trait_impl)]
 #![feature(const_default_impls)]
-mod context;
 mod db;
 mod entity;
 mod error;
+mod expectation;
 mod field;
 mod intrinsic_ty;
 mod method;
@@ -14,14 +14,14 @@ mod tests;
 mod ty_call;
 mod variance;
 
-pub use context::*;
-pub use db::*;
-pub use entity::entity_path_ty;
-pub use error::*;
-pub use intrinsic_ty::*;
-pub use term::*;
+pub use self::db::*;
+pub use self::entity::entity_path_ty;
+pub use self::entity::*;
+pub use self::error::*;
+pub use self::expectation::*;
+pub use self::intrinsic_ty::*;
+pub use self::term::*;
 
-use entity::*;
 use field::*;
 use husky_entity_path::*;
 use husky_entity_taxonomy::*;
@@ -37,7 +37,7 @@ use variance::*;
 
 #[salsa::jar(db=TypeDb)]
 pub struct TypeJar(
-    ty_entity_ty,
+    ty_path_ty,
     trai_entity_ty,
     form_entity_ty,
     ty_entity_variances,

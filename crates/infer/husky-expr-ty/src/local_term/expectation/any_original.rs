@@ -3,9 +3,9 @@ use super::*;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub(crate) struct ExpectAnyOriginal;
 
-impl const ProvideTypeContext for ExpectAnyOriginal {
-    fn ty_context(&self) -> TypeContext {
-        Default::default()
+impl const ProvideEntityPathTypeExpectation for ExpectAnyOriginal {
+    fn entity_path_ty_expectation(&self) -> EntityPathTypeExpectation {
+        todo!()
     }
 }
 

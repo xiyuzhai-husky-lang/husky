@@ -4,7 +4,7 @@ use husky_vfs::Toolchain;
 #[inline(always)]
 pub fn term_ty(
     db: &dyn TypeDb,
-    context: TypeContext,
+    context: EntityPathTypeExpectation,
     reduced_term: ReducedTerm,
     toolchain: Toolchain,
     reduced_term_menu: ReducedTermMenu,

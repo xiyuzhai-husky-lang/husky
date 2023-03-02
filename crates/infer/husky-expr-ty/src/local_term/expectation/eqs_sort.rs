@@ -13,9 +13,9 @@ impl ExpectEqsSort {
     }
 }
 
-impl const ProvideTypeContext for ExpectEqsSort {
-    fn ty_context(&self) -> TypeContext {
-        Default::default()
+impl const ProvideEntityPathTypeExpectation for ExpectEqsSort {
+    fn entity_path_ty_expectation(&self) -> EntityPathTypeExpectation {
+        todo!()
     }
 }
 

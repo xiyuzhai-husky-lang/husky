@@ -24,7 +24,7 @@ use idx_arena::Arena;
 use thiserror::Error;
 
 pub(crate) trait ExpectLocalTerm:
-    ProvideTypeContext + Into<LocalTermExpectation> + Clone
+    ProvideEntityPathTypeExpectation + Into<LocalTermExpectation> + Clone
 {
     type Outcome: ExpectLocalTermOutcome;
 
@@ -109,8 +109,6 @@ pub type LocalTermExpectationResult<T> = Result<T, LocalTermExpectationError>;
 pub enum OriginalLocalTermExpectationError {
     #[error("{term:?} {error}")]
     TermTypeError { term: Term, error: TypeError },
-    // #[error("todo")]
-    // Todo,
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -126,6 +124,11 @@ pub enum DerivedLocalTermExpectationError {
     Duplication(LocalTermExpectationIdx),
     #[error("unresolved local term")]
     UnresolvedLocalTerm,
+    #[error("type path {ty_path:?} type error {error}")]
+    TypePathTypeError {
+        ty_path: TypePath,
+        error: DerivedTypeError,
+    },
 }
 
 impl LocalTermExpectationResolveProgress {
@@ -313,8 +316,8 @@ impl<'a> ExprTypeEngine<'a> {
             LocalTermExpectation::EqsExactly(ref expectation) => {
                 self.resolve_eqs_exactly(rule.expectee, expectation, unresolved_terms)
             }
-            LocalTermExpectation::AnyOriginal(_) => todo!(),
-            LocalTermExpectation::AnyDerived(_) => todo!(),
+            LocalTermExpectation::AnyOriginal(_) => None,
+            LocalTermExpectation::AnyDerived(_) => None,
         }
     }
 }

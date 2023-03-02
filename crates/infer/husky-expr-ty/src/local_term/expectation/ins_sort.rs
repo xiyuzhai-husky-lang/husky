@@ -6,9 +6,9 @@ pub(crate) struct ExpectInsSort {
     smallest_universe: TermUniverse,
 }
 
-impl const ProvideTypeContext for ExpectInsSort {
-    fn ty_context(&self) -> TypeContext {
-        Default::default()
+impl const ProvideEntityPathTypeExpectation for ExpectInsSort {
+    fn entity_path_ty_expectation(&self) -> EntityPathTypeExpectation {
+        todo!()
     }
 }
 
@@ -69,7 +69,7 @@ impl<'a> ExprTypeEngine<'a> {
             LocalTerm::Resolved(resolved_expectee) => {
                 let expectee_ty = term_ty(
                     self.db(),
-                    Default::default(),
+                    todo!(),
                     resolved_expectee,
                     self.toolchain(),
                     self.reduced_term_menu(),

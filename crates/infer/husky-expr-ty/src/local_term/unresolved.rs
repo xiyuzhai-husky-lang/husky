@@ -335,8 +335,8 @@ impl UnresolvedTerms {
             LocalTermExpectation::EqsFunctionType(_) => todo!(),
             LocalTermExpectation::InsSort(_) => Ok(None),
             LocalTermExpectation::EqsExactly(_) => todo!(),
-            LocalTermExpectation::AnyOriginal(_) => todo!(),
-            LocalTermExpectation::AnyDerived(_) => todo!(),
+            LocalTermExpectation::AnyOriginal(_) => Ok(None),
+            LocalTermExpectation::AnyDerived(_) => Ok(None),
         }
     }
 }
