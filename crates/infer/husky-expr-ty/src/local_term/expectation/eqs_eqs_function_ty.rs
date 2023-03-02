@@ -169,7 +169,11 @@ impl<'a> ExprTypeEngine<'a> {
                 implicit_symbol,
             ));
             match expectee.return_ty(self.db()) {
-                Term::Curry(new_expectee) => expectee = new_expectee,
+                Term::Curry(new_expectee)
+                    if new_expectee.curry_kind(self.db()) == TermCurryKind::Implicit =>
+                {
+                    expectee = new_expectee
+                }
                 term => break term,
             }
         };
