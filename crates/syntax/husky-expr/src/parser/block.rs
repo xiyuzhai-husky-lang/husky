@@ -5,6 +5,7 @@ pub struct BlockExprParser<'a> {
     expr_parser: ExprParser<'a>,
     ast_sheet: &'a AstSheet,
     ast_token_idx_range_sheet: &'a AstTokenIdxRangeSheet,
+    env: Option<ExprEnvironment>,
 }
 
 impl<'a> std::ops::Deref for BlockExprParser<'a> {
@@ -26,16 +27,26 @@ impl<'a> BlockExprParser<'a> {
         expr_parser: ExprParser<'a>,
         ast_sheet: &'a AstSheet,
         ast_token_idx_range_sheet: &'a AstTokenIdxRangeSheet,
+        env: Option<ExprEnvironment>,
     ) -> Self {
         Self {
             expr_parser,
             ast_sheet,
             ast_token_idx_range_sheet,
+            env,
         }
     }
 
     pub fn ast_sheet(&self) -> &'a AstSheet {
         self.ast_sheet
+    }
+
+    fn ctx<'b>(&'b mut self, token_stream: TokenStream<'a>) -> ExprParseContext<'a, 'b>
+    where
+        'a: 'b,
+    {
+        let env = self.env;
+        ExprParseContext::new(self, env, token_stream)
     }
 
     pub fn parse_block_stmts_expected(

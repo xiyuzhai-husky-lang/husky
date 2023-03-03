@@ -195,7 +195,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Option<LocalTerm> {
         let pattern_ty = match let_variable_pattern {
             Ok(pattern) => match pattern.ty() {
-                Some(ty) => todo!(),
+                Some(ty) => self.infer_new_expr_term(ty),
                 None => {
                     initial_value
                         .as_ref()

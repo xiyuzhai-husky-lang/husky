@@ -20,6 +20,6 @@ pub(crate) fn parse_expr_from_snippet(
         AllowSelfType::False,
         AllowSelfValue::False,
     );
-    let expr = expr_parser.ctx(token_iter).parse_expr(None);
+    let expr = expr_parser.ctx(None, token_iter).parse_expr(None);
     Ok((expr_parser.finish(), expr))
 }

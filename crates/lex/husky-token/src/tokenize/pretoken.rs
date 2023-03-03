@@ -398,7 +398,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                     Some('=') => self.pass_two(Punctuation::Binary(BinaryOpr::Comparison(
                         BinaryComparisonOpr::Eq,
                     ))),
-                    _ => Punctuation::Binary(BinaryOpr::Assign(None)),
+                    _ => Punctuation::Eq,
                 },
                 ':' => match self.peek_char() {
                     Some('=') => self.pass_two(Punctuation::DeriveAssign),

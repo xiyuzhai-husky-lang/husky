@@ -47,7 +47,11 @@ impl<'a> ExprTypeEngine<'a> {
                 opr,
                 opr_token_idx,
                 ropd,
-            } => todo!(),
+            } => {
+                p!(self.path(), opr_token_idx);
+                p!(opr);
+                todo!()
+            }
             Expr::Be { .. } => todo!(),
             Expr::PrefixOpn {
                 opr,

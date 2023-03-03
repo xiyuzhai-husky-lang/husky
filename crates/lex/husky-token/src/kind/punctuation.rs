@@ -4,6 +4,14 @@ use crate::{Convexity, Token};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Punctuation {
+    /// `=`
+    ///
+    /// assignment, attributes, various type definitions
+    Eq,
+    /// `==`
+    ///
+    /// equal
+    EqEq,
     Binary(BinaryOpr),
     Bra(Bracket),
     Ket(Bracket),
@@ -84,6 +92,8 @@ impl Punctuation {
             Punctuation::PoundSign => "#",
             Punctuation::Star => "*",
             Punctuation::Sheba => todo!(),
+            Punctuation::Eq => todo!(),
+            Punctuation::EqEq => todo!(),
         }
     }
 
@@ -125,6 +135,8 @@ impl Punctuation {
             Punctuation::PoundSign => todo!(),
             Punctuation::Star => todo!(),
             Punctuation::Sheba => todo!(),
+            Punctuation::Eq => todo!(),
+            Punctuation::EqEq => todo!(),
         }
     }
 }

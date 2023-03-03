@@ -32,7 +32,7 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ExplicitParameterDeclPatter
                 })
                 .collect::<Vec<_>>();
             let colon = ctx.parse_expected(OriginalExprError::ExpectColon)?;
-            let Some(ty) = ctx.parse_expr(Some(Bracket::Par)) else {
+            let Some(ty) = ctx.parse_expr(ExprEnvironment::WithinBracket(Bracket::Par)) else {
                 todo!()
             };
             let variables = ctx.define_symbols(
