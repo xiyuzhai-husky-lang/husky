@@ -89,7 +89,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::Application {
+                                                Expr::ExplicitApplication {
                                                     function: 4,
                                                     argument: 5,
                                                 },
@@ -302,7 +302,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::Application {
+                                                Expr::ExplicitApplication {
                                                     function: 2,
                                                     argument: 3,
                                                 },

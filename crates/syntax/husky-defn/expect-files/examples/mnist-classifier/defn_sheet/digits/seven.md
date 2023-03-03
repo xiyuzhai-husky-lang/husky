@@ -153,7 +153,7 @@ Ok(
                                                         71,
                                                     ),
                                                 },
-                                                Expr::ApplicationOrRitchieCall {
+                                                Expr::ExplicitApplicationOrRitchieCall {
                                                     function: 0,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
@@ -1082,7 +1082,7 @@ Ok(
                                                         116,
                                                     ),
                                                 },
-                                                Expr::ApplicationOrRitchieCall {
+                                                Expr::ExplicitApplicationOrRitchieCall {
                                                     function: 0,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(

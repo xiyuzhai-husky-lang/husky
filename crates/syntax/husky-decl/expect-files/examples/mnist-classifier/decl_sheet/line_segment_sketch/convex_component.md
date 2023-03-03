@@ -89,7 +89,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::Application {
+                                                Expr::ExplicitApplication {
                                                     function: 4,
                                                     argument: 5,
                                                 },

@@ -2,7 +2,7 @@ use husky_token::IdentifierToken;
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn calc_method_expr(
+    pub(super) fn calc_method_expr_ty(
         &mut self,
         self_argument:ExprIdx,
         ident_token: IdentifierToken,
@@ -35,7 +35,7 @@ impl<'a> ExprTypeEngine<'a> {
                 } )
             }
         };
-        self.calc_ritchie_call_arguments_ty(
+        self.calc_ritchie_call_arguments_expr_ty(
             method_ty,
             todo!(),
             nonself_arguments,

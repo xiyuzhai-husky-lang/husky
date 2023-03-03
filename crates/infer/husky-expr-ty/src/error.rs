@@ -1,33 +1,19 @@
+mod pattern;
+mod term;
+
+pub use self::pattern::*;
+pub use self::term::*;
+
 use husky_expr::ExprIdx;
 use husky_ty::*;
 use thiserror::Error;
 
 #[derive(Debug, PartialEq, Eq)]
+#[enum_class::from_variants]
 pub enum ExprTypeError {
     Original(OriginalExprTypeError),
     Derived(DerivedExprTypeError),
 }
-
-impl From<DerivedExprTypeError> for ExprTypeError {
-    fn from(error: DerivedExprTypeError) -> Self {
-        Self::Derived(error)
-    }
-}
-
-impl From<OriginalExprTypeError> for ExprTypeError {
-    fn from(error: OriginalExprTypeError) -> Self {
-        Self::Original(error)
-    }
-}
-
-// impl From<TypeError> for ExprTypeError {
-//     fn from(value: TypeError) -> Self {
-//         match value {
-//             TypeError::Original(e) => ExprTypeError::Original(e.into()),
-//             TypeError::Derived(e) => ExprTypeError::Derived(e.into()),
-//         }
-//     }
-// }
 
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalExprTypeError {
@@ -108,84 +94,3 @@ pub enum DerivedExprTypeError {
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;
 pub type ExprTypeResultRef<'a, T> = Result<T, &'a ExprTypeError>;
-
-#[derive(Debug, Error, PartialEq, Eq)]
-pub enum PatternExprTypeError {
-    #[error("original {0}")]
-    Original(OriginalPatternExprTypeError),
-    #[error("derived {0}")]
-    Derived(DerivedPatternExprTypeError),
-}
-
-impl From<DerivedPatternExprTypeError> for PatternExprTypeError {
-    fn from(v: DerivedPatternExprTypeError) -> Self {
-        Self::Derived(v)
-    }
-}
-
-impl From<OriginalPatternExprTypeError> for PatternExprTypeError {
-    fn from(v: OriginalPatternExprTypeError) -> Self {
-        Self::Original(v)
-    }
-}
-
-#[derive(Debug, Error, PartialEq, Eq)]
-pub enum OriginalPatternExprTypeError {}
-
-#[derive(Debug, Error, PartialEq, Eq)]
-pub enum DerivedPatternExprTypeError {
-    #[error("pattern expr type error")]
-    PatternExprTypeError,
-}
-
-pub type PatternExprTypeResult<T> = Result<T, PatternExprTypeError>;
-
-#[derive(Debug, Error, PartialEq, Eq)]
-pub enum PatternSymbolTypeError {
-    #[error("original {0}")]
-    Original(OriginalPatternSymbolTypeError),
-    #[error("derived {0}")]
-    Derived(DerivedPatternSymbolTypeError),
-}
-
-impl From<DerivedPatternSymbolTypeError> for PatternSymbolTypeError {
-    fn from(v: DerivedPatternSymbolTypeError) -> Self {
-        Self::Derived(v)
-    }
-}
-
-impl From<OriginalPatternSymbolTypeError> for PatternSymbolTypeError {
-    fn from(v: OriginalPatternSymbolTypeError) -> Self {
-        Self::Original(v)
-    }
-}
-
-#[derive(Debug, Error, PartialEq, Eq)]
-pub enum OriginalPatternSymbolTypeError {}
-
-#[derive(Debug, Error, PartialEq, Eq)]
-pub enum DerivedPatternSymbolTypeError {
-    #[error("pattern expr type error")]
-    PatternExprTypeError,
-}
-
-pub type PatternSymbolTypeResult<T> = Result<T, PatternSymbolTypeError>;
-
-#[derive(Debug, Error, PartialEq, Eq)]
-pub enum ExprTermError {
-    #[error("original expr term error: {0}")]
-    Original(#[from] OriginalExprTermError),
-    #[error("derived expr term error: {0}")]
-    Derived(#[from] DerivedExprTermError),
-}
-
-#[derive(Debug, Error, PartialEq, Eq)]
-pub enum OriginalExprTermError {}
-
-#[derive(Debug, Error, PartialEq, Eq)]
-pub enum DerivedExprTermError {
-    #[error("expr error")]
-    ExprError,
-}
-
-pub type ExprTermResult<T> = Result<T, ExprTermError>;

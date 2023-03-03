@@ -129,7 +129,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) {
         match self.expr_region_data[expr_idx] {
             Expr::Literal(literal_token_idx) => (
-                self.calc_literal(
+                self.calc_literal_expr_ty(
                     expr_idx,
                     literal_token_idx,
                     expr_ty_expectation,
@@ -222,19 +222,19 @@ impl<'a> ExprTypeEngine<'a> {
                 )
             }
             Expr::PrefixOpn { opr, opd, .. } => (
-                self.calc_prefix_ty(opr, opd, local_term_region),
+                self.calc_prefix_expr_ty(opr, opd, local_term_region),
                 Ok(ExprDisambiguation::Trivial),
             ),
             Expr::SuffixOpn { opd, opr, .. } => (
-                self.calc_suffix_ty(opd, opr, local_term_region),
+                self.calc_suffix_expr_ty(opd, opr, local_term_region),
                 Ok(ExprDisambiguation::Trivial),
             ),
-            Expr::ApplicationOrRitchieCall {
+            Expr::ExplicitApplicationOrRitchieCall {
                 function,
                 ref implicit_arguments,
                 ref items,
                 ..
-            } => self.calc_application_or_ritchie_call_expr(
+            } => self.calc_application_or_ritchie_call_expr_ty(
                 function,
                 expr_ty_expectation,
                 local_term_region,
@@ -244,7 +244,7 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::Field {
                 owner, ident_token, ..
             } => (
-                self.calc_field_expr(owner, ident_token, local_term_region),
+                self.calc_field_expr_ty(owner, ident_token, local_term_region),
                 Ok(ExprDisambiguation::Trivial),
             ),
             Expr::MethodCall {
@@ -254,7 +254,7 @@ impl<'a> ExprTypeEngine<'a> {
                 nonself_arguments,
                 ..
             } => (
-                self.calc_method_expr(
+                self.calc_method_expr_ty(
                     self_argument,
                     ident_token,
                     implicit_arguments.as_ref(),
@@ -267,8 +267,8 @@ impl<'a> ExprTypeEngine<'a> {
                 template,
                 ref implicit_arguments,
             } => todo!(),
-            Expr::Application { function, argument } => (
-                self.calc_application(function, argument, local_term_region),
+            Expr::ExplicitApplication { function, argument } => (
+                self.calc_application_expr_ty(function, argument, local_term_region),
                 Ok(ExprDisambiguation::Trivial),
             ),
             Expr::Bracketed { item, .. } => (
@@ -282,7 +282,7 @@ impl<'a> ExprTypeEngine<'a> {
                 items: indices,
                 ..
             } => (
-                self.calc_index_or_compose_with_list_expr(
+                self.calc_index_or_compose_with_list_expr_ty(
                     expr_idx,
                     owner,
                     indices,
@@ -291,7 +291,7 @@ impl<'a> ExprTypeEngine<'a> {
                 Ok(ExprDisambiguation::Trivial),
             ),
             Expr::BoxList { items, .. } => (
-                self.calc_new_list_expr(expr_idx, items, local_term_region),
+                self.calc_new_list_expr_ty(expr_idx, items, local_term_region),
                 Ok(ExprDisambiguation::Trivial),
             ),
             Expr::BoxColonList { .. } => todo!(),

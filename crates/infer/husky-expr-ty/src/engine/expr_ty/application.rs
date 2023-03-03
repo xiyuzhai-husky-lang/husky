@@ -1,7 +1,7 @@
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn calc_application(
+    pub(super) fn calc_application_expr_ty(
         &mut self,
         function: ExprIdx,
         argument: ExprIdx,

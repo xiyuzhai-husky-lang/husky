@@ -1,7 +1,7 @@
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn calc_prefix_ty(
+    pub(super) fn calc_prefix_expr_ty(
         &mut self,
         opr: PrefixOpr,
         opd: ExprIdx,

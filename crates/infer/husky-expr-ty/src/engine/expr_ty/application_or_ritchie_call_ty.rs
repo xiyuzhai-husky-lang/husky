@@ -1,7 +1,7 @@
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn calc_application_or_ritchie_call_expr(
+    pub(super) fn calc_application_or_ritchie_call_expr_ty(
         &mut self,
         function: idx_arena::ArenaIdx<Expr>,
         expr_ty_expectation: &impl ExpectLocalTerm,
@@ -39,7 +39,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ritchie_kind,
                 parameter_liasoned_tys,
             } => {
-                self.calc_ritchie_call_arguments_ty(
+                self.calc_ritchie_call_arguments_expr_ty(
                     *ritchie_kind,
                     parameter_liasoned_tys.to_vec(),
                     *items,

@@ -1,7 +1,7 @@
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn calc_new_list_expr(
+    pub(super) fn calc_new_list_expr_ty(
         &mut self,
         expr_idx: ExprIdx,
         items: ExprIdxRange,

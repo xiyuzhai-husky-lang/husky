@@ -173,7 +173,7 @@ Ok(
                                                         77,
                                                     ),
                                                 },
-                                                Expr::ApplicationOrRitchieCall {
+                                                Expr::ExplicitApplicationOrRitchieCall {
                                                     function: 0,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
