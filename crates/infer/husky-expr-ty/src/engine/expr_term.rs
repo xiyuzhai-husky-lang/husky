@@ -50,7 +50,7 @@ impl<'a> ExprTypeEngine<'a> {
             } => todo!(),
             Expr::SelfType(_) => todo!(),
             Expr::SelfValue(_) => todo!(),
-            Expr::BinaryOpn {
+            Expr::Binary {
                 lopd,
                 opr,
                 opr_token_idx,
@@ -61,12 +61,12 @@ impl<'a> ExprTypeEngine<'a> {
                 todo!()
             }
             Expr::Be { .. } => todo!(),
-            Expr::PrefixOpn {
+            Expr::Prefix {
                 opr,
                 opr_token_idx,
                 opd,
             } => todo!(),
-            Expr::SuffixOpn {
+            Expr::Suffix {
                 opd,
                 opr: punctuation,
                 opr_token_idx: punctuation_token_idx,
@@ -79,7 +79,7 @@ impl<'a> ExprTypeEngine<'a> {
             } => todo!(),
             Expr::MethodCall { .. } => todo!(),
             Expr::TemplateInstantiation { .. } => todo!(),
-            Expr::ExplicitApplication { function, argument } => {
+            Expr::ExplicitApplicationOrComposition { function, argument } => {
                 self.calc_explicit_application_expr_term(function, argument)
             }
             Expr::Bracketed {
@@ -91,7 +91,7 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::BoxList { .. } => todo!(),
             Expr::BoxColonList { .. } => todo!(),
             Expr::Block { stmts } => todo!(),
-            Expr::IndexOrComposeWithList {
+            Expr::IndexOrCompositionWithList {
                 owner,
                 lbox_token_idx,
                 items: indices,

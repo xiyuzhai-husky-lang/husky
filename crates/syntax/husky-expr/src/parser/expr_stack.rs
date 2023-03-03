@@ -51,25 +51,25 @@ impl Expr {
             Expr::InheritedSymbol { .. } | Expr::CurrentSymbol { .. } => BaseEntityPath::None,
             Expr::SelfValue(_) => todo!(),
             Expr::SelfType(_) => todo!(),
-            Expr::BinaryOpn {
+            Expr::Binary {
                 lopd,
                 opr: punctuation,
                 opr_token_idx: punctuation_token_idx,
                 ropd,
             } => todo!(),
-            Expr::PrefixOpn {
+            Expr::Prefix {
                 opr: punctuation,
                 opr_token_idx: punctuation_token_idx,
                 opd,
             } => todo!(),
-            Expr::SuffixOpn {
+            Expr::Suffix {
                 opd,
                 opr: punctuation,
                 opr_token_idx: punctuation_token_idx,
             } => todo!(),
             Expr::Field { .. } => BaseEntityPath::None,
             Expr::MethodCall { .. } => BaseEntityPath::None,
-            Expr::ExplicitApplication { function, argument } => todo!(),
+            Expr::ExplicitApplicationOrComposition { function, argument } => todo!(),
             Expr::ExplicitApplicationOrRitchieCall { .. } => todo!(),
             Expr::NewTuple {
                 lpar_token_idx,
@@ -102,7 +102,7 @@ impl Expr {
             Expr::FrameVarDecl {
                 token_idx, ident, ..
             } => todo!(),
-            Expr::IndexOrComposeWithList {
+            Expr::IndexOrCompositionWithList {
                 owner,
                 lbox_token_idx,
                 items: indices,
@@ -183,7 +183,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     let lopd = self.alloc_expr(lopd);
                     let finished_expr = self.take_finished_expr();
                     self.stack.finished_expr = Some(match finished_expr {
-                        Some(ropd) => Expr::BinaryOpn {
+                        Some(ropd) => Expr::Binary {
                             lopd,
                             opr: punctuation,
                             opr_token_idx: punctuation_token_idx,
@@ -204,7 +204,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     let function = self.alloc_expr(function);
                     let argument = self.alloc_expr(argument);
                     self.stack.finished_expr =
-                        Some(Expr::ExplicitApplication { function, argument })
+                        Some(Expr::ExplicitApplicationOrComposition { function, argument })
                 }
                 UnfinishedExpr::Prefix {
                     punctuation,
@@ -212,7 +212,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 } => {
                     let finished_expr = self.take_finished_expr();
                     self.stack.finished_expr = Some(match finished_expr {
-                        Some(opd) => Expr::PrefixOpn {
+                        Some(opd) => Expr::Prefix {
                             opr: punctuation,
                             opr_token_idx: punctuation_token_idx,
                             opd: self.alloc_expr(opd),

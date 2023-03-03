@@ -54,7 +54,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             },
                         }
                         .into(),
-                        UnfinishedListOpr::Index { owner } => Expr::IndexOrComposeWithList {
+                        UnfinishedListOpr::Index { owner } => Expr::IndexOrCompositionWithList {
                             owner,
                             lbox_token_idx: bra_token_idx,
                             items,
@@ -140,7 +140,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
     fn accept_suffix_opr(&mut self, punctuation: SuffixOpr, punctuation_token_idx: TokenIdx) {
         self.replace_top_expr(|this, top_expr| match top_expr {
-            Some(expr) => Expr::SuffixOpn {
+            Some(expr) => Expr::Suffix {
                 opd: this.alloc_expr(expr),
                 opr: punctuation,
                 opr_token_idx: punctuation_token_idx,

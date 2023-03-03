@@ -217,7 +217,7 @@ impl<'a> ExprRangeCalculator<'a> {
             | Expr::FrameVarDecl { token_idx, .. }
             | Expr::SelfType(token_idx)
             | Expr::SelfValue(token_idx) => TokenIdxRange::new_single(*token_idx),
-            Expr::BinaryOpn { lopd, ropd, .. } => self[lopd].join(self[ropd]),
+            Expr::Binary { lopd, ropd, .. } => self[lopd].join(self[ropd]),
             Expr::EntityPath {
                 entity_path_expr,
                 entity_path,
@@ -235,12 +235,12 @@ impl<'a> ExprRangeCalculator<'a> {
                 };
                 TokenIdxRange::new(start, end)
             }
-            Expr::PrefixOpn {
+            Expr::Prefix {
                 opr,
                 opr_token_idx,
                 opd,
             } => TokenIdxRange::new(*opr_token_idx, self[opd].end()),
-            Expr::SuffixOpn {
+            Expr::Suffix {
                 opd,
                 opr,
                 opr_token_idx,
@@ -262,7 +262,9 @@ impl<'a> ExprRangeCalculator<'a> {
                 template,
                 implicit_arguments,
             } => todo!(),
-            Expr::ExplicitApplication { function, argument } => self[function].join(self[argument]),
+            Expr::ExplicitApplicationOrComposition { function, argument } => {
+                self[function].join(self[argument])
+            }
             Expr::Bracketed {
                 lpar_token_idx,
                 rpar_token_idx,
@@ -279,7 +281,7 @@ impl<'a> ExprRangeCalculator<'a> {
                 *lpar_token_idx,
                 TokenIdxRangeEnd::new_after(*rpar_token_idx),
             ),
-            Expr::IndexOrComposeWithList {
+            Expr::IndexOrCompositionWithList {
                 owner,
                 lbox_token_idx,
                 rbox_token_idx,

@@ -196,7 +196,7 @@ impl<'a> ExprTypeEngine<'a> {
                 },
                 Ok(ExprDisambiguation::Trivial),
             ),
-            Expr::BinaryOpn {
+            Expr::Binary {
                 lopd,
                 opr,
                 ropd,
@@ -221,11 +221,11 @@ impl<'a> ExprTypeEngine<'a> {
                     Ok(ExprDisambiguation::Trivial),
                 )
             }
-            Expr::PrefixOpn { opr, opd, .. } => (
+            Expr::Prefix { opr, opd, .. } => (
                 self.calc_prefix_expr_ty(opr, opd, local_term_region),
                 Ok(ExprDisambiguation::Trivial),
             ),
-            Expr::SuffixOpn { opd, opr, .. } => (
+            Expr::Suffix { opd, opr, .. } => (
                 self.calc_suffix_expr_ty(opd, opr, local_term_region),
                 Ok(ExprDisambiguation::Trivial),
             ),
@@ -267,17 +267,20 @@ impl<'a> ExprTypeEngine<'a> {
                 template,
                 ref implicit_arguments,
             } => todo!(),
-            Expr::ExplicitApplication { function, argument } => (
-                self.calc_explicit_application_expr_ty(function, argument, local_term_region),
-                Ok(ExprDisambiguation::Trivial),
-            ),
+            Expr::ExplicitApplicationOrComposition { function, argument } => {
+                todo!("disambiguate");
+                (
+                    self.calc_explicit_application_expr_ty(function, argument, local_term_region),
+                    Ok(ExprDisambiguation::Trivial),
+                )
+            }
             Expr::Bracketed { item, .. } => (
                 self.infer_new_expr_ty(item, expr_ty_expectation.clone(), local_term_region)
                     .ok_or(DerivedExprTypeError::BracketedItemTypeError.into()),
                 Ok(ExprDisambiguation::Trivial),
             ),
             Expr::NewTuple { items, .. } => todo!(),
-            Expr::IndexOrComposeWithList {
+            Expr::IndexOrCompositionWithList {
                 owner,
                 items: indices,
                 ..
