@@ -142,8 +142,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::NewBoxList {
-                                                    caller: None,
+                                                Expr::BoxList {
                                                     lbox_token_idx: TokenIdx(
                                                         87,
                                                     ),
@@ -555,10 +554,8 @@ Ok(
                                                         130,
                                                     ),
                                                 ),
-                                                Expr::NewBoxList {
-                                                    caller: Some(
-                                                        15,
-                                                    ),
+                                                Expr::IndexOrComposeWithList {
+                                                    owner: 15,
                                                     lbox_token_idx: TokenIdx(
                                                         129,
                                                     ),
@@ -619,10 +616,8 @@ Ok(
                                                         142,
                                                     ),
                                                 ),
-                                                Expr::NewBoxList {
-                                                    caller: Some(
-                                                        21,
-                                                    ),
+                                                Expr::IndexOrComposeWithList {
+                                                    owner: 21,
                                                     lbox_token_idx: TokenIdx(
                                                         141,
                                                     ),

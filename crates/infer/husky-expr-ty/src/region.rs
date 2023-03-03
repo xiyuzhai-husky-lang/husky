@@ -76,68 +76,6 @@ impl ExprTypeRegion {
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
-// #[salsa::derive_debug_with_db(db = ExprTypeDb)]
-pub struct ExprTypeInfo {
-    ty_result: ExprTypeResult<LocalTerm>,
-    expectation_rule_idx: OptionLocalTermExpectationIdx,
-    resolve_progress: ExprTypeResolveProgress,
-}
-
-#[derive(Debug, PartialEq, Eq)]
-pub(crate) enum ExprTypeResolveProgress {
-    Unresolved,
-    Expected(LocalTermExpectationResolveProgress),
-    Unexpected(ExprTypeResult<LocalTerm>),
-}
-
-impl From<LocalTermExpectationResolveProgress> for ExprTypeResolveProgress {
-    fn from(v: LocalTermExpectationResolveProgress) -> Self {
-        Self::Expected(v)
-    }
-}
-
-impl ExprTypeInfo {
-    pub(crate) fn new(
-        ty_result: ExprTypeResult<LocalTerm>,
-        expectation_rule_idx: OptionLocalTermExpectationIdx,
-    ) -> Self {
-        Self {
-            ty_result,
-            expectation_rule_idx,
-            resolve_progress: ExprTypeResolveProgress::Unresolved,
-        }
-    }
-
-    pub(crate) fn ty(&self) -> ExprTypeResultRef<LocalTerm> {
-        self.ty_result.as_ref().copied()
-    }
-
-    fn finalize(&mut self, unresolved_term_table: &LocalTermRegion) {
-        let Ok(ty) = self.ty_result else { return };
-        self.resolve_progress = match self.expectation_rule_idx.into_option() {
-            Some(expectation_rule_idx) => unresolved_term_table[expectation_rule_idx]
-                .resolve_progress()
-                .duplicate(expectation_rule_idx)
-                .into(),
-            None => match ty {
-                LocalTerm::Resolved(term) => ExprTypeResolveProgress::Unexpected(Ok(term.into())),
-                LocalTerm::Unresolved(ty) => ExprTypeResolveProgress::Unexpected(Err(
-                    DerivedExprTypeError::UnresolvedLocalTerm.into(),
-                )),
-            },
-        }
-    }
-
-    pub(crate) fn resolve_progress(&self) -> &ExprTypeResolveProgress {
-        &self.resolve_progress
-    }
-
-    pub fn ty_result(&self) -> Result<&LocalTerm, &ExprTypeError> {
-        self.ty_result.as_ref()
-    }
-}
-
 #[salsa::tracked(jar = ExprTypeJar, return_ref)]
 pub(crate) fn expr_ty_region(db: &dyn ExprTypeDb, expr_region: ExprRegion) -> ExprTypeRegion {
     let mut engine = ExprTypeEngine::new(db, expr_region);

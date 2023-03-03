@@ -54,10 +54,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             },
                         }
                         .into(),
-                        UnfinishedListOpr::Index { owner } => Expr::Index {
+                        UnfinishedListOpr::Index { owner } => Expr::IndexOrComposeWithList {
                             owner,
                             lbox_token_idx: bra_token_idx,
-                            indices: items,
+                            items,
                             rbox_token_idx: ket_token_idx,
                         }
                         .into(),

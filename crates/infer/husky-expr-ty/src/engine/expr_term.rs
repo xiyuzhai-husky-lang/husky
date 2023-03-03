@@ -77,10 +77,10 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::BoxList { .. } => todo!(),
             Expr::BoxColonList { .. } => todo!(),
             Expr::Block { stmts } => todo!(),
-            Expr::Index {
+            Expr::IndexOrComposeWithList {
                 owner,
                 lbox_token_idx,
-                indices,
+                items: indices,
                 rbox_token_idx,
             } => todo!(),
             Expr::Err(_) => Err(DerivedExprTermError::ExprError.into()),

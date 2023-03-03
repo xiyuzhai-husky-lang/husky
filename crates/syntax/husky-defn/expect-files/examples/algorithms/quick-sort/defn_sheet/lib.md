@@ -41,18 +41,18 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::BoxColon {
-                                                        caller: None,
+                                                    Expr::BoxColonList {
                                                         lbox_token_idx: TokenIdx(
                                                             12,
                                                         ),
                                                         colon_token_idx: TokenIdx(
                                                             13,
                                                         ),
-                                                        rbox_token: RightBoxBracketToken(
-                                                            TokenIdx(
-                                                                14,
-                                                            ),
+                                                        items: ArenaIdxRange(
+                                                            1..1,
+                                                        ),
+                                                        rbox_token_idx: TokenIdx(
+                                                            14,
                                                         ),
                                                     },
                                                     Expr::CurrentSymbol {
@@ -325,18 +325,18 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            Expr::BoxColon {
-                                                                caller: None,
+                                                            Expr::BoxColonList {
                                                                 lbox_token_idx: TokenIdx(
                                                                     12,
                                                                 ),
                                                                 colon_token_idx: TokenIdx(
                                                                     13,
                                                                 ),
-                                                                rbox_token: RightBoxBracketToken(
-                                                                    TokenIdx(
-                                                                        14,
-                                                                    ),
+                                                                items: ArenaIdxRange(
+                                                                    1..1,
+                                                                ),
+                                                                rbox_token_idx: TokenIdx(
+                                                                    14,
                                                                 ),
                                                             },
                                                             Expr::CurrentSymbol {
@@ -825,18 +825,18 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::BoxColon {
-                                                        caller: None,
+                                                    Expr::BoxColonList {
                                                         lbox_token_idx: TokenIdx(
                                                             51,
                                                         ),
                                                         colon_token_idx: TokenIdx(
                                                             52,
                                                         ),
-                                                        rbox_token: RightBoxBracketToken(
-                                                            TokenIdx(
-                                                                53,
-                                                            ),
+                                                        items: ArenaIdxRange(
+                                                            1..1,
+                                                        ),
+                                                        rbox_token_idx: TokenIdx(
+                                                            53,
                                                         ),
                                                     },
                                                     Expr::CurrentSymbol {
@@ -1264,18 +1264,18 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            Expr::BoxColon {
-                                                                caller: None,
+                                                            Expr::BoxColonList {
                                                                 lbox_token_idx: TokenIdx(
                                                                     51,
                                                                 ),
                                                                 colon_token_idx: TokenIdx(
                                                                     52,
                                                                 ),
-                                                                rbox_token: RightBoxBracketToken(
-                                                                    TokenIdx(
-                                                                        53,
-                                                                    ),
+                                                                items: ArenaIdxRange(
+                                                                    1..1,
+                                                                ),
+                                                                rbox_token_idx: TokenIdx(
+                                                                    53,
                                                                 ),
                                                             },
                                                             Expr::CurrentSymbol {
@@ -2053,18 +2053,18 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::BoxColon {
-                                                        caller: None,
+                                                    Expr::BoxColonList {
                                                         lbox_token_idx: TokenIdx(
                                                             112,
                                                         ),
                                                         colon_token_idx: TokenIdx(
                                                             113,
                                                         ),
-                                                        rbox_token: RightBoxBracketToken(
-                                                            TokenIdx(
-                                                                114,
-                                                            ),
+                                                        items: ArenaIdxRange(
+                                                            1..1,
+                                                        ),
+                                                        rbox_token_idx: TokenIdx(
+                                                            114,
                                                         ),
                                                     },
                                                     Expr::CurrentSymbol {
@@ -2512,18 +2512,18 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            Expr::BoxColon {
-                                                                caller: None,
+                                                            Expr::BoxColonList {
                                                                 lbox_token_idx: TokenIdx(
                                                                     112,
                                                                 ),
                                                                 colon_token_idx: TokenIdx(
                                                                     113,
                                                                 ),
-                                                                rbox_token: RightBoxBracketToken(
-                                                                    TokenIdx(
-                                                                        114,
-                                                                    ),
+                                                                items: ArenaIdxRange(
+                                                                    1..1,
+                                                                ),
+                                                                rbox_token_idx: TokenIdx(
+                                                                    114,
                                                                 ),
                                                             },
                                                             Expr::CurrentSymbol {
@@ -2964,10 +2964,8 @@ Ok(
                                                         pattern_symbol_idx: 0,
                                                     },
                                                 },
-                                                Expr::NewBoxList {
-                                                    caller: Some(
-                                                        11,
-                                                    ),
+                                                Expr::IndexOrComposeWithList {
+                                                    owner: 11,
                                                     lbox_token_idx: TokenIdx(
                                                         154,
                                                     ),
@@ -2978,10 +2976,8 @@ Ok(
                                                         158,
                                                     ),
                                                 },
-                                                Expr::NewBoxList {
-                                                    caller: Some(
-                                                        15,
-                                                    ),
+                                                Expr::IndexOrComposeWithList {
+                                                    owner: 15,
                                                     lbox_token_idx: TokenIdx(
                                                         161,
                                                     ),
@@ -3129,10 +3125,8 @@ Ok(
                                                         pattern_symbol_idx: 0,
                                                     },
                                                 },
-                                                Expr::NewBoxList {
-                                                    caller: Some(
-                                                        28,
-                                                    ),
+                                                Expr::IndexOrComposeWithList {
+                                                    owner: 28,
                                                     lbox_token_idx: TokenIdx(
                                                         177,
                                                     ),
@@ -3143,10 +3137,8 @@ Ok(
                                                         181,
                                                     ),
                                                 },
-                                                Expr::NewBoxList {
-                                                    caller: Some(
-                                                        32,
-                                                    ),
+                                                Expr::IndexOrComposeWithList {
+                                                    owner: 32,
                                                     lbox_token_idx: TokenIdx(
                                                         184,
                                                     ),
@@ -4113,8 +4105,7 @@ Ok(
                                                         253,
                                                     ),
                                                 ),
-                                                Expr::NewBoxList {
-                                                    caller: None,
+                                                Expr::BoxList {
                                                     lbox_token_idx: TokenIdx(
                                                         233,
                                                     ),
@@ -4226,8 +4217,7 @@ Ok(
                                                         pattern_symbol_idx: 0,
                                                     },
                                                 },
-                                                Expr::NewBoxList {
-                                                    caller: None,
+                                                Expr::BoxList {
                                                     lbox_token_idx: TokenIdx(
                                                         262,
                                                     ),
@@ -4530,8 +4520,7 @@ Ok(
                                                         304,
                                                     ),
                                                 ),
-                                                Expr::NewBoxList {
-                                                    caller: None,
+                                                Expr::BoxList {
                                                     lbox_token_idx: TokenIdx(
                                                         293,
                                                     ),
@@ -4616,8 +4605,7 @@ Ok(
                                                         pattern_symbol_idx: 0,
                                                     },
                                                 },
-                                                Expr::NewBoxList {
-                                                    caller: None,
+                                                Expr::BoxList {
                                                     lbox_token_idx: TokenIdx(
                                                         313,
                                                     ),

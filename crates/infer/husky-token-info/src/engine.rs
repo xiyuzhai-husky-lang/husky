@@ -324,10 +324,10 @@ impl<'a> AuxInferEngine<'a> {
                 }
                 _ => (),
             },
-            Expr::Index {
+            Expr::IndexOrComposeWithList {
                 owner,
                 lbox_token_idx,
-                indices,
+                items: indices,
                 rbox_token_idx,
             } => todo!(),
         }

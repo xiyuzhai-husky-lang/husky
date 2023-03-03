@@ -164,7 +164,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     Some(Expr::BoxList { .. }) | Some(Expr::BoxColonList { .. }) | None => {
                         ResolvedToken::PrefixOpr(token_idx, PrefixOpr::Option)
                     }
-                    Some(expr) => ResolvedToken::SuffixOpr(token_idx, SuffixOpr::Unveil),
+                    Some(expr) => {
+                        ResolvedToken::SuffixOpr(token_idx, SuffixOpr::UnveilOrComposeWithOption)
+                    }
                 },
                 Punctuation::PoundSign => todo!(),
                 Punctuation::Ambersand => match self.finished_expr() {

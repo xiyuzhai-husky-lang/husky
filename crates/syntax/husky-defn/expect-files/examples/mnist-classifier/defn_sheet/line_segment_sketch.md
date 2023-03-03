@@ -53,8 +53,7 @@ Ok(
                                                             },
                                                         ),
                                                     ),
-                                                    Expr::NewBoxList {
-                                                        caller: None,
+                                                    Expr::BoxList {
                                                         lbox_token_idx: TokenIdx(
                                                             45,
                                                         ),
@@ -277,8 +276,7 @@ Ok(
                                                         ),
                                                         opd: 0,
                                                     },
-                                                    Expr::NewBoxList {
-                                                        caller: None,
+                                                    Expr::BoxList {
                                                         lbox_token_idx: TokenIdx(
                                                             170,
                                                         ),
@@ -9603,8 +9601,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::NewBoxList {
-                                                        caller: None,
+                                                    Expr::BoxList {
                                                         lbox_token_idx: TokenIdx(
                                                             1051,
                                                         ),
@@ -9903,8 +9900,7 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            Expr::NewBoxList {
-                                                                caller: None,
+                                                            Expr::BoxList {
                                                                 lbox_token_idx: TokenIdx(
                                                                     1051,
                                                                 ),
@@ -10106,8 +10102,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::NewBoxList {
-                                                    caller: None,
+                                                Expr::BoxList {
                                                     lbox_token_idx: TokenIdx(
                                                         1059,
                                                     ),
@@ -16333,8 +16328,7 @@ Ok(
                                                 ),
                                                 expr_arena: Arena {
                                                     data: [
-                                                        Expr::NewBoxList {
-                                                            caller: None,
+                                                        Expr::BoxList {
                                                             lbox_token_idx: TokenIdx(
                                                                 181,
                                                             ),
@@ -16526,8 +16520,7 @@ Ok(
                                                         ),
                                                         expr_arena: Arena {
                                                             data: [
-                                                                Expr::NewBoxList {
-                                                                    caller: None,
+                                                                Expr::BoxList {
                                                                     lbox_token_idx: TokenIdx(
                                                                         181,
                                                                     ),
@@ -17164,10 +17157,8 @@ Ok(
                                                             201,
                                                         ),
                                                     ),
-                                                    Expr::NewBoxList {
-                                                        caller: Some(
-                                                            1,
-                                                        ),
+                                                    Expr::IndexOrComposeWithList {
+                                                        owner: 1,
                                                         lbox_token_idx: TokenIdx(
                                                             200,
                                                         ),
@@ -17364,10 +17355,8 @@ Ok(
                                                             15,
                                                         ),
                                                     },
-                                                    Expr::NewBoxList {
-                                                        caller: Some(
-                                                            19,
-                                                        ),
+                                                    Expr::IndexOrComposeWithList {
+                                                        owner: 19,
                                                         lbox_token_idx: TokenIdx(
                                                             250,
                                                         ),

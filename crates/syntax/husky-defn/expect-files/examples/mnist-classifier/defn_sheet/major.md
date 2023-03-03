@@ -50,8 +50,7 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::NewBoxList {
-                                                        caller: None,
+                                                    Expr::BoxList {
                                                         lbox_token_idx: TokenIdx(
                                                             34,
                                                         ),
@@ -445,10 +444,8 @@ Ok(
                                                         3,
                                                     ),
                                                 },
-                                                Expr::NewBoxList {
-                                                    caller: Some(
-                                                        6,
-                                                    ),
+                                                Expr::IndexOrComposeWithList {
+                                                    owner: 6,
                                                     lbox_token_idx: TokenIdx(
                                                         71,
                                                     ),
@@ -581,10 +578,8 @@ Ok(
                                                         pattern_symbol_idx: 0,
                                                     },
                                                 },
-                                                Expr::NewBoxList {
-                                                    caller: Some(
-                                                        19,
-                                                    ),
+                                                Expr::IndexOrComposeWithList {
+                                                    owner: 19,
                                                     lbox_token_idx: TokenIdx(
                                                         89,
                                                     ),
@@ -1203,10 +1198,8 @@ Ok(
                                                         2,
                                                     ),
                                                 },
-                                                Expr::NewBoxList {
-                                                    caller: Some(
-                                                        5,
-                                                    ),
+                                                Expr::IndexOrComposeWithList {
+                                                    owner: 5,
                                                     lbox_token_idx: TokenIdx(
                                                         115,
                                                     ),
@@ -1581,8 +1574,7 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::NewBoxList {
-                                                        caller: None,
+                                                    Expr::BoxList {
                                                         lbox_token_idx: TokenIdx(
                                                             130,
                                                         ),
@@ -1909,10 +1901,8 @@ Ok(
                                                         147,
                                                     ),
                                                 ),
-                                                Expr::NewBoxList {
-                                                    caller: Some(
-                                                        1,
-                                                    ),
+                                                Expr::IndexOrComposeWithList {
+                                                    owner: 1,
                                                     lbox_token_idx: TokenIdx(
                                                         146,
                                                     ),
@@ -2249,8 +2239,7 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::NewBoxList {
-                                                        caller: None,
+                                                    Expr::BoxList {
                                                         lbox_token_idx: TokenIdx(
                                                             162,
                                                         ),
