@@ -608,13 +608,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `max_hole_ilen`,
                         token_idx: TokenIdx(
-                            161,
+                            162,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        162,
+                        163,
                     ),
                 },
                 Ast::Defn {
@@ -636,13 +636,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `max_row_span`,
                         token_idx: TokenIdx(
-                            213,
+                            214,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        214,
+                        215,
                     ),
                 },
                 Ast::Defn {
@@ -664,13 +664,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `row_span_sum`,
                         token_idx: TokenIdx(
-                            251,
+                            252,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        252,
+                        253,
                     ),
                 },
                 Ast::Defn {
@@ -692,13 +692,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `distribution`,
                         token_idx: TokenIdx(
-                            284,
+                            285,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        285,
+                        286,
                     ),
                 },
                 Ast::Defn {
@@ -720,13 +720,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `upper_mass`,
                         token_idx: TokenIdx(
-                            406,
+                            407,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        407,
+                        408,
                     ),
                 },
                 Ast::Defn {
@@ -748,13 +748,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `lower_mass`,
                         token_idx: TokenIdx(
-                            418,
+                            419,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        419,
+                        420,
                     ),
                 },
                 Ast::Defn {
@@ -776,13 +776,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `top_k_row_span_sum`,
                         token_idx: TokenIdx(
-                            430,
+                            431,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        431,
+                        432,
                     ),
                 },
                 Ast::Defn {
@@ -804,13 +804,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `top_k_row_right_mass_sum`,
                         token_idx: TokenIdx(
-                            493,
+                            494,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        494,
+                        495,
                     ),
                 },
                 Ast::Err {
@@ -820,7 +820,7 @@ Ok(
                     error: AstError::Original(
                         OriginalAstError::ExpectIdentifier(
                             TokenIdx(
-                                556,
+                                557,
                             ),
                         ),
                     ),
@@ -1325,13 +1325,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `horizontal_extend`,
                         token_idx: TokenIdx(
-                            559,
+                            560,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        560,
+                        561,
                     ),
                 },
                 Ast::Defn {
@@ -1358,13 +1358,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `find_connected_components`,
                         token_idx: TokenIdx(
-                            645,
+                            646,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        646,
+                        647,
                     ),
                 },
             ],

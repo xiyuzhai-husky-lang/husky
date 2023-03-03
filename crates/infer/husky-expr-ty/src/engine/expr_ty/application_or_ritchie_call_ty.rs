@@ -35,7 +35,7 @@ impl<'a> ExprTypeEngine<'a> {
             todo!()
         }
         match expectation_ok.variant() {
-            ExpectEqsFunctionTypeOkVariant::Ritchie {
+            ExpectEqsFunctionTypeOutcomeVariant::Ritchie {
                 ritchie_kind,
                 parameter_liasoned_tys,
             } => {
@@ -52,7 +52,7 @@ impl<'a> ExprTypeEngine<'a> {
                     )),
                 )
             }
-            ExpectEqsFunctionTypeOkVariant::Curry {} => todo!(),
+            ExpectEqsFunctionTypeOutcomeVariant::Curry {} => todo!(),
         }
     }
 }

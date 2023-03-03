@@ -21,6 +21,7 @@ pub enum EntityPathTypeExpectation {
     NoneOriginal,
     FinalCurryDestinationEqsSort,
     FinalCurryDestinationEqsTypePathOrItsApplication { ty_path: TypePath },
+    FunctionType,
 }
 
 impl EntityPathTypeExpectation {
