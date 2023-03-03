@@ -1,7 +1,7 @@
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn calc_ritchie_call_arguments_ty(
+    pub(super) fn calc_ritchie_call_arguments_expr_ty(
         &mut self,
         ritchie_kind: TermRitchieKind,
         nonself_parameter_liasoned_tys: Vec<LocalTermRitchieParameter>,

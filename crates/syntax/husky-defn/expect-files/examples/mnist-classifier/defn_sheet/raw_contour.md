@@ -69,7 +69,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::Application {
+                                                    Expr::ExplicitApplication {
                                                         function: 2,
                                                         argument: 3,
                                                     },
@@ -2907,7 +2907,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                Expr::ApplicationOrRitchieCall {
+                                                Expr::ExplicitApplicationOrRitchieCall {
                                                     function: 0,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
@@ -2974,7 +2974,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                Expr::ApplicationOrRitchieCall {
+                                                Expr::ExplicitApplicationOrRitchieCall {
                                                     function: 6,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
@@ -4935,7 +4935,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                Expr::ApplicationOrRitchieCall {
+                                                Expr::ExplicitApplicationOrRitchieCall {
                                                     function: 0,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
@@ -5002,7 +5002,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                Expr::ApplicationOrRitchieCall {
+                                                Expr::ExplicitApplicationOrRitchieCall {
                                                     function: 6,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
@@ -5538,7 +5538,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::Application {
+                                                    Expr::ExplicitApplication {
                                                         function: 0,
                                                         argument: 1,
                                                     },
@@ -5752,7 +5752,7 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            Expr::Application {
+                                                            Expr::ExplicitApplication {
                                                                 function: 0,
                                                                 argument: 1,
                                                             },
@@ -6232,7 +6232,7 @@ Ok(
                                                     ),
                                                     ropd: 32,
                                                 },
-                                                Expr::ApplicationOrRitchieCall {
+                                                Expr::ExplicitApplicationOrRitchieCall {
                                                     function: 18,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
@@ -6617,7 +6617,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::Application {
+                                                    Expr::ExplicitApplication {
                                                         function: 2,
                                                         argument: 3,
                                                     },
@@ -6838,7 +6838,7 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            Expr::Application {
+                                                            Expr::ExplicitApplication {
                                                                 function: 2,
                                                                 argument: 3,
                                                             },
@@ -6980,7 +6980,7 @@ Ok(
                                                         1006,
                                                     ),
                                                 },
-                                                Expr::ApplicationOrRitchieCall {
+                                                Expr::ExplicitApplicationOrRitchieCall {
                                                     function: 0,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
@@ -7003,7 +7003,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                Expr::Application {
+                                                Expr::ExplicitApplication {
                                                     function: 1,
                                                     argument: 2,
                                                 },
@@ -7036,7 +7036,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                Expr::ApplicationOrRitchieCall {
+                                                Expr::ExplicitApplicationOrRitchieCall {
                                                     function: 6,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
@@ -7648,7 +7648,7 @@ Ok(
                                                         1101,
                                                     ),
                                                 },
-                                                Expr::ApplicationOrRitchieCall {
+                                                Expr::ExplicitApplicationOrRitchieCall {
                                                     function: 70,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
@@ -7671,7 +7671,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                Expr::Application {
+                                                Expr::ExplicitApplication {
                                                     function: 71,
                                                     argument: 72,
                                                 },
@@ -7977,7 +7977,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                Expr::ApplicationOrRitchieCall {
+                                                Expr::ExplicitApplicationOrRitchieCall {
                                                     function: 99,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
@@ -8445,7 +8445,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                Expr::ApplicationOrRitchieCall {
+                                                Expr::ExplicitApplicationOrRitchieCall {
                                                     function: 149,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
@@ -8518,7 +8518,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                Expr::ApplicationOrRitchieCall {
+                                                Expr::ExplicitApplicationOrRitchieCall {
                                                     function: 157,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
@@ -8928,7 +8928,7 @@ Ok(
                                                         1289,
                                                     ),
                                                 },
-                                                Expr::ApplicationOrRitchieCall {
+                                                Expr::ExplicitApplicationOrRitchieCall {
                                                     function: 201,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
@@ -8986,7 +8986,7 @@ Ok(
                                                         pattern_symbol_idx: 8,
                                                     },
                                                 },
-                                                Expr::ApplicationOrRitchieCall {
+                                                Expr::ExplicitApplicationOrRitchieCall {
                                                     function: 207,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
@@ -9428,7 +9428,7 @@ Ok(
                                                         pattern_symbol_idx: 6,
                                                     },
                                                 },
-                                                Expr::ApplicationOrRitchieCall {
+                                                Expr::ExplicitApplicationOrRitchieCall {
                                                     function: 253,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
@@ -12235,7 +12235,7 @@ Ok(
                                                             56,
                                                         ),
                                                     ),
-                                                    Expr::ApplicationOrRitchieCall {
+                                                    Expr::ExplicitApplicationOrRitchieCall {
                                                         function: 0,
                                                         implicit_arguments: None,
                                                         lpar_token_idx: TokenIdx(
@@ -13480,7 +13480,7 @@ Ok(
                                                             pattern_symbol_idx: 4,
                                                         },
                                                     },
-                                                    Expr::ApplicationOrRitchieCall {
+                                                    Expr::ExplicitApplicationOrRitchieCall {
                                                         function: 58,
                                                         implicit_arguments: None,
                                                         lpar_token_idx: TokenIdx(
@@ -13498,7 +13498,7 @@ Ok(
                                                             168,
                                                         ),
                                                     },
-                                                    Expr::ApplicationOrRitchieCall {
+                                                    Expr::ExplicitApplicationOrRitchieCall {
                                                         function: 61,
                                                         implicit_arguments: None,
                                                         lpar_token_idx: TokenIdx(
@@ -13516,7 +13516,7 @@ Ok(
                                                             175,
                                                         ),
                                                     },
-                                                    Expr::ApplicationOrRitchieCall {
+                                                    Expr::ExplicitApplicationOrRitchieCall {
                                                         function: 57,
                                                         implicit_arguments: None,
                                                         lpar_token_idx: TokenIdx(

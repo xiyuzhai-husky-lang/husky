@@ -69,8 +69,8 @@ impl Expr {
             } => todo!(),
             Expr::Field { .. } => BaseEntityPath::None,
             Expr::MethodCall { .. } => BaseEntityPath::None,
-            Expr::Application { function, argument } => todo!(),
-            Expr::ApplicationOrRitchieCall { .. } => todo!(),
+            Expr::ExplicitApplication { function, argument } => todo!(),
+            Expr::ExplicitApplicationOrRitchieCall { .. } => todo!(),
             Expr::NewTuple {
                 lpar_token_idx,
                 items,
@@ -203,7 +203,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     let argument = self.take_finished_expr().unwrap();
                     let function = self.alloc_expr(function);
                     let argument = self.alloc_expr(argument);
-                    self.stack.finished_expr = Some(Expr::Application { function, argument })
+                    self.stack.finished_expr =
+                        Some(Expr::ExplicitApplication { function, argument })
                 }
                 UnfinishedExpr::Prefix {
                     punctuation,

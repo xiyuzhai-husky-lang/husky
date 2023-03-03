@@ -2,7 +2,7 @@ use super::*;
 use husky_token::IdentifierToken;
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn calc_field_expr(
+    pub(super) fn calc_field_expr_ty(
         &mut self,
         owner: ExprIdx,
         ident_token: IdentifierToken,

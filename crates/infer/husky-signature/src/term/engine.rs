@@ -264,8 +264,8 @@ impl<'a> SignatureTermEngine<'a> {
             } => todo!(),
             Expr::MethodCall { .. } => todo!(),
             Expr::TemplateInstantiation { .. } => todo!(),
-            Expr::ApplicationOrRitchieCall { function, .. } => todo!(),
-            Expr::Application { function, argument } => {
+            Expr::ExplicitApplicationOrRitchieCall { function, .. } => todo!(),
+            Expr::ExplicitApplication { function, argument } => {
                 let  Ok(argument) = self.infer_new(argument) else {
                         return  Err(DerivedSignatureTermError::CannotInferArgumentTermInApplication.into())
                     };
@@ -330,7 +330,7 @@ impl<'a> SignatureTermEngine<'a> {
                                 opr: punctuation,
                                 opr_token_idx: punctuation_token_idx,
                             } => todo!(),
-                            Expr::ApplicationOrRitchieCall { .. } => todo!(),
+                            Expr::ExplicitApplicationOrRitchieCall { .. } => todo!(),
                             Expr::Field {
                                 owner: self_expr,
                                 dot_token_idx,
@@ -349,7 +349,7 @@ impl<'a> SignatureTermEngine<'a> {
                                 template,
                                 ref implicit_arguments,
                             } => todo!(),
-                            Expr::Application { function, argument } => todo!(),
+                            Expr::ExplicitApplication { function, argument } => todo!(),
                             Expr::Bracketed {
                                 lpar_token_idx,
                                 item,

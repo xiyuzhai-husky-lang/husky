@@ -2,7 +2,7 @@ use super::*;
 use husky_token::FloatLiteral;
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn calc_literal(
+    pub(super) fn calc_literal_expr_ty(
         &mut self,
         expr_idx: ExprIdx,
         literal_token_idx: TokenIdx,

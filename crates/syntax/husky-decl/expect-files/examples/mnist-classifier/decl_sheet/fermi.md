@@ -64,7 +64,7 @@ Ok(
                                                     ),
                                                     opd: 1,
                                                 },
-                                                Expr::Application {
+                                                Expr::ExplicitApplication {
                                                     function: 2,
                                                     argument: 3,
                                                 },
@@ -96,7 +96,7 @@ Ok(
                                                     ),
                                                     opd: 5,
                                                 },
-                                                Expr::Application {
+                                                Expr::ExplicitApplication {
                                                     function: 6,
                                                     argument: 7,
                                                 },
@@ -292,7 +292,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::Application {
+                                                Expr::ExplicitApplication {
                                                     function: 0,
                                                     argument: 1,
                                                 },
@@ -365,7 +365,7 @@ Ok(
                                                     ),
                                                     ropd: 9,
                                                 },
-                                                Expr::ApplicationOrRitchieCall {
+                                                Expr::ExplicitApplicationOrRitchieCall {
                                                     function: 4,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(

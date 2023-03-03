@@ -78,7 +78,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         UnfinishedListOpr::FunctionCall { function } => {
                             // ad hoc
                             let implicit_arguments: Option<ImplicitArgumentList> = None;
-                            Expr::ApplicationOrRitchieCall {
+                            Expr::ExplicitApplicationOrRitchieCall {
                                 function,
                                 implicit_arguments,
                                 lpar_token_idx: bra_token_idx,

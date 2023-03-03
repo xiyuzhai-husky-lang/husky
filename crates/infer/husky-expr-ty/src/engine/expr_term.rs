@@ -1,3 +1,5 @@
+mod explicit_application;
+
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
@@ -63,7 +65,7 @@ impl<'a> ExprTypeEngine<'a> {
                 opr: punctuation,
                 opr_token_idx: punctuation_token_idx,
             } => todo!(),
-            Expr::ApplicationOrRitchieCall { .. } => todo!(),
+            Expr::ExplicitApplicationOrRitchieCall { .. } => todo!(),
             Expr::Field {
                 owner,
                 dot_token_idx,
@@ -71,7 +73,9 @@ impl<'a> ExprTypeEngine<'a> {
             } => todo!(),
             Expr::MethodCall { .. } => todo!(),
             Expr::TemplateInstantiation { .. } => todo!(),
-            Expr::Application { function, argument } => todo!(),
+            Expr::ExplicitApplication { function, argument } => {
+                self.calc_explicit_application_expr_term(function, argument)
+            }
             Expr::Bracketed {
                 lpar_token_idx,
                 item,

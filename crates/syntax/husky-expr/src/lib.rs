@@ -138,7 +138,7 @@ pub enum Expr {
     /// - `f(,)` can be interpreted in two ways:
     ///   - `f` is a curry function, this is an application of `f` upon zero element tuple `(,)`
     ///   - `f` is a Ritchie function, this is a Ritchie function call with zero element
-    ApplicationOrRitchieCall {
+    ExplicitApplicationOrRitchieCall {
         function: ExprIdx,
         implicit_arguments: Option<ImplicitArgumentList>,
         lpar_token_idx: TokenIdx,
@@ -164,7 +164,7 @@ pub enum Expr {
         template: ExprIdx,
         implicit_arguments: ImplicitArgumentList,
     },
-    Application {
+    ExplicitApplication {
         function: ExprIdx,
         argument: ExprIdx,
     },
