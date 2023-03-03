@@ -45,6 +45,7 @@ pub(crate) fn calc_term_symbols(db: &dyn TypeDb, term: Term) -> Option<TermSymbo
         Term::Ritchie(term) => term_ritchie_symbols(db, term),
         Term::Abstraction(_) => todo!(),
         Term::Application(term) => term_application_symbols(db, term),
+        Term::Composition(_) => todo!(),
         Term::Subentity(_) => todo!(),
         Term::AsTraitSubentity(_) => todo!(),
         Term::TraitConstraint(_) => todo!(),

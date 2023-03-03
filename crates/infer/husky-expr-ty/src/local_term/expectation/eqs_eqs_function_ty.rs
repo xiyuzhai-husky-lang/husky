@@ -90,10 +90,6 @@ impl<'a> ExprTypeEngine<'a> {
         expectee: LocalTerm,
         unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationEffect> {
-        p!(
-            self.path(),
-            self.expr_region_data()[src_expr_idx].debug(self.db())
-        );
         match expectee {
             LocalTerm::Resolved(expectee) => {
                 self.resolved_expectee_to(src_expr_idx, expectee, unresolved_terms)
@@ -154,6 +150,7 @@ impl<'a> ExprTypeEngine<'a> {
             }
             Term::Abstraction(_) => todo!(),
             Term::Application(_) => todo!(),
+            Term::Composition(_) => todo!(),
             Term::Subentity(_) => todo!(),
             Term::AsTraitSubentity(_) => todo!(),
             Term::TraitConstraint(_) => todo!(),

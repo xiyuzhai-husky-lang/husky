@@ -1,3 +1,5 @@
+mod let_init;
+
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
@@ -43,7 +45,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ref let_variable_pattern,
                 ref initial_value,
                 ..
-            } => self.calc_let_stmt(let_variable_pattern, initial_value, local_term_region),
+            } => self.calc_let_init_stmt(let_variable_pattern, initial_value, local_term_region),
             Stmt::Return { ref result, .. } => {
                 if let Ok(result) = result {
                     match self.return_ty {
@@ -184,51 +186,6 @@ impl<'a> ExprTypeEngine<'a> {
                 None
             }
             Stmt::Err(_) => todo!(),
-        }
-    }
-
-    fn calc_let_stmt(
-        &mut self,
-        let_variable_pattern: &ExprResult<LetVariablesPattern>,
-        initial_value: &ExprResult<ExprIdx>,
-        local_term_region: &mut LocalTermRegion,
-    ) -> Option<LocalTerm> {
-        let pattern_ty = match let_variable_pattern {
-            Ok(pattern) => match pattern.ty() {
-                Some(ty) => self.infer_new_expr_term(ty),
-                None => {
-                    initial_value
-                        .as_ref()
-                        .ok()
-                        .map(|initial_value| {
-                            self.infer_new_expr_ty(
-                                *initial_value,
-                                // ad hoc
-                                ExpectAnyOriginal,
-                                local_term_region,
-                            )
-                        })
-                        .flatten()
-                }
-            },
-            Err(_) => todo!(),
-        };
-        match pattern_ty {
-            Some(ty) if ty == self.reduced_term_menu.never().into() => {
-                Some(self.reduced_term_menu.never().into())
-            }
-            Some(ty) => {
-                match let_variable_pattern {
-                    Ok(let_variable_pattern) => self.infer_pattern_and_symbols_ty(
-                        let_variable_pattern.pattern_expr(),
-                        ty,
-                        let_variable_pattern.variables(),
-                    ),
-                    Err(_) => todo!(),
-                };
-                Some(self.reduced_term_menu.unit().into())
-            }
-            None => Some(self.reduced_term_menu.unit().into()),
         }
     }
 

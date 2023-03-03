@@ -3,8 +3,10 @@ mod expr_term;
 mod expr_ty;
 mod stmt;
 mod symbol;
+#[macro_use]
 mod utils;
 
+use self::utils::*;
 use husky_opn_syntax::PrefixOpr;
 use husky_print_utils::p;
 use husky_token::{IntegerLikeLiteral, Literal, Token, TokenIdx, TokenSheetData};

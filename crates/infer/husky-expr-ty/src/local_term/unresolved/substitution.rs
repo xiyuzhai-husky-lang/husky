@@ -56,6 +56,7 @@ impl UnresolvedTerms {
             Term::Application(term) => {
                 self.substitute_into_term_application(db, src_expr_idx, term, substitution_rules)
             }
+            Term::Composition(_) => todo!(),
             Term::Subentity(_) => todo!(),
             Term::AsTraitSubentity(_) => todo!(),
             Term::TraitConstraint(_) => todo!(),
@@ -117,6 +118,7 @@ impl UnresolvedTerms {
             Term::Ritchie(_) => todo!(),
             Term::Abstraction(_) => todo!(),
             Term::Application(_) => unreachable!(),
+            Term::Composition(_) => todo!(),
             Term::Subentity(_) => todo!(),
             Term::AsTraitSubentity(_) => todo!(),
             Term::TraitConstraint(_) => todo!(),

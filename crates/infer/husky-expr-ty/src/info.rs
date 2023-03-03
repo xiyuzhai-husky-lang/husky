@@ -7,7 +7,7 @@ pub use self::progress::*;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-// #[salsa::derive_debug_with_db(db = ExprTypeDb)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub struct ExprTypeInfo {
     ty_result: ExprTypeResult<LocalTerm>,
     disambiguation: ExprTypeResult<ExprDisambiguation>,
@@ -55,5 +55,9 @@ impl ExprTypeInfo {
 
     pub fn ty_result(&self) -> Result<&LocalTerm, &ExprTypeError> {
         self.ty_result.as_ref()
+    }
+
+    pub fn disambiguation(&self) -> ExprTypeResultRef<ExprDisambiguation> {
+        self.disambiguation.as_ref().copied()
     }
 }

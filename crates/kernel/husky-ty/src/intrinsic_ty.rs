@@ -29,6 +29,7 @@ pub(crate) fn intrinsic_ty(db: &dyn TypeDb, ty: ReducedTerm) -> IntrinsicType {
         Term::Ritchie(_) => todo!(),
         Term::Abstraction(_) => todo!(),
         Term::Application(_) => todo!(),
+        Term::Composition(_) => todo!(),
         Term::Subentity(_) => todo!(),
         Term::AsTraitSubentity(_) => todo!(),
         Term::TraitConstraint(_) => todo!(),

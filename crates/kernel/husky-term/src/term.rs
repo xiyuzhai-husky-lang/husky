@@ -2,6 +2,7 @@ mod abstraction;
 mod application;
 mod as_trai_subentity;
 mod category;
+mod composition;
 mod constraint;
 mod curry;
 mod literal;
@@ -12,22 +13,23 @@ mod universe;
 
 use std::fmt::{Debug, Display};
 
-pub use abstraction::TermAbstraction;
-pub use application::TermApplication;
-pub use as_trai_subentity::*;
-pub use category::*;
-pub use constraint::*;
-pub use curry::*;
-pub use literal::*;
-pub use ritchie::*;
-use salsa::{DebugWithDb, DisplayWithDb};
-pub use subentity::*;
-pub use symbol::*;
-pub use universe::*;
+pub use self::abstraction::TermAbstraction;
+pub use self::application::TermApplication;
+pub use self::as_trai_subentity::*;
+pub use self::category::*;
+pub use self::composition::*;
+pub use self::constraint::*;
+pub use self::curry::*;
+pub use self::literal::*;
+pub use self::ritchie::*;
+pub use self::subentity::*;
+pub use self::symbol::*;
+pub use self::universe::*;
 
 use crate::*;
 use husky_entity_path::EntityPath;
 use husky_word::Identifier;
+use salsa::{DebugWithDb, DisplayWithDb};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
@@ -48,6 +50,16 @@ pub enum Term {
     Abstraction(TermAbstraction),
     /// f x, apply a function to term
     Application(TermApplication),
+    /// composition of curries
+    ///
+    /// if f: A -> B, g: B -> C,
+    ///
+    /// then f \circ g : A -> C
+    ///
+    /// Example, F: Type u -> Type u, List: Type u -> Type u,
+    ///
+    /// then F \circ List : Type u -> Type u
+    Composition(TermComposition),
     /// ::<ident>
     Subentity(TermSubentity),
     /// (<type> as <trait>)::<ident>
@@ -102,6 +114,7 @@ impl Term {
             Term::Ritchie(term) => term.show_with_db_fmt(f, db, ctx),
             Term::Abstraction(term) => term.show_with_db_fmt(f, db, ctx),
             Term::Application(term) => term.show_with_db_fmt(f, db, ctx),
+            Term::Composition(_) => todo!(),
             Term::Subentity(term) => term.show_with_db_fmt(f, db, ctx),
             Term::AsTraitSubentity(term) => term.show_with_db_fmt(f, db, ctx),
             Term::TraitConstraint(term) => term.show_with_db_fmt(f, db, ctx),

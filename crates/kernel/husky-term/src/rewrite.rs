@@ -36,6 +36,7 @@ impl TermRewriteCopy for Term {
             Term::AsTraitSubentity(term) => term.substitute_copy(db, substitution).into(),
             Term::TraitConstraint(term) => term.substitute_copy(db, substitution).into(),
             Term::Ritchie(_) => todo!(),
+            Term::Composition(_) => todo!(),
         }
     }
 }
