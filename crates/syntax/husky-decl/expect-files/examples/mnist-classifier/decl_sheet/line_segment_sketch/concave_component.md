@@ -68,8 +68,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                Expr::NewBoxList {
-                                                    caller: None,
+                                                Expr::BoxList {
                                                     lbox_token_idx: TokenIdx(
                                                         43,
                                                     ),
@@ -282,8 +281,7 @@ Ok(
                                                     ),
                                                     opd: 0,
                                                 },
-                                                Expr::NewBoxList {
-                                                    caller: None,
+                                                Expr::BoxList {
                                                     lbox_token_idx: TokenIdx(
                                                         524,
                                                     ),

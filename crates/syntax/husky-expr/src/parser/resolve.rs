@@ -115,19 +115,12 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 Punctuation::Dot => ResolvedToken::Dot(token_idx),
                 Punctuation::Colon => match self.last_unfinished_expr() {
                     Some(UnfinishedExpr::List {
-                        opr: UnfinishedListOpr::NewBoxList { .. },
+                        opr: UnfinishedListOpr::BoxList { .. },
                         items,
                         ..
                     }) => {
                         if items.len() == 0 {
-                            match self.parse::<RightBoxBracketToken>() {
-                                Ok(Some(rbox_token)) => ResolvedToken::BoxColon {
-                                    colon_token_idx: token_idx,
-                                    rbox_token,
-                                },
-                                Ok(None) => todo!(),
-                                Err(_) => todo!(),
-                            }
+                            ResolvedToken::ColonRightAfterLBox(token_idx)
                         } else {
                             todo!()
                         }
@@ -167,14 +160,15 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 Punctuation::XmlKet => todo!(),
                 Punctuation::At => todo!(),
                 Punctuation::Question => match self.finished_expr() {
-                    Some(Expr::NewBoxList { .. }) | None => {
+                    // only see `?` as Option when there obviously is no other way
+                    Some(Expr::BoxList { .. }) | Some(Expr::BoxColonList { .. }) | None => {
                         ResolvedToken::PrefixOpr(token_idx, PrefixOpr::Option)
                     }
                     Some(expr) => ResolvedToken::SuffixOpr(token_idx, SuffixOpr::Unveil),
                 },
                 Punctuation::PoundSign => todo!(),
                 Punctuation::Ambersand => match self.finished_expr() {
-                    Some(Expr::NewBoxList { .. }) | None => {
+                    Some(Expr::BoxList { .. }) | None => {
                         ResolvedToken::PrefixOpr(token_idx, PrefixOpr::Ref)
                     }
                     Some(_) => ResolvedToken::BinaryOpr(
@@ -293,8 +287,5 @@ pub(crate) enum ResolvedToken {
     Dot(TokenIdx),
     ListItem(TokenIdx),
     Be(TokenIdx),
-    BoxColon {
-        colon_token_idx: TokenIdx,
-        rbox_token: RightBoxBracketToken,
-    },
+    ColonRightAfterLBox(TokenIdx),
 }

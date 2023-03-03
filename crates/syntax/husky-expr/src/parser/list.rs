@@ -3,8 +3,12 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 pub(super) enum UnfinishedListOpr {
     NewTuple,
-    NewBoxList {
-        caller: Option<ExprIdx>,
+    Index {
+        owner: ExprIdx,
+    },
+    BoxList,
+    BoxColonList {
+        colon_token_idx: TokenIdx,
     },
     NewLambdaHead,
     FunctionInstantiation {},

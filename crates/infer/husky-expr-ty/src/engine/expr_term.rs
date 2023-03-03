@@ -74,19 +74,15 @@ impl<'a> ExprTypeEngine<'a> {
                 rpar_token_idx,
             } => todo!(),
             Expr::NewTuple { .. } => todo!(),
-            Expr::NewBoxList {
-                caller,
+            Expr::BoxList { .. } => todo!(),
+            Expr::BoxColonList { .. } => todo!(),
+            Expr::Block { stmts } => todo!(),
+            Expr::Index {
+                owner,
                 lbox_token_idx,
-                items,
+                indices,
                 rbox_token_idx,
             } => todo!(),
-            Expr::BoxColon {
-                caller,
-                lbox_token_idx,
-                colon_token_idx,
-                rbox_token,
-            } => todo!(),
-            Expr::Block { stmts } => todo!(),
             Expr::Err(_) => Err(DerivedExprTermError::ExprError.into()),
         }
     }

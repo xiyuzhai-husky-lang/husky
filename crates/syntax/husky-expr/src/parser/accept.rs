@@ -15,10 +15,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             ResolvedToken::Dot(token_idx) => self.accept_dot_opr(token_idx),
             ResolvedToken::ListItem(token_idx) => self.accept_list_item(token_idx),
             ResolvedToken::Be(token_idx) => self.accept_be_pattern(token_idx),
-            ResolvedToken::BoxColon {
-                colon_token_idx,
-                rbox_token,
-            } => self.accept_box_colon(colon_token_idx, rbox_token),
+            ResolvedToken::ColonRightAfterLBox(colon_token_idx) => {
+                self.accept_colon_right_after_lbox(colon_token_idx)
+            }
         }
     }
 
@@ -55,9 +54,22 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             },
                         }
                         .into(),
-                        UnfinishedListOpr::NewBoxList { caller } => Expr::NewBoxList {
-                            caller,
+                        UnfinishedListOpr::Index { owner } => Expr::Index {
+                            owner,
                             lbox_token_idx: bra_token_idx,
+                            indices: items,
+                            rbox_token_idx: ket_token_idx,
+                        }
+                        .into(),
+                        UnfinishedListOpr::BoxList => Expr::BoxList {
+                            lbox_token_idx: bra_token_idx,
+                            items,
+                            rbox_token_idx: ket_token_idx,
+                        }
+                        .into(),
+                        UnfinishedListOpr::BoxColonList { colon_token_idx } => Expr::BoxColonList {
+                            lbox_token_idx: bra_token_idx,
+                            colon_token_idx,
                             items,
                             rbox_token_idx: ket_token_idx,
                         }
@@ -239,24 +251,28 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         self.set_top_expr(unfinished_expr.into())
     }
 
-    fn accept_box_colon(&mut self, colon_token_idx: TokenIdx, rbox_token: RightBoxBracketToken) {
+    fn accept_colon_right_after_lbox(&mut self, colon_token_idx: TokenIdx) {
         assert!(self.finished_expr().is_none());
         let unfinished_expr = self.take_last_unfinished_expr().unwrap();
         match unfinished_expr {
             UnfinishedExpr::List {
-                opr: UnfinishedListOpr::NewBoxList { caller },
+                opr: UnfinishedListOpr::BoxList,
                 bra,
                 bra_token_idx,
                 items,
                 commas,
             } => {
                 assert!(items.is_empty());
-                self.set_top_expr(TopExpr::Finished(Expr::BoxColon {
-                    caller,
-                    lbox_token_idx: bra_token_idx,
-                    colon_token_idx,
-                    rbox_token,
-                }))
+                self.set_top_expr(
+                    UnfinishedExpr::List {
+                        opr: UnfinishedListOpr::BoxColonList { colon_token_idx },
+                        bra,
+                        bra_token_idx,
+                        items,
+                        commas,
+                    }
+                    .into(),
+                )
             }
             _ => unreachable!(),
         }
@@ -285,8 +301,11 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     .into(),
                 },
                 Bracket::Box => UnfinishedExpr::List {
-                    opr: UnfinishedListOpr::NewBoxList {
-                        caller: finished_expr,
+                    opr: match finished_expr {
+                        Some(finished_expr) => UnfinishedListOpr::Index {
+                            owner: finished_expr,
+                        },
+                        None => UnfinishedListOpr::BoxList,
                     },
                     bra,
                     bra_token_idx,

@@ -337,8 +337,7 @@ Ok(
                                                     ),
                                                     opd: 0,
                                                 },
-                                                Expr::NewBoxList {
-                                                    caller: None,
+                                                Expr::BoxList {
                                                     lbox_token_idx: TokenIdx(
                                                         45,
                                                     ),
@@ -1144,8 +1143,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                Expr::NewBoxList {
-                                                    caller: None,
+                                                Expr::BoxList {
                                                     lbox_token_idx: TokenIdx(
                                                         652,
                                                     ),
@@ -1621,8 +1619,7 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::NewBoxList {
-                                                        caller: None,
+                                                    Expr::BoxList {
                                                         lbox_token_idx: TokenIdx(
                                                             91,
                                                         ),

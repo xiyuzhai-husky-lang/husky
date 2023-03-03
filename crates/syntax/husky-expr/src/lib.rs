@@ -179,17 +179,30 @@ pub enum Expr {
         commas: Vec<TokenIdx>,
         rpar_token_idx: TokenIdx,
     },
-    NewBoxList {
-        caller: Option<ExprIdx>,
+    /// there are several cases
+    /// - `A []B` where `A` is of type `Type u -> S`
+    /// - `A [:n]B` where `A` is of type `Type u -> S`, n const usize
+    /// - `a[n] B` where `a` is of type `List (Type u -> S)`, n const usize
+    /// - `[]B`
+    Index {
+        owner: ExprIdx,
+        lbox_token_idx: TokenIdx,
+        indices: ExprIdxRange,
+        rbox_token_idx: TokenIdx,
+    },
+    BoxList {
         lbox_token_idx: TokenIdx,
         items: ExprIdxRange,
         rbox_token_idx: TokenIdx,
     },
-    BoxColon {
-        caller: Option<ExprIdx>,
+    /// [:] means Slice
+    /// [:n] means array as `[_;n]` in Rust
+    /// [:n1, n2, ...] means multidimensional array
+    BoxColonList {
         lbox_token_idx: TokenIdx,
         colon_token_idx: TokenIdx,
-        rbox_token: RightBoxBracketToken,
+        items: ExprIdxRange,
+        rbox_token_idx: TokenIdx,
     },
     Block {
         stmts: StmtIdxRange,

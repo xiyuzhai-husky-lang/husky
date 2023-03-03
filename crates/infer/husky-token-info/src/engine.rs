@@ -296,16 +296,15 @@ impl<'a> AuxInferEngine<'a> {
             | Expr::SuffixOpn { .. }
             | Expr::TemplateInstantiation { .. }
             | Expr::NewTuple { .. }
-            | Expr::NewBoxList { .. }
+            | Expr::BoxList { .. }
             | Expr::Bracketed { .. }
             | Expr::Err(_)
             | Expr::Block { .. }
             | Expr::Be { .. } => (),
-            Expr::BoxColon { .. } => (),
+            Expr::BoxColonList { .. } => (),
             Expr::ApplicationOrRitchieCall { function, .. }
             | Expr::Application { function, .. } => match self.expr_region_data[*function] {
-                Expr::NewBoxList {
-                    caller: None,
+                Expr::BoxList {
                     lbox_token_idx,
                     items,
                     rbox_token_idx,
@@ -313,18 +312,24 @@ impl<'a> AuxInferEngine<'a> {
                     self.sheet.add(lbox_token_idx, TokenInfo::BoxPrefix);
                     self.sheet.add(rbox_token_idx, TokenInfo::BoxPrefix)
                 }
-                Expr::BoxColon {
-                    caller: None,
+                Expr::BoxColonList {
                     lbox_token_idx,
                     colon_token_idx,
-                    rbox_token,
+                    rbox_token_idx,
+                    ..
                 } => {
                     self.sheet.add(lbox_token_idx, TokenInfo::BoxColon);
                     self.sheet.add(colon_token_idx, TokenInfo::BoxColon);
-                    self.sheet.add(rbox_token.token_idx(), TokenInfo::BoxColon)
+                    self.sheet.add(rbox_token_idx, TokenInfo::BoxColon)
                 }
                 _ => (),
             },
+            Expr::Index {
+                owner,
+                lbox_token_idx,
+                indices,
+                rbox_token_idx,
+            } => todo!(),
         }
     }
 
