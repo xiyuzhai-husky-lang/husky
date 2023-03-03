@@ -292,7 +292,6 @@ impl<'a> ExprTypeEngine<'a> {
         level: LocalTermResolveLevel,
         unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationEffect> {
-        p!(self.expr_region_data()[rule.src_expr_idx]);
         match rule.expectation {
             LocalTermExpectation::ExplicitlyConvertible(ref expectation) => self
                 .resolve_explicitly_convertible(

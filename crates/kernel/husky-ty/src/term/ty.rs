@@ -26,6 +26,7 @@ pub fn term_ty(
         }),
         Term::Abstraction(_) => todo!(),
         Term::Application(term) => application_term_ty(db, term),
+        Term::Composition(_) => todo!(),
         Term::Subentity(_) => todo!(),
         Term::AsTraitSubentity(_) => todo!(),
         Term::TraitConstraint(_) => todo!(),

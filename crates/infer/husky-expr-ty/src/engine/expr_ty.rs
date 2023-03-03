@@ -268,7 +268,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ref implicit_arguments,
             } => todo!(),
             Expr::ExplicitApplication { function, argument } => (
-                self.calc_application_expr_ty(function, argument, local_term_region),
+                self.calc_explicit_application_expr_ty(function, argument, local_term_region),
                 Ok(ExprDisambiguation::Trivial),
             ),
             Expr::Bracketed { item, .. } => (
@@ -290,10 +290,12 @@ impl<'a> ExprTypeEngine<'a> {
                 ),
                 Ok(ExprDisambiguation::Trivial),
             ),
-            Expr::BoxList { items, .. } => (
-                self.calc_new_list_expr_ty(expr_idx, items, local_term_region),
-                Ok(ExprDisambiguation::Trivial),
-            ),
+            Expr::BoxList { items, .. } => {
+                (
+                    self.calc_new_list_expr_ty(expr_idx, items, local_term_region),
+                    todo!(), // Ok(ExprDisambiguation::Trivial),
+                )
+            }
             Expr::BoxColonList { .. } => todo!(),
             Expr::Block { stmts } => (
                 self.infer_new_block(stmts, expr_ty_expectation.clone(), local_term_region)

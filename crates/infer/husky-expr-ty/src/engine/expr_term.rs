@@ -4,6 +4,12 @@ use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn infer_new_expr_term(&mut self, expr_idx: ExprIdx) -> Option<LocalTerm> {
+        // expect to infer type before infer term
+        #[cfg(test)]
+        if self.expr_ty_infos.get(expr_idx).is_none() {
+            print_debug_expr!(self, expr_idx);
+            panic!()
+        }
         let term_result = self.calc_expr_term(expr_idx);
         let term = term_result.as_ref().ok().copied();
         self.save_new_expr_term(expr_idx, term_result);

@@ -47,7 +47,7 @@ impl<'a> ExprTypeEngine<'a> {
                 );
                 (
                     Ok(expectation_ok.return_ty()),
-                    Ok(ExprDisambiguation::ApplicationOrRitchieCall(
+                    Ok(ExprDisambiguation::ExplicitApplicationOrRitchieCall(
                         ApplicationOrRitchieCallExprDisambiguation::RitchieCall,
                     )),
                 )

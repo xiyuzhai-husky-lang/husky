@@ -20,6 +20,7 @@ pub(crate) fn field_ty(
         Term::Subentity(_) => todo!(),
         Term::AsTraitSubentity(_) => todo!(),
         Term::TraitConstraint(_) => unreachable!(),
+        Term::Composition(_) => todo!(),
     }
 }
 
@@ -67,6 +68,7 @@ pub(crate) fn application_ty_field_ty(
         Term::Subentity(_) => todo!(),
         Term::AsTraitSubentity(_) => todo!(),
         Term::TraitConstraint(_) => todo!(),
+        Term::Composition(_) => todo!(),
     }
 }
 

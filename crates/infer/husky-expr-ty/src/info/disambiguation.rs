@@ -2,7 +2,8 @@
 pub enum ExprDisambiguation {
     IndexOrComposeWithList(IndexOrComposeWithListExprDisambiguation),
     UnveilOrComposeWithOption(UnveilOrComposeWithOptionExprDisambiguation),
-    ApplicationOrRitchieCall(ApplicationOrRitchieCallExprDisambiguation),
+    ExplicitApplicationOrRitchieCall(ApplicationOrRitchieCallExprDisambiguation),
+    EmptyListOrListFunctor(EmptyListOrListFunctorExprDisambiguation),
     Trivial,
 }
 
@@ -24,4 +25,10 @@ pub enum UnveilOrComposeWithOptionExprDisambiguation {
 pub enum ApplicationOrRitchieCallExprDisambiguation {
     Application,
     RitchieCall,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum EmptyListOrListFunctorExprDisambiguation {
+    EmptyList,
+    ListFunctor,
 }

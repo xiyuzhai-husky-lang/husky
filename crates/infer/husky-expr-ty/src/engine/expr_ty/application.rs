@@ -1,12 +1,13 @@
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn calc_application_expr_ty(
+    pub(super) fn calc_explicit_application_expr_ty(
         &mut self,
         function: ExprIdx,
         argument: ExprIdx,
         local_term_region: &mut LocalTermRegion,
     ) -> Result<LocalTerm, ExprTypeError> {
+        todo!("change this");
         let function_expr = &self[function];
         match function_expr {
             Expr::BoxList {
