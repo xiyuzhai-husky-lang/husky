@@ -22,6 +22,10 @@ impl ExpectLocalTerm for ExpectInsSort {
     fn destination(&self) -> Option<LocalTerm> {
         None
     }
+
+    fn disambiguate_list_expr(&self) -> ExprTypeResult<ListExprDisambiguation> {
+        todo!()
+    }
 }
 
 impl ExpectInsSort {

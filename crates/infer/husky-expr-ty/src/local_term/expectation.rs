@@ -39,6 +39,8 @@ pub(crate) trait ExpectLocalTerm:
     type Outcome: ExpectLocalTermOutcome;
 
     fn destination(&self) -> Option<LocalTerm>;
+
+    fn disambiguate_list_expr(&self) -> ExprTypeResult<ListExprDisambiguation>;
 }
 
 pub(crate) trait ExpectLocalTermOutcome: Into<LocalTermExpectationOutcome> {

@@ -1,9 +1,10 @@
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[enum_class::from_variants]
 pub enum ExprDisambiguation {
     IndexOrComposeWithList(IndexOrComposeWithListExprDisambiguation),
     UnveilOrComposeWithOption(UnveilOrComposeWithOptionExprDisambiguation),
     ExplicitApplicationOrRitchieCall(ApplicationOrRitchieCallExprDisambiguation),
-    EmptyListOrListFunctor(EmptyListOrListFunctorExprDisambiguation),
+    List(ListExprDisambiguation),
     Trivial,
 }
 
@@ -28,7 +29,7 @@ pub enum ApplicationOrRitchieCallExprDisambiguation {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum EmptyListOrListFunctorExprDisambiguation {
-    EmptyList,
+pub enum ListExprDisambiguation {
+    NewList,
     ListFunctor,
 }
