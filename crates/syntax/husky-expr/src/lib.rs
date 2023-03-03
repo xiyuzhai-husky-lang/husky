@@ -97,7 +97,7 @@ pub enum Expr {
     },
     SelfType(TokenIdx),
     SelfValue(TokenIdx),
-    BinaryOpn {
+    Binary {
         lopd: ExprIdx,
         opr: BinaryOpr,
         opr_token_idx: TokenIdx,
@@ -108,12 +108,12 @@ pub enum Expr {
         be_token_idx: TokenIdx,
         target: ExprResult<BeVariableDeclPattern>,
     },
-    PrefixOpn {
+    Prefix {
         opr: PrefixOpr,
         opr_token_idx: TokenIdx,
         opd: ExprIdx,
     },
-    SuffixOpn {
+    Suffix {
         opd: ExprIdx,
         opr: SuffixOpr,
         opr_token_idx: TokenIdx,
@@ -164,7 +164,7 @@ pub enum Expr {
         template: ExprIdx,
         implicit_arguments: ImplicitArgumentList,
     },
-    ExplicitApplication {
+    ExplicitApplicationOrComposition {
         function: ExprIdx,
         argument: ExprIdx,
     },
@@ -183,7 +183,7 @@ pub enum Expr {
     /// - index `$owner[$items]` where `$owner` can be indexed
     /// - application `$owner [$items]` where `$owner` is of type `List _ -> S`
     /// the cases are determined by whether `$owner` is of curry type
-    IndexOrComposeWithList {
+    IndexOrCompositionWithList {
         owner: ExprIdx,
         lbox_token_idx: TokenIdx,
         items: ExprIdxRange,

@@ -201,7 +201,7 @@ impl<'a> SignatureTermEngine<'a> {
             } => todo!(),
             Expr::SelfType(_) => todo!(),
             Expr::SelfValue(_) => todo!(),
-            Expr::BinaryOpn {
+            Expr::Binary {
                 lopd, opr, ropd, ..
             } => {
                 let  Ok(lopd) = self.infer_new(lopd) else {
@@ -231,7 +231,7 @@ impl<'a> SignatureTermEngine<'a> {
                 }
             }
             Expr::Be { .. } => todo!(),
-            Expr::PrefixOpn {
+            Expr::Prefix {
                 opr,
                 opr_token_idx,
                 opd,
@@ -252,7 +252,7 @@ impl<'a> SignatureTermEngine<'a> {
                 };
                 Ok(TermApplication::new(self.db, tmpl, opd).into())
             }
-            Expr::SuffixOpn {
+            Expr::Suffix {
                 opd,
                 opr: punctuation,
                 opr_token_idx: punctuation_token_idx,
@@ -265,7 +265,7 @@ impl<'a> SignatureTermEngine<'a> {
             Expr::MethodCall { .. } => todo!(),
             Expr::TemplateInstantiation { .. } => todo!(),
             Expr::ExplicitApplicationOrRitchieCall { function, .. } => todo!(),
-            Expr::ExplicitApplication { function, argument } => {
+            Expr::ExplicitApplicationOrComposition { function, argument } => {
                 let  Ok(argument) = self.infer_new(argument) else {
                         return  Err(DerivedSignatureTermError::CannotInferArgumentTermInApplication.into())
                     };
@@ -309,7 +309,7 @@ impl<'a> SignatureTermEngine<'a> {
                             } => todo!(),
                             Expr::SelfType(_) => todo!(),
                             Expr::SelfValue(_) => todo!(),
-                            Expr::BinaryOpn {
+                            Expr::Binary {
                                 lopd,
                                 opr,
                                 opr_token_idx,
@@ -320,12 +320,12 @@ impl<'a> SignatureTermEngine<'a> {
                                 be_token_idx,
                                 ref target,
                             } => todo!(),
-                            Expr::PrefixOpn {
+                            Expr::Prefix {
                                 opr,
                                 opr_token_idx,
                                 opd,
                             } => todo!(),
-                            Expr::SuffixOpn {
+                            Expr::Suffix {
                                 opd,
                                 opr: punctuation,
                                 opr_token_idx: punctuation_token_idx,
@@ -349,7 +349,9 @@ impl<'a> SignatureTermEngine<'a> {
                                 template,
                                 ref implicit_arguments,
                             } => todo!(),
-                            Expr::ExplicitApplication { function, argument } => todo!(),
+                            Expr::ExplicitApplicationOrComposition { function, argument } => {
+                                todo!()
+                            }
                             Expr::Bracketed {
                                 lpar_token_idx,
                                 item,
@@ -368,7 +370,7 @@ impl<'a> SignatureTermEngine<'a> {
                                 Err(DerivedSignatureTermError::CannotInferArgumentTermInBoxList
                                     .into())
                             }
-                            Expr::IndexOrComposeWithList { .. } => todo!(),
+                            Expr::IndexOrCompositionWithList { .. } => todo!(),
                         },
                         _ => todo!(),
                     },
@@ -394,7 +396,7 @@ impl<'a> SignatureTermEngine<'a> {
             Expr::BoxColonList { .. } => todo!(),
             Expr::Bracketed { item, .. } => self.infer_new(item),
             Expr::Block { stmts } => todo!(),
-            Expr::IndexOrComposeWithList {
+            Expr::IndexOrCompositionWithList {
                 owner,
                 lbox_token_idx,
                 items: indices,

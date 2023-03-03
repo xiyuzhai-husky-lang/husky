@@ -291,9 +291,9 @@ impl<'a> AuxInferEngine<'a> {
             }
             Expr::Literal(_)
             | Expr::EntityPath { .. }
-            | Expr::BinaryOpn { .. }
-            | Expr::PrefixOpn { .. }
-            | Expr::SuffixOpn { .. }
+            | Expr::Binary { .. }
+            | Expr::Prefix { .. }
+            | Expr::Suffix { .. }
             | Expr::TemplateInstantiation { .. }
             | Expr::NewTuple { .. }
             | Expr::BoxList { .. }
@@ -303,7 +303,7 @@ impl<'a> AuxInferEngine<'a> {
             | Expr::Be { .. } => (),
             Expr::BoxColonList { .. } => (),
             Expr::ExplicitApplicationOrRitchieCall { function, .. }
-            | Expr::ExplicitApplication { function, .. } => {
+            | Expr::ExplicitApplicationOrComposition { function, .. } => {
                 match self.expr_region_data[*function] {
                     Expr::BoxList {
                         lbox_token_idx,
@@ -326,7 +326,7 @@ impl<'a> AuxInferEngine<'a> {
                     _ => (),
                 }
             }
-            Expr::IndexOrComposeWithList {
+            Expr::IndexOrCompositionWithList {
                 owner,
                 lbox_token_idx,
                 items: indices,

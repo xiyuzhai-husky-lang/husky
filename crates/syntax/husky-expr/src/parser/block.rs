@@ -213,7 +213,7 @@ impl<'a> BlockExprParser<'a> {
         body: AstIdxRange,
     ) -> StmtResult<Stmt> {
         match self.expr_arena[expr] {
-            Expr::BinaryOpn {
+            Expr::Binary {
                 lopd,
                 opr: BinaryOpr::Comparison(comparison_opr),
                 opr_token_idx,
@@ -254,7 +254,7 @@ impl<'a> BlockExprParser<'a> {
                     block: self.parse_block_stmts_expected(body, token_group_idx),
                 })
             }
-            Expr::BinaryOpn {
+            Expr::Binary {
                 lopd,
                 opr: BinaryOpr::In,
                 opr_token_idx,
@@ -300,7 +300,7 @@ impl<'a> BlockExprParser<'a> {
         } else {
             let final_comparison = comparison_opr;
             match lopd_expr {
-                Expr::BinaryOpn {
+                Expr::Binary {
                     lopd: llopd,
                     opr: BinaryOpr::Comparison(initial_comparison),
                     opr_token_idx,
