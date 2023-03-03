@@ -311,26 +311,31 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Result<LocalTerm, ExprTypeError> {
         let expr_eval_lifetime = local_term_region
             .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
-        let (lopd_expectation_rule_idx, _) = self.infer_new_expr_ty_with_expectation_returned(
+        match self.infer_new_expr_ty_with_expectation_returned(
             lopd,
             ExpectEqsRefMutApplication {
                 lifetime: expr_eval_lifetime,
             },
             local_term_region,
-        );
-        if let Some(lopd_expectation_rule_idx) = lopd_expectation_rule_idx.into_option() {
-            match local_term_region[lopd_expectation_rule_idx].resolve_progress() {
-                LocalTermExpectationResolveProgress::Unresolved => unreachable!("think hard"),
-                LocalTermExpectationResolveProgress::Resolved(Ok(resolved_ok)) => {
-                    todo!()
-                }
-                LocalTermExpectationResolveProgress::Resolved(Err(_)) => {
-                    self.infer_new_expr_ty(ropd, ExpectAnyDerived, local_term_region);
-                }
+        ) {
+            Some(_) => todo!(),
+            None => {
+                self.infer_new_expr_ty(ropd, ExpectAnyDerived, local_term_region);
             }
-        } else {
-            self.infer_new_expr_ty(ropd, ExpectAnyDerived, local_term_region);
-        }
+        };
+        // if let Some(lopd_expectation_rule_idx) = lopd_expectation_rule_idx.into_option() {
+        //     match local_term_region[lopd_expectation_rule_idx].resolve_progress() {
+        //         LocalTermExpectationResolveProgress::Unresolved => unreachable!("think hard"),
+        //         LocalTermExpectationResolveProgress::Resolved(Ok(resolved_ok)) => {
+        //             todo!()
+        //         }
+        //         LocalTermExpectationResolveProgress::Resolved(Err(_)) => {
+        //             self.infer_new_expr_ty(ropd, ExpectAnyDerived, local_term_region);
+        //         }
+        //     }
+        // } else {
+        //     self.infer_new_expr_ty(ropd, ExpectAnyDerived, local_term_region);
+        // }
         // match lopd_ty {
         //     Some(lopd_ty) => match opr {
         //         Some(opr) => {

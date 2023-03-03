@@ -368,7 +368,7 @@ impl<'a> SignatureTermEngine<'a> {
                                 Err(DerivedSignatureTermError::CannotInferArgumentTermInBoxList
                                     .into())
                             }
-                            Expr::Index { .. } => todo!(),
+                            Expr::IndexOrComposeWithList { .. } => todo!(),
                         },
                         _ => todo!(),
                     },
@@ -394,10 +394,10 @@ impl<'a> SignatureTermEngine<'a> {
             Expr::BoxColonList { .. } => todo!(),
             Expr::Bracketed { item, .. } => self.infer_new(item),
             Expr::Block { stmts } => todo!(),
-            Expr::Index {
+            Expr::IndexOrComposeWithList {
                 owner,
                 lbox_token_idx,
-                indices,
+                items: indices,
                 rbox_token_idx,
             } => todo!(),
             Expr::Err(_) => Err(DerivedSignatureTermError::ExprError.into()),

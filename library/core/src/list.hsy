@@ -1,1 +1,3 @@
+// todo: change to
+// pub type List<universe u, covariant E: Sort u>;
 pub type List<covariant E>;

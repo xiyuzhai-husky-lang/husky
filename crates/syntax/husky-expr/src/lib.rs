@@ -179,15 +179,14 @@ pub enum Expr {
         commas: Vec<TokenIdx>,
         rpar_token_idx: TokenIdx,
     },
-    /// there are several cases
-    /// - `A []B` where `A` is of type `Type u -> S`
-    /// - `A [:n]B` where `A` is of type `Type u -> S`, n const usize
-    /// - `a[n] B` where `a` is of type `List (Type u -> S)`, n const usize
-    /// - `[]B`
-    Index {
+    /// there are two cases
+    /// - index `$owner[$items]` where `$owner` can be indexed
+    /// - application `$owner [$items]` where `$owner` is of type `List _ -> S`
+    /// the cases are determined by whether `$owner` is of curry type
+    IndexOrComposeWithList {
         owner: ExprIdx,
         lbox_token_idx: TokenIdx,
-        indices: ExprIdxRange,
+        items: ExprIdxRange,
         rbox_token_idx: TokenIdx,
     },
     BoxList {

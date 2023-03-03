@@ -279,7 +279,7 @@ impl<'a> ExprRangeCalculator<'a> {
                 *lpar_token_idx,
                 TokenIdxRangeEnd::new_after(*rpar_token_idx),
             ),
-            Expr::Index {
+            Expr::IndexOrComposeWithList {
                 owner,
                 lbox_token_idx,
                 rbox_token_idx,
@@ -297,7 +297,10 @@ impl<'a> ExprRangeCalculator<'a> {
                 lbox_token_idx,
                 rbox_token_idx,
                 ..
-            } => TokenIdxRange::new(*lbox_token_idx, TokenIdxRangeEnd::new_after(*rbox_token_idx)),
+            } => TokenIdxRange::new(
+                *lbox_token_idx,
+                TokenIdxRangeEnd::new_after(*rbox_token_idx),
+            ),
             Expr::Block { stmts } => self.calc_block_range(*stmts),
             Expr::Err(error) => match error {
                 ExprError::Original(error) => match error {

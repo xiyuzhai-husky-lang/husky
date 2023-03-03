@@ -6,7 +6,11 @@ use super::*;
 pub enum SuffixOpr {
     Incr, // ++
     Decr, // --
-    Unveil,
+    /// there are two cases
+    /// - index `$opd[$items]` where `$opd` can be indexed
+    /// - compose with functor `Option` `$opd ?` where `$opd` is of type `Option _ -> S`
+    /// the cases are determined by whether `$opd` is of curry type
+    UnveilOrComposeWithOption,
 }
 
 impl SuffixOpr {
@@ -14,7 +18,7 @@ impl SuffixOpr {
         match self {
             SuffixOpr::Incr => "++".into(),
             SuffixOpr::Decr => "--".into(),
-            SuffixOpr::Unveil => "?".into(),
+            SuffixOpr::UnveilOrComposeWithOption => "?".into(),
         }
     }
 }

@@ -102,12 +102,12 @@ impl Expr {
             Expr::FrameVarDecl {
                 token_idx, ident, ..
             } => todo!(),
-            Expr::Index {
+            Expr::IndexOrComposeWithList {
                 owner,
                 lbox_token_idx,
-                indices,
+                items: indices,
                 rbox_token_idx,
-            } => todo!(),
+            } => arena[owner].base_entity_path(db, arena),
         }
     }
 }

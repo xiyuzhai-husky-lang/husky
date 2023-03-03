@@ -3,15 +3,17 @@
 mod db;
 mod engine;
 mod error;
+mod info;
 mod local_term;
 mod region;
 #[cfg(test)]
 mod tests;
 
-pub use db::*;
-pub use error::*;
-pub use local_term::*;
-pub use region::*;
+pub use self::db::*;
+pub use self::error::*;
+pub use self::info::*;
+pub use self::local_term::*;
+pub use self::region::*;
 
 use engine::*;
 use husky_defn::*;

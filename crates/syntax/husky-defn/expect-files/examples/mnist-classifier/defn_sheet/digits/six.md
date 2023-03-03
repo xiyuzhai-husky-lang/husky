@@ -142,8 +142,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::NewBoxList {
-                                                    caller: None,
+                                                Expr::BoxList {
                                                     lbox_token_idx: TokenIdx(
                                                         73,
                                                     ),
@@ -411,8 +410,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::NewBoxList {
-                                                    caller: None,
+                                                Expr::BoxList {
                                                     lbox_token_idx: TokenIdx(
                                                         86,
                                                     ),
@@ -706,10 +704,8 @@ Ok(
                                                         109,
                                                     ),
                                                 ),
-                                                Expr::NewBoxList {
-                                                    caller: Some(
-                                                        3,
-                                                    ),
+                                                Expr::IndexOrComposeWithList {
+                                                    owner: 3,
                                                     lbox_token_idx: TokenIdx(
                                                         108,
                                                     ),
@@ -844,10 +840,8 @@ Ok(
                                                         136,
                                                     ),
                                                 ),
-                                                Expr::NewBoxList {
-                                                    caller: Some(
-                                                        16,
-                                                    ),
+                                                Expr::IndexOrComposeWithList {
+                                                    owner: 16,
                                                     lbox_token_idx: TokenIdx(
                                                         135,
                                                     ),
@@ -982,7 +976,7 @@ Ok(
                                                 },
                                                 Expr::SuffixOpn {
                                                     opd: 29,
-                                                    opr: Unveil,
+                                                    opr: UnveilOrComposeWithOption,
                                                     opr_token_idx: TokenIdx(
                                                         157,
                                                     ),
@@ -1014,10 +1008,8 @@ Ok(
                                                         165,
                                                     ),
                                                 ),
-                                                Expr::NewBoxList {
-                                                    caller: Some(
-                                                        32,
-                                                    ),
+                                                Expr::IndexOrComposeWithList {
+                                                    owner: 32,
                                                     lbox_token_idx: TokenIdx(
                                                         164,
                                                     ),
@@ -1333,7 +1325,7 @@ Ok(
                                                 },
                                                 Expr::SuffixOpn {
                                                     opd: 62,
-                                                    opr: Unveil,
+                                                    opr: UnveilOrComposeWithOption,
                                                     opr_token_idx: TokenIdx(
                                                         227,
                                                     ),
@@ -1587,7 +1579,7 @@ Ok(
                                                 },
                                                 Expr::SuffixOpn {
                                                     opd: 83,
-                                                    opr: Unveil,
+                                                    opr: UnveilOrComposeWithOption,
                                                     opr_token_idx: TokenIdx(
                                                         268,
                                                     ),
@@ -1773,7 +1765,7 @@ Ok(
                                                 },
                                                 Expr::SuffixOpn {
                                                     opd: 102,
-                                                    opr: Unveil,
+                                                    opr: UnveilOrComposeWithOption,
                                                     opr_token_idx: TokenIdx(
                                                         294,
                                                     ),
@@ -1879,10 +1871,8 @@ Ok(
                                                         313,
                                                     ),
                                                 ),
-                                                Expr::NewBoxList {
-                                                    caller: Some(
-                                                        113,
-                                                    ),
+                                                Expr::IndexOrComposeWithList {
+                                                    owner: 113,
                                                     lbox_token_idx: TokenIdx(
                                                         312,
                                                     ),
@@ -1969,10 +1959,8 @@ Ok(
                                                         328,
                                                     ),
                                                 ),
-                                                Expr::NewBoxList {
-                                                    caller: Some(
-                                                        121,
-                                                    ),
+                                                Expr::IndexOrComposeWithList {
+                                                    owner: 121,
                                                     lbox_token_idx: TokenIdx(
                                                         327,
                                                     ),
@@ -2021,10 +2009,8 @@ Ok(
                                                         338,
                                                     ),
                                                 ),
-                                                Expr::NewBoxList {
-                                                    caller: Some(
-                                                        126,
-                                                    ),
+                                                Expr::IndexOrComposeWithList {
+                                                    owner: 126,
                                                     lbox_token_idx: TokenIdx(
                                                         337,
                                                     ),
