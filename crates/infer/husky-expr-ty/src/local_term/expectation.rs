@@ -67,7 +67,7 @@ pub(crate) enum LocalTermExpectationOutcome {
     EqsSort(ExpectEqsSortOutcome),
     EqsExactly(ExpectEqsExactlyOutcome),
     EqsRefMutApplication(ExpectEqsRefMutApplicationOutcome),
-    EqsRitchieCallType(ExpectEqsFunctionTypeOk),
+    EqsRitchieCallType(ExpectEqsFunctionTypeOutcome),
 }
 
 impl LocalTermExpectationOutcome {
