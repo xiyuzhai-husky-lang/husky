@@ -3,6 +3,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum ImplicitConversion {
     None,
+    Never,
     Other,
 }
 
@@ -157,8 +158,8 @@ impl<'a> ExprTypeEngine<'a> {
         destination: ReducedTerm,
         unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationEffect> {
-        if expectee == destination {
-            return Some(LocalTermExpectationEffect {
+        match expectee {
+            expectee if expectee == destination => Some(LocalTermExpectationEffect {
                 result: Ok(ExpectImplicitlyConvertibleOutcome {
                     implicit_conversion: ImplicitConversion::None,
                     expectee: expectee.into(),
@@ -166,13 +167,23 @@ impl<'a> ExprTypeEngine<'a> {
                 }
                 .into()),
                 actions: vec![],
-            });
+            }),
+            expectee if expectee == self.reduced_term_menu().never() => {
+                Some(LocalTermExpectationEffect {
+                    result: Ok(ExpectImplicitlyConvertibleOutcome {
+                        implicit_conversion: ImplicitConversion::Never,
+                        expectee: expectee.into(),
+                        destination: destination.into(),
+                    }
+                    .into()),
+                    actions: vec![],
+                })
+            }
+            _ => Some(LocalTermExpectationEffect {
+                result: Err(todo!()),
+                actions: vec![],
+            }),
         }
-        // ad hoc
-        Some(LocalTermExpectationEffect {
-            result: Err(todo!()),
-            actions: vec![],
-        })
     }
 
     fn unres_to(
@@ -202,7 +213,12 @@ impl<'a> ExprTypeEngine<'a> {
             UnresolvedTerm::TypeApplication {
                 ty_path: ty,
                 arguments,
-            } => self.unres_ty_app_to(*ty, arguments, destination, unresolved_terms),
+            } => self.unresolved_ty_app_expectee_implicitly_convertible_to(
+                *ty,
+                arguments,
+                destination,
+                unresolved_terms,
+            ),
             UnresolvedTerm::Ritchie {
                 ritchie_kind,
                 parameter_tys,
@@ -212,7 +228,7 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     /// expectation rule effect for implicit conversion from unresolved type application to unresolved expectee
-    fn unres_ty_app_to(
+    fn unresolved_ty_app_expectee_implicitly_convertible_to(
         &self,
         ty: TypePath,
         arguments: &[LocalTerm],
@@ -226,11 +242,15 @@ impl<'a> ExprTypeEngine<'a> {
             ty if ty == self.entity_path_menu().ref_mut_ty_path() => {
                 todo!()
             }
-            ty => self.generic_unres_ty_app_to(ty, arguments, destination),
+            ty => self.generic_unresolved_ty_app_expectee_implicitly_convertible_to(
+                ty,
+                arguments,
+                destination,
+            ),
         }
     }
 
-    fn generic_unres_ty_app_to(
+    fn generic_unresolved_ty_app_expectee_implicitly_convertible_to(
         &self,
         ty_path: TypePath,
         arguments: &[LocalTerm],
@@ -244,8 +264,9 @@ impl<'a> ExprTypeEngine<'a> {
                     Term::Symbol(_) => todo!(),
                     Term::Entity(destination_ty_path) => {
                         match destination_ty_path.ty_path() {
-                            Some(destination_ty_path) if destination_ty_path==ty_path =>(),
+                            Some(destination_ty_path) if destination_ty_path == ty_path =>(),
                             Some(destination_ty_path) /* if destination_ty_path!=ty_path */ => {
+                                p!(self.path(), destination_ty_path.debug(self.db()), ty_path.debug(self.db()));
                                 return Some(LocalTermExpectationEffect {
                                     result: Err(todo!()),
                                     actions: vec![],

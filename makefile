@@ -45,3 +45,6 @@ organise: install-devtools
 adversarial:
 	# cargo test
 	ADVERSARIAL=100000 cargo test
+
+run-notebook:
+	cargo run --path crates/apps/husky-notebook

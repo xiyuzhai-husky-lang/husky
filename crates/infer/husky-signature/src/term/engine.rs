@@ -270,22 +270,16 @@ impl<'a> SignatureTermEngine<'a> {
                         return  Err(DerivedSignatureTermError::CannotInferArgumentTermInApplication.into())
                     };
                 match self.expr_region_data.expr_arena()[function] {
-                    Expr::BoxColon {
-                        caller: None,
-                        lbox_token_idx,
-                        colon_token_idx,
-                        rbox_token,
-                    } => {
-                        Ok(
-                            TermApplication::new(self.db, self.term_menu.slice_ty_path(), argument)
-                                .into(),
+                    Expr::BoxColonList { items, .. } => match items.len() {
+                        0 => Ok(TermApplication::new(
+                            self.db,
+                            self.term_menu.slice_ty_path(),
+                            argument,
                         )
-                    }
-                    Expr::NewBoxList {
-                        caller: None,
-                        items,
-                        ..
-                    } => match items.len() {
+                        .into()),
+                        _ => todo!(),
+                    },
+                    Expr::BoxList { items, .. } => match items.len() {
                         0 => Ok(
                             TermApplication::new(self.db, self.term_menu.list(), argument).into(),
                         ),
@@ -367,23 +361,14 @@ impl<'a> SignatureTermEngine<'a> {
                                 ref commas,
                                 rpar_token_idx,
                             } => todo!(),
-                            Expr::NewBoxList {
-                                caller,
-                                lbox_token_idx,
-                                items,
-                                rbox_token_idx,
-                            } => todo!(),
-                            Expr::BoxColon {
-                                caller,
-                                lbox_token_idx,
-                                colon_token_idx,
-                                rbox_token,
-                            } => todo!(),
+                            Expr::BoxList { .. } => todo!(),
+                            Expr::BoxColonList { .. } => todo!(),
                             Expr::Block { stmts } => todo!(),
                             Expr::Err(_) => {
                                 Err(DerivedSignatureTermError::CannotInferArgumentTermInBoxList
                                     .into())
                             }
+                            Expr::Index { .. } => todo!(),
                         },
                         _ => todo!(),
                     },
@@ -405,20 +390,16 @@ impl<'a> SignatureTermEngine<'a> {
                 p!(items.len());
                 todo!()
             }
-            Expr::NewBoxList {
-                caller,
-                lbox_token_idx,
-                items,
-                rbox_token_idx,
-            } => todo!(),
-            Expr::BoxColon {
-                caller,
-                lbox_token_idx,
-                colon_token_idx,
-                rbox_token,
-            } => todo!(),
+            Expr::BoxList { .. } => todo!(),
+            Expr::BoxColonList { .. } => todo!(),
             Expr::Bracketed { item, .. } => self.infer_new(item),
             Expr::Block { stmts } => todo!(),
+            Expr::Index {
+                owner,
+                lbox_token_idx,
+                indices,
+                rbox_token_idx,
+            } => todo!(),
             Expr::Err(_) => Err(DerivedSignatureTermError::ExprError.into()),
         }
     }

@@ -9,8 +9,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Result<LocalTerm, ExprTypeError> {
         let function_expr = &self[function];
         match function_expr {
-            Expr::NewBoxList {
-                caller: None,
+            Expr::BoxList {
                 lbox_token_idx,
                 items,
                 rbox_token_idx,
@@ -45,11 +44,10 @@ impl<'a> ExprTypeEngine<'a> {
                     }
                 }
             }
-            Expr::BoxColon {
-                caller,
+            Expr::BoxColonList {
                 lbox_token_idx,
                 colon_token_idx,
-                rbox_token,
+                ..
             } => todo!(),
             _ => {
                 let function_ty = self.infer_new_expr_ty(

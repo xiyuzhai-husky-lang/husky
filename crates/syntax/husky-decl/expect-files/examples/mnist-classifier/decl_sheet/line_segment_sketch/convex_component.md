@@ -68,8 +68,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                Expr::NewBoxList {
-                                                    caller: None,
+                                                Expr::BoxList {
                                                     lbox_token_idx: TokenIdx(
                                                         16,
                                                     ),

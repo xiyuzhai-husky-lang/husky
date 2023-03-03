@@ -279,30 +279,25 @@ impl<'a> ExprRangeCalculator<'a> {
                 *lpar_token_idx,
                 TokenIdxRangeEnd::new_after(*rpar_token_idx),
             ),
-            Expr::NewBoxList {
-                caller,
+            Expr::Index {
+                owner,
                 lbox_token_idx,
                 rbox_token_idx,
                 ..
-            } => match caller {
-                Some(caller) => self[caller].to(TokenIdxRangeEnd::new_after(*rbox_token_idx)),
-                None => TokenIdxRange::new(
-                    *lbox_token_idx,
-                    TokenIdxRangeEnd::new_after(*rbox_token_idx),
-                ),
-            },
-            Expr::BoxColon {
-                caller,
+            } => self[owner].to(TokenIdxRangeEnd::new_after(*rbox_token_idx)),
+            Expr::BoxList {
                 lbox_token_idx,
-                rbox_token,
+                rbox_token_idx,
                 ..
-            } => match caller {
-                Some(_) => todo!(),
-                None => TokenIdxRange::new(
-                    *lbox_token_idx,
-                    TokenIdxRangeEnd::new_after(rbox_token.token_idx()),
-                ),
-            },
+            } => TokenIdxRange::new(
+                *lbox_token_idx,
+                TokenIdxRangeEnd::new_after(*rbox_token_idx),
+            ),
+            Expr::BoxColonList {
+                lbox_token_idx,
+                rbox_token_idx,
+                ..
+            } => TokenIdxRange::new(*lbox_token_idx, TokenIdxRangeEnd::new_after(*rbox_token_idx)),
             Expr::Block { stmts } => self.calc_block_range(*stmts),
             Expr::Err(error) => match error {
                 ExprError::Original(error) => match error {

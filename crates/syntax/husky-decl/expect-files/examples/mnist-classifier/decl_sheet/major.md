@@ -48,8 +48,7 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                Expr::NewBoxList {
-                                                    caller: None,
+                                                Expr::BoxList {
                                                     lbox_token_idx: TokenIdx(
                                                         34,
                                                     ),
@@ -397,8 +396,7 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                Expr::NewBoxList {
-                                                    caller: None,
+                                                Expr::BoxList {
                                                     lbox_token_idx: TokenIdx(
                                                         130,
                                                     ),
@@ -746,8 +744,7 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                Expr::NewBoxList {
-                                                    caller: None,
+                                                Expr::BoxList {
                                                     lbox_token_idx: TokenIdx(
                                                         162,
                                                     ),

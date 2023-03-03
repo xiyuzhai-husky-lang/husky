@@ -1,6 +1,7 @@
 mod application;
 mod binary;
 mod box_list;
+mod index;
 mod literal;
 mod prefix;
 mod ritchie_call_ty;
@@ -358,10 +359,13 @@ impl<'a> ExprTypeEngine<'a> {
                 .infer_new_expr_ty(item, expr_ty_expectation.clone(), local_term_region)
                 .ok_or(DerivedExprTypeError::BracketedItemTypeError.into()),
             Expr::NewTuple { items, .. } => todo!(),
-            Expr::NewBoxList { caller, items, .. } => {
-                self.calc_new_box_list(expr_idx, items, local_term_region)
+            Expr::Index { owner, indices, .. } => {
+                self.calc_index_expr(expr_idx, owner, indices, local_term_region)
             }
-            Expr::BoxColon { caller, .. } => todo!(),
+            Expr::BoxList { items, .. } => {
+                self.calc_new_list_expr(expr_idx, items, local_term_region)
+            }
+            Expr::BoxColonList { .. } => todo!(),
             Expr::Block { stmts } => self
                 .infer_new_block(stmts, expr_ty_expectation.clone(), local_term_region)
                 .ok_or(DerivedExprTypeError::BlockTypeError.into()),

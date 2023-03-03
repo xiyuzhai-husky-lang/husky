@@ -51,8 +51,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                Expr::NewBoxList {
-                                                    caller: None,
+                                                Expr::BoxList {
                                                     lbox_token_idx: TokenIdx(
                                                         45,
                                                     ),
@@ -272,8 +271,7 @@ Ok(
                                                     ),
                                                     opd: 0,
                                                 },
-                                                Expr::NewBoxList {
-                                                    caller: None,
+                                                Expr::BoxList {
                                                     lbox_token_idx: TokenIdx(
                                                         170,
                                                     ),
@@ -1909,8 +1907,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::NewBoxList {
-                                                    caller: None,
+                                                Expr::BoxList {
                                                     lbox_token_idx: TokenIdx(
                                                         1051,
                                                     ),
@@ -3383,8 +3380,7 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::NewBoxList {
-                                                        caller: None,
+                                                    Expr::BoxList {
                                                         lbox_token_idx: TokenIdx(
                                                             181,
                                                         ),
