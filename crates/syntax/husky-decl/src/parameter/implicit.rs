@@ -30,7 +30,10 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDecl {
         Ok(Some(Self {
             pattern,
             traits: if let Some(colon) = ctx.parse::<ColonToken>()? {
-                Some((colon, ctx.parse_expr(Bracket::Angle)))
+                Some((
+                    colon,
+                    ctx.parse_expr(ExprEnvironment::WithinBracket(Bracket::Angle)),
+                ))
             } else {
                 None
             },

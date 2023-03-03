@@ -42,7 +42,7 @@ impl Token {
             Token::Attr(_) => todo!(),
             Token::Keyword(_) => Convexity::Concave,
             Token::Identifier(_) | Token::Label(_) => Convexity::Convex,
-            Token::Punctuation(special) => match special {
+            Token::Punctuation(punctuation) => match punctuation {
                 Punctuation::Binary(_) => Convexity::Concave,
                 Punctuation::Suffix(_) => todo!(),
                 Punctuation::Bra(_) => Convexity::Concave,
@@ -71,6 +71,8 @@ impl Token {
                 Punctuation::DotDot => todo!(),
                 Punctuation::Star => todo!(),
                 Punctuation::Sheba => todo!(),
+                Punctuation::Eq => Convexity::Concave,
+                Punctuation::EqEq => todo!(),
             },
             Token::WordOpr(_) => todo!(),
             Token::Literal(_) => Convexity::Convex,

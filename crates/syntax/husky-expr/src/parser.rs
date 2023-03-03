@@ -97,11 +97,15 @@ impl<'a> ExprParser<'a> {
         )
     }
 
-    pub fn ctx<'b>(&'b mut self, token_stream: TokenStream<'a>) -> ExprParseContext<'a, 'b>
+    pub fn ctx<'b>(
+        &'b mut self,
+        env: Option<ExprEnvironment>,
+        token_stream: TokenStream<'a>,
+    ) -> ExprParseContext<'a, 'b>
     where
         'a: 'b,
     {
-        ExprParseContext::new(self, token_stream)
+        ExprParseContext::new(self, env, token_stream)
     }
 
     pub(crate) fn pattern_expr_region(&self) -> &PatternExprRegion {
@@ -120,16 +124,20 @@ impl<'a> ExprParser<'a> {
 
 pub struct ExprParseContext<'a, 'b> {
     parser: &'b mut ExprParser<'a>,
-    env: ExprEnvironment,
+    env_stack: ExprEnvironmentStack,
     token_stream: TokenStream<'a>,
     stack: ExprStack,
 }
 
 impl<'a, 'b> ExprParseContext<'a, 'b> {
-    pub(super) fn new(parser: &'b mut ExprParser<'a>, token_stream: TokenStream<'a>) -> Self {
+    pub(super) fn new(
+        parser: &'b mut ExprParser<'a>,
+        env: Option<ExprEnvironment>,
+        token_stream: TokenStream<'a>,
+    ) -> Self {
         Self {
             parser,
-            env: Default::default(),
+            env_stack: ExprEnvironmentStack::new(env),
             token_stream,
             stack: Default::default(),
         }
@@ -144,10 +152,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     }
 
     #[inline(always)]
-    pub fn parse_expr(&mut self, env_bra: impl Into<Option<Bracket>>) -> Option<ExprIdx> {
-        let env = env_bra.into();
+    pub fn parse_expr(&mut self, env: impl Into<Option<ExprEnvironment>>) -> Option<ExprIdx> {
+        let env = env.into();
         if let Some(env) = env {
-            self.env.set(env);
+            self.env_stack.set(env);
         }
         loop {
             let Some((token_idx, token)) = self.token_stream.next_indexed()
@@ -164,19 +172,19 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         }
         self.reduce(Precedence::None);
         if env.is_some() {
-            self.env.unset();
+            self.env_stack.unset();
         }
         self.finish_batch()
     }
 
     pub fn parse_expr_expected<E: OriginalError>(
         &mut self,
-        env_bra: Option<Bracket>,
+        env: Option<ExprEnvironment>,
         err: impl FnOnce(TokenIdx) -> E,
     ) -> Result<ExprIdx, E::Error> {
         let state = self.state();
-        if let Some(env_bra) = env_bra {
-            self.env.set(env_bra);
+        if let Some(env) = env {
+            self.env_stack.set(env);
         }
         loop {
             let Some((token_idx, token)) = self.token_stream.next_indexed()
@@ -192,8 +200,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             }
         }
         self.reduce(Precedence::None);
-        if env_bra.is_some() {
-            self.env.unset();
+        if env.is_some() {
+            self.env_stack.unset();
         }
         match self.finish_batch() {
             Some(expr_idx) => Ok(expr_idx),
@@ -203,12 +211,12 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
     pub fn parse_expr_expected2(
         &mut self,
-        env_bra: Option<Bracket>,
+        env: Option<ExprEnvironment>,
         err: impl FnOnce(TokenIdx) -> OriginalExprError,
     ) -> ExprIdx {
         let state = self.state();
-        if let Some(env_bra) = env_bra {
-            self.env.set(env_bra);
+        if let Some(env) = env {
+            self.env_stack.set(env);
         }
         loop {
             let Some((token_idx, token)) = self.token_stream.next_indexed()
@@ -224,8 +232,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             }
         }
         self.reduce(Precedence::None);
-        if env_bra.is_some() {
-            self.env.unset();
+        if env.is_some() {
+            self.env_stack.unset();
         }
         match self.finish_batch() {
             Some(expr_idx) => expr_idx,

@@ -186,6 +186,17 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     token_idx,
                     BinaryOpr::PureClosed(BinaryPureClosedOpr::Mul),
                 ),
+                Punctuation::Eq => match self.env() {
+                    Some(env) => match env {
+                        ExprEnvironment::LetVariablesType => match self.last_bra() {
+                            Some(_) => todo!(),
+                            None => return TokenResolveResult::Break(()),
+                        },
+                        ExprEnvironment::WithinBracket(_) => todo!(),
+                    },
+                    None => ResolvedToken::BinaryOpr(token_idx, BinaryOpr::Assign(None)),
+                },
+                Punctuation::EqEq => todo!(),
             },
             Token::WordOpr(opr) => match opr {
                 WordOpr::And => ResolvedToken::BinaryOpr(

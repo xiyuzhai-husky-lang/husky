@@ -33,9 +33,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 .collect::<Vec<_>>();
             let colon_token = self.parse::<ColonToken>().map_err(|e| e.into());
             let ty = match colon_token {
-                Ok(Some(_)) => {
-                    Some(self.parse_expr_expected2(None, OriginalExprError::ExpectLetVariablesType))
-                }
+                Ok(Some(_)) => Some(self.parse_expr_expected2(
+                    Some(ExprEnvironment::LetVariablesType),
+                    OriginalExprError::ExpectLetVariablesType,
+                )),
                 _ => None,
             };
             let ty_constraint = ty.map(|ty| PatternTypeConstraint::LetVariables { pattern, ty });
