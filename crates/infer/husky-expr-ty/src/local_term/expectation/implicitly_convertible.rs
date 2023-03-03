@@ -63,6 +63,10 @@ impl ExpectLocalTerm for ExpectImplicitlyConvertible {
     fn destination(&self) -> Option<LocalTerm> {
         Some(self.destination)
     }
+
+    fn disambiguate_list_expr(&self) -> ExprTypeResult<ListExprDisambiguation> {
+        todo!()
+    }
 }
 
 impl<'a> ExprTypeEngine<'a> {

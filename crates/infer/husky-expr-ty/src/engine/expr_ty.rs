@@ -290,12 +290,23 @@ impl<'a> ExprTypeEngine<'a> {
                 ),
                 Ok(ExprDisambiguation::Trivial),
             ),
-            Expr::BoxList { items, .. } => {
-                (
-                    self.calc_new_list_expr_ty(expr_idx, items, local_term_region),
-                    todo!(), // Ok(ExprDisambiguation::Trivial),
-                )
-            }
+            Expr::BoxList { items, .. } => match expr_ty_expectation.disambiguate_list_expr() {
+                Ok(disambiguation) => (
+                    match disambiguation {
+                        ListExprDisambiguation::NewList => {
+                            self.calc_new_list_expr_ty(expr_idx, items, local_term_region)
+                        }
+                        ListExprDisambiguation::ListFunctor => todo!(),
+                    },
+                    Ok(disambiguation.into()),
+                ),
+                Err(error) => {
+                    for item in items {
+                        todo!()
+                    }
+                    (Err(todo!("derived")), Err(error))
+                }
+            },
             Expr::BoxColonList { .. } => todo!(),
             Expr::Block { stmts } => (
                 self.infer_new_block(stmts, expr_ty_expectation.clone(), local_term_region)

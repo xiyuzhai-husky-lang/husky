@@ -35,6 +35,10 @@ impl ExpectLocalTerm for ExpectEqsFunctionType {
     fn destination(&self) -> Option<LocalTerm> {
         None
     }
+
+    fn disambiguate_list_expr(&self) -> ExprTypeResult<ListExprDisambiguation> {
+        todo!()
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]

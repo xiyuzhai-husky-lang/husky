@@ -29,6 +29,10 @@ impl ExpectLocalTerm for ExpectEqsCategory {
     fn destination(&self) -> Option<LocalTerm> {
         None
     }
+
+    fn disambiguate_list_expr(&self) -> ExprTypeResult<ListExprDisambiguation> {
+        todo!()
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
