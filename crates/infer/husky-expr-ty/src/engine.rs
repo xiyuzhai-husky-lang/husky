@@ -44,53 +44,54 @@ impl<'a> std::ops::Index<ExprIdx> for ExprTypeEngine<'a> {
 
 impl<'a> ExprTypeEngine<'a> {
     pub(crate) fn new(db: &'a dyn ExprTypeDb, expr_region: ExprRegion) -> Self {
-        let expr_region_data = expr_region.data(db);
-        // todo: improve this
-        let return_ty = expr_region_data
-            .parent()
-            .map(|parent| {
-                db.signature_term_region(parent)
-                    .expr_term(parent.data(db).return_ty()?)
-                    .ok()
-            })
-            .flatten()
-            .map(|term| db.reduced_term(term));
-        // todo: improve this
-        let self_ty = expr_region_data
-            .parent()
-            .map(|parent| {
-                db.signature_term_region(parent)
-                    .expr_term(parent.data(db).self_ty()?)
-                    .ok()
-            })
-            .flatten()
-            .map(|term| db.reduced_term(term));
-        let symbol_region = expr_region_data.symbol_region();
-        let pattern_expr_region = expr_region_data.pattern_expr_region();
-        let toolchain = expr_region.toolchain(db);
-        let reduced_term_menu = db.reduced_term_menu(toolchain).unwrap();
-        Self {
-            db,
-            toolchain,
-            entity_path_menu: db.entity_path_menu(toolchain).unwrap(),
-            term_menu: reduced_term_menu.term_menu(),
-            reduced_term_menu,
-            token_sheet_data: db
-                .token_sheet_data(expr_region_data.path().module_path(db))
-                .unwrap(),
-            expr_region_data,
-            signature_term_region: db.signature_term_region(expr_region),
-            expr_ty_infos: ExprMap::new(expr_region_data.expr_arena()),
-            expr_terms: ExprMap::new(expr_region_data.expr_arena()),
-            inherited_symbol_tys: InheritedSymbolMap::new(symbol_region.inherited_symbol_arena()),
-            current_symbol_tys: CurrentSymbolMap::new(symbol_region.current_symbol_arena()),
-            return_ty,
-            pattern_expr_ty_infos: PatternExprMap::new(pattern_expr_region.pattern_expr_arena()),
-            pattern_symbol_ty_infos: PatternSymbolMap::new(
-                pattern_expr_region.pattern_symbol_arena(),
-            ),
-            self_ty,
-        }
+        todo!()
+        // let expr_region_data = expr_region.data(db);
+        // // todo: improve this
+        // let return_ty = expr_region_data
+        //     .parent()
+        //     .map(|parent| {
+        //         db.signature_term_region(parent)
+        //             .expr_term(parent.data(db).return_ty()?)
+        //             .ok()
+        //     })
+        //     .flatten()
+        //     .map(|term| db.reduced_term(term));
+        // // todo: improve this
+        // let self_ty = expr_region_data
+        //     .parent()
+        //     .map(|parent| {
+        //         db.signature_term_region(parent)
+        //             .expr_term(parent.data(db).self_ty()?)
+        //             .ok()
+        //     })
+        //     .flatten()
+        //     .map(|term| db.reduced_term(term));
+        // let symbol_region = expr_region_data.symbol_region();
+        // let pattern_expr_region = expr_region_data.pattern_expr_region();
+        // let toolchain = expr_region.toolchain(db);
+        // let reduced_term_menu = db.reduced_term_menu(toolchain).unwrap();
+        // Self {
+        //     db,
+        //     toolchain,
+        //     entity_path_menu: db.entity_path_menu(toolchain).unwrap(),
+        //     term_menu: reduced_term_menu.term_menu(),
+        //     reduced_term_menu,
+        //     token_sheet_data: db
+        //         .token_sheet_data(expr_region_data.path().module_path(db))
+        //         .unwrap(),
+        //     expr_region_data,
+        //     signature_term_region: db.signature_term_region(expr_region),
+        //     expr_ty_infos: ExprMap::new(expr_region_data.expr_arena()),
+        //     expr_terms: ExprMap::new(expr_region_data.expr_arena()),
+        //     inherited_symbol_tys: InheritedSymbolMap::new(symbol_region.inherited_symbol_arena()),
+        //     current_symbol_tys: CurrentSymbolMap::new(symbol_region.current_symbol_arena()),
+        //     return_ty,
+        //     pattern_expr_ty_infos: PatternExprMap::new(pattern_expr_region.pattern_expr_arena()),
+        //     pattern_symbol_ty_infos: PatternSymbolMap::new(
+        //         pattern_expr_region.pattern_symbol_arena(),
+        //     ),
+        //     self_ty,
+        // }
     }
 
     pub(crate) fn infer_all(&mut self, local_term_region: &mut LocalTermRegion) {
