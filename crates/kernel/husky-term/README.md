@@ -1,3 +1,3 @@
 # Term
 
-In husky, term is created from precise term after verifying trait constraints.
+In husky, term is created from valid term after reduction.

@@ -36,6 +36,9 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-ty = { path = "../../kernel/husky-ty" }
+husky-raw-term = { path = "../../kernel/husky-raw-term" }
+husky-precise-term = { path = "../../kernel/husky-precise-term" }
+husky-valid-term = { path = "../../kernel/husky-valid-term" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-expr = { path = "../../syntax/husky-expr" }

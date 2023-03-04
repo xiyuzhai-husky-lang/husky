@@ -39,3 +39,7 @@ husky-manifest = { path = "../../infer/husky-manifest" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-decl = { path = "../../syntax/husky-decl" }
+# kernel
+husky-raw-term = { path = "../../kernel/husky-raw-term" }
+husky-precise-term = { path = "../../kernel/husky-precise-term" }
+husky-valid-term = { path = "../../kernel/husky-valid-term" }

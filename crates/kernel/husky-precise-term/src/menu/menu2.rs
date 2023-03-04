@@ -31,6 +31,7 @@ impl PreciseTermMenu2 {
                 menu1.str_ty_path(),
                 0,
             )
+            .unwrap()
             .into(),
             ex_co_lifetime_to_ex_co_ty0_to_ty0: PreciseTermCurry::new(
                 db,
