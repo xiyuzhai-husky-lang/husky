@@ -95,7 +95,7 @@ pub enum DerivedExprTypeError {
     #[error("final destination")]
     FinalDestination,
     #[error("cannot disambiguate list expression")]
-    CannotDisambiguateListExpr,
+    AmbiguateListExpr,
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;

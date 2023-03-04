@@ -45,7 +45,7 @@ pub(crate) trait ExpectLocalTerm:
         &self,
         db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
-    ) -> ExprTypeResult<LocalTerm>;
+    ) -> FinalDestination;
 
     // final
     #[inline(always)]
@@ -54,14 +54,21 @@ pub(crate) trait ExpectLocalTerm:
         db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
         ty_path: TypePath,
-    ) -> ExprTypeResult<TypePathDisambiguation> {
-        let final_destination = self.final_destination(db, unresolved_terms)?;
-        let ty_path: EntityPath = ty_path.into();
-        match final_destination {
-            LocalTerm::Resolved(term) if let Term::Category(_) = term.term()  => todo!(),
-            LocalTerm::Resolved(term) if term.term() == ty_path.into() => todo!(),
-            _ => Err(todo!()),
+    ) -> TypePathDisambiguation {
+        match self.final_destination(db, unresolved_terms) {
+            FinalDestination::Sort => todo!(),
+            FinalDestination::TypePath(final_destination_ty_path) => {
+                match final_destination_ty_path == ty_path {
+                    true => todo!(),
+                    false => todo!(),
+                }
+            }
+            FinalDestination::NoneOriginal => TypePathDisambiguation::ErrFromNoneOriginal,
+            FinalDestination::NoneDerived => TypePathDisambiguation::ErrFromNoneDerived,
         }
+        // LocalTerm::Resolved(term) if let Term::Category(_) = term.term()  => todo!(),
+        // LocalTerm::Resolved(term) if term.term() == ty_path.into() => todo!(),
+        // _ => Err(todo!()),
     }
 }
 
@@ -72,6 +79,9 @@ pub enum TypePathDisambiguation {
     ///
     /// otherwise constructor
     InstanceOrConstructor,
+    ErrDifferentTypePath {},
+    ErrFromNoneOriginal,
+    ErrFromNoneDerived,
 }
 
 pub(crate) trait ExpectLocalTermOutcome: Into<LocalTermExpectationOutcome> {

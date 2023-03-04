@@ -41,9 +41,24 @@ impl ExpectLocalTerm for ExpectEqsFunctionType {
         &self,
         db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
-    ) -> ExprTypeResult<LocalTerm> {
+    ) -> FinalDestination {
         todo!()
     }
+}
+
+/// final destination of `A1 -> ... -> An` is equal to that of `An`
+///
+/// final destination of `A1 ... An` is equal to that of `A1`
+///
+/// final destination of `Sort` is `FinalDestination::Sort`
+///
+/// final destination of a type path `A` is `FinalDestination::TypePath(A)`
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum FinalDestination {
+    Sort,
+    TypePath(TypePath),
+    NoneOriginal,
+    NoneDerived,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]

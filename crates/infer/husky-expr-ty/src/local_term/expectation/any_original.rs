@@ -25,7 +25,7 @@ impl ExpectLocalTerm for ExpectAnyOriginal {
         &self,
         db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
-    ) -> ExprTypeResult<LocalTerm> {
-        Err(OriginalExprTypeError::FinalDestination.into())
+    ) -> FinalDestination {
+        FinalDestination::NoneOriginal
     }
 }

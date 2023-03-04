@@ -29,7 +29,7 @@ impl ExpectLocalTerm for ExpectEqsExactly {
         &self,
         db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
-    ) -> ExprTypeResult<LocalTerm> {
+    ) -> FinalDestination {
         todo!()
     }
 }

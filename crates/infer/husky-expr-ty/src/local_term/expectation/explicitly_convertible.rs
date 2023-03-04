@@ -60,7 +60,7 @@ impl ExpectLocalTerm for ExpectExplicitlyConvertible {
         &self,
         db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
-    ) -> ExprTypeResult<LocalTerm> {
+    ) -> FinalDestination {
         todo!()
     }
 }

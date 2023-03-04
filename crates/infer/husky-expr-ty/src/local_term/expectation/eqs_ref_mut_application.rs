@@ -31,7 +31,7 @@ impl ExpectLocalTerm for ExpectEqsRefMutApplication {
         &self,
         db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
-    ) -> ExprTypeResult<LocalTerm> {
+    ) -> FinalDestination {
         todo!()
     }
 }
