@@ -28,8 +28,6 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 [dev-dependencies]
 # kernel
 husky-raw-term = { path = "../../kernel/husky-raw-term" }
-husky-precise-term = { path = "../../kernel/husky-precise-term" }
-husky-valid-term = { path = "../../kernel/husky-valid-term" }
 # infer
 husky-manifest = { path = "../../infer/husky-manifest" }
 # lex

@@ -163,8 +163,8 @@ impl<'a> SignatureRawTermEngine<'a> {
         self.save(expr_idx, result)
     }
 
-    pub(crate) fn finish(self) -> SignatureRawTermRegion {
-        SignatureRawTermRegion::new(
+    pub(crate) fn finish(self) -> SignatureTermRegion {
+        SignatureTermRegion::new(
             self.expr_region_data.path(),
             self.term_symbol_region,
             self.expr_terms,

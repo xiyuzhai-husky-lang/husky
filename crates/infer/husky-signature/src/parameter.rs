@@ -14,7 +14,7 @@ pub struct ImplicitParameterSignature {
 impl ImplicitParameterSignature {
     fn from_decl(
         parameter_decl: &ImplicitParameterDecl,
-        region: &SignatureRawTermRegion,
+        region: &SignatureTermRegion,
         raw_term_menu: &RawTermMenu,
     ) -> ImplicitParameterSignature {
         let pattern = &parameter_decl.pattern();
@@ -73,7 +73,7 @@ pub struct ImplicitParameterSignatures {
 impl ImplicitParameterSignatures {
     pub(crate) fn from_decl(
         implicit_parameters: &[ImplicitParameterDecl],
-        signature_term_region: &SignatureRawTermRegion,
+        signature_term_region: &SignatureTermRegion,
         raw_term_menu: &RawTermMenu,
     ) -> Self {
         Self {
@@ -134,7 +134,7 @@ impl std::ops::Deref for RegularParameterSignatures {
 impl RegularParameterSignatures {
     pub(crate) fn from_decl(
         parameters: &[ExplicitParameterDeclPattern],
-        sheet: &SignatureRawTermRegion,
+        sheet: &SignatureTermRegion,
     ) -> SignatureResult<Self> {
         Ok(Self {
             parameters: parameters

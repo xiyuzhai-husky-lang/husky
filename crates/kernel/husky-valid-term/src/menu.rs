@@ -39,7 +39,7 @@ impl ValidTermMenu {
     }
 }
 
-#[salsa::tracked(jar = ValidTermJar,return_ref)]
+#[salsa::tracked(jar = ValidTermJar, return_ref)]
 pub(crate) fn valid_term_menu(
     db: &dyn ValidTermDb,
     toolchain: Toolchain,

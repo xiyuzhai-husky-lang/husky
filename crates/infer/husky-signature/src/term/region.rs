@@ -3,13 +3,13 @@ use husky_entity_tree::RegionPath;
 use husky_expr::{CurrentSymbolIdx, ExprIdx, ExprMap, ExprRegion};
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct SignatureRawTermRegion {
+pub struct SignatureTermRegion {
     path: RegionPath,
     term_symbol_region: RawTermSymbolRegion,
     expr_terms: ExprMap<SignatureRawTermResult<RawTerm>>,
 }
 
-impl SignatureRawTermRegion {
+impl SignatureTermRegion {
     pub fn new(
         path: RegionPath,
         term_symbol_region: RawTermSymbolRegion,
@@ -47,7 +47,7 @@ impl SignatureRawTermRegion {
 pub(crate) fn signature_term_region(
     db: &dyn SignatureDb,
     expr_region: ExprRegion,
-) -> SignatureRawTermRegion {
+) -> SignatureTermRegion {
     let expr_region_data = expr_region.data(db);
     let parent_expr_region = expr_region_data.parent();
     let parent_term_symbol_region =

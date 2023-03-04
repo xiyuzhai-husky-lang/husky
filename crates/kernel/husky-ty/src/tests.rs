@@ -1,17 +1,18 @@
-use husky_decl::DeclJar;
-use husky_print_utils::p;
-use husky_signature::SignatureJar;
-use husky_term::TermJar;
 pub(crate) use husky_vfs::VfsTestUtils;
 
 use crate::*;
 use husky_ast::AstJar;
+use husky_decl::DeclJar;
 use husky_entity_path::{EntityPathJar, ModuleItemPath, TypePath};
 use husky_entity_tree::{EntityTreeDb, EntityTreeJar};
 use husky_expr::ExprJar;
 use husky_manifest::ManifestJar;
 use husky_precise_term::PreciseTermJar;
+use husky_print_utils::p;
 use husky_raw_term::RawTermJar;
+use husky_raw_ty::{RawTypeDb, RawTypeJar};
+use husky_signature::SignatureJar;
+use husky_term::TermJar;
 use husky_token::TokenJar;
 use husky_valid_term::ValidTermJar;
 use husky_vfs::*;
@@ -28,10 +29,11 @@ use husky_word::WordJar;
     ExprJar,
     DeclJar,
     RawTermJar,
+    SignatureJar,
+    RawTypeJar,
     PreciseTermJar,
     ValidTermJar,
     TermJar,
-    SignatureJar,
     TypeJar
 )]
 #[derive(Default)]
