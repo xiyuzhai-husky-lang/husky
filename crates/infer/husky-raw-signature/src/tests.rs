@@ -21,7 +21,7 @@ use husky_word::WordJar;
     ManifestJar,
     ExprJar,
     DeclJar,
-    TermJar,
+    RawTermJar,
     RawSignatureJar
 )]
 #[derive(Default)]

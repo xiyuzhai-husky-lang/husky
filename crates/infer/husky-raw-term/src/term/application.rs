@@ -14,19 +14,19 @@ use std::fmt::{Debug, Display};
 /// then apply function to the result,
 ///
 /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
-#[salsa::interned(db = TermDb, jar = TermJar)]
-pub struct TermApplication {
-    pub function: Term,
-    pub argument: Term,
+#[salsa::interned(db = RawTermDb, jar = RawTermJar)]
+pub struct RawTermApplication {
+    pub function: RawTerm,
+    pub argument: RawTerm,
     pub shift: u8,
 }
 
-impl TermApplication {
+impl RawTermApplication {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn TermDb,
-        ctx: &mut TermShowContext,
+        db: &dyn RawTermDb,
+        ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
         self.function(db).show_with_db_fmt(f, db, ctx)?;
         f.write_str(" ")?;
@@ -34,27 +34,27 @@ impl TermApplication {
     }
 }
 
-impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermApplication {
+impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTermApplication {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
         level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
+        let db = <Db as salsa::DbWithJar<RawTermJar>>::as_jar_db(db);
         self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }
 
-impl TermApplication {
-    pub fn ty_itd(&self) -> Option<Term> {
+impl RawTermApplication {
+    pub fn ty_itd(&self) -> Option<RawTerm> {
         // TODO: delete this
         None
     }
 }
 
-impl TermRewriteCopy for TermApplication {
-    fn substitute_copy(self, db: &dyn TermDb, substituation: &TermSubstitution) -> Self
+impl RawTermRewriteCopy for RawTermApplication {
+    fn substitute_copy(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self
     where
         Self: Copy,
     {
@@ -65,24 +65,11 @@ impl TermRewriteCopy for TermApplication {
         if old_m == m && old_n == n {
             return self;
         }
-        TermApplication::new(db, m, n, self.shift(db))
+        RawTermApplication::new(db, m, n, self.shift(db))
     }
 }
 
-impl<'a> TermContext<'a> {
-    pub(crate) fn sort(&self, _universe: TermUniverse) -> Term {
-        todo!()
-        // self.it_term(
-        //     TermApplication {
-        //         m: self.it_term(TermCategory::Sort.into()),
-        //         n: self.it_term(universe.into()),
-        //     }
-        //     .into(),
-        // )
-    }
-}
-
-impl std::fmt::Display for TermApplication {
+impl std::fmt::Display for RawTermApplication {
     fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
     }

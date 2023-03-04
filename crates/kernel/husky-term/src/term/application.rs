@@ -69,19 +69,6 @@ impl TermRewriteCopy for TermApplication {
     }
 }
 
-impl<'a> TermContext<'a> {
-    pub(crate) fn sort(&self, _universe: TermUniverse) -> Term {
-        todo!()
-        // self.it_term(
-        //     TermApplication {
-        //         m: self.it_term(TermCategory::Sort.into()),
-        //         n: self.it_term(universe.into()),
-        //     }
-        //     .into(),
-        // )
-    }
-}
-
 impl std::fmt::Display for TermApplication {
     fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()

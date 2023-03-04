@@ -1,5 +1,5 @@
 [package]
-name = "husky-raw-raw_signature"
+name = "husky-raw-signature"
 version = "0.1.0"
 edition = "2021"
 
@@ -9,7 +9,6 @@ edition = "2021"
 salsa = { path = "../../abstraction/salsa" }
 enum-class = { path = "../../abstraction/enum-class" }
 # kernel
-husky-term = { path = "../../kernel/husky-term" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 # lex
@@ -19,6 +18,8 @@ husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-expr = { path = "../../syntax/husky-expr" }
 husky-decl = { path = "../../syntax/husky-decl" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+# infer
+husky-raw-term = { path = "../../infer/husky-raw-term" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 

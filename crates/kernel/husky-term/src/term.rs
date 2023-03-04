@@ -71,6 +71,14 @@ pub enum Term {
     TraitConstraint(TermTraitConstraint),
 }
 
+#[test]
+fn term_size_works() {
+    assert_eq!(
+        std::mem::size_of::<Term>(),
+        2 * std::mem::size_of::<usize>()
+    )
+}
+
 impl<Db: TermDb + ?Sized> salsa::DebugWithDb<Db> for Term {
     fn fmt(
         &self,

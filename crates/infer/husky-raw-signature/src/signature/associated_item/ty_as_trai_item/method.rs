@@ -8,11 +8,14 @@ pub(crate) fn ty_as_trai_method_raw_signature(
     let im = decl.associated_item(db).im(db);
     let expr_region = decl.expr_region(db);
     let raw_signature_term_region = raw_signature_term_region(db, expr_region);
-    let term_menu = db.term_menu(expr_region.toolchain(db)).as_ref().unwrap();
+    let raw_term_menu = db
+        .raw_term_menu(expr_region.toolchain(db))
+        .as_ref()
+        .unwrap();
     todo!()
     // let return_ty = match decl.return_ty(db) {
     //     Ok(return_ty) => engine.query_new(*return_ty),
-    //     Err(_) =>  Err(RawSignatureTermAbortion::ExprError),
+    //     Err(_) =>  Err(RawSignatureRawTermAbortion::ExprError),
     // };
     // let parameters = ParameterRawSignatures::from_decl(decl.parameters(db), raw_signature_term_region);
     // let implicit_parameters =
@@ -26,5 +29,5 @@ pub struct TypeAsTraitMethodRawSignature {
     pub implicit_parameters: ImplicitParameterRawSignatures,
     #[return_ref]
     pub parameters: RegularParameterRawSignatures,
-    pub return_ty: Term,
+    pub return_ty: RawTerm,
 }

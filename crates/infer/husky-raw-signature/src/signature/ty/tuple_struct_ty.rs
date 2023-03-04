@@ -8,7 +8,10 @@ pub fn tuple_struct_ty_raw_signature(
 ) -> RawSignatureResult<TupleStructTypeRawSignature> {
     let expr_region = decl.expr_region(db);
     let raw_signature_term_region = raw_signature_term_region(db, expr_region);
-    let term_menu = db.term_menu(expr_region.toolchain(db)).as_ref().unwrap();
+    let raw_term_menu = db
+        .raw_term_menu(expr_region.toolchain(db))
+        .as_ref()
+        .unwrap();
     Ok(TupleStructTypeRawSignature::new(
         db,
         // ImplicitParameterRawSignatures::from_decl(decl.implicit_parameters(db), raw_signature_term_region),
@@ -29,5 +32,5 @@ impl TupleStructTypeRawSignature {}
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct TupleStructFieldRawSignature {
-    ty: Term,
+    ty: RawTerm,
 }
