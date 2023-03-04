@@ -287,7 +287,7 @@ impl<'a> ExprRangeCalculator<'a> {
                 rbox_token_idx,
                 ..
             } => self[owner].to(TokenIdxRangeEnd::new_after(*rbox_token_idx)),
-            Expr::BoxList {
+            Expr::List {
                 lbox_token_idx,
                 rbox_token_idx,
                 ..

@@ -39,7 +39,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::PrefixOpn {
+                                                Expr::Prefix {
                                                     opr: Ref,
                                                     opr_token_idx: TokenIdx(
                                                         38,
@@ -68,7 +68,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                Expr::BoxList {
+                                                Expr::List {
                                                     lbox_token_idx: TokenIdx(
                                                         43,
                                                     ),
@@ -89,7 +89,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::ExplicitApplication {
+                                                Expr::ExplicitApplicationOrComposition {
                                                     function: 4,
                                                     argument: 5,
                                                 },
@@ -274,14 +274,14 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::PrefixOpn {
+                                                Expr::Prefix {
                                                     opr: Ref,
                                                     opr_token_idx: TokenIdx(
                                                         520,
                                                     ),
                                                     opd: 0,
                                                 },
-                                                Expr::BoxList {
+                                                Expr::List {
                                                     lbox_token_idx: TokenIdx(
                                                         524,
                                                     ),
@@ -302,7 +302,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::ExplicitApplication {
+                                                Expr::ExplicitApplicationOrComposition {
                                                     function: 2,
                                                     argument: 3,
                                                 },

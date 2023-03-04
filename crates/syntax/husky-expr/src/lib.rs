@@ -189,7 +189,7 @@ pub enum Expr {
         items: ExprIdxRange,
         rbox_token_idx: TokenIdx,
     },
-    BoxList {
+    List {
         lbox_token_idx: TokenIdx,
         items: ExprIdxRange,
         rbox_token_idx: TokenIdx,

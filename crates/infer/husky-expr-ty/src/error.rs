@@ -31,6 +31,8 @@ pub enum OriginalExprTypeError {
     TodoSuffix,
     #[error("TodoBoxColon")]
     TodoBoxColon,
+    #[error("final destination")]
+    FinalDestination,
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -90,6 +92,10 @@ pub enum DerivedExprTypeError {
     UnresolvedLocalTerm,
     #[error("EntityPathError")]
     EntityPathError,
+    #[error("final destination")]
+    FinalDestination,
+    #[error("cannot disambiguate list expression")]
+    CannotDisambiguateListExpr,
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;

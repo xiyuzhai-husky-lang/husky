@@ -279,7 +279,7 @@ impl<'a> SignatureTermEngine<'a> {
                         .into()),
                         _ => todo!(),
                     },
-                    Expr::BoxList { items, .. } => match items.len() {
+                    Expr::List { items, .. } => match items.len() {
                         0 => Ok(
                             TermApplication::new(self.db, self.term_menu.list(), argument).into(),
                         ),
@@ -363,7 +363,7 @@ impl<'a> SignatureTermEngine<'a> {
                                 ref commas,
                                 rpar_token_idx,
                             } => todo!(),
-                            Expr::BoxList { .. } => todo!(),
+                            Expr::List { .. } => todo!(),
                             Expr::BoxColonList { .. } => todo!(),
                             Expr::Block { stmts } => todo!(),
                             Expr::Err(_) => {
@@ -392,7 +392,7 @@ impl<'a> SignatureTermEngine<'a> {
                 p!(items.len());
                 todo!()
             }
-            Expr::BoxList { .. } => todo!(),
+            Expr::List { .. } => todo!(),
             Expr::BoxColonList { .. } => todo!(),
             Expr::Bracketed { item, .. } => self.infer_new(item),
             Expr::Block { stmts } => todo!(),

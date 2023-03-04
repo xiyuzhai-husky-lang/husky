@@ -20,7 +20,12 @@ impl ExpectLocalTerm for ExpectAnyDerived {
         None
     }
 
-    fn disambiguate_list_expr(&self) -> ExprTypeResult<ListExprDisambiguation> {
-        todo!()
+    #[inline(always)]
+    fn final_destination(
+        &self,
+        db: &dyn ExprTypeDb,
+        unresolved_terms: &UnresolvedTerms,
+    ) -> ExprTypeResult<LocalTerm> {
+        Err(DerivedExprTypeError::FinalDestination.into())
     }
 }

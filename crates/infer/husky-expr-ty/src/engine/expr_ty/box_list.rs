@@ -23,7 +23,7 @@ impl<'a> ExprTypeEngine<'a> {
             .intern_unresolved_term(
                 expr_idx,
                 UnresolvedTerm::TypeApplication {
-                    ty_path: self.entity_path_menu.list_ty(),
+                    ty_path: self.entity_path_menu.list_ty_path(),
                     arguments: vec![element_ty],
                 },
             )

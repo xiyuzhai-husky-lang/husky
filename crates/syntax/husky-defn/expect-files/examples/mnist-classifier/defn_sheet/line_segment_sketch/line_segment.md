@@ -1520,7 +1520,7 @@ Ok(
                                                             56,
                                                         ),
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 1,
                                                         opr: Assign(
                                                             None,
@@ -1588,7 +1588,7 @@ Ok(
                                                             67,
                                                         ),
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 7,
                                                         opr: Assign(
                                                             None,
@@ -1645,7 +1645,7 @@ Ok(
                                                             76,
                                                         ),
                                                     ),
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 12,
                                                         opr: Comparison(
                                                             Less,
@@ -1745,7 +1745,7 @@ Ok(
                                                             95,
                                                         ),
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 20,
                                                         opr: Assign(
                                                             None,
@@ -1802,7 +1802,7 @@ Ok(
                                                             104,
                                                         ),
                                                     ),
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 25,
                                                         opr: Comparison(
                                                             Greater,
@@ -1940,7 +1940,7 @@ Ok(
                                                             128,
                                                         ),
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 34,
                                                         opr: PureClosed(
                                                             Div,

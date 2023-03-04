@@ -61,7 +61,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             rbox_token_idx: ket_token_idx,
                         }
                         .into(),
-                        UnfinishedListOpr::BoxList => Expr::BoxList {
+                        UnfinishedListOpr::BoxList => Expr::List {
                             lbox_token_idx: bra_token_idx,
                             items,
                             rbox_token_idx: ket_token_idx,

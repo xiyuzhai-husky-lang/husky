@@ -45,11 +45,11 @@ pub struct EntityPathMenu {
     str_ty_path: TypePath,
     ref_ty_path: TypePath,
     ref_mut_ty_path: TypePath,
-    list_ty: TypePath,
+    list_ty_path: TypePath,
     // prelude
     unit: TypePath,
     never: TypePath,
-    bool: TypePath,
+    bool_ty_path: TypePath,
     i8_ty_path: TypePath,
     i16_ty_path: TypePath,
     i32_ty_path: TypePath,
@@ -63,7 +63,7 @@ pub struct EntityPathMenu {
     u32_ty_path: TypePath,
     u64_ty_path: TypePath,
     trai_ty_path: TypePath,
-    lifetime_ty: TypePath,
+    lifetime_ty_path: TypePath,
     module: TypePath,
 }
 
@@ -352,10 +352,10 @@ impl EntityPathMenu {
             str_ty_path,
             ref_ty_path,
             ref_mut_ty_path,
-            list_ty,
+            list_ty_path: list_ty,
             unit,
             never,
-            bool,
+            bool_ty_path: bool,
             i8_ty_path,
             i16_ty_path,
             i32_ty_path,
@@ -370,7 +370,7 @@ impl EntityPathMenu {
             u64_ty_path,
             trai_ty_path,
             module,
-            lifetime_ty: lifetime,
+            lifetime_ty_path: lifetime,
         })
     }
 
@@ -498,8 +498,8 @@ impl EntityPathMenu {
         self.ref_mut_ty_path
     }
 
-    pub fn list_ty(&self) -> TypePath {
-        self.list_ty
+    pub fn list_ty_path(&self) -> TypePath {
+        self.list_ty_path
     }
 
     pub fn trai_ty_path(&self) -> TypePath {
@@ -514,12 +514,12 @@ impl EntityPathMenu {
         self.unit
     }
 
-    pub fn bool(&self) -> TypePath {
-        self.bool
+    pub fn bool_ty_path(&self) -> TypePath {
+        self.bool_ty_path
     }
 
-    pub fn lifetime_ty(&self) -> TypePath {
-        self.lifetime_ty
+    pub fn lifetime_ty_path(&self) -> TypePath {
+        self.lifetime_ty_path
     }
 
     pub fn never(&self) -> TypePath {

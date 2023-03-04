@@ -38,7 +38,7 @@ fn entity_path_path_term_ty_works() {
         entity_path_ty(
             &db,
             EntityPathTypeExpectation::Any,
-            entity_path_menu.bool().into(),
+            entity_path_menu.bool_ty_path().into(),
         ),
         Ok(reduced_term_menu.ty0())
     );

@@ -296,7 +296,7 @@ impl<'a> AuxInferEngine<'a> {
             | Expr::Suffix { .. }
             | Expr::TemplateInstantiation { .. }
             | Expr::NewTuple { .. }
-            | Expr::BoxList { .. }
+            | Expr::List { .. }
             | Expr::Bracketed { .. }
             | Expr::Err(_)
             | Expr::Block { .. }
@@ -305,7 +305,7 @@ impl<'a> AuxInferEngine<'a> {
             Expr::ExplicitApplicationOrRitchieCall { function, .. }
             | Expr::ExplicitApplicationOrComposition { function, .. } => {
                 match self.expr_region_data[*function] {
-                    Expr::BoxList {
+                    Expr::List {
                         lbox_token_idx,
                         items,
                         rbox_token_idx,
