@@ -39,14 +39,14 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::PrefixOpn {
+                                                Expr::Prefix {
                                                     opr: Ref,
                                                     opr_token_idx: TokenIdx(
                                                         32,
                                                     ),
                                                     opd: 0,
                                                 },
-                                                Expr::BoxList {
+                                                Expr::List {
                                                     lbox_token_idx: TokenIdx(
                                                         37,
                                                     ),
@@ -67,7 +67,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::ExplicitApplication {
+                                                Expr::ExplicitApplicationOrComposition {
                                                     function: 2,
                                                     argument: 3,
                                                 },
@@ -2493,7 +2493,7 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                Expr::BoxList {
+                                                Expr::List {
                                                     lbox_token_idx: TokenIdx(
                                                         928,
                                                     ),
@@ -2514,7 +2514,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::ExplicitApplication {
+                                                Expr::ExplicitApplicationOrComposition {
                                                     function: 0,
                                                     argument: 1,
                                                 },
@@ -2732,14 +2732,14 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::PrefixOpn {
+                                                Expr::Prefix {
                                                     opr: Ref,
                                                     opr_token_idx: TokenIdx(
                                                         993,
                                                     ),
                                                     opd: 0,
                                                 },
-                                                Expr::BoxList {
+                                                Expr::List {
                                                     lbox_token_idx: TokenIdx(
                                                         997,
                                                     ),
@@ -2760,7 +2760,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::ExplicitApplication {
+                                                Expr::ExplicitApplicationOrComposition {
                                                     function: 2,
                                                     argument: 3,
                                                 },

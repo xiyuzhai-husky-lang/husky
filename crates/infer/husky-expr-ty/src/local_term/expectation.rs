@@ -40,7 +40,38 @@ pub(crate) trait ExpectLocalTerm:
 
     fn destination(&self) -> Option<LocalTerm>;
 
-    fn disambiguate_list_expr(&self) -> ExprTypeResult<ListExprDisambiguation>;
+    #[inline(always)]
+    fn final_destination(
+        &self,
+        db: &dyn ExprTypeDb,
+        unresolved_terms: &UnresolvedTerms,
+    ) -> ExprTypeResult<LocalTerm>;
+
+    // final
+    #[inline(always)]
+    fn disambiguate_ty_path(
+        &self,
+        db: &dyn ExprTypeDb,
+        unresolved_terms: &UnresolvedTerms,
+        ty_path: TypePath,
+    ) -> ExprTypeResult<TypePathDisambiguation> {
+        let final_destination = self.final_destination(db, unresolved_terms)?;
+        let ty_path: EntityPath = ty_path.into();
+        match final_destination {
+            LocalTerm::Resolved(term) if let Term::Category(_) = term.term()  => todo!(),
+            LocalTerm::Resolved(term) if term.term() == ty_path.into() => todo!(),
+            _ => Err(todo!()),
+        }
+    }
+}
+
+/// disambiguate between type itself (or template) and its instance or constructor
+pub enum TypePathDisambiguation {
+    TypeItselfOrTemplate,
+    /// if type is a unit struct, this will become an instance,
+    ///
+    /// otherwise constructor
+    InstanceOrConstructor,
 }
 
 pub(crate) trait ExpectLocalTermOutcome: Into<LocalTermExpectationOutcome> {

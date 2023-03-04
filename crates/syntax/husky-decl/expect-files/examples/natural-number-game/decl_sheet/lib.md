@@ -517,7 +517,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 0,
                                                         opr: Ins,
                                                         opr_token_idx: TokenIdx(
@@ -535,7 +535,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 2,
                                                         opr: Curry,
                                                         opr_token_idx: TokenIdx(

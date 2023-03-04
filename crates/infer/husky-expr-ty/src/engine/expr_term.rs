@@ -88,7 +88,7 @@ impl<'a> ExprTypeEngine<'a> {
                 rpar_token_idx,
             } => todo!(),
             Expr::NewTuple { .. } => todo!(),
-            Expr::BoxList { .. } => todo!(),
+            Expr::List { .. } => todo!(),
             Expr::BoxColonList { .. } => todo!(),
             Expr::Block { stmts } => todo!(),
             Expr::IndexOrCompositionWithList {

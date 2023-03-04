@@ -10,7 +10,7 @@ impl<'a> ExprTypeEngine<'a> {
         todo!("change this");
         let function_expr = &self[function];
         match function_expr {
-            Expr::BoxList {
+            Expr::List {
                 lbox_token_idx,
                 items,
                 rbox_token_idx,

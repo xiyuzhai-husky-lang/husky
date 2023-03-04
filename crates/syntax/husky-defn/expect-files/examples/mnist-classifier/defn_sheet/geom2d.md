@@ -1949,7 +1949,7 @@ Ok(
                                                             ident: `shift`,
                                                         },
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 1,
                                                         opr: PureClosed(
                                                             Sub,
@@ -1993,7 +1993,7 @@ Ok(
                                                             ident: `i`,
                                                         },
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 6,
                                                         opr: PureClosed(
                                                             Sub,
@@ -2022,7 +2022,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 4,
                                                         opr: As,
                                                         opr_token_idx: TokenIdx(
@@ -2030,7 +2030,7 @@ Ok(
                                                         ),
                                                         ropd: 5,
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 9,
                                                         opr: As,
                                                         opr_token_idx: TokenIdx(
@@ -3428,7 +3428,7 @@ Ok(
                                                             ),
                                                         },
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 3,
                                                         opr: PureClosed(
                                                             Sub,
@@ -3438,7 +3438,7 @@ Ok(
                                                         ),
                                                         ropd: 4,
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 7,
                                                         opr: PureClosed(
                                                             Sub,
@@ -4062,7 +4062,7 @@ Ok(
                                                             ),
                                                         },
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 2,
                                                         opr: PureClosed(
                                                             Mul,
@@ -4072,7 +4072,7 @@ Ok(
                                                         ),
                                                         ropd: 3,
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 6,
                                                         opr: PureClosed(
                                                             Mul,
@@ -4082,7 +4082,7 @@ Ok(
                                                         ),
                                                         ropd: 7,
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 8,
                                                         opr: PureClosed(
                                                             Add,
@@ -6289,7 +6289,7 @@ Ok(
                                                             ),
                                                         },
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 3,
                                                         opr: PureClosed(
                                                             Sub,
@@ -6299,7 +6299,7 @@ Ok(
                                                         ),
                                                         ropd: 4,
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 7,
                                                         opr: PureClosed(
                                                             Sub,
@@ -6923,7 +6923,7 @@ Ok(
                                                             ),
                                                         },
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 2,
                                                         opr: PureClosed(
                                                             Mul,
@@ -6933,7 +6933,7 @@ Ok(
                                                         ),
                                                         ropd: 3,
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 6,
                                                         opr: PureClosed(
                                                             Mul,
@@ -6943,7 +6943,7 @@ Ok(
                                                         ),
                                                         ropd: 7,
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 8,
                                                         opr: PureClosed(
                                                             Add,
@@ -7714,7 +7714,7 @@ Ok(
                                                             ),
                                                         },
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 2,
                                                         opr: PureClosed(
                                                             Mul,
@@ -7724,7 +7724,7 @@ Ok(
                                                         ),
                                                         ropd: 3,
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 6,
                                                         opr: PureClosed(
                                                             Mul,
@@ -7734,7 +7734,7 @@ Ok(
                                                         ),
                                                         ropd: 7,
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 8,
                                                         opr: PureClosed(
                                                             Add,
@@ -8483,7 +8483,7 @@ Ok(
                                                             ),
                                                         },
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 2,
                                                         opr: PureClosed(
                                                             Mul,
@@ -8493,7 +8493,7 @@ Ok(
                                                         ),
                                                         ropd: 3,
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 6,
                                                         opr: PureClosed(
                                                             Mul,
@@ -8503,7 +8503,7 @@ Ok(
                                                         ),
                                                         ropd: 7,
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 8,
                                                         opr: PureClosed(
                                                             Sub,
@@ -9218,7 +9218,7 @@ Ok(
                                                             318,
                                                         ),
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 2,
                                                         opr: PureClosed(
                                                             Div,
@@ -9273,7 +9273,7 @@ Ok(
                                                             324,
                                                         ),
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 7,
                                                         opr: Assign(
                                                             None,
@@ -9298,7 +9298,7 @@ Ok(
                                                             328,
                                                         ),
                                                     ),
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 10,
                                                         opr: PureClosed(
                                                             Add,
@@ -9313,7 +9313,7 @@ Ok(
                                                             330,
                                                         ),
                                                     ),
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 12,
                                                         opr: Comparison(
                                                             Less,
@@ -9343,7 +9343,7 @@ Ok(
                                                             339,
                                                         ),
                                                     ),
-                                                    Expr::PrefixOpn {
+                                                    Expr::Prefix {
                                                         opr: Minus,
                                                         opr_token_idx: TokenIdx(
                                                             338,
@@ -9399,7 +9399,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 21,
                                                         opr: As,
                                                         opr_token_idx: TokenIdx(
@@ -9455,7 +9455,7 @@ Ok(
                                                             360,
                                                         ),
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 26,
                                                         opr: PureClosed(
                                                             Mul,
@@ -9470,7 +9470,7 @@ Ok(
                                                             362,
                                                         ),
                                                     ),
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 28,
                                                         opr: PureClosed(
                                                             Mul,
@@ -9485,7 +9485,7 @@ Ok(
                                                             364,
                                                         ),
                                                     ),
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 30,
                                                         opr: PureClosed(
                                                             Div,
@@ -11237,7 +11237,7 @@ Ok(
                                                             406,
                                                         ),
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 1,
                                                         opr: Assign(
                                                             None,
@@ -11262,7 +11262,7 @@ Ok(
                                                             410,
                                                         ),
                                                     ),
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 4,
                                                         opr: Comparison(
                                                             Greater,
@@ -11313,7 +11313,7 @@ Ok(
                                                             418,
                                                         ),
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 8,
                                                         opr: Assign(
                                                             None,
@@ -11338,7 +11338,7 @@ Ok(
                                                             422,
                                                         ),
                                                     ),
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 11,
                                                         opr: Comparison(
                                                             Greater,
@@ -11383,7 +11383,7 @@ Ok(
                                                             pattern_symbol_idx: 1,
                                                         },
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 16,
                                                         opr: PureClosed(
                                                             Mul,
@@ -11424,7 +11424,7 @@ Ok(
                                                             438,
                                                         ),
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 19,
                                                         opr: PureClosed(
                                                             Div,
@@ -11479,7 +11479,7 @@ Ok(
                                                             444,
                                                         ),
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 24,
                                                         opr: Assign(
                                                             None,
@@ -11504,7 +11504,7 @@ Ok(
                                                             448,
                                                         ),
                                                     ),
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 27,
                                                         opr: PureClosed(
                                                             Add,
@@ -11519,7 +11519,7 @@ Ok(
                                                             450,
                                                         ),
                                                     ),
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 29,
                                                         opr: Comparison(
                                                             Less,
@@ -11549,7 +11549,7 @@ Ok(
                                                             459,
                                                         ),
                                                     ),
-                                                    Expr::PrefixOpn {
+                                                    Expr::Prefix {
                                                         opr: Minus,
                                                         opr_token_idx: TokenIdx(
                                                             458,
@@ -11603,7 +11603,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 38,
                                                         opr: As,
                                                         opr_token_idx: TokenIdx(
@@ -11661,7 +11661,7 @@ Ok(
                                                             },
                                                         ),
                                                     ),
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 42,
                                                         opr: PureClosed(
                                                             Mul,
@@ -11671,7 +11671,7 @@ Ok(
                                                         ),
                                                         ropd: 43,
                                                     },
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 44,
                                                         opr: Assign(
                                                             None,
@@ -11696,7 +11696,7 @@ Ok(
                                                             483,
                                                         ),
                                                     ),
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 47,
                                                         opr: PureClosed(
                                                             Mul,
@@ -11711,7 +11711,7 @@ Ok(
                                                             485,
                                                         ),
                                                     ),
-                                                    Expr::BinaryOpn {
+                                                    Expr::Binary {
                                                         lopd: 49,
                                                         opr: PureClosed(
                                                             Div,

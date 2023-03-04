@@ -161,7 +161,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 Punctuation::At => todo!(),
                 Punctuation::Question => match self.finished_expr() {
                     // only see `?` as Option when there obviously is no other way
-                    Some(Expr::BoxList { .. }) | Some(Expr::BoxColonList { .. }) | None => {
+                    Some(Expr::List { .. }) | Some(Expr::BoxColonList { .. }) | None => {
                         ResolvedToken::PrefixOpr(token_idx, PrefixOpr::Option)
                     }
                     Some(expr) => {
@@ -170,7 +170,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 },
                 Punctuation::PoundSign => todo!(),
                 Punctuation::Ambersand => match self.finished_expr() {
-                    Some(Expr::BoxList { .. }) | None => {
+                    Some(Expr::List { .. }) | None => {
                         ResolvedToken::PrefixOpr(token_idx, PrefixOpr::Ref)
                     }
                     Some(_) => ResolvedToken::BinaryOpr(

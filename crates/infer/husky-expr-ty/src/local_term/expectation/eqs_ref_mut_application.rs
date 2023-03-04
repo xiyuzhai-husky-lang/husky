@@ -26,7 +26,12 @@ impl ExpectLocalTerm for ExpectEqsRefMutApplication {
         None
     }
 
-    fn disambiguate_list_expr(&self) -> ExprTypeResult<ListExprDisambiguation> {
+    #[inline(always)]
+    fn final_destination(
+        &self,
+        db: &dyn ExprTypeDb,
+        unresolved_terms: &UnresolvedTerms,
+    ) -> ExprTypeResult<LocalTerm> {
         todo!()
     }
 }

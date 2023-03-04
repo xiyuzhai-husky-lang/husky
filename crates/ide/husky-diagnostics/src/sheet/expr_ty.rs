@@ -58,7 +58,7 @@ fn collect_expr_ty_diagnostics(
         }
     }
     for (expr_idx, ty_info) in expr_ty_region.expr_ty_infos().key_value_iter() {
-        match ty_info.ty_result() {
+        match ty_info.ty() {
             Err(ExprTypeError::Original(error)) => {
                 diagnostics.push((expr_idx, error).to_diagnostic(&ctx))
             }
@@ -119,6 +119,9 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
             }
             OriginalExprTypeError::TodoBoxColon => {
                 format!("Type Error: TodoBoxColon")
+            }
+            OriginalExprTypeError::FinalDestination => {
+                format!("Type Error: final destination")
             }
         }
     }

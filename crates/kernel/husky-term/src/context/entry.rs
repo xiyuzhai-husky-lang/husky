@@ -197,5 +197,5 @@ pub(crate) fn is_ty_path_lifetime_ty(db: &dyn TermDb, ty_path: TypePath) -> bool
     let Ok(entity_path_menu) = db.entity_path_menu(toolchain) else {
         return false
     };
-    ty_path == entity_path_menu.lifetime_ty()
+    ty_path == entity_path_menu.lifetime_ty_path()
 }

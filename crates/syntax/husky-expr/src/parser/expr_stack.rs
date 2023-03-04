@@ -77,7 +77,7 @@ impl Expr {
                 rpar_token_idx,
                 ..
             } => todo!(),
-            Expr::BoxList { .. } => BaseEntityPath::None,
+            Expr::List { .. } => BaseEntityPath::None,
             Expr::Bracketed { item, .. } => arena[item].base_entity_path(db, arena),
             Expr::Err(e) => BaseEntityPath::Uncertain {
                 inclination: match e {

@@ -89,7 +89,7 @@ fn crate_symbol_context_works() {
         let toolchain = crate_path.toolchain(db);
         let vfs_path_menu = db.vfs_path_menu(toolchain).unwrap();
         let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
-        t(entity_path_menu.bool().into());
+        t(entity_path_menu.bool_ty_path().into());
         t(entity_path_menu.i32_ty_path().into());
         t(entity_path_menu.i64_ty_path().into());
         t(entity_path_menu.f32_ty_path().into());

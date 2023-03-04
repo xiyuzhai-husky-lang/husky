@@ -142,7 +142,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::BoxList {
+                                                Expr::List {
                                                     lbox_token_idx: TokenIdx(
                                                         73,
                                                     ),
@@ -299,7 +299,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::PrefixOpn {
+                                                    Expr::Prefix {
                                                         opr: Ref,
                                                         opr_token_idx: TokenIdx(
                                                             82,
@@ -316,7 +316,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::PrefixOpn {
+                                                    Expr::Prefix {
                                                         opr: Option,
                                                         opr_token_idx: TokenIdx(
                                                             86,
@@ -512,7 +512,7 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            Expr::PrefixOpn {
+                                                            Expr::Prefix {
                                                                 opr: Ref,
                                                                 opr_token_idx: TokenIdx(
                                                                     82,
@@ -529,7 +529,7 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            Expr::PrefixOpn {
+                                                            Expr::Prefix {
                                                                 opr: Option,
                                                                 opr_token_idx: TokenIdx(
                                                                     86,
@@ -685,7 +685,7 @@ Ok(
                                                         97,
                                                     ),
                                                 ),
-                                                Expr::BinaryOpn {
+                                                Expr::Binary {
                                                     lopd: 1,
                                                     opr: PureClosed(
                                                         Add,
@@ -695,14 +695,14 @@ Ok(
                                                     ),
                                                     ropd: 2,
                                                 },
-                                                Expr::PrefixOpn {
+                                                Expr::Prefix {
                                                     opr: Minus,
                                                     opr_token_idx: TokenIdx(
                                                         96,
                                                     ),
                                                     opd: 3,
                                                 },
-                                                Expr::BinaryOpn {
+                                                Expr::Binary {
                                                     lopd: 4,
                                                     opr: Comparison(
                                                         Less,
@@ -734,7 +734,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                Expr::PrefixOpn {
+                                                Expr::Prefix {
                                                     opr: Minus,
                                                     opr_token_idx: TokenIdx(
                                                         98,
@@ -746,7 +746,7 @@ Ok(
                                                         103,
                                                     ),
                                                 ),
-                                                Expr::BinaryOpn {
+                                                Expr::Binary {
                                                     lopd: 9,
                                                     opr: PureClosed(
                                                         Add,
@@ -888,7 +888,7 @@ Ok(
                                                             },
                                                         ),
                                                     ),
-                                                    Expr::PrefixOpn {
+                                                    Expr::Prefix {
                                                         opr: Option,
                                                         opr_token_idx: TokenIdx(
                                                             107,
@@ -1017,7 +1017,7 @@ Ok(
                                                         123,
                                                     ),
                                                 ),
-                                                Expr::BinaryOpn {
+                                                Expr::Binary {
                                                     lopd: 4,
                                                     opr: Comparison(
                                                         Eq,
@@ -1059,7 +1059,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                Expr::BinaryOpn {
+                                                Expr::Binary {
                                                     lopd: 8,
                                                     opr: Assign(
                                                         None,
@@ -1084,7 +1084,7 @@ Ok(
                                                         133,
                                                     ),
                                                 ),
-                                                Expr::BinaryOpn {
+                                                Expr::Binary {
                                                     lopd: 11,
                                                     opr: Comparison(
                                                         Less,
@@ -1121,7 +1121,7 @@ Ok(
                                                         139,
                                                     ),
                                                 ),
-                                                Expr::IndexOrComposeWithList {
+                                                Expr::IndexOrCompositionWithList {
                                                     owner: 15,
                                                     lbox_token_idx: TokenIdx(
                                                         138,
@@ -1181,7 +1181,7 @@ Ok(
                                                         150,
                                                     ),
                                                 ),
-                                                Expr::BinaryOpn {
+                                                Expr::Binary {
                                                     lopd: 20,
                                                     opr: Comparison(
                                                         Eq,
@@ -1218,7 +1218,7 @@ Ok(
                                                         157,
                                                     ),
                                                 ),
-                                                Expr::IndexOrComposeWithList {
+                                                Expr::IndexOrCompositionWithList {
                                                     owner: 24,
                                                     lbox_token_idx: TokenIdx(
                                                         156,
@@ -1284,7 +1284,7 @@ Ok(
                                                         166,
                                                     ),
                                                 },
-                                                Expr::BinaryOpn {
+                                                Expr::Binary {
                                                     lopd: 28,
                                                     opr: Assign(
                                                         None,
@@ -1309,7 +1309,7 @@ Ok(
                                                         170,
                                                     ),
                                                 ),
-                                                Expr::BinaryOpn {
+                                                Expr::Binary {
                                                     lopd: 31,
                                                     opr: Comparison(
                                                         Less,
@@ -1339,7 +1339,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                Expr::BinaryOpn {
+                                                Expr::Binary {
                                                     lopd: 34,
                                                     opr: ScopeResolution,
                                                     opr_token_idx: TokenIdx(
@@ -1367,7 +1367,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::BoxList {
+                                                Expr::List {
                                                     lbox_token_idx: TokenIdx(
                                                         180,
                                                     ),
@@ -1406,7 +1406,7 @@ Ok(
                                                         182,
                                                     ),
                                                 },
-                                                Expr::BinaryOpn {
+                                                Expr::Binary {
                                                     lopd: 40,
                                                     opr: Assign(
                                                         None,
@@ -1476,7 +1476,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                Expr::BinaryOpn {
+                                                Expr::Binary {
                                                     lopd: 44,
                                                     opr: ScopeResolution,
                                                     opr_token_idx: TokenIdx(
@@ -1555,7 +1555,7 @@ Ok(
                                                         203,
                                                     ),
                                                 },
-                                                Expr::SuffixOpn {
+                                                Expr::Suffix {
                                                     opd: 54,
                                                     opr: UnveilOrComposeWithOption,
                                                     opr_token_idx: TokenIdx(
@@ -1589,7 +1589,7 @@ Ok(
                                                         210,
                                                     ),
                                                 ),
-                                                Expr::BinaryOpn {
+                                                Expr::Binary {
                                                     lopd: 57,
                                                     opr: Comparison(
                                                         Less,
@@ -1638,7 +1638,7 @@ Ok(
                                                         218,
                                                     ),
                                                 ),
-                                                Expr::IndexOrComposeWithList {
+                                                Expr::IndexOrCompositionWithList {
                                                     owner: 62,
                                                     lbox_token_idx: TokenIdx(
                                                         217,
@@ -1700,7 +1700,7 @@ Ok(
                                                         229,
                                                     ),
                                                 ),
-                                                Expr::IndexOrComposeWithList {
+                                                Expr::IndexOrCompositionWithList {
                                                     owner: 68,
                                                     lbox_token_idx: TokenIdx(
                                                         228,
@@ -1772,7 +1772,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                Expr::IndexOrComposeWithList {
+                                                Expr::IndexOrCompositionWithList {
                                                     owner: 74,
                                                     lbox_token_idx: TokenIdx(
                                                         240,
@@ -1784,7 +1784,7 @@ Ok(
                                                         242,
                                                     ),
                                                 },
-                                                Expr::BinaryOpn {
+                                                Expr::Binary {
                                                     lopd: 76,
                                                     opr: Assign(
                                                         None,
@@ -1892,7 +1892,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                Expr::BinaryOpn {
+                                                Expr::Binary {
                                                     lopd: 83,
                                                     opr: PureClosed(
                                                         Sub,
@@ -1902,7 +1902,7 @@ Ok(
                                                     ),
                                                     ropd: 84,
                                                 },
-                                                Expr::BinaryOpn {
+                                                Expr::Binary {
                                                     lopd: 85,
                                                     opr: Assign(
                                                         None,
@@ -2010,7 +2010,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                Expr::BinaryOpn {
+                                                Expr::Binary {
                                                     lopd: 92,
                                                     opr: PureClosed(
                                                         Sub,
@@ -2020,7 +2020,7 @@ Ok(
                                                     ),
                                                     ropd: 93,
                                                 },
-                                                Expr::BinaryOpn {
+                                                Expr::Binary {
                                                     lopd: 94,
                                                     opr: Assign(
                                                         None,
@@ -2060,7 +2060,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                Expr::BinaryOpn {
+                                                Expr::Binary {
                                                     lopd: 97,
                                                     opr: PureClosed(
                                                         Div,
@@ -2070,7 +2070,7 @@ Ok(
                                                     ),
                                                     ropd: 98,
                                                 },
-                                                Expr::BinaryOpn {
+                                                Expr::Binary {
                                                     lopd: 99,
                                                     opr: Assign(
                                                         None,
@@ -2095,7 +2095,7 @@ Ok(
                                                         285,
                                                     ),
                                                 ),
-                                                Expr::BinaryOpn {
+                                                Expr::Binary {
                                                     lopd: 102,
                                                     opr: Comparison(
                                                         Greater,
@@ -2137,7 +2137,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                Expr::BinaryOpn {
+                                                Expr::Binary {
                                                     lopd: 106,
                                                     opr: Assign(
                                                         None,
@@ -2167,7 +2167,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                Expr::BinaryOpn {
+                                                Expr::Binary {
                                                     lopd: 109,
                                                     opr: ScopeResolution,
                                                     opr_token_idx: TokenIdx(
