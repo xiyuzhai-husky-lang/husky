@@ -120,7 +120,7 @@ impl VfsPathMenu {
         self.core_ops
     }
 
-    pub fn core_option(&self) -> ModulePath {
+    pub fn core_option_ty_path(&self) -> ModulePath {
         self.core_option
     }
 
@@ -146,7 +146,10 @@ fn vfs_path_menu_works() {
     assert_eq!(menu.core_slice().to_string_with_db(&db), "core::slice");
     assert_eq!(menu.core_str().to_string_with_db(&db), "core::str");
     assert_eq!(menu.core_ops().to_string_with_db(&db), "core::ops");
-    assert_eq!(menu.core_option().to_string_with_db(&db), "core::option");
+    assert_eq!(
+        menu.core_option_ty_path().to_string_with_db(&db),
+        "core::option"
+    );
     assert_eq!(menu.core_prelude().to_string_with_db(&db), "core::prelude");
     assert_eq!(
         menu.core_raw_bits().to_string_with_db(&db),

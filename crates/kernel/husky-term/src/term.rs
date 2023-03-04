@@ -4,6 +4,7 @@ mod as_trai_subentity;
 mod category;
 mod constraint;
 mod curry;
+mod entity_path;
 mod literal;
 mod ritchie;
 mod subentity;
@@ -18,6 +19,7 @@ pub use self::as_trai_subentity::*;
 pub use self::category::*;
 pub use self::constraint::*;
 pub use self::curry::*;
+pub use self::entity_path::*;
 pub use self::literal::*;
 pub use self::ritchie::*;
 pub use self::subentity::*;
@@ -37,7 +39,7 @@ pub enum Term {
     /// literal: 1,1.0, true, false; variable, entityPath
     Literal(TermLiteral),
     Symbol(TermSymbol),
-    Entity(EntityPath),
+    EntityPath(TermEntityPath),
     Category(TermCategory),
     Universe(TermUniverse),
     /// X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
@@ -106,9 +108,7 @@ impl Term {
         match self {
             Term::Literal(term) => term.show_with_db_fmt(f, db, ctx),
             Term::Symbol(term) => term.show_with_db_fmt(f, db, ctx),
-            Term::Entity(term) => {
-                term.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())
-            }
+            Term::EntityPath(term) => term.show_with_db_fmt(f, db, ctx),
             Term::Category(term) => f.write_str(&term.to_string()),
             Term::Universe(term) => f.write_str(&term.to_string()),
             Term::Curry(term) => term.show_with_db_fmt(f, db, ctx),

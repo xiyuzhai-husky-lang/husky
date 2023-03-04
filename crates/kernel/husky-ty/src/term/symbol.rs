@@ -29,15 +29,11 @@ pub(crate) fn calc_term_symbols(db: &dyn TypeDb, term: Term) -> Option<TermSymbo
     match term {
         Term::Literal(_) => todo!(),
         Term::Symbol(symbol) => Some(TermSymbols::new(db, VecSet::new_one_elem_set(symbol))),
-        Term::Entity(path) => match path {
-            EntityPath::Module(_) => None,
-            EntityPath::ModuleItem(path) => match path {
-                ModuleItemPath::Type(_) => None,
-                ModuleItemPath::Trait(_) => None,
-                ModuleItemPath::Form(_) => todo!(),
-            },
-            EntityPath::AssociatedItem(_) => todo!(),
-            EntityPath::Variant(_) => todo!(),
+        Term::EntityPath(path) => match path {
+            TermEntityPath::Form(_) => todo!(),
+            TermEntityPath::Trait(_)
+            | TermEntityPath::TypeOntology(_)
+            | TermEntityPath::TypeConstructor(_) => None,
         },
         Term::Category(_) => None,
         Term::Universe(_) => None,

@@ -190,7 +190,7 @@ impl UnresolvedTerms {
             Ok(term) => match term {
                 Term::Literal(_) => todo!(),
                 Term::Symbol(_) => todo!(),
-                Term::Entity(_) => todo!(),
+                Term::EntityPath(_) => todo!(),
                 Term::Category(cat) if cat.universe().raw() == 0 => todo!(),
                 Term::Category(cat) if cat.universe().raw() == 1 => {
                     ImplicitSymbolVariant::ImplicitType

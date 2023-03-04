@@ -45,7 +45,7 @@ impl UnresolvedTerms {
                     None => db.reduced_term(term).into(),
                 }
             }
-            Term::Entity(_) => db.reduced_term(term).into(),
+            Term::EntityPath(_) => db.reduced_term(term).into(),
             Term::Category(_) => todo!(),
             Term::Universe(_) => todo!(),
             Term::Curry(_) => todo!(),
@@ -98,19 +98,23 @@ impl UnresolvedTerms {
         let unresolved_term = match expansion.f() {
             Term::Literal(_) => todo!(),
             Term::Symbol(_) => todo!(),
-            Term::Entity(path) => match path {
-                EntityPath::Module(_) => todo!(),
-                EntityPath::ModuleItem(path) => match path {
-                    ModuleItemPath::Type(ty_path) => UnresolvedTerm::TypeApplication {
-                        ty_path,
-                        arguments: expansion.arguments(db).iter().copied().map(t).collect(),
-                    },
-                    ModuleItemPath::Trait(_) => todo!(),
-                    ModuleItemPath::Form(_) => todo!(),
-                },
-                EntityPath::AssociatedItem(_) => todo!(),
-                EntityPath::Variant(_) => todo!(),
+            Term::EntityPath(path) => match path {
+                TermEntityPath::Form(_) => todo!(),
+                TermEntityPath::Trait(_) => todo!(),
+                TermEntityPath::TypeOntology(_) => todo!(),
+                TermEntityPath::TypeConstructor(_) => todo!(),
             },
+            // EntityPath::Module(_) => todo!(),
+            // EntityPath::ModuleItem(path) => match path {
+            //     ModuleItemPath::Type(ty_path) => UnresolvedTerm::TypeApplication {
+            //         ty_path,
+            //         arguments: expansion.arguments(db).iter().copied().map(t).collect(),
+            //     },
+            //     ModuleItemPath::Trait(_) => todo!(),
+            //     ModuleItemPath::Form(_) => todo!(),
+            // },
+            // EntityPath::AssociatedItem(_) => todo!(),
+            // EntityPath::Variant(_) => todo!(),
             Term::Category(_) => todo!(),
             Term::Universe(_) => todo!(),
             Term::Curry(_) => todo!(),

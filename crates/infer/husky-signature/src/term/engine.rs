@@ -177,7 +177,19 @@ impl<'a> SignatureTermEngine<'a> {
                 entity_path_expr,
                 path: entity_path,
             } => match entity_path {
-                Some(entity_path) => Ok(Term::Entity(entity_path)),
+                Some(entity_path) => Ok(Term::EntityPath(match entity_path {
+                    EntityPath::Module(_) => todo!(),
+                    EntityPath::ModuleItem(path) => match path {
+                        ModuleItemPath::Type(path) => {
+                            /* ad hoc */
+                            TermEntityPath::TypeOntology(path)
+                        }
+                        ModuleItemPath::Trait(path) => path.into(),
+                        ModuleItemPath::Form(path) => path.into(),
+                    },
+                    EntityPath::AssociatedItem(_) => todo!(),
+                    EntityPath::Variant(_) => todo!(),
+                })),
                 None => Err(DerivedSignatureTermError::InvalidEntityPath.into()),
             },
             Expr::InheritedSymbol {

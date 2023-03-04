@@ -12,7 +12,7 @@ pub fn term_ty(
     match reduced_term.term() {
         Term::Literal(_) => todo!(),
         Term::Symbol(_) => todo!(),
-        Term::Entity(path) => entity_path_ty(db, disambiguation, path),
+        Term::EntityPath(path) => term_entity_path_ty(db, path),
         Term::Category(cat) => cat
             .ty()
             .map(Into::into)

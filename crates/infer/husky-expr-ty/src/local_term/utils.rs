@@ -21,16 +21,20 @@ impl LocalTerm {
             LocalTerm::Resolved(resolved_term) => match resolved_term.term() {
                 Term::Literal(_) => todo!(),
                 Term::Symbol(_) => todo!(),
-                Term::Entity(path) => match path {
-                    EntityPath::Module(_) => todo!(),
-                    EntityPath::ModuleItem(path) => match path {
-                        ModuleItemPath::Type(ty_path) => FinalDestination::TypePath(ty_path),
-                        ModuleItemPath::Trait(_) => todo!(),
-                        ModuleItemPath::Form(_) => todo!(),
-                    },
-                    EntityPath::AssociatedItem(_) => todo!(),
-                    EntityPath::Variant(_) => todo!(),
+                Term::EntityPath(path) => match path {
+                    TermEntityPath::Form(_) => todo!(),
+                    TermEntityPath::Trait(_) => todo!(),
+                    TermEntityPath::TypeOntology(_) => todo!(),
+                    TermEntityPath::TypeConstructor(_) => todo!(),
                 },
+                // EntityPath::Module(_) => todo!(),
+                // EntityPath::ModuleItem(path) => match path {
+                //     ModuleItemPath::Type(ty_path) => FinalDestination::TypePath(ty_path),
+                //     ModuleItemPath::Trait(_) => todo!(),
+                //     ModuleItemPath::Form(_) => todo!(),
+                // },
+                // EntityPath::AssociatedItem(_) => todo!(),
+                // EntityPath::Variant(_) => todo!(),
                 Term::Category(_) => FinalDestination::Sort,
                 Term::Universe(_) => todo!(),
                 Term::Curry(_) => todo!(),
@@ -41,17 +45,13 @@ impl LocalTerm {
                     match expansion.f() {
                         Term::Literal(_) => todo!(),
                         Term::Symbol(_) => todo!(),
-                        Term::Entity(path) => match path {
-                            EntityPath::Module(_) => todo!(),
-                            EntityPath::ModuleItem(path) => match path {
-                                ModuleItemPath::Type(ty_path) => {
-                                    FinalDestination::TypePath(ty_path)
-                                }
-                                ModuleItemPath::Trait(_) => todo!(),
-                                ModuleItemPath::Form(_) => todo!(),
-                            },
-                            EntityPath::AssociatedItem(_) => todo!(),
-                            EntityPath::Variant(_) => todo!(),
+                        Term::EntityPath(path) => match path {
+                            TermEntityPath::Form(_) => todo!(),
+                            TermEntityPath::Trait(_) => todo!(),
+                            TermEntityPath::TypeOntology(ty_path) => {
+                                FinalDestination::TypePath(ty_path)
+                            }
+                            TermEntityPath::TypeConstructor(_) => todo!(),
                         },
                         Term::Category(_) => todo!(),
                         Term::Universe(_) => todo!(),
@@ -77,16 +77,20 @@ fn curry_destination(db: &dyn ExprTypeDb, resolved_term: ReducedTerm) -> Reduced
     match resolved_term.term() {
         Term::Literal(_) => todo!(),
         Term::Symbol(_) => todo!(),
-        Term::Entity(path) => match path {
-            EntityPath::Module(_) => todo!(),
-            EntityPath::ModuleItem(path) => match path {
-                ModuleItemPath::Type(path) => resolved_term,
-                ModuleItemPath::Trait(_) => todo!(),
-                ModuleItemPath::Form(_) => todo!(),
-            },
-            EntityPath::AssociatedItem(_) => todo!(),
-            EntityPath::Variant(_) => todo!(),
+        Term::EntityPath(path) => match path {
+            TermEntityPath::Form(_) => todo!(),
+            TermEntityPath::Trait(_) => todo!(),
+            TermEntityPath::TypeOntology(_) => todo!(),
+            TermEntityPath::TypeConstructor(_) => todo!(),
         },
+        // EntityPath::Module(_) => todo!(),
+        // EntityPath::ModuleItem(path) => match path {
+        //     ModuleItemPath::Type(path) => resolved_term,
+        //     ModuleItemPath::Trait(_) => todo!(),
+        //     ModuleItemPath::Form(_) => todo!(),
+        // },
+        // EntityPath::AssociatedItem(_) => todo!(),
+        // EntityPath::Variant(_) => todo!(),
         Term::Category(_) => resolved_term,
         Term::Universe(_) => todo!(),
         Term::Curry(_) => todo!(),

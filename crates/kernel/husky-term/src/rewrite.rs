@@ -28,7 +28,7 @@ impl TermRewriteCopy for Term {
                 true => substitution.dst(),
                 false => self,
             },
-            Term::Literal(_) | Term::Entity(_) | Term::Category(_) | Term::Universe(_) => self,
+            Term::Literal(_) | Term::EntityPath(_) | Term::Category(_) | Term::Universe(_) => self,
             Term::Curry(term) => term.substitute_copy(db, substitution).into(),
             Term::Abstraction(term) => term.substitute_copy(db, substitution).into(),
             Term::Application(term) => term.substitute_copy(db, substitution).into(),

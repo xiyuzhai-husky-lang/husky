@@ -72,7 +72,7 @@ impl EntityPathMenu {
         let word_menu = db.word_menu();
         let path_menu = db.vfs_path_menu(toolchain)?;
         let core_ops = path_menu.core_ops();
-        let core_option = path_menu.core_option();
+        let core_option = path_menu.core_option_ty_path();
         let core_slice = path_menu.core_slice();
         let core_str = path_menu.core_str();
         let core_basic = path_menu.core_basic();
@@ -506,7 +506,7 @@ impl EntityPathMenu {
         self.trai_ty_path
     }
 
-    pub fn module(&self) -> TypePath {
+    pub fn module_ty_path(&self) -> TypePath {
         self.module
     }
 
