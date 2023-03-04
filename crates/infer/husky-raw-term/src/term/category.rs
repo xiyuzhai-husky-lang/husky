@@ -2,37 +2,37 @@ use super::*;
 
 /// `Sort u` for some universe `u`
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct TermCategory {
-    universe: TermUniverse,
+pub struct RawTermCategory {
+    universe: RawTermUniverse,
 }
 
-impl TermCategory {
-    pub fn new(universe: TermUniverse) -> Self {
+impl RawTermCategory {
+    pub fn new(universe: RawTermUniverse) -> Self {
         Self { universe }
     }
 
-    pub fn ty(self) -> TermResult<Term> {
+    pub fn ty(self) -> RawTermResult<RawTerm> {
         Ok(Self {
             universe: self.universe.next()?,
         }
         .into())
     }
 
-    pub fn universe(&self) -> TermUniverse {
+    pub fn universe(&self) -> RawTermUniverse {
         self.universe
     }
 
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn TermDb,
-        ctx: &mut TermShowContext,
+        db: &dyn RawTermDb,
+        ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
         todo!()
     }
 }
 
-impl std::fmt::Display for TermCategory {
+impl std::fmt::Display for RawTermCategory {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self.universe.raw() {
             0 => f.write_str("Prop"),
@@ -46,8 +46,8 @@ impl std::fmt::Display for TermCategory {
 }
 // pub fn as_str(self) -> &'static str {
 //     match self {
-//         TermCategory::Type => "Type",
-//         TermCategory::Sort => "Sort",
-//         TermCategory::Prop => "Prop",
+//         RawTermCategory::Type => "Type",
+//         RawTermCategory::Sort => "Sort",
+//         RawTermCategory::Prop => "Prop",
 //     }
 // }

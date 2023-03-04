@@ -7,13 +7,16 @@ pub fn regular_struct_ty_raw_signature(
 ) -> RawSignatureResult<RegularStructTypeRawSignature> {
     let expr_region = decl.expr_region(db);
     let raw_signature_term_region = raw_signature_term_region(db, expr_region);
-    let term_menu = db.term_menu(expr_region.toolchain(db)).as_ref().unwrap();
+    let raw_term_menu = db
+        .raw_term_menu(expr_region.toolchain(db))
+        .as_ref()
+        .unwrap();
     Ok(RegularStructTypeRawSignature::new(
         db,
         ImplicitParameterRawSignatures::from_decl(
             decl.implicit_parameters(db)?,
             raw_signature_term_region,
-            term_menu,
+            raw_term_menu,
         ),
         decl.fields(db)?
             .iter()
@@ -24,7 +27,7 @@ pub fn regular_struct_ty_raw_signature(
                     ty: match raw_signature_term_region.expr_term(field.ty()) {
                         Ok(ty) => ty,
                         Err(_) => {
-                            return Err(RawSignatureError::FieldTypeTermError(
+                            return Err(RawSignatureError::FieldTypeRawTermError(
                                 i.try_into().unwrap(),
                             ))
                         }
@@ -48,5 +51,5 @@ impl RegularStructTypeRawSignature {}
 #[derive(Debug, PartialEq, Eq)]
 pub struct RegularStructFieldRawSignature {
     ident: Identifier,
-    ty: Term,
+    ty: RawTerm,
 }

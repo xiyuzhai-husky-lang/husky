@@ -1,59 +1,63 @@
 use crate::*;
 use thiserror::Error;
 
-#[salsa::interned(db = TermDb, jar = TermJar)]
-pub struct TermSymbol {
-    pub ty: TermSymbolTypeResult<Term>,
+#[salsa::interned(db = RawTermDb, jar = RawTermJar)]
+pub struct RawTermSymbol {
+    pub ty: RawTermSymbolTypeResult<RawTerm>,
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
     pub idx: u8,
 }
 
-impl TermSymbol {
+impl RawTermSymbol {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn TermDb,
-        ctx: &mut TermShowContext,
+        db: &dyn RawTermDb,
+        ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
         ctx.fmt_symbol(db, self, f)
     }
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum TermSymbolTypeErrorKind {
-    #[error("signature term error")]
-    SignatureTermError,
-    #[error("sketch term error")]
-    SketchTermError,
+pub enum RawTermSymbolTypeErrorKind {
+    #[error("signature raw_term error")]
+    SignatureRawTermError,
+    #[error("sketch raw_term error")]
+    SketchRawTermError,
 }
-pub type TermSymbolTypeResult<T> = Result<T, TermSymbolTypeErrorKind>;
+pub type RawTermSymbolTypeResult<T> = Result<T, RawTermSymbolTypeErrorKind>;
 
 #[derive(Default, Debug, PartialEq, Eq, Clone)]
-pub struct TermSymbolRegistry {
-    tys: Vec<TermSymbolTypeResult<Term>>,
+pub struct RawTermSymbolRegistry {
+    tys: Vec<RawTermSymbolTypeResult<RawTerm>>,
 }
 
-impl TermSymbolRegistry {
-    pub fn new_symbol(&mut self, db: &dyn TermDb, ty: TermSymbolTypeResult<Term>) -> TermSymbol {
+impl RawTermSymbolRegistry {
+    pub fn new_symbol(
+        &mut self,
+        db: &dyn RawTermDb,
+        ty: RawTermSymbolTypeResult<RawTerm>,
+    ) -> RawTermSymbol {
         let idx_usize = self.tys.iter().filter(|ty1| **ty1 == ty).count();
         let idx = match idx_usize.try_into() {
             Ok(idx) => idx,
             Err(_) => todo!(),
         };
         self.tys.push(ty);
-        TermSymbol::new(db, ty, idx)
+        RawTermSymbol::new(db, ty, idx)
     }
 }
 
-impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermSymbol {
+impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTermSymbol {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
         level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
+        let db = <Db as salsa::DbWithJar<RawTermJar>>::as_jar_db(db);
         f.write_fmt(format_args!("${}", self.idx(db)))
     }
 }

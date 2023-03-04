@@ -4,5 +4,27 @@ version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
+once_cell = "1.16.0"
+optional = "0.5.0"
+thiserror = "1.0.37"
+ordered-float = "3.0.0"
+# abstraction
+salsa = { path = "../../abstraction/salsa" }
+vec-like = { path = "../../abstraction/vec-like" }
+enum-class = { path = "../../abstraction/enum-class" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs" }
+# kernel
+husky-word = { path = "../../kernel/husky-word" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
+# lex
+husky-token = { path = "../../lex/husky-token" }
+# utils
+husky-print-utils = { path = "../../utils/husky-print-utils" }
+husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
+
+[dev-dependencies]
+# kernel
+husky-word = { path = "../../kernel/husky-word" }
+husky-package-path = { path = "../../kernel/husky-package-path" }

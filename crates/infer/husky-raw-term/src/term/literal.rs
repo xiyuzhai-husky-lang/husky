@@ -3,12 +3,12 @@ use husky_token::StringLiteral;
 use ordered_float::OrderedFloat;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = TermDb, jar = TermJar)]
-pub enum TermLiteral {
+#[salsa::derive_debug_with_db(db = RawTermDb, jar = RawTermJar)]
+pub enum RawTermLiteral {
     Unit,
     I32(i32),
     I64(i64),
-    Nat(TermNaturalNumber),
+    Nat(RawTermNaturalNumber),
     Float(OrderedFloat<f64>),
     F32(OrderedFloat<f32>),
     F64(OrderedFloat<f64>),
@@ -22,89 +22,89 @@ pub enum TermLiteral {
     StaticLifetime,
 }
 
-impl TermLiteral {
+impl RawTermLiteral {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn TermDb,
-        ctx: &mut TermShowContext,
+        db: &dyn RawTermDb,
+        ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
         match self {
-            TermLiteral::Unit => f.write_str("unit"),
-            TermLiteral::I32(_) => todo!(),
-            TermLiteral::I64(_) => todo!(),
-            TermLiteral::Nat(_) => todo!(),
-            TermLiteral::Float(_) => todo!(),
-            TermLiteral::F32(_) => todo!(),
-            TermLiteral::F64(_) => todo!(),
-            TermLiteral::B8(_) => todo!(),
-            TermLiteral::B16(_) => todo!(),
-            TermLiteral::B32(_) => todo!(),
-            TermLiteral::B64(_) => todo!(),
-            TermLiteral::Bool(_) => todo!(),
-            TermLiteral::Str(_) => todo!(),
-            TermLiteral::EvalLifetime => f.write_str("'eval"),
-            TermLiteral::StaticLifetime => f.write_str("'static"),
+            RawTermLiteral::Unit => f.write_str("unit"),
+            RawTermLiteral::I32(_) => todo!(),
+            RawTermLiteral::I64(_) => todo!(),
+            RawTermLiteral::Nat(_) => todo!(),
+            RawTermLiteral::Float(_) => todo!(),
+            RawTermLiteral::F32(_) => todo!(),
+            RawTermLiteral::F64(_) => todo!(),
+            RawTermLiteral::B8(_) => todo!(),
+            RawTermLiteral::B16(_) => todo!(),
+            RawTermLiteral::B32(_) => todo!(),
+            RawTermLiteral::B64(_) => todo!(),
+            RawTermLiteral::Bool(_) => todo!(),
+            RawTermLiteral::Str(_) => todo!(),
+            RawTermLiteral::EvalLifetime => f.write_str("'eval"),
+            RawTermLiteral::StaticLifetime => f.write_str("'static"),
         }
     }
 }
 
-impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermLiteral {
+impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTermLiteral {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
         level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
+        let db = <Db as salsa::DbWithJar<RawTermJar>>::as_jar_db(db);
         self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }
 
 /// allowing representing very large number
-#[salsa::interned(db = TermDb, jar = TermJar)]
-pub struct TermInteger128 {
+#[salsa::interned(db = RawTermDb, jar = RawTermJar)]
+pub struct RawTermInteger128 {
     pub value: i128,
 }
 
 /// allowing representing very large number
-#[salsa::interned(db = TermDb, jar = TermJar)]
-pub struct TermInteger256 {
+#[salsa::interned(db = RawTermDb, jar = RawTermJar)]
+pub struct RawTermInteger256 {
     pub value: [i128; 2],
 }
 
 /// allowing representing very large number
-#[salsa::interned(db = TermDb, jar = TermJar)]
-pub struct TermNaturalNumber {
+#[salsa::interned(db = RawTermDb, jar = RawTermJar)]
+pub struct RawTermNaturalNumber {
     pub bits: Vec<usize>,
 }
 
-impl From<i32> for Term {
+impl From<i32> for RawTerm {
     fn from(value: i32) -> Self {
-        Term::Literal(value.into())
+        RawTerm::Literal(value.into())
     }
 }
 
-impl From<i64> for Term {
+impl From<i64> for RawTerm {
     fn from(value: i64) -> Self {
-        Term::Literal(value.into())
+        RawTerm::Literal(value.into())
     }
 }
 
-impl std::fmt::Display for TermLiteral {
+impl std::fmt::Display for RawTermLiteral {
     fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
     }
 }
 
-impl From<i32> for TermLiteral {
+impl From<i32> for RawTermLiteral {
     fn from(value: i32) -> Self {
-        TermLiteral::I32(value)
+        RawTermLiteral::I32(value)
     }
 }
 
-impl From<i64> for TermLiteral {
+impl From<i64> for RawTermLiteral {
     fn from(value: i64) -> Self {
-        TermLiteral::I64(value)
+        RawTermLiteral::I64(value)
     }
 }

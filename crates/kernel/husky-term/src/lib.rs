@@ -41,11 +41,3 @@ pub struct TermJar(
     // only use this inside crate::context::entry
     is_ty_path_lifetime_ty,
 );
-
-#[test]
-fn term_size_works() {
-    assert_eq!(
-        std::mem::size_of::<Term>(),
-        2 * std::mem::size_of::<usize>()
-    )
-}

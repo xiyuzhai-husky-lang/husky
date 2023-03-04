@@ -15,7 +15,7 @@ pub use self::term::*;
 
 use husky_decl::*;
 use husky_entity_path::*;
-use husky_term::*;
+use husky_raw_term::*;
 use husky_word::*;
 
 #[cfg(test)]
@@ -23,8 +23,8 @@ use tests::*;
 
 #[salsa::jar(db = RawSignatureDb)]
 pub struct RawSignatureJar(
-    RawSignatureTermApplication,
-    RawSignatureTermCurry,
+    RawSignatureRawTermApplication,
+    RawSignatureRawTermCurry,
     raw_signature_term_region,
     // type
     enum_ty_raw_signature,

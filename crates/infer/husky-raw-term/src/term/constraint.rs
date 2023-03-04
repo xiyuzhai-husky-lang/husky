@@ -1,24 +1,24 @@
 use crate::*;
 
-#[salsa::interned(db = TermDb, jar = TermJar)]
-pub struct TermTraitConstraint {
-    ty: Term,
-    trai: Term,
+#[salsa::interned(db = RawTermDb, jar = RawTermJar)]
+pub struct RawTermTraitConstraint {
+    ty: RawTerm,
+    trai: RawTerm,
 }
 
-impl TermTraitConstraint {
+impl RawTermTraitConstraint {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn TermDb,
-        ctx: &mut TermShowContext,
+        db: &dyn RawTermDb,
+        ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
         todo!()
     }
 }
 
-impl TermRewriteCopy for TermTraitConstraint {
-    fn substitute_copy(self, db: &dyn TermDb, substituation: &TermSubstitution) -> Self {
+impl RawTermRewriteCopy for RawTermTraitConstraint {
+    fn substitute_copy(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self {
         todo!()
     }
 }

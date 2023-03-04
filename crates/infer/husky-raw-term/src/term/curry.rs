@@ -2,31 +2,31 @@ pub use context::*;
 
 use crate::*;
 
-/// representing term `X -> Y` or dependent form `(a: X) -> Y(a)`
-#[salsa::interned(db = TermDb, jar = TermJar)]
-pub struct TermCurry {
-    pub curry_kind: TermCurryKind,
+/// representing raw_term `X -> Y` or dependent form `(a: X) -> Y(a)`
+#[salsa::interned(db = RawTermDb, jar = RawTermJar)]
+pub struct RawTermCurry {
+    pub curry_kind: RawTermCurryKind,
     pub variance: Variance,
     /// a
-    pub input_symbol: Option<TermSymbol>,
+    pub input_symbol: Option<RawTermSymbol>,
     /// X
-    pub input_ty: Term,
+    pub input_ty: RawTerm,
     /// Y
-    pub return_ty: Term,
+    pub return_ty: RawTerm,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum TermCurryKind {
+pub enum RawTermCurryKind {
     Explicit,
     Implicit,
 }
 
-impl TermCurry {
+impl RawTermCurry {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn TermDb,
-        ctx: &mut TermShowContext,
+        db: &dyn RawTermDb,
+        ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
         let input_symbol = self.input_symbol(db);
         if input_symbol.is_some() {
@@ -54,20 +54,20 @@ impl TermCurry {
     }
 }
 
-impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermCurry {
+impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTermCurry {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
         level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
+        let db = <Db as salsa::DbWithJar<RawTermJar>>::as_jar_db(db);
         self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }
 
-impl TermRewriteCopy for TermCurry {
-    fn substitute_copy(self, db: &dyn TermDb, substituation: &TermSubstitution) -> Self {
+impl RawTermRewriteCopy for RawTermCurry {
+    fn substitute_copy(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self {
         todo!()
     }
 }

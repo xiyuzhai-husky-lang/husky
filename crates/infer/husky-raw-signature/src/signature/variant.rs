@@ -28,7 +28,7 @@ pub enum VariantRawSignature {
     Tuple(TupleVariantRawSignature),
 }
 impl VariantRawSignature {
-    pub fn term_sheet<'a>(self, db: &'a dyn RawSignatureDb) -> &'a RawSignatureTermRegion {
+    pub fn term_sheet<'a>(self, db: &'a dyn RawSignatureDb) -> &'a RawSignatureRawTermRegion {
         match self {
             VariantRawSignature::Props(raw_signature) => raw_signature.term_sheet(db),
             VariantRawSignature::Unit(raw_signature) => raw_signature.term_sheet(db),

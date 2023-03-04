@@ -1,26 +1,26 @@
 use crate::*;
 use husky_word::Identifier;
 
-#[salsa::interned(db = TermDb, jar = TermJar)]
-pub struct TermAsTraitSubentity {
-    parent: Term,
-    trai: Term,
+#[salsa::interned(db = RawTermDb, jar = RawTermJar)]
+pub struct RawTermAsTraitSubentity {
+    parent: RawTerm,
+    trai: RawTerm,
     ident: Identifier,
 }
 
-impl TermAsTraitSubentity {
+impl RawTermAsTraitSubentity {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn TermDb,
-        ctx: &mut TermShowContext,
+        db: &dyn RawTermDb,
+        ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
         todo!()
     }
 }
 
-impl TermRewriteCopy for TermAsTraitSubentity {
-    fn substitute_copy(self, db: &dyn TermDb, substituation: &TermSubstitution) -> Self
+impl RawTermRewriteCopy for RawTermAsTraitSubentity {
+    fn substitute_copy(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self
     where
         Self: Copy,
     {
@@ -32,6 +32,6 @@ impl TermRewriteCopy for TermAsTraitSubentity {
             return self;
         }
         let ident = self.ident(db);
-        TermAsTraitSubentity::new(db, parent, trai, ident)
+        RawTermAsTraitSubentity::new(db, parent, trai, ident)
     }
 }

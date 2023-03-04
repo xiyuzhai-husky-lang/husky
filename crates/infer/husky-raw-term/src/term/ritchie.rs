@@ -2,27 +2,27 @@ pub use context::*;
 
 use crate::*;
 
-/// representing term `x -> y`
-#[salsa::interned(db = TermDb, jar = TermJar)]
-pub struct TermRitchie {
-    pub ritchie_kind: TermRitchieKind,
+/// representing raw_term `x -> y`
+#[salsa::interned(db = RawTermDb, jar = RawTermJar)]
+pub struct RawTermRitchie {
+    pub ritchie_kind: RawTermRitchieKind,
     #[return_ref]
-    pub parameter_tys: Vec<TermRitchieParameter>,
-    pub return_ty: Term,
-    // ty: Term,
+    pub parameter_tys: Vec<RawTermRitchieParameter>,
+    pub return_ty: RawTerm,
+    // ty: RawTerm,
 }
 
-impl TermRitchie {
+impl RawTermRitchie {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn TermDb,
-        ctx: &mut TermShowContext,
+        db: &dyn RawTermDb,
+        ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
         match self.ritchie_kind(db) {
-            TermRitchieKind::Fp => f.write_str("Fp(")?,
-            TermRitchieKind::Fn => f.write_str("Fn(")?,
-            TermRitchieKind::FnMut => f.write_str("FnMut(")?,
+            RawTermRitchieKind::Fp => f.write_str("Fp(")?,
+            RawTermRitchieKind::Fn => f.write_str("Fn(")?,
+            RawTermRitchieKind::FnMut => f.write_str("FnMut(")?,
         }
         for (i, parameter_ty) in self.parameter_tys(db).iter().enumerate() {
             if i > 0 {
@@ -35,9 +35,9 @@ impl TermRitchie {
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for TermRitchie
+impl<Db> salsa::DisplayWithDb<Db> for RawTermRitchie
 where
-    Db: TermDb + ?Sized,
+    Db: RawTermDb + ?Sized,
 {
     fn display_with_db_fmt(
         &self,
@@ -45,11 +45,11 @@ where
         db: &Db,
         level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
+        let db = <Db as salsa::DbWithJar<RawTermJar>>::as_jar_db(db);
         match self.ritchie_kind(db) {
-            TermRitchieKind::Fp => f.write_str("Fp(")?,
-            TermRitchieKind::Fn => f.write_str("Fn(")?,
-            TermRitchieKind::FnMut => f.write_str("FnMut(")?,
+            RawTermRitchieKind::Fp => f.write_str("Fp(")?,
+            RawTermRitchieKind::Fn => f.write_str("Fn(")?,
+            RawTermRitchieKind::FnMut => f.write_str("FnMut(")?,
         }
         for (i, parameter_ty) in self.parameter_tys(db).iter().enumerate() {
             if i > 0 {
@@ -63,25 +63,25 @@ where
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-#[salsa::derive_debug_with_db(db = TermDb)]
-pub struct TermRitchieParameter {
-    ty: Term,
+#[salsa::derive_debug_with_db(db = RawTermDb)]
+pub struct RawTermRitchieParameter {
+    ty: RawTerm,
 }
 
-impl TermRitchieParameter {
+impl RawTermRitchieParameter {
     fn show_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn TermDb,
-        ctx: &mut TermShowContext,
+        db: &dyn RawTermDb,
+        ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
         self.ty.show_with_db_fmt(f, db, ctx)
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for TermRitchieParameter
+impl<Db> salsa::DisplayWithDb<Db> for RawTermRitchieParameter
 where
-    Db: TermDb + ?Sized,
+    Db: RawTermDb + ?Sized,
 {
     fn display_with_db_fmt(
         &self,
@@ -89,30 +89,30 @@ where
         db: &Db,
         level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
+        let db = <Db as salsa::DbWithJar<RawTermJar>>::as_jar_db(db);
         self.ty.show_with_db_fmt(f, db, &mut Default::default())
     }
 }
 
-impl TermRitchieParameter {
-    pub fn new(ty: Term) -> Self {
+impl RawTermRitchieParameter {
+    pub fn new(ty: RawTerm) -> Self {
         Self { ty }
     }
 
-    pub fn ty(&self) -> Term {
+    pub fn ty(&self) -> RawTerm {
         self.ty
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum TermRitchieKind {
+pub enum RawTermRitchieKind {
     Fp,
     Fn,
     FnMut,
 }
 
-impl TermRewriteCopy for TermRitchie {
-    fn substitute_copy(self, db: &dyn TermDb, substituation: &TermSubstitution) -> Self {
+impl RawTermRewriteCopy for RawTermRitchie {
+    fn substitute_copy(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self {
         todo!()
     }
 }
