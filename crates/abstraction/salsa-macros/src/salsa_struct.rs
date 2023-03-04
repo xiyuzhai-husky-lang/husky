@@ -225,6 +225,14 @@ impl<A: AllowedOptions> SalsaStruct<A> {
         }
     }
 
+    /// Returns the `constructor_name` in `Options` if it is `Some`, else `new`
+    pub(crate) fn constructor_visibility(&self) -> &syn::Visibility {
+        self.args
+            .constructor_visibility
+            .as_ref()
+            .unwrap_or(self.visibility())
+    }
+
     /// For each of the fields passed as an argument,
     /// generate a struct named `Ident_Field` and an impl
     /// of `salsa::function::Configuration` for that struct.

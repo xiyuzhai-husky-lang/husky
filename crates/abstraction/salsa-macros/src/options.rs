@@ -55,10 +55,12 @@ pub(crate) struct Options<A: AllowedOptions> {
     /// If this is `Some`, the value is the `<usize>`.
     pub lru: Option<usize>,
 
-    /// The `constructor = <ident>` option lets the user specify the name of
+    /// The `constructor = <visibility> <ident>` option lets the user specify the visibility and the name of
     /// the constructor of a salsa struct.
     ///
     /// If this is `Some`, the value is the `<ident>`.
+    pub constructor_visibility: Option<syn::Visibility>,
+
     pub constructor_name: Option<syn::Ident>,
 
     pub override_debug: Option<syn::Ident>,
@@ -77,6 +79,7 @@ impl<A: AllowedOptions> Default for Options<A> {
             db_trai: Default::default(),
             recovery_fn: Default::default(),
             data: Default::default(),
+            constructor_visibility: Default::default(),
             constructor_name: Default::default(),
             phantom: Default::default(),
             lru: Default::default(),
@@ -97,7 +100,7 @@ pub(crate) trait AllowedOptions {
     const DB: bool;
     const RECOVERY_FN: bool;
     const LRU: bool;
-    const CONSTRUCTOR_NAME: bool;
+    const CONSTRUCTOR: bool;
     const OVERRIDE_DEBUG: bool;
 }
 
@@ -249,9 +252,18 @@ impl<A: AllowedOptions> syn::parse::Parse for Options<A> {
                     ));
                 }
             } else if ident == "constructor" {
-                if A::CONSTRUCTOR_NAME {
+                if A::CONSTRUCTOR {
                     let _eq = Equals::parse(input)?;
+                    let visibility = syn::Visibility::parse(input)?;
                     let ident = syn::Ident::parse(input)?;
+                    if let Some(old) =
+                        std::mem::replace(&mut options.constructor_visibility, Some(visibility))
+                    {
+                        return Err(syn::Error::new(
+                            old.span(),
+                            "option `constructor` provided twice",
+                        ));
+                    }
                     if let Some(old) = std::mem::replace(&mut options.constructor_name, Some(ident))
                     {
                         return Err(syn::Error::new(

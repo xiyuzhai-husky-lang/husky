@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::interned(db = PreciseTermDb, jar = PreciseTermJar)]
+#[salsa::interned(db = PreciseTermDb, jar = PreciseTermJar, constructor = new_inner)]
 pub struct PreciseTermAbstraction {
     x: PreciseTermSymbol,
     m: PreciseTerm,
