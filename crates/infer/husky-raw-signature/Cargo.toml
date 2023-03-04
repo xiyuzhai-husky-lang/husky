@@ -1,0 +1,32 @@
+[package]
+name = "husky-raw-raw_signature"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+# abstraction
+salsa = { path = "../../abstraction/salsa" }
+enum-class = { path = "../../abstraction/enum-class" }
+# kernel
+husky-term = { path = "../../kernel/husky-term" }
+husky-word = { path = "../../kernel/husky-word" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
+# lex
+husky-token = { path = "../../lex/husky-token" }
+# syntax
+husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+husky-expr = { path = "../../syntax/husky-expr" }
+husky-decl = { path = "../../syntax/husky-decl" }
+husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+# utils
+husky-print-utils = { path = "../../utils/husky-print-utils" }
+
+[dev-dependencies]
+# fs
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
+# kernel
+# infer
+husky-manifest = { path = "../../infer/husky-manifest" }
+# syntax
+husky-ast = { path = "../../syntax/husky-ast" }
