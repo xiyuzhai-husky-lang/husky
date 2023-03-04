@@ -278,17 +278,22 @@ impl<'a> ExprTypeEngine<'a> {
                     local_term_region.unresolved_terms(),
                     self.entity_path_menu.list_ty_path(),
                 ) {
-                    Ok(disambiguation) => match disambiguation {
-                        TypePathDisambiguation::TypeItselfOrTemplate => todo!(),
-                        TypePathDisambiguation::InstanceOrConstructor => todo!(),
-                    },
-                    Err(error) => {
-                        for item in items {
-                            self.infer_new_expr_ty(item, ExpectAnyDerived, local_term_region);
-                        }
-                        Err(error)
-                    }
+                    TypePathDisambiguation::TypeItselfOrTemplate => todo!(),
+                    TypePathDisambiguation::InstanceOrConstructor => todo!(),
+                    TypePathDisambiguation::ErrDifferentTypePath {  } => todo!(),
+                    TypePathDisambiguation::ErrFromNoneOriginal => todo!(),
+                    TypePathDisambiguation::ErrFromNoneDerived => Err(DerivedExprTypeError::AmbiguateListExpr.into()),
                 }
+                // Ok(disambiguation) => match disambiguation {
+                //     TypePathDisambiguation::TypeItselfOrTemplate => todo!(),
+                //     TypePathDisambiguation::InstanceOrConstructor => todo!(),
+                // },
+                // Err(error) => {
+                //     for item in items {
+                //         self.infer_new_expr_ty(item, ExpectAnyDerived, local_term_region);
+                //     }
+                //     Err(error)
+                // }
                 // {
                 //     Ok(disambiguation) => (
                 //         match disambiguation {

@@ -35,7 +35,7 @@ impl ExpectLocalTerm for ExpectEqsCategory {
         &self,
         db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
-    ) -> ExprTypeResult<LocalTerm> {
+    ) -> FinalDestination {
         todo!()
     }
 }

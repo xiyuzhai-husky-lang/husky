@@ -28,7 +28,7 @@ impl ExpectLocalTerm for ExpectInsSort {
         &self,
         db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
-    ) -> ExprTypeResult<LocalTerm> {
+    ) -> FinalDestination {
         todo!()
     }
 }

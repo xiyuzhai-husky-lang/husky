@@ -25,7 +25,7 @@ impl ExpectLocalTerm for ExpectAnyDerived {
         &self,
         db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
-    ) -> ExprTypeResult<LocalTerm> {
-        Err(DerivedExprTypeError::FinalDestination.into())
+    ) -> FinalDestination {
+        FinalDestination::NoneDerived
     }
 }
